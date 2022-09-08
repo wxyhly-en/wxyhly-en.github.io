@@ -8,7 +8,7 @@ tags:
 - 系列文章
 - 数学
 ---
-<div style="float:right"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/N_vector_positive_png_version.png" width="200" height="380"/><p>图片来自en.wikipedia：多重向量几何意义</p></div>
+<div style="float:right"><img src="/img/N_vector_positive.png" width="200" height="380"/><p>图片来自en.wikipedia：多重向量几何意义</p></div>
 \#<span class="likecode">本系列文讨论的是纯空间上的几何，但本文将要涉及的**k-向量**的某些性质在四维时空中也成立（只是度规不一样）。本文对数学能力要求较高：将出现大量数学公式。**k-向量**在除相对论（时空）以外的物理上也有用武之地，详见<span  style="color:#F00">**CFY的文章[角速度、轴矢量、2-矢量](http://hadroncfy.com/articles/2016/04/21/axial-vectors/)**从另一个角度——物理学引入k-向量。</span></span>
 <a name="index"></a>
 ## 特色内容

@@ -4,6 +4,7 @@ tags:
   - 四维
   - 系列文章
   - 数学
+  - 代数
 categories: 四维空间系列
 date: 2020-04-27 12:39:11
 ---
@@ -29,7 +30,7 @@ date: 2020-04-27 12:39:11
 下面我们看夹角为$\theta$的任意两个向量$\boldsymbol u$、$\boldsymbol v$做几何积$\boldsymbol u\boldsymbol v$结果会怎么样。定义里只给了平行与垂直方向上的向量的几何积的性质，所以要首先把$\boldsymbol u$在$\boldsymbol v$上正交分解了：
 $$\boldsymbol u = \boldsymbol e\_{\parallel v}||\boldsymbol u||\cos \theta + \boldsymbol e\_{\perp v}||\boldsymbol u||\sin \theta$$
 $$\boldsymbol u \boldsymbol v = \boldsymbol e\_{\parallel v} \boldsymbol v ||\boldsymbol u||\cos \theta + \boldsymbol e\_{\perp v} \boldsymbol v ||\boldsymbol u ||\sin \theta=||\boldsymbol u||||\boldsymbol v||\cos \theta + e\_{\perp v} e\_v ||\boldsymbol u||||\boldsymbol v||\sin \theta = \boldsymbol u \cdot \boldsymbol v + \boldsymbol u \wedge \boldsymbol v$$
-什么？标量与2-向量加起来了？这有意义吗？我最先在wiki上看到几何代数就是这个反应，然后就点了右上角。后来我才慢慢了解到几何代数的强大。所以先不谈意义，我们接着看两个2-向量做几何积会怎样。
+什么？标量与2-向量加起来了？这有意义吗？我最先在wiki上看到几何代数就是这个反应，然后就点了窗口右上角关闭按钮。后来我才慢慢了解到几何代数的强大。所以先不谈意义，我们接着看两个2-向量做几何积会怎样。
 由于2-向量空间位置复杂，直接坐标运算。设
 $$\begin{align} A&=a\_1e\_{xy}+b\_1e\_{xz}+c\_1e\_{xw}+d\_1e\_{yz}+e\_1e\_{yw}+f\_1e\_{zw}  \\\\ B&=a\_2e\_{xy}+b\_2e\_{xz}+c\_2e\_{xw}+d\_2e\_{yz}+e\_2e\_{yw}+f\_2e\_{zw}\end{align}$$
 $$AB=(a\_1e\_{xy}+b\_1e\_{xz}+c\_1e\_{xw}+d\_1e\_{yz}+e\_1e\_{yw}+f\_1e\_{zw})(a\_2e\_{xy}+b\_2e\_{xz}+c\_2e\_{xw}+d\_2e\_{yz}+e\_2e\_{yw}+f\_2e\_{zw})$$
@@ -56,7 +57,7 @@ $$\exp(M)=I+M+{M^2\over2!}+{M^3\over3!}+..$$
 可以验证$x(t)=\exp(Bt)x\_0$是方程的解，也就是说旋转矩阵是$\exp(Bt)$，但注意$B$必须满足一个条件才能保证$\exp(Bt)$是正交的：
 $I=\exp(Bt)\exp(Bt)^T=\exp(Bt)\exp(B^Tt)=\exp((B+B^T)t)$
 注意通过矩阵指数定义式可以发现不是所有矩阵都有$\exp(A+B)=\exp(A)\exp(B)$，除非$AB=BA$。
-要让$\exp((B+B^T)t)$恒为0只能有$B=-B^T$，也就是说所有能生成旋转矩阵的$B$一定是**反对称**的。我们把一个旋转对应的$B$叫做矩阵的**生成元**。除了把生成元理解为角速度以外，还可以理解为**无穷小转动**：想象一下空间中所有点都朝着速度场的方向运动了一点点，即$x + \Delta x = (I+\Delta\theta B)x$，而所有的旋转都可以认为经历了无穷次无穷小旋转得到的：$R=(I+\Delta\theta\_1 B\_1)(I+\Delta\theta\_2 B\_2)(I+\Delta\theta\_3 B\_3)..$
+要让$\exp((B+B^T)t)$恒为$I$只能有$B=-B^T$，也就是说所有能生成旋转矩阵的$B$一定是**反对称**的。我们把一个旋转对应的$B$叫做矩阵的**生成元**。除了把生成元理解为角速度以外，还可以理解为**无穷小转动**：想象一下空间中所有点都朝着速度场的方向运动了一点点，即$x + \Delta x = (I+\Delta\theta B)x$，而所有的旋转都可以认为经历了无穷次无穷小旋转得到的：$R=(I+\Delta\theta\_1 B\_1)(I+\Delta\theta\_2 B\_2)(I+\Delta\theta\_3 B\_3)..$
 ### 旋量与生成元
 对比一下不难发现，旋转的生成元跟2-向量是一一对应的。这启发我们是否不用矩阵，而是用几何代数的方法来描述空间旋转。
 假设有单位向量$a$，使用坐标分解不难证明$ava$也是一个向量，是$v$关于$a$的反射。旋转可以分解为偶数次反射，所以我们得到了几何代数版本的旋转表示：设$R=r\_1r\_2..r\_{2k}$，且$RR^\dagger=1$则$RvR^\dagger = r\_1r\_2..r\_2k v r\_{2k}..r\_2r\_1$将向量$v$旋转。$R$有个专门的名称，叫**旋量**。
@@ -142,4 +143,4 @@ $$\begin{align}AB=&u\_1 u\_2..u\_nv\_1 v\_2..v\_n\\\\=&(u\_1v\_1) (u\_2v\_2)..(u
 - [An Introduction to Geometric Algebra and Calculus(PDF)](https://www.researchgate.net/profile/Jafar_Biazar/post/can_anyone_offer_me_a_booklist_about_learning_algebraic_geometry/attachment/5bd89cc9cfe4a76455fe769d/AS%3A687493238231042%401540922569376/download/bookGA.pdf)
 - [Let's remove Quaternions from every 3D Engine(Marc ten Bosch，交互式网页)](https://www.marctenbosch.com/quaternions/)
 
- [上一篇](/archives/knot4d/)　 [查看系列目录](/categories/四维空间系列/)
+ [上一篇](/archives/knot4d/)　 [查看系列目录](/categories/四维空间系列/)　  [下一篇](/archives/unknots2/)

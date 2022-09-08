@@ -13,18 +13,18 @@ After entering the game and waiting texture to be loaded, you can see the world 
 
 The picture below shows all the directions in Minecraft4D world. You can press the corresponding keys `W` `S` `A` `D` `Q` `E` to move.
 ![](/img/minecraft01.jpg)
-Be careful, front and back can't be marked in th retina, because they are prpendicular to the retina. The move direction of key `Q` `E` (Blue line in the picture above) is a new direction for us: I call it sidefront and sideback, because there are "front side" and "back side" in the retina like left side and right side.
+Be careful, front and back can't be marked in th retina, because they are perpendicular to the retina. The move direction of key `Q` `E` (Blue line in the picture above) is a new direction for us: I call it sidefront and sideback, because there are "front side" and "back side" in the retina like left side and right side.
 Because of the messy overlapping colors, it's better to show colors on some cross sections separately.
 （$x$ axis: Left and right; $y$ axis: Up and down; $z$ axis: New side direction; $w$ axis: Front and back）
 ![](/img/eye3d005.jpg)
-Similar to original Minecraft, click the canvas to lock and hide your mouse pointer, and move your mouse to look around. Press `Esc` to unlock. Note that moving mouse vertically does not correspond to look upward or downward, instead you will turn to new 4th direction. Please scroll mouse wheel or press key `I` and `K` If you want to look upward and downward.
+Similar to original Minecraft, click the canvas to lock and hide your mouse pointer, and move your mouse to look around. Press `Esc` to unlock. Note that moving mouse vertically does not correspond to look upward or downward, instead you will turn to the new 4th direction. Please scroll mouse wheel (or press key `I` and `K` if you want) to look upward and downward.
 ## World generation
-There are 2 types of world: Normal(Default) and super flat. Every time you enter the world, a random seed is generated unless a seed is given by URL. The super flat mode is also indicated in URL.
+There are 2 types of world: Normal(Default) and super flat. Every time you enter the world, a random seed is generated unless a seed is given in URL. The super flat mode is also indicated in URL.
 Here are some URLs of different seeds:
 - Super flat: <a href="/4dViewer/minecraft4d/?flat" target="minecraft4d_flat">?flat</a>
-- x=-510 z=-230 t=-440: Pyramid, stone shore, river and village (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?873556" target="minecraft4d_873556">?873556</a>
-- x=34 z=72 t=64: village near a river (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?962259" target="minecraft4d_962259">?962259</a>
-- x=160 z=-61 t=284: observator in a village (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?661280" target="minecraft4d_661280">?661280</a>
+- x=-510 z=-230 w=-440: Pyramid, stone shore, river and village (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?873556" target="minecraft4d_873556">?873556</a>
+- x=34 z=72 w=64: village near a river (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?962259" target="minecraft4d_962259">?962259</a>
+- x=160 z=-61 w=284: observator in a village (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?661280" target="minecraft4d_661280">?661280</a>
 
 How to save your world: Press `/` to open the command, type `/save` to save the world as a file (Format: mc4a)
 To load a world file, firstly enter a random world (regardless seeds and world types), then type `/open` to load your files.
@@ -94,7 +94,7 @@ The 4D space is much wider that 3D one. You need to place many blocks by hand ev
 ## Command list
 |Command|Format|Description|
 |----|----|---|
-|/tp|tp &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;|Teleport player (use prefix ~ to indicate relative position)|
+|/tp|tp &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;|Teleport player (use prefix ~ to indicate relative position)|
 |/seed|seed|Show the seed of the current world|
 |/fly|fly|Toggle fly mode|
 |/speed|speed &lt;speed&gt;|Set speed of player|
@@ -107,8 +107,8 @@ The 4D space is much wider that 3D one. You need to place many blocks by hand ev
 |/regen|regen &lt;me&vert;all&gt;|`regen me`: Regenerate the current chunk according to the seed; `regen all`: Regenerate the world completely|
 |/chunks|chunks|Show total loaded chunks and modified chunks (modified chunks cannot be unloaded)|
 |/wand or /w|wand&vert; w|Toggle WorldEdit wand mode|
-|/pos1|pos1 &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;|Set first vertex of tetracuboid selection area (use prefix ~ to indicate relative position)|
-|/pos2|pos2 &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;|Set second diagonal vertex of tetracuboid selection area (use prefix ~ to indicate relative position)|
+|/pos1|pos1 &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;|Set first vertex of tetracuboid selection area (use prefix ~ to indicate relative position)|
+|/pos2|pos2 &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;|Set second diagonal vertex of tetracuboid selection area (use prefix ~ to indicate relative position)|
 |/sel|sel|Check current selection infomation|
 |/set|set &lt;id&gt;|fill the selection with a specified block type by block id|
 |/hset|hset &lt;id&gt;|fill the surface of the selection with a specified block type by block id|
@@ -116,17 +116,17 @@ The 4D space is much wider that 3D one. You need to place many blocks by hand ev
 |/hwall|hwall &lt;id&gt;|fill the vertical 2D frames of the selection with a specified block type by block id|
 |/copy|copy|Copy the current selection into clipboard. Your relative position will be stored like in original WordEdit|
 |/paste|paste|Paste the clipboard to the world, the position is relative to the player|
-|/flip|flip [dir]|Flip the clipboard toward direction `dir` (e.g. `x`, `y`, `z` or `t`). The default direction is front|
+|/flip|flip [dir]|Flip the clipboard toward direction `dir` (e.g. `x`, `y`, `z` or `w`). The default direction is front|
 |/stack|stack &lt;num&gt; [dir]|Stack the current selection `num` times toward direction `dir`(e.g. `x+`, `z-`, `f` for front, `u` for up, `d` for down). The default direction is front|
 |/move|move &lt;num&gt; [dir]|Move the current selection `num` blocks toward direction `dir`(e.g. `x+`, `z-`, `f` for front, `u` for up, `d` for down). The default direction is front|
 |/shift|shift &lt;num&gt; [dir]|Move only the current selection (without blocks) `num` blocks toward direction `dir`(e.g. `x+`, `z-`, `f` for front, `u` for up, `d` for down). The default direction is front|
 |/expand|expand &lt;num&gt; [dir] or expand &lt;num&gt; &lt;num&gt; [dir]|Expand the current selection  `num` blocks toward direction `dir`(e.g. `x+`, `z-`, `f` for front, `u` for up, `d` for down). If two `num`s are given, selection will be expand toward and also opposide the player|
-|/glome|glome &lt;id&gt; &lt;radius&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;]|Generate a glome of radius `radius` with material `id`. The center is at the position of the player if coordinates are not given.|
-|/hglome|hglome &lt;id&gt; &lt;radius&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;]|Generate a hollow glome of radius `radius` with material `id`. The center is at the position of the player if coordinates are not given.|
-|/spherinder|spherinder &lt;id&gt; &lt;radius&gt; &lt;length&gt; [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;]]|Generate a spherinder of radius `radius` and height `length` with material `id`. The orientation of the height is given by `dir`. The center is at the position of the player if coordinates are not given. |
-|/hspherinder|hspherinder &lt;id&gt; &lt;radius&gt; &lt;length&gt; [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;]]|Generate a hollow spherinder of radius `radius` and height `length` with material `id`. The orientation of the height is given by `dir`. The center is at the position of the player if coordinates are not given. |
-|/duocylinder|duocylinder &lt;id&gt; <radius1> <radius2> [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;]]|Generate a duocylinder of radii `radius1` and `radius2` with material `id`. The orientation of two perpendicular circles is given by `dir`(e.g. `xy` or `xz`). The center is at the position of the player if coordinates are not given.|
-|/tiger|tiger &lt;id&gt; <radius1> <radius2> <radius3> [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;t&gt;]]|Generate a tiger of radii `radius1`, `radius2` and `radius3` with material `id`. The orientation of two perpendicular circles is given by `dir`(e.g. `xy` or `xz`). The center is at the position of the player if coordinates are not given.|
+|/glome|glome &lt;id&gt; &lt;radius&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]|Generate a glome of radius `radius` with material `id`. The center is at the position of the player if coordinates are not given.|
+|/hglome|hglome &lt;id&gt; &lt;radius&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]|Generate a hollow glome of radius `radius` with material `id`. The center is at the position of the player if coordinates are not given.|
+|/spherinder|spherinder &lt;id&gt; &lt;radius&gt; &lt;length&gt; [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]]|Generate a spherinder of radius `radius` and height `length` with material `id`. The orientation of the height is given by `dir`. The center is at the position of the player if coordinates are not given. |
+|/hspherinder|hspherinder &lt;id&gt; &lt;radius&gt; &lt;length&gt; [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]]|Generate a hollow spherinder of radius `radius` and height `length` with material `id`. The orientation of the height is given by `dir`. The center is at the position of the player if coordinates are not given. |
+|/duocylinder|duocylinder &lt;id&gt; <radius1> <radius2> [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]]|Generate a duocylinder of radii `radius1` and `radius2` with material `id`. The orientation of two perpendicular circles is given by `dir`(e.g. `xy` or `xz`). The center is at the position of the player if coordinates are not given.|
+|/tiger|tiger &lt;id&gt; <radius1> <radius2> <radius3> [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]]|Generate a tiger of radii `radius1`, `radius2` and `radius3` with material `id`. The orientation of two perpendicular circles is given by `dir`(e.g. `xy` or `xz`). The center is at the position of the player if coordinates are not given.|
 <a name="macro"></a>
 
 ## Macro

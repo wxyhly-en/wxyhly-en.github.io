@@ -31,12 +31,12 @@ date: 2017-05-22 23:51:03
 4. 逆元。对于每个 G 中 a，存在一个 G 中的逆元 x 使得 a\*x = x\*a = e。a 的逆元 x 能推出是唯一的。
 
 定义里说的乘法运算并不是真正的乘法，只是满足一定要求的运算，我认为叫它“复合操作运算”更不会让人误解而想到乘法，我们只是记作\*：a\*b代表先做b操作再做a操作。（从右到左的写法只是为了和复合函数$f*g(x)=f(g(x))$的写法习惯保持一致）
-<a href="javascript:var spanNumber=2;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示')"><span id="preuve2">显示</span>用加法的例子对这四条公理的详细解释</a>
+<a target="_self" href="javascript:void(0)" onclick="var spanNumber=2;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示')"><span id="preuve2">显示</span>用加法的例子对这四条公理的详细解释</a>
 
 <div id="proof2" style="display:none"><ol><li>首先，一个群的集合里的每个元素都是一个“操作”，每两个元素都能相乘，得到集合中另一个元素，即两个操作的复合。比如整数和整数的加法运算就是一个群，元素n代表的操作就是 +n 运算，元素n和m的复合就是操作 +n+m = +(n+m)，对应元素 n+m。</li><li>(a\*b)\*c = a\*(b\*c) 是因为等式两边都表示“先c后b再a”的复合操作。</li><li>群里面还有要求要有“单位元”，即“不操作”，比如加0运算，这种操作与任意操作a复合还是操作a。</li><li>群里面的乘法运算这样定义太宽泛了，似乎所有操作都能满足，于是我们规定每个操作都在群里能找到对应的“逆操作”，使得这两个操作的复合是单位元“不操作”。比如加法运算 中 +n 的逆运算是 -n，复合的结果是加0。所以整数和整数的加法运算满足群的要求，但自然数中的加法就不行，因为加自然数的逆运算是负数，不在自然数集合中了。</li></ol>
 </div>
 注意：群公理中**不要求乘法有交换律**，这意味着两个交换顺序的操作是不一样的，比如矩阵乘法和几何里面的旋转与平移：设想一个人先前进一米再左转90°，与先左转90°再前进一米，最后结果是不一样的。
-<h3>一些例子</h3>群的用途不是让我们检验哪个数集上的四则运算是否复合公理，而是研究某些有共形的操作的集合的性质，比如在一个对称的图形中，我们把所有能保持图形不变的变换放入一个集合，这些变换反映了图形的对称性，它们构成了一个群，叫图形的对称群，比如有8种能让正方形不变的操作构成了群$D_8$。<a href="javascript:var spanNumber=5;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示')"><span id="preuve5">显示</span>具体8个操作</a>
+<h3>一些例子</h3>群的用途不是让我们检验哪个数集上的四则运算是否符合公理，而是研究某些有共形的操作的集合的性质，比如在一个对称的图形中，我们把所有能保持图形不变的变换放入一个集合，这些变换反映了图形的对称性，它们构成了一个群，叫图形的对称群，比如有8种能让正方形不变的操作构成了群$D_8$。<a target="_self" href="javascript:void(0)" onclick="var spanNumber=5;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示')"><span id="preuve5">显示</span>具体8个操作</a>
 
 <div id="proof5" style="display:none"><ol><li>不操作</li><li>向右旋转90°</li><li>向右旋转180°</li><li>向右旋转270°</li><li>垂直翻转</li><li>水平翻转</li><li>对角翻转</li><li>另一个对角翻转</li></ol></div>
 
@@ -55,7 +55,7 @@ n阶循环群的严格定义是群$G$里存在一个元素$g$，$G$中每个元�
 不同的陪集之间是不相交的，以左陪集为例，我们分两种情况：
 - 如果g本来就是子群H中的元素，由于封闭性，得到的结果也在子群H中，而且所有结果刚好就组成了集合H。如果不刚好是集合H，说明g乘以H中某两个元素得到了同样的结果，这与群里逆元的唯一性矛盾。
 - 如果g不是子群H中的元素，得到的结果构成的集合元素个数一定等于子群H的阶数（还是因为逆元的唯一性），且两个不同的元素对应的陪集g1H、g2H要么相等，要么交集为空。
-<a href="javascript:var spanNumber=1;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示')"><span id="preuve1">显示</span>证明</a>
+<a href="javascript:var spanNumber=1;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示');void(0)" target="_self"><span id="preuve1">显示</span>证明</a>
 <span id="proof1" style="display:none">
  设左陪集（右陪集同理）$g_1H$、$g_2H$相交，即存在$h_1、h_2\in H$使$g_1h_1=g_2h_2=c$，则$g_1=g_2h_2h_1^{-1}$，即对任意$h$，有$g_1h=g_2h_2h_1^{-1}h$，所以$g_1H\subseteq g_2H$，同理$g_2H\subseteq g_1H$得两集合相等。
 </span>
@@ -71,7 +71,7 @@ n阶循环群的严格定义是群$G$里存在一个元素$g$，$G$中每个元�
 ![](/img/group1img3.gif)
 蓝色箭头表示操作b=231，红色表示a=213。我们发现其他元素都可以用这两个元素和它们的逆的乘积表示，说明了a和b是$S_3$的**生成元**。这种用把生成元画成箭头的方式来表示群的方法叫**凯莱图**(Cayley Graph)，前面看到的循环群画的图也是凯莱图。
 你能找出多少个非平凡子群来呢？能画出它们的陪集吗？
-<a href="javascript:var spanNumber=3;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示')"><span id="preuve3">显示</span>答案</a>
+<a href="javascript:var spanNumber=3;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示');void(0)" target="_self"><span id="preuve3">显示</span>答案</a>
 <span id="proof3" style="display:none">
 ![黑色表示子群，灰色为对应的陪集，这个例子有4个子群。只有第一个子群左右陪集恰好相等](/img/group1img4.gif)
 </span>
@@ -92,7 +92,7 @@ n阶循环群的严格定义是群$G$里存在一个元素$g$，$G$中每个元�
 我们为什么要搞出“商群”的概念？维基百科给的理由是来自整数的除法。在12除以3的时候得到答案4是因为我们可以把12个对象重新分组为含有3个对象的4个子集。商群出于同样想法，但用一个群作为最终答案而非一个数，因为群要比对象的随机集合要更有结构。
 
 不是任何子群都是整个群的“因子”（像整数约数那样），只有左右陪集相等的子群才是，我们叫**正规子群**，记作$H\lhd G$。
-<a href="javascript:var spanNumber=4;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示')"><span id="preuve4">显示</span>商群的具体定义</a>
+<a href="javascript:var spanNumber=4;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示');void(0)" target="_self"><span id="preuve4">显示</span>商群的具体定义</a>
 <span id="proof4" style="display:none">
 如果集合$N$是$G$的正规子群，则：
 我们定义集合$G/N$是$N$在$G$中的所有左陪集的集合，就是说$G/N = \lbrace aN : a\in G \rbrace$。对于每个$G/N$中$aN$和$bN$，$aN$和$bN$的乘积是 $(aN)(bN)$。这个运算是闭合的，因为 $(aN)(bN)$实际上是左陪集：
@@ -100,7 +100,7 @@ $(aN)(bN) = a(Nb)N = a(bN)N =(ab)NN =(ab)N$。
 注意：N的左右陪集相等被用在了这个等式中。
 </span>
 ### 商群的例子
-整数集上的加法构成群$Z$，所有偶数的加法也能构成群，记作$2Z$，它是$Z$的子群。我们不难发现这个子群有两个陪集：{所有奇数,所有偶数}，由于偶+偶=偶，偶+奇=奇+偶=奇，奇+奇=偶，这说明陪集间的运算构成了群，且它同构于循环群$C_2$（或对称群$S_2$），即循环群$C_2=Z/2Z$。<a href="javascript:var spanNumber=6;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示')">[<span id="preuve6">显示</span>]为什么同构？</a>
+整数集上的加法构成群$Z$，所有偶数的加法也能构成群，记作$2Z$，它是$Z$的子群。我们不难发现这个子群有两个陪集：{所有奇数,所有偶数}，由于偶+偶=偶，偶+奇=奇+偶=奇，奇+奇=偶，这说明陪集间的运算构成了群，且它同构于循环群$C_2$（或对称群$S_2$），即循环群$C_2=Z/2Z$。<a href="javascript:var spanNumber=6;$('#proof'+spanNumber).toggle();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='显示'?'隐藏':'显示');void(0)" target="_self">[<span id="preuve6">显示</span>]为什么同构？</a>
 <span id="proof6" style="display:none">
 说它同构于循环群，理由：偶对应不操作（或+0操作），奇对应转半周（或+1后再取除以二的余数）；说它同构于对称群，理由：偶对应不操作(12)，奇对应交换(21)。</span>
 其实这种情况能推广到所有循环群，有$C\_n=Z/nZ$。
