@@ -75,6 +75,7 @@ $${d sin_p x\over d x}=sign(cos_p x)(1+|sin_p x/cos_p x|^{p(p-1)})^{1-p\over p} 
 
 <div id="dixon" style="background-color: #EEF; display:none">
 <h3>p范数中的闵可夫斯基空间</h3>
+
 我们不妨看看p范数中的单位双曲线$x^p-y^p=1$：
 ![](/img/pnorm4.gif)
 由于弧长定义的表达式太复杂，我们这里就只先讨论面积定义的广义三角函数。
@@ -90,6 +91,7 @@ $$
 同样我们也能算出双曲函数$sinh_p x$的级数展开只也有(pn+1)次方项，且系数全为正，这些系数等于三角函数$sin_p x$对应系数的绝对值！有了这个发现我们就能算$sin_p(\omega x)=\omega sinh_p(x)$，其中$\omega^{2p}=1 且 \omega^p=-1$。**复数确实把三角函数与双曲函数联系在了一起**。
 <h3>费马曲线</h3>
 对于p=3，我们有$sin_3(\omega x)=\omega sinh_3(x)$，取$\omega=-1$得到$sin_3(-x)=-sinh_3(x)$。按理说正弦函数该是奇函数的，但从泰勒级数看出它不是奇函数。原因就在于我们研究的是曲线$|x|^3+|y|^3=1$，绝对值导致了分段函数，$sin_3(-x)=-sinh_3(x)$其实是不成立的，既然都是分段函数了，更不能谈复平面解析开拓了。如果我们放弃绝对值，研究曲线$x^3+y^3=1$（<span style="color:red">下图红色</span>）则马上就能明白双曲函数和三角函数为什么会一起出现了：它在第一象限对应圆，在二四象限对应双曲线。这就是这小节开头我们不写绝对值与符号函数的意图。
+
 ![](/img/pnorm6.gif)
 放弃绝对值以后$sin_3 x$、$cos_3 x$叫做Dixon椭圆函数，记作sm(x)和cm(x)，椭圆函数是一类很神奇的拥有二维周期的复变函数，它在实数上的周期并不是圆的周长，而是周长3/2倍，具体解释可以参考[维基百科](https://en.wikipedia.org/wiki/Dixon's_elliptic_functions)和[这篇论文](http://algo.inria.fr/flajolet/Publications/CoFl06.pdf)。
 但对于p为偶数的情况$sin_p x$、$cos_p x$确实是周期的（周期为圆周长），但解析开拓却是多值的，这些函数被称为广义Dixon椭圆函数。

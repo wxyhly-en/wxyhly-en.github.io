@@ -8,11 +8,12 @@ tags:
 - 系列文章
 - 数学
 ---
-\#<span class="likecode">本文讨论的是纯空间上的几何！推荐视频《[维度：数学漫步](http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)》对四维空间作初步了解，大家还可查看<span  style="color:#F00">**CFY的文章[从超立方体说起](http://hadroncfy.com/articles/2016/04/12/la-dimension-quatre-deuxieme/)** 作为本文的补充。</span></span>
-
+<span class="likecode">#本文讨论的是纯空间上的几何！推荐视频《[维度：数学漫步](http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)》对四维空间作初步了解，大家还可查看<span  style="color:#F00">**CFY的文章[从超立方体说起](http://hadroncfy.com/articles/2016/04/12/la-dimension-quatre-deuxieme/)** 作为本文的补充。</span></span>
 <div style="float:left">今天，我们将接触到更多的四维空间的几何性质、位置关系、更多有趣的四维立体几何题和某些立体几何定理的推广。</div>
+<br>
 <div style="float:right"><img src="/img/crossection.gif" width="200" height="200"/><p>three.js绘制的超立方体的斜切胞（黑色是截胞）</p></div>
 <a name="index"></a>
+
 ## 特色内容
  - 线、面、胞两两位置关系
  - 超立方体中的几何题
@@ -63,7 +64,7 @@ tags:
  由于$A、B$成二面角时$\theta_2=0$，所以我们也叫$A与B$**半平行**，同时$A、B$二面角垂直我们也叫**半平行半垂直**，原来的$A、B$平行叫**绝对平行**。
 
  下面就是四维空间的情况了：
- - $A、B$绝对垂直：由于任意两直线都垂直，平面$A$上任意一点投影在平面$B$上都落在它们垂足所在的点（如平面$xOy$在平面$zOt$上的投影为原点），所以$\theta_1=\theta_2=90°$。
+ - $A、B$绝对垂直：由于任意两直线都垂直，平面$A$上任意一点投影在平面$B$上都落在它们垂足所在的点（如平面$xOy$在平面$zOw$上的投影为原点），所以$\theta_1=\theta_2=90°$。
  - $A、B$处于一般位置：$90°>\theta_1\ge\theta_2>0$。
  - 现在有了**绝对平行**、**半平行**、**半平行半垂直**、**绝对垂直**，我们肯定会想到**半垂直**：$\theta_1=90°>\theta_2>0$，这种情况我们[后面马上](#semivertical)就会看到。<a name="ami"></a>
 

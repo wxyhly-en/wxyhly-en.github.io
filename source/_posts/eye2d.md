@@ -32,7 +32,11 @@ categories: 四维世界系列
 一
 
 下面揭晓答案：<a onclick="$('#nanj1').toggle()" href="javascript:void(0)" target="_self">点这里</a>
-<div id="nanj1" style="display:none">![蓝色的三角形可能有点挑战性](/img/eye2d001.gif)</div>
+<div id="nanj1" style="display:none">
+
+![蓝色的三角形可能有点挑战性](/img/eye2d001.gif)
+
+</div>
 
 ## 立体视觉
 

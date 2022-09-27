@@ -9,8 +9,13 @@ tags:
 - 数学
 ---
 <div style="float:right"><img src="/img/N_vector_positive.png" width="200" height="380"/><p>图片来自en.wikipedia：多重向量几何意义</p></div>
-\#<span class="likecode">本系列文讨论的是纯空间上的几何，但本文将要涉及的**k-向量**的某些性质在四维时空中也成立（只是度规不一样）。本文对数学能力要求较高：将出现大量数学公式。**k-向量**在除相对论（时空）以外的物理上也有用武之地，详见<span  style="color:#F00">**CFY的文章[角速度、轴矢量、2-矢量](http://hadroncfy.com/articles/2016/04/21/axial-vectors/)**从另一个角度——物理学引入k-向量。</span></span>
+<span class="likecode">
+
+\# 本系列文讨论的是纯空间上的几何，但本文将要涉及的**k-向量**的某些性质在四维时空中也成立（只是度规不一样）。本文对数学能力要求较高：将出现大量数学公式。**k-向量**在除相对论（时空）以外的物理上也有用武之地，详见<span  style="color:#F00">CFY的文章[角速度、轴矢量、2-矢量](http://hadroncfy.com/articles/2016/04/21/axial-vectors/)从另一个角度——物理学引入k-向量。</span>
+
+</span>
 <a name="index"></a>
+
 ## 特色内容
  - “2维向量”来表示平面
  - 用向量内积外积计算夹角
@@ -128,6 +133,7 @@ $$\begin{align}(xe\_x+ye\_y+ze\_z+we\_w)\wedge(e\_{xy}+e\_{zw})&=0 \\\\ (ze\_z+w
 ------
 
 <p class="likecode" style="display:none">////以下内容是2-向量的代数性质，只关心几何的可以跳过不看</p>
+
 ### 对偶分解
 　　我们看2-向量$F=e\_{xy}+e\_{zw}$的霍奇对偶：$\*F=\*(e\_{xy}+e\_{zw})=e\_{zw}+e\_{xy}=F$它自己和自己对偶！再如$G=e\_{xy}-e\_{zw}$可以验证它是反自对偶：$G=-\*G$。其实任意2-向量$A$都能分解成自对偶和反自对偶2-向量之和：$A={A+\*A\over 2}+{A-\*A\over 2}$。其中${A+\*A\over 2}$是$A$的自对偶部分，我们以后为了方便记作$A^+$，${A-\*A\over 2}$是反自对偶部分，记作$A^-$。（由霍奇对偶的线性和结论$\*\*A=A$不难验证）
   

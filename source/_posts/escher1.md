@@ -8,9 +8,17 @@ tags:
 date: 2016-06-26 13:05:51
 ---
 
-<div style="float:right">![来自英文维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hyperbolic_tiling_omnitruncated_3-7.png/220px-Hyperbolic_tiling_omnitruncated_3-7.png)
+<div style="float:right">
+
+![来自英文维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hyperbolic_tiling_omnitruncated_3-7.png/220px-Hyperbolic_tiling_omnitruncated_3-7.png)
+
 </div>
-<div style="width:300px">![《维度数学漫步》第二集截图](/img/josleys1.jpg)</div>
+<div style="width:300px">
+
+![《维度数学漫步》第二集截图](/img/josleys1.jpg)
+
+</div>
+
 在前面讲解《维度数学漫步》的[系列文章](/categories/四维空间系列/)中，我曾经提到过影片中出现的一个圆盘图案，它是《维度数学漫步》第二集《三维空间》中的那个房间里的装饰。这一集的讲述者是**埃舍尔**（Escher），那个圆盘图案和那些蜥蜴都是他的作品。影片着重讲述的是那些二维蜥蜴的一只从他的画里面逃出来，它该如何向它的二维同伴们解释三维空间存在的故事。而那个作为装饰的圆盘图案只是一晃而过，其实这个图案和四维空间一样精彩：它就是**双曲空间**中的双曲镶嵌。
 网上能搜到很多关于埃舍尔的这些画，但里面具体的数学内容却几乎没有提及到。下面我们就主要说说双曲镶嵌的数学含义，然后我们自己怎么来画一幅这样的画——用电脑画——[在线演示在这里！(附双曲镶嵌版熊猫表情！)](/archives/escher1/#demo)，当然你足够NB也可以像埃舍尔那样手绘！<!--more-->
 ### 双曲几何、欧氏几何与球面几何
@@ -63,9 +71,11 @@ $$\frac{1}{n}+\frac{1}{p}<\frac{1}{2}$$
 ### 在线演示
 （我用javascript写的，电脑上Chrome浏览器最佳，[点这里](/three/HyperbolicSpace.html)可单独打开在线演示页面）注意图片模式下有些图形无法计算或正常显示，因为直接画线和画图我用的算法不同，一个是正函数，一个是反函数，有些反函数是多值函数或写不出表达式。图片模式下可以加载您电脑上的图片，进入拖动贴图模式后可以设置图片在中央多边形中的位置（右键拖动可旋转放大）<a name="demo"></a>
 <iframe src="/three/HyperbolicSpace.html" width="100%" height="710"></iframe>
+
 #### 最后推荐一些在网上找到的一些关于双曲空间的小程序
 - 一个可视化三维双曲空间的小软件：[弯曲空间](http://geometrygames.org/CurvedSpaces/index.html)
 - 能在双曲空间中的数独、走迷宫、打台球：[HyperbolicGames](http://www.geometrygames.org/HyperbolicGames/)
 - HyperRogue: **强烈推荐！（[官网](http://www.roguetemple.com/z/hyper/)上可免费下载）**，前两个跟这个比起来就是小打小闹：双曲空间中的Rogue类游戏，无限地图，拥有各种奇怪的生物群系（66种！），还能充分体会到双曲几何中的直线、等距线、极限圆、圆的不同曲率，训练你在双曲空间中的寻路能力，比如找到半径为20格的圆的圆心位置比你想象的要困难、你有时发现双曲空间更像一种分形——永远无法到达中心的漩涡海（基于极限圆）、没有尽头不断分支的树等。它将双曲空间的几何性在游戏中发挥得淋漓尽致，可以说在所有二维双曲游戏中绝对排第一。
 ![直线（游戏里叫Great Wall）将不同生物群系分开，注意无数直线平行，所以这种分割方式可容纳无数生物群系](/img/hyperrogue.jpg)
 值得一提的是它的实现原理。如果我们用庞加莱模型存储地图的话，那么离我们很远的地方就会集中在圆盘边缘，很小的地方，导致浮点数精度跟不上，所以HyperRogue的作者在程序内部用的是三维的双曲面坐标，只是最后显示时才做庞加莱圆盘投影。[这里有豆瓣的中文介绍](https://www.douban.com/review/9346788/)
+- (22年更新) [Hyperbolica](https://store.steampowered.com/app/1256230/Hyperbolica/) 一个第一人称3D双曲世界游戏。渲染与模型上都很巧妙，但论游戏逻辑上我单方面认为远不及HyperRogue。

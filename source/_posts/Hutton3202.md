@@ -11,7 +11,7 @@ date: 2016-06-10 15:03:55
 <script src="/three/huttonjax.js"></script>
 上篇文章介绍了怎样在Hutton32中搭建与或非门，下面我们就用它们的组合来做一些有趣的事情吧。（比如一个完全平方数计算器！）
 ## 异或、同或门
-A异或B就是不同为1，相同为0。逻辑表达式为 (A & ~B) | (~A & B)。但注意这里需要两个非门，而非门的体积大和延迟长，所以我们化简一下表达式得到只用一个非门实现异或：(A | B) & ~(A & B)；同或也类似：~(A | B) | (A & B)。
+A异或B就是不同为1，相同为0。逻辑表达式为 (A & \~B) | (\~A & B)。但注意这里需要两个非门，而非门的体积大和延迟长，所以我们化简一下表达式得到只用一个非门实现异或：(A | B) & \~(A & B)；同或也类似：\~(A | B) | (A & B)。
 <canvas onload="showRLE(this,8,'x = 30, y = 13, rule = Hutton32\npA.pA.3pA.2pA6.2pA2.pA.pA.3pA.2pA$.pA2.pA.pA.pA7.pA.pA2.pA2.pA.pA.pA$pA.pA.3pA.pA7.pA.pA.pA.pA.3pA.pA2$3.2IpAIL11.2IpAIL$2.IpAIpAQL10.IpAIpAQL$2.JL.JLpAL9.JL.JLpAL$2.JO.J3L9.JO.J3L$IpA2IpAJLpAL7.IpA3IJLpAL$.IL.J.I2L8.L.J2.I2L$2IpAIpA.LpAL7.IpAIpAI2LpAL$2.3IL3IpA2IpA4.2IpAIpA6IpA$5.4IJ!')"></canvas>
 有基本的逻辑门我们就能够制作各种组合逻辑、时序逻辑电路了！下面是我做的一些器件：
 ## 锁存器

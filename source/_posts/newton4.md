@@ -19,20 +19,38 @@ date: 2020-03-11 16:10:48
 这里有很多四维物理场景（以后可能还会增加），你可以自由旋转角度观察场景。但遗憾的是除了可以按鼠标右键发射超球炮弹之外，我没想出更好的与物体交互的方法。（**最好看后面的讲解获得更好的体验哦**）
 
 <table><tr><td style="text-align:center"><img src="/img/newtonf004.jpg">
-[正24胞体骰子（右键发射炮弹）](/4dViewer/physique/dice.html)</td>
+
+[正24胞体骰子（右键发射炮弹）](/4dViewer/physique/dice.html)
+
+</td>
 <td style="text-align:center"><img src="/img/newtonf003.jpg">
-[四维积木块（右键发射炮弹）](/4dViewer/physique/cubes.html)</td></tr><tr>
+
+[四维积木块（右键发射炮弹）](/4dViewer/physique/cubes.html)
+
+</td></tr><tr>
 <td style="text-align:center"><img src="/img/newtonf002.jpg">
-[四维汽车（请看后面操作方法）](/4dViewer/physique/car.html)</td>
+
+[四维汽车（请看后面操作方法）](/4dViewer/physique/car.html)
+
+</td>
 <td style="text-align:center"><img src="/img/newtonf001.jpg">
-[四维物体滚动与陀螺（多场景可选）](/4dViewer/physique/gyro.html)</td></tr><tr><td style="text-align:center"><img src="/img/newtonf005.jpg"><ul><ol>[球环-球环链（一动就会脱）](/4dViewer/physique/unlink.html)
-</ol><ol>[球环-环球链](/4dViewer/physique/st_ts_link.html)
-</ol><ol>[球环-双圆环链](/4dViewer/physique/st_tiger_link.html)
-</ol><ol>[环球-双圆环链](/4dViewer/physique/tiger_ts_link.html)
-</ol><ol>[双圆环-双圆环链（一大一小）](/4dViewer/physique/tiger_tiger_link.html)
-</ol></ul></td><td style="text-align:center"><img src="/img/newtonf006.jpg"><ul><ol>四维齿轮（控制面板可调转速）<br>
-</ol><ol>[绝对垂直的齿轮相互传动](/4dViewer/physique/cogwheel.html)
-</ol><ol>[双旋转合成器](/4dViewer/physique/cogwheel2.html)
+
+[四维物体滚动与陀螺（多场景可选）](/4dViewer/physique/gyro.html)
+
+</td></tr><tr><td style="text-align:center"><img src="/img/newtonf005.jpg">
+
+[球环-球环链（一动就会脱）](/4dViewer/physique/unlink.html)
+[球环-环球链](/4dViewer/physique/st_ts_link.html)
+[球环-双圆环链](/4dViewer/physique/st_tiger_link.html)
+[环球-双圆环链](/4dViewer/physique/tiger_ts_link.html)
+[双圆环-双圆环链（一大一小）](/4dViewer/physique/tiger_tiger_link.html)
+
+</td><td style="text-align:center"><img src="/img/newtonf006.jpg">
+
+四维齿轮（控制面板可调转速）
+[绝对垂直的齿轮相互传动](/4dViewer/physique/cogwheel.html)
+[双旋转合成器](/4dViewer/physique/cogwheel2.html)
+
 </ol></ul></td></tr></table>
 
 <!--more-->下面单独说一下某些场景的控制方式与意义：
