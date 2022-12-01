@@ -7,9 +7,9 @@ tags:
 ---
 ## 这不是第一篇文章！
 ### 对标题的解释
-这是一个** 自我描述 **句，是我看了《哥德尔艾舍尔巴赫：集异璧之大成》（GEB）里面一张图模仿的。"Ceci n'est pas"是法语，意即“这不是……”；这张图出自比利时艺术家勒内·马格里特的画作《形象的叛逆》 (《La trahison des images》)，画中描绘了一只烟斗，但其下写着"Ceci n'est pas une pipe."（这不是烟斗。）：![图片来自en.wikipedia](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg)
+这是一个**自我描述**句，是我看了《哥德尔艾舍尔巴赫：集异璧之大成》（GEB）里面一张图模仿的。"Ceci n'est pas"是法语，意即“这不是……”；这张图出自比利时艺术家勒内·马格里特的画作《形象的叛逆》 (《La trahison des images》)，画中描绘了一只烟斗，但其下写着"Ceci n'est pas une pipe."（这不是烟斗。）：![图片来自en.wikipedia](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg)
 自我描述是一个很神奇的东西，他能引起悖论、甚至能解释著名的哥德尔定理……
-后来我发现在Minecraft标题画面闪烁标语中也有类似这句话：*Ceci n'est pas une title screen！(这不是标题画面)*。看来这个作品在外国知名度挺高的。
+后来我发现在Minecraft标题画面闪烁标语中也有类似这句话： *Ceci n'est pas une title screen！(这不是标题画面)* 。看来这个作品在外国知名度挺高的。
 
 ### 但这确实是我的第一篇文章
   #### For What?
@@ -24,7 +24,7 @@ tags:
 - ~~昨天又是[飞二爷](http://hadroncfy.com/)脑膜炎4周年庆！~~
 
 
-<p class="likecode">&lt;!-\-
+<p class="likecode">&lt;!--
 Ceci n'est pas la dernière phrase de cet article ? (这不是这篇文章最后一句话吧？)
- Bien sûr ! Parce que je suis la dernière! (当然，因为我才是那最后一句话！)
--\-></p>
+<br/>Bien sûr ! Parce que je suis la dernière! (当然，因为我才是那最后一句话！)
+--></p>

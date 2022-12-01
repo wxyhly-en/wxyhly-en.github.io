@@ -25,7 +25,7 @@ date: 2019-03-30 20:30:29
 
 ## [电脑钢琴](/Eop/) 
 [[源码](https://github.com/wxyhly/Eop)]
-![编辑钢琴“两只老虎”截图](img/eop.png)
+![编辑钢琴“两只老虎”截图](img/eopplt002.png)
 一个定制化的键盘钢琴小程序，我根据自己的习惯进行了改良，有各种变调、移调的方式，所以没有键位设置选项，适合即兴。可以导入导出MIDI文件，编辑音符,支持多音轨和少数MIDI控制器(7、64)，有对齐网格量化、力度调节、速度录制等功能。此外除了钢琴还可选其他几个音色。
 
 [点这里查看详情](/archives/Eop-Analogue/)
@@ -34,15 +34,15 @@ date: 2019-03-30 20:30:29
 - [[原文](/archives/eye2d/)] [体验二维人看三维场景](/three/3dviewer42der.html)
 - [[原文](/archives/orbit4d/)] [计算四维星球上的太阳高度角](/three/4dOrbit.html)
 - [[原文](/archives/projearth/)] 墨卡托投影
- + [地球不同方向上的墨卡托投影](/three/shaderEarth.html)
- + [正多面体的墨卡托投影](/three/ployhedralEarth.html)
+    + [地球不同方向上的墨卡托投影](/three/shaderEarth.html)
+    + [正多面体的墨卡托投影](/three/ployhedralEarth.html)
 - [[原文](/archives/escher1/)] [双曲镶嵌模型](/three/HyperbolicSpace.html)
 - [[原文](/archives/josleys4ds/)] [维度数学漫步预告片中的格子空间](/three/LatticeViewer.html)
 - [[原文](/archives/fibration4ds/)] Hopf纤维丛
- + [三个正交的Hopf纤维丛](/three/Hopf fibre1.html)
- + [Hopf纤维丛的一部分](/three/Hopf fibre2.html)
- + [Hopf纤维丛的正交投影](/three/Hopf fibre3.html)
- + [Hopf纤维丛的正交投影](/three/Hopf fibre4.html)
+    + [三个正交的Hopf纤维丛](/three/Hopf%20fibre1.html)
+    + [Hopf纤维丛的一部分](/three/Hopf%20fibre2.html)
+    + [Hopf纤维丛的正交投影](/three/Hopf%20fibre3.html)
+    + [Hopf纤维丛的正交投影](/three/Hopf%20fibre4.html)
 
 
 ## 其他WebGL小Demo集合
