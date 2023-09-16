@@ -11,7 +11,7 @@ After entering the game and waiting texture to be loaded, you can see the world 
 
 ## Camera Controls
 
-The picture below shows all the directions in Minecraft4D world. You can press the corresponding keys `W` `S` `A` `D` `Q` `E` to move.
+The picture below shows all the directions in Minecraft4D world. You can press the keys `W` `S` `A` `D` `Q` `E` to move.
 ![](/img/minecraft01.jpg)
 Be careful, front and back can't be marked in th retina, because they are perpendicular to the retina. The move direction of key `Q` `E` (Blue line in the picture above) is a new direction for us: I call it sidefront and sideback, because there are "front side" and "back side" in the retina like left side and right side.
 Because of the messy overlapping colors, it's better to show colors on some cross sections separately.

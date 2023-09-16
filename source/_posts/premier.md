@@ -18,10 +18,10 @@ tags:
 ......
 当然也包括生活中发现的有趣的事物或一些新奇的想法等……总之，我将尽量让博客涵盖的内容更丰富些。
 
-要写出一个成功的博客肯定离不开读者的支持。我希望大家能够一起讨论我们共同感兴趣的事。最后特别感谢[飞二爷(CFY)](http://hadroncfy.com/)给我提供blog技术支持。
+要写出一个成功的博客肯定离不开读者的支持。我希望大家能够一起讨论我们共同感兴趣的事。最后特别感谢[飞二爷(CFY)](https://hadroncfy.com/)给我提供blog技术支持。
 ### What a coincidence! 2 Anniversaries!
 - 明天也是我们学校（[XJTU](http://www.xjtu.edu.cn/)）校庆120周年！
-- ~~昨天又是[飞二爷](http://hadroncfy.com/)脑膜炎4周年庆！~~
+- ~~昨天又是[飞二爷](https://hadroncfy.com/)脑膜炎4周年庆！~~
 
 
 <p class="likecode">&lt;!--

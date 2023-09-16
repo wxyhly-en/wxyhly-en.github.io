@@ -4,6 +4,7 @@ tags:
   - 奇特想象
   - 物理
 date: 2016-05-04 14:58:34
+categories: 奇特世界系列
 ---
 
 <div style="float:right"><img src="/img/inverseEarth.jpg" width="300px"></div>

@@ -95,7 +95,7 @@ $e\_{xyzw}$的霍奇对偶是一个0-向量，即“标量”：“1”。此“
 最终我们得到：2-向量间叉乘也得到标量。我们发现它的形式很像两个向量的内积——都是一些相乘项相加，其实我们有：$F\times G=F\cdot (\*G)=G\times F=G\cdot (\*F)$。<a name="shape"></a>
 #### 几何意义
 $A \times B$是个标量:它的绝对值等于它们张成平行八胞体（想想平行六面体）的超体积：两个平面怎么张成平行八胞体？如果$A=\vec a\wedge \vec b$，$B=\vec c\wedge \vec d $，则$A\wedge B=\vec a\wedge \vec b\wedge \vec c\wedge \vec d $——其实就是以这四个向量做出的平行八胞体。这个定义是良好的，因为若$\vec a_1\wedge\vec b_1=\vec a_2\wedge\vec b_2=A$，由$\vec a_1、\vec b_1、\vec c、\vec d$围成的平行八胞体与$\vec a_2、\vec b_2、\vec c、\vec d$围成的平行八胞体虽然形状不一样，但可以证明**它们体积是相同的**。
-![](\img\bivector1.gif)
+![](/img/bivector1.gif)
 为了方便，我们先选一组特殊的$\vec a\wedge \vec b=A$：其中$\vec a、\vec b$为平行于两平面间最大角和最小角方向的向量(它们与$B$夹角为$\theta_1、\theta_2$)。平行八胞体四维体积$V_4=V_3h$。$V_3$指平行八胞体中任意一个平行六面体胞(如图中绿色)的三维体积，$h$为这个胞在平行八胞体中所对应的高。而$V_3=SH$。由几何关系：$h=\lVert\vec a\rVert sin\theta_1$、$H=\lVert\vec b\rVert sin\theta_2$得：$V_4=S\lVert\vec a\rVert\lVert\vec b\rVert sin\theta_1 sin\theta_2=\lVert A \rVert \lVert B \rVert sin\theta_1 sin\theta_2$<a name="parfait"></a>
 [返回目录](#index)
 
@@ -120,7 +120,7 @@ $$\lvert sin\theta\rvert={\lVert\vec m\times A\rVert\over \lVert \vec m \rVert \
 3. 我们先求出平行于平面$e\_{xy}+e\_{zw}$的向量$m(x,y,z,w)$：解方程$\vec m\times (e\_{xy}+e\_{zw})=0$即可：
 $$\begin{align}(xe\_x+ye\_y+ze\_z+we\_w)\wedge(e\_{xy}+e\_{zw})&=0 \\\\ (ze\_z+we\_w)\wedge e\_{xy}+(xe\_x+ye\_y)e\_{zw}&=0 \\\\ ze\_{zxy}+we\_{wxy}+xe\_{xzw}+ye\_{yzw}&=0 \\\\ 霍奇对偶得：ye\_x-xe\_y+we\_z-ze\_w&=0\end{align}$$注意这是一个向量方程，即要求左边是零向量，**那么问题来了**——我们得到唯一解$\vec m=\vec 0$！没有直线与面$e\_{xy}+e\_{zw}$平行？别慌，我们再来看看其它直线和它的夹角：$$\begin{align}\lvert sin\theta\rvert &={\lVert\vec m\times A\rVert\over \lVert \vec m \rVert \lVert A \rVert} \\\\ &={\sqrt{y^2+(-x)^2+w^2+(-z)^2}\over\sqrt{x^2+y^2+z^2+w^2}\sqrt 2} \\\\ &={\sqrt 2\over 2} \end{align}$$这里$m$是任意的一个向量，它与面$e\_{xy}+e\_{zw}$夹角都是45°！面$e\_{xy}+e\_{zw}$到底怎么了？
 那$e\_{xy}+e\_{xz}+e\_{xw}$情况如何呢？我们同样列方程，化简得到：$(z-t)e\_y+(t-y)e\_z+(z-y)e\_t=0$：令这些系数为0，得$y=z=t$，$x$取值无限制。这个平面看上去倒正常。我们这样理解共胞平面的加法运算：垂直于它们交线的向量做正常的向量加法运算，再与它们的交线张成平面。下图蓝色就是所有面的交线，可以看到垂直于交线的红色向量做加法得到绿色向量，最终张成了黄色平面：$e\_{xy}+e\_{xz}+e\_{xw}$。
-![](\img\bivector2.gif)<a name="strange"></a>
+![](/img/bivector2.gif)<a name="strange"></a>
 [返回目录](#index)
 
 ### 奇异2-向量

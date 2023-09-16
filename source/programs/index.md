@@ -2,15 +2,20 @@
 title: Programs - JS小程序
 date: 2019-03-30 20:30:29
 ---
+
+
+## [Tesserxel](https://wxyhly.github.io/tesserxel/examples/#)
+[[源码](https://github.com/wxyhly/tesserxel)]
+全新的基于WebGPU的关于四维世界的引擎：代数、建模、渲染、物理……[这里是系列文章介绍](/categories/Tesserxel系列/)，以后将出详细游玩教程与开发教程。
 ## [4D Viewer](/4dViewer/) 
 [[源码](https://github.com/wxyhly/4dViewer)]
 
-一个使用立体视野来显示四维空间的js库（类似Three.js），目标是尽让我们可能体会到四维人的三维视觉。附带一些Demo，比如超立方体、正多胞体、关卡游戏等等。（将会缓慢更新）
+四维引擎Tesserxel的前身，是一个使用立体视野来显示四维空间的js库（类似Three.js），目标是尽让我们可能体会到四维人的三维视觉。附带一些Demo，比如超立方体、正多胞体、关卡游戏等等。
 
 [使用教程点这里](/archives/eye3d/)
 
 ### 4D 刚体物理引擎
-简单的4D刚体物理引擎，有一些交互式的场景，如锁链、齿轮、汽车、积木、陀螺等。
+4D Viewer中的简单的4D刚体物理引擎，有一些交互式的场景，如锁链、齿轮、汽车、积木、陀螺等。现已移植进新版四维引擎Tesserxel。
 
 [详情与教程点这里](/archives/newton4/)
 
