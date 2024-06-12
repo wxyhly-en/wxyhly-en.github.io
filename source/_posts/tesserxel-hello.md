@@ -23,8 +23,9 @@ date: 2022-09-08 10:43:30
 
 [https://wxyhly.github.io/tesserxel/examples/](https://wxyhly.github.io/tesserxel/examples/)
 
+**请参考玩[Tesserxel后续系列文章中的教程](/categories/Tesserxel系列/)深入了解Tesserxel的玩法哦~**
 
-## 注意：以下内容已经过时，现在直接更新至谷歌浏览器最新版（版本号113及以上）即可打开。
+## 注意：现在电脑端直接更新至谷歌浏览器最新版（版本号113及以上）即可打开，以下内容已经过时。
 
 启用WebGPU方法： WebGPU是一个实验性的API，是WebGL的未来“接班人”，它的标准还处于W3C的草稿阶段，未正式发布。目前据说仅Windows下Chrome提供较好支持，而且想开启这项功能还有点麻烦，首先你需要下载Canary版本的Chrome浏览器（[谷歌官网](https://www.google.com/intl/zh-CN/chrome/canary/)，或自行找下载资源），添加--enable-unsafe-webgpu参数启动浏览器，打开chrome://flags/，将WebGPU Developer Features打开（选Enabled）就可以启用WebGPU。
 ![开启WebGPU的操作步骤](/img/tsx001.png)
