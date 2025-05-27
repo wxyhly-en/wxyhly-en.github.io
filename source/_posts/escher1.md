@@ -80,3 +80,4 @@ $$\frac{1}{n}+\frac{1}{p}<\frac{1}{2}$$
 ![直线（游戏里叫Great Wall）将不同生物群系分开，注意无数直线平行，所以这种分割方式可容纳无数生物群系](/img/hyperrogue.jpg)
 值得一提的是它的实现原理。如果我们用庞加莱模型存储地图的话，那么离我们很远的地方就会集中在圆盘边缘，很小的地方，导致浮点数精度跟不上，所以HyperRogue的作者在程序内部用的是三维的双曲面坐标，只是最后显示时才做庞加莱圆盘投影。[这里有豆瓣的中文介绍](https://www.douban.com/review/9346788/)
 - (22年更新) [Hyperbolica](https://store.steampowered.com/app/1256230/Hyperbolica/) 一个第一人称3D双曲世界游戏。渲染与模型上都很巧妙，但论游戏逻辑上我单方面认为远不及HyperRogue。
+- (24年更新) 我自己做的游戏[Deductrium（推理元素）](https://wxyhly.github.io/deductrium/) 一个在浏览器中用Typescript实现的数学形式系统与双曲空间结合的游戏。目前包含命题逻辑、一阶逻辑、皮亚诺公理、ZFC集合论与一些序数和类型论的内容。其中序数部分充分利用了双曲空间的一些有趣的几何性质。

@@ -63,7 +63,7 @@ tags:
 
   - 四维情形
   　　而四维空间直线和平面（2-向量）不再有一一对应的关系了：
-　　设$\vec m=(x_1,y_1,z_1,w_1)，\vec n=(x_2,y_2,z_2,w_2)$ ，则$$\begin{align} \vec m\wedge\vec n&=(x_1\vec e_x+y_1\vec e_y+z_1\vec e_z+w_1\vec e_w)\wedge(x_2\vec e_x+y_2\vec e_y+z_2\vec e_z+w_2\vec e_w) \\\\ &=(x_1y_2-x_2y_1)e_x\wedge e_y+(x_1z_2-x_2z_1)e_x\wedge e_z+(x_1w_2-x_2w_1)e_x\wedge e_w+(y_1z_2-z_2y_1)e_y\wedge e_z+(y_1w_2-w_2y_1)e_y\wedge e_w+(z_1w_2-w_2z_1)e_z\wedge e_w\end{align}$$
+　　设$\vec m=(x_1,y_1,z_1,w_1)，\vec n=(x_2,y_2,z_2,w_2)$ ，则$$\begin{align} \vec m\wedge\vec n&=(x_1\vec e_x+y_1\vec e_y+z_1\vec e_z+w_1\vec e_w)\wedge(x_2\vec e_x+y_2\vec e_y+z_2\vec e_z+w_2\vec e_w) \\\\ &=(x_1y_2-x_2y_1)e_x\wedge e_y+(x_1z_2-x_2z_1)e_x\wedge e_z+(x_1w_2-x_2w_1)e_x\wedge e_w+(y_1z_2-z_1y_2)e_y\wedge e_z+(y_1w_2-w_1y_2)e_y\wedge e_w+(z_1w_2-w_1z_2)e_z\wedge e_w\end{align}$$
 　　我们看到四维空间2-向量有六个独立的分量，是各坐标的两两组合，分量大小是两坐标交叉相乘再相减。好了，总算能表示出平面了。<a name="dot"></a>
 [返回目录](#index)
 

@@ -3,7 +3,7 @@ title: About me
 date: 2019-03-30 20:30:29
 ---
 ## Hqak (github帐号为wxyhly)
-Hqak 国际音标：ʁak，谐音：哈克，是人工语言Dichuu语中的词汇。
+Hqak 国际音标：ʁak，谐音：哈克，是人工语言Dichuu语（[教程在此](https://wxyhly.github.io/DichuuConlang/)）中的词汇。
 - Email: 1065750837@qq.com (加QQ请备注一下)
 - [github](https://github.com/wxyhly)
 - [bilibili](https://space.bilibili.com/454422438)

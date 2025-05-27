@@ -25,7 +25,9 @@ Got answer?
 1
 
 <a onclick="$('#nanj1').toggle()" href="javascript:void(0)" target="_self">Click here to show the answer</a>
-<div id="nanj1" style="display:none">![](/img/eye2d001.gif)</div>
+<div id="nanj1" style="display:none">
+
+![](/img/eye2d001.gif)</div>
 
 ## 3D Stereoscopic Vision
 
@@ -88,7 +90,7 @@ Then a tesseract(Hypercube):  Drag with the left mouse button to rotate the 3D r
 ![Rotating a photo of a cube, it is called a rotation in 2D](/img/eye3d001.gif)
 - When the camera in 4D rotates, the 3D image changes steadily. The analog in 3D case is：
 ![Looking around in the cube, it is called a rotation in 3D](/img/eye3d002.gif)
-- You may noticed that you can also drag with middle mouse button, these designs come from software Jenn3D.
+- You may noticed that you can also drag with middle mouse button, these designs come from software Jenn3D.<a name="stereo"></a>
 
 ## 4D Stereoscopic Vision
 To make the best use of stereoscopic vision, we present 4D depth(or distance) on the cross section.
@@ -101,20 +103,28 @@ The picture below is a tesseract frame. From 3D retina wse can see it's a smalle
 Inspired from 4D Toys, I made my own *4D Rigid Body Physics Engine*. In 4D world Newtonian Mechanics can also perform well. Here are some scenes:
 
 <table><tr><td style="text-align:center"><img src="/img/newtonf004.jpg">
+
 [24-cell Dice (Right click to fire a glome)](/4dViewer/physique/dice.html)</td>
 <td style="text-align:center"><img src="/img/newtonf003.jpg">
+
 [Some 4D blocks (Right click to fire a glome)](/4dViewer/physique/cubes.html)</td></tr><tr>
 <td style="text-align:center"><img src="/img/newtonf002.jpg">
+
 [4D car (Please read instructions below to know how to play)](/4dViewer/physique/car.html)</td>
 <td style="text-align:center"><img src="/img/newtonf001.jpg">
-[4D wheels and gyros (Contains multiple scenes)](/4dViewer/physique/gyro.html)</td></tr><tr><td style="text-align:center"><img src="/img/newtonf005.jpg"><ul><ol>[spheritorus-spheritorus link (unstable, easy to unlink)](/4dViewer/physique/unlink.html)
-</ol><ol>[spheritorus-torisphere link](/4dViewer/physique/st_ts_link.html)
-</ol><ol>[spheritorus-tiger link](/4dViewer/physique/st_tiger_link.html)
-</ol><ol>[torisphere-tiger link](/4dViewer/physique/tiger_ts_link.html)
-</ol><ol>[tiger-tiger link (One biger and one smaller)](/4dViewer/physique/tiger_tiger_link.html)
+
+[4D wheels and gyros (Contains multiple scenes)](/4dViewer/physique/gyro.html)</td></tr><tr><td style="text-align:center"><img src="/img/newtonf005.jpg"><ul><ol>
+
+[spheritorus-spheritorus link (unstable, easy to unlink)](/4dViewer/physique/unlink.html)
+[spheritorus-torisphere link](/4dViewer/physique/st_ts_link.html)
+[spheritorus-tiger link](/4dViewer/physique/st_tiger_link.html)
+[torisphere-tiger link](/4dViewer/physique/tiger_ts_link.html)
+[tiger-tiger link (One biger and one smaller)](/4dViewer/physique/tiger_tiger_link.html)
 </ol></ul></td><td style="text-align:center"><img src="/img/newtonf006.jpg"><ul><ol>4D cogwheels (Speed controls in control panel)<br>
-</ol><ol>[Perpendicular cogwheels](/4dViewer/physique/cogwheel.html)
-</ol><ol>[Double rotation synthesizer](/4dViewer/physique/cogwheel2.html)
+</ol><ol>
+
+[Perpendicular cogwheels](/4dViewer/physique/cogwheel.html)
+[Double rotation synthesizer](/4dViewer/physique/cogwheel2.html)
 </ol></ul></td></tr></table>
 
 ## Guide & Instructions of 4D physics scenes
