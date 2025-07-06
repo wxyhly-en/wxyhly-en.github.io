@@ -1,53 +1,59 @@
 ---
-title: 四维世界（二）：公路交通
+title: "Four-Dimensional World (Part 2): Road Traffic"
 date: 2018-08-16 15:44:37
 tags: 
-- 四维
-- 奇特想象
-- 系列文章
-categories: 四维世界系列
+- Four-dimensional
+- Peculiar Imagination
+- Series Articles
+categories: Four-Dimensional World Series
 ---
 
-这篇文章是参观四维国的延续。在那篇文章里，我提到了四维的城市交通不需要修立交桥，因为地面是三维的，两个方向的车流只需要走异面直线就对了。现在我们先研究一下四维国的公路到底是怎么样的，汽车怎么在上面开，以及三轮车、自行车在四维空间中的类比。研究四维的一般物体不能用球极投影，因为球极投影本质是研究超球面，我们要把正多胞体投到超球面上。所以我们从截面法和投影法入手。先看看三维的一条笔直的带街沿的路：![](/img/trans400.gif)
-我们看到俯视图是最清晰的，除了看不出来街沿有高度。四维的道路呢？它的俯视图是立体的柱形，但底面该是正方形吗？或者圆形让路变成圆柱？![](/img/trans401.gif)<!--more-->
-我们看到由于多了一维，道路的二维截面形状问题开始变得有意义（一维连通的图形只有一种：直线段）。注意我把路画成透明的只是为了观测方便，其实四维人能够直接看到三维的画面，不会被遮挡，它们会看到街沿上每点都是均匀的淡黄色，路面是均匀的灰色。四维人不用过马路，他们直接可以从街沿上绕过去！注意不是翻过去或修了天桥，因为这是俯视图，重力与投影中所有方向都垂直。那如果不修街沿呢？那是不是就得过马路了呢？其实也不用过。车辆都集中在柱形里，你只要从边上绕着走就没事（虽然有点风险）。那正方形和圆形截面的道路哪个比较好呢？车道（比如中间是否该有一条线）怎么划分呢？这两个问题其实是相关的，我们放在以后讨论。
-### 四维车轮
-在讨论这个问题之前，我们先看看汽车的形状和构造。二维世界中车两个轮子就够了（但似乎无法把轮子固定到车上），三维车得要四个轮子：（先暂不考虑其它轮子更少的交通工具）![](/img/trans402.gif)我们看到车体是放在连接了四个轮子的底盘上的。就像超立方体的类比，我们自然认为四维车需要八个轮子，分布在长方体的顶点上，而上面的车体则可以近似成超长方体。我们来看看四维小车的俯视图：但超长方体车体在上面会遮挡住下面底盘结构，我们先单独把底盘结构拿出来。但此时有个很严峻的问题：轮胎的形状。我在参观四维国中已经分析过，要想能控制住车的运动，轮胎只能有一个方向的滚动自由度（比如我们世界里从来没过车有球形轮子），这种图形便是圆柱（实际轮胎圆柱边沿是平滑的，应该算作圆环形了，我们先不考虑这些），但到了四维空间，圆柱形却是一个家族：常见的有方圆柱（圆柱柱：Cubinder）和双圆柱（两个圆的直积形：Duocylinder），我们又面临着像选道路截面那样的问题。将它们侧放在三维平面上，从俯视图来看一下它们是怎么滚动的：首先我们要明白怎样“侧放”才能让物体滚动。比如圆柱立着放（圆形面朝下）是滚不动的，所以柱形的圆形底面不能朝下，得侧着。再看圆柱的高，它是线段（比如下图左边灰线），到了四维，圆柱柱有两条高，围成正方形，但这种侧面的图形可以是任意的，如果取圆，就叫双圆柱。双圆柱的底面侧面是对称的，不管怎么放都可以滚动，但是原理和圆柱柱一样，只能在一个方向上滚动。![蓝色图形是轮子与地面相切的地方](/img/trans403.gif)到底那种轮胎好呢？其实侧面高的形状不参与滚动，选什么图形都无所谓，但联想到真实轮胎圆柱边沿都平滑得快成圆环形了，所以我认为选择棱角更少的双圆柱更好。
-准备工作都做完了，下面开始构造四维车的底盘，它的俯视图是这样的：![](/img/trans404.gif)
-为了方便描述，我建了直角坐标系xyzw，其中w方向是竖直方向，俯视图画不出，剩下的xyz方向就是三维地面的方向了。由前面的准备工作可知，现在四维车可以运动的方向应该是侧面的高（投影里面的圆柱底面）垂直的z轴方向。这辆车有四个前轮四个后轮，分别由两个正方形的板子连接,然后中间有连接前后轮的轴。其实用板子还是用十字形连接这些不重要，只要能把八个轮子固定就行。你或许有疑问：怎么解释正方形的板子的角插进了圆柱里面？其实这跟三维轮子的轴一样，俯视图看到轴插进了长方形里面，而旋转发生在zw平面方向上，剩下的方向保持不动，即平行于侧面高的二维平面xy，相当于轴，正好是正方形的位置。当然，轴也得是圆的，所以你看到俯视图中正方形的薄板其实是一个直径很小的圆柱柱（其直径等于薄板厚度，两条互相垂直的高就是正方形的边长）
-下一个问题来了：车辆不能一直走直线，得能控制转向。我们先来看看三维的小车如何转弯：![](/img/trans405.gif)图中标出了两侧轮子的转弯路径。两个前轮起引导作用，两个后轮跟随。同样对于四维小车，我们只转动四个前轮，四个后轮不动。
-![车往z轴负方向前运动，并往x轴负方向转弯](/img/trans406.gif)
-![车往z轴负方向前运动，并往y轴正方向转弯](/img/trans407.gif)
-![车往z轴负方向前运动，并往一个一般的方向转弯](/img/trans408.gif)
-### 其它造型的四维车
-其实小车不一定只能往x轴、y轴方向转弯，只要是地面上垂直于z轴的方向都能转。所以这启发我们其实可以造一种“六轮车”——车轮顶点分布在三棱柱的顶点上，它和八轮车的性能几乎是一样的，只是八轮车更加稳定。当然N轮车都是可以的，甚至你可以前轮N个，后轮M个搭配着设计，或是让N趋于无穷——把所有轮子连在一起——这也是可行的，因为这些都是侧面不参与旋转的高的方向的图形花样，不影响轮子转动，唯一不好的就是转向可能太笨重了，后轮使用这种轮子是没问题的。这些花样就像我们见到的有着很多并排着的轮子的卡车那样，要么增加稳定性要么增加负重能力。![六轮车](/img/trans409.gif)![混合车：直行时前后轮的轨迹是错开的](/img/trans410.gif)
-<a name="selfchhe"></a>还有没有其他的运动方式？我们知到，三维车只能左转、右转，因为地面是二维的，平面上只允许顺时针逆时针两种转动方向。那四维车的转向模式就应该与三维空间的所有旋转方向都有对应：比如前面看到的两种转弯模式对应绕x轴旋转和绕y轴旋转，那么还剩一种旋转：绕z轴对应哪种模式？z轴是前进方向，所以这种旋转是一种自转，就像翻滚着往前飞的战斗机那样，轮子的轨迹是螺旋形。我们之前设计的小车能否胜任这种转向呢？答案是可以的，虽然不太好想，这里先留给读者思考，答案在文末。总结起来，四维小车的控制类似于飞船的控制——可以在三维地面空间中无重力自由翱翔，去四维世界旅游想自驾的话估计要飞行员的驾驶执照才能开他们的车。
+This article is a continuation of "Visiting the Four-Dimensional Country". In that article, I mentioned that 4D urban traffic doesn't need overpasses because the ground is three-dimensional, and traffic flows in two directions only need to follow skew lines. Now let's first study what roads in the 4D country actually look like, how cars drive on them, and the analogues of tricycles and bicycles in four-dimensional space. To study general objects in 4D, we can't use stereographic projection, because stereographic projection essentially studies hyperspheres - we need to project regular polytopes onto hyperspheres. So we'll start with the cross-section method and projection method. First, let's look at a straight road with curbs in 3D: ![](/img/trans400.gif)
+We see that the top view is the clearest, except that you can't see the height of the curbs. What about 4D roads? Their top view is a three-dimensional cylindrical shape, but should the base be square? Or circular to make the road cylindrical? ![](/img/trans401.gif)<!--more-->
+We see that due to the extra dimension, the question of the road's 2D cross-sectional shape becomes meaningful (there's only one type of one-dimensionally connected figure: a line segment). Note that I drew the road as transparent only for observational convenience. Actually, 4D people can directly see 3D images without obstruction - they would see each point on the curb as uniformly light yellow, and the road surface as uniformly gray. 4D people don't need to cross the road - they can just go around from the curb! Note this isn't climbing over or building an overpass, because this is a top view, and gravity is perpendicular to all directions in the projection. What if there are no curbs? Would they then have to cross the road? Actually, no. Vehicles are concentrated in the cylindrical shape, so you just need to walk around the edge and you'll be fine (though with some risk). So which is better - roads with square or circular cross-sections? How should lanes be divided (like whether there should be a line in the middle)? These two questions are actually related, and we'll discuss them later.
 
-### 四维自行车
-至于自行车，我认为可以分为二轮和三轮的，它们静止时都不稳定，有倒的可能。但具体哪种好控制方向，哪个稳定性强等问题已经超出了我的无力认知水平，这里就不再讨论了。
-![三维自行车俯视图和侧视图，图片来自网络侵删](/img/trans400.jpg)
-我没有画出踏板结构了，这部分设计也太难了，它牵涉到四维人腿是怎么长的……
-![自行车轮的侧视图和俯视图](/img/trans401.jpg)
-三维自行车的方向盘只是一个一维的龙头，是方向盘的简化版；同样四维自行车的龙头也是一种简化版，但它也是二维的，看上去像是我们轿车的方向盘，但实则不然：转弯时把它掰歪（如下如），而不是以侧视图中间的轴为中心转方向盘，这可能可以让自行车做自转的转向，但摩擦力很大，具体能不能实现我还不清楚，我暂且认为不能，因为你必须有一定速度转动方向盘车才有可能跟着动，而把方向盘打到任何位置不动车都会停止自转。
-![自行车的转弯（俯视图）](/img/trans402.jpg)
-但三维三轮车直接放到四维空间却变成了会倒的三轮车：你可以把下面的侧视图看作三轮自行车倒在地上的俯视图。
-![三轮自行车的侧视图和俯视图（只画出了轮子和座位）](/img/trans411.gif)
-说到这里，想必稳定的三维三轮车类比也是显而易见的了。三轮车之所以要三个轮子，是因为三点确定一个平面，这样构成三角形车才能在地面上放稳；四维世界中的类似物是四轮车，轮子分布在四面体上。我们仍然固定后轮，只留一个前轮导向。但四轮车的缺点是可能无法方便地控制自转，原因和自行车一样。这是四维空间不会倒的所需轮子最少的车：如果强行翻倒四轮车，把下面的侧视图看作三轮自行车倒在地上的俯视图，中间的后轮就具有高度（与投影垂直，看不出来），所以要翻过来要花力气克服重力，就像你推翻三维世界的三轮车那样。
-![四轮车的侧视图和俯视图（只画出了轮子和座位）](/img/trans415.gif)
-### 汽车转向系统
-我们来讨论一下汽车方向盘的设计：根据类比，汽车方向盘应该是球形的，可以绕着一根轴旋转。~~原来《流浪地球》里面的重型运输车辆就是四维的！~~我们说过，四维空间中的旋转是绕着面为轴的（或双旋转那种找不到旋转轴），然而球体具有很高的对称性，在四维空间它有着垂直于它所在空间的旋转对称轴。我们可以这样做一个球柱形的杆子将方向盘的运动传送到底部。
-我们先来看一看三维车最简单的转向系统：
-![中间褐色的圆是连方向盘的轴的横截面，方向盘将带动它转动](/img/trans412.gif)
-类比得到四维车最简单的转向系统：（我把中间的梁画成半透明的以便观察）
-![中间褐色的球是连方向盘的轴的横截胞，方向盘将带动它转动](/img/trans413.gif)
-跟三维情况差不多，但还记得我们之前留给你思考的自转模式吗？只需自转方向盘（绕方向盘的竖直轴和前进方向张成的平面转动）就行了。其特点是每个轮子朝向不同，每个轨迹都是螺旋形，这就是前面提到的小车所有可能的转向和三维空间所有可能的旋转对应。二轮、三轮自行车和四轮车可能都没法很好地做自转，因为它们唯一的前轮只能处在转轴上。但注意，并不是只要前轮有两个或以上的轮子就可以做螺旋运动（比如两个轮子的轨迹对应DNA双螺旋结构的样子）自转不同于一般转向。当3D/4D汽车左转时，两个/四个前轮往左斜，后轮保持方向不动，这样前后就形成了角度差。但自转的螺旋运动是靠四个前轮的相互角度差实现的，自转的轨迹对于前后轮都是螺旋形，所以如果后轮保持方向不动则会导致轮子被撇住——如果你是在无法理解可以想象一下左转弯只有左前轮转向，但右前轮往前的情形。所以四维车的前后轮必须都要能活动，除非放弃自转转向这个功能。
-![自转的转向](/img/trans414.gif)
-四维空间中的公路交通工具我们就说到这儿了。如果大家有什么新的想法或异议都欢迎来讨论！下一步我们将设计四维公路上的车道划分、道路设计和轨道交通系统。
+### Four-Dimensional Wheels
+Before discussing this issue, let's first look at the shape and construction of cars. In a 2D world, cars need two wheels (though it seems impossible to fix the wheels to the car). 3D cars need four wheels: (let's not consider other vehicles with fewer wheels for now) ![](/img/trans402.gif) We see that the car body is placed on a chassis that connects four wheels. Like the hypercube analogy, we naturally think that 4D cars need eight wheels, distributed at the vertices of a rectangular solid, while the car body above can be approximated as a hyperrectangular solid. Let's look at the top view of a 4D car: But the hyperrectangular car body above would block the chassis structure below, so let's first look at the chassis structure separately. But here we have a serious problem: the shape of the tires. As I analyzed in "Visiting the Four-Dimensional Country", to control the car's movement, tires can only have one direction of rolling freedom (for example, in our world, no car has spherical wheels). This shape is a cylinder (actual tire cylinder edges are smooth, so they should be considered toroidal, but let's not consider this for now). But in 4D space, cylindrical shapes form a family: common ones include the cubinder (cylinder-cylinder) and the duocylinder (direct product of two circles). We face the same problem as choosing road cross-sections. Let's place them sideways on a 3D plane and see how they roll from a top view: First, we need to understand how to place them "sideways" to make them roll. For example, a cylinder placed upright (circular face down) can't roll, so the circular base of a cylindrical shape can't face down - it must be sideways. Looking at the cylinder's height, it's a line segment (like the gray line on the left in the figure below). In 4D, the cubinder has two heights forming a square, but this side figure can be arbitrary - if we take a circle, it's called a duocylinder. The duocylinder's base and side are symmetrical, so it can roll no matter how it's placed, but the principle is the same as the cubinder - it can only roll in one direction. ![The blue figure is where the wheel touches the ground](/img/trans403.gif) Which type of tire is better? Actually, the shape of the side height doesn't participate in rolling, so any shape is fine. But considering that real tire cylinder edges are smooth enough to be almost toroidal, I think choosing the duocylinder with fewer edges is better.
+
+With preparations complete, let's now construct the 4D car's chassis. Its top view looks like this: ![](/img/trans404.gif)
+For convenience of description, I've established a Cartesian coordinate system xyzw, where the w direction is vertical and can't be shown in the top view, while the remaining xyz directions are the directions of the 3D ground. From our preparations, we know that the direction the 4D car can move should be the z-axis direction perpendicular to the side height (the cylinder base in the projection). This car has four front wheels and four rear wheels, connected by two square plates respectively, with an axle connecting the front and rear wheels in the middle. Whether to use plates or cross-shaped connections doesn't really matter, as long as the eight wheels can be fixed. You might wonder: how do we explain the square plate's corners being inserted into the cylinder? Actually, this is like the axle of a 3D wheel - in the top view, you see the axle inserted into a rectangle, while rotation occurs in the zw plane direction, with the remaining directions staying fixed, i.e., the 2D plane xy parallel to the side height, equivalent to an axle, which is exactly the position of the square. Of course, the axle must also be round, so what you see as a square thin plate in the top view is actually a cubinder with a very small diameter (its diameter equals the plate thickness, and the two perpendicular heights are the square's side lengths).
+
+The next problem: vehicles can't always go straight - they need to be able to steer. Let's first see how 3D cars turn: ![](/img/trans405.gif) The figure shows the turning paths of the wheels on both sides. The two front wheels guide, and the two rear wheels follow. Similarly for 4D cars, we only turn the four front wheels, leaving the four rear wheels fixed.
+![Car moving forward in negative z-axis direction and turning in negative x-axis direction](/img/trans406.gif)
+![Car moving forward in negative z-axis direction and turning in positive y-axis direction](/img/trans407.gif)
+![Car moving forward in negative z-axis direction and turning in a general direction](/img/trans408.gif)
+
+### Other Types of Four-Dimensional Vehicles
+Actually, cars don't have to turn only in x-axis or y-axis directions - they can turn in any direction on the ground perpendicular to the z-axis. This inspires us to actually build a "six-wheeled car" - with wheel vertices distributed at the vertices of a triangular prism. Its performance is almost the same as an eight-wheeled car, just that the eight-wheeled car is more stable. Of course, N-wheeled cars are all possible, and you can even design with N front wheels and M rear wheels in combination, or let N approach infinity - connecting all wheels together - this is also feasible, because these are all pattern variations in the shape of the side height direction that doesn't participate in rotation, and don't affect wheel rotation. The only downside is that steering might be too cumbersome - using this type of wheel for rear wheels is fine. These variations are like the trucks we see with many wheels side by side, either increasing stability or load-bearing capacity. ![Six-wheeled car](/img/trans409.gif)![Hybrid car: When going straight, the tracks of front and rear wheels are staggered](/img/trans410.gif)
+
+<a name="selfchhe"></a>Are there other modes of movement? We know that 3D cars can only turn left or right because the ground is 2D, and planes only allow two rotation directions: clockwise and counterclockwise. So 4D car steering modes should correspond to all rotation directions in 3D space: for example, the two turning modes we saw earlier correspond to rotation around the x-axis and y-axis, so what mode corresponds to the remaining rotation around the z-axis? The z-axis is the forward direction, so this rotation is a kind of self-rotation, like a fighter jet rolling forward - the wheel tracks are helical. Can our previously designed car handle this type of steering? The answer is yes, though it's not easy to imagine. I'll leave this for readers to think about - the answer is at the end of the article. In summary, controlling a 4D car is similar to controlling a spaceship - you can freely soar in 3D ground space without gravity. If you want to drive yourself when touring the 4D world, you'll probably need a pilot's license to drive their cars.
+
+### Four-Dimensional Bicycles
+As for bicycles, I think they can be divided into two-wheeled and three-wheeled types. Both are unstable when stationary and might fall over. But which is easier to control directionally, which has stronger stability, and other questions are beyond my cognitive abilities, so I won't discuss them further here.
+![3D bicycle top view and side view, image from internet, delete if infringing](/img/trans400.jpg)
+I haven't drawn the pedal structure, as this part of the design is too difficult - it involves how 4D people's legs grow...
+![Bicycle wheel side view and top view](/img/trans401.jpg)
+The 3D bicycle's handlebars are just a one-dimensional stem, a simplified version of a steering wheel; similarly, 4D bicycle handlebars are also simplified, but they're 2D, looking like our car's steering wheel, but not really: when turning, you tilt it (as shown below), rather than turning the steering wheel around the axis in the middle of the side view. This might allow the bicycle to do self-rotating steering, but the friction is very large. I'm not clear whether it can actually be achieved - I'll assume it can't for now, because you must have a certain speed to turn the steering wheel for the car to possibly follow, and the car will stop self-rotating when the steering wheel is held in any position.
+![Bicycle turning (top view)](/img/trans402.jpg)
+But a 3D tricycle placed directly in 4D space becomes a tricycle that can fall over: you can see the side view below as the top view of a tricycle lying on the ground.
+![Tricycle side view and top view (only showing wheels and seat)](/img/trans411.gif)
+Speaking of this, the analogue of a stable 3D tricycle is obviously evident. Tricycles need three wheels because three points determine a plane, so the triangular configuration allows the vehicle to stand stably on the ground; the similar object in the 4D world is a four-wheeled vehicle, with wheels distributed on a tetrahedron. We still fix the rear wheels, leaving only one front wheel for steering. But the disadvantage of four-wheeled vehicles is that they might not be able to conveniently control self-rotation, for the same reason as bicycles. This is the vehicle with the minimum wheels required that won't fall over in 4D space: if you forcibly overturn a four-wheeled vehicle, viewing the side view below as the top view of a tricycle lying on the ground, the middle rear wheel has height (perpendicular to the projection, not visible), so overturning requires effort to overcome gravity, just like when you overturn a tricycle in the 3D world.
+![Four-wheeled vehicle side view and top view (only showing wheels and seat)](/img/trans415.gif)
+
+### Car Steering System
+Let's discuss the design of car steering wheels: by analogy, car steering wheels should be spherical and can rotate around an axis. ~~So the heavy transport vehicles in "The Wandering Earth" are four-dimensional!~~ We've said that rotation in 4D space is around a plane as an axis (or the kind of double rotation where you can't find a rotation axis), yet spheres have high symmetry - in 4D space they have a rotation axis perpendicular to the space they're in. We can make a ball-cylindrical rod to transmit the steering wheel's movement to the bottom.
+Let's first look at the simplest steering system of a 3D car:
+![The brown circle in the middle is the cross-section of the shaft connecting the steering wheel, which the steering wheel will drive to rotate](/img/trans412.gif)
+By analogy, we get the simplest steering system of a 4D car: (I've drawn the middle beam as semi-transparent for observation)
+![The brown ball in the middle is the cross-cell of the shaft connecting the steering wheel, which the steering wheel will drive to rotate](/img/trans413.gif)
+It's similar to the 3D situation, but remember the self-rotation mode we left for you to think about earlier? You just need to self-rotate the steering wheel (rotate around the plane formed by the steering wheel's vertical axis and the forward direction). Its characteristic is that each wheel faces a different direction, and each track is helical. This is how all possible steering of the car mentioned earlier corresponds to all possible rotations in 3D space. Two-wheeled and three-wheeled bicycles and four-wheeled vehicles might not be able to self-rotate well because their only front wheel can only be on the rotation axis. But note that it's not the case that as long as there are two or more front wheels, they can do spiral motion (for example, the tracks of two wheels corresponding to the shape of DNA double helix structure). Self-rotation is different from general steering. When a 3D/4D car turns left, two/four front wheels tilt left, and the rear wheels maintain their direction, thus forming an angle difference between front and rear. But the spiral motion of self-rotation is achieved by the mutual angle difference of the four front wheels. The tracks of self-rotation are helical for both front and rear wheels, so if the rear wheels maintain their direction, it will cause the wheels to be twisted - if you really can't understand this, imagine a left turn where only the left front wheel steers, but the right front wheel goes forward. So both front and rear wheels of 4D cars must be able to move, unless you give up the self-rotation steering function.
+![Self-rotation steering](/img/trans414.gif)
+That's all for road traffic vehicles in 4D space. If you have any new ideas or objections, feel free to discuss! Next, we'll design lane divisions, road design, and rail transit systems on 4D roads.
 
 ---
-## 更新
-四维汽车模拟器已经完工啦！基于牛顿力学的物理引擎可以验证以上关于汽车转向的方式。你能把车开出隧道吗？
-- [操作说明](/archives/newton4/#more)
-- [点击进入模拟器](/4dViewer/physique/car.html)
+## Update
+The 4D car simulator is now complete! The physics engine based on Newtonian mechanics can verify the above steering methods for cars. Can you drive the car out of the tunnel?
+- [Operating Instructions](/archives/newton4/#more)
+- [Click to enter the simulator](/4dViewer/physique/car.html)
 
-![四维汽车模拟器截图：正在自转的四维车](/img/newtonf002.jpg)
+![4D car simulator screenshot: A self-rotating 4D car](/img/newtonf002.jpg)

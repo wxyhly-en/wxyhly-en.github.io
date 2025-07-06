@@ -1,112 +1,145 @@
 ---
-title: 四维空间（十四）：平面状态空间与夹角问题（上）
+title: "Four-Dimensional Space (14): Plane State Space and Angle Problems (Part 1)"
 tags:
-  - 四维
-  - 几何
-  - 系列文章
-  - 数学
-categories: 四维空间系列
+  - Four-dimensional
+  - Geometry
+  - Series articles
+  - Mathematics
+categories: Four-Dimensional Space Series
 date: 2025-06-28 00:38:14
 ---
 
 <p></p>
-<div style="float:right"><img src="/img/angle005.svg" style="width:100%;max-width:380px" alt="带定向信息的平面之间的两个夹角与平面位置对应关系"/><p></p></div>
+<div style="float:right"><img src="/img/angle005.svg" style="width:100%;max-width:380px" alt="Relationship between two angles and plane positions for planes with orientation information"/><p></p></div>
 
-## 内容概要
+## Content Overview
 
-- [平面状态空间的定义](/archives/subspace-angle/#def)
-- [夹角取值拓展到实数](/archives/subspace-angle/#ext)
-- [平面夹角随机模拟器](/archives/subspace-angle/#rnd)
-- [一道有难度的思考题](/archives/subspace-angle/#quest)
+- [Definition of Plane State Space](/archives/subspace-angle/#def)
+- [Extending Angle Values to Real Numbers](/archives/subspace-angle/#ext)
+- [Plane Angle Random Simulator](/archives/subspace-angle/#rnd)
+- [A Challenging Problem](/archives/subspace-angle/#quest)
 
-## 引子
+## Introduction
 
-首先来看个简单的三维问夹角范围问题：
-> 已知A、B两向量夹角为$\alpha$，B、C两向量夹角为$\beta$，求A、C之间的夹角$\gamma$的取值范围。
+Let's first look at a simple angle range problem in 3D:
+> Given that the angle between vectors A and B is $\alpha$, and the angle between vectors B and C is $\beta$, find the range of the angle $\gamma$ between A and C.
 
-这个问题用几何法很简单：向量夹角对应到单位球面三角形边长，由两边之和大于第三边、两边之差小于第三边，共线能取到等号，因此最终$\gamma$取值范围为闭区间$[|\alpha-\beta|,|\alpha+\beta|]$。<!--more--><img src="/img/angle002.svg" style="width:100%;max-width:300px" alt="三个角度组成球面三角形的三边长"/>
+This problem is simple using the geometric method: vector angles correspond to side lengths of spherical triangles on the unit sphere. Since the sum of two sides is greater than the third side, and the difference of two sides is less than the third side, with equality when collinear, the range of $\gamma$ is the closed interval $[|\alpha-\beta|,|\alpha+\beta|]$.<!--more--><img src="/img/angle002.svg" style="width:100%;max-width:300px" alt="Three angles forming the three side lengths of a spherical triangle"/>
 
-四维空间中描述两平面之间的位置关系需要两个角度来表示，因此问题变成：
-> 已知A、B两平面夹角为$\alpha_1$和$\alpha_2$，B、C两平面夹角为$\beta_1$和$\beta_2$，求A、C平面之间的两夹角$\gamma_1$与$\gamma_2$的取值范围。
+In 4D space, describing the positional relationship between two planes requires two angles, so the problem becomes:
+> Given that planes A and B have angles $\alpha_1$ and $\alpha_2$, and planes B and C have angles $\beta_1$ and $\beta_2$, find the range of the two angles $\gamma_1$ and $\gamma_2$ between planes A and C.
 
-可惜我们对平面之间的夹角一点几何直觉都没有，那些只相交于一点的平面已经够难以理解的了，很难想象怎样用几何法解决这个问题。下面我们将借助代数的力量，把平面从四维几何空间中抽离出来放在几何性质更好的状态空间中来解决问题。<a name="def"></a>
+Unfortunately, we have no geometric intuition about angles between planes. Those planes that only intersect at a single point are already difficult to understand, making it hard to imagine how to solve this problem geometrically. Below, we will use the power of algebra to extract planes from 4D geometric space and place them in a state space with better geometric properties to solve the problem.<a name="def"></a>
 
-## 平面状态空间的定义
+## Definition of Plane State Space
 
-我们来想一个问题：四维空间中所有过原点的平面的集合构成了一个什么样的空间呢？这个空间中每个点都代表一张平面，空间维数为4，可以用多个方法推导出。[（点此展开/收起推导方法）](javascript:$('#dim').toggle())
+Let's consider a question: What kind of space is formed by the set of all planes passing through the origin in 4D space? Each point in this space represents a plane, and the space has dimension 4, which can be derived in multiple ways. [(Click to expand/collapse derivation methods)](javascript:$('#dim').toggle())
 
 <div id="dim" style="display:none">
 
-> 1. 设平面位于xy坐标面，可以向这些方向倾斜：x轴往z轴倾斜、y轴往z轴倾斜、x轴往w轴倾斜、y轴往w轴倾斜，以及这些倾斜的组合。
->  1. 四维旋转的自由度是6，但绝对平行或绝对垂直于某一平面的旋转都保持该平面不变，因此只有4个自由度的旋转才能把平面旋转到不同位置得到新的平面。
->  1. 四维平面对应单位简单2-向量。2-向量有6个自由度，单位向量跟简单2-向量两个条件对应$F\cdot F=1$跟$F\wedge F=0$两个约束方程，所以只剩下4个自由度。</div>
+> 1. Let the plane be in the xy coordinate plane. It can tilt in these directions: x-axis tilting toward z-axis, y-axis tilting toward z-axis, x-axis tilting toward w-axis, y-axis tilting toward w-axis, and combinations of these tilts.
+> 2. 4D rotation has 6 degrees of freedom, but rotations that are absolutely parallel or absolutely perpendicular to a certain plane keep that plane unchanged. Therefore, only rotations with 4 degrees of freedom can rotate the plane to different positions to obtain new planes.
+> 3. A 4D plane corresponds to a unit simple 2-vector. 2-vectors have 6 degrees of freedom. The unit vector and simple 2-vector conditions correspond to two constraint equations $F\cdot F=1$ and $F\wedge F=0$, leaving only 4 degrees of freedom.</div>
 
-这是一种弯曲封闭的四维空间，如何展示呢？2-向量有六个分量，设其大小为1，则这个空间至少在六维空间的五维单位超球面上。然而联立简单2-向量的条件$af-be+cd=0$(用$a$到$f$六个字母表示6个分量)，我们根本无法看出其具体形状。
-### 对偶分解
+This is a curved, closed 4-dimensional space. How can we visualize it? A 2-vector has six components. If its magnitude is 1, then this space is at least on a 5-dimensional unit hypersphere in 6-dimensional space. However, when we combine with the simple 2-vector condition $af-be+cd=0$ (using letters $a$ through $f$ to represent the 6 components), we cannot see its specific shape at all.
 
-我在《四维空间（七）：N维的向量》中介绍过[2-向量的对偶分解](/archives/bivector4ds/#dualde)，即不用通常的6个坐标2-向量基底$e_{xy}$、$e_{xz}$、$e_{xw}$、$e_{yz}$、$e_{yw}$、$e_{zw}$，而是使用6个对偶坐标基底表示平面。这些基底可分成两组，第一组为自对偶基底：$(e_{xy}+e_{zw})/\sqrt{2}$、$(e_{xz}-e_{yw})/\sqrt{2}$、$(e_{xw}+e_{yz})/\sqrt{2}$，第二组为反自对偶基底：$(e_{xy}-e_{zw})/\sqrt{2}$、$(e_{xz}+e_{yw})/\sqrt{2}$、$(e_{xw}-e_{yz})/\sqrt{2}$。这样任意给一个2-向量都能分解成各自含有三个分量的自对偶部分和反自对偶部分，很容易验证这两部分之间的内外积都为0，且如果我们再次使用霍奇对偶把4-向量$F\wedge G$映射成标量，则对于自对偶分量其内外积相等，反自对偶分量其内外积相反。我们记一个2-向量$F$的自对偶、反自对偶部分为$F^+$和$F^-$，两个2-向量的内积$$F\cdot G=(F^+ + F^-)\cdot (G^+ + G^-)=F^+\cdot G^+ + F^-\cdot G^-$$同理外积则是$$F\wedge G=F^+\wedge G^+ + F^-\wedge G^-=(F^+\cdot G^+ - F^-\cdot G^-)e_{xyzw}$$（注：后面我们计算两2-向量外积后都将默认取霍奇对偶消掉体元$e_{xyzw}$只留下前面的系数，变成标量）
+### Dual Decomposition
 
-能表示平面的简单2-向量$F$的自身的外积为零，可以得到其自对偶分量的大小等于反自对偶分量的大小：$F^+\cdot F^+=F^-\cdot F^-$。由于我们感兴趣的是平面，其绝对大小无关紧要，可以规定这两个分量的大小均为1，这样自对偶/反自对偶的三个分量就各自对应到两个三维空间中的球面之上，所有**定向**平面的状态空间就是这两个球面的直积$\mathbb{S}^2\times\mathbb{S}^2$（这个东西可以看作六维空间中的双球柱的四维棱）。直积是整个状态空间，空间里的每个点都是在<font color="red">左</font><font color="blue">右</font>两个球面各选取一个点形成的有序对。为什么要加**定向**这个词呢？因为$e_{xy}$跟$-e_{xy}$在$\mathbb{S}^2\times\mathbb{S}^2$中是不同的点，但它们代表同一平面。因此真正的平面状态空间还要商掉$-1$这个因子。（记作$(\mathbb{S}^2\times\mathbb{S}^2)/\mathbb{Z}_2$）下面给出了一些例子：![从上到下列出了4个简单2-向量，其值为将左右两球面点处对应的值相加再单位化。这4个2-向量仅代表了xy与zw两张平面](/img/angle003.svg)可以看出如果同时将左右球面上的点换成对径点，则代表同一平面但定向相反，如果只将一个球面上的点换成对径点，则新平面与原来平面绝对垂直。
+In "Four-Dimensional Space (7): N-Dimensional Vectors", I introduced the [dual decomposition of 2-vectors](/archives/bivector4ds/#dualde). Instead of using the usual 6 coordinate 2-vector bases $e_{xy}$, $e_{xz}$, $e_{xw}$, $e_{yz}$, $e_{yw}$, $e_{zw}$, we use 6 dual coordinate bases to represent planes. These bases can be divided into two groups. The first group consists of self-dual bases: $(e_{xy}+e_{zw})/\sqrt{2}$, $(e_{xz}-e_{yw})/\sqrt{2}$, $(e_{xw}+e_{yz})/\sqrt{2}$. The second group consists of anti-self-dual bases: $(e_{xy}-e_{zw})/\sqrt{2}$, $(e_{xz}+e_{yw})/\sqrt{2}$, $(e_{xw}-e_{yz})/\sqrt{2}$. This way, any 2-vector can be decomposed into self-dual and anti-self-dual parts, each containing three components. It's easy to verify that the inner and outer products between these two parts are both 0. If we again use the Hodge dual to map the 4-vector $F\wedge G$ to a scalar, then for self-dual components, their inner and outer products are equal, while for anti-self-dual components, their inner and outer products are opposite. We denote the self-dual and anti-self-dual parts of a 2-vector $F$ as $F^+$ and $F^-$. The inner product of two 2-vectors is:
+$$F\cdot G=(F^+ + F^-)\cdot (G^+ + G^-)=F^+\cdot G^+ + F^-\cdot G^-$$
+Similarly, the outer product is:
+$$F\wedge G=F^+\wedge G^+ + F^-\wedge G^-=(F^+\cdot G^+ - F^-\cdot G^-)e_{xyzw}$$
+(Note: When we calculate the outer product of two 2-vectors later, we will default to taking the Hodge dual to eliminate the volume element $e_{xyzw}$ and keep only the coefficient in front, turning it into a scalar)
 
-### 平面之间的夹角推导
-平面夹角问题转换到这个状态空间中会变得清晰：我们[很早就推导过](/archives/bivector4ds/#parfait)通过内外积求两平面F与G的夹角，公式为$$\lvert \cos\theta_1\cos\theta_2\rvert={\lvert F\cdot G\rvert \over \lVert F \rVert \lVert G \rVert}  $$$$ \lvert \sin\theta_1\sin\theta\_2\rvert={\lvert F\wedge G\rvert\over \lVert F \rVert \lVert G \rVert}$$上面的那些绝对值很讨厌。其实去掉绝对值直接带着所有正负号参与代数运算，还能顺便把2-向量的方向与平面手性都算进去，因此从此开始我们既不要绝对值又不限制夹角的取值范围。且如果假设两平面的自对偶与反自对偶分量大小都是1，则$\lVert F \rVert=\lVert G \rVert=\sqrt{2}$，再把平面间的内外积改写成自对偶与反自对偶分量的内积形式，可得下式：$$2\cos\theta_1\cos\theta_2=F^+\cdot G^+ + F^-\cdot G^- $$$$ 2\sin\theta_1\sin\theta\_2= F^+\cdot G^+ - F^-\cdot G^-$$将这两个式子分别相加和相减，运用和差角公式后得到$$\cos(\theta_1-\theta_2)=F^+\cdot G^+$$$$ \cos(\theta_1+\theta_2)=F^-\cdot G^-$$我们迎来了平面状态空间中最重要的一个几何意义：
+For a simple 2-vector $F$ that can represent a plane, its outer product with itself is zero, which means the magnitude of its self-dual component equals the magnitude of its anti-self-dual component: $F^+\cdot F^+=F^-\cdot F^-$. Since we're interested in planes, their absolute size doesn't matter. We can stipulate that both components have magnitude 1, so the three components of self-dual/anti-self-dual each correspond to spheres in two 3D spaces. The state space of all **oriented** planes is the direct product of these two spheres $\mathbb{S}^2\times\mathbb{S}^2$ (this can be viewed as the 4-dimensional edge of a double-sphere cylinder in 6-dimensional space). The direct product is the entire state space, where each point is an ordered pair formed by selecting one point from each of the <font color="red">left</font> and <font color="blue">right</font> spheres. Why do we add the word **oriented**? Because $e_{xy}$ and $-e_{xy}$ are different points in $\mathbb{S}^2\times\mathbb{S}^2$, but they represent the same plane. Therefore, the true plane state space must quotient out the factor of $-1$. (Denoted as $(\mathbb{S}^2\times\mathbb{S}^2)/\mathbb{Z}_2$) Here are some examples:
+![From top to bottom: 4 simple 2-vectors, whose values are obtained by adding the corresponding values at points on the left and right spheres and then normalizing. These 4 2-vectors only represent the two planes xy and zw](/img/angle003.svg)
+We can see that if we simultaneously change the points on both spheres to their antipodal points, we get the same plane but with opposite orientation. If we only change the point on one sphere to its antipodal point, the new plane is absolutely perpendicular to the original plane.
 
-**两平面自对偶分量之间的夹角为两平面的两夹角之差，反自对偶分量之间的夹角为两平面的两夹角之和。**
-![两绿色的点代表一张平面，两品红色点代表另一张平面，它们之间夹角为$\theta_1$和$\theta_2$](/img/angle006.svg)
+### Derivation of Angles Between Planes
 
-### 平面夹角特殊情况
+The plane angle problem becomes clearer when transformed to this state space: We [derived long ago](/archives/bivector4ds/#parfait) how to find the angles between two planes F and G using inner and outer products, with the formulas:
+$$\lvert \cos\theta_1\cos\theta_2\rvert={\lvert F\cdot G\rvert \over \lVert F \rVert \lVert G \rVert}$$
+$$\lvert \sin\theta_1\sin\theta\_2\rvert={\lvert F\wedge G\rvert\over \lVert F \rVert \lVert G \rVert}$$
+The absolute values above are annoying. Actually, if we remove the absolute values and directly include all positive and negative signs in algebraic calculations, we can also calculate the direction of 2-vectors and plane chirality. Therefore, from now on, we neither want absolute values nor restrict the range of angle values. Also, if we assume that the magnitudes of the self-dual and anti-self-dual components of both planes are 1, then $\lVert F \rVert=\lVert G \rVert=\sqrt{2}$. Rewriting the inner and outer products between planes in terms of inner products of self-dual and anti-self-dual components, we get:
+$$2\cos\theta_1\cos\theta_2=F^+\cdot G^+ + F^-\cdot G^-$$
+$$2\sin\theta_1\sin\theta\_2= F^+\cdot G^+ - F^-\cdot G^-$$
+Adding and subtracting these two equations respectively, and using angle sum and difference formulas, we get:
+$$\cos(\theta_1-\theta_2)=F^+\cdot G^+$$
+$$\cos(\theta_1+\theta_2)=F^-\cdot G^-$$
+We arrive at the most important geometric meaning in plane state space:
 
-下面列出一些特殊平面的位置关系：
-1. 重合：$\theta_1=\theta_2=0$（2-向量方向相同）或$\theta_1=0$，$\theta_2=\pi$（2-向量方向相反）。
-1. 左手等角：$\theta_1=\theta_2=a$，其特点是$\theta_1+\theta_2=2a$，$\theta_1-\theta_2=0$。
-1. 右手等角：$\theta_1=-\theta_2=a$，其特点是$\theta_1+\theta_2=0$，$\theta_1-\theta_2=2a$。
-1. 半平行：$\theta_1>0$，$\theta_2=0$。半平行的特点是$\theta_1+\theta_2=\theta_1-\theta_2$。
-1. 半垂直：$0<\theta_1<\pi/2$，$\theta_2=\pi/2$。半垂直的特点是$(\theta_1+\theta_2)+(\theta_1-\theta_2)=\pi/2$。
-1. 绝对垂直：$\theta_1=\theta_2=\pi/2$。
+**The angle between the self-dual components of two planes is the difference of the two angles between the planes, and the angle between the anti-self-dual components is the sum of the two angles between the planes.**
+![Two green points represent one plane, two magenta points represent another plane, with angles $\theta_1$ and $\theta_2$ between them](/img/angle006.svg)
+
+### Special Cases of Plane Angles
+
+Here are some special positional relationships between planes:
+1. Coincident: $\theta_1=\theta_2=0$ (2-vectors have same direction) or $\theta_1=0$, $\theta_2=\pi$ (2-vectors have opposite directions).
+2. Left-handed equiangular: $\theta_1=\theta_2=a$, characterized by $\theta_1+\theta_2=2a$, $\theta_1-\theta_2=0$.
+3. Right-handed equiangular: $\theta_1=-\theta_2=a$, characterized by $\theta_1+\theta_2=0$, $\theta_1-\theta_2=2a$.
+4. Semi-parallel: $\theta_1>0$, $\theta_2=0$. Semi-parallel is characterized by $\theta_1+\theta_2=\theta_1-\theta_2$.
+5. Semi-perpendicular: $0<\theta_1<\pi/2$, $\theta_2=\pi/2$. Semi-perpendicular is characterized by $(\theta_1+\theta_2)+(\theta_1-\theta_2)=\pi/2$.
+6. Absolutely perpendicular: $\theta_1=\theta_2=\pi/2$.
 
 ![](/img/angle007.svg)
-在平面状态空间中，这些抽象的夹角被转换到了两张球面上的两个直观的弧长。很多原来看似神秘的结论现在都能秒答，比如同手性等角平面关系有传递性：同手性等角平面说明它们在某一个球面上的点是重合的，点之间的重合关系是等价关系，自然有传递性。然而不同手性的等角平面没有传递性，观察下图则两种情况一目了然：
-![只有同手性等角关系才有传递性](/img/angle008.svg)
+In plane state space, these abstract angles are converted to two intuitive arc lengths on two spheres. Many previously seemingly mysterious conclusions can now be answered instantly. For example, same-chirality equiangular plane relations have transitivity: same-chirality equiangular planes mean their points on one sphere coincide, and coincidence between points is an equivalence relation, naturally having transitivity. However, different-chirality equiangular planes don't have transitivity. Observing the following figure makes both situations clear at a glance:
+![Only same-chirality equiangular relations have transitivity](/img/angle008.svg)
 
-再比如，我们在[《四维空间（四）：纤维与超球》](/archives/fibration4ds/#orth)中讲到了Hopf纤维丛的正交性：当时我给出了三个不同朝向的Hopf纤维丛，并指出超球面上的每一点都有三圆周垂直相交。
-![《四维空间（四）：纤维与超球》中的插图](/img/fibre3.gif)
-这个结论可以进一步推广：两个不同取向的同手性等角平面簇交超球得到两簇纤维圆周，这两簇圆周在超球面上每一点相交的夹角均相等。我们马上证明该结论：不妨设两个等角平面簇都是左等角，则它们的反自对偶分量可以随便取，自对偶分量是两个固定的不同的值。两个圆周要相交，就说明它们所在的平面是半平行的，此时就必有它们在左右球面上的夹角相等且等于圆周小角的夹角。很明显左边球面上的夹角固定死了，因此相交的圆周夹角只能都等于左边自对偶分量的夹角值。
-![三个正交的左手等角平面簇：它们的自对偶分量相互垂直，反自对偶分量可在球面上任意取值](/img/angle011.svg)
-但要注意的是这些角度都是代数值，允许为负数或大于锐角，因此以上讨论不太严谨，无法处理所有平面间的夹角范围情况。下面先来看看这些角度取到锐角外的含义。<a name="ext"></a>
+For another example, in ["Four-Dimensional Space (4): Fibers and Hyperspheres"](/archives/fibration4ds/#orth), we discussed the orthogonality of Hopf fiber bundles: I presented three Hopf fiber bundles with different orientations and pointed out that at every point on the hypersphere, three circles intersect perpendicularly.
+![Illustration from "Four-Dimensional Space (4): Fibers and Hyperspheres"](/img/fibre3.gif)
+This conclusion can be further generalized: two same-chirality equiangular plane families with different orientations intersect the hypersphere to obtain two families of fiber circles. The angles at which these two families of circles intersect at every point on the hypersphere are all equal. We'll prove this conclusion immediately: Without loss of generality, let's say both equiangular plane families are left-equiangular, then their anti-self-dual components can be chosen arbitrarily, while the self-dual components are two different fixed values. For two circles to intersect, their planes must be semi-parallel, which means their angles on the left and right spheres must be equal and equal to the small angle between the circles. Obviously, the angle on the left sphere is fixed, so the angles between intersecting circles must all equal the angle value of the left self-dual components.
+![Three orthogonal left-handed equiangular plane families: their self-dual components are mutually perpendicular, and anti-self-dual components can take any value on the sphere](/img/angle011.svg)
+However, note that these angles are all algebraic values, allowing negative numbers or values larger than acute angles. Therefore, the above discussion is not rigorous enough to handle all plane angle range situations. Let's first look at what it means when these angles take values outside acute angles.<a name="ext"></a>
 
-### 拓展夹角取值
-如果我们将去掉绝对值的内外积成与夹角关系的式子作为两2-向量间拓展夹角的定义，则可以得到这样一张图：（其实之前在[四维磁场受力分析中首先提到过](/archives/electm4d/#d6)）![](/img/angle004.svg)
-虽然两个夹角可以取任意实数，但由于$\theta_1$与$\theta_2$地位的对称性和三角函数的周期性，只有阴影区域才是有意义**基本区域**，其它区域表示的平面间位置关系都跟基本区域中的情况有重复。比如当$\theta_2>\theta_1$时，我们可以交换两个角度的定义约化到$\theta_1>\theta_2$的情况，这体现在下图中的扩展区域关于标有左等角的$\theta_1=\theta_2$的斜线对称。同理，对于所有标有等角的斜线，都有关于它们的反射对称性。
+### Extending Angle Values
+
+If we use the formulas relating inner and outer products without absolute values to angles as the definition of extended angles between two 2-vectors, we can obtain this diagram: (Actually first mentioned in [4D magnetic field force analysis](/archives/electm4d/#d6))
+![](/img/angle004.svg)
+Although the two angles can take any real numbers, due to the symmetry of $\theta_1$ and $\theta_2$'s roles and the periodicity of trigonometric functions, only the shaded region is the meaningful **fundamental domain**. Other regions represent plane positional relationships that duplicate situations in the fundamental domain. For example, when $\theta_2>\theta_1$, we can exchange the definitions of the two angles to reduce to the case where $\theta_1>\theta_2$, which is reflected in the figure as the extended region being symmetric about the diagonal line marked "left-equiangular" where $\theta_1=\theta_2$. Similarly, for all diagonal lines marked equiangular, there is reflection symmetry about them.
 ![](/img/angle005.svg)
-注：两2-向量的内外积同号则定义为右手，异号为左手，可验证该定义与平面的2-向量选取无关，手性是平面间的固有几何性质。
+Note: If two 2-vectors' inner and outer products have the same sign, they are defined as right-handed; if opposite signs, left-handed. It can be verified that this definition is independent of the choice of 2-vectors for the planes. Chirality is an intrinsic geometric property between planes.
 
-本文主要关心平面间的位置关系，即忽略2-向量的定向信息但保留平面间的手性信息——当$\theta_1>90°$时意味着我们可以将其中一个2-向量反向，从而将角度重新变为锐角，对应到图上就是把菱形右半部分绕中心旋转半圈到左半部分，这包括要将重合与反向重合视为同一点、将自对偶与反自对偶也视为同一点，且原来菱形的两条右等角对边上的点、两条左等角对边上的点也要等同。如果允许四维图形在更高维的空间翻转让左手右手重合不区分手性，则状态空间的基本空间就再减半，只剩下一个直角三角形了。
+This article mainly concerns the positional relationship between planes, i.e., ignoring the orientation information of 2-vectors but preserving the chirality information between planes—when $\theta_1>90°$, it means we can reverse one of the 2-vectors to make the angle acute again. On the diagram, this corresponds to rotating the right half of the rhombus 180° around the center to the left half. This includes treating coincident and oppositely coincident as the same point, treating self-dual and anti-self-dual as the same point, and also identifying points on the two right-equiangular opposite edges and points on the two left-equiangular opposite edges of the original rhombus. If we allow 4D figures to flip in higher-dimensional space so that left and right hands coincide without distinguishing chirality, then the fundamental space of the state space is reduced by half again, leaving only a right triangle.
 
-## 解平面夹角范围问题
+## Solving the Plane Angle Range Problem
 
-下面再看一开始的问题：
-> 已知A、B两平面夹角为$\alpha_1$和$\alpha_2$，B、C两平面夹角为$\beta_1$和$\beta_2$，求A、C平面之间的两夹角$\gamma_1$与$\gamma_2$的取值范围。
+Let's look at the initial problem again:
+> Given that planes A and B have angles $\alpha_1$ and $\alpha_2$, and planes B and C have angles $\beta_1$ and $\beta_2$, find the range of the two angles $\gamma_1$ and $\gamma_2$ between planes A and C.
 
-将原来的两个角度相加减，得到自对偶与反自对偶空间两球面上的夹角，这两个空间是解耦的，互不干扰，设大的角编号为1，小的角为2，则两角的和差都大于零，可以构成合法的球面三角形或共线的线段长度，因而得到：$$|(\alpha_1-\alpha_2)-(\beta_1-\beta_2)| \le \gamma_1-\gamma_2 \le (\alpha_1-\alpha_2)+(\beta_1-\beta_2)$$$$|(\alpha_1+\alpha_2)-(\beta_1+\beta_2)| \le \gamma_1+\gamma_2 \le (\alpha_1+\alpha_2)+(\beta_1+\beta_2)$$
-![两角的和差在各自球面上的取值范围满足三角不等式](/img/angle009.svg)
-在平面的夹角$\gamma_1$、$\gamma_2$的空间中画出这个范围，很明显是个菱形区域，然而我们还要考虑范围超出平面夹角基本区域（粗线深灰色三角形）的处理方法——使用180度旋转，最后的答案只取基本区域中的所有黄色部分。如果取值范围超出了2-向量的大菱形基本区域，看似因为关于等角平面斜线的反射回来一定还是会落在原来黄色区域内，不会增加新的区域（提示：可从两角和的最大取值范围入手来证明），可以直接丢弃，然而这将导致**球面三角形的某边长超过$\pi$，但球面上两点距离是不可能大于$\pi$的**。这种情况下我们必须选取另一边的劣弧来构造球面三角形，最终体现为当角度超出菱形区域时，不是简单翻转整个区域，而是只翻转边界。![超出平面夹角区域（粗线深灰色三角形），使用180度旋转；超出2-向量夹角基本区域时（灰色菱形），使用关于等角平面斜线的反射，但只反射边界，而不是全部区域](/img/angle010.svg)
+Adding and subtracting the original two angles, we get the angles on the two spheres in self-dual and anti-self-dual spaces. These two spaces are decoupled and don't interfere with each other. Let the larger angle be numbered 1 and the smaller angle be 2. Then the sum and difference of both angles are positive and can form valid spherical triangles or collinear segment lengths, thus we obtain:
+$$|(\alpha_1-\alpha_2)-(\beta_1-\beta_2)| \le \gamma_1-\gamma_2 \le (\alpha_1-\alpha_2)+(\beta_1-\beta_2)$$
+$$|(\alpha_1+\alpha_2)-(\beta_1+\beta_2)| \le \gamma_1+\gamma_2 \le (\alpha_1+\alpha_2)+(\beta_1+\beta_2)$$
+![The ranges of angle sums and differences on their respective spheres satisfy the triangle inequality](/img/angle009.svg)
+Drawing this range in the space of plane angles $\gamma_1$, $\gamma_2$, it's obviously a rhombus region. However, we must also consider how to handle ranges that exceed the fundamental domain of plane angles (thick dark gray triangle)—using 180° rotation, the final answer only takes all yellow parts in the fundamental domain. If the range exceeds the large rhombus fundamental domain of 2-vectors, it seems that reflection about the equiangular plane diagonal will definitely fall back into the original yellow region without adding new regions (hint: you can prove this starting from the maximum range of the sum of two angles), and can be directly discarded. However, this will cause **some side of the spherical triangle to exceed $\pi$, but the distance between two points on a sphere cannot be greater than $\pi$**. In this case, we must select the minor arc on the other side to construct the spherical triangle, which ultimately manifests as: when angles exceed the rhombus region, instead of simply flipping the entire region, we only flip the boundary.
+![When exceeding the plane angle region (thick dark gray triangle), use 180° rotation; when exceeding the 2-vector angle fundamental domain (gray rhombus), use reflection about the equiangular plane diagonal, but only reflect the boundary, not the entire region](/img/angle010.svg)
 
-注：我们姑且认为题目中已经将平面的手性信息写入了相应角度的正负号中。如果确实未指明手性，也可以代入两种手性的角度值计算，最后的结果取两种情况的并集。
+Note: We assume that the problem has already written the chirality information of the planes into the positive and negative signs of the corresponding angles. If chirality is indeed not specified, we can also substitute angle values for both chiralities and take the union of the two cases as the final result.
 
-下面给一个具体数值的题。
-> 平面A与B夹30度、75度，平面B与C夹16度、7度，且两平面A、B的手性与两平面B、C的手性相反。求平面A、C的夹角与手性的取值范围。
+Here's a specific numerical problem:
+> Planes A and B have angles 30° and 75°, planes B and C have angles 16° and 7°, and the chirality of planes A, B is opposite to that of planes B, C. Find the range of angles and chirality between planes A and C.
 
-根据题目定向相反的条件，设$$\alpha_1=75°,\alpha_2=30°$$$$\beta_1=16°,\beta_2=-7°$$则$$\alpha_1+\alpha_2=105°,\alpha_1-\alpha_2=45°$$$$\beta_1+\beta_2=9°,\beta_1-\beta_2=23°$$因为所有角度都没超过180°，则可直接根据球面三角形范围公式得到：$$22°=45°-23° \le \gamma_1-\gamma_2 \le 45°+23°=68°$$$$96°=105°-9° \le \gamma_1+\gamma_2 \le 105°+9°=114°$$我们得到四条边界直线的方程。计算其坐标可知平面夹角大部分与AB平面的手性相同，与BC平面的手性相反，但在一个小角的范围内其夹角是与BC平面的手性相同，与AB平面的手性相反，可以试着使用下面的仿真小程序观察这两个手性相反的区域。<a name="rnd"></a>
+Based on the condition of opposite orientations, let:
+$$\alpha_1=75°,\alpha_2=30°$$
+$$\beta_1=16°,\beta_2=-7°$$
+Then:
+$$\alpha_1+\alpha_2=105°,\alpha_1-\alpha_2=45°$$
+$$\beta_1+\beta_2=9°,\beta_1-\beta_2=23°$$
+Since all angles don't exceed 180°, we can directly use the spherical triangle range formula:
+$$22°=45°-23° \le \gamma_1-\gamma_2 \le 45°+23°=68°$$
+$$96°=105°-9° \le \gamma_1+\gamma_2 \le 105°+9°=114°$$
+We obtain the equations of four boundary lines. Calculating their coordinates shows that most plane angles have the same chirality as the AB plane and opposite chirality to the BC plane, but within a small angle range, the angles have the same chirality as the BC plane and opposite chirality to the AB plane. You can try using the simulation program below to observe these two regions with opposite chirality.<a name="rnd"></a>
 
-## 随机仿真小程序
-这里是我通过随机蒙特卡洛采样来验证两2-向量（即带方向的平面）夹角取值范围的小程序：先通过固定的公式生成A、B两平面让其夹角为$\alpha_1$和$\alpha_2$，再生成C、D两平面夹角为$\beta_1$和$\beta_2$。随后我们对CD施加非常多次随机的旋转，最后使用[这篇文章中的LookAt算法](http://127.0.0.1:4000/archives/so4/)将平面B与C对齐，这样我们就得到了既满足题目夹角约束条件，但方向又完全随机的许许多多的样本了。
+## Random Simulation Program
 
-操作方法很简单：要么输入角度值，要么在图中拖动相应的点，观察黄色的样本点分布即可。<iframe src="/three/angle_range.html" style="width:100%; height:80vh; background-color:rgb(247,250,255);"></iframe><a name="quest"></a>
+Here's a small program I created using random Monte Carlo sampling to verify the range of angles between two 2-vectors (i.e., oriented planes): First, I generate planes A and B with angles $\alpha_1$ and $\alpha_2$ using a fixed formula, then generate planes C and D with angles $\beta_1$ and $\beta_2$. Subsequently, we apply many random rotations to CD, and finally use [the LookAt algorithm from this article](http://127.0.0.1:4000/archives/so4/) to align planes B and C. This way we obtain many samples that satisfy the angle constraints in the problem but have completely random orientations.
 
-## 有难度的思考题
+The operation is simple: either input angle values or drag the corresponding points in the diagram to observe the distribution of yellow sample points.
+<iframe src="/three/angle_range.html" style="width:100%; height:80vh; background-color:rgb(247,250,255);"></iframe><a name="quest"></a>
 
-我来给大家留一道不太一样的有点难度的思考题，答案下期揭晓：每个球面上只选取穿过坐标轴的6个点，这样两边组合下来共有6x6=36种，但因重复算了定向，真正只有18种不同的平面。把这些平面放在原点跟单位超球面相交得到18个圆周，这些圆周组成的图形具有什么样的对称性呢？它能否看作某个多胞体的球极投影呢？每个球面上坐标轴上的点其实组成的是正八面体的顶点。如果每个球面上选择其它正多面体的顶点再两两组合出所有过原点的平面，它们在超球面上的交圆又有什么对称性呢？（包括刚才的正八面体，一共有$5\times 5=25$种情况，排除手性异构还有15种情况）
-## 未完待续
-这篇文章探究了平面之间夹角的传递性，后面我们将探究怎样在平面状态空间中表示出直线与胞，以及解决平面跟直线或胞之间夹角传递性问题。有兴趣的读者可以先自行思考一下。
+## A Challenging Problem
 
+Let me leave you with a different and somewhat challenging problem, with the answer to be revealed in the next installment: On each sphere, select only the 6 points passing through the coordinate axes. This gives 6×6=36 combinations from both sides, but since orientation is counted twice, there are really only 18 different planes. Placing these planes at the origin and intersecting with the unit hypersphere gives 18 circles. What kind of symmetry does the figure formed by these circles have? Can it be viewed as the stereographic projection of some polytope? The points on the coordinate axes of each sphere actually form the vertices of a regular octahedron. If we select vertices of other regular polyhedra on each sphere and combine them pairwise to form all planes passing through the origin, what symmetry do their circles of intersection on the hypersphere have? (Including the octahedron just mentioned, there are $5\times 5=25$ cases in total, excluding chiral isomers leaves 15 cases)
 
+## To Be Continued
+
+This article explored the transitivity of angles between planes. Later we will explore how to represent lines and cells in plane state space, and solve the problem of angle transitivity between planes and lines or cells. Interested readers can think about it first.

@@ -1,163 +1,164 @@
 ---
-title: 四维空间（十）：扭结与环扣
+title: "Four-Dimensional Space (Part 10): Knots and Links"
 tags:
-  - 四维
-  - 几何
-  - 拓扑学
-categories: 四维空间系列
+  - four-dimensional
+  - geometry
+  - topology
+categories: Four-Dimensional Space Series
 date: 2019-03-23 19:49:13
 ---
 
-我们这次来看一个有趣的话题：四维空间中的扭结。或许大家应该早就知道由于多了一个自由度，三维空间中所有的绳结都可以在四维空间被轻易地解开，所以扭结是三维空间特有产物，四维空间中不存在打结现象，全文完。
+This time we'll look at an interesting topic: knots in four-dimensional space. Perhaps everyone should already know that due to the extra degree of freedom, all knots in three-dimensional space can be easily untangled in four-dimensional space, so knots are unique products of three-dimensional space. There are no knotting phenomena in four-dimensional space. End of article.
 
-我当然不会这样结束这篇文章。虽然一维的曲线无法打结，但是二维的曲面（二维绳子？）却可以打结！我早就听说过四维扭结，但一直没找到具体例子。说克莱因瓶的其实是不对的：克莱因瓶是不定向曲面，如果上面有二维生物，那它们在瓶子上环游一周会发现自己被“镜像”了，而球面上不可能发生这种事，所以这两个东西**本质就不相同**（不同胚），好比圆环面和球面。<div style="float:right"><img src="/img/knot417.jpg" width="400px"/></div>
+Of course I wouldn't end this article like that. Although one-dimensional curves cannot form knots, two-dimensional surfaces (two-dimensional ropes?) can form knots! I've long heard about four-dimensional knots, but never found specific examples. Claims about Klein bottles are actually incorrect: Klein bottles are non-orientable surfaces. If two-dimensional beings lived on them, they would find themselves "mirrored" after traveling around the bottle once, which could never happen on a sphere. So these two things are **fundamentally different** (not homeomorphic), like tori and spheres. <div style="float:right"><img src="/img/knot417.jpg" width="400px"/></div>
 
-### 本文目录：    
- - 影片推荐：4D扭结（Knot in 4D）
-  + [第一集：三维扭结](/archives/knot4d/#ep1)
-  + [第二集：四维扭结](/archives/knot4d/#ep2)
-  + [第三集：管状结](/archives/knot4d/#ep3)
- - 形形色色的孔
-  + [圆周内部的孔](/archives/knot4d/#ho2)
-  + [球面内部的孔](/archives/knot4d/#ho1)
-  + [两个球面相扣？](/archives/knot4d/#lsph)
-  + [(平)圆环面内部的孔](/archives/knot4d/#ho0)
-  + [两个双圆环相扣？](/archives/knot4d/#ltig)
- - [扭结旋转体](/archives/knot4d/#rot)
+### Table of Contents:    
+ - Video Recommendation: Knot in 4D
+  + [Episode 1: Three-Dimensional Knots](/archives/knot4d/#ep1)
+  + [Episode 2: Four-Dimensional Knots](/archives/knot4d/#ep2)
+  + [Episode 3: Tube Knots](/archives/knot4d/#ep3)
+ - Various Types of Holes
+  + [Holes Inside Circles](/archives/knot4d/#ho2)
+  + [Holes Inside Spheres](/archives/knot4d/#ho1)
+  + [Two Linked Spheres?](/archives/knot4d/#lsph)
+  + [Holes Inside (Flat) Tori](/archives/knot4d/#ho0)
+  + [Two Linked Bitori?](/archives/knot4d/#ltig)
+ - [Rotational Knots](/archives/knot4d/#rot)
 
 <!--more-->
-我们先说清楚，到底什么叫“打结”。我不想用数学的语言描述（同痕之类的术语），简而言之就是，从不打结的状态A到打结的状态B，如果不允许自相交的话是不可能做到的，但一旦允许自相交（比如把某些地方撕破）就可以。而且这里的自相交要求局部上是“光滑”的，一般如果再多给一个维度的方向，这种自相交就可以避让。
+Let's first clarify what "knotting" means. I don't want to use mathematical language (terms like homotopy), but simply put: going from an unknotted state A to a knotted state B is impossible without allowing self-intersections, but becomes possible once self-intersections are allowed (like tearing certain places). Moreover, these self-intersections must be locally "smooth" - generally, if given one more dimensional direction, such self-intersections can be avoided.
 
-### 影片推荐：4D扭结（Knot in 4D）
-[Youtube上有一个三集的视频](https://www.youtube.com/watch?v=nYz3pRk1cCA)详细讲了四维空间中的扭结。我放在了[百度网盘](https://pan.baidu.com/s/1-Tn0Qb7AXNCCji-_mKe2fQ)里，[这是作者的官网](http://science.unitn.it/~dalvit/visualization/)，里面还有两个有趣的java的演示小程序。可惜影片没有中文字幕，里面讲述人的英语也很烂（好像是意大利人），我在这里大概再简述一下影片里的内容。<a name="ep1"></a>
-##### 第一集：三维扭结
-首先，在数学中，一根打结的线不算结，因为线头可以滑动，结就解开了，所以我们打结后把线两头连起来变成圈，这样无论怎么拉扯也解不开了。怎样表示一个三维空间中的扭结呢？当然是投影。但我们必须注意投影时原来不相交的线会在某些点重叠，为了表明谁在上谁在下，我们有两种表示法：一是把下面的线画成断开状，二是给整个扭结像等高线地图一样上色。我们也将用这些方法表示四维空间中的结。
+### Video Recommendation: Knot in 4D
+[There's a three-episode video series on YouTube](https://www.youtube.com/watch?v=nYz3pRk1cCA) that explains knots in four-dimensional space in detail. I've put it on [Baidu Cloud](https://pan.baidu.com/s/1-Tn0Qb7AXNCCji-_mKe2fQ), and [here's the author's official website](http://science.unitn.it/~dalvit/visualization/) which contains two interesting Java demonstration programs. Unfortunately, the videos don't have Chinese subtitles, and the narrator's English is quite poor (seems to be Italian). I'll roughly summarize the video content here. <a name="ep1"></a>
+##### Episode 1: Three-Dimensional Knots
+First, in mathematics, a knotted line doesn't count as a knot because the ends can slide and the knot comes undone. So we connect the two ends after knotting to form a loop, which can't be untangled no matter how much we pull. How do we represent a knot in three-dimensional space? Through projection, of course. But we must note that during projection, originally non-intersecting lines will overlap at certain points. To show which is above and which is below, we have two representation methods: one is to draw the lower line as broken, the other is to color the entire knot like a topographic map. We'll also use these methods to represent knots in four-dimensional space.
 ![](/img/knot402.jpg)
 ![](/img/knot401.jpg)
-扭结的中心问题就是给定两个结怎么判定它们是等价的。比如最简单的三叶结和没打结的一个圈（我们也认为一个圈也算结，虽然是平凡无趣的）证明两个结等价很简单，你只需要要把变形的步骤展示出来就行了，数学家Reidemeister归纳了在投影中所有合法的变形方式，称为Reidemeister移动；但要证明两个结不等价很困难，虽然根据生活经验我们知道不用剪刀是不可能把三叶结恢复到圆圈的，但是我们无法证明在无限次步骤之后就可以。影片里又介绍了一种通过计算给[投影中的线段上色的方法](https://en.wikipedia.org/wiki/Tricolorability)数量来区分不同扭结的方法，因为上色方法数量在所有合法的变形方式中都不会改变，从而是一种扭结的“不变量”，等价的结的上色数一定相同。<a name="ep2"></a>
-##### 第二集：四维扭结
-试想我们拿起一张长方形的布，然后怎么揉了一下就打好了结。但我们只需倒过来做刚才的动作，结就可能被解开。所以数学上的做法是打完结后把布边界拧在一起，变成球，避免滑开。把边界拧在一起是什么意思？为什么不是把长方形对边粘起来变成像甜甜圈的圆环面呢？其实答案是：都可以！你看到了四维扭结的多样性：圆环形是有孔的，显然再怎么允许自相交都永远不与球等价，所以就算是平凡结都有很多种可能。（还有两孔曲面、克莱因瓶、射影平面等）我们先来看看球形结吧。
-![球体自身打结，第二幅图只部分显示了球面以便观察内部颜色](/img/knot403.jpg)影片里给了一个把球拉成面条穿过自身的非平凡结，通过高度图我们看到球面穿过自身交叉时两边颜色（第四维的高度）不一样，尝试解开的话中间的绿色会碰在一起，过不去。因为相交的部分三维投影重合了不代表第四维重合，但如果颜色也一样那就在四维空间真正相交了。而到了五维空间，这些二维结都可以轻松解开（因为就算四维的颜色一样，第五维上还有方向可以避开）。类似地，数学家归纳了所有合法的变形方式，影片同样使用计算升级版的上色方法数来证明这个扭结和一个球不等价。
-![三维（左）、四维（右）空间中扭结所有的合法变形方式](/img/knot404.jpg)
-很多合法变形方式都是可以从三维明显类比过去的，但也有两个不那么明显的，那就是含有分支点（Branch point）的投影：
+The central problem of knot theory is determining whether two given knots are equivalent. For example, proving that the simplest trefoil knot and an unknotted circle (we also consider a circle as a knot, though trivial and uninteresting) are equivalent is simple - you just need to demonstrate the transformation steps. Mathematician Reidemeister summarized all legal transformation methods in projections, called Reidemeister moves. But proving two knots are not equivalent is difficult. Although from life experience we know it's impossible to restore a trefoil knot to a circle without scissors, we cannot prove this is impossible even after infinite steps. The video introduces a method of [coloring line segments in projections](https://en.wikipedia.org/wiki/Tricolorability) to distinguish different knots by counting coloring methods, since the number of coloring methods doesn't change under all legal transformations, making it an "invariant" of knots - equivalent knots must have the same number of colorings. <a name="ep2"></a>
+##### Episode 2: Four-Dimensional Knots
+Imagine we take a rectangular cloth and somehow twist it into a knot. But we can just reverse the action to potentially unknot it. So the mathematical approach is to twist the boundary together after knotting, forming a sphere to prevent slipping. What does twisting the boundary together mean? Why not glue opposite edges of the rectangle to form a torus like a donut? Actually, both work! You can see the diversity of four-dimensional knots: tori have holes and obviously can never be equivalent to spheres even allowing self-intersections, so even trivial knots have many possibilities. (There are also two-holed surfaces, Klein bottles, projective planes, etc.) Let's first look at spherical knots.
+![A sphere knotting itself, the second image shows only part of the sphere surface to observe internal colors](/img/knot403.jpg)The video gives a non-trivial knot by stretching a sphere into noodles threading through itself. Through height maps we see the sphere surface has different colors (fourth-dimensional heights) when crossing through itself. When trying to unknot, the green parts in the middle would collide and can't pass through. Because overlapping parts in three-dimensional projection doesn't mean fourth-dimensional overlap, but if colors are also the same, then they truly intersect in four-dimensional space. In five-dimensional space, all these two-dimensional knots can be easily unknotted (because even if fourth-dimensional colors are the same, there's still a fifth direction to avoid collision). Similarly, mathematicians have summarized all legal transformation methods, and the video uses an upgraded coloring method count to prove this knot is not equivalent to a sphere.
+![Legal transformation methods for knots in three-dimensional (left) and four-dimensional (right) space](/img/knot404.jpg)
+Many legal transformations can be obviously analogized from three dimensions, but there are two less obvious ones involving branch points in projections:
 ![](/img/knot418.jpg)
-我们通过截面法来展示这两种移动到底干了什么：
+We use cross-section methods to show what these two moves actually do:
 ![](/img/knot414.gif)
-它们的截面变化对应三维空间中一条线的合法移动！（我们甚至可以猜想这两种移动过程对应五维空间中三维曲胞投影在四维空间中的一种合法移动的截胞动画）
+Their cross-sectional changes correspond to legal movements of a line in three-dimensional space! (We can even guess these two transformation processes correspond to cross-sectional animations of legal movements of three-dimensional cell projections in four-dimensional space projected into five-dimensional space)
 <a name="ep3"></a>
-##### 第三集：管状结
-主要讲的是类特殊的球面结——它们看上去像管子——的线条表示方法。这种表示法相当于一种二次投影。注意只有管子相互穿过自身了才对顺序有要求，而三维空间中的交叉顺序可以在第四个维度上变过去，所以不用表明哪个在上哪个在下。
-![管子真实交叉情况与线条表示方法的对应](/img/knot407.jpg)
-![球面结的线条表示](/img/knot408.jpg)
-我们可以通过一些变形将一根线上交叉标注的方向变到一致，这样我们就能省略交叉处的箭头了。
-![把交叉部分扭转180°标记的方向就会反向](/img/knot415.jpg)
-![不同管子交叉的合法移动方式和不合法移动方式](/img/knot402.gif)
-我不能理解的只有左上角给出的合法移动：无法想象穿过自身的管子是如何解开的，或许应该从克莱因瓶的投影中找灵感？
+##### Episode 3: Tube Knots
+This mainly discusses special spherical knots that look like tubes and their linear representation method. This representation is like a double projection. Note that order matters only when tubes thread through themselves, while crossing order in three-dimensional space can be changed in the fourth dimension, so we don't need to show which is above or below.
+![Correspondence between actual tube crossing situations and linear representation](/img/knot407.jpg)
+![Linear representation of spherical knots](/img/knot408.jpg)
+We can make the crossing directions on one line consistent through some transformations, allowing us to omit arrows at crossings.
+![Twisting the crossing part 180° reverses the marked direction](/img/knot415.jpg)
+![Legal and illegal movement methods for different tube crossings](/img/knot402.gif)
+The only thing I can't understand is the legal move shown in the upper left: I can't imagine how a tube threading through itself unknots - perhaps we should find inspiration from Klein bottle projections?
 
-最先我对这方面内容不是特别感兴趣，但后来发现可以把所有的三维扭结通过这些图对应到四维的管状结，给了一种四维人做纺织线不散架的思路！纺织线是一些中空的管线，纺织时不能像三维空间那样直接交叉覆盖上去，而是从管子内部穿过去，就像我们在第二集里看到的球面结那样。
-![三叶结的四维化，注意这是一个环面打成的结](/img/knot409.jpg)
-最后影片说到这种方法表示的结太少，比如它不能表示投影中三个曲面交于一点的情况，影片提了一下还有很多复杂的四维扭结，但现在数学家对它们的认识也很少。
+Initially I wasn't particularly interested in this content, but later I discovered that all three-dimensional knots can be mapped to four-dimensional tube knots through these diagrams, giving four-dimensional beings ideas for textile threads that don't fall apart! Textile threads are hollow tubes that can't simply cross over each other like in three-dimensional space during weaving, but must thread through the inside of tubes, just like the spherical knots we saw in episode two.
+![Four-dimensionalization of trefoil knot, note this is a knot made by a torus](/img/knot409.jpg)
+Finally, the video mentions this representation method covers too few knots - for example, it can't represent cases where three surfaces intersect at one point in projection. The video briefly mentions there are many complex four-dimensional knots, but mathematicians currently know little about them.
 
-### 形形色色的孔
+### Various Types of Holes
 
-看完了各种各样的扭结，下面我们来看点不同的东西：由四维珠子串成的项链。按照惯例，我们先分析三维项链：三维项链的珠子是球形的，之所以它们能被串起来是因为每个珠子上都开了一个孔道，这个孔道刚好能让线穿过去；我们能不能在四维超球形的珠子上开孔从而串成一串呢？当然可以。不仅可以，我们还能证明把线两头系在一起后超球就不会掉下来。这个证明可以利用影片中讲到的四维扭结投影上色方法证明。然而我们先要知道开了孔的超球的三维投影是什么样子的。在说明这个问题之前先看看四维空间中其他形形色色的孔。<a name="ho2"></a>
+After seeing various knots, let's look at something different: necklaces made of four-dimensional beads. Following convention, let's first analyze three-dimensional necklaces: three-dimensional necklace beads are spherical, and they can be strung together because each bead has a hole just big enough for thread to pass through. Can we drill holes in four-dimensional hyperspherical beads to string them together? Of course. Not only is this possible, we can prove that after tying the thread ends together, the hypersphere won't fall off. This proof uses the four-dimensional knot projection coloring method mentioned in the video. However, we first need to know what the three-dimensional projection of a hypersphere with a hole looks like. Before explaining this, let's look at various other types of holes in four-dimensional space. <a name="ho2"></a>
 
-##### 圆周内部的孔
+##### Holes Inside Circles
 
-![Hopf link：来源维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Hopf_Link.png/330px-Hopf_Link.png)
-三维空间中最常见的环扣就是锁链的基本组成单元，这种结构叫Hopf link（没错！就是因为Hopf纤维丛里面扣在一起的圆）。但是三维空间还存在一维的东西吗？其实生活中的圆环是有厚度的，我们换到这个角度上来说，其实是两个圆环面扣在了一起。（这难道也算三维空间的曲面打结？）我们的问题是四维空间有没有类似的东西。首先，把锁链直接拿到四维就散架了，其原理和四维空间没有一维扭结一样。四维中所有物体都或多或少有点四维的厚度，一维的圆加厚就得到球环（我们在[上篇文章](/archives/rot4d/#thickness)中讨论过），所以两个球环串起来也会滑开散架，或者说，**从圆周（球环）的孔中穿线会掉**。我们可以理解为孔的维数比线的维度大，所以穿不上。这种描述或许有点抽象，那有没有更低维的例子让我们直观感受一下呢？
+![Hopf link: from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Hopf_Link.png/330px-Hopf_Link.png)
+The most common link in three-dimensional space is the basic component of chains, called the Hopf link (yes! It's from the linked circles in Hopf fiber bundles). But do one-dimensional objects still exist in three-dimensional space? Actually, real rings have thickness. From this perspective, it's really two tori linked together. (Could this also count as surface knotting in three-dimensional space?) Our question is whether four-dimensional space has similar things. First, directly taking chains to four dimensions makes them fall apart, for the same reason that four-dimensional space has no one-dimensional knots. All objects in four dimensions have some four-dimensional thickness. One-dimensional circles thickened become ball rings (which we discussed in [the previous article](/archives/rot4d/#thickness)), so two ball rings strung together will also slip apart, or in other words, **threading from holes in circles (ball rings) will fall off**. We can understand this as the hole's dimension being larger than the thread's dimension, so it can't be threaded. This description might be abstract - are there lower-dimensional examples for intuitive understanding?
 
-设想三维空间中有个定点，如果一个玻璃球里面有个小气泡（零维孔），刚好气泡把定点包住了，那么这个球就被定点“栓”起来了，不可能扯掉；如果玻璃球有一个正常的一维孔，那么就算定点在孔里面，我们只需要拿着球往孔贯通的方向移动就可以取出来。在继续设想二维孔之前，我们要搞清楚“孔”到底是什么。我们规定：$N$维实心图形上的$n$维直孔($n<N$)是$N$维实心图形挖掉一个$n$维平直的子空间加一点厚度的图形。比如球中间的气泡对应挖掉了一个有厚度的点，有孔的球是对应挖掉了一条有厚度的线。
-接下来试着在球面上开一个二维的孔：二维面就像一把刀子，直接将球切成了两半!我们得到的图形不连通了，没有意义这里就不深入讨论了。当然，这些操作得到的孔的周围会很“锋利”，我们的目标是找到典型的光滑的等价几何体。
-![三维球体上的各种维度的开孔（上）和它的拓补等价的光滑图形（下）](/img/knot410.jpg)
-三维空间中各种维度的孔就是这些了。下面轮到四维：
-- 零维的孔还是类似于一个中空的气泡；
-- 一维的孔是贯穿的一条线，刚好可以穿在线上，但不能包住零维的点；
-- 二维的孔是贯穿的一个平面，刚好可以穿在平面上，但不能包住线，可以轻易滑落；
-- 三维的孔是贯穿的一个平胞，但它把四维图形切分成了两个不连通的部分。
+Imagine a fixed point in three-dimensional space. If a glass ball has a small bubble (zero-dimensional hole) that just encloses the fixed point, then the ball is "tied" to the point and can't be pulled away. If the glass ball has a normal one-dimensional hole, even if the fixed point is inside the hole, we can just move the ball in the direction the hole penetrates to remove it. Before imagining two-dimensional holes, we need to clarify what a "hole" is. We define: an $n$-dimensional straight hole ($n<N$) in an $N$-dimensional solid figure is the figure obtained by removing an $n$-dimensional flat subspace plus some thickness from the $N$-dimensional solid. For example, a bubble in the center of a sphere corresponds to removing a thickened point, and a holed sphere corresponds to removing a thickened line.
 
-我们的类比中有一点比较奇怪：用二维的刀片切四维的东西居然没把东西切开！因为多余的维度让在三维空间本该分开的两部分连在了一起！想想二维人类似的悲惨遭遇就知道了：它们没有贯穿体内的食道，因为食道会把它们一分为二，它们用一维的刀片可以切开二维物体，但在三维空间不会，与其说用一维的刀片切三维的东西不如说用一维的铁丝捅三维的物体，最多捅穿捅出个洞来。所以到了四维空间，我们的二维刀具最多只能算二维的“铁丝”而已。
+Next, try opening a two-dimensional hole in a sphere surface: a two-dimensional surface is like a knife that directly cuts the sphere in half! The resulting figure becomes disconnected and meaningless, so we won't discuss this further. Of course, these operations create "sharp" surroundings around holes. Our goal is to find typical smooth equivalent geometric bodies.
+![Various dimensional holes in three-dimensional spheres (top) and their topologically equivalent smooth figures (bottom)](/img/knot410.jpg)
+These are all the various dimensional holes in three-dimensional space. Now for four dimensions:
+- Zero-dimensional holes are still like hollow bubbles;
+- One-dimensional holes are penetrating lines that can be threaded on lines but can't enclose zero-dimensional points;
+- Two-dimensional holes are penetrating planes that can be threaded on planes but can't enclose lines and easily slide off;
+- Three-dimensional holes are penetrating cells that divide the four-dimensional figure into two disconnected parts.
 
-接下来的任务就是去找一些典型的带各种维度的孔的图形。怎么找呢？我们只需要对各种遇到过的图形上的孔分类，以便搞清它们能不能穿在$n$维的“线”上。首先凸多面体、球体、凸多胞体、超球都是没有孔的，三维空间有一个一维孔的东西就是圆环，它的高维类比有很多，比如球环、环球、圆环环、双圆环，这些东西名字听起来应该都是有孔的。首先来看圆周在不同维度上加厚体的洞的维数。把圆周在**二维空间里加厚**，变成了二维圆环，洞完全在图形里面，可以缩成一点，是**零维洞**。圆周**在三维空间加厚**成三维圆环，此时的洞是上下贯穿的**一维洞**。
-![圆周在二维空间和三维空间中加厚分别等效于零维孔和一维孔](/img/knot403.gif)
-我们看到，洞的维数跟某种自由度有关：设圆周处在$xy$平面上，我们处在圆周中心，沿$x$、$y$轴这些方向上走都会碰到圆周，但沿z轴走就没有障碍，所以三维空间里把圆周加厚得到的物体的洞是一维的，同理，如果**空间是四维**，沿z轴和w轴走都不会遇到任何阻碍，这就是**二维的孔**，对应的加厚体就是**球环**。我们可以明确地标出开孔的走向，但只能通过截面动画这种不太直观的方式来可视化它们（注意球极投影只适合可视化没有洞的凸图形）。
-![球环的孔能塞进一张平面（截面动画）](/img/knot406.gif)<a name="ho1"></a>
+Something strange in our analogy: using a two-dimensional blade to cut four-dimensional objects doesn't actually cut them apart! Because extra dimensions allow parts that should be separated in three-dimensional space to stay connected! Think of similar tragic experiences of two-dimensional beings: they don't have penetrating food pipes because food pipes would split them in two. They can cut two-dimensional objects with one-dimensional blades, but not in three-dimensional space. Rather than cutting three-dimensional objects with one-dimensional blades, it's more like poking three-dimensional objects with one-dimensional wire, at most creating holes. So in four-dimensional space, our two-dimensional cutting tools are at most two-dimensional "wires."
 
-##### 球面内部的孔
+The next task is finding typical figures with various dimensional holes. How? We just need to classify holes in various figures we've encountered to determine whether they can be threaded on $n$-dimensional "threads." First, convex polyhedra, spheres, convex polytopes, and hyperspheres all have no holes. In three-dimensional space, things with one-dimensional holes include tori, and their higher-dimensional analogs include ball rings, ring-spheres, torus rings, and bitori - these names all sound like they have holes. Let's first look at the hole dimensions of circles thickened in different dimensions. Thickening a circle **in two-dimensional space** creates a two-dimensional torus with a hole completely inside the figure that can shrink to a point - a **zero-dimensional hole**. **Thickening a circle in three-dimensional space** creates a three-dimensional torus with a hole penetrating up and down - a **one-dimensional hole**.
+![Thickening circles in two-dimensional and three-dimensional space equivalent to zero-dimensional and one-dimensional holes respectively](/img/knot403.gif)
+We see that hole dimension relates to some degree of freedom: suppose the circle lies in the $xy$ plane and we're at the circle center. Walking along $x$ and $y$ axes hits the circle, but walking along the z-axis has no obstacles. So thickening a circle in three-dimensional space creates an object with a one-dimensional hole. Similarly, if **space is four-dimensional**, walking along both z and w axes encounters no obstacles - this is a **two-dimensional hole**, and the corresponding thickened body is a **ball ring**. We can clearly mark the hole direction but can only visualize them through cross-sectional animations (note that stereographic projection only suits visualizing convex figures without holes).
+![Ball ring holes can fit a plane (cross-sectional animation)](/img/knot406.gif)<a name="ho1"></a>
 
-现在我们终于清楚了从球环的孔中穿线会掉的原因是因为球环的二维孔固定不了一维线。总结一下就是$N$维空间中的圆周会占用两个维度，剩下$N-2$维就是圆周加厚体孔的维数。如果我们还希望得到一维的带孔图形并要把它们用线串起来，那么就需要加厚从中间往三个方向走都“碰壁”，只留第四个畅通方向的图形。这个东西对应球面的加厚体——**环球**。同样比较过中心的截面，我们可以看到球环的开孔自由度确实环球大。
-![环球的孔只能塞进直线（截面动画）](/img/knot405.gif)
-最后让我们梳理一下球环和环球：
-- 球环是有“粗细”的闭合的一维图形（圆周），它有着二维的孔；
-- 环球是有“粗细（厚度）”的闭合的二维图形（球面），它有着一维的孔；
+##### Holes Inside Spheres
 
-我们终于找到了可以被线串起来的东西——球环，而真实的线也是有厚度的，但就像我们分析扭结那样，虽然绳子都有厚度，但是我们可以忽略它们，球环就变成了一维的圆周，环球就变成了二维的球面，这样分析问题就简单多了，我们以后将不再刻意区分加厚体与零厚度物体。重述一下就是：二维的球面可以串在一维的圆周上，因为二维球面的孔是一维的，刚好和一维的圆周匹配，但换个角度也说明一维的圆周可以串在二维的球面上，因为一维圆周的孔是二维的，刚好和二维的球面匹配。总结下来就是两个东西相扣，它们本身的维数和洞的维数相互匹配，而且感觉$n$维图形的洞的维数是$N-n-1$维。这个结论其实不成立，我们在后面将看到四维空间中两个二维曲面也能够相扣。
+Now we finally understand why threading through ball ring holes causes things to fall off - because ball rings' two-dimensional holes can't fix one-dimensional threads. To summarize: circles in $N$-dimensional space occupy two dimensions, leaving $N-2$ dimensions as the hole dimension of the circle's thickened body. If we still want one-dimensional holed figures that can be strung with thread, we need thickened bodies where walking in three directions from the center hits "walls," leaving only the fourth direction open. This corresponds to thickening spheres - **ring-spheres**. Comparing central cross-sections, we can see that ball rings indeed have larger hole freedom than ring-spheres.
+![Ring-sphere holes can only fit straight lines (cross-sectional animation)](/img/knot405.gif)
+Finally, let's organize ball rings and ring-spheres:
+- Ball rings are "thick" closed one-dimensional figures (circles) with two-dimensional holes;
+- Ring-spheres are "thick" closed two-dimensional figures (spheres) with one-dimensional holes;
+
+We finally found something that can be strung with thread - ball rings, while real threads also have thickness. But like analyzing knots, although ropes have thickness, we can ignore it. Ball rings become one-dimensional circles, ring-spheres become two-dimensional spheres. This simplifies analysis. We no longer distinguish thickened bodies from zero-thickness objects. Restating: two-dimensional spheres can be strung on one-dimensional circles because two-dimensional sphere holes are one-dimensional, matching one-dimensional circles. From another angle, one-dimensional circles can be strung on two-dimensional spheres because one-dimensional circle holes are two-dimensional, matching two-dimensional spheres. In summary, when two objects link, their dimensions and hole dimensions match each other, and it seems $n$-dimensional figure holes are $N-n-1$ dimensional. This conclusion doesn't actually hold - we'll see later that two two-dimensional surfaces can also link in four-dimensional space.
 ![](/img/knot407.gif)<a name="lsph"></a>
-##### 两个球面相扣？
-还有一个自然的问题就是两个球面能不能相扣？如果要求球面是刚性的那么是不可以的，因为洞的维数无法匹配，但我们前面就看到了球面自身都能打结，所以两个“软”的球面肯定能相扣（要求每个球面自身没打结）。
-![两个相扣球面的管状结线条表示法](/img/knot408.gif)
-同样，三维空间还存在着一个特殊的构造：三个圆圈相扣([Borromean rings](https://en.wikipedia.org/wiki/Borromean_rings))，但每两之间都是不相扣的，三个球面呢？
-![来源：维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BorromeanRings.svg/266px-BorromeanRings.svg.png)
-我构造了一种方案，但遗憾的是无法证明它们确实是扣在一起的，因为计算染色方法数得出它和三个分离的球是一样的，当然这也不能说明它与三个分离的球等价，有待用其他判据检验。
+##### Two Linked Spheres?
+Another natural question is whether two spheres can link. If spheres are rigid, then no, because hole dimensions can't match. But we've seen spheres can knot themselves, so two "soft" spheres can definitely link (requiring each sphere itself unknotted).
+![Linear representation of two linked spheres using tube knot notation](/img/knot408.gif)
+Similarly, three-dimensional space has a special construction: three linked circles ([Borromean rings](https://en.wikipedia.org/wiki/Borromean_rings)) where no two are linked but all three together are linked. What about three spheres?
+![Source: Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BorromeanRings.svg/266px-BorromeanRings.svg.png)
+I constructed one solution, but unfortunately can't prove they're actually linked because calculating coloring method numbers gives the same result as three separate spheres. Of course, this doesn't prove equivalence to three separate spheres - other criteria need verification.
 ![](/img/knot411.gif)<a name="ho0"></a>
-##### (平)圆环面内部的孔
-四维空间有孔的东西还有圆环环和双圆环。它们作为本来就有孔的圆环的旋转体得到圆环环，我们猜测这两个图形或许有两个孔。作为加厚体，它们分别对应四维的平圆环面和三维轮胎形的圆环面。
+##### Holes Inside (Flat) Tori
+Four-dimensional holed objects also include torus rings and bitori. As rotational bodies of already-holed tori, we guess these figures might have two holes. As thickened bodies, they correspond to four-dimensional flat tori and three-dimensional tire-shaped tori.
 
-我们先分析圆环面的孔：首先，圆环本来就有孔，对应圆周加厚，这个孔来源于圆周是空心的，放到四维空间就是二维的，能塞进平面；然后我们只取圆环的表面，得到圆环面，这个操作又是一次镂空。它对应的孔其实也有两个自由度，设想你在环形管道里，你可以顺着管道走也可以往第四个维度走彻底离开管道，只要不往剩下管道壁的两个方向走就行。这个孔可以塞进一张柱面（高的方向垂直于圆环面所在三维胞）。我们看到，四维空间中图形孔的形状开始变得复杂起来。
+Let's first analyze torus holes: First, tori already have holes corresponding to thickened circles - these holes come from circles being hollow. In four-dimensional space, this becomes two-dimensional, fitting planes. Then we take only the torus surface, creating a torus surface - this operation is another hollowing. This hole also has two degrees of freedom. Imagine you're in a ring-shaped tube - you can walk along the tube or go in the fourth dimension to completely leave the tube, as long as you don't walk in the remaining two directions of the tube wall. This hole can fit a cylindrical surface (height direction perpendicular to the torus surface's three-dimensional cell). We see that hole shapes in four-dimensional space are becoming complex.
 
-其实四维平圆环的孔还相对简单些：平圆环是两个空心圆周的直积。如果我们把两圆分别放到$xy$、$zw$平面上并让圆心放在原点，那么平面$xy$、$zw$都不会与平圆环相交。检查平圆环的方程就可以得出来：比如平圆环上的点xy坐标不可能同时为0。
+Actually, four-dimensional flat torus holes are relatively simple: flat tori are Cartesian products of two hollow circles. If we place the two circles in $xy$ and $zw$ planes with centers at the origin, then planes $xy$ and $zw$ won't intersect the flat torus. This can be derived from the flat torus equation: for example, points on flat tori can't have both xy coordinates zero.
 $$
-\begin{cases}x^2+y^2= r\_1^2 \\\\ z^2+w^2= r\_2^2\end{cases}
+\begin{cases}x^2+y^2= r_1^2 \\ z^2+w^2= r_2^2\end{cases}
 $$
-如果要用几何的方式解释的话就是：平面中空心的圆周可以看作有零维的孔，它与另一个二维图形直积就是把这个图形在另一个图形上不断平移的结果，这些平移的自由度为二，自然导致了孔的维数升级到了二；根据直积交换律，对另一个图形也是，我们得到了平圆环上有两个绝对垂直的二维孔。加厚后就是双圆环，它从拓补上对应着对着超球捅了绝对垂直的两次二维刀的产物。
-![把$xy$、$zw$平面塞进双圆环（有厚度的平圆环）里的截面动画，可以看到绝对垂直的两平面交于一点](/img/knot404.gif)
-我们真的从它的中心斜截面中看到了三维空间类似被垂直的直线捅了两刀的结构！这就是[上篇文章中提到的Tiger cage](/archives/rot4d/#tigercage)。
+Geometrically: hollow circles in planes can be seen as having zero-dimensional holes. Taking the Cartesian product with another two-dimensional figure means continuously translating this figure on another figure. These translation degrees of freedom are two-dimensional, naturally upgrading hole dimension to two. By Cartesian product commutativity, the same applies to the other figure, giving flat tori two absolutely perpendicular two-dimensional holes. Thickening gives bitori, which topologically correspond to poking a hypersphere with two absolutely perpendicular two-dimensional knives.
+![Cross-sectional animation of fitting $xy$ and $zw$ planes into bitori (thickened flat tori), showing absolutely perpendicular planes intersecting at one point](/img/knot404.gif)
+We really see a structure similar to being stabbed twice by perpendicular lines in the central oblique cross-section of three-dimensional space! This is the [Tiger cage mentioned in the previous article](/archives/rot4d/#tigercage).
 ![](/img/knot411.jpg)
 
-最后我想说更奇妙的是，平圆环可以在四维空间翻成圆环，对应的孔也可以连续变形。也就是说我们可以把圆柱形连续变形为平面？这不可能，一定有哪个地方搞错了！其实我们看看三维空间类似的情况就会豁然开朗，没有任何矛盾。
+Finally, the most amazing thing is that flat tori can be turned into regular tori in four-dimensional space, and corresponding holes can also continuously deform. Can we continuously deform cylinders into planes? This is impossible - something must be wrong! Actually, looking at similar situations in three-dimensional space clarifies everything without contradiction.
 ![](/img/knot410.gif)<a name="ltig"></a>
 
-##### 两个双圆环扣？
+##### Two Linked Bitori?
 
-最后的问题是刚性的双圆环能不能自己和自己相扣呢？我只找到了两个大小不相等的双圆环扣，它的原理是双圆环的一个二维孔套在另一个平圆环面（加厚就是双圆环）上达到维度匹配，但如果两个双圆环一样大就套不进去了，很有可能两个全等的刚性双圆环不存在相扣的方案。
-![一大一小两个双圆环相扣不同角度的截面动画](/img/knot409.gif)
-平圆环的三维投影是什么样子的呢？它不可避免会产生自相交（有四个分支点，两条二重交线）。
-![平圆环的上色投影](/img/knot413.jpg)
-我们的两个双圆环投下来就是：
+The final question is whether rigid bitori can link with themselves. I only found two unequally sized linked bitori. The principle is that one bitorus's two-dimensional hole fits on another flat torus surface (thickened becomes bitorus) achieving dimension matching. But if two bitori are the same size, they can't fit, so it's very possible that two congruent rigid bitori have no linking solutions.
+![Cross-sectional animations from different angles of one large and one small linked bitori](/img/knot409.gif)
+What does flat torus three-dimensional projection look like? It inevitably produces self-intersections (four branch points, two double intersection lines).
+![Colored projection of flat torus](/img/knot413.jpg)
+Our two bitori project as:
 ![](/img/knot415.gif)
-但通过影片中提到的曲面合法移动方式可以轻松地把大圆环变成标准的轮胎形环面，但由于小圆环套在大圆环上，做移动时要小心自相交的产生。小圆环通过变形也能变成标准环面，那么上面两个平圆环打结就等价于两个圆环面在打结。我们说过这种打结是二维孔匹配在二维面上，所以我们完全不用关心大圆环的其余部分，直接用一张平面表示大圆环的局部。我最先以为等价于如下示意图的管状结：
-![错误的管状结线条表示法](/img/knot412.gif)
-但事实是管状结一点也不万能，这个结无法用管状结对应的图画出来。我们从投影中也能看到，整个小圆环是躺着穿在大圆环面上的，跟上面的图不符。可以认为把双圆环变成圆环时，它的孔从平面变成了圆柱。如果觉得抽象的话我们看一个更简单的例子：球面与环面的环扣可以认为球面与圆环面二维的洞（圆柱面）匹配了，但环面与球面的一维洞是怎么匹配的就很抽象了，因为球面跨在环面的孔上，不能归为简单的对应维度匹配的问题，且管状结也没法表示这种跨越。要理解这个环扣得换用旋转体的思维，我们将在后面讨论。在球面上开个洞变成圆环（洞开在不与其他投影相交的地方，这样就不参与打结），就等价于我们刚才讨论的平圆环扣了，所以这两种结本质是一样的。
-![球面与环面的环扣的上色投影](/img/knot416.jpg)
+But through surface legal movement methods mentioned in the video, the large torus can easily become a standard tire-shaped torus. Due to the small torus being threaded on the large torus, we must be careful about self-intersections during movements. The small torus can also become a standard torus through deformation, so the two linked flat tori above are equivalent to two linked torus surfaces. We said this linking is two-dimensional holes matching on two-dimensional surfaces, so we don't need to care about the rest of the large torus and can directly represent the large torus locally with a plane. I initially thought it was equivalent to the following tube knot diagram:
+![Incorrect tube knot linear representation](/img/knot412.gif)
+But tube knots aren't universal at all - this knot can't be drawn with corresponding tube knot diagrams. We can see from projections that the entire small torus lies flat threading through the large torus surface, not matching the diagram above. We can think of converting bitori to tori as changing holes from planes to cylinders. For a simpler example: sphere-torus linking can be thought of as spheres matching torus two-dimensional holes (cylindrical surfaces), but how the torus's one-dimensional hole matches the sphere is very abstract, because spheres span across torus holes, not simply corresponding to dimension matching. Tube knots can't represent this spanning. Understanding this linking requires rotational body thinking, which we'll discuss later. Opening a hole in the sphere to make a torus (opening holes where they don't intersect other projections, so they don't participate in knotting) is equivalent to the flat torus linking we just discussed, so these two knots are essentially the same.
+![Colored projection of sphere-torus linking](/img/knot416.jpg)
 
-四维空间洞的形状很多，其实三维空间也是，但二维曲面分类定理告诉我们所有定向闭合曲面（除去克莱因瓶这些怪物）都等价于有N个孔的图形，当然这是完全在同胚映射的角度上说的。如果我们把一个孔在物体内部弯成死结，这个孔与没打结的空肯定不等价，但这是在同痕的意义下了（同痕注重变形过程不能自相交，设想允许自相交的话结就解开了）。那有没有三维曲胞（用标准一点的术语叫三维流形）分类定理呢？这个问题太复杂了。但我们之前说过球环和环球的三维表面是等价的，所以可能用一个参数（孔个数或欧拉性示数？）就能表示。三维空间中两条垂直孔相交的曲面等价于有四个孔的图形。所以我十分怀疑开了两个平行二维孔的曲胞和交于一点的二维孔（比如绝对垂直就交于一点）曲胞不等价，很可能双圆环中的两个孔完全就没法变换成其它分离的孔。
+Four-dimensional space has many hole shapes - actually three-dimensional space does too. But the classification theorem for two-dimensional surfaces tells us all oriented closed surfaces (excluding monsters like Klein bottles) are equivalent to figures with N holes, though this is purely from a homeomorphic mapping perspective. If we bend a hole inside an object into a knot, this hole is definitely not equivalent to an unknotted hole, but this is in the homotopic sense (homotopy emphasizes that deformation processes can't self-intersect - imagine if self-intersection were allowed, knots would unknot). Is there a classification theorem for three-dimensional cells (using more standard terminology: three-dimensional manifolds)? This problem is too complex. But we said earlier that ball ring and ring-sphere three-dimensional surfaces are equivalent, so maybe one parameter (hole number or Euler characteristic?) could represent them. Three-dimensional space surfaces with two perpendicular intersecting holes are equivalent to four-holed figures. So I strongly suspect that cells with two parallel two-dimensional holes and cells with two-dimensional holes intersecting at points (like absolutely perpendicular intersection at one point) are not equivalent. The two holes in bitori very likely can't transform into other separated holes.
 
-##### 扭结旋转体<a name="rot"></a>
+##### Rotational Knots<a name="rot"></a>
 
-下面我说说其它扭结。有一种最简单构造二维扭结的方法：设想$xy$平面内有一张方形的纸，把边缘$x$在$xzw$空间中打结，完全不影响$y$轴，这样就得到了以$xzw$空间中的结为底面、高平行于$y$轴的柱体。这种构造扭结的方法叫柱化升维法。除了柱化升维还可以旋转升维。
+Now let's discuss other knots. There's a simplest method for constructing two-dimensional knots: imagine a square paper in the $xy$ plane, knot edge $x$ in $xzw$ space without affecting the $y$ axis, creating a cylinder with the knot in $xzw$ space as base and height parallel to the $y$ axis. This knot construction method is called cylindrical dimension raising. Besides cylindrical raising, there's rotational raising.
 
-我们知道，球面由半圆形线旋转得到。那在半圆形线上打个死结再旋转会怎样？好像三维空间都能做到！难道我们发现了三维的球面结？问题出在哪呢？问题在于死结是立体的，旋转时那些本来只是投影重合的点就真的重合了，得到的曲面是自相交的。到了四维空间就可以避免：如果加扭结的半圆在空间xyz中，在三维空间绕z轴旋转的操作到了四维就是绕面zw轴旋转，刚才已经分析了会导致自相交，所以换成绕yz平面转动，这时扭结扫过的方向和扭结本身的空间垂直，就不再有相交了。有人证明了这个曲面也是打了结的。但它拓扑学上还是一个球面：试想允许自相交我们就能把扭结解开，同时对应的旋转曲面也会跟着自相交然后被解开成球。
-![打了死结的半圆绕蓝色平面旋转](/img/knot405.jpg)
-如果把旋转扭结叫公转，那么扭结在公转过程中还可以自转，得到一些更复杂的有额外“自旋”的更复杂的扭结，想要深入了解可以参考[这篇论文](http://faculty.tcu.edu/gfriedman/papers/spinHKT.pdf)。
-顺便说下，前面提到影片作者制作的Java小程序上有旋转扭结和带额外“自旋”扭结的模型，另外还有个小程序能可视化所有曲面允许的移动方式，并且标注了投影重叠部分在每张曲面上的位置。
-![小程序的一些截图，可以看各种结角度的投影和每种Roseman移动交线的变化](/img/knot414.jpg)
-有了扭结旋转体的经验，我们来试着旋转一下三维空间中的锁链，看能不能转出一些新的环扣方式。只要选择锁链所在空间中的平面旋转就能够避免自相交。比如：
+We know spheres are created by rotating semicircular lines. What happens if we put a knot on the semicircular line and then rotate? It seems three-dimensional space can do this! Did we discover three-dimensional sphere knots? Where's the problem? The problem is that knots are three-dimensional, and during rotation, points that were only overlapping in projection actually coincide, creating self-intersecting surfaces. Four-dimensional space can avoid this: if the knotted semicircle is in space xyz, rotating around the z-axis in three-dimensional space becomes rotating around the zw surface in four dimensions. We analyzed this would cause self-intersection, so instead rotate around the yz plane. Now the direction the knot sweeps is perpendicular to the knot's own space, eliminating intersections. Someone proved this surface is also knotted. But topologically it's still a sphere: imagine allowing self-intersections, we could unknot the knot, and the corresponding rotational surface would also self-intersect then unknot into a sphere.
+![Knotted semicircle rotating around blue plane](/img/knot405.jpg)
+If we call rotating knots revolution, then knots can also rotate during revolution, creating more complex knots with additional "spin." For deeper understanding, refer to [this paper](http://faculty.tcu.edu/gfriedman/papers/spinHKT.pdf).
+Incidentally, the video author's Java applets have models of rotational knots and knots with additional "spin," plus another applet visualizing all allowed surface movements and marking overlapping projection positions on each surface.
+![Some applet screenshots showing various knot angle projections and each Roseman move intersection line changes](/img/knot414.jpg)
+With experience from rotational knots, let's try rotating three-dimensional space chains to see if we can create new linking methods. Just choose plane rotation in the chain's space to avoid self-intersections. For example:
 ![](/img/knot406.jpg)
 
-我们分别得到：
-a) 一大一小两个圆环面相扣；
-b) 平圆环面和圆环面相扣；
-c) 圆环面与球面相扣；
-d) 平圆环面和球面相扣；
-我在[这个网站](http://hi.gher.space/forum/viewtopic.php?f=24&t=1982)上看到了它的截面动画：
-![环球匹配了双圆环面上的一个二维孔的旋转截面动画（截面始终过中心，只是旋转方向）](/img/knot413.gif)
-e) 圆与球面相扣（就是我们最先看到的球环-环球扣）；
-其实我们早就知道如果这些材料是软的的话，圆环面和平圆环面是可以相互变形的，所以不妨把这些东西统称为环面。现在所有的相扣方式就是：除了圆和圆无法相扣（会掉），其余图形都能两两相扣。我们还没提到的有圆与环面相扣。其实圆与任何闭曲面都能相扣，因为二维孔和二维曲面刚好匹配。如果你还是不放心，可以检查一下它们的上色投影：
+We get respectively:
+a) One large, one small linked torus surfaces;
+b) Flat torus surface and torus surface linked;
+c) Torus surface and sphere linked;
+d) Flat torus surface and sphere linked;
+I saw cross-sectional animations on [this website](http://hi.gher.space/forum/viewtopic.php?f=24&t=1982):
+![Rotational cross-sectional animation of ring-sphere matching one two-dimensional hole on bitorus surface (cross-sections always pass through center, just rotating direction)](/img/knot413.gif)
+e) Circle and sphere linked (the ball ring-ring sphere link we first saw);
+Actually we already know that if these materials are soft, torus surfaces and flat torus surfaces can transform into each other, so we might as well call these things generically torus surfaces. Now all linking methods are: except circles can't link with circles (they fall off), all other figures can link pairwise. We haven't mentioned circle-torus surface linking. Actually circles can link with any closed surface because two-dimensional holes and two-dimensional surfaces match perfectly. If you're still unsure, check their colored projections:
 ![](/img/knot412.jpg)
-我们看到，圆上不可避免地存在绿色的点，圆环或球不可能从圆上拿开。所以四维空间中的项链也将有两种：一个圈，上面套着一串球面；或一个球面，上面套着一串圆圈。注意这里用“一串”是不恰当的了，因为圆圈可以在球面上自由滑动而不必排成一串。最可能的四维项链是球上串很多小圆，因为考虑到四维人的脖子应该类似柱体（一维线加厚），有着二维孔的圆圈项链怕是戴不稳了。
-![球面项链的上色投影](/img/knot419.jpg)
-有没有可能那些小圆环也相扣呢？NO！之前说了，三维空间中所有的绳结、环扣都可以在四维空间被轻易地解开，就算投影中发现相扣了，但只用“抖一抖”这串钥匙链它们就分开了，所以圆圈环扣是三维空间特有产物，四维空间中不存在圆圈相扣现象，全文完。
+We see green points inevitably exist on circles - tori or spheres can't be removed from circles. So four-dimensional space necklaces will have two types: one circle with a string of spheres, or one sphere with a string of circles. Note "string" is inappropriate here because circles can slide freely on sphere surfaces without forming strings. The most likely four-dimensional necklace is many small circles on a sphere, because considering four-dimensional beings' necks should be cylinder-like (one-dimensional lines thickened) with two-dimensional holes, circle necklaces would be unstable.
+![Colored projection of sphere necklace](/img/knot419.jpg)
+Could those small rings also be linked? NO! We said earlier that all knots and links in three-dimensional space can be easily unknotted in four-dimensional space. Even if projections show linking, just "shaking" this key chain separates them. So circle linking is unique to three-dimensional space - four-dimensional space has no circle linking phenomena. End of article.
 
-我~~当然~~（居然）会这样结束这篇文章。
+I ~~of course~~ (actually) will end this article like this.
 
- [上一篇](/archives/rot4d/)　 [查看系列目录](/categories/四维空间系列/) 　 [下一篇](/archives/gaqr/)
+ [Previous](/archives/rot4d/)　 [View Series Index](/categories/四维空间系列/) 　 [Next](/archives/gaqr/)

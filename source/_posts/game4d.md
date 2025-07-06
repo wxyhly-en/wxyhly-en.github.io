@@ -1,47 +1,47 @@
 ---
-title: 我玩过的一些四维游戏
+title: Some Four-Dimensional Games I've Played
 tags:
-  - 四维
-  - 游戏
+  - four-dimensional
+  - games
 date: 2018-06-29 22:48:42
 ---
-<span class="likecode">（** 23年9月更新：添加了[4DGolf](/archives/game4d/#4dgolf)与[4DMiner](/archives/game4d/#4dminer) **）</span>
+<span class="likecode">(**September 2023 update: Added [4DGolf](/archives/game4d/#4dgolf) and [4DMiner](/archives/game4d/#4dminer)**)</span>
 
-<span class="likecode">（** 25年1-6月更新：添加了[4D Games](/archives/game4d/#4dgames)、[Moena](/archives/game4d/#moena) 与[HoxelDraw](/archives/game4d/#hoxel)**）</span>
+<span class="likecode">(**January-June 2025 update: Added [4D Games](/archives/game4d/#4dgames), [Moena](/archives/game4d/#moena) and [HoxelDraw](/archives/game4d/#hoxel)**)</span>
 
-要想进一步体验四维空间的“感觉”，在电脑上做一个交互程序是再好不过的了。我曾经梦到玩像3dMax那样的4D复杂建模软件（可惜不存在）。这里我将整理我玩过的四维程序（不一定算游戏），并给一些主观评价。
+To further experience the "feeling" of four-dimensional space, creating an interactive program on a computer is ideal. I once dreamed of playing complex 4D modeling software like 3ds Max (unfortunately, it doesn't exist). Here I'll organize the four-dimensional programs I've played (not necessarily all games) and give some subjective reviews.
 
-最近游戏圈子里比较火的《[Miegakure](http://miegakure.com/)》，现在还在开发之中，游戏宣传片号称是史上第一款数学意义上真正的4D游戏，但展现给我们的方式是比较抽象的截面法，截面都是选垂直于地面的。游戏以四面体胞为基础对象进行渲染，就像3D图形学里的三角形一样。宣传片里不仅有常规的超长方体房屋墙壁，还有3D的地面贴图、12面体胞柱体和椎体的结合体，甚至四维树。可惜作者只在youtube上放了几个Demo，不知要多久才能开发完。
+The recently popular game in gaming circles, "[Miegakure](http://miegakure.com/)", is still in development. The game trailer claims to be the first mathematically true 4D game in history, but presents it through the relatively abstract cross-sectional method, with cross-sections chosen perpendicular to the ground. The game renders using tetrahedral cells as basic objects, like triangles in 3D graphics. The trailer shows not only regular hypercuboid room walls, but also 3D ground textures, dodecahedral cell columns and cone combinations, and even four-dimensional trees. Unfortunately, the author has only released a few demos on YouTube, and it's unclear how long development will take.
 ![miegakure](/img/game1.jpg)<!--more-->
 
-建模方面我认为还是比较符合我的“四维世界观”的，但不足之处一是截面法比较抽象，二是我不是很确定视图操作的灵活性和自由度是不是能让我能够“自由地”感受到四维的空间感。因为这个游戏的作者还开发了另一个游戏《[4D Toys](4dtoys.com)》（网上搜得到盗版），这个游戏的亮点是它有4D物理引擎！你可以控制超球碰撞，搭四维积木，甚至玩串在Hopf圆环上的超球珠子。当然，作者还是用的截面法。但是视图操作的灵活性我的体验极差：我不能随意选取截面方向，我能做的只能前后移动我的截面，无法给我全面的四维空间感（好像后面作者有更新加入旋转截面的功能了）。值得一提的是，《4D Toys》里面自带所有正多胞体“积木”，甚至还有我们[之前](/archives/more4ds/#rr)讨论过的“圆环环”中的两种，我从这个游戏中发现其中一种圆环环被命名为“tiger”（像老虎一样凶恶的图形？其实是取自日式英语圆环tori的谐音），而且这似乎这个名称还是正式通用的，因为后来我在网站[higherspace](http://hi.gher.space/wiki/Tiger)上也找到了对它们的描述。
+I think the modeling is quite consistent with my "four-dimensional worldview," but the shortcomings are: first, the cross-sectional method is rather abstract, and second, I'm not sure if the flexibility and freedom of view operations can truly let me "freely" experience the spatial sense of four dimensions. Because the author of this game also developed another game "[4D Toys](4dtoys.com)" (pirated versions can be found online), the highlight of this game is its 4D physics engine! You can control hypersphere collisions, build four-dimensional blocks, and even play with hypersphere beads strung on Hopf tori. Of course, the author still uses the cross-sectional method. But my experience with view operation flexibility was extremely poor: I couldn't freely choose cross-section directions, all I could do was move my cross-section back and forth, unable to give me a comprehensive four-dimensional spatial sense (it seems the author later updated to add cross-section rotation functionality). Worth mentioning is that "4D Toys" includes all regular polytope "blocks," and even the two types of "torus links" we [previously](/archives/more4ds/#rr) discussed. I discovered from this game that one type of torus link is named "tiger" (like a tiger's fierce graphics? Actually taken from the Japanese English pronunciation of torus), and this name seems to be officially universal, as I later found descriptions of them on the website [higherspace](http://hi.gher.space/wiki/Tiger).
 ![4d Toys](/img/game2.jpg)
-23年更新1：<a name="4dminer"></a>
-Mashpoe仿照minecraft制作了[4dMiner](https://mashpoe.com/4d-miner)。值得一提的是，我之前写的[Minecraft4D](/archives/mc4tutorial/)（2020年）其实远比他的（2022年）早，所以我的应该才是世界上第一个四维MC哦！（虽然只能算个Demo）我直到23年初才发现4DMiner这个游戏的存在。
-这款游戏首先操作上是第一人称截面法，且截面只可以绕z轴旋转，即截面永远垂直与地面。这款游戏的成功之处是它吸引了还不算少的玩家群体，但游戏社区里都过度把玩四维截面的性质，比如很多造密室的，即把入口弄得很小，然后特别的位置的截面才截得到那个入口才能走进去，更有人直接把这个当平行世界，一层一层地修三维建筑，把旋转截面只是当成通往不同平行世界的桥梁……玩家群体里很少有能理解四维世界的整体各向同性感。估计很多玩家的建筑都没法在体素照片中看。但也有玩家开发了可以支持体素视野的“全息投影”视图的mod！而作者说这东西太吃性能，不想用于游戏中。。这确实很现实。
+2023 Update 1: <a name="4dminer"></a>
+Mashpoe created [4dMiner](https://mashpoe.com/4d-miner) modeled after Minecraft. Worth mentioning is that my previously written [Minecraft4D](/archives/mc4tutorial/) (2020) was actually much earlier than his (2022), so mine should be the world's first 4D MC! (Although it can only be considered a demo) I didn't discover the existence of 4DMiner until early 2023.
+This game uses first-person cross-sectional method for operation, and the cross-section can only rotate around the z-axis, meaning the cross-section is always perpendicular to the ground. The success of this game is that it attracted a considerable player community, but the gaming community over-exploits the properties of four-dimensional cross-sections, such as many creating secret rooms by making entrances very small, then only specific cross-section positions can cut to that entrance to enter. Some even treat this as parallel worlds, building three-dimensional structures layer by layer, using cross-section rotation only as a bridge to different parallel worlds... Very few players in the community can understand the overall isotropic feeling of the four-dimensional world. Many player buildings probably can't be seen in voxel photos. But some players have developed mods that support voxel vision with "holographic projection" views! However, the author says this is too performance-intensive and doesn't want to use it in the game... This is indeed realistic.
 
-最后我想吐槽两点：一是他的方块贴图的配色很阴间，主世界的风格搞得跟下界似的；二是游戏的美工宣传是一个无厘头的戴着像二郎神那样的有第三只眼睛的"4D眼镜"来看到截面之外的东西的矿工，似乎作者完全不懂[四维人眼睛的成像原理](/archives/eye3d/)……（后面会看到他这样做的原因）
+Finally, I want to complain about two points: first, his block texture color scheme is very gloomy, making the main world look like the Nether; second, the game's art promotion features a nonsensical miner wearing "4D glasses" with a third eye like Erlang Shen to see beyond cross-sections, suggesting the author completely doesn't understand [the imaging principles of four-dimensional human eyes](/archives/eye3d/)... (later we'll see why he did this)
 ![4D Miner](/img/game3.jpg)
-23年11月Mashpoe更新视频说4DMiner支持多人游戏了！里面的玩家的皮肤是3D的且可高度定制，但遗憾的是，玩家模型其实只是四维世界里的三维纸片人，大家画贴图也都是画的二维人物的贴图，并且把人体内部的组织骨骼都画出来那种，这里也就解释了为什么作者要弄二郎神眼睛了——他设计的游戏世界里的人压根不是四维人而是三维人，这些三维人在四维世界中都是没有厚度的薄片其实很不“科学”，不符合我的四维“世界观”，当然总的来说我还是很肯定这款游戏的，他们甚至建了史上第一个4DMiner自治服务器4D4T，这一看就是在模仿Minecraft中的[2B2T](/tags/2b2t/)。
+In November 2023, Mashpoe updated a video saying 4DMiner supports multiplayer! The player skins are 3D and highly customizable, but unfortunately, player models are actually just three-dimensional paper people in the four-dimensional world. Everyone draws textures of two-dimensional characters, including internal organs and bones. This explains why the author made Erlang Shen eyes - he designed the game world where people aren't actually four-dimensional beings but three-dimensional ones. These three-dimensional people in the four-dimensional world are actually thickness-less sheets, which is very "unscientific" and doesn't conform to my four-dimensional "worldview." Of course, overall I still affirm this game. They even built the first 4DMiner autonomous server 4D4T, clearly imitating Minecraft's [2B2T](/tags/2b2t/).
 
-23年更新2：<a name="4dgolf"></a>
-Youtuber [CodeParade](https://www.youtube.com/@CodeParade) 制作了一款[4D高尔夫](https://store.steampowered.com/app/2147950/4D_Golf/)求游戏，从[该游戏的预告片](https://www.youtube.com/watch?v=1ad9y0FmQ9g)中可以看出，它是唯一一个支持任意旋转截面的游戏，特别是可以将竖直的截面旋转到水平，让你体会到三维地面上那种类似太空遨游的失重感。它还可以显示一些其它相邻截面的重影，有点接近体素照片的意思。游戏中的关卡使用了波函数坍缩算法来程序化生成，也有可以手动编辑三维地图的地形编辑器（见[这个Youtube视频](https://www.youtube.com/watch?v=5pTBSafvQ7Y)），<del>至于具体玩法是否会单一还不得而知</del>（25年玩后更新：我发现关卡的设计都很讲究，甚至除了打高尔夫还有一种比速度的弹珠模式，甚至还有几个真正的五维高尔夫场景）。他的另一个双曲空间中的游戏Hyperbolica我认为虽然数学含量高，但玩法不咋样。但我想说，虽然4DMiner的可玩性应该远大于4D高尔夫，但4D高尔夫这款游戏的作者对于四维空间的理解是要高于4DMiner的，总的来说我认为这是一款很棒的四维游戏。
+2023 Update 2: <a name="4dgolf"></a>
+YouTuber [CodeParade](https://www.youtube.com/@CodeParade) created a [4D Golf](https://store.steampowered.com/app/2147950/4D_Golf/) game. From [the game's trailer](https://www.youtube.com/watch?v=1ad9y0FmQ9g), it's the only game supporting arbitrary cross-section rotation, especially being able to rotate vertical cross-sections to horizontal, letting you experience that space-floating weightless feeling on three-dimensional ground. It can also display ghosting from other adjacent cross-sections, somewhat approaching the meaning of voxel photos. The game's levels use wave function collapse algorithms for procedural generation, and there's also a terrain editor for manually editing 3D maps (see [this YouTube video](https://www.youtube.com/watch?v=5pTBSafvQ7Y)). <del>Whether the specific gameplay will be monotonous remains to be seen</del> (2025 post-play update: I found the level designs are all very thoughtful, even including a speed-based marble mode besides golf, and even several true five-dimensional golf scenarios). His other game Hyperbolica in hyperbolic space, while mathematically rich, I think has poor gameplay. But I want to say, although 4DMiner's playability should far exceed 4D Golf, the 4D Golf author's understanding of four-dimensional space is superior to 4DMiner's. Overall, I think this is an excellent four-dimensional game.
 ![4D Golf](/img/game4.jpg)
-23年11月作者更新介绍四维模型制作时，他说到在制作草地的三维贴图时，他先是生成了很多棒状物杂乱无章地填充在三维区域中，但这样截面接下来却往往得到的是点状的颗粒，看起来不再像草，最后他改用有面状纹路的二维草图形，成功让各方向截面截出来都是线状的图形。我其实想吐槽：这虽然对游戏玩家很有好，但事实上“真实”四维世界的草地还是线状的，截面就该是点状颗粒，这样改贴图迎合三维人的习惯有点削足适履了。当然为了大众玩家的可接受性，可能也不得不妥协吧。
+In November 2023, when the author updated about four-dimensional model creation, he mentioned that when making grass 3D textures, he first generated many rod-shaped objects randomly filling the three-dimensional area, but cross-sections often resulted in point-like particles that no longer looked like grass. Finally, he changed to using planar textured 2D grass graphics, successfully making cross-sections in all directions appear as linear graphics. I actually want to complain: although this is good for game players, in fact "real" four-dimensional grass should be linear, and cross-sections should be point-like particles. Changing textures to cater to three-dimensional people's habits is somewhat like cutting feet to fit shoes. Of course, for mass player acceptability, compromise might be necessary.
 
-25年更新1：<a name="4dgames"></a>
-[Steam上的4D Games](https://store.steampowered.com/app/2264190/4D_Games/)是一个同时包含像4dToys那样截面显示玩弄形状（有双圆柱、圆环环和各种多胞体等）、4D国际象棋和4D迷宫的游戏。其实这些内容并不算太新鲜的玩法，4D象棋也用的是堆积二维棋盘的方式展现的，没有真正四维的方向感，4D迷宫则是个分层的三维管道类型的迷宫，也毫无四维方向感。但游戏中有个4D形状编辑器还挺有意思：你可以自己通过节点来组合出想要的四维形状，并与他人分享。Hint：这些四维图形的截面计算其实是在GPU上运行的光线追踪。![用户可编辑的四维国际象棋子模型的截面旋转动画](/img/game22.gif)
+2025 Update 1: <a name="4dgames"></a>
+[4D Games on Steam](https://store.steampowered.com/app/2264190/4D_Games/) is a game that includes cross-sectional display for manipulating shapes like 4dToys (with bicylinders, torus links, and various polytopes), 4D chess, and 4D maze. Actually, these contents aren't particularly fresh gameplay. 4D chess also uses stacked 2D chessboards for display, lacking true four-dimensional directional sense. The 4D maze is a layered three-dimensional pipe-type maze, also completely lacking four-dimensional directional sense. But the game has an interesting 4D shape editor: you can combine desired four-dimensional shapes through nodes and share them with others. Hint: These four-dimensional graphics' cross-section calculations actually run ray tracing on the GPU. ![User-editable 4D chess piece model cross-section rotation animation](/img/game22.gif)
 
-25年更新2：<a name="moena"></a>
-[itch.io上的Moena](https://medenacci.itch.io/moena)是一个同时包含4D星系（N体问题求解）模拟、4D飞行模拟，甚至还有个类似Minecraft4D的游戏：
-- 4D飞行模拟器跟我Tesserxel上的飞行模拟器有点像，都是对跑道训练降落。youtube上有[演示视频](https://www.youtube.com/watch?v=w3hBVkQeumo)。
-- 它的4D星系模拟中的引力似乎还是用的平方反比……所以没出现星系不稳定的问题。
-- 作者说了，他做了类似Minecraft4D的游戏后才发现Mashpoe的4DMiner里面的所谓最新的原创想法其实他早就有了（我也做过[Minecraft4D](/archives/mc4tutorial/)啊。。）
+2025 Update 2: <a name="moena"></a>
+[Moena on itch.io](https://medenacci.itch.io/moena) is a game that includes 4D galaxy (N-body problem solving) simulation, 4D flight simulation, and even a Minecraft4D-like game:
+- The 4D flight simulator is somewhat like the flight simulator on my Tesserxel, both training runway landings. There's a [demo video](https://www.youtube.com/watch?v=w3hBVkQeumo) on YouTube.
+- Its 4D galaxy simulation's gravity still seems to use inverse square law... so no galaxy instability issues appear.
+- The author said that after making a Minecraft4D-like game, he discovered that the so-called latest original ideas in Mashpoe's 4DMiner he had already thought of long ago (I also made [Minecraft4D](/archives/mc4tutorial/)...).
 
-25年更新3：<a name="hoxel"></a>
-一个还在最初原型开发阶段的对标类似Magica Voxel这种3D体素编辑器的四维超体素编辑器[HoxelDraw](https://github.com/HoxelDraw/HoxelDraw-Prototype/releases) (Hoxel即Hyper Voxel，超体素)。[这里是youtube上的介绍视频](https://www.youtube.com/watch?v=rMApRQnbbLk)。他还是采用的截面法做可视化，不过除了正常的三维截面外还有种2D截面网格格式，它类似[2048 4D](https://huonw.github.io/2048-4D/)那样将四维图形变成嵌套的两重二维坐标，充分反映了四维空间是两个二维空间的直积这一结构。
+2025 Update 3: <a name="hoxel"></a>
+A four-dimensional hypervoxel editor [HoxelDraw](https://github.com/HoxelDraw/HoxelDraw-Prototype/releases) (Hoxel meaning Hyper Voxel) still in initial prototype development stage, benchmarked against 3D voxel editors like Magica Voxel. [Here's the YouTube introduction video](https://www.youtube.com/watch?v=rMApRQnbbLk). It still uses cross-sectional method for visualization, but besides normal three-dimensional cross-sections, there's also a 2D cross-section grid format, similar to [2048 4D](https://huonw.github.io/2048-4D/) that transforms four-dimensional graphics into nested dual two-dimensional coordinates, fully reflecting that four-dimensional space is the direct product of two two-dimensional spaces.
 
-还有一款致敬《miegakure》的游戏，叫《[Tetra Space](https://rantonels.itch.io/brane)》，它也是截面显示。这个游戏分成很多关，每一关的任务就是到达指定的通关点，你需要像走迷宫一样找路，还有可以在三维地面上推动的超立方体方块，和激光等等。让我感到美中不足的是截面朝向只能在两个方向上切换，而且我发现只要我画出“平面图”（其实是3d的地图），那么障碍物在3d地图上一览无余，很快我就能规划出路线。有几关纯粹就是把平面地图(a\*b\*1\*1)硬是用截面截得条线(a\*1\*1)，我都不用画3d地图了。所以这款游戏其实并没给我很好的四维空间感的体验，但纯粹从游玩的体验来说还是很好的。
+There's also a game paying tribute to "Miegakure" called "[Tetra Space](https://rantonels.itch.io/brane)", which also uses cross-sectional display. This game is divided into many levels, each level's task is to reach a designated clearance point. You need to find paths like navigating a maze, with hypercube blocks that can be pushed on three-dimensional ground, lasers, etc. What I find insufficient is that cross-section orientation can only switch between two directions, and I found that as long as I draw a "floor plan" (actually a 3D map), obstacles are clearly visible on the 3D map, and I can quickly plan routes. Some levels purely take flat maps (a*b*1*1) and use cross-sections to cut them into lines (a*1*1), so I don't even need to draw 3D maps. So this game actually doesn't give me a good four-dimensional spatial sense experience, but purely from gameplay experience, it's still very good.
 <table><tr><td width="50%">
 
 ![tetra space](/img/game3.gif)
@@ -52,69 +52,69 @@ Youtuber [CodeParade](https://www.youtube.com/@CodeParade) 制作了一款[4D高
 
 </td></tr></table><a name="4dtouhh"></a>
 
-最后我要说的是一个外表有些丑陋，可能初次玩完全懵逼的游戏：4dBlock（[下载地址](http://www.urticator.net/blocks/)），但是它才是我心目中真正四维生物的感受方式。它是基于透视原理，将4d图形投影到3d“视网膜”上（其实就是一个普通3d显示区域），当然，4D透视投影并不稀罕，但最NB的是它能够剔除一些部分做到呈现四维物体前后正确的遮挡关系！我曾经就想过类比3D光栅渲染技术，将四面体单元在三维栅格中栅格化，然后再记录深度缓存，做遮挡剔除。然而这个软件它只做到了对线段的检测和剔除，所以整个视图都是线框显示模式，并且一堆线看起来一团糟。其实我们作为只能看二次投影的三维生物也没有那个福分看这种栅格化的3d投影，因为在复杂场景中如果用“实心”的方式来显示的话，那我们里面就又什么都看不见了。所以线框显示是必须的。好在这个软件给了左右眼两个视图，可以用做“对对眼”（这又是一道门槛）的方式看到三维立体感，总算“稍微”捡回来一维。这个游戏里内置了四维迷宫（超晕，才开始每一幅画面我都必须线类比想想三维才知道发生了什么，每一个动作也是），但我觉得对于第一次玩的人来说，真的不是很友好：
-![即使给了左右眼两个视图也是一团糟的线](/img/game7.gif)
-当然，我们不要被这些线所吓到，先尝试看一些简单的东西，通过从三维的类比，你就会慢慢体会到四维的视觉了！比如下面的公路模型：
-![3d/4d公路类比对比](/img/game5.png)
-里面的4D小火车也是一个亮点，你可以控制火车运动，它有车厢，有些场景里面车厢上还开了窗户（4d车厢上的3d窗户！）。还有些更复杂的道路，通过3d类比还是很容易理解的：
+Finally, I want to mention a game that looks somewhat ugly and might be completely bewildering on first play: 4dBlock ([download link](http://www.urticator.net/blocks/)), but it's truly the way four-dimensional beings perceive in my mind. It's based on perspective principles, projecting 4D graphics onto a 3D "retina" (actually just a normal 3D display area). Of course, 4D perspective projection isn't rare, but what's most impressive is its ability to cull some parts to achieve correct front-to-back occlusion relationships for four-dimensional objects! I once thought about analogizing 3D rasterization rendering technology, rasterizing tetrahedral units in three-dimensional grids, then recording depth buffers and doing occlusion culling. However, this software only achieves detection and culling for line segments, so the entire view is wireframe display mode, and a bunch of lines looks like a mess. Actually, as three-dimensional beings who can only see secondary projections, we don't have the fortune to see this kind of rasterized 3D projection, because in complex scenes if displayed in "solid" mode, we wouldn't see anything inside. So wireframe display is necessary. Fortunately, this software provides left and right eye views, allowing "cross-eyed" viewing (another barrier) to see three-dimensional stereoscopic sense, somewhat recovering one dimension. This game has built-in four-dimensional mazes (super confusing, at first every frame I had to analogize with three dimensions to understand what happened, every action too), but I think for first-time players, it's really not very friendly:
+![Even with left and right eye views, it's still a mess of lines](/img/game7.gif)
+Of course, we shouldn't be scared by these lines. First try looking at simple things, and through analogy from three dimensions, you'll gradually experience four-dimensional vision! For example, the road model below:
+![3d/4d road analogy comparison](/img/game5.png)
+The 4D little train inside is also a highlight. You can control train movement, it has carriages, and in some scenes the carriages even have windows (3D windows on 4D carriages!). There are also more complex roads that are still easy to understand through 3D analogy:
 
 <table><tr><td width="50%">
 
-![3d城市之中的田字形铁路网](/img/game10.png)
-![俯视3d城市（注意楼房的透视效果）](/img/game11.png)
-![远距离像看平面地图一样看3d城市（太远，透视效果几乎消失）](/img/game12.png)
+![Cross-shaped railway network in 3D city](/img/game10.png)
+![Bird's eye view of 3D city (note building perspective effects)](/img/game11.png)
+![Distant view like looking at a flat map of 3D city (too far, perspective effects almost disappear)](/img/game12.png)
 
 </td><td>
 
-![4d城市之中的立体“田”字形铁路网](/img/game7.png)
-![俯视4d城市（注意楼房的透视效果）](/img/game8.png)
-![远距离像看立体地图一样看4d城市（太远，透视效果几乎消失）](/img/game9.png)
+![Three-dimensional "cross"-shaped railway network in 4D city](/img/game7.png)
+![Bird's eye view of 4D city (note building perspective effects)](/img/game8.png)
+![Distant view like looking at a three-dimensional map of 4D city (too far, perspective effects almost disappear)](/img/game9.png)
 
 </td></tr></table>
 
-这个游戏中的铁轨还支持一种没有三维类比的特有的“自旋”轨道，我对这部分非常满意。
+The railway tracks in this game also support a unique "spin" track with no three-dimensional analogy, which I'm very satisfied with.
 <table><tr><td width="50%">
 
-![一列火车即将通过“自旋”轨道](/img/game13.png)
+![A train about to pass through "spin" track](/img/game13.png)
 
 </td><td>
 
-![车厢以前进方向为轴旋转（其实在四维中是以前进方向和重力方向张成的平面旋转）](/img/game14.png)
+![Carriages rotating around the forward direction axis (actually rotating around the plane spanned by forward direction and gravity direction in four dimensions)](/img/game14.png)
 
 </td></tr></table>
 
-注意这种自旋本质上就是3d世界游乐场过山车那种旋转轨道，但在四维世界中，这种旋转可以不涉及到重力所在的方向，也就是说车厢并没有“翻”，里面的人只是感觉换了一种“朝向”，他们一直可以舒服地坐在座位上。
+Note that this kind of spin is essentially like rotating tracks on roller coasters in 3D world amusement parks, but in the four-dimensional world, this rotation can avoid involving the gravity direction, meaning carriages don't "flip over" - people inside just feel they've changed "orientation" and can always sit comfortably in their seats.
 
-软件的操作方式也很灵活，平动、转动都可以，有90°和格点的对齐模式（回车键对齐），也有你想怎么斜就怎么斜的自由模式，这款游戏真正让我感到离4d世界更进了一步，但这里面没有真实物理，也没有重力。这个游戏的键位也有点奇怪：前进、后退对应键盘E/D，左右转向对应J/L，上下转向（抬头/俯看）I/K，四维多出来的“侧前”“侧后”转向（它们类似于左右转向）对应U/O，按住Alt键加这些方向键就可以沿指定方向平动，按住Shift键可以只旋转（终于是我们熟悉的3d旋转）“视网膜”呈现出来的3D投影。X\C\V用于控制火车运动……游戏还有碰撞检测，不允许你穿过物体（当然，不然4D迷宫的墙就没意义了）。似乎还可以选取并移动物体、自己编辑场景文件，我还没探究过。
+The software's operation is also very flexible, with both translation and rotation, 90° and grid alignment modes (Enter key to align), and free mode where you can tilt however you want. This game truly made me feel one step closer to the 4D world, but there's no real physics or gravity here. This game's key bindings are also somewhat strange: forward/backward correspond to keyboard E/D, left/right turning correspond to J/L, up/down turning (looking up/down) I/K, the additional "side-forward"/"side-backward" turning unique to four dimensions (they're similar to left/right turning) correspond to U/O. Holding Alt key plus these direction keys allows movement in specified directions, holding Shift key allows only rotating the 3D projection that the "retina" presents (finally familiar 3D rotation). X/C/V are used to control train movement... The game also has collision detection, not allowing you to pass through objects (otherwise, 4D maze walls would be meaningless). It seems you can also select and move objects, edit scene files yourself, which I haven't explored yet.
 
-知道基本操作后就可以走迷宫了。我们来看一些四维迷宫中的类比：（四维迷宫没想象的那么难，你不需要有四维“方向感”，我在里面瞎逛了一会就找到终点了。）
+After knowing basic operations, you can navigate mazes. Let's look at some analogies in four-dimensional mazes: (Four-dimensional mazes aren't as hard as imagined. You don't need four-dimensional "directional sense" - I wandered around inside for a while and found the endpoint.)
 
 <table><tr><td width="50%">
 
-![前方、右边有墙（死路）](/img/game10.gif)
-![前方、两边都有墙（死路）](/img/game12.gif)
-![死胡同](/img/game14.gif)
-![转角](/img/game16.gif)
-![往前延伸的死胡同，但注意这里似乎地面和天花板也被封住了，只是没画正方形色块](/img/game18.gif)
-![往上转角](/img/game20.gif)
+![Front, right have walls (dead end)](/img/game10.gif)
+![Front, both sides have walls (dead end)](/img/game12.gif)
+![Dead end](/img/game14.gif)
+![Corner](/img/game16.gif)
+![Dead end extending forward, but notice here the floor and ceiling seem also sealed, just no square color blocks drawn](/img/game18.gif)
+![Upward corner](/img/game20.gif)
 
 </td><td>
 
-![前方、右边有墙（死路）](/img/game11.gif)
-![前方、两边（注意四维有“四边”）都有墙（死路）](/img/game13.gif)
-![四维情况可以不是死胡同，还有“四边”中剩下两边（“侧前”“侧后”）可走](/img/game15.gif)
-![转角](/img/game17.gif)
-![往前延伸的？？（同上，不是死胡同，或者是死胡同，但只有两面墙上画了正方形色块）](/img/game19.gif)
-![往上转角](/img/game21.gif)
+![Front, right have walls (dead end)](/img/game11.gif)
+![Front, both sides (note four dimensions have "four sides") have walls (dead end)](/img/game13.gif)
+![Four-dimensional case might not be a dead end, still have remaining two sides ("side-forward"/"side-backward") to go](/img/game15.gif)
+![Corner](/img/game17.gif)
+![Extending forward?? (Same as above, not a dead end, or is a dead end, but only two side walls have square color blocks drawn)](/img/game19.gif)
+![Upward corner](/img/game21.gif)
 
 </td></tr></table>
 
-最后我想说，如果把4dToy的物理引擎和4dBlock的显示方式结合起来就完美了。这个游戏是开源的，我想分析一下源码，试着移植一个网页版的，做一个4D赛车游戏（当然只是设想，因为真的要做还是很有难度的）
-我之所以花这么多篇幅介绍block4d主要是知道它的人太少了，而且对它的理解有一定难度，对于熟知、老牌的4D程序我这里就只简单介绍下了，因为网上关于它们的东西太多了，就不赘述了：
-首先是一个大神写的4D多胞形屏保程序，还附有源码和120号、600号的几何数据（可惜他存那些数据的网盘挂了）。[这里是链接](http://www.cnblogs.com/atyuwen/archive/2009/11/12/tesseract.html)
+Finally, I want to say, if we combined 4dToy's physics engine with 4dBlock's display method, it would be perfect. This game is open source, I want to analyze the source code and try porting a web version to make a 4D racing game (of course just an idea, because actually doing it would be quite difficult).
+The reason I spent so much space introducing block4d is mainly because too few people know about it, and understanding it has certain difficulty. For well-known, established 4D programs, I'll just briefly introduce them here, because there's too much about them online, so I won't elaborate:
+First is a master's 4D polytope screensaver program, with source code and geometric data for the 120-cell and 600-cell (unfortunately his data storage cloud drive is down). [Here's the link](http://www.cnblogs.com/atyuwen/archive/2009/11/12/tesseract.html)
 
-然后是大家比较熟知的Jenn3D多胞形浏览器，这个可以称得上四维空间爱好者的标配了。它还附送了一个120号上的围棋小游戏jenn go。（我每次玩一会儿就会白屏，可能是bug）
-比较熟知的还有一款4d魔方模拟器magic4d，但是我不太会玩，因为我发现找方块好困难，操作不是很习惯。
-其他比较有趣的4D游戏比如还有[2048 4D](https://huonw.github.io/2048-4D/)（我通关了！），但跟我要找的“空间感”关系不大。[四维几何贴吧](http://tieba.baidu.com/p/5361187936)里收藏了很多4D游戏资源，我刚才才发现维基百科居然有[List of four-dimensional games](https://en.wikipedia.org/wiki/List_of_four-dimensional_games)这个条目，但有些没找到下载地址。
+Then there's the well-known Jenn3D polytope browser, which can be called standard equipment for four-dimensional space enthusiasts. It also comes with a Go game on the 120-cell called jenn go. (Every time I play for a while it goes white screen, probably a bug)
+Another well-known one is the 4D Rubik's cube simulator magic4d, but I'm not very good at it because I find it hard to locate blocks and the controls aren't very familiar.
+Other interesting 4D games include [2048 4D](https://huonw.github.io/2048-4D/) (I completed it!), but it's not closely related to the "spatial sense" I'm looking for. The [Four-Dimensional Geometry forum](http://tieba.baidu.com/p/5361187936) has collected many 4D game resources. I just discovered that Wikipedia actually has a [List of four-dimensional games](https://en.wikipedia.org/wiki/List_of_four-dimensional_games) entry, though some don't have download links.
 
-23年更新补充：最后的最后，我再安利一下我自己的[Tesserxel项目](/archives/tesserxel-intro/)：它采用体素渲染，同时也支持显示各个角度的截面，用多管齐下的方式让你感知四维世界。目前也研制出了刚体物理引擎，就差还没写出一款真正的游戏了……
+2023 update supplement: Finally, I want to promote my own [Tesserxel project](/archives/tesserxel-intro/): it uses voxel rendering while also supporting display of cross-sections from various angles, using multiple approaches to help you perceive the four-dimensional world. It currently has developed a rigid body physics engine, just missing a real game...
