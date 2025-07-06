@@ -87,7 +87,7 @@ $\*e\_{xy}=e\_{zw}$、$\*e\_{yz}=e\_{wx}$、$\*e\_{zw}=e\_{xy}$、$\*e\_{wx}=e\_
 只要我们保证角标从左到右是xyzw  yzwx  zwxy wxyz这样轮换，等式就是成立的。否则任意交换顺序中两个字母的位置会反号。如$\*e\_{xy}=e\_{zw}$，但$\*e\_{xz}=-e\_{yw}$。在数学上这叫奇排列和偶排列。（和行列式的奇偶正负交错类似）
 $$\begin{align}设F&=a\_1e\_{xy}+b\_1e\_{xz}+c\_1e\_{xw}+d\_1e\_{yz}+e\_1e\_{yw}+f\_1e\_{zw} \\\\ 则\*F&=f\_1e\_{xy}-e\_1e\_{xz}+d\_1e\_{xw}+c\_1e\_{yz}-b\_1e\_{yw}+a\_1e\_{zw}  \end{align}$$<a name="cross"></a>
 #### 2-向量外积
-　　现在我们可以描述叉乘的实质了：m-向量和n-向量在N维空间中做叉乘，得到了一个(N-m-n)-向量：它是m-向量和n-向量张成的空间（一个(m+n)-向量）的正交补，方向遵循右手定则。
+　　现在我们可以描述叉乘的实质了：m-向量和n-向量在N维空间中做叉乘，得到了一个(N-m-n)-向量：它是m-向量和n-向量张成的空间（一个(m+n)-向量）的正交补，方向遵循右手定则。（注：这只是向量叉乘的一种推广，**仅在本小节使用，**[后面](/archives/gaqr/)我们将用$\times$符号表示2-向量之间的另一种类似向量叉乘的叫混合积的运算）
 比如2-向量$F\times G=\*(F\wedge G)$。注意这里$F\wedge G$是个4-向量！这次我们还要假设运算$\wedge$有结合律，即$(A\wedge B)\wedge C=A\wedge (B\wedge C)$。
 　　$$\begin{align} 设F&=a\_1e\_{xy}+b\_1e\_{xz}+c\_1e\_{xw}+d\_1e\_{yz}+e\_1e\_{yw}+f\_1e\_{zw} \\\\ G&=a\_2e\_{xy}+b\_2e\_{xz}+c\_2e\_{xw}+d\_2e\_{yz}+e\_2e\_{yw}+f\_2e\_{zw} \\\\ 合并&化简得到： \\\\ F\times G&= (a\_1f\_2-b\_1e\_2+c\_1d\_2+d\_1c\_2-e\_1b\_2+f\_1a\_2)e\_{xyzw}\end{align}$$
 $e\_{xyzw}$的霍奇对偶是一个0-向量，即“标量”：“1”。此“标量”不是真正的标量，因为空间反射变换下会反号（右手定则在作怪），我们叫它伪（赝）标量。
@@ -100,7 +100,7 @@ $A \times B$是个标量:它的绝对值等于它们张成平行八胞体（想�
 [返回目录](#index)
 
 ### 问题完美解决！
-$$\lvert cos\theta_1cos\theta_2\rvert={\lvert A\cdot B\rvert \over \lVert A \rVert \lVert B \rVert}  $$$$ \lvert sin\theta_1sin\theta\_2\rvert={\lvert A\times B\rvert\over \lVert A \rVert \lVert B \rVert}$$
+$$\lvert \cos\theta_1\cos\theta_2\rvert={\lvert A\cdot B\rvert \over \lVert A \rVert \lVert B \rVert}  $$$$ \lvert \sin\theta_1\sin\theta\_2\rvert={\lvert A\times B\rvert\over \lVert A \rVert \lVert B \rVert}$$
 　　两个方程两个未知数，我们求得出两个角度了！N-维空间的所有角度问题是不是都能这样做呢？遗憾的是这种方法只在四、五维有效——六维时，两个胞需要三个角度参数才够描述，但内外积只有两个方程，所以老实用线性代数吧。
 　　幸好我们暂不关心高维。再回到四维问题上：给出向量$\vec m$与2-向量$A$，它们之间的夹角（线面角）怎么算？我们希望前面的公式继续成立。但内积是对应项相乘，四维空间中向量有4个分量，2-向量却有6个分量，我们无法计算内积。所以只好用外积了——还是先算：$\vec m\wedge A$，我们化简得到了一个3-向量：$ ae\_{xyz}+be\_{yzw}+ce\_{zwx}+de\_{wxy}$，通过霍奇对偶映射到向量$ae_w+be_x+ce_y+de_z$。显然，它的大小（范数）代表$m$与$A$组成平行六面体体积，方向为此平行六面体所在胞的法向——就像混合积一样，它几何意义很明确：
 $$\lvert sin\theta\rvert={\lVert\vec m\times A\rVert\over \lVert \vec m \rVert \lVert A \rVert}$$
@@ -143,7 +143,7 @@ $$\begin{align}(xe\_x+ye\_y+ze\_z+we\_w)\wedge(e\_{xy}+e\_{zw})&=0 \\\\ (ze\_z+w
 　　自对偶三个分量：${\sqrt 2\over 2}(e\_{xy}+e\_{zw})、{\sqrt 2\over 2}(e\_{xz}-e\_{yw})、{\sqrt 2\over 2}(e\_{xw}-e\_{yz})$；
 　　反自对偶三个分量：${\sqrt 2\over 2}(e\_{xy}-e\_{zw})、{\sqrt 2\over 2}(e\_{xz}+e\_{yw})、{\sqrt 2\over 2}(e\_{xw}+e\_{yz})$；
 　　可以证明它们正交——两两内积为0——其实它们两两外积也为0！系数${\sqrt 2\over 2}$起归一化作用，保证它们为单位2-向量。<a name="orth"></a>
-　　自对偶、反自对偶2-向量对应右、左手等角双旋转，所以我也把这个分解叫做“等角分解”。
+　　自对偶、反自对偶2-向量对应左、右手等角双旋转，所以我也把这个分解叫做“等角分解”。
 ### 正交分解
 　　复合2-向量$A$一定能分解成表示两个绝对垂直的平面的2-向量之和。如果这个复合2-向量不是自对偶或反自对偶的，那么分解方式唯一：
   $$A=({A^+\over\lVert A^+\rVert}+{A^-\over\lVert A^-\rVert}){\lVert A^+\rVert+\lVert A^-\rVert\over 2} 　+ 　({A^+\over\lVert A^+\rVert}-{A^-\over\lVert A^-\rVert}){\lVert A^+\rVert-\lVert A^-\rVert\over 2}$$

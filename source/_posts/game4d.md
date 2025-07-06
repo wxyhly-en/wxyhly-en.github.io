@@ -7,7 +7,7 @@ date: 2018-06-29 22:48:42
 ---
 <span class="likecode">（** 23年9月更新：添加了[4DGolf](/archives/game4d/#4dgolf)与[4DMiner](/archives/game4d/#4dminer) **）</span>
 
-<span class="likecode">（** 25年1月更新：添加了[4D Games](/archives/game4d/#4dgames)与[Moena](/archives/game4d/#moena) **）</span>
+<span class="likecode">（** 25年1-6月更新：添加了[4D Games](/archives/game4d/#4dgames)、[Moena](/archives/game4d/#moena) 与[HoxelDraw](/archives/game4d/#hoxel)**）</span>
 
 要想进一步体验四维空间的“感觉”，在电脑上做一个交互程序是再好不过的了。我曾经梦到玩像3dMax那样的4D复杂建模软件（可惜不存在）。这里我将整理我玩过的四维程序（不一定算游戏），并给一些主观评价。
 
@@ -37,6 +37,9 @@ Youtuber [CodeParade](https://www.youtube.com/@CodeParade) 制作了一款[4D高
 - 4D飞行模拟器跟我Tesserxel上的飞行模拟器有点像，都是对跑道训练降落。youtube上有[演示视频](https://www.youtube.com/watch?v=w3hBVkQeumo)。
 - 它的4D星系模拟中的引力似乎还是用的平方反比……所以没出现星系不稳定的问题。
 - 作者说了，他做了类似Minecraft4D的游戏后才发现Mashpoe的4DMiner里面的所谓最新的原创想法其实他早就有了（我也做过[Minecraft4D](/archives/mc4tutorial/)啊。。）
+
+25年更新3：<a name="hoxel"></a>
+一个还在最初原型开发阶段的对标类似Magica Voxel这种3D体素编辑器的四维超体素编辑器[HoxelDraw](https://github.com/HoxelDraw/HoxelDraw-Prototype/releases) (Hoxel即Hyper Voxel，超体素)。[这里是youtube上的介绍视频](https://www.youtube.com/watch?v=rMApRQnbbLk)。他还是采用的截面法做可视化，不过除了正常的三维截面外还有种2D截面网格格式，它类似[2048 4D](https://huonw.github.io/2048-4D/)那样将四维图形变成嵌套的两重二维坐标，充分反映了四维空间是两个二维空间的直积这一结构。
 
 还有一款致敬《miegakure》的游戏，叫《[Tetra Space](https://rantonels.itch.io/brane)》，它也是截面显示。这个游戏分成很多关，每一关的任务就是到达指定的通关点，你需要像走迷宫一样找路，还有可以在三维地面上推动的超立方体方块，和激光等等。让我感到美中不足的是截面朝向只能在两个方向上切换，而且我发现只要我画出“平面图”（其实是3d的地图），那么障碍物在3d地图上一览无余，很快我就能规划出路线。有几关纯粹就是把平面地图(a\*b\*1\*1)硬是用截面截得条线(a\*1\*1)，我都不用画3d地图了。所以这款游戏其实并没给我很好的四维空间感的体验，但纯粹从游玩的体验来说还是很好的。
 <table><tr><td width="50%">
