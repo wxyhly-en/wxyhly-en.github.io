@@ -1,187 +1,206 @@
 ---
-title: 四维世界（七）：电磁学
+title: "Four-Dimensional World (7): Electromagnetism"
 tags:
-  - 四维
-  - 物理
-  - 系列文章
-  - 数学
-categories: 四维世界系列
+  - Four-dimensional
+  - Physics
+  - Series
+  - Mathematics
+categories: Four-Dimensional World Series
 date: 2020-03-28 16:20:11
 ---
 
 <p class="likecode">/**
-这篇文章我打算专注一下四维世界（四维空间+一维时间=五维时空）里的物理学——电磁学。这些都是假设这个世界也符合我们世界中的一些物理规律的理论推导。虽然它电磁学不像牛顿力学那么容易让人接受，但这个类比也是无瑕兹而且很自然的（你也可以认为一切都是扯淡）。我们不讨论量子力学等其他物理，因为它们在四维空间中的推广有严重问题。
+In this article, I plan to focus on physics in the four-dimensional world (four-dimensional space + one-dimensional time = five-dimensional spacetime) — specifically electromagnetism. These are theoretical derivations assuming this world also follows some of the physical laws from our world. Although electromagnetism is not as easily accepted as Newtonian mechanics, this analogy is flawless and very natural (or you can consider it all nonsense). We won't discuss quantum mechanics or other physics because their generalization to four-dimensional space has serious problems.
 **/</p>
 
-在我们的三维世界，最神奇的东西之一就是电磁场了，各种电磁感应现象都是立体的，还要用到空间里的右手定则，能不能把这些东西类比到四维空间呢？当然可以。读者只要学过中学物理即可阅读除最后一节外的所有内容，如果知道大学物理和经典的不涉及相对论的麦克斯韦方程就可以全文阅读（我们本文也只考虑四维空间中的低速的非相对论物理过程，其实相对论也能推广到五维时空），其实不清楚也没关系，我会带着大家先过一遍（物理复习-_-）。我们先从最简单的两个相距为$r$的静电荷受的力说起吧。
-## 目录
-- [静电场](/archives/electm4d/#more)
-- [电流](/archives/electm4d/#d1)
-- [恒定磁场](/archives/electm4d/#d2)
-- [从安培力与洛伦兹力入手](/archives/electm4d/#d3)
-- 磁偶极子与指南针
-  + [环形电流的力矩](/archives/electm4d/#d4)
-  + [叉乘不只有一种推广](/archives/electm4d/#d5)
-  + [地磁场与指南针](/archives/electm4d/#d6)
-- 四维版麦克斯韦方程？
-  + [安培环路定理](/archives/electm4d/#d7)
-  + [法拉第电磁感应定理](/archives/electm4d/#d8)
-  + [高斯定理](/archives/electm4d/#d9)
-  + [四维电磁波](/archives/electm4d/#d10)
-- [四维波动光学](/archives/electm4d/#d11)
+In our three-dimensional world, one of the most magical things is the electromagnetic field. Various electromagnetic induction phenomena are three-dimensional and require the right-hand rule in space. Can we analogize these things to four-dimensional space? Of course we can. Readers only need to have studied high school physics to read all content except the last section. If you know university physics and classical Maxwell's equations without relativity, you can read the entire article (we only consider low-speed non-relativistic physical processes in four-dimensional space in this article, though relativity can actually be generalized to five-dimensional spacetime). Even if you're not clear on these, it's okay - I'll guide you through a review first (physics review -_-). Let's start with the simplest case: the force between two static charges separated by distance $r$.
+
+## Table of Contents
+- [Electrostatic Fields](/archives/electm4d/#more)
+- [Electric Current](/archives/electm4d/#d1)
+- [Steady Magnetic Fields](/archives/electm4d/#d2)
+- [Starting from Ampère Force and Lorentz Force](/archives/electm4d/#d3)
+- Magnetic Dipoles and Compasses
+  + [Torque on Current Loops](/archives/electm4d/#d4)
+  + [Cross Product Has More Than One Generalization](/archives/electm4d/#d5)
+  + [Geomagnetic Field and Compasses](/archives/electm4d/#d6)
+- Four-Dimensional Maxwell's Equations?
+  + [Ampère's Circuital Law](/archives/electm4d/#d7)
+  + [Faraday's Law of Electromagnetic Induction](/archives/electm4d/#d8)
+  + [Gauss's Law](/archives/electm4d/#d9)
+  + [Four-Dimensional Electromagnetic Waves](/archives/electm4d/#d10)
+- [Four-Dimensional Wave Optics](/archives/electm4d/#d11)
 
 <!--more-->
-## 静电场
-静电力算是初中知识了：（不会多个公式读者少一半吧，反正也没啥读者）
+## Electrostatic Fields
+Electrostatic force is middle school knowledge: (Won't half the readers disappear with multiple formulas? Well, there aren't many readers anyway)
 ![](/img/em4d001.svg)
 $$F={kQ_1Q_2\over r^2}$$
-电荷同性相斥异性相吸，且跟万有引力定律一样，两个点电荷间的静电力随距离平方反比衰减。然而到了四维空间，平方反比将变成立方反比，这是**能量守恒**要求的结果。原因要从高斯定律说起，电场线其实和光线类似：假设有一根一维的光纤，一端有一个光源。如果不算能量损失，另一端就可以接收到同样强度的光信号，这是显然的。下面我们把光纤做成平面的，同样在中间放一个光源，与一维光纤不同，光源发出的光会向四面八方散开，如果不算能量损失，我们如果绕一圈把所有的光强加起来，则等于光源的光强。由于光线散开了，所以离光源越远光线就越稀疏，光强也就越小。我们考虑以光源为中心的同心圆，光线会依次穿过它们，光线的总通量是一致的，但大圆的周长大，就将光线“稀释”了，所以光强与周长成反比，而周长又与半径成正比，我们可以得出光强将按距离的反比衰减。
-![无衰减的光缆（左）与随距离反比衰减的夹层平面（右）](/img/em4d002.svg)
-三维空间中我们考虑以光源为中心的同心球，同理得出光强与球表面积成反比，而表面积又与半径成平方比，所以我们可以得出光强将按距离的平方反比衰减。把光线换成电场就得到了电场的衰减规律。那么自然到了四维空间中，光源能散开的方向又多了，考虑以光源为中心的同心超球，得出光强与超球表体积成反比，得出光强将按距离的立方反比衰减。点电荷间静电力公式变成了：
+Like charges repel and opposite charges attract, and just like the law of universal gravitation, the electrostatic force between two point charges decreases with the inverse square of distance. However, in four-dimensional space, the inverse square law becomes an inverse cube law, which is a requirement of **energy conservation**. The reason starts with Gauss's law. Electric field lines are actually similar to light rays: suppose we have a one-dimensional optical fiber with a light source at one end. If we don't count energy loss, the other end can receive light signals of the same intensity, which is obvious. Now let's make the optical fiber two-dimensional. Unlike the one-dimensional fiber, light from the source spreads in all directions. If we don't count energy loss and we go around in a circle adding up all the light intensities, it equals the light source's intensity. Since the light spreads out, the farther from the source, the sparser the light rays, and the lower the intensity. We consider concentric circles centered at the light source. Light rays pass through them sequentially, and the total flux of light rays is consistent, but larger circles have larger circumferences, which "dilute" the light rays. So light intensity is inversely proportional to circumference, and circumference is proportional to radius, so we can conclude that light intensity decreases with the inverse of distance.
+![Lossless optical cable (left) and sandwich plane with inverse distance attenuation (right)](/img/em4d002.svg)
+In three-dimensional space, we consider concentric spheres centered at the light source. Similarly, we find that light intensity is inversely proportional to the sphere's surface area, and surface area is proportional to the square of radius, so we can conclude that light intensity decreases with the inverse square of distance. Replacing light rays with electric fields gives us the attenuation law for electric fields. Naturally, in four-dimensional space, the light source can spread in even more directions. Considering concentric hyperspheres centered at the light source, we find that light intensity is inversely proportional to the hypersphere's 3-volume, concluding that light intensity decreases with the inverse cube of distance. The electrostatic force formula between point charges becomes:
 $$F={kQ_1Q_2\over r^3}$$
-其实引力也如此，之前[谈四维行星轨道](/archives/lavie4ds/)的时候说过。立方反比除了影响天体力学中轨道不稳定还会带来什么？它还会使原子核外的电子轨道也不稳定。虽然量子力学并没有经典的轨道，但结论确是一样的，用更“量子”的说法就是不存在电子的定态波函数。所以我们只能**假设四维世界的微观理论与我们的完全不同，就不讨论它了**来自圆其说，否则整个四维世界系列的世界观就崩了。反正我的目的就是构建尽量与我们世界相似的四维世界嘛。
-如果要我们去了四维世界，能直接感受到立方反比的效应是什么呢？可能看四维世界的太阳或四维城市的路灯会更加刺眼，但却并不是很亮……还有说声音的传播也会失真，但波过程这方面我还没仔细研究过。
-<p class="likecode">/**注意我们默认牛顿三定律都成立，也就是说力的单位还是$\mathrm{kg/(m/s^2)}$，这个次数不会变成三次。那是否存在力的单位是$\mathrm{kg/(m/s^3)}$或$\mathrm{kg/(m/s)}$的世界呢？我也思考过，那些世界非常疯狂！但是跟四维无关所以以后单独讨论。**/</p><a name="d1"></a>
+Actually, gravity follows the same pattern, as discussed when we [talked about four-dimensional planetary orbits](/archives/lavie4ds/). Besides making orbits unstable in celestial mechanics, what else does the inverse cube law bring? It also makes electron orbits around atomic nuclei unstable. Although quantum mechanics doesn't have classical orbits, the conclusion is the same. Using more "quantum" language, there are no stationary wave functions for electrons. So we can only **assume that the microscopic theory of the four-dimensional world is completely different from ours and not discuss it** to make our story consistent, otherwise the entire worldview of the four-dimensional world series would collapse. After all, my purpose is to construct a four-dimensional world as similar to our world as possible.
 
-## 电流
+If we went to a four-dimensional world, what effect of the inverse cube law could we directly feel? Perhaps looking at the four-dimensional world's sun or the streetlights in a four-dimensional city would be more dazzling, but not very bright... Also, sound propagation would be distorted, but I haven't studied wave processes carefully yet.
 
-其实电流这东西没啥好说，因为它似乎不太受空间维度影响。电流就是电荷的定向移动，所以它还是等于单位时间单位横截胞（注意现在面升级成胞了）上通过的电荷量。是电流密度（注意单位）的通量。
-我们其实关心的是电流的磁效应。三维情景无限长直导线的磁场是反比衰减的同心圆磁场，我们都能猜出对应四维导线的磁场应该是同心球形成平方反比衰减的，但球面上的磁场方向如何却难以想象。要想知道是不是在瞎猜，我们先要了解磁场是什么。
+<p class="likecode">/**Note that we assume Newton's three laws hold, meaning the unit of force is still $\mathrm{kg/(m/s^2)}$, this exponent doesn't become three. Do there exist worlds where the unit of force is $\mathrm{kg/(m/s^3)}$ or $\mathrm{kg/(m/s)}$? I've thought about it, those worlds are crazy! But they're unrelated to four dimensions so I'll discuss them separately later.**/</p><a name="d1"></a>
+
+## Electric Current
+
+There's actually not much to say about electric current because it doesn't seem to be much affected by spatial dimensions. Current is the directional movement of charge, so it still equals the amount of charge passing through a unit cross-sectional cell (note that surfaces have upgraded to cells now) per unit time. It's the flux of current density (note the units).
+
+What we really care about is the magnetic effect of current. In three dimensions, the magnetic field of an infinite straight wire is concentric circles that decay inversely with distance. We can guess that the magnetic field of a four-dimensional wire should be concentric spheres decaying with inverse square, but it's hard to imagine the direction of the magnetic field on the sphere surface. To know if we're just guessing wildly, we first need to understand what a magnetic field is.
 ![](/img/em4d003.svg)<a name="d2"></a>
 
-## 恒定磁场
+## Steady Magnetic Fields
 
-学完了电场就该学磁场了。初中我们接触过最简单的例子就是有着南北极的棒状磁铁了，我们也可以类比到四维空间，认为棒状磁铁也有磁力线和南北极。但不幸的是，这个结论是错的。因为磁铁磁场的起源是分子环形电流，即电流产生磁场。但上一节我们只瞎猜了电流的磁场可能有球形的磁场分布。我们先来回忆一下三维情形：环形中央的磁场方向和环形电流方向之间的关系满足右手定则：
+After learning about electric fields, it's time to learn about magnetic fields. The simplest example we encounter in middle school is a bar magnet with north and south poles. We can also analogize to four-dimensional space, thinking that bar magnets also have magnetic field lines and north and south poles. But unfortunately, this conclusion is wrong. Because the origin of a magnet's magnetic field is molecular current loops, i.e., current produces magnetic fields. But in the previous section, we only guessed that current's magnetic field might have a spherical distribution. Let's first recall the three-dimensional case: the relationship between the magnetic field direction at the center of a loop and the direction of the loop current follows the right-hand rule:
 ![](/img/em4d001.gif)
-我们应该把这个模型推广到四维。先不管四维里“右手”是什么意思，环形中央的磁场方向应该垂直于环形电流所在的平面，但这个方向在四维空间中不再是唯一的了（平面的法空间也是平面，没有唯一方向的法线），这样的类比让我们无法确定环形中央的磁场方向，看来此法行不通。这跟之前我们猜的通电直导线的同心球磁场也类似：二维的球面也无法给出具体的方向。<a name="d3"></a>
-## 从安培力与洛伦兹力入手
-我们再换个思路想，磁场是怎么定义的。高中物理上定义过物理量“磁感应强度”$B$，它是一个矢量，因为在磁场中的通电导线会受到一种力的作用，我们叫它“安培力”。实验表明这种力与磁场线和导线都垂直，且若导线与磁场线方向相同则安培力为零。数学上这个关系正好对应于向量之间的叉乘运算。比如x轴方向的导线在y轴磁场中受到z轴方向的力。
+We should generalize this model to four dimensions. First ignoring what "right hand" means in four dimensions, the magnetic field direction at the center of the loop should be perpendicular to the plane of the loop current, but this direction is no longer unique in four-dimensional space (the normal space of a plane is also a plane, without a unique normal direction). This analogy leaves us unable to determine the magnetic field direction at the center of the loop, so this method doesn't work. This is similar to our previous guess about the concentric spherical magnetic field of a current-carrying straight wire: the two-dimensional sphere surface also cannot give a specific direction.<a name="d3"></a>
+
+## Starting from Ampère Force and Lorentz Force
+Let's think differently about how magnetic fields are defined. High school physics defines the physical quantity "magnetic induction intensity" $B$, which is a vector, because current-carrying wires in magnetic fields experience a force we call "Ampère force". Experiments show this force is perpendicular to both the magnetic field lines and the wire, and if the wire is parallel to the magnetic field lines, the Ampère force is zero. Mathematically, this relationship corresponds exactly to the cross product operation between vectors. For example, a wire along the x-axis in a y-axis magnetic field experiences a force along the z-axis.
 ![](/img/em4d002.gif)
 $$\boldsymbol{F}=I\boldsymbol{l}\times \boldsymbol{B}$$
-如果有一个二维世界，这个世界允许电磁场存在吗？如果通电导线受力要与电流方向、磁场三者都垂直，那只能至少在三维空间。但我们旋转一个平面图形不也说旋转轴垂直于那个平面吗？这也不代表只有三维空间能够旋转啊。因此我们应该放弃规定所谓“垂直”的方向，转而把旋转轴规定为旋转点，把磁场规定为标量，这样问题就解决了。
-下面到了四维，我们假设力还是与磁场、导线垂直。x轴方向的导线在y轴磁场中受到的力沿什么方向？它可以是z轴、w轴或两个方向的组合——我们面临着刚才同样的问题。但我们知道，**力的方向一定是明确的，电流的方向也是**，因为它们都是从物体运动来定义的：力跟物体加速度的方向有关，电流跟电荷的运动有关，所以它们一定是矢量。相权衡之下我们只有**放弃磁场的方向是单一的这一假设**了。比如x轴向放置的导线受到了y方向的感应力，我们就直接认为磁场是zw方向的。再举一个例子：x轴方向的导线在yz方向磁场中受到的力为w方向。环形电流中央的磁场方向与通电直导线磁场方向无法确定也都能解释了：磁场本身就是二维的，它的方向与线圈所在平面绝对垂直。或许你已经发现，这里的磁场正是我之前提到过的二维版的向量——[2-向量](/archives/bivector4ds/)。
-再说详细点就是：xy平面内的环形电流中心的磁场方向是zw方向。如果你无法想象二维的向量，你可以像下图一样把磁场形象地看成zw面上的漩涡。
-![四维空间的均匀磁场](/img/em4d004.svg)
-注意这里二维向量（2-向量）也是有“正负”的，它体现在漩涡的方向（四维虽然无法区分顺时针、逆时针，但漩涡也有方向），所以xy方向与yx方向是相反的（xy=-yx哦）。四维空间的“右手”法则就是给定了一种坐标排列顺序，具体的操作有点复杂，涉及到奇偶排列。这就是向量和2-向量的叉乘运算，所以高中的安培力公式改都不用改就能放进四维人的教材中。
-我们再来看本质：为什么通电导线会受到安培力？高中物理告诉过我们：电荷在磁场中运动将会受到洛伦兹力，洛伦兹力才是安培力的真正来源。根据前面的经验，我们直接可以写出洛伦兹力的表达式：$$\boldsymbol{F}=q\boldsymbol{v}\times \boldsymbol{B}$$
-<!--各种磁效应的3d\4d对比图-->
-既然电荷在磁场中会受力的作用，我们下一步就可以造一台四维空间中的直流发电机了。其实它的结构和三维空间一样，只是所有东西在另一个方向上“加厚”了，磁场也向量也被“加厚”成2-向量：如把x方向直接变成xw方向。当然有没有更好的电机结构呢？比如考虑四维独有的双旋转或Hopf纤维丛，会不会有一些特别的设计呢？这我现在还真的想不出来，太抽象了。<a name="d4"></a>
+If there were a two-dimensional world, would this world allow electromagnetic fields? If a current-carrying wire experiences a force perpendicular to both the current direction and magnetic field, that can only happen in at least three-dimensional space. But don't we also say the rotation axis is perpendicular to a plane when we rotate a planar figure? This doesn't mean only three-dimensional space can have rotation. Therefore, we should abandon specifying the so-called "perpendicular" direction, and instead specify the rotation axis as a rotation point and the magnetic field as a scalar, thus solving the problem.
 
-## 磁偶极子与指南针
-### 环形电流的力矩
-下面我们来分析一下环形电流线圈在磁场中受到的偏转力矩的作用：在三维空间，一个磁矩为$\boldsymbol{m}$的磁偶极子在磁场$\boldsymbol{B}$中受到的力矩为$\boldsymbol{m}\times\boldsymbol{B}$。如果像之前那样原封不动推广到四维会怎样？首先磁矩定义是环形电流所在面的法向，这个方向在四维是二维的，磁场也是二维的，两个2-向量叉乘，最后将得到标量，它表示一个平行八胞体的体积（跟三维的混合积类似）。但力矩是有方向的，不可能是标量，所以类比失败。分析磁偶极子还是要通过环形电流入手，不能直接套公式，我们后面会提到[类比失败的原因](#d5)。
+Now in four dimensions, we assume the force is still perpendicular to both the magnetic field and the wire. What direction is the force on a wire along the x-axis in a y-axis magnetic field? It could be along the z-axis, w-axis, or a combination of both directions — we face the same problem as before. But we know that **the direction of force must be definite, as is the direction of current**, because they are both defined from object motion: force is related to the direction of object acceleration, and current is related to the motion of charges, so they must be vectors. On balance, we can only **abandon the assumption that the magnetic field has a single direction**. For example, if a wire placed along the x-axis experiences an induced force in the y direction, we directly consider the magnetic field to be in the zw direction. Another example: a wire in the x direction in a yz magnetic field experiences a force in the w direction. The inability to determine the magnetic field direction at the center of a loop current or around a current-carrying straight wire can all be explained: the magnetic field itself is two-dimensional, its direction is absolutely perpendicular to the plane of the coil. Perhaps you've already noticed, the magnetic field here is exactly the two-dimensional version of vectors I mentioned before — [2-vectors](/archives/bivector4ds/).
 
-我们只分析几个特殊的位置，然后不加证明地给出计算力矩的方法。
-- 当磁场平行于线圈时，线圈上任何一个点都不受力
-- 当磁场绝对垂直于线圈时，线圈上每点受力需要同时垂直于线圈导线与磁场，所以只能是沿线圈半径方向，导致线圈有扩大或收缩的趋势，但不会使线圈转动。
-- 当磁场半平行半垂直于线圈时（即三维空间那种二面角90°）结论是线圈会受到合力矩，有向顺着磁场的方向转动的趋势。
+To be more specific: the magnetic field at the center of a loop current in the xy plane is in the zw direction. If you can't imagine two-dimensional vectors, you can visualize the magnetic field as a vortex in the zw plane as shown below.
+![Uniform magnetic field in four-dimensional space](/img/em4d004.svg)
+Note that 2-vectors (bivectors) here also have "positive and negative", reflected in the direction of the vortex (although four dimensions cannot distinguish clockwise from counterclockwise, vortices still have direction), so the xy direction and yx direction are opposite (xy=-yx). The four-dimensional "right-hand" rule gives a coordinate arrangement order, and the specific operation is somewhat complex, involving even and odd permutations. This is the cross product operation between vectors and 2-vectors, so the high school Ampère force formula can be put into four-dimensional textbooks without any changes.
 
-我们详细分析一下第三种情况：假设线圈平行于xy平面，磁场平行于yz平面。下图两个A点处电流平行于磁场，是不受力的。B点与C点的电流方向相反，所以一个受力为w方向，另一个为-w方向。
+Let's look at the essence: why do current-carrying wires experience Ampère force? High school physics tells us: charges moving in magnetic fields experience Lorentz force, which is the true source of Ampère force. Based on previous experience, we can directly write the expression for Lorentz force:$$\boldsymbol{F}=q\boldsymbol{v}\times \boldsymbol{B}$$
+<!--Various 3D\4D comparison diagrams of magnetic effects-->
+Since charges experience force in magnetic fields, our next step is to build a DC generator in four-dimensional space. Actually, its structure is the same as in three-dimensional space, just "thickened" in another direction, with magnetic field vectors also "thickened" into 2-vectors: like directly changing the x direction to the xw direction. Of course, are there better motor structures? For example, considering four-dimensional unique double rotation or Hopf fibration, would there be some special designs? I really can't think of any now, it's too abstract.<a name="d4"></a>
+
+## Magnetic Dipoles and Compasses
+### Torque on Current Loops
+Now let's analyze the deflection torque experienced by current loops in magnetic fields: In three-dimensional space, a magnetic dipole with magnetic moment $\boldsymbol{m}$ experiences torque $\boldsymbol{m}\times\boldsymbol{B}$ in magnetic field $\boldsymbol{B}$. What happens if we generalize this unchanged to four dimensions? First, the magnetic moment is defined as the normal to the plane of the loop current. This direction is two-dimensional in four dimensions, and the magnetic field is also two-dimensional. Cross-multiplying two 2-vectors will give a scalar, representing the volume of a parallel 8-cell (similar to the scalar triple product in three dimensions). But torque has direction and cannot be scalar, so the analogy fails. We'll mention [the reason for the failed analogy](#d5) later. To analyze magnetic dipoles, we must work through current loops and cannot directly apply formulas.
+
+We'll only analyze a few special positions, then give the method for calculating torque without proof.
+- When the magnetic field is parallel to the coil, no point on the coil experiences force
+- When the magnetic field is absolutely perpendicular to the coil, the force on each point of the coil must be perpendicular to both the coil wire and magnetic field, so it can only be along the coil radius, causing the coil to tend to expand or contract but not rotate.
+- When the magnetic field is half parallel and half perpendicular to the coil (i.e., the dihedral angle is 90° as in three-dimensional space), the conclusion is that the coil experiences a net torque with a tendency to rotate in the direction of the magnetic field.
+
+Let's analyze the third case in detail: assume the coil is parallel to the xy plane and the magnetic field is parallel to the yz plane. The two A points in the diagram below have current parallel to the magnetic field and experience no force. Points B and C have opposite current directions, so one experiences force in the w direction, the other in the -w direction.
 ![](/img/em4d005.svg)
-那这个w方向上的力会让线圈怎么转呢？下面给两种方法来推导转动方向：
+How does this force in the w direction make the coil rotate? Here are two methods to derive the rotation direction:
 
-1. 我们来算算力矩：选取线圈中心为作用点，B点的力臂沿y方向，B点受力沿w方向，三维的力矩垂直于两者，推广到四维力矩也该垂直，所以是xz方向。而力矩的方向是转轴的方向，垂直于旋转平面，所以这个力矩的作用效果是让线圈在yw方向上转动。
-细心的话你会发现**一个问题**：既然B点的力臂沿y方向，B点受力沿w方向，效果为让线圈在yw方向上转动，为什么我们的力矩还非得规定是与它们垂直的xz方向？直接规定成yw方向不更好吗？确实，这个滥用垂直方向倒来倒去的问题我们在说二维世界的磁场时也遇到过。<a name="bladeB"></a>三维空间由于可以用更简单的法向量表示平面，所以才会用莫名其妙的垂直于旋转平面方向作为力矩方向。这也暗示了三维空间的磁场可能定义为**跟磁场向量垂直且大小相同的2-向量**更加合适，不仅省去繁琐的左右手定则，也统一了不同维度下磁场的形式，比如二维磁场也不是标量，而是2-向量，这个2-向量只能平行于二维空间所在的平面，所以只有一个分量，感觉上就是标量。但为了保持跟中学物理知识的一致性，我们还是用那种正常的定义（其实是三维人偏见的定义），用$\boldsymbol{B}^\*$表示这种绝对垂直版的更好的定义。
-2. 直接把力在xyw空间画出来用眼睛看：
-![注意把z轴换成w轴后磁场无法画出来了](/img/em4d006.svg)
-我们除了知道旋转发生在yw平面上（或说绕xz轴平面旋转），还能看到线圈有往yw面旋转的趋势。而之前分析过yw面与磁场绝对垂直，确实是一个平衡位置。<a name="d5"></a>
+1. Let's calculate the torque: choosing the coil center as the point of action, B's moment arm is along the y direction, B's force is along the w direction. The three-dimensional torque is perpendicular to both, and generalizing to four dimensions, torque should also be perpendicular, so it's in the xz direction. The torque direction is the axis of rotation, perpendicular to the rotation plane, so the effect of this torque is to make the coil rotate in the yw direction.
+If you're careful, you'll notice **a problem**: since B's moment arm is along the y direction and B's force is along the w direction, with the effect of making the coil rotate in the yw direction, why must we specify the torque as the xz direction perpendicular to them? Wouldn't it be better to specify it directly as the yw direction? Indeed, this problem of flipping back and forth using perpendicular directions was also encountered when discussing magnetic fields in two-dimensional worlds. <a name="bladeB"></a>Three-dimensional space can represent planes with simpler normal vectors, so it uses the seemingly inexplicable direction perpendicular to the rotation plane as the torque direction. This also suggests that magnetic fields in three-dimensional space might be better defined as **2-vectors perpendicular to and of the same magnitude as the magnetic field vector**, not only saving the tedious left and right-hand rules but also unifying the form of magnetic fields across different dimensions. For example, two-dimensional magnetic fields are not scalars but 2-vectors. This 2-vector can only be parallel to the plane of two-dimensional space, so it has only one component, feeling like a scalar. But to maintain consistency with high school physics knowledge, we still use the normal definition (actually a definition biased by three-dimensional thinking), using $\boldsymbol{B}^*$ to denote this better absolutely perpendicular definition.
+2. Directly draw the forces in xyw space and look with your eyes:
+![Note that after replacing the z-axis with the w-axis, the magnetic field cannot be drawn](/img/em4d006.svg)
+Besides knowing that rotation occurs in the yw plane (or rotating around the xz-axis plane), we can also see that the coil tends to rotate toward the yw plane. As previously analyzed, the yw plane is absolutely perpendicular to the magnetic field, which is indeed an equilibrium position.<a name="d5"></a>
 
-### 叉乘不只有一种推广
-总结下来，就是线圈与磁场平行、绝对垂直时没有力矩，半平行半垂直时才有力矩。虽然这只是几个特殊位置，但根据叠加原理，任何方向上的磁场都可以在坐标系里分解成六个分量：$ae\_{xy}+be\_{xz}+ce\_{xw}+de\_{yz}+ee\_{yw}+fe\_{zw}$，其中$e\_{ij}$表示单位的2-向量。两个2-向量内积必须分量完全对应结果才不为0，外积必须分量完全不一样结果才不为0，现在似乎还有一种运算，那就是必须分量不完全一样结果才不为0，这种新运算感觉处于内外积之间，我暂且叫它混合积。下面我整理了一张表格：
+### Cross Product Has More Than One Generalization
+In summary, when the coil is parallel or absolutely perpendicular to the magnetic field, there is no torque; when half parallel and half perpendicular, there is torque. Although these are just a few special positions, according to the superposition principle, magnetic fields in any direction can be decomposed into six components in the coordinate system: $ae_{xy}+be_{xz}+ce_{xw}+de_{yz}+ee_{yw}+fe_{zw}$, where $e_{ij}$ represents unit 2-vectors. The inner product of two 2-vectors is non-zero only when components completely correspond, the outer product is non-zero only when components are completely different, and now there seems to be another operation that is non-zero only when components are not completely the same. This new operation feels between inner and outer products, which I'll temporarily call the mixed product. Below I've organized a table:
 
-|运算|$e\_{ij}\*e\_{ij}$|$e\_{ij}\*e\_{jk}$|$e\_{ij}\*e\_{kl}$|
+|Operation|$e_{ij}*e_{ij}$|$e_{ij}*e_{jk}$|$e_{ij}*e_{kl}$|
 |----|----|---|---|
-|内积$\cdot$|1|0|0|
-|外积$\wedge$|0|0|$e\_{ijkl}$|
-|混合积$\times$|0|$e\_{ik}$|0|
+|Inner product $\cdot$|1|0|0|
+|Outer product $\wedge$|0|0|$e_{ijkl}$|
+|Mixed product $\times$|0|$e_{ik}$|0|
 
-注意，线圈平行于xy平面，磁场平行于yz平面，力矩产生的旋转发生在yw平面。如果我们把磁场绝对垂直的方向xw（之所以取这绝对垂直是因为[之前这里的描述](#bladeB)）与线圈平面xy做混合积，正好得到yw平面。有没有一种感觉：相同字母可以合并相消，不同字母则直接写在一起构成一个多维向量，且每一种维数对应一种乘法运算？其实它们都被一种叫做**几何代数**（Geometric Algebre）的东西统一了！以后有时间我会专门介绍它。<a name="d6"></a>
-### 地磁场与指南针
-我们现在主要关心地磁场是什么样子的，指南针该怎么工作。三维地球的磁场可以看做地球内部存在着巨大的环形电流，指南针的指向其实只是地磁场在水平面上的分量，到了南北极地磁场几乎是竖直的了。我们假设四维星球内部也存在环形电流，只不过四维星球有双旋转，我们也完全有理由相信星球内部存在着绝对垂直的两个环形电流，它们的方向与两个极道的方向差不多，但不至于完全重合，就像地球上磁极的位置与地理极点位置有偏差一样。
-我们先假设只有xy平面上有环形电流。此时xy极道上的磁场最强，完全是水平方向。它的方向是垂直于极道方向的平面(zw方向)。现在我们拿着一个四维针状永磁体指南针，针内部有产生磁场的环形电流。指南针在地磁场中受到力矩的作用回发生偏转，那指针能否偏转到朝南呢？当然如果不考虑阻力，指针因能量守恒回来回振荡，考虑阻力后我们还需要分析平衡位置的稳定性：比如三维世界的指南针指向北也是平衡位置，但只要稍微晃动一下就能回到稳定的指向南的平衡位置。
-为此我编了一个程序来计算不同初始角度位置下的指南针能否最终指向南。这里的初始角度位置是什么呢？当然是环形电流与磁场的夹角。我们已经熟知，两个平面需要两个夹角描述它们的位置关系。但环形电流与磁场都是有方向的，这暗示着夹角的范围可以比0-90°范围更大。类比直线之间的夹角取值范围是0-90°，但向量之间的夹角范围是0-180°。那两个2-向量之间的夹角范围是怎样的呢？这里推导过程省略，直接看下面的结论：下图中标出了2-向量之间夹角$\theta\_1$与$\theta\_2$，（取$\theta\_1\geq\theta\_2$）
+Note that the coil is parallel to the xy plane, the magnetic field is parallel to the yz plane, and the torque produces rotation in the yw plane. If we take the absolutely perpendicular direction xw of the magnetic field (the reason for taking this absolutely perpendicular direction is because of [the previous description here](#bladeB)) and do a mixed product with the coil plane xy, we get exactly the yw plane. Do you get a feeling: identical letters can merge and cancel, different letters are written together to form a multidimensional vector, and each dimension corresponds to a multiplication operation? Actually, they are all unified by something called **Geometric Algebra**! I'll introduce it specifically when I have time.<a name="d6"></a>
+
+### Geomagnetic Field and Compasses
+We're now mainly concerned with what the geomagnetic field looks like and how compasses should work. The magnetic field of the three-dimensional Earth can be viewed as if there were giant current loops inside the Earth. The compass direction is actually just the component of the geomagnetic field on the horizontal plane; at the north and south poles, the geomagnetic field is almost vertical. We assume that four-dimensional planets also have internal current loops, but four-dimensional planets have double rotation. We have every reason to believe that there are two absolutely perpendicular current loops inside the planet, their directions roughly aligned with the two polar circles, but not completely coincident, just as the positions of magnetic poles on Earth deviate from geographic poles.
+
+Let's first assume there's only a current loop in the xy plane. At this time, the magnetic field is strongest on the xy polar circle, completely horizontal. Its direction is the plane perpendicular to the polar circle direction (zw direction). Now we take a four-dimensional needle-shaped permanent magnet compass, with internal current loops producing magnetic fields. The compass experiences torque in the geomagnetic field and deflects. Can the needle deflect to point south? Of course, without considering resistance, the needle would oscillate back and forth due to energy conservation. Considering resistance, we also need to analyze the stability of equilibrium positions: for example, a three-dimensional compass pointing north is also an equilibrium position, but with a slight shake, it can return to the stable south-pointing equilibrium position.
+
+For this, I wrote a program to calculate whether compasses at different initial angular positions can ultimately point south. What is the initial angular position here? Of course, it's the angle between the current loop and the magnetic field. We already know that two planes need two angles to describe their positional relationship. But current loops and magnetic fields both have direction, suggesting that the range of angles can be larger than 0-90°. Analogous to how the angle between lines ranges from 0-90°, but the angle between vectors ranges from 0-180°. What's the range of angles between two 2-vectors? The derivation is omitted here, just look at the conclusion below: The figure below marks the angles $\theta_1$ and $\theta_2$ between 2-vectors (taking $\theta_1\geq\theta_2$)
 ![](/img/em4d007.svg)
-原点O代表完全重合且方向也一致，D点有一个角是180°，代表重合但方向相反。A、B两个角都是90°，都是绝对垂直，但B点有个角为-90°，是因为两个2-向量的方向顺序跟右手定则（正规术语：定向）相反。OA线段为方向一致的左等角平面，BD是方向相反的左等角平面，OB线段是方向一致的右等角平面，AD是方向相反的右等角平面。菱形水平轴表示半平行，竖直轴表示半垂直。中点C则是半平行半垂直。
-这张图把所有位置关系都画出来了，也就是说每一个点都会对应一个指南针环形电流与地磁场的相对朝向位置。在磁力矩作用下，菱形内的每个点都有向其他点运动的趋势，（即得到一个向量场）。编程可计算出下面这幅图：
+The origin O represents complete overlap with consistent direction, point D has one angle of 180°, representing overlap but opposite direction. Points A and B both have angles of 90°, both absolutely perpendicular, but point B has an angle of -90° because the directional order of the two 2-vectors is opposite to the right-hand rule (proper term: orientation). Line segment OA is left isoclinic planes with consistent direction, BD is left isoclinic planes with opposite direction, line segment OB is right isoclinic planes with consistent direction, AD is right isoclinic planes with opposite direction. The horizontal axis of the rhombus represents half-parallel, the vertical axis represents half-perpendicular. The center point C is half-parallel half-perpendicular.
+
+This diagram shows all positional relationships, meaning each point corresponds to a relative orientation between the compass loop current and the geomagnetic field. Under magnetic torque, each point in the rhombus tends to move toward other points (i.e., we get a vector field). Programming can calculate the following figure:
 ![](/img/em4d003.gif)
-我们发现无论初始位置如何，最终运动趋势都往左边顶点集中，虽然其他三个顶点处也是平衡点，但都不稳定，稍有晃动就会往左边顶点靠。这说明了四维空间指南针的稳定性。
-但是往往四维星球不只有单旋转，还会有双旋转。磁场可能也由两个绝对垂直的环形电流产生。这种复合磁场有种特点：你永远无法通过找导线不受安培力的方向来确定磁场方向。这种磁场跟双旋转类似，它是两个绝对垂直的漩涡的叠加，因此不是一种单纯的平面结构！那你说如果有多种方向磁场叠加那磁场的结构不就无限复杂了吗？并不是。可以证明任意的2-向量都能分解为两个绝对垂直的平面2-向量之和（具体怎么分解见[这篇文章中的正交分解小节](/archives/bivector4ds/#dualde)），所以叠加再多磁场的复杂程度都不会超过我们这里讨论的情况。我取xy平面上磁场强度是zw平面的两倍时，那个向量场变成了这样：
+We find that regardless of initial position, the final motion trend converges to the left vertex. Although the other three vertices are also equilibrium points, they are unstable - with slight disturbance, they move toward the left vertex. This demonstrates the stability of four-dimensional compasses.
+
+But often four-dimensional planets have not just single rotation but also double rotation. The magnetic field might also be produced by two absolutely perpendicular current loops. This composite magnetic field has a characteristic: you can never determine the magnetic field direction by finding where wires don't experience Ampère force. This magnetic field is similar to double rotation - it's the superposition of two absolutely perpendicular vortices, therefore not a simple planar structure! You might say if multiple directional magnetic fields are superposed, wouldn't the magnetic field structure be infinitely complex? Not so. It can be proven that any 2-vector can be decomposed into the sum of two absolutely perpendicular planar 2-vectors (for how to decompose specifically, see [the orthogonal decomposition section in this article](/archives/bivector4ds/#dualde)), so no matter how many magnetic fields are superposed, the complexity won't exceed what we're discussing here. When I set the magnetic field strength in the xy plane to be twice that in the zw plane, that vector field becomes:
 ![](/img/em4d004.gif)
-明显可以看到绝对垂直的方向开始“抢流量”了，但zw平面磁场强度没xy平面上的强，所示还是抢不过，最终指南针还是会指向xy方向。如果zw磁场再强一点或跟xy一样强会怎样呢？下面我分别取了0.9倍与相等的情况：
-![0.9倍（左）；相等（右）](/img/em4d005.gif)
-我们发现它们越来越势均力敌，直到最后相等时，指南针落到等角的位置便不转动了，这种情况下指南针根本就不再有指固定方向的功能了。这是怎么回事呢？其实之前我们也谈到过等角双旋转的对称性：它跟Hopf纤维丛一样，里面每个大圆轨迹的地位都是相同的。在等角双旋转的星球上任何一个点都不再有区别，南北极的概念都不存在。在这种星球上指南针的失灵就显得不足为怪了。
-那这种指南针在一般的非等角双旋转星球上到底能给我们什么信息呢？首先，对于地球来说只有在赤道上磁场才会平行于地面，其他地方的地磁场是倾斜的，但只要把指南针水平固定，就可以抑制住垂直分量的地磁场的磁力矩。四维情况也一样，所以结论是：~~四维指南针真的就是指南针，可以像三维指南针一样指向南极，因为环形电流回去匹配把磁场投影到三维地面后的到的二维分量，环形电流的法线可以在三维地面中唯一确定，这就是南方，但它除了指南并不会提供其它额外信息了。~~**（2022.10.16更新）前面的结论是错的，这样构造的指南针会指向东，而不是南，细节将见下次更新**。对于三维世界来说，给定一个方向就足够了，但对于四维人来说还不行。还记得那个可以一边自转且保持前进方向的旋转方式吗？四维人要完全知到自己在三维地面上的朝向还差一个方向。（想一想飞机的姿态除了水平方向还有侧面的翻滚角）所以四维世界中的导航确实非常困难，可以想像这个世界中的探险家的死亡率肯定是非常高的。<a name="d7"></a>
-## 四维版麦克斯韦方程？
-如果你完全不了解大学物理那么请忽略这个小节，或阅读相关书籍后再回来哦。
-### 安培环路定理
-安培环路定理描述的是电流如何产生磁场。一般以路径积分的形式给出：
+You can clearly see that the absolutely perpendicular direction starts "stealing traffic", but the zw plane magnetic field isn't as strong as the xy plane's, so it still can't win, and ultimately the compass still points in the xy direction. What if the zw magnetic field were stronger or equal in strength? Below I've taken 0.9 times and equal cases respectively:
+![0.9 times (left); equal (right)](/img/em4d005.gif)
+We find they become increasingly evenly matched, until finally when equal, the compass stops rotating once it reaches an isoclinic position. In this situation, the compass no longer has the function of pointing in a fixed direction. What's going on? Actually, we've talked about the symmetry of isoclinic double rotation before: like the Hopf fibration, every great circle trajectory has the same status. On a planet with isoclinic double rotation, every point is no longer distinguishable, and the concept of north and south poles doesn't exist. The failure of compasses on such planets is not surprising.
+
+So what information can this compass give us on general non-isoclinic double-rotating planets? First, for Earth, magnetic fields are only parallel to the ground at the equator; elsewhere, the geomagnetic field is tilted, but as long as the compass is fixed horizontally, it can suppress the magnetic torque from the vertical component of the geomagnetic field. The four-dimensional case is the same, so the conclusion is: ~~Four-dimensional compasses really are compasses that can point south like three-dimensional compasses, because the current loop will match the two-dimensional component obtained by projecting the magnetic field onto the three-dimensional ground. The normal to the current loop can be uniquely determined on the three-dimensional ground - this is south, but it doesn't provide other additional information besides pointing south.~~ **(Update 2022.10.16) The previous conclusion is wrong. A compass constructed this way will point east, not south. Details will be in the next update**. For the three-dimensional world, giving one direction is sufficient, but for four-dimensional people, it's not enough. Remember that rotation method that can spin while maintaining forward direction? Four-dimensional people need one more direction to fully know their orientation on three-dimensional ground. (Think about how an airplane's attitude includes not just horizontal direction but also roll angle) So navigation in the four-dimensional world is indeed very difficult. You can imagine the mortality rate of explorers in this world must be very high.<a name="d7"></a>
+
+## Four-Dimensional Maxwell's Equations?
+If you're completely unfamiliar with university physics, please skip this section or come back after reading relevant books.
+### Ampère's Circuital Law
+Ampère's circuital law describes how current produces magnetic fields. It's generally given in the form of a path integral:
 $$\oint_l\boldsymbol{B}\cdot \boldsymbol{dl}=\mu_0 (\boldsymbol{I}+\iint_D \epsilon_0\frac{\partial \boldsymbol{E}}{\partial t}\cdot \boldsymbol{dn}) $$
-其中等式右边第二项是位移电流（变化的电场看起来像一种电流密度，因为它也产生磁场，变化电场在一个截面里的流量就叫位移电流），它的值是随便选一块只要以路径$l$为边界的二维区域$D$就行，$n$是区域$D$面积元的法线。（即$\boldsymbol{dn}=\boldsymbol{dS}^\*$。这里星号是霍奇对偶，它把面积元变成了法向，也就是一种通量。）
-二维情况呢？我们只需要两个点就能“包围”一根导线：(见下面三幅图左边)
-注意千万不能把图中的点与叉理解为垂直纸面向外向里，因为二维世界没有这个方向，它们只是代表磁场标量场的正负号。
-所谓的环流量单纯变成了两点处磁场值相减，以环为边界的曲面也变成了曲线：
+where the second term on the right is displacement current (changing electric fields look like a kind of current density because they also produce magnetic fields; the flux of changing electric fields through a cross-section is called displacement current). Its value is calculated by choosing any two-dimensional region $D$ with path $l$ as its boundary, where $n$ is the normal to area elements of region $D$. (i.e., $\boldsymbol{dn}=\boldsymbol{dS}^*$. Here the asterisk is the Hodge dual, which turns area elements into normals, i.e., a kind of flux.)
+
+What about the two-dimensional case? We only need two points to "surround" a wire: (see the left side of the three figures below)
+Note that you absolutely cannot interpret the dots and crosses in the figure as pointing out of or into the paper, because the two-dimensional world doesn't have this direction. They only represent the positive and negative signs of the scalar magnetic field.
+The so-called circulation simply becomes the difference between magnetic field values at two points, and the surface bounded by the loop becomes a curve:
 $$\boldsymbol{B}(A)-\boldsymbol{B}(B)=\mu_0 (\boldsymbol{I}+\int_D \epsilon_0\frac{\partial \boldsymbol{E}}{\partial t}\cdot \boldsymbol{dn}) $$
-这表明二维无限长导线磁场不衰减了！但无限长导线本来就是不存在的，所以二维电磁学还是算“良好”的。
-![从二维到三维四维的广义安培环路定理](/img/em4d008.svg)
-推到四维，一维的环路不再能包裹住一维的导线，（参考[四维空间（十）：扭结与环扣](/archives/knot4d/)这篇文章）所以路径积分要升级成曲面积分。还有就是磁场也是二维的，所以曲面才能跟同样是二维的磁场匹配求内积，因为积分终究算出来都是标量。曲面积分时，每个面积微元都是一个小的2-向量，它跟磁场做内积得到标量，这个标量在全曲面上累加得到了一种二维的“环流量”，且流量值正比于曲面套住的电流。
+This shows that the magnetic field of a two-dimensional infinite wire doesn't decay! But infinite wires don't exist anyway, so two-dimensional electromagnetism is still "well-behaved".
+![Generalized Ampère's circuital law from two to three to four dimensions](/img/em4d008.svg)
+Extending to four dimensions, one-dimensional loops can no longer wrap around one-dimensional wires (refer to the article [Four-Dimensional Space (10): Knots and Links](/archives/knot4d/)), so path integrals must be upgraded to surface integrals. Also, magnetic fields are two-dimensional, so surfaces can match with equally two-dimensional magnetic fields to compute inner products, because integrals ultimately calculate scalars. In surface integration, each area element is a small 2-vector that takes an inner product with the magnetic field to get a scalar. This scalar accumulates over the entire surface to get a kind of two-dimensional "circulation", and the flux value is proportional to the current enclosed by the surface.
 $$\oint_S\boldsymbol{B}\cdot \boldsymbol{dS}=\mu_0 (\boldsymbol{I}+\iiint_D \epsilon_0\frac{\partial \boldsymbol{E}}{\partial t}\cdot \boldsymbol{dn})$$<a name="d8"></a>
-<!--注意这里的磁场还是沿用的三维的定义方式。如果换成绝对垂直的那种定义$\boldsymbol{B}^\*$反而还麻烦一些，但它对各维度都成立（只用变积分号的个数）：
-$$(\oint_S\boldsymbol{B}^\*\wedge \boldsymbol{dS}^\*)^\*=\mu_0 (\boldsymbol{I}+\iiint_D \epsilon_0\frac{\partial \boldsymbol{E}}{\partial t}\wedge \boldsymbol{dV}^\*)$$-->
+<!--Note that the magnetic field here still follows the three-dimensional definition. If we switch to the absolutely perpendicular definition $\boldsymbol{B}^*$, it becomes more complicated, but it holds for all dimensions (just change the number of integral signs):
+$$(\oint_S\boldsymbol{B}^*\wedge \boldsymbol{dS}^*)^*=\mu_0 (\boldsymbol{I}+\iiint_D \epsilon_0\frac{\partial \boldsymbol{E}}{\partial t}\wedge \boldsymbol{dV}^*)$$-->
 
-### 法拉第电磁感应定理
-法拉第电磁感应定理描述的是磁通变化导致回路中产生感应电动势的现象：
+### Faraday's Law of Electromagnetic Induction
+Faraday's law of electromagnetic induction describes how changing magnetic flux induces electromotive force in loops:
 $$\oint_l\boldsymbol{E}\cdot \boldsymbol{dl}=-\iint_D \frac{\partial \boldsymbol{B}}{\partial t}\cdot \boldsymbol{dn} $$
-二维情形标量磁场也没有通量概念了，但如果按磁场垂直于二维平面来理解的话，应该直接将标量积分得到通量：
+In the two-dimensional case, scalar magnetic fields have no concept of flux, but if understood as magnetic fields perpendicular to the two-dimensional plane, we should directly integrate the scalar to get flux:
 $$\oint_l\boldsymbol{E}\cdot \boldsymbol{dl}=-\iint_D \frac{\partial B}{\partial t}\cdot dxdy $$
-之前我们分析过，导线是一维的，回路边界也是一维的，四维情况下穿过曲胞才有通量，曲胞的边界是闭曲面而不是回路这种闭曲线。这里看似矛盾，实则不然。
-![三维空间中：向量垂直穿过曲面，2-向量垂直穿过曲线](/img/em4d009.svg)
-通量是针对于向量场来说的，通量类比到2-向量结论不一样。最直观的感受是：普通1-向量是一维的，在三维空间中它需要通过二维面，在四维空间中需要通过三维面；2-向量本身就是二维的，所以它只用在三维空间中通过曲线，在四维空间中通过二维的面。我们直接用$\boldsymbol{B}^\*$来改写法拉第电磁感应定理，这样省去了算通量又要取一次法向：
-$$\oint_l\boldsymbol{E}\cdot \boldsymbol{dl}=-\iint_D \frac{\partial \boldsymbol{B}^\*}{\partial t}\cdot \boldsymbol{dS} $$
-现在用$\boldsymbol{B}^\*$定义的这个公式已经适用于四维了，甚至二维也适用。<a name="d9"></a>
-### 高斯定理
-麦克斯韦方程中的其它两个方程就简单多了。首先磁场无散度，说明对任意闭曲面的通量积分为零。
+As we analyzed before, wires are one-dimensional, loop boundaries are also one-dimensional. In four dimensions, flux passes through 3-cells, and the boundary of a 3-cell is a closed surface, not a closed curve like a loop. This seems contradictory but actually isn't.
+![In three-dimensional space: vectors pass perpendicularly through surfaces, 2-vectors pass perpendicularly through curves](/img/em4d009.svg)
+Flux is for vector fields, but the conclusion is different when analogized to 2-vectors. The most intuitive feeling is: ordinary 1-vectors are one-dimensional, so in three-dimensional space they need to pass through two-dimensional surfaces, and in four-dimensional space through three-dimensional surfaces; 2-vectors are themselves two-dimensional, so they only need to pass through curves in three-dimensional space and through two-dimensional surfaces in four-dimensional space. Let's directly use $\boldsymbol{B}^*$ to rewrite Faraday's law of electromagnetic induction, saving the need to calculate flux and take another normal:
+$$\oint_l\boldsymbol{E}\cdot \boldsymbol{dl}=-\iint_D \frac{\partial \boldsymbol{B}^*}{\partial t}\cdot \boldsymbol{dS} $$
+Now this formula defined with $\boldsymbol{B}^*$ is already applicable to four dimensions, and even two dimensions.<a name="d9"></a>
+
+### Gauss's Law
+The other two equations in Maxwell's equations are much simpler. First, magnetic fields have no divergence, meaning the flux integral over any closed surface is zero.
 $$\oint_S\boldsymbol{B}\cdot\boldsymbol{dn}=0$$
-首先二维磁场是标量，标量没有散度，恒为零，所以不用列方程。
-到四维按理说就是对任意闭曲胞的通量积分为零，但之前已经分析过，二维的磁场的通量是靠二维的闭曲面来测到的，所以方程该是这样的：
-$$\oint_S\boldsymbol{B}\cdot\boldsymbol{dS}^\*=0$$
-注意上面的$dS^\*$要理解为相应面积元$dS$的法（绝对垂直）面积元，这样算出来才是通量，或我们直接认为磁场$B$使用绝对垂直的新定义$\boldsymbol{B}$就不用法面积元，也能适用于所有维度的空间：
-$$\oint_S\boldsymbol{B}^\*\cdot\boldsymbol{dS}=0$$
-但在二维空间中是无法构造出二维闭曲面的，所以二维磁场高斯定理这个方程是不用写的，跟之前说标量没散度结论一致。
-对于电场来说就更简单了：
+First, two-dimensional magnetic fields are scalars, and scalars have no divergence, always zero, so no equation is needed.
+In four dimensions, it should be the flux integral over any closed 3-cell equals zero, but as analyzed before, the flux of two-dimensional magnetic fields is measured by two-dimensional closed surfaces, so the equation should be:
+$$\oint_S\boldsymbol{B}\cdot\boldsymbol{dS}^*=0$$
+Note that $dS^*$ above should be understood as the normal (absolutely perpendicular) area element to the corresponding area element $dS$, so the calculation gives flux. Or we can directly consider the magnetic field $B$ uses the absolutely perpendicular new definition $\boldsymbol{B}^*$, then we don't need normal area elements and it applies to spaces of all dimensions:
+$$\oint_S\boldsymbol{B}^*\cdot\boldsymbol{dS}=0$$
+But in two-dimensional space, it's impossible to construct two-dimensional closed surfaces, so the Gauss's law equation for two-dimensional magnetic fields doesn't need to be written, consistent with the previous statement that scalars have no divergence.
+For electric fields, it's even simpler:
 $$\epsilon_0\oint_S\boldsymbol{E}\cdot\boldsymbol{dn}=q$$
-电场就是普通向量，所以直接把闭曲面$S$换成闭曲胞$V$即可：
+Electric fields are ordinary vectors, so just replace the closed surface $S$ with closed 3-cell $V$:
 $$\epsilon_0\oint_V\boldsymbol{E}\cdot\boldsymbol{dn}=q$$<a name="d10"></a>
-<!--### 磁荷
-你可能会问，电磁场不是完全对应的吗？如果有磁荷存在它们方程应该完全对称才是。其实电磁场对称只是三维空间中特有的，并没有普遍性。至于四维空间中有没有磁荷呢？-->
-### 四维电磁波
-四维电磁场能不能相互激发形成电磁波呢？我们首先要把上面积分形式的方程写成微分形式。首先规定导数算子$$\boldsymbol{d}=\frac{\partial}{\partial x}\boldsymbol{e}\_x+\frac{\partial}{\partial y}\boldsymbol{e}\_y+\frac{\partial}{\partial z}\boldsymbol{e}\_z+\frac{\partial}{\partial w}\boldsymbol{e}\_w$$它就是高数里的那个梯度算子。如果$f$是标量场，则$\boldsymbol{d}f=\text{grad}(f)$，如果$f$是向量场，则$(\boldsymbol{d}\wedge f)^\*=\boldsymbol{d}\times f=\text{curl}(f)$，$(\boldsymbol{d}\cdot f)=(\boldsymbol{d}\wedge f^\*)^\*=\text{div}(f)$。
-这样我们就推广了梯度散度旋度。
-为了能把积分号扔掉，还需要用到流形上的斯托克斯公式：
-$$\oint\_{\partial} \omega=\int\_{i}\boldsymbol{d}\wedge \omega$$
-其中左边是在一个$n+1$维区域的$n$维闭合表面上对一个n-向量积分，等于右边直接在$n+1$维区域中通过导数算子作用后积分。（为了简洁，公式里积分号下省略了点乘相应的面积、体积元）
-怎么理解这个公式呢？$\boldsymbol{d}\wedge$跟叉乘是类似的，所以是一种广义的旋度。左边是n-向量在封闭区域边界上的“环流量”，右边则是区域内部所有n-向量旋度贡献的总和。没错，相信学过高数下册的人都看出来了，这就是三维斯托克斯公式的推广。
-- 下面先来写电磁场的高斯定理微分形式：
- + $\boldsymbol{d}\boldsymbol{B}^\*=(\boldsymbol{d}\boldsymbol{B}^\*)^\*=0$，磁场$B$的散度为0，为无源场。
- + $\epsilon_0(\boldsymbol{d}\boldsymbol{E}^\*)^\*=\rho$，电场散度为电荷密度。
-- 然后是变化的电磁场相互激发：
- + $(\boldsymbol{d}\wedge\boldsymbol{E})^\*=-\frac{\partial \boldsymbol{B}}{\partial t}$
- + $(\boldsymbol{d}\wedge\boldsymbol{B})^\*=\mu_0(\boldsymbol{j}+\epsilon_0\frac{\partial \boldsymbol{E}}{\partial t})$
+<!--### Magnetic Charges
+You might ask, aren't electric and magnetic fields completely corresponding? If magnetic charges exist, their equations should be completely symmetric. Actually, electric-magnetic symmetry is unique to three-dimensional space and not universal. As for whether there are magnetic charges in four-dimensional space...-->
 
-假设空间里没有电流密度$\boldsymbol{j}$，也没有电荷密度$\rho$，我们把方程$(\boldsymbol{d}\wedge\boldsymbol{E})^\*=-\frac{\partial \boldsymbol{B}}{\partial t}$两边同时作用$(\boldsymbol{d}\wedge)^\*$把磁场消掉，得到：
-$$(\boldsymbol{d}\wedge(\boldsymbol{d}\wedge\boldsymbol{E})^\*)^\*=-\mu_0\epsilon_0\frac{\partial^2 \boldsymbol{E}}{\partial t^2}$$
-左边那一块是什么呢？我们可以直接坐标系中展开，经过冗长计算有
-$$(\boldsymbol{d}\wedge(\boldsymbol{d}\wedge \boldsymbol{E})^\*)^\*= -\boldsymbol{\Delta E}+\text{grad}(\text{div}(\boldsymbol{E}))$$，简直跟三维情况一模一样。由于没有电荷$\rho$，所以右边那项为0，我们终于得到了标准的波动方程：
+### Four-Dimensional Electromagnetic Waves
+Can four-dimensional electromagnetic fields mutually excite each other to form electromagnetic waves? We first need to write the above integral equations in differential form. First define the derivative operator $$\boldsymbol{d}=\frac{\partial}{\partial x}\boldsymbol{e}_x+\frac{\partial}{\partial y}\boldsymbol{e}_y+\frac{\partial}{\partial z}\boldsymbol{e}_z+\frac{\partial}{\partial w}\boldsymbol{e}_w$$ This is the gradient operator from calculus. If $f$ is a scalar field, then $\boldsymbol{d}f=\text{grad}(f)$. If $f$ is a vector field, then $(\boldsymbol{d}\wedge f)^*=\boldsymbol{d}\times f=\text{curl}(f)$, $(\boldsymbol{d}\cdot f)=(\boldsymbol{d}\wedge f^*)^*=\text{div}(f)$.
+This way we've generalized gradient, divergence, and curl.
+To eliminate the integral sign, we also need to use the Stokes formula on manifolds:
+$$\oint_{\partial} \omega=\int_{i}\boldsymbol{d}\wedge \omega$$
+where the left side integrates an n-vector over the n-dimensional closed surface of an (n+1)-dimensional region, equaling the right side's direct integration in the (n+1)-dimensional region after applying the derivative operator. (For brevity, the formula omits dot products with corresponding area and volume elements under the integral sign)
+How do we understand this formula? $\boldsymbol{d}\wedge$ is similar to cross product, so it's a kind of generalized curl. The left side is the "circulation" of n-vectors on the boundary of a closed region, while the right side is the total contribution of all n-vector curls inside the region. Yes, those who've studied multivariable calculus can see this is a generalization of the three-dimensional Stokes formula.
+- First let's write the differential form of Gauss's law for electromagnetic fields:
+ + $\boldsymbol{d}\boldsymbol{B}^*=(\boldsymbol{d}\boldsymbol{B}^*)^*=0$, the divergence of magnetic field $B$ is 0, making it a sourceless field.
+ + $\epsilon_0(\boldsymbol{d}\boldsymbol{E}^*)^*=\rho$, electric field divergence equals charge density.
+- Then the mutual excitation of changing electromagnetic fields:
+ + $(\boldsymbol{d}\wedge\boldsymbol{E})^*=-\frac{\partial \boldsymbol{B}}{\partial t}$
+ + $(\boldsymbol{d}\wedge\boldsymbol{B})^*=\mu_0(\boldsymbol{j}+\epsilon_0\frac{\partial \boldsymbol{E}}{\partial t})$
+
+Assuming there's no current density $\boldsymbol{j}$ or charge density $\rho$ in space, we apply $(\boldsymbol{d}\wedge)^*$ to both sides of the equation $(\boldsymbol{d}\wedge\boldsymbol{E})^*=-\frac{\partial \boldsymbol{B}}{\partial t}$ to eliminate the magnetic field, getting:
+$$(\boldsymbol{d}\wedge(\boldsymbol{d}\wedge\boldsymbol{E})^*)^*=-\mu_0\epsilon_0\frac{\partial^2 \boldsymbol{E}}{\partial t^2}$$
+What's that chunk on the left? We can expand it directly in coordinates. After lengthy calculation, we have
+$$(\boldsymbol{d}\wedge(\boldsymbol{d}\wedge \boldsymbol{E})^*)^*= -\boldsymbol{\Delta E}+\text{grad}(\text{div}(\boldsymbol{E}))$$, exactly the same as the three-dimensional case. Since there's no charge $\rho$, the right term is 0, and we finally get the standard wave equation:
 $$\boldsymbol{\Delta E}-\mu_0\epsilon_0\frac{\partial^2 \boldsymbol{E}}{\partial t^2}=0$$
-同样方法消去电场，利用磁场散度为0可得：
+Similarly eliminating the electric field and using zero magnetic field divergence gives:
 $$\boldsymbol{\Delta B}-\mu_0\epsilon_0\frac{\partial^2 \boldsymbol{B}}{\partial t^2}=0$$
-其中$\boldsymbol{\Delta B}$为2-向量Laplace算子，跟向量一样也是直接对2-向量每个分量作用。
+where $\boldsymbol{\Delta B}$ is the 2-vector Laplace operator, which like vectors acts directly on each component of the 2-vector.
 
-不难看见真空光速$c={1 \over \sqrt{\mu_0\epsilon_0}}$。既然光速不随参考系改变，是不是可以开启[五维时空狭义相对论的大门](/archives/lavie4ds/#5dgate)了？<a name="d11"></a>
-## 四维波动光学
-我们假设有有向x轴方向传播的均匀平胞电磁波（平面波的升级版！），看看会怎样。
-- 假设电场只有$x$分量，此时电场旋度为零，没有磁场能够激发起这种电场。
-- 假设电场只有$y$分量，此时电场旋度漩涡方向为xy方向，如果有zw方向的磁场按正弦波变化就可能激起这种电场，且也按相同频率相位变化。
-- 假设磁场只有$xy$分量，此时磁场旋度为零，没有电场能够激发起这种电场。
-- 假设磁场只有$yz$分量，此时磁场旋度为w，如果有w方向上的电场按正弦波变化就能够激发起这种电场，且也按相同频率相位变化。
+It's easy to see the vacuum speed of light $c={1 \over \sqrt{\mu_0\epsilon_0}}$. Since the speed of light doesn't change with reference frame, can this open [the door to five-dimensional spacetime special relativity](/archives/lavie4ds/#5dgate)?<a name="d11"></a>
 
-从上面可不太严谨的描述中可看出四维空间电磁场传播方向三者还是相互垂直的。所以我们就可以来看看四维空间中的偏振光了。我们知道偏振光可以分为线偏振、椭圆偏振、圆偏振等。虽然可以有三个方向上的同频率正弦电场都参与合成，但并不会产生更立体的图形了，它们在三维的波阵胞中还是只可能合成一些线段、椭圆、圆。由于定了电场磁场也会随之确定，所以四维电磁波的偏振方式并不多。我们还可以像三维那样计算不同偏振光的反射/折射系数，也就是4D版的Fresnel公式！根据电场、磁场是否平行于分界面也还是两个Fresnel公式。具体我也不想算了，除非以后要开发4D物理光线跟踪渲染引擎再说吧。
+## Four-Dimensional Wave Optics
+Let's assume there's a uniform hyper-cell electromagnetic wave (upgrade of plane wave!) propagating in the x-axis direction and see what happens.
+- Assume the electric field has only an $x$ component. Then the electric field curl is zero, and no magnetic field can excite this kind of electric field.
+- Assume the electric field has only a $y$ component. Then the electric field curl vortex direction is xy, and if there's a zw-direction magnetic field changing sinusoidally, it might excite this electric field, also changing at the same frequency and phase.
+- Assume the magnetic field has only an $xy$ component. Then the magnetic field curl is zero, and no electric field can excite this magnetic field.
+- Assume the magnetic field has only a $yz$ component. Then the magnetic field curl is w, and if there's an electric field in the w direction changing sinusoidally, it can excite this magnetic field, also changing at the same frequency and phase.
+
+From the somewhat informal description above, we can see that in four-dimensional space, the propagation direction and electromagnetic fields are still mutually perpendicular. So we can look at polarized light in four-dimensional space. We know polarized light can be classified as linear polarization, elliptical polarization, circular polarization, etc. Although three directions of same-frequency sinusoidal electric fields can all participate in synthesis, they won't produce more three-dimensional figures. In the three-dimensional wave front cell, they can still only synthesize lines, ellipses, and circles. Since determining the electric field also determines the magnetic field, there aren't many polarization modes for four-dimensional electromagnetic waves. We can also calculate reflection/refraction coefficients for different polarized light like in three dimensions, i.e., the 4D version of Fresnel formulas! Based on whether electric and magnetic fields are parallel to the interface, there are still two Fresnel formulas. I don't want to calculate the specifics unless I need to develop a 4D physical ray-tracing rendering engine in the future.
