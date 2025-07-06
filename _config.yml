@@ -12,9 +12,9 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://wxyhly.github.io/
-root: /
-permalink: archives/:title/
+url: https://optozorax.github.io/wxyhly_blog/
+root: https://optozorax.github.io/wxyhly_blog/
+permalink: https://optozorax.github.io/wxyhly_blog/archives/:title/
 permalink_defaults:
 
 # Directory
