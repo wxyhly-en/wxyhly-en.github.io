@@ -1,242 +1,261 @@
 ---
-title: 四维世界（十二）：物质结构
+title: "Four-Dimensional World (12): Material Structure"
 tags:
-  - 化学
-  - 四维
-  - 物理
+  - Chemistry
+  - Four-dimensional
+  - Physics
   - tesserxel
-categories: 四维世界系列
+categories: Four-Dimensional World Series
 date: 2025-04-20 09:53:39
 ---
 
+Last time we explored the four-dimensional periodic law settings. This time let's look at material structures and make some bold, groundless predictions about their properties (I'm not a chemistry major, so everyone is welcome to raise objections to any content).<div style="float:right"><img src="/img/chemie406.png" style="max-width:100%;width:500px;" alt="Fictional organic compound structural formula drawn by 4D molecular browser"/></div>As I was continuing to write this section, netizen KWOK Chun shared with me an online Google document called ["Symmetric 4D Chemistry"](https://docs.google.com/spreadsheets/d/1VhEpUJOCKkW8DUIcfSpqkANfr0qUwo6XlpY69v25-FQ/edit?gid=397336730#gid=397336730), where the four-dimensional chemistry periodic table setting is exactly the same as mine, only the element naming is different. When I was nearly finished writing this article, I also saw [4denthusiast's Blog](blog.4denthusiast.net) which specifically discusses four-dimensional chemistry and attempts quantitative computational analysis. They try to establish a more rigorous four-dimensional fundamental physics system starting from elementary particle physics, and I will share some wonderful content.
 
-上期我们探讨了四维元素周期律设定，这次来看看物质结构，并毫无根据地大胆预估一下它们的性质（我不是学化学的，欢迎大家对所有内容提出异议）。<div style="float:right"><img src="/img/chemie406.png" style="max-width:100%;width:500px;" alt="四维分子浏览器绘制的虚构的有机物结构式"/></div>当我正在继续写这部分内容时，网友KWOK Chun给我分享了一个叫[《对称4D化学》](https://docs.google.com/spreadsheets/d/1VhEpUJOCKkW8DUIcfSpqkANfr0qUwo6XlpY69v25-FQ/edit?gid=397336730#gid=397336730)的Google在线文档，里面的四维化学设定周期表设定跟我的完全相同的，只是元素命名上不同，本文快写完时我还看到了专门讲四维化学并尝试定量计算分析的[4denthusiast's Blog](blog.4denthusiast.net)，他们试图从基础粒子物理出发建立更严谨的四维基础物理体系，我也将分享一些精彩的内容。
-## 特色内容
-- [电子式](/archives/chemie4d/#ccij)、[结构式](/archives/chemie4d/#eli)与[键线式](/archives/chemie4d/#bondli)
-- [分子轨道理论](/archives/chemie4d/#orbit)与[价电子互斥模型](/archives/chemie4d/#vsepr)
-- [酸与碱](/archives/chemie4d/#acid)与[四维海洋生物圈设定](/archives/chemie4d/#biomer)
-- [空间异构](/archives/chemie4d/#cubic)与[**四维分子浏览器**](/archives/chemie4d/#browser)
-- [超金刚石](/archives/chemie4d/#diamond)与[四维晶系](/archives/chemie4d/#crystal)
-- [粒子物理标准模型与计算化学初步](/archives/chemie4d/#qft)
-- [其它周期律世界观设定](/archives/chemie4d/#other)
+## Featured Content
+- [Electron formulas](/archives/chemie4d/#ccij), [structural formulas](/archives/chemie4d/#eli) and [bond-line formulas](/archives/chemie4d/#bondli)
+- [Molecular orbital theory](/archives/chemie4d/#orbit) and [VSEPR model](/archives/chemie4d/#vsepr)
+- [Acids and bases](/archives/chemie4d/#acid) and [Four-dimensional ocean biosphere setting](/archives/chemie4d/#biomer)
+- [Spatial isomerism](/archives/chemie4d/#cubic) and [**Four-dimensional molecular browser**](/archives/chemie4d/#browser)
+- [Hyperdiamond](/archives/chemie4d/#diamond) and [Four-dimensional crystal systems](/archives/chemie4d/#crystal)
+- [Particle physics standard model and preliminary computational chemistry](/archives/chemie4d/#qft)
+- [Other periodic law worldview settings](/archives/chemie4d/#other)
 
 <!--more-->
 
-## 分子结构的表示方法<link rel="stylesheet" href="https://wxyhly.github.io/Chem4D/periodic/periodicTable.css"/>
+## Representation Methods for Molecular Structures<link rel="stylesheet" href="https://wxyhly.github.io/Chem4D/periodic/periodicTable.css"/>
 
-上篇文章末尾介绍了类氢元素（氕、氘、氚）之间能形成的化合物，并展示了多个原子共同凑齐4个电子来填满轨道的共价键电子式。第二行的元素更多，它们能形成的化合物种类比起三维来说也可能多几个数量级。我们先系统来研究一下如何写出合法的分子结构的电子式，然后再列举一些可能存在的分子结构。<a name="ccij"></a>
-### 电子式
-写电子式时要达到稀有气体稳定结构，第一行元素需要遵守四电子规则，第二行需要遵守二十电子规则。下面给出了差一、二、三个电子达到二十电子的氟（F）、<ruby>氲<rp>(</rp><rt>yūn</rt><rp>)</rp></ruby>（Fd）、<ruby>氛<rp>(</rp><rt>fēn</rt><rp>)</rp></ruby>（Fn）三个元素参与形成的一些分子的电子式。<img src="/img/chemie408.svg" style="max-width:700px;width:100%" alt="第二行的Fn、Fd、F最外层分别差3、2、1个电子达到稀有气体20电子稳定结构">上图中标注的氛化氕、氛化氕氘、氲化氕的两种同分异构体的区别是，一个是几个氢挤一个轨道，一个是所有的氢分散开来单独占轨道。显然氢挤在一起的能量很高，虽然无法具体计算能量差异，但这些不稳定异构多半会自发变成稳定分散模式。同理氛气也不会像氕气那样采用四个氛原子各出一个电子共用一个轨道，而是分散成了三个键。这里再给出元素周期表的链接方便对照：<a href="/Chem4D/periodic/" target="periodic">四维元素周期表网页版</a><a name="eli"></a>
-### 结构式
-四维原子电子式书写很麻烦，需要更简洁的结构式。四维结构式的规则最好要能检验各原子是否达到稀有气体稳定结构，此外还要检验那些共用电子的每个轨道里电子数量是否为4。经过不断尝试，我设计出了一种比较实用的结构式表示方法：
+At the end of the previous article, I introduced compounds that can be formed between hydrogen-like elements (protium, deuterium, tritium) and showed electron formulas for covalent bonds where multiple atoms together contribute 4 electrons to fill orbitals. There are more elements in the second row, and the types of compounds they can form may be several orders of magnitude more than in three dimensions. Let's first systematically study how to write valid molecular structure electron formulas, then list some possible molecular structures.<a name="ccij"></a>
 
-1. 对于离子，直接标上电荷即可。对于共价键的每一个轨道则遵循下面的规则：
-2. 若一个原子提供了2个电子，则用一根实线表示；
-3. 若一个原子提供了1个电子，则用指向该原子的带箭头线段表示，提供了3个电子，则用背离该原子的带箭头线段表示；
-4. 若一个原子提供了4个或0个电子(配位键)，则用背离或指向该原子的带双箭头线段表示，亦可按前两种情况画线，并通过标记多余形式电荷的方式记录少计的电子数。
-5. 一个轨道可被多个原子共用，它们给的电子数可能都不一样，分叉出来的线段类型也可以不同。用实心小圆点表在分叉处表示轨道。如果只有两原子共用该轨道则无分叉，小圆点可省略，并把箭头拉通。
+### Electron Formulas
+When writing electron formulas, atoms need to achieve noble gas stable structures. First-row elements need to follow the four-electron rule, and second-row elements need to follow the twenty-electron rule. Below are electron formulas for some molecules formed by fluorine (F), <ruby>yun<rp>(</rp><rt>yūn</rt><rp>)</rp></ruby> (Fd), and <ruby>fen<rp>(</rp><rt>fēn</rt><rp>)</rp></ruby> (Fn), which are one, two, and three electrons short of twenty electrons respectively.<img src="/img/chemie408.svg" style="max-width:700px;width:100%" alt="Second-row Fn, Fd, F are 3, 2, 1 electrons short of the 20-electron noble gas stable structure">The difference between the two isomers of protium fenide, protium-deuterium fenide, and protium yunide marked in the figure above is that one has several hydrogens squeezed into one orbital, while the other has all hydrogens dispersed to occupy orbitals separately. Obviously, hydrogens squeezed together have high energy. Although we cannot calculate the specific energy difference, these unstable isomers will likely spontaneously transform into the stable dispersed mode. Similarly, fen gas won't adopt the pattern like protium gas where four fen atoms each contribute one electron to share one orbital, but instead disperses into three bonds. Here's the periodic table link for reference: <a href="/Chem4D/periodic/" target="periodic">Four-dimensional periodic table web version</a><a name="eli"></a>
 
-下面给出之前展示的几个分子的电子式对应的结构式版本：这些箭头很好地指示出了成键电子的来源。<img src="/img/chemie409.svg" style="max-width:400px;width:100%">
+### Structural Formulas
+Writing four-dimensional electron formulas is cumbersome, so we need more concise structural formulas. The rules for four-dimensional structural formulas should be able to verify whether each atom achieves noble gas stable structure, and also verify whether the number of electrons in each orbital sharing electrons is 4. After continuous attempts, I designed a relatively practical structural formula representation method:
 
-当我完成结构式的设定后才看到《对称4D化学》中早就提出了类似的结构式画法，只是一些符号上存在差异：两边各提供2个原子叫正键，还是用一根线表示；各提供1个和3个电子叫客键，在提供三个电子那边画一个竖线；配位键（他们建议改成叫“从键”）则用正常的单箭头表示。《对称4D化学》的元素命名出现了一些我也用过的相同的字，比如他们的氤(Ae)、氲(Az)、砃(Dy)对应我的硝(E)、氮(N)、氛(Fn)，而我的氤(Ny)、氲(Fd)、砃(Dd)对应他们的氮(N)、氱(El)、锴(Cr)。下面给了一些例子：左边是我（本文默认）的写法，右边是同样物质在《对称4D化学》中的写法。<img src="/img/chemie415.svg" style="max-width:360px;width:100%" alt="《对称4D化学》中首先提出的两个物质，左边为本文写法与命名，右边为《对称4D化学》中原始写法与命名">本文会继续采用我自己的元素命名方案，而对于《对称4D化学》中首先提到的物质，我将注明并给出两种方案各自的名称。
+1. For ions, simply mark the charge. For each orbital of covalent bonds, follow these rules:
+2. If an atom provides 2 electrons, use a solid line;
+3. If an atom provides 1 electron, use an arrow pointing toward that atom; if it provides 3 electrons, use an arrow pointing away from that atom;
+4. If an atom provides 4 or 0 electrons (coordinate bond), use a double arrow pointing away from or toward that atom. Alternatively, draw lines according to the previous two cases and record the undercounted electrons by marking excess formal charges.
+5. An orbital can be shared by multiple atoms, which may contribute different numbers of electrons, and the branching line types can also be different. Use a solid dot at the branch point to represent the orbital. If only two atoms share the orbital, there's no branch, the dot can be omitted, and the arrow can be drawn through.
 
-### 稳定结构判断
-如何判断结构式是否符合稀有气体稳定结构和每个轨道4电子数的这两个要求呢？下面给出结构式校验规则。
-1. 首先引入**键数**的概念。每个原子或轨道都有键数，计算方法为:正常的实线为单($1$)键，有一个指向自己的箭头就额外增加$0.5$键，背离的减少$0.5$键；
-2. 对于核外差$k$个电子才到稀有气体结构的原子，其成键总数应为$(k+e)/2$，其中$e$为该原子上标的形式电荷数，且整个分子的总电荷数应为$0$；
-3. 对每个共用的轨道计算其键数应恒为$2$。
-4. 由于轨道数限制，对于一周期元素最多只能有一根线与其相连，对于二周期元素最多只能有$5$根线与其相连。
+Below are the structural formula versions corresponding to the electron formulas of the molecules shown earlier: these arrows nicely indicate the source of bonding electrons.<img src="/img/chemie409.svg" style="max-width:400px;width:100%">
 
-从第二条规则我们可得知，正常没有标电荷的情况下，氕(H)需要成1.5键，氘(D)成1键，氚(T)成0.5键；氟(F)成0.5键，氲(Fd)成1键，氛(Fn)成1.5键，大家可自行检验上面图中的各原子键数。
+After I completed the structural formula setting, I found that "Symmetric 4D Chemistry" had already proposed similar structural formula notation, with just some symbol differences: when both sides provide 2 atoms each, it's called a positive bond, still represented by a line; when each provides 1 and 3 electrons, it's called a guest bond, with a vertical line drawn on the side providing three electrons; coordinate bonds (they suggest renaming to "slave bonds") are represented by normal single arrows. Some element names in "Symmetric 4D Chemistry" use the same characters I also used, for example their yin (Ae), yun (Az), da (Dy) correspond to my nitro (E), nitrogen (N), fen (Fn), while my neon (Ny), yun (Fd), da (Dd) correspond to their nitrogen (N), el (El), kai (Cr). Below are some examples: the left side is my notation (default in this article), the right side is the notation for the same substances in "Symmetric 4D Chemistry".<img src="/img/chemie415.svg" style="max-width:360px;width:100%" alt="Two substances first proposed in 'Symmetric 4D Chemistry', left side is this article's notation and naming, right side is the original notation and naming in 'Symmetric 4D Chemistry'">This article will continue to use my own element naming scheme, and for substances first mentioned in "Symmetric 4D Chemistry", I will note and provide names for both schemes.
 
-最后有个小推论：一般来说一个电中性的分子中，奇数原子序数的原子个数一定为偶数。当然不排除有例外，比如类似于三维世界中的一氧化氮分子那样有未成对电子显顺磁性，这些现象需要分子轨道理论解释。这里我再次申明一下，包括分子轨道理论在内本文的内容完全是无根据的类比，“实际”的四维物质的稳定性结论可能会大有不同。后面我们将介绍可能的四维粒子物理与四维计算化学的尝试。
+### Stable Structure Determination
+How do we determine if a structural formula meets both requirements of noble gas stable structure and 4 electrons per orbital? Below are the structural formula verification rules:
+
+1. First introduce the concept of **bond number**. Each atom or orbital has a bond number, calculated as: normal solid lines count as single ($1$) bonds, each arrow pointing toward oneself adds an extra $0.5$ bonds, arrows pointing away subtract $0.5$ bonds;
+2. For atoms that are $k$ electrons short of noble gas structure, their total bonding number should be $(k+e)/2$, where $e$ is the formal charge marked on that atom, and the total charge of the entire molecule should be $0$;
+3. For each shared orbital, calculate its bond number which should always be $2$.
+4. Due to orbital number limitations, first-period elements can have at most one line connected to them, and second-period elements can have at most $5$ lines connected to them.
+
+From the second rule we can deduce that under normal uncharged conditions, protium (H) needs to form 1.5 bonds, deuterium (D) forms 1 bond, tritium (T) forms 0.5 bonds; fluorine (F) forms 0.5 bonds, yun (Fd) forms 1 bond, fen (Fn) forms 1.5 bonds. Everyone can verify the bond numbers of atoms in the figures above themselves.
+
+Finally, a small corollary: generally speaking, in an electrically neutral molecule, the number of atoms with odd atomic numbers must be even. Of course, there are exceptions, such as molecules like nitric oxide in the three-dimensional world that have unpaired electrons showing paramagnetism. These phenomena require molecular orbital theory to explain. Here I declare again that the content of this article, including molecular orbital theory, is completely baseless analogy. The stability conclusions of "actual" four-dimensional matter may be very different. Later we will introduce possible four-dimensional particle physics and attempts at four-dimensional computational chemistry.
+
 <div style="background-color: #FFE"><a name="orbit"></a>
 
-### 选读：分子轨道理论 <a href="javascript:void(0);" onclick="$('#optional-mag').toggle()">\[展开/收起\]</a>
+### Optional Reading: Molecular Orbital Theory <a href="javascript:void(0);" onclick="$('#optional-mag').toggle()">[Expand/Collapse]</a>
 
 <div id="optional-mag">
 
-#### 多中心键与富电子化合物
+#### Multi-center Bonds and Electron-rich Compounds
 
-多中心键即多个原子共用电子形成的键，可以用来解释缺电子分子，比如乙硼烷、三氯化硼等分子结构，四维世界中的氕气分子H<sub>4</sub>就是一个典型的缺电子分子。在上篇文章留的思考题中提到了氚的单质会是什么结构。氚有3个电子，还缺一个电子，它只能组成富电子分子：可以四个氚共用12个电子形成三个填满的成键轨道。还有网友提出其实还可以直接形成双原子分子，它们只需要各自出一个电子来共用，这样每个原子都有四个电子了。这样的结构合法吗？分子轨道理论认为键的本质其实不只是共享电子，一般两原子轨道之间重新叠加形成两个分子轨道，一个轨道能量高（反键轨道），一个轨道能量低（成键轨道），电子都去填能量低的轨道填满，让能量高的轨道空着，这样的整体整体能量比单独的两原子轨道里各一个电子能量低，所以更稳定。四个氚原子有四个原子轨道，它们线性叠加组合也还是四个分子轨道，类似于线性空间中换了一个坐标基底而保持维数不变。它们共享的是轨道，而不是电子，电子只能填入轨道，双原子氚分子中，想只共享2个电子而其余电子私有是不可能的，因为轨道要么叠加在一起成键，要么不成键。
+Multi-center bonds are bonds formed by multiple atoms sharing electrons, which can explain electron-deficient molecules such as diborane and boron trichloride. The protium gas molecule H<sub>4</sub> in the four-dimensional world is a typical electron-deficient molecule. In the thinking question left in the previous article, I mentioned what the elemental form of tritium would be. Tritium has 3 electrons and lacks one electron, so it can only form electron-rich molecules: four tritiums can share 12 electrons to form three filled bonding orbitals. Some netizens also proposed that it could actually form diatomic molecules directly - they only need to share one electron each, so each atom would have four electrons. Is such a structure valid? Molecular orbital theory believes that the essence of bonds is not just sharing electrons. Generally, two atomic orbitals recombine to form two molecular orbitals, one with high energy (antibonding orbital) and one with low energy (bonding orbital). Electrons all fill the low-energy orbital, leaving the high-energy orbital empty. This makes the overall energy lower than two separate atomic orbitals each with one electron, hence more stable. Four tritium atoms have four atomic orbitals, and their linear combination still results in four molecular orbitals, similar to changing coordinate basis in linear space while maintaining dimension. They share orbitals, not electrons. Electrons can only fill orbitals. In diatomic tritium molecules, it's impossible to share only 2 electrons while keeping the rest private, because orbitals either overlap to form bonds or don't bond at all.
 
-#### 富电子氟化物
+#### Electron-rich Fluorides
 
-六氟化硫、二氟化氙如何类比到四维呢？首先我们要搞懂三维的这些分子是如何存在的。硫本来外面有6个电子，只差2个电子，而氟是7个电子，只差1个电子，因此最简单的化合物应该是二氟化硫F-S-F。此时硫原子上还有两个孤电子。由于氟原子高度活泼，导致氟气还能继续跟二氟化硫反应：两个氟各出一个电子，硫原子的一个孤电子对再出两个电子，被三个原子共用，可以再形成一个3中心4电子键，得到四氟化硫。氟原子本来只差一个电子，形成3中心4电子键后会让氟外的电子数超过8个，所以叫富电子分子，但为何它稳定呢？这可以用带形式电荷的共振式来解释判断：下面的四氟化硫分子中虽然有个氟看起来是离子，跟其它三个不一样，然而其实不同位置上可以交替变成负离子。六氟化硫比四氟化硫还多了一对3中心4电子键，情况也类似。实际测量六氟化硫发现所有的S-F键都是等长的，说明多中心键的描述才是实际情况，可看作是这些共振式的量子叠加态构成了多中心键。共振结构可以让所有原子都符合8电子稳定结构，并且还能数出中心原子上的孤电子对数，从而根据价电子互斥理论预测其分子空间形状。![三维世界中的二氟化硫、四氟化硫与六氟化硫](/img/chemie419.svg)
+How do sulfur hexafluoride and xenon difluoride analogize to four dimensions? First, we need to understand how these molecules exist in three dimensions. Sulfur originally has 6 outer electrons, lacking 2 electrons, while fluorine has 7 electrons, lacking 1 electron, so the simplest compound should be sulfur difluoride F-S-F. At this point, the sulfur atom still has two lone electron pairs. Due to fluorine atoms being highly reactive, fluorine gas can continue to react with sulfur difluoride: two fluorines each contribute one electron, a lone electron pair on sulfur contributes two more electrons, shared by three atoms, forming another 3-center 4-electron bond, resulting in sulfur tetrafluoride. Fluorine atoms originally lack only one electron, and forming a 3-center 4-electron bond makes the number of electrons outside fluorine exceed 8, hence called electron-rich molecules. But why are they stable? This can be explained using resonance structures with formal charges: in the sulfur tetrafluoride molecule below, although one fluorine appears to be ionic and different from the other three, actually different positions can alternately become negative ions. Sulfur hexafluoride has one more pair of 3-center 4-electron bonds than sulfur tetrafluoride, with a similar situation. Actual measurements of sulfur hexafluoride show all S-F bonds are equal length, indicating that the multi-center bond description is the actual situation, which can be viewed as a quantum superposition state of these resonance structures forming multi-center bonds. Resonance structures allow all atoms to conform to the 8-electron stable structure and also count the number of lone electron pairs on the central atom, thus predicting molecular spatial shape according to VSEPR theory.![Sulfur difluoride, sulfur tetrafluoride and sulfur hexafluoride in the three-dimensional world](/img/chemie419.svg)
 
-下面轮到四维了，这里我直接给出几种有意思的富电子分子：八氲化硫与八氚化磻（六氟化硫的类比，都是正十六胞体分子）、六氚化氮（正八面体平胞结构，有两个孤电子轨道在法线两侧）、六氚化碳（一个孤电子轨道，导致分子为4,3-双锥形少一个三角形上的顶点的形状）、十九氟化碘（七氟化碘的类比）。下图给出了两个比较复杂的分子结构，请大家自行推断其它没给出结构的分子的共振结构式。提示：1. 我们稍后马上介绍四维价电子互斥理论预测分子的具体形状；2. 上面这些分子可以在Chem4D分子库中查到，具体操作方法[见这里](#browser)。
-![四维世界中的六氚化氮、六氚化碳的共振结构式](/img/chemie420.svg)
+Now for four dimensions, here I directly give several interesting electron-rich molecules: sulfur octayunide and phosphorus octatritide (analogs of sulfur hexafluoride, both are regular 16-cell molecules), nitrogen hexatritide (regular octahedral flat cell structure with two lone electron orbitals on both sides of the normal), carbon hexatritide (one lone electron orbital, causing the molecule to have a 4,3-bipyramidal shape minus one vertex on the triangular face), iodine nonadecafluoride (analog of iodine heptafluoride). The figure below shows two relatively complex molecular structures, please deduce the resonance structures of other molecules not shown. Hints: 1. We'll soon introduce four-dimensional VSEPR theory to predict specific molecular shapes; 2. The molecules above can be found in the Chem4D molecular library, see [here](#browser) for specific operations.
+![Resonance structures of nitrogen hexatritide and carbon hexatritide in the four-dimensional world](/img/chemie420.svg)
 
-#### 顺磁性
+#### Paramagnetism
 
-在三维真实世界中，氧气分子并不是双键而是三键结构，这来源于分子轨道理论的计算，且三键中有未成对的电子，它产生的磁矩不能被抵消，导致液氧能被磁铁吸引，这就是顺磁性。《对称4D化学》中也画出了氧气分子的分子轨道能级图，但没给出具体结论。我给出的预测结论是从3.5价的磴开始到1.5价的氛，它们若能形成双原子分子可能就都是四键结构且有未成对电子。全充满的轨道由于泡利不相容原理一定是四个不同磁矩且总磁矩为零，只有有未成对电子才可能在外磁场方向中被磁化得保持取向一致，因此四维氧气分子也具有顺磁性。排除掉磴可能是固体晶体、氛气是四原子分子，只有氮气、氤气和氧气三种单质是四键结构具有顺磁性，此外我猜还可能有一氧化氮、一氧化氛等顺磁性化合物。![修改2s-2p成键轨道能级顺序后的《对称4D化学》中的氧气的分子轨道能级图](/img/chemie404.png)
+In the real three-dimensional world, oxygen molecules are not double-bonded but triple-bonded structures. This comes from molecular orbital theory calculations, and there are unpaired electrons in the triple bond. The magnetic moment they produce cannot be canceled, causing liquid oxygen to be attracted by magnets - this is paramagnetism. "Symmetric 4D Chemistry" also drew molecular orbital energy level diagrams for oxygen molecules but didn't give specific conclusions. My predicted conclusion is that from 3.5-valent molybdenum to 1.5-valent fen, if they can form diatomic molecules, they might all have quadruple bond structures with unpaired electrons. Fully filled orbitals must have four different magnetic moments with zero total magnetic moment due to Pauli exclusion principle. Only unpaired electrons can possibly be magnetized to maintain consistent orientation in an external magnetic field direction, so four-dimensional oxygen molecules also have paramagnetism. Excluding that molybdenum might be a solid crystal and fen gas is a tetratomic molecule, only nitrogen gas, neon gas, and oxygen gas are quadruple-bonded structures with paramagnetism. Additionally, I guess there might also be paramagnetic compounds like nitric oxide and fenic oxide.![Molecular orbital energy level diagram of oxygen in "Symmetric 4D Chemistry" after modifying 2s-2p bonding orbital energy level order](/img/chemie404.png)
 
-注：磁性可分为顺磁性、反磁性（或抗磁性）、铁磁性三类：顺磁性物质的磁性不强，无法自发形成取向一致的磁畴，因为会被热布朗运动打乱。铁磁性则是顺磁性非常强的物质，强到可以形成稳定的磁畴。没有顺磁性的物质就是反磁性的，它们对磁场几乎不响应。铁是过渡金属，d轨道电子的能量情况很复杂，允许有未成对电子的稳定结构从而让铁磁性变得可能，对于四维化学也同理，但具体哪些物质磁性强就无法得知了。
-### 过渡金属离子与配位场理论
+Note: Magnetism can be divided into three categories: paramagnetism, diamagnetism (or antimagnetism), and ferromagnetism. Paramagnetic materials are not strongly magnetic and cannot spontaneously form uniformly oriented magnetic domains because they would be disrupted by thermal Brownian motion. Ferromagnetism is when paramagnetism is very strong, strong enough to form stable magnetic domains. Materials without paramagnetism are diamagnetic - they hardly respond to magnetic fields. Iron is a transition metal with complex d-orbital electron energy situations, allowing stable structures with unpaired electrons that make ferromagnetism possible. The same applies to four-dimensional chemistry, but we cannot know specifically which materials have strong magnetism.
 
-三维过渡金属离子价态与单纯的原子不同，通常离子周围都有很多配合物，比如铜离子在溶液中都是以水合离子的形式存在。配位场理论认为，这些周围的配位原子会影响各d轨道的能级，比如正八面体配位场中原来能量相同的5个d轨道能级分裂为两种不同的能级，三个低能轨道和两个高能轨道，如果相差的能量大于了克服自旋方向不一致的能量，这时离子可能优先填满能量最低的三个轨道，再去填剩下两个轨道，于是除了洪特规则下的0、5、10电子稳定外，3、6、8电子也是稳定的。<img src="/img/chemie011.jpg" style="max-width:360px;width:100%" alt="5个d轨道在八面体配位中的对齐情况：前两种直接相对，斥力强；后三种错开，能量更低">过渡金属离子的情况相当复杂，还有姜-泰勒效应、正四面体配位、正方形配位等等，导致同种金属离子的价态非常丰富，不做定量计算分析是无法简单通过规则来确定离子的常见化合价的。
+### Transition Metal Ions and Crystal Field Theory
 
-最常见的正八面体配位场的四维类比——正十六胞体配位场中，d轨道能级分裂为6+3结构：3个轨道能量低、6个轨道能量高。四维空间中有Hopf基与极坐标基两种情况，这两种基下结论是一样的：
-1. 超球轨基下面的$xy$、$xz$、$xw$、$zw$、$yw$轨道跟三维的类似，轨道的“花瓣”指向轴之间，不与轴重合；$x^2+y^2+z^2-3w^2$、$x^2+y^2-2z^2$分别迎头碰上$z$、$w$轴上的离子，$x^2-y^2$则碰上$x$、$y$轴的离子，故这三个轨道能量更高。
-2. Hopf基下同样也有$xy$、$xz$、$xw$、$zw$、$yw$六个不与轴重合的轨道，是一样的；$x^2-y^2$碰上$x$、$y$轴的离子，$z^2-w^2$碰上$z$、$w$轴的离子，$x^2+y^2-z^2-w^2$在xy平面与zw平面上密度最大，同时与正十六胞体所有离子相碰，故这三个轨道能量更高。
+The valence states of three-dimensional transition metal ions differ from simple atoms. Usually ions are surrounded by many ligands, for example copper ions exist in solution as hydrated ions. Crystal field theory believes that these surrounding ligating atoms affect the energy levels of various d orbitals. For example, in an octahedral coordination field, the originally equal-energy 5 d orbitals split into two different energy levels: three low-energy orbitals and two high-energy orbitals. If the energy difference exceeds the energy required to overcome inconsistent spin directions, ions might preferentially fill the three lowest-energy orbitals before filling the remaining two orbitals. So besides the stable 0, 5, 10 electrons under Hund's rule, 3, 6, 8 electrons are also stable.<img src="/img/chemie011.jpg" style="max-width:360px;width:100%" alt="Alignment of 5 d orbitals in octahedral coordination: the first two directly face each other with strong repulsion; the last three are staggered with lower energy">The situation with transition metal ions is quite complex, including Jahn-Teller effect, tetrahedral coordination, square planar coordination, etc., resulting in very rich valence states for the same metal ion. Without quantitative computational analysis, it's impossible to simply determine common oxidation states of ions through rules.
 
-按照洪特规则，d轨道电子数取0、9、18、27、36是全半充满的稳定结构，能级分裂后导致这些d轨道电子数也是稳定的：6、12、18、24、27、30、33、36，因此四维过渡金属可能也会像三维那样有多种价态，但具体的稳定性需要定量计算才知道。
+The four-dimensional analog of the most common octahedral coordination field - the regular 16-cell coordination field - has d orbital energy level splitting into a 6+3 structure: 3 orbitals with low energy and 6 orbitals with high energy. In four-dimensional space there are two cases with Hopf basis and polar coordinate basis, and the conclusions are the same for both bases:
+
+1. Under the hyperspherical orbital basis, the $xy$, $xz$, $xw$, $zw$, $yw$ orbitals are similar to three-dimensional ones, with orbital "petals" pointing between axes, not coinciding with axes; $x^2+y^2+z^2-3w^2$ and $x^2+y^2-2z^2$ head-on collide with ions on the $z$ and $w$ axes respectively, while $x^2-y^2$ collides with ions on the $x$ and $y$ axes, so these three orbitals have higher energy.
+2. Under the Hopf basis, there are also six orbitals $xy$, $xz$, $xw$, $zw$, $yw$ that don't coincide with axes, which are the same; $x^2-y^2$ collides with ions on $x$ and $y$ axes, $z^2-w^2$ collides with ions on $z$ and $w$ axes, $x^2+y^2-z^2-w^2$ has maximum density in xy plane and zw plane, simultaneously colliding with all ions of the regular 16-cell, so these three orbitals have higher energy.
+
+According to Hund's rule, d orbital electron numbers 0, 9, 18, 27, 36 are fully or half-filled stable structures. After energy level splitting, these d orbital electron numbers are also stable: 6, 12, 18, 24, 27, 30, 33, 36. Therefore, four-dimensional transition metals might also have multiple valence states like three-dimensional ones, but specific stability requires quantitative calculation to know.
 </div></div>
 
-有了结构式就能方便快捷地描述分子结构了，然而别忘了分子是在四维空间中而不是在二维或三维的纸面上，下面我们来研究它们的空间结构。<a name="vsepr"></a>
-## 价电子互斥（VSEPR）模型
-价层电子对互斥理论认为分子或离子的几何结构主要决定于与中心原子相关的价电子对之间的排斥作用使得电子对尽可能分散分布让能量最低，电子对既可以是成键的，也可以是没有成键的孤对电子。三维空间中，电子对数量对应的几何形状见下图：<img src="/img/chemie007.jpg" style="max-width:500px;width:100%" alt="图片来源于维基百科">
-这里解释一下四方反棱柱：按理说8个电子对最对称的该是正方体的八个顶角，然而将正方体的底面旋转45度与顶面错开后显然能量还会再低一些，故采取该模式；三侧锥三角柱比较复杂，可参见[维基百科的介绍](https://zh.wikipedia.org/wiki/%E4%B8%89%E5%81%B4%E9%8C%90%E4%B8%89%E8%A7%92%E6%9F%B1)。
-四维空间中的情况又是怎样的呢？《对称4D化学》中他们也给了初步猜测。我在[Tesserxel平台搭建的VSEPR“仿真”测试](/tesserxel/examples/#vsepr)中观察发现：
-- 2~4个电子对（其实是四个电子形成一组，只是我们还是习惯称为“对”）时其实跟三维空间的是一样的，增加到5个电子对时才会把电子挤向第四个维度，形成正五胞体分布；
-- 6个顶点的图形我之前跟《对称4D化学》都想的是3,3-双锥形，然而模拟发现其实是类似三角双锥那样的正四面体双锥；7个顶点时对应3,4-双锥形（也可以看作三角双锥双锥）、8个顶点对应4,4-双锥形（即正十六胞体，或正八面体双锥）、9个顶点对应4,5-双锥形（五角双锥双锥）；
-- 到第10个顶点后，分子形状既不是5,5-双锥形，也不是我之前想的一种类似四维“二十方”晶系的结构，而是一种分层结构——第一层为正四面体4个顶点、第二层为中心原子、第三层为第一层正四面体棱的位置对下来的六个顶点形成正八面体；
-- 11个顶点的图形我没看出什么规律，隐约觉得可以分成第一层三角双锥、第二层中心原子、第三层变形的三棱柱结构；12个顶点的图形则是一种类似于反四棱柱那样的扭转的正八面体柱，再往后面几乎很难看出具体形状规律了。<img src="/img/chemie008.jpg" style="max-width:400px;width:100%" alt="从上到下分别为6、8、10电子对的四维分子形状。左右为同一模型的平行眼裸眼3D显示（Tesserxel中可按 Alt + X 切换）">
+With structural formulas, we can conveniently and quickly describe molecular structures. However, don't forget that molecules are in four-dimensional space, not on two-dimensional or three-dimensional paper. Let's study their spatial structures.<a name="vsepr"></a>
 
-注：该“仿真”程序中，排斥能量按照四维世界“真实”的立方反比力衰减、平方反比势能衰减的规律计算，若按三维的平方反比力衰减、反比势能衰减计算，某些分子的最低能量形状可能会有所不同。
+## Valence Shell Electron Pair Repulsion (VSEPR) Model
+The valence shell electron pair repulsion theory believes that the geometric structure of molecules or ions is mainly determined by the repulsion between valence electron pairs related to the central atom, causing electron pairs to spread out as much as possible to minimize energy. Electron pairs can be either bonding or non-bonding lone pairs. In three-dimensional space, the geometric shapes corresponding to different numbers of electron pairs are shown below:<img src="/img/chemie007.jpg" style="max-width:500px;width:100%" alt="Image source: Wikipedia">
 
-说完了一大堆理论，下面来看看具体的四维分子。
+Let me explain the square antiprism: logically, 8 electron pairs should be most symmetrically arranged at the eight vertices of a cube. However, rotating the bottom face of the cube 45 degrees to offset it from the top face obviously lowers the energy further, hence this mode is adopted. The tricapped triangular prism is quite complex, see [Wikipedia's introduction](https://zh.wikipedia.org/wiki/%E4%B8%89%E5%81%B4%E9%8C%90%E4%B8%89%E8%A7%92%E6%9F%B1).
 
-## 常见无机化合物
-### 非金属氢化物
-在我们的世界，氢与二周期非金属的常见化合物只有氟化氢、水、氨、甲烷这几个：（硼烷是用多中心键才能解释的缺电子分子，不太常见我们暂时忽略它）
-|化学式|名称|孤电子对|氢键|常温常压下|极性|
-|---|----|----|----|----|----|
-|HF|氟化氢|3|1|气体|极性|
-|H2O|水|2|2|液体|极性|
-|NH3|氨|1|1|气体|极性|
-|CH4|甲烷|0|0|气体|非极性|
+What about the situation in four-dimensional space? "Symmetric 4D Chemistry" also gave preliminary guesses. In my [VSEPR "simulation" test built on the Tesserxel platform](/tesserxel/examples/#vsepr), I observed:
+- With 2-4 electron pairs (actually groups of four electrons, but we still habitually call them "pairs"), they're actually the same as in three-dimensional space. Only when increasing to 5 electron pairs are electrons pushed into the fourth dimension, forming a regular 5-cell distribution;
+- For the 6-vertex figure, both "Symmetric 4D Chemistry" and I initially thought it would be 3,3-bipyramidal, but simulation found it's actually tetrahedral bipyramidal like trigonal bipyramidal; 7 vertices correspond to 3,4-bipyramidal (can also be seen as trigonal bipyramidal bipyramidal), 8 vertices correspond to 4,4-bipyramidal (i.e., regular 16-cell, or octahedral bipyramidal), 9 vertices correspond to 4,5-bipyramidal (pentagonal bipyramidal bipyramidal);
+- After the 10th vertex, the molecular shape is neither 5,5-bipyramidal nor the structure I previously imagined similar to four-dimensional "icosahedral" crystal system, but a layered structure - first layer has 4 vertices of a regular tetrahedron, second layer is the central atom, third layer has six vertices at positions corresponding to the edges of the first layer tetrahedron forming a regular octahedron;
+- For the 11-vertex figure, I couldn't see any clear pattern, vaguely feeling it could be divided into first layer trigonal bipyramid, second layer central atom, third layer deformed triangular prism structure; the 12-vertex figure is a twisted octahedral column similar to an antiprism, and beyond that it becomes almost impossible to see specific shape patterns.<img src="/img/chemie008.jpg" style="max-width:400px;width:100%" alt="From top to bottom: 6, 8, 10 electron pair four-dimensional molecular shapes. Left and right are parallel-eye naked-eye 3D display of the same model (press Alt + X in Tesserxel to switch)">
 
-而四维世界中，氢有3种，二周期常见的非金属元素也翻了三倍，它们的组合情况多得多。下面列举了部分有代表性的化合物。其中名称是我自己瞎定的规则取的：共价轨道数从1至5分别叫“x化x”、“x水”、“x氨”、“x<ruby>氠<rp>(</rp><rt>shēn</rt><rp>)</rp></ruby>”、“x烷”，这种命名的好处是孤电子数和分子几何构型跟名称直接对应。然后氧水可简称为水、氮氨简称氨、硝氠简称氠、碳烷简称烷。与另一个原子共用轨道的两个氕叫“<ruby>泾<rp>(</rp><rt>jīng</rt><rp>)</rp></ruby>”，默认都是尽可能多连氘(D)，其次是氕(H)最后是氚(T)。
+Note: In this "simulation" program, repulsion energy is calculated according to the "real" inverse cube force decay and inverse square potential energy decay laws of the four-dimensional world. If calculated according to three-dimensional inverse square force decay and inverse potential energy decay, the lowest energy shapes of some molecules might be different.
+
+Having discussed a lot of theory, let's now look at specific four-dimensional molecules.
+
+## Common Inorganic Compounds
+### Non-metal Hydrides
+In our world, common compounds of hydrogen with second-period non-metals are only hydrogen fluoride, water, ammonia, and methane: (Borane is an electron-deficient molecule that can only be explained using multi-center bonds, it's uncommon so we'll temporarily ignore it)
+
+|Chemical Formula|Name|Lone Electron Pairs|Hydrogen Bonds|Room Temperature/Pressure|Polarity|
+|---|----|----|----|----|---|
+|HF|Hydrogen fluoride|3|1|Gas|Polar|
+|H2O|Water|2|2|Liquid|Polar|
+|NH3|Ammonia|1|1|Gas|Polar|
+|CH4|Methane|0|0|Gas|Nonpolar|
+
+In the four-dimensional world, there are 3 types of hydrogen, and common second-period non-metal elements have also tripled, resulting in many more combinations. Below I've listed some representative compounds. The naming is a rule I made up: compounds with 1 to 5 shared orbitals are called "x-ide", "x-water", "x-ammonia", "x-<ruby>shen<rp>(</rp><rt>shēn</rt><rp>)</rp></ruby>", "x-ane" respectively. The advantage of this naming is that the number of lone electrons and molecular geometry directly correspond to the name. Oxygen-water can be abbreviated as water, nitrogen-ammonia as ammonia, nitro-shen as shen, carbon-ane as alkane. Two protiums sharing an orbital with another atom are called "<ruby>jing<rp>(</rp><rt>jīng</rt><rp>)</rp></ruby>", defaulting to connecting as many deuteriums (D) as possible, then protiums (H), and finally tritiums (T).
+
 <img src="/img/chemie410.svg" style="max-width:500px;width:100%">
-我猜测含泾(-H<sub>2</sub>)的化合物都是很强的酸，它极易电离出氢离子变成-H<sup>-</sup>和H<sup>+</sup>。在三维世界中（感谢网友宁宁的提醒），甲烷在超强酸性环境下可以得到一个质子变成含有三中心二电子键的甲鎓离子（CH<sub>5</sub><sup>+</sup>）。
 
-刚才只是选择了一些有代表的化合物，这些组合到底一共有多少呢？我列出了69种从碳到氟的单原子氢化物。由于不知道“真正”的四维物质的化学稳定性，我们只能认为所有的符合稀有气体结构的分子都是稳定的，而且电负性大的原子还会跟氢形成一些用分子轨道理论解释的富电子化合物：如直线形的氟化氘、一氲化二氚，平面三角形的氟化氚和平面正方形的四氚化氧。类似乙烷、丙烷那些双原子、多原子氢化物，将放在后面有机物中再细说。
+I suspect compounds containing jing (-H<sub>2</sub>) are all very strong acids, as they easily ionize to release hydrogen ions becoming -H<sup>-</sup> and H<sup>+</sup>. In the three-dimensional world (thanks to netizen Ningning for the reminder), methane can gain a proton in super-acidic environments to become the methonium ion (CH<sub>5</sub><sup>+</sup>) containing a three-center two-electron bond.
+
+I just selected some representative compounds. How many combinations are there in total? I've listed 69 types of monoatomic hydrides from carbon to fluorine. Since we don't know the chemical stability of "real" four-dimensional substances, we can only assume all molecules conforming to noble gas structures are stable, and atoms with high electronegativity also form some electron-rich compounds explained by molecular orbital theory with hydrogen: such as linear deuterium fluoride, ditritium monoyunide, planar triangular tritium fluoride, and planar square oxygen tetratritide. Similar to ethane and propane, those diatomic and polyatomic hydrides will be discussed later in the organic section.
+
 <div id="XH" style="border:solid #BDB 2px;height:50vh;overflow-y:scroll" class="elem-font">
 
-|化学式|名称|孤电子轨|氢键|常温常压下|极性|
-|---|----|----|----|----|----|
-|HF|氟化氕|4|1|气体|极性|
-|DF<sub>2</sub>|氟化氘|10(富电子)|0|气体|非极性|
-|TF<sub>3</sub>|氟化氚|15(富电子)|0|气体|非极性|
-|H<sub>2</sub>Fd|氲水|3|2|液体|极性|
-|DFd|氲化氘|4|1|气体|极性|
-|T<sub>2</sub>Fd|一氲化二氚|4(富电子)|2|液体|非极性|
-|H<sub>3</sub>Fn|氛氨|2|2|液体|极性|
-|HDFn|氛水|3|2|液体|极性|
-|DFn<sub>2</sub>|氛化氘|7|1|气体|极性|
-|TFn|氛化氚|4|1|气体|极性|
-|H<sub>4</sub>O|氧氠|1|1|气体|极性|
-|H<sub>2</sub>DO|氧氨|2|2|液体|极性|
-|D<sub>2</sub>O|水|3|2|液体|极性|
-|HTO|氚水|3|2|液体|极性|
-|T<sub>4</sub>O|四氚化氧|3(富电子)|3|液体|非极性|
-|H<sub>5</sub>Ny|氤烷|0|0|气体|非极性|
-|H<sub>3</sub>DNy|氤氠|1|1|气体|极性|
-|HD<sub>2</sub>Ny|氤氨|2|2|液体|极性|
-|H<sub>2</sub>TNy|氚氤氨|2|2|液体|极性|
-|DTNy|氤水|3|2|液体|极性|
-|NH<sub>6</sub>|泾氮烷|0|0|气体|弱极性|
-|NH<sub>4</sub>D|氮烷|0|0|气体|弱极性|
-|NH<sub>2</sub>D<sub>2</sub>|氮氠|1|1|气体|极性|
-|ND<sub>3</sub>|氨|2|2|液体/气体|极性|
-|NH<sub>3</sub>T|氚氮氠|1|1|气体|极性|
-|NHDT|氚氨|2|2|液体/气体|极性|
-|NT<sub>2</sub>|氮水|3|2|液体/气体|极性|
-|TnH<sub>7</sub>|二泾磴烷|0|0|气体|弱极性|
-|TnH<sub>5</sub>D|一泾磴烷|0|0|气体|弱极性|
-|TnH<sub>3</sub>D<sub>2</sub>|磴烷|0|0|气体|弱极性|
-|TnHD<sub>3</sub>|磴氠|1|1|气体|极性|
-|TnH<sub>4</sub>T|氚磴烷|0|0|气体|弱极性|
-|TnH<sub>2</sub>DT|氚磴氠|1|1|气体|极性|
-|TnD<sub>2</sub>T|一氚磴氨|2|2|液体/气体|极性|
-|TnHT<sub>2</sub>|二氚磴氨|2|2|液体/气体|极性|
-|EH<sub>8</sub>|三泾硝烷|0|0|气体|弱极性|
-|EH<sub>6</sub>D|二泾硝烷|0|0|气体|弱极性|
-|EH<sub>4</sub>D<sub>2</sub>|一泾硝烷|0|0|气体|弱极性|
-|EH<sub>2</sub>D<sub>3</sub>|硝烷|0|0|气体|弱极性|
-|ED<sub>4</sub>|氠|1|1|气体|极性|
-|EH<sub>5</sub>T|泾氚硝烷|0|0|气体|弱极性|
-|EH<sub>3</sub>DT|氚硝烷|0|0|气体|弱极性|
-|EHD<sub>2</sub>T|一氚氠|1|1|气体|极性|
-|EH<sub>2</sub>T<sub>2</sub>|二氚氠|1|1|气体|极性|
-|EDT<sub>2</sub>|硝氨|2|2|液体/气体|极性|
-|TkH<sub>9</sub>|四泾𥓬烷|0|0|气体|弱极性|
-|TkH<sub>7</sub>D|三泾𥓬烷|0|0|气体|弱极性|
-|TkH<sub>5</sub>D<sub>2</sub>|二泾𥓬烷|0|0|气体|弱极性|
-|TkH<sub>3</sub>D<sub>3</sub>|一泾𥓬烷|0|0|气体|弱极性|
-|TkHD<sub>4</sub>|𥓬烷|0|0|气体|弱极性|
-|TkH<sub>6</sub>T|二泾氚𥓬烷|0|0|气体|弱极性|
-|TkH<sub>4</sub>DT|一泾氚𥓬烷|0|0|气体|弱极性|
-|TkH<sub>2</sub>D<sub>2</sub>T|一氚𥓬烷|0|0|气体|弱极性|
-|TkD<sub>3</sub>T|一氚𥓬氠|1|1|气体|极性|
-|TkH<sub>3</sub>T<sub>2</sub>|二氚𥓬烷|0|0|气体|弱极性|
-|TkHDT<sub>2</sub>|二氚𥓬氠|1|1|气体|极性|
-|TkT<sub>3</sub>|𥓬氨|2|2|液体/气体|极性|
-|CH<sub>10</sub>|五泾甲烷|0|0|气体|非极性|
-|CH<sub>8</sub>D|四泾甲烷|0|0|气体|弱极性|
-|CH<sub>6</sub>D<sub>2</sub>|三泾甲烷|0|0|气体|弱极性|
-|CH<sub>4</sub>D<sub>3</sub>|二泾甲烷|0|0|气体|弱极性|
-|CH<sub>2</sub>D<sub>4</sub>|一泾甲烷|0|0|气体|弱极性|
-|CD<sub>5</sub>|甲烷|0|0|气体|非极性|
-|CH<sub>7</sub>T|三泾氚甲烷|0|0|气体|弱极性|
-|CH<sub>5</sub>DT|二泾氚甲烷|0|0|气体|弱极性|
-|CH<sub>3</sub>D<sub>2</sub>T|一泾氚甲烷|0|0|气体|弱极性|
-|CHD<sub>3</sub>T|氚甲烷|0|0|气体|弱极性|
-|CH<sub>4</sub>T<sub>2</sub>|泾二氚甲烷|0|0|气体|弱极性|
-|CH<sub>2</sub>DT<sub>2</sub>|二氚甲烷|0|0|气体|弱极性|
-|CD<sub>2</sub>T<sub>2</sub>|二氚碳氠|1|1|气体|极性|
-|CHT<sub>3</sub>|三氚碳氠|1|1|气体|极性|
+|Chemical Formula|Name|Lone Electron Orbitals|Hydrogen Bonds|Room Temperature/Pressure|Polarity|
+|---|----|----|----|----|---|
+|HF|Protium fluoride|4|1|Gas|Polar|
+|DF<sub>2</sub>|Deuterium fluoride|10(electron-rich)|0|Gas|Nonpolar|
+|TF<sub>3</sub>|Tritium fluoride|15(electron-rich)|0|Gas|Nonpolar|
+|H<sub>2</sub>Fd|Yun-water|3|2|Liquid|Polar|
+|DFd|Deuterium yunide|4|1|Gas|Polar|
+|T<sub>2</sub>Fd|Ditritium monoyunide|4(electron-rich)|2|Liquid|Nonpolar|
+|H<sub>3</sub>Fn|Fen-ammonia|2|2|Liquid|Polar|
+|HDFn|Fen-water|3|2|Liquid|Polar|
+|DFn<sub>2</sub>|Deuterium fenide|7|1|Gas|Polar|
+|TFn|Tritium fenide|4|1|Gas|Polar|
+|H<sub>4</sub>O|Oxygen-shen|1|1|Gas|Polar|
+|H<sub>2</sub>DO|Oxygen-ammonia|2|2|Liquid|Polar|
+|D<sub>2</sub>O|Water|3|2|Liquid|Polar|
+|HTO|Tritium-water|3|2|Liquid|Polar|
+|T<sub>4</sub>O|Oxygen tetratritide|3(electron-rich)|3|Liquid|Nonpolar|
+|H<sub>5</sub>Ny|Neon-ane|0|0|Gas|Nonpolar|
+|H<sub>3</sub>DNy|Neon-shen|1|1|Gas|Polar|
+|HD<sub>2</sub>Ny|Neon-ammonia|2|2|Liquid|Polar|
+|H<sub>2</sub>TNy|Tritium-neon-ammonia|2|2|Liquid|Polar|
+|DTNy|Neon-water|3|2|Liquid|Polar|
+|NH<sub>6</sub>|Jing-nitrogen-ane|0|0|Gas|Weakly polar|
+|NH<sub>4</sub>D|Nitrogen-ane|0|0|Gas|Weakly polar|
+|NH<sub>2</sub>D<sub>2</sub>|Nitrogen-shen|1|1|Gas|Polar|
+|ND<sub>3</sub>|Ammonia|2|2|Liquid/Gas|Polar|
+|NH<sub>3</sub>T|Tritium-nitrogen-shen|1|1|Gas|Polar|
+|NHDT|Tritium-ammonia|2|2|Liquid/Gas|Polar|
+|NT<sub>2</sub>|Nitrogen-water|3|2|Liquid/Gas|Polar|
+|TnH<sub>7</sub>|Dijing-molybdenum-ane|0|0|Gas|Weakly polar|
+|TnH<sub>5</sub>D|Monojing-molybdenum-ane|0|0|Gas|Weakly polar|
+|TnH<sub>3</sub>D<sub>2</sub>|Molybdenum-ane|0|0|Gas|Weakly polar|
+|TnHD<sub>3</sub>|Molybdenum-shen|1|1|Gas|Polar|
+|TnH<sub>4</sub>T|Tritium-molybdenum-ane|0|0|Gas|Weakly polar|
+|TnH<sub>2</sub>DT|Tritium-molybdenum-shen|1|1|Gas|Polar|
+|TnD<sub>2</sub>T|Monotritium-molybdenum-ammonia|2|2|Liquid/Gas|Polar|
+|TnHT<sub>2</sub>|Ditritium-molybdenum-ammonia|2|2|Liquid/Gas|Polar|
+|EH<sub>8</sub>|Trijing-nitro-ane|0|0|Gas|Weakly polar|
+|EH<sub>6</sub>D|Dijing-nitro-ane|0|0|Gas|Weakly polar|
+|EH<sub>4</sub>D<sub>2</sub>|Monojing-nitro-ane|0|0|Gas|Weakly polar|
+|EH<sub>2</sub>D<sub>3</sub>|Nitro-ane|0|0|Gas|Weakly polar|
+|ED<sub>4</sub>|Shen|1|1|Gas|Polar|
+|EH<sub>5</sub>T|Jing-tritium-nitro-ane|0|0|Gas|Weakly polar|
+|EH<sub>3</sub>DT|Tritium-nitro-ane|0|0|Gas|Weakly polar|
+|EHD<sub>2</sub>T|Monotritium-shen|1|1|Gas|Polar|
+|EH<sub>2</sub>T<sub>2</sub>|Ditritium-shen|1|1|Gas|Polar|
+|EDT<sub>2</sub>|Nitro-ammonia|2|2|Liquid/Gas|Polar|
+|TkH<sub>9</sub>|Tetrajing-technetium-ane|0|0|Gas|Weakly polar|
+|TkH<sub>7</sub>D|Trijing-technetium-ane|0|0|Gas|Weakly polar|
+|TkH<sub>5</sub>D<sub>2</sub>|Dijing-technetium-ane|0|0|Gas|Weakly polar|
+|TkH<sub>3</sub>D<sub>3</sub>|Monojing-technetium-ane|0|0|Gas|Weakly polar|
+|TkHD<sub>4</sub>|Technetium-ane|0|0|Gas|Weakly polar|
+|TkH<sub>6</sub>T|Dijing-tritium-technetium-ane|0|0|Gas|Weakly polar|
+|TkH<sub>4</sub>DT|Monojing-tritium-technetium-ane|0|0|Gas|Weakly polar|
+|TkH<sub>2</sub>D<sub>2</sub>T|Monotritium-technetium-ane|0|0|Gas|Weakly polar|
+|TkD<sub>3</sub>T|Monotritium-technetium-shen|1|1|Gas|Polar|
+|TkH<sub>3</sub>T<sub>2</sub>|Ditritium-technetium-ane|0|0|Gas|Weakly polar|
+|TkHDT<sub>2</sub>|Ditritium-technetium-shen|1|1|Gas|Polar|
+|TkT<sub>3</sub>|Technetium-ammonia|2|2|Liquid/Gas|Polar|
+|CH<sub>10</sub>|Pentajing-methane|0|0|Gas|Nonpolar|
+|CH<sub>8</sub>D|Tetrajing-methane|0|0|Gas|Weakly polar|
+|CH<sub>6</sub>D<sub>2</sub>|Trijing-methane|0|0|Gas|Weakly polar|
+|CH<sub>4</sub>D<sub>3</sub>|Dijing-methane|0|0|Gas|Weakly polar|
+|CH<sub>2</sub>D<sub>4</sub>|Monojing-methane|0|0|Gas|Weakly polar|
+|CD<sub>5</sub>|Methane|0|0|Gas|Nonpolar|
+|CH<sub>7</sub>T|Trijing-tritium-methane|0|0|Gas|Weakly polar|
+|CH<sub>5</sub>DT|Dijing-tritium-methane|0|0|Gas|Weakly polar|
+|CH<sub>3</sub>D<sub>2</sub>T|Monojing-tritium-methane|0|0|Gas|Weakly polar|
+|CHD<sub>3</sub>T|Tritium-methane|0|0|Gas|Weakly polar|
+|CH<sub>4</sub>T<sub>2</sub>|Jing-ditritium-methane|0|0|Gas|Weakly polar|
+|CH<sub>2</sub>DT<sub>2</sub>|Ditritium-methane|0|0|Gas|Weakly polar|
+|CD<sub>2</sub>T<sub>2</sub>|Ditritium-carbon-shen|1|1|Gas|Polar|
+|CHT<sub>3</sub>|Tritritium-carbon-shen|1|1|Gas|Polar|
 </div>
 
-
-可能大家对这些四维元素不是很熟悉，这里再把第二行的非金属元素放出来以供查阅：
+You might not be very familiar with these four-dimensional elements, so here are the second-row non-metal elements again for reference:
 
 <link rel="stylesheet" href="/Chem4D/periodic/periodicTable.css"><div style="overflow-x:scroll"><div id="periodic-2stR"></div></div><script src="/Chem4D/periodic/periodic4d.js"></script>
 
 <a name="acid"></a>
 
-### 可能的酸与碱
+### Possible Acids and Bases
 
-在三维世界中，无机酸一般分为无氧酸（氢某酸）或含氧酸。到了四维，氢与氧的候选类比都会变多，无机酸种类可能会爆炸式增长。由于目前无法定量计算电离能力，我只能大致设定：氕的电离能力最强，氘次之，氚最弱，一般仅考虑氕与氘形成的酸，而氚则类似卤素不考虑电离；假设除氧元素外，氧元素右边的氛、氲元素也成参与形成酸。为什么三维只有含氧酸呢？按理说非金属性越强就越容易吸引电子，让氢更容易电离，氧和氟元素都可以。然而氟元素是1价的，它结合氢形成氢氟酸后就没机会结合其它基团了，所以没有含氟酸。到四维，这个限制被打破，下面列出了一些常见的结构和我给它们的命名。<img src="/img/chemie416.svg" style="max-width:400px;width:100%" alt="常见的酸结构与命名">命名酸时也像氕、氘氚那样，优先添加一价基团，其次是半价基团，最后是1.5价基团。一价基团默认添加-OD、半价默认为->OH、1.5价默认为<-FnD。若非默认类型基团则才须注明名称。若省略数字则代表所有该价态的基团全为该基团。下面给一些我捣鼓出来的类含氧酸的结构：<img src="/img/chemie417.svg" style="max-width:800px;width:100%" alt="常见无机酸结构">
+In the three-dimensional world, inorganic acids are generally divided into non-oxyacids (hydrohalic acids) or oxyacids. In four dimensions, there are more candidates for hydrogen and oxygen analogs, and the types of inorganic acids might increase explosively. Since we cannot quantitatively calculate ionization ability, I can only roughly set: protium has the strongest ionization ability, deuterium is next, tritium is weakest, generally only considering acids formed by protium and deuterium, while tritium is similar to halogens and not considered for ionization; assume that besides oxygen element, the fen and yun elements to the right of oxygen also participate in forming acids. Why are there only oxyacids in three dimensions? Logically, the stronger the non-metallic property, the easier it is to attract electrons, making hydrogen easier to ionize. Both oxygen and fluorine elements can do this. However, fluorine is monovalent - after it bonds with hydrogen to form hydrofluoric acid, there's no opportunity to bond with other groups, so there are no fluoroacids. In four dimensions, this restriction is broken. Below are some common structures I've listed and my naming for them.<img src="/img/chemie416.svg" style="max-width:400px;width:100%" alt="Common acid structures and naming">When naming acids, like protium, deuterium, and tritium, we prioritize adding monovalent groups, then half-valent groups, and finally 1.5-valent groups. Monovalent groups default to -OD, half-valent defaults to ->OH, 1.5-valent defaults to <-FnD. If non-default type groups are used, their names must be specified. If numbers are omitted, it means all groups of that valence are that group. Below are some structures of oxyacid-like compounds I've created:<img src="/img/chemie417.svg" style="max-width:800px;width:100%" alt="Common inorganic acid structures">
 
-注意：
-1. 有些酸是一样的，比如氮洋酸与氮涪酸其实是同一种物质的两种共存的动态平衡结构，再比如氮酸虽与氮洋酸不同，但它们的酸根部分是一样的，因此只有氮酸盐，而无氮洋酸盐和氮涪酸盐；
-2. 图中最后一个含氚(T)的物质我不把它归类为酸，而是看作基团汌(<-O<-T)取代磻酸中的羒酸基团得到的酰。
-3. 这些东西的酸碱性与稳定性都是猜测，很可能“真实”情况完全不是这样，详见后面计算化学小节。
+Note:
+1. Some acids are the same, for example nitrogen oceanic acid and nitrogen fuic acid are actually two coexisting dynamic equilibrium structures of the same substance. Similarly, although nitrogen acid differs from nitrogen oceanic acid, their acid radical parts are the same, so there are only nitrogen acid salts, not nitrogen oceanic acid salts or nitrogen fuic acid salts;
+2. The last tritium-containing substance in the figure I don't classify as an acid, but rather see it as the group han (<-O<-T) replacing the hydroxyl group in phosphoric acid to get an acyl.
+3. The acidity, basicity and stability of these things are all guesses, and the "real" situation might be completely different. See the computational chemistry section later.
 
-碱类物质也更丰富。水与氧氠等物质可以丢掉不同的氢离子（H<sup>+</sup>、D<sup>2+</sup>）形成各种类氢氧根离子（OH<sub>3</sub><sup>-</sup>、OD<sub></sub><sup>2-</sup>、FnH<sub>2</sub><sup>-</sup>、FnD<sub></sub><sup>-</sup>、FdH<sup>-</sup>等），根据电离的难易程度它们的碱性也各不相同。此外还有一些电负性小的有孤电子轨的分子可以接受氢离子也显碱性，例如氨与氠可接受氘离子变成铵根离子(ND<sub>4</sub><sup>2+</sup>)和钟根离子(ED<sub>5</sub><sup>2+</sup>)。活泼金属氢化物方面，除了对应三种氢化物外，还有一些氕气失去氕正离子后的基团形成的“叠氕化物”(H<sub>3</sub><sup>-</sup>、H<sub>2</sub><sup>2-</sup>)，没准可充当四维人的“储氕”材料……这些物质的“实际”酸碱度情况很复杂，还跟溶剂有关，即取决于四维世界中的“水”的种类。<a name="biomer"></a>
-### 某种四维海洋生物圈设定
-网友宁宁提出了一套海洋生物圈设定：四维星球的海洋的主要成分并不是单一的水（D<sub>2</sub>O），而是好几种“类水”的混合。由于“类水”都是极性分子，它们能够互溶，我初步通过估计构成分子的原子量来估计密度，发现这些类水的密度相差不大，不足以让各组分浓度随水深的变化而明显变化，最先我们还假设可能有各种“基”的生物习惯各自生活在各自的水层中维持正常生理活动，尽管它们中的某些也能同时在不同层中生活……注意只有相近的元素的液态极性氢化物才能同时作为四维星球海洋的组成成分，电负性差别太大的元素氢化物之间的酸碱性差别太大，会中和反应生成盐，即大电负性的喜欢电离出氢，小电负性的喜欢用孤电子与氢离子去配位，类似我们的氨气与氟化氢反应生成氟化铵。另外虽然H<sub>4</sub>O是气体（有效氢键太少导致），但可以假设它在海洋中的溶解度很大，也广泛存在于海洋中，而那些弱极性和非极性分子则难溶于海洋中，逃逸到大气中去了，因此可能的海洋成分主要为氛氨、氛水、氧氨、水、氚水、氤氠、氤氨、氤水的混合物。这些物间最大的差异就是其酸碱度了，虽然涉及多种溶剂准确定义pH值有点难。但有效氢键不同会让这些物质的溶沸点和蒸发速率不同，降雨与向风导致不同陆地上的水资源各成分的含量也有较大差异，没准四维世界的天气预报还会播报近期雨水成分比例……
+Basic substances are also more diverse. Water and oxygen-shen and other substances can lose different hydrogen ions (H<sup>+</sup>, D<sup>2+</sup>) to form various hydroxide-like ions (OH<sub>3</sub><sup>-</sup>, OD<sup>2-</sup>, FnH<sub>2</sub><sup>-</sup>, FnD<sup>-</sup>, FdH<sup>-</sup>, etc.), with different basicities depending on ionization difficulty. Additionally, some molecules with low electronegativity and lone electron orbitals can accept hydrogen ions and also show basicity, for example ammonia and shen can accept deuterium ions to become ammonium ions (ND<sub>4</sub><sup>2+</sup>) and zhongen ions (ED<sub>5</sub><sup>2+</sup>). For active metal hydrides, besides corresponding to three types of hydrides, there are also some groups formed after protium gas loses protium positive ions forming "stacked protides" (H<sub>3</sub><sup>-</sup>, H<sub>2</sub><sup>2-</sup>), which might serve as "protium storage" materials for four-dimensional people... The "actual" acidity and basicity of these substances is very complex and also related to solvents, i.e., depends on the types of "water" in the four-dimensional world.<a name="biomer"></a>
 
-## 有机物
-我们的三维世界中，有机物专指碳元素形成的复杂化合物。碳的最外层电子数刚好是稀有气体原子的一半，能成最多的键，因此四维空间中外层有10个电子的14号元素是最像碳的了，我干脆就命名成了碳。根据电子数翻倍法则，四维世界的二电子自旋设定下甲烷是CH<sub>5</sub>，对应到4电子自旋设定就是把各自的电子数翻倍，变成CD<sub>5</sub><a name="bondli"></a>。因此氘(D)是最常见的元素了。这里顺便提一下**键线式规则**：省略碳原子和氘原子，然后择机省略氕或氚：从键线式出发按照优先补充最多的氘然后是氕最后是氚。比如下面的分子我命名为1-泾-5-氚戊烷：首先不用管氘原子，把端头的泾基（-H<sub>2</sub>）标出，然后再标记后面的氚原子。碳缺10个电子，氚(T)提供3个后，每个氘(D)贡献两个电子，三个氘最多能填6个，还差一个则默认用氕(H)填，因此不需要再单独标出氕元素。这时直接标氕也是可以的：标出氕后，碳缺10个电子，氕贡献一个电子，相邻的碳贡献2个电子，这时还剩下三个轨道最多需要三个氢原子提供7个电子，容易验证补2个氘和一个氚就是所有补氢方案中氘原子最多的方案了。不过我建议优先画出氚，且命名时也如此。<img src="/img/chemie411.svg" style="max-width:500px;width:100%" alt="1-泾-5-氚戊烷的结构式与两种等价的键线式">然而对于不在一个原子上的氕/氚对的命名时只能全部指出。下面三种结构式/键线式都是等价的，因为我们无法区分成键后电子的来源，只要每个原子都达到稀有气体稳定结构且总电子数守恒就是合法的画法。<img src="/img/chemie412.svg" style="max-width:500px;width:100%" alt="1-泾-3-氕-5-氚戊烷的三种等价结构/键线式">
+### A Four-Dimensional Ocean Biosphere Setting
+Netizen Ningning proposed an ocean biosphere setting: the main component of four-dimensional planet oceans is not single water (D<sub>2</sub>O), but a mixture of several "water-like" substances. Since "water-like" substances are all polar molecules, they can be mutually soluble. I preliminarily estimated density by estimating the atomic masses constituting the molecules and found that these water-like densities don't differ much, insufficient for component concentrations to vary significantly with water depth. Initially we hypothesized that there might be various "group-based" organisms each habitually living in their respective water layers to maintain normal physiological activities, although some of them can also live in different layers simultaneously... Note that only liquid polar hydrides of similar elements can simultaneously serve as components of four-dimensional planet oceans. Hydrides of elements with too different electronegativities have too different acidities and basicities and would neutralize to form salts. That is, those with high electronegativity like to ionize out hydrogen, while those with low electronegativity like to use lone electrons to coordinate with hydrogen ions, similar to how ammonia and hydrogen fluoride in our world react to form ammonium fluoride. Additionally, although H<sub>4</sub>O is a gas (too few effective hydrogen bonds), we can assume it has high solubility in the ocean and also exists widely in the ocean, while those weakly polar and nonpolar molecules are difficult to dissolve in the ocean and escape to the atmosphere. Therefore, possible ocean components are mainly a mixture of fen-ammonia, fen-water, oxygen-ammonia, water, tritium-water, neon-shen, neon-ammonia, and neon-water. The biggest difference between these substances is their acidity and basicity, although accurately defining pH value is a bit difficult when involving multiple solvents. But different effective hydrogen bonds will make these substances have different melting/boiling points and evaporation rates. Rainfall and wind direction cause the content of various components in water resources on different lands to vary greatly. Perhaps weather forecasts in the four-dimensional world will also report recent rainwater component ratios...
 
-注：四维世界中其它元素也可以替代碳作为有机物的骨架，比如<span class="elem-font">𥓬</span>苯、乙氮烷等。三维世界的有机物骨架为什么不能是其它元素呢？那是因为氧、氟能够成的键少，无法形成复杂的结构，而氮一般有个孤电子对，相邻的孤电子对的排斥让N-N键不稳定。硼则是缺电子的分子，只能通过更多硼原子共用一堆成键电子来凑数，形成的稳定化合物比较有限。到了四维空间有了氢(H)与氚(T)就很容易突破这些限制，让更多的元素都有五个成键轨道，具体例子可以在四维分子浏览器中找到。
+## Organic Compounds
+In our three-dimensional world, organic compounds specifically refer to complex compounds formed by carbon element. Carbon has exactly half the number of outer electrons as noble gas atoms and can form the most bonds. Therefore, in four-dimensional space, element 14 with 10 outer electrons is most like carbon, so I simply named it carbon. According to the electron number doubling rule, methane in the four-dimensional world under two-electron spin setting is CH<sub>5</sub>, corresponding to 4-electron spin setting by doubling each electron number, becoming CD<sub>5</sub><a name="bondli"></a>. Therefore deuterium (D) is the most common element. Let me mention the **bond-line formula rules** here: omit carbon atoms and deuterium atoms, then opportunistically omit protium or tritium: starting from the bond-line formula, prioritize supplementing the most deuterium, then protium, and finally tritium. For example, the molecule below I name 1-jing-5-tritium pentane: first don't worry about deuterium atoms, mark the terminal jing group (-H<sub>2</sub>), then mark the tritium atom behind. Carbon lacks 10 electrons, after tritium (T) provides 3, each deuterium (D) contributes two electrons, three deuteriums can fill 6 at most, still lacking one which defaults to being filled by protium (H), so there's no need to separately mark the protium element. Directly marking protium is also possible: after marking protium, carbon lacks 10 electrons, protium contributes one electron, adjacent carbon contributes 2 electrons, leaving three orbitals that need at most three hydrogen atoms to provide 7 electrons. It's easy to verify that supplementing 2 deuteriums and one tritium is the scheme with the most deuterium atoms among all hydrogen supplementation schemes. However, I suggest prioritizing drawing tritium, and naming likewise.<img src="/img/chemie411.svg" style="max-width:500px;width:100%" alt="Structural formula and two equivalent bond-line formulas of 1-jing-5-tritium pentane">However, for protium/tritium pairs not on the same atom, naming can only specify all of them. The following three structural/bond-line formulas are all equivalent, because we cannot distinguish the source of electrons after bonding. As long as each atom achieves noble gas stable structure and total electron number is conserved, it's a valid drawing.<img src="/img/chemie412.svg" style="max-width:500px;width:100%" alt="Three equivalent structural/bond-line formulas of 1-jing-3-protium-5-tritium pentane">
 
-### 芳香烃
-上一篇文章就说过，按不饱和程度（或杂化类型）分，有烷烃烜烃烯烃炔烃四类脂肪烃。甲烷是sp<sup>4</sup>四维正五胞体立体结构，由于双键的$\pi$电子云，乙烜的所有原子都限制在了垂直于未参与杂化的$p$轨道的平胞内，乙烯有两对未杂化的互相垂直的$p$轨道，所有原子被限制在垂直于它们的平面中，跟三维的乙烯一样是平面分子。苯的类比有sp<sup>3</sup>与sp<sup>2</sup>杂化两种。其中sp<sup>3</sup>杂化的是空间六边形，即C<sub>6</sub>D<sub>12</sub>（我命名为萱），而sp<sup>2</sup>杂化则是平面六边形，即C<sub>6</sub>D<sub>6</sub>（我命名为苯）。
+Note: In the four-dimensional world, other elements can also replace carbon as the backbone of organic compounds, such as <span class="elem-font">technetium</span> benzene, dinitrogen ethane, etc. Why can't the backbone of organic compounds in the three-dimensional world be other elements? That's because oxygen and fluorine can form few bonds and cannot form complex structures, while nitrogen generally has a lone electron pair, and repulsion between adjacent lone electron pairs makes N-N bonds unstable. Boron is an electron-deficient molecule that can only share a bunch of bonding electrons through more boron atoms to make up the numbers, forming limited stable compounds. In four-dimensional space with hydrogen (H) and tritium (T), it's easy to break through these limitations, allowing more elements to have five bonding orbitals. Specific examples can be found in the four-dimensional molecular browser.
 
-<img src="/img/chemie418.svg" style="max-width:300px;width:100%" alt="萱与苯的共振式">后面我通过tesserxel粗略“仿真”计算发现，sp<sup>3</sup>杂化的萱环虽然按类比该是空间六边形平胞结构，然而由于四维空间多了一个方向，整个分子可以不完全共胞但也能满足每个双键两端的原子共胞，且氢的空间位阻会导致错开不完全共胞的整体能量更低，说不定会让萱的芳香性弱一些，而苯中的三键平面约束则更加刚性，离域大$\pi$键对齐效果更好，能量更低更稳定，二重芳香性的苯在四维化学中可能比萱更常用。
+### Aromatic Hydrocarbons
+The previous article mentioned that according to degree of unsaturation (or hybridization type), there are four types of aliphatic hydrocarbons: alkanes, alkenes, alkynes, and alkadienes. Methane has sp<sup>4</sup> four-dimensional regular 5-cell three-dimensional structure. Due to the $\pi$ electron cloud of double bonds, all atoms of ethylene are restricted to the flat cell perpendicular to the unhybridized $p$ orbital. Ethene has two pairs of mutually perpendicular unhybridized $p$ orbitals, and all atoms are restricted to the plane perpendicular to them, making it a planar molecule like three-dimensional ethylene. The analog of benzene has two types: sp<sup>3</sup> and sp<sup>2</sup> hybridization. The sp<sup>3</sup> hybridized one is a spatial hexagon, i.e., C<sub>6</sub>D<sub>12</sub> (I name it xuan), while the sp<sup>2</sup> hybridized one is a planar hexagon, i.e., C<sub>6</sub>D<sub>6</sub> (I name it benzene).
 
-注：判断芳香性的休克尔$4n+2$电子规则（来源于分子轨道理论）类比到四维变成$8n+4$电子规则，可验证萱满足该规则，而四维苯有两组垂直的$p$轨道，它们各自形成的离域大$\pi$键互不干扰，各自满足休克尔规则，具有很稳定的二重芳香性。
+<img src="/img/chemie418.svg" style="max-width:300px;width:100%" alt="Resonance structures of xuan and benzene">Later through rough "simulation" calculations in tesserxel, I found that although sp<sup>3</sup> hybridized xuan ring should be a spatial hexagonal flat cell structure by analogy, due to the extra direction in four-dimensional space, the entire molecule can be not completely coplanar while still satisfying that atoms at both ends of each double bond are coplanar. The spatial hindrance of hydrogen will cause the overall energy of staggered non-completely coplanar arrangement to be lower, which might weaken xuan's aromaticity. In benzene, the triple bond planar constraint is more rigid, with better delocalized large $\pi$ bond alignment effect, lower energy and more stability. Doubly aromatic benzene might be more commonly used than xuan in four-dimensional chemistry.
+
+Note: Hückel's $4n+2$ electron rule for determining aromaticity (derived from molecular orbital theory) analogizes to $8n+4$ electron rule in four dimensions. You can verify that xuan satisfies this rule, while four-dimensional benzene has two sets of perpendicular $p$ orbitals that each form delocalized large $\pi$ bonds without interfering with each other, each satisfying Hückel's rule, having very stable double aromaticity.
 <a name="cubic"></a>
 
-## 空间异构
-有机物结构非常丰富，通常需要考虑空间异构，下面我们看看手性异构与顺反异构等如何类比到四维。
-### 手性异构与糖类
-四维分子照样有手性异构，其旋光性与三维类似。连有五个不同基团的原子为手性原子。值得关注的是三维的葡萄糖与半乳糖本来只有两个手性碳上的差别，类比到四维后碳从四价变成了五价，不管是接氘还是氘氧基，都会让碳上有两个相同的基团而失去手性，即四维世界中的葡萄糖和半乳糖、蔗糖和乳糖不再有区别，也没有旋光性了。题外话：如果避开一个碳上接两个羟基的不稳定情况，不含羰基的糖类很难再跟碳水化合物(C<sub>m</sub>D<sub>2n</sub>O<sub>n</sub>)等价，我只找到一种二乙糖(C<sub>4</sub>O<sub>6</sub>D<sub>12</sub>)是碳水化合物。
-### 双键顺反异构
-双键两端的原子各连三个基团，每一边四个原子确定一个三维空间(胞)，由于垂直于该胞的pi轨道的出现，两边一定都是共胞的，这将导致一种混合了三维手性异构和顺反异构的新异构现象：双键可以在垂直于pi轨道的空间中旋转，然而无法各自独立地在四维空间中翻转，因此它们要么同手性要么异手性。
-### 三键顺反异构
-三键两端的情况就简单了，跟三维空间中普通的顺反异构一样，有两种异构。
-### 累积双键三键异构
-四维分子还有累积双键三键：中心原子sp杂化，以直线连接相邻原子，这是三维累积双键的直接类比。设直线方向为x轴、双键端四个原子在空间xyz内，双键的未杂化p轨道在w方向上，则三键两个未杂化的p轨道就只能在剩下的y、z方向上，三键端三个原子就限定在了平面xw内。这个图形也有异构：如果两边原子都不一样，试想我们试图通过旋转交换三键端上的另外两个原子，就必须在包含w轴且不包含x轴的平面内旋转分子，这样势必会把xyz空间中的一个坐标轴反向，即同时改变了双键端的顺序，因此它也有类似双键顺反异构的两种情况。
-### 累积双键异构
-四维分子还有种累积双键，它同时具有三维空间中累积双键与普通双键的结构特点，是最复杂的情况了。累积双键中的碳原子采用sp<sup>2</sup>杂化，因此与它连接的三个原子共面，两对$p$轨道相互垂直，且都垂直于该平面。我们把该平面放在xy平面上，则一个$\pi$键在z方向，一个$\pi$键在w方向，两头的四个原子所在的三维空间分别为xyz和xyw。中间的累积双键碳原子上还单键连接了一个其它原子（或孤电子轨道），但这个原子周围是平面结构，四维空间中能随意翻转，不满足手性条件。因此还是跟普通双键那样只有一组顺反异构，我们可以这样定义两种类型的分子：首先选择一个端头碳A，依次标记为A、B、C，给定连接原子基团的顺序后，我们可以按顺序做三个向量的外积，得到端头碳与三个原子构成的胞的法向量。将碳A与碳C上基团所在胞的法向量m与n做外积张成2-向量m$\wedge$n，该向量理论上跟AB$\wedge$BC（即三个碳所在平面）绝对垂直，因此它们的内积为0，可通过外积的符号来区分两个手性。<a name="crystal"></a>
+## Spatial Isomerism
+Organic compound structures are very rich and usually require consideration of spatial isomerism. Let's see how chiral isomerism and cis-trans isomerism analogize to four dimensions.
 
-## 四维晶系
-三维空间的所有晶体结构可分为7种晶系（三斜、单斜、正交、四方、立方、三方、六方），14种布拉维晶格。四维空间的所有晶体结构可分为23种晶系，64种布拉维晶格，其中10种还有手性。英文维基百科Crystal System词条和《4D对称化学》中都列出了具体的23中晶系，《4D对称化学》给出了晶体参数表[详见这个pdf](https://wxyhly.github.io/Chem4D/periodic/4dcrystal.pdf)。
+### Chiral Isomerism and Sugars
+Four-dimensional molecules also have chiral isomerism, with optical activity similar to three dimensions. Atoms connected to five different groups are chiral atoms. Worth noting is that three-dimensional glucose and galactose originally differ only in two chiral carbons. When analogized to four dimensions, carbon changes from tetravalent to pentavalent. Whether connecting deuterium or deuterium hydroxyl groups, there will be two identical groups on carbon losing chirality. That is, in the four-dimensional world, glucose and galactose, sucrose and lactose no longer differ and have no optical activity. As an aside: if avoiding the unstable situation of two hydroxyl groups on one carbon, sugar compounds without carbonyl groups can hardly be equivalent to carbohydrates (C<sub>m</sub>D<sub>2n</sub>O<sub>n</sub>). I only found one type of diethyl sugar (C<sub>4</sub>O<sub>6</sub>D<sub>12</sub>) that is a carbohydrate.
+
+### Double Bond Cis-Trans Isomerism
+Atoms at both ends of a double bond each connect to three groups. Four atoms on each side determine a three-dimensional space (cell). Due to the appearance of pi orbitals perpendicular to that cell, both sides must be coplanar. This will lead to a new isomerism phenomenon mixing three-dimensional chiral isomerism and cis-trans isomerism: double bonds can rotate in the space perpendicular to pi orbitals, but cannot independently flip in four-dimensional space, so they are either homochiral or heterochiral.
+
+### Triple Bond Cis-Trans Isomerism
+The situation at both ends of triple bonds is simple, just like ordinary cis-trans isomerism in three-dimensional space, with two isomers.
+
+### Cumulative Double-Triple Bond Isomerism
+Four-dimensional molecules also have cumulative double-triple bonds: the central atom is sp hybridized, connecting adjacent atoms in a straight line. This is a direct analog of three-dimensional cumulative double bonds. Let the straight line direction be the x-axis, with four atoms at the double bond end in xyz space and the unhybridized p orbital of the double bond in the w direction. Then the two unhybridized p orbitals of the triple bond can only be in the remaining y and z directions, and the three atoms at the triple bond end are limited to the xw plane. This figure also has isomerism: if atoms on both sides are all different, imagine we try to exchange the other two atoms at the triple bond end by rotation - we must rotate the molecule in a plane containing the w axis but not the x axis. This will inevitably reverse one coordinate axis in xyz space, simultaneously changing the order at the double bond end. Therefore, it also has two cases similar to double bond cis-trans isomerism.
+
+### Cumulative Double Bond Isomerism
+Four-dimensional molecules also have a type of cumulative double bond that simultaneously has structural characteristics of both cumulative double bonds and ordinary double bonds in three-dimensional space - the most complex case. Carbon atoms in cumulative double bonds adopt sp<sup>2</sup> hybridization, so three atoms connected to it are coplanar, with two pairs of $p$ orbitals perpendicular to each other and both perpendicular to that plane. If we place this plane on the xy plane, then one $\pi$ bond is in the z direction and one $\pi$ bond is in the w direction. The four atoms at both ends are in xyz and xyw three-dimensional spaces respectively. The middle cumulative double bond carbon atom also has a single bond connecting to another atom (or lone electron orbital), but this atom has a planar structure around it and can flip freely in four-dimensional space, not satisfying chiral conditions. Therefore, like ordinary double bonds, there's only one set of cis-trans isomers. We can define two types of molecules this way: first choose an end carbon A, label them as A, B, C in order. After giving the order of connecting atom groups, we can take the cross product of three vectors in order to get the normal vector of the cell formed by the end carbon and three atoms. Take the cross product of normal vectors m and n of cells containing groups on carbon A and carbon C to form a 2-vector m$\wedge$n. This vector is theoretically absolutely perpendicular to AB$\wedge$BC (i.e., the plane containing three carbons), so their inner product is 0. We can distinguish two chiralities by the sign of the cross product.<a name="crystal"></a>
+
+## Four-Dimensional Crystal Systems
+All crystal structures in three-dimensional space can be divided into 7 crystal systems (triclinic, monoclinic, orthorhombic, tetragonal, cubic, trigonal, hexagonal) and 14 Bravais lattices. All crystal structures in four-dimensional space can be divided into 23 crystal systems and 64 Bravais lattices, of which 10 also have chirality. The English Wikipedia Crystal System entry and "Symmetric 4D Chemistry" both list the specific 23 crystal systems. "Symmetric 4D Chemistry" provides a crystal parameter table [see this pdf for details](https://wxyhly.github.io/Chem4D/periodic/4dcrystal.pdf).
+
 <iframe style="width:100%;height:500px;display:none" id="crystal-pdf"></iframe><script>
 function isPDFSupported() {
   const userAgent = navigator.userAgent;
@@ -257,111 +276,133 @@ if (isPDFSupported()) {
     pdfIframe.src = "https://wxyhly.github.io/Chem4D/periodic/4dcrystal.pdf";
 }
 </script>
-下面是我对23种晶系的分析并附上晶轴坐标表达式：
 
-1. 六斜晶系：最一般的、完全没有特殊的对称性的平行八胞体。所有的晶面都是斜面，晶轴都是斜轴，晶轴之间的夹角都不是90°，晶面之间的夹角也不是90°。选择合适的坐标系后，四个列向量可组成最一般的上三角阵：$$\begin{pmatrix}a&b&d&g \\\\ 0 &c&e&h\\\\ 0 &0&f&i \\\\ 0 &0&0&j\end{pmatrix}$$
+Below is my analysis of the 23 crystal systems with crystal axis coordinate expressions:
 
-2. 三斜晶系：底胞是长方体的斜柱体，其母线方向与底胞三条边之间的夹角都不是90°。$$\begin{pmatrix}a&0&0&d \\\\ 0 &b&0&e\\\\ 0 &0&c&f \\\\ 0 &0&0&g\end{pmatrix}$$
-3. 二斜晶系：一种斜柱柱体。底胞是斜长方形柱，其倾斜方向平行于长方形的一条边，整个四维柱体的母线倾斜方向平行于长方形的另一条边，即两条母线各往两个垂直的方向倾斜。也可以看作是任意两个没特殊对称性的二维格子的直和。$$\begin{pmatrix}a&0&c&0 \\\\ 0 &b&0&e\\\\ 0 &0&d&0 \\\\ 0 &0&0&f\end{pmatrix}$$
-4. 单斜晶系：底胞是长方体的斜柱体，其母线方向与底胞三条边之间的夹角只有一个不是90°，即只往那个方向倾斜。$$\begin{pmatrix}a&0&0&d \\\\ 0 &b&0&0\\\\ 0 &0&c&0 \\\\ 0&0&0&e\end{pmatrix}$$
+1. Hexaclinic system: The most general parallelepiped with no special symmetry. All crystal faces are oblique, all crystal axes are oblique, angles between crystal axes are not 90°, and angles between crystal faces are not 90°. After choosing an appropriate coordinate system, the four column vectors can form the most general upper triangular matrix:$$\begin{pmatrix}a&b&d&g \\\\ 0 &c&e&h\\\\ 0 &0&f&i \\\\ 0 &0&0&j\end{pmatrix}$$
 
-5. 正交晶系：超长方体，所有轴之间都是直角，但轴长不等。$$\begin{pmatrix}a&0&0&0 \\\\ 0 &b&0&0\\\\ 0 &0&c&0 \\\\ 0&0&0&d\end{pmatrix}$$
+2. Triclinic system: An oblique prism with a rectangular base cell, where the angles between the generatrix direction and the three edges of the base cell are all not 90°.$$\begin{pmatrix}a&0&0&d \\\\ 0 &b&0&e\\\\ 0 &0&c&f \\\\ 0 &0&0&g\end{pmatrix}$$
 
-6. 四方单斜晶系：底胞是正方形柱的斜柱体，其母线方向与底胞三条边之间的夹角只有一个不是90°，只往正方形柱的高方向倾斜，可看作正方形格子与任意没特殊对称性的二维格子的直和。$$\begin{pmatrix}a&0&0&c \\\\ 0 &b&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&d\end{pmatrix}$$
-7. 六方单斜晶系：底胞是正六边形柱的斜柱体，其母线方向与底胞三条边之间的夹角只有一个不是90°，只往六边形柱的高方向倾斜，可看作正三角形格子与任意没特殊对称性的二维格子的直和。$$\begin{pmatrix}a&0&0&c \\\\ 0 &b&-{b\over2}&0\\\\ 0 &0&{\sqrt{3}b\over2}&0 \\\\ 0&0&0&d\end{pmatrix}$$
-8. 双四方双斜晶系：两个大小不相同的正方形，其所在的平面为等角关系，有左右手两种。$$\begin{pmatrix}a&0&b&-c \\\\ 0 &a&c&b\\\\ 0 &0&d&0 \\\\ 0&0&0&d\end{pmatrix}$$
-9. 双六方双斜晶系：两个大小不相同的正六边形，其所在的平面为等角关系，有左右手两种。$$\begin{pmatrix}a\cos(\theta)&a{\sqrt{3}\sin(\theta)-\cos(\theta)\over 2}&b\cos(\phi)&-b{\cos(\phi) \over 2}\\\\ -a\sin(\theta) &a{\sqrt{3}\cos(\theta)+\sin(\theta)\over 2}&0&b{\sqrt{3}\cos(\phi) \over 2}\\\\ 0 &0&b\sin(\phi)&-b{\sin(\phi) \over 2} \\\\ 0&0&0&b{\sqrt{3}\sin(\phi) \over 2}\end{pmatrix}$$
-10. 四方正交晶系：有两条棱相等的超长方体。$$\begin{pmatrix}a&0&0&0 \\\\ 0 &a&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&c\end{pmatrix}$$
-11. 六方正交晶系：底胞是正六边形柱的正柱体，两条高长度不相等，为正六边形与长方形的直积。$$\begin{pmatrix}a&-{a\over 2}&0&0 \\\\ 0 &{\sqrt{3}a\over 2}&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&c\end{pmatrix}$$
-12. 双四方单斜晶系：两个大小不相同的正方形，其所在的平面为等角关系，有左右手两种，且这两组格子的基向量在对方平面内的投影是与对方的格子基向量对齐的。$$\begin{pmatrix}a&0&b&0 \\\\ 0 &a&0&b\\\\ 0 &0&c&0 \\\\ 0&0&0&c\end{pmatrix}$$
-13. 双六方单斜晶系：两个大小不相同的正六边形，其所在的平面为等角关系，有左右手两种，且这两组格子的基向量在对方平面内的投影是与对方的格子基向量对齐的。$$\begin{pmatrix}a&-{a\over 2}&b\cos(\phi)&-b{\cos(\phi) \over 2}\\\\ 0 &{\sqrt{3}a\over 2}&0&b{\sqrt{3}\cos(\phi) \over 2}\\\\ 0 &0&b\sin(\phi)&-b{\sin(\phi) \over 2} \\\\ 0&0&0&b{\sqrt{3}\sin(\phi) \over 2}\end{pmatrix}$$
-14. 双四方正交晶系：有两对分别等长的棱的超长方体，为两个大小不相同的正方形的直积。$$\begin{pmatrix}a&0&0&0 \\\\ 0 &a&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&b\end{pmatrix}$$
-15. 六方四方晶系：底胞是正六边形柱的正柱体，两条高长度相等，为正六边形与正方形的直积。$$\begin{pmatrix}a&-{a\over 2}&0&0 \\\\ 0 &{\sqrt{3}a\over 2}&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&b\end{pmatrix}$$
-16. 双六方正交晶系：两个不等大正六边形的直积形，相当于双六方单\双斜晶系两平面绝对垂直的情况。$$\begin{pmatrix}a&-{a\over 2}&0&0 \\\\ 0 &{\sqrt{3}a\over 2}&0&0\\\\ 0 &0&b&-{b\over 2} \\\\ 0&0&0 &{\sqrt{3}b\over 2}\end{pmatrix}$$
-17. 立方正交晶系：底胞是正方体的超长方体，所有轴之间都是直角，只有一条棱与其它三边长度不相等。$$\begin{pmatrix}a&0&0&0 \\\\ 0 &a&0&0\\\\ 0 &0&a&0 \\\\ 0&0&0&b\end{pmatrix}$$
-18. 八方晶系：两个等大正方形，其所在的平面间夹角有可调整的夹角参数，极限情况分别为超立方晶系和共面的两个等大且相差45度的二维四方晶系，两个平面从绝对垂直过渡到共面全平行。非极限状态下两平面之间有手性，是双四方双斜参数中$b=c$且所有轴长度相等的特殊情况。$$\begin{pmatrix}\sqrt{2b^2+a^2}&0&b&-b \\\\ 0 &\sqrt{2b^2+a^2}&b&b\\\\ 0 &0&a&0 \\\\ 0&0&0&a\end{pmatrix}$$
-19. 十方晶系：将高度对称的二十方晶系沿着某一条轴伸缩得到，类似立方正交与超立方的关系。 $$\begin{pmatrix}k a&a&a&a \\\\ a&k a&a&a\\\\a&a&k a&a\\\\ a&a&a&k a\end{pmatrix}$$
-20. 十二方晶系：两个等大正六边形，其所在的平面间夹角有一个介于90度与60度之间可调整的夹角参数，极限情况分别为六方四方晶系和共胞的三维面心最密堆积，两个平面从绝对垂直过渡到共胞半平行。非极限状态下两平面之间有手性，具体关联的几何意义不明。$$\begin{pmatrix}1&-\frac{1}{2}&e&0\\\\0&\frac{\sqrt{3}}{2}&\frac{e}{\sqrt{3}}&\frac{2e}{\sqrt{3}}\\\\0&0&\sqrt{1-\frac{4e^2}{3}}&\frac{-4e^2-3}{2\sqrt{9-12e^2}}\\\\0&0&0&\sqrt{\frac{16e^4-40e^2+9}{12-16e^2}}\\\\ \end{pmatrix}$$
-21. 双同六方正交晶系：两个等大正六边形的直积形。$$\begin{pmatrix}a&-{a\over 2}&0&0 \\\\ 0 &{\sqrt{3}a\over 2}&0&0\\\\ 0 &0&a&-{a\over 2} \\\\ 0&0&0 &{\sqrt{3}a\over 2}\end{pmatrix}$$
-22. 二十方晶系：晶格为由正五胞体体心与其四个顶点张成的平行八胞体。整体具有正五胞体对称性，所有棱长与夹角都相等。该排列中每个原子与周围10个距离相等的原子相邻，这10个原子的排列模式为两个互为对偶的正五胞体的顶点。$$\begin{pmatrix}k a&a&a&a \\\\ a&k a&a&a\\\\a&a&k a&a\\\\ a&a&a&k a\end{pmatrix}$$其中：$k=\sqrt{5}-4$。
-23. 超立方晶系：所有棱等长、所有角都是直角的超立方体。$$\begin{pmatrix}a&0&0&0 \\\\ 0 &a&0&0\\\\ 0 &0&a&0 \\\\ 0&0&0&a\end{pmatrix}$$
+3. Diclinic system: A type of oblique prism. The base cell is an oblique rectangular prism, with its tilt direction parallel to one edge of the rectangle, and the generatrix tilt direction of the entire four-dimensional prism parallel to another edge of the rectangle, i.e., two generatrices each tilted in two perpendicular directions. Can also be seen as the direct sum of any two 2D lattices without special symmetry.$$\begin{pmatrix}a&0&c&0 \\\\ 0 &b&0&e\\\\ 0 &0&d&0 \\\\ 0 &0&0&f\end{pmatrix}$$
 
-注：Tesserxel中物质结构>四维晶格中有对称性较好的晶格模型可供查看。<a name="diamond"></a>
+4. Monoclinic system: An oblique prism with a rectangular base cell, where only one of the angles between the generatrix direction and the three edges of the base cell is not 90°, i.e., tilted only in that direction.$$\begin{pmatrix}a&0&0&d \\\\ 0 &b&0&0\\\\ 0 &0&c&0 \\\\ 0&0&0&e\end{pmatrix}$$
 
-### 金刚石结构类比
+5. Orthorhombic system: Hyperrectangle, all axes are at right angles to each other, but axis lengths are unequal.$$\begin{pmatrix}a&0&0&0 \\\\ 0 &b&0&0\\\\ 0 &0&c&0 \\\\ 0&0&0&d\end{pmatrix}$$
 
-金刚石与石墨都是碳单质的同素异形体。四维碳单质根据杂化类型分成了三种：
-1. sp<sup>2</sup>杂化的平面石墨结构，为二维片状结构，每个碳原子都有两个互相垂直未杂化的p轨道形成两个独立的离域大$\pi$键，同样具有导电性，亦可做润滑剂；
-1. sp<sup>3</sup>杂化的“金刚墨”结构，为三维金刚石片胞层状结构，每个碳原子都有未杂化的垂直于片胞层的p轨道形成离域大$\pi$键，具有导电性，层间仅有范德华力，可滑动，可做润滑剂；
-1. sp<sup>4</sup>杂化的超金刚石结构；
+6. Tetragonal monoclinic system: An oblique prism with a square prism base cell, where only one angle between the generatrix direction and the three edges of the base cell is not 90°, tilted only in the height direction of the square prism. Can be seen as the direct sum of a square lattice and any 2D lattice without special symmetry.$$\begin{pmatrix}a&0&0&c \\\\ 0 &b&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&d\end{pmatrix}$$
 
-超金刚石是全新的四维结构。我们有必要研究一下其结构。不妨假设每个碳都连接相邻五个碳，键角都是标准sp<sup>4</sup>杂化正五胞体中的键角，且每个碳原子、每个碳碳键的地位相同。有没有这样的结构呢？三维金刚石是面心立方体结构，三维的金刚烷可以看做取正四面体顶点和棱心作为骨架，然后将棱心原子向外拉，直到顶点和棱心原子间满足sp<sup>3</sup>键角的要求。这里同时出现了立方体与正四面体，是因为立方体交替取一半的顶点就得到正四面体，而超立方体交替取一半的顶点得到的是正十六胞体，类比失败。四维空间还是可以存在超金刚烷结构的，即取正五胞体各顶点和棱心作为骨架，同样往外拉，然而我们无法保证顶点和棱心同时满足sp<sup>4</sup>杂化的理想夹角呢？有个不需要复杂计算的简便方法可验证：拉至棱心与顶点的两条线段平行于顶点至正五胞体中心时，根据平行四边形的对角相等可知这些夹角肯定都等于sp<sup>4</sup>杂化的理想夹角。[Tesserxel中绘制出来](/tesserxel/examples/#vsepr::hyperdiamond)可发现这个模型满足顶点与棱的对称性。这就说明超金刚石的晶体结构不是超立方晶系家族，而是属于四维二十方晶系家族。![Tesserxel中绘制的超金刚石与其中的超金刚烷骨架单元结构](/img/chemie009.jpg)五氧化二磷也有金刚烷的结构，类比到四维或许可以有一种超金刚烷结构的十五氧化五碓。四维五氧化二磷以及更高氧化态的七氧化二磷也存在，它们是类似三维金刚烷结构的十氧化四磷和十四氧化四磷，只是配位氧的数量不同。（碓(G)原子序数：36，价电子排布：3s<sup>4</sup>3p<sup>8</sup>，硝族，常见化合价为4价；磷(P)原子序数：38，价电子排布：3s<sup>4</sup>3p<sup>10</sup>，氮族，常见化合价为3价。）![五氧化二磷的类比：十五氧化五碓的分子结构。注意端头的氧是配位键，其余为正常单键](/img/chemie010.jpg)
+7. Hexagonal monoclinic system: An oblique prism with a regular hexagonal prism base cell, where only one angle between the generatrix direction and the three edges of the base cell is not 90°, tilted only in the height direction of the hexagonal prism. Can be seen as the direct sum of a regular triangular lattice and any 2D lattice without special symmetry.$$\begin{pmatrix}a&0&0&c \\\\ 0 &b&-{b\over2}&0\\\\ 0 &0&{\sqrt{3}b\over2}&0 \\\\ 0&0&0&d\end{pmatrix}$$
+
+8. Ditetragonal diclinic system: Two squares of different sizes with their planes in equiangular relationship, with left and right chirality.$$\begin{pmatrix}a&0&b&-c \\\\ 0 &a&c&b\\\\ 0 &0&d&0 \\\\ 0&0&0&d\end{pmatrix}$$
+
+9. Dihexagonal diclinic system: Two regular hexagons of different sizes with their planes in equiangular relationship, with left and right chirality.$$\begin{pmatrix}a\cos(\theta)&a{\sqrt{3}\sin(\theta)-\cos(\theta)\over 2}&b\cos(\phi)&-b{\cos(\phi) \over 2}\\\\ -a\sin(\theta) &a{\sqrt{3}\cos(\theta)+\sin(\theta)\over 2}&0&b{\sqrt{3}\cos(\phi) \over 2}\\\\ 0 &0&b\sin(\phi)&-b{\sin(\phi) \over 2} \\\\ 0&0&0&b{\sqrt{3}\sin(\phi) \over 2}\end{pmatrix}$$
+
+10. Tetragonal orthorhombic system: A hyperrectangle with two equal edges.$$\begin{pmatrix}a&0&0&0 \\\\ 0 &a&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&c\end{pmatrix}$$
+
+11. Hexagonal orthorhombic system: A right prism with a regular hexagonal prism base cell, with two unequal heights, the direct product of a regular hexagon and rectangle.$$\begin{pmatrix}a&-{a\over 2}&0&0 \\\\ 0 &{\sqrt{3}a\over 2}&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&c\end{pmatrix}$$
+
+12. Ditetragonal monoclinic system: Two squares of different sizes with their planes in equiangular relationship, with left and right chirality, and the projections of these two lattice basis vectors onto each other's planes are aligned with each other's lattice basis vectors.$$\begin{pmatrix}a&0&b&0 \\\\ 0 &a&0&b\\\\ 0 &0&c&0 \\\\ 0&0&0&c\end{pmatrix}$$
+
+13. Dihexagonal monoclinic system: Two regular hexagons of different sizes with their planes in equiangular relationship, with left and right chirality, and the projections of these two lattice basis vectors onto each other's planes are aligned with each other's lattice basis vectors.$$\begin{pmatrix}a&-{a\over 2}&b\cos(\phi)&-b{\cos(\phi) \over 2}\\\\ 0 &{\sqrt{3}a\over 2}&0&b{\sqrt{3}\cos(\phi) \over 2}\\\\ 0 &0&b\sin(\phi)&-b{\sin(\phi) \over 2} \\\\ 0&0&0&b{\sqrt{3}\sin(\phi) \over 2}\end{pmatrix}$$
+
+14. Ditetragonal orthorhombic system: A hyperrectangle with two pairs of equal edges respectively, the direct product of two squares of different sizes.$$\begin{pmatrix}a&0&0&0 \\\\ 0 &a&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&b\end{pmatrix}$$
+
+15. Hexagonal tetragonal system: A right prism with a regular hexagonal prism base cell, with two equal heights, the direct product of a regular hexagon and square.$$\begin{pmatrix}a&-{a\over 2}&0&0 \\\\ 0 &{\sqrt{3}a\over 2}&0&0\\\\ 0 &0&b&0 \\\\ 0&0&0&b\end{pmatrix}$$
+
+16. Dihexagonal orthorhombic system: Direct product form of two unequal regular hexagons, equivalent to the case where two planes in dihexagonal mono/diclinic systems are absolutely perpendicular.$$\begin{pmatrix}a&-{a\over 2}&0&0 \\\\ 0 &{\sqrt{3}a\over 2}&0&0\\\\ 0 &0&b&-{b\over 2} \\\\ 0&0&0 &{\sqrt{3}b\over 2}\end{pmatrix}$$
+
+17. Cubic orthorhombic system: A hyperrectangle with a cubic base cell, all axes at right angles to each other, with only one edge having a different length from the other three.$$\begin{pmatrix}a&0&0&0 \\\\ 0 &a&0&0\\\\ 0 &0&a&0 \\\\ 0&0&0&b\end{pmatrix}$$
+
+18. Octagonal system: Two equal squares with an adjustable angle parameter between their planes, extreme cases being hypercubic system and coplanar two equal squares 45 degrees apart in 2D tetragonal system, with two planes transitioning from absolutely perpendicular to coplanar fully parallel. In non-extreme states there's chirality between two planes, a special case of ditetragonal diclinic parameters where $b=c$ and all axis lengths are equal.$$\begin{pmatrix}\sqrt{2b^2+a^2}&0&b&-b \\\\ 0 &\sqrt{2b^2+a^2}&b&b\\\\ 0 &0&a&0 \\\\ 0&0&0&a\end{pmatrix}$$
+
+19. Decagonal system: Obtained by stretching the highly symmetric icosahedral system along one axis, similar to the relationship between cubic orthorhombic and hypercubic.$$\begin{pmatrix}k a&a&a&a \\\\ a&k a&a&a\\\\a&a&k a&a\\\\ a&a&a&k a\end{pmatrix}$$
+
+20. Dodecagonal system: Two equal regular hexagons with an adjustable angle parameter between their planes between 90 and 60 degrees, extreme cases being hexagonal tetragonal system and coplanar 3D face-centered closest packing, with two planes transitioning from absolutely perpendicular to coplanar semi-parallel. In non-extreme states there's chirality between two planes, specific associated geometric meaning unclear.$$\begin{pmatrix}1&-\frac{1}{2}&e&0\\\\0&\frac{\sqrt{3}}{2}&\frac{e}{\sqrt{3}}&\frac{2e}{\sqrt{3}}\\\\0&0&\sqrt{1-\frac{4e^2}{3}}&\frac{-4e^2-3}{2\sqrt{9-12e^2}}\\\\0&0&0&\sqrt{\frac{16e^4-40e^2+9}{12-16e^2}}\\\\ \end{pmatrix}$$
+
+21. Di-isohexagonal orthorhombic system: Direct product form of two equal regular hexagons.$$\begin{pmatrix}a&-{a\over 2}&0&0 \\\\ 0 &{\sqrt{3}a\over 2}&0&0\\\\ 0 &0&a&-{a\over 2} \\\\ 0&0&0 &{\sqrt{3}a\over 2}\end{pmatrix}$$
+
+22. Icosahedral system: The lattice is a parallelepiped spanned by the body center of a regular 5-cell and its four vertices. Has overall regular 5-cell symmetry, with all edge lengths and angles equal. In this arrangement, each atom is adjacent to 10 equidistant surrounding atoms, and these 10 atoms are arranged as vertices of two mutually dual regular 5-cells.$$\begin{pmatrix}k a&a&a&a \\\\ a&k a&a&a\\\\a&a&k a&a\\\\ a&a&a&k a\end{pmatrix}$$where: $k=\sqrt{5}-4$.
+
+23. Hypercubic system: A hypercube with all edges equal length and all angles right angles.$$\begin{pmatrix}a&0&0&0 \\\\ 0 &a&0&0\\\\ 0 &0&a&0 \\\\ 0&0&0&a\end{pmatrix}$$
+
+Note: In Tesserxel under Material Structures > Four-dimensional Lattices, there are lattice models with good symmetry available for viewing.<a name="diamond"></a>
+
+### Diamond Structure Analogy
+
+Diamond and graphite are both allotropes of carbon element. Four-dimensional carbon allotropes are divided into three types according to hybridization type:
+1. sp<sup>2</sup> hybridized planar graphite structure, a two-dimensional sheet structure where each carbon atom has two mutually perpendicular unhybridized p orbitals forming two independent delocalized large $\pi$ bonds, similarly conductive and can be used as lubricant;
+2. sp<sup>3</sup> hybridized "diamond-graphite" structure, a three-dimensional diamond sheet cell layered structure where each carbon atom has unhybridized p orbitals perpendicular to the sheet cell layer forming delocalized large $\pi$ bonds, conductive, with only van der Waals forces between layers allowing sliding, can be used as lubricant;
+3. sp<sup>4</sup> hybridized hyperdiamond structure;
+
+Hyperdiamond is a completely new four-dimensional structure. We need to study its structure. Let's assume each carbon connects to five adjacent carbons, with bond angles all being standard sp<sup>4</sup> hybridized regular 5-cell bond angles, and each carbon atom and each carbon-carbon bond having the same status. Is there such a structure? Three-dimensional diamond has face-centered cubic structure. Three-dimensional diamondoid can be seen as taking regular tetrahedron vertices and edge centers as the backbone, then pulling edge center atoms outward until vertices and edge center atoms satisfy sp<sup>3</sup> bond angle requirements. Both cubes and regular tetrahedra appear here because taking alternate half vertices of a cube gives a regular tetrahedron, while taking alternate half vertices of a hypercube gives a regular 16-cell - analogy fails. Four-dimensional space can still have hyperdiamondoid structure, i.e., taking regular 5-cell vertices and edge centers as backbone and similarly pulling outward. But can we ensure both vertices and edge centers simultaneously satisfy ideal sp<sup>4</sup> hybridization angles? There's a simple method to verify without complex calculations: when pulled until the two line segments from edge center to vertex are parallel to the line from vertex to regular 5-cell center, according to equal opposite angles in parallelograms, these angles must all equal the ideal sp<sup>4</sup> hybridization angle. [Drawn in Tesserxel](/tesserxel/examples/#vsepr::hyperdiamond), we can find this model satisfies vertex and edge symmetry. This shows that hyperdiamond crystal structure is not in the hypercubic system family, but belongs to the four-dimensional icosahedral system family.![Hyperdiamond and its hyperdiamondoid backbone unit structure drawn in Tesserxel](/img/chemie009.jpg)Phosphorus pentoxide also has diamondoid structure, analogized to four dimensions might have a hyperdiamondoid structure of pentaphosphorus pentadecaoxide. Four-dimensional phosphorus pentoxide and higher oxidation state phosphorus heptoxide also exist - they are tetraphosphorus decaoxide and tetraphosphorus tetradecaoxide similar to three-dimensional diamondoid structure, just with different numbers of coordinated oxygens. (Dui (G) atomic number: 36, valence electron configuration: 3s<sup>4</sup>3p<sup>8</sup>, nitro group, common valence 4; Phosphorus (P) atomic number: 38, valence electron configuration: 3s<sup>4</sup>3p<sup>10</sup>, nitrogen group, common valence 3.)![Analog of phosphorus pentoxide: molecular structure of pentaphosphorus pentadecaoxide. Note the terminal oxygens are coordinate bonds, the rest are normal single bonds](/img/chemie010.jpg)
 
 <a name="browser"></a>
 
-## 四维分子浏览器
+## Four-Dimensional Molecular Browser
 
-虽然对“真实”的四维化学我们了解甚少，不过出于好玩我还是写了一个假想的四维化学常见物质结构式查看器，并支持与Tesserxel示例库交互生成4D分子模型。（涉及金刚烷的2D结构式显示有bug，请无视）我还自己命名了一些官能团的名称，有些则采纳了《4D对称化学》中取的名称，比如官能团“酢”(-CO2)、某些氨基酸结构的类比等。
+Although we know very little about "real" four-dimensional chemistry, for fun I still wrote a hypothetical four-dimensional chemistry common substance structure viewer that supports interaction with the Tesserxel example library to generate 4D molecular models. (There's a bug in 2D structural formula display involving diamondoid, please ignore) I also named some functional groups myself, while adopting some names from "Symmetric 4D Chemistry", such as the functional group "cu" (-CO2), analogs of certain amino acid structures, etc.
 
-<img src="/img/chemie006.jpg" style="max-width:500px;width:100%" alt="Tesserxel示例库中的四维分子">
+<img src="/img/chemie006.jpg" style="max-width:500px;width:100%" alt="Four-dimensional molecules in Tesserxel example library">
 
-- [链接入口](https://wxyhly.github.io/Chem4D/)
+- [Link entrance](https://wxyhly.github.io/Chem4D/)
 
-每次刷新可随机摇出分子，或者点“手气不错”来刷出下一个分子。随机生成的分子会存到后面的历史记录中。![四维分子浏览器生成的分子](/img/chemie405.png)
+Each refresh randomly generates molecules, or click "I'm feeling lucky" to get the next molecule. Randomly generated molecules are saved to the history record.![Molecules generated by four-dimensional molecular browser](/img/chemie405.png)
 <a name="qft"></a>
 
-## 粒子物理
+## Particle Physics
 
-由于要对四维立方反比导致原子不稳定进行修正，会极大影响原子分子的性质，这些简单类比很可能全部失效。搭建四维世界观最理想的方式是直接指定最基础的“上帝”物理法则，然后所有一切都不用再设定，从此出发推出一切物理化学、自然甚至生物学相关的性质。现实世界中这种“上帝”物理法则还没有完全被发现，目前最接近的物理理论就是量子场论与广义相对论。然而引力的量子化还没有解决，量子场论无法与广义相对论互相兼容。弦论是整合两者的可能最终理论，但目前没有实验结果支持它。这篇文章我们先忽略引力，只关注量子场论部分。
+Since corrections must be made for atomic instability caused by four-dimensional inverse cube law, atomic and molecular properties would be greatly affected, and these simple analogies might all fail. The ideal way to build a four-dimensional worldview is to directly specify the most basic "God" physical laws, then everything else doesn't need to be set - derive all physics, chemistry, nature and even biology-related properties from there. In the real world, these "God" physical laws haven't been completely discovered yet. The closest physical theories currently are quantum field theory and general relativity. However, quantization of gravity hasn't been solved, and quantum field theory cannot be compatible with general relativity. String theory is a possible final theory integrating both, but currently there's no experimental evidence supporting it. In this article, we'll first ignore gravity and focus only on quantum field theory.
 
-### 量子场论简介
+### Introduction to Quantum Field Theory
 
-量子力学告诉我们，微观粒子是以概率波的形式存在的。薛定谔方程就是描述的单粒子的位置概率波函数随时间怎样演化的。然而随着研究的深入，人们发现所有粒子都是量子场，描述三维空间中粒子的位置有三个自由度，而要描述一个场就需要给出空间中每个点上场的值，自由度是无穷维的，整个量子场各种不同分布取值都有独立的概率，其概率波函数也变成无穷维的了，因此我们不直接像薛定谔方程那样求解波函数，而是通过一些跟费曼图有关的技巧计算粒子作用所有可能的演化路径贡献的概率幅总和来预测物理实验结果。这就是量子场论的基本数学逻辑。
+Quantum mechanics tells us that microscopic particles exist in the form of probability waves. The Schrödinger equation describes how the position probability wave function of a single particle evolves over time. However, as research deepened, people found that all particles are quantum fields. Describing particle positions in three-dimensional space has three degrees of freedom, but describing a field requires giving field values at every point in space - infinite degrees of freedom. The entire quantum field's various different distribution values all have independent probabilities, and its probability wave function also becomes infinite-dimensional. Therefore, we don't directly solve for wave functions like the Schrödinger equation, but use techniques related to Feynman diagrams to calculate the sum of probability amplitudes contributed by all possible evolution paths of particle interactions to predict physical experimental results. This is the basic mathematical logic of quantum field theory.
 
-量子场论认为，整个宇宙空间中都弥散着一些量子场，粒子是场的激发态，类似波函数描述的振动模式。每种基本粒子都对应一个量子场，例如电子场、光子场等。粒子间相互作用本质是场之间的耦合作用：例如，两个电子（电子场）通过交换光子（电磁场的振动）产生排斥力。量子场论跟狭义相对论（不含引力）是兼容的，它是目前实验验证过的最精确的物理理论。
+Quantum field theory believes that the entire universe space is permeated with quantum fields, and particles are excited states of fields, similar to vibration modes described by wave functions. Each type of elementary particle corresponds to a quantum field, such as electron field, photon field, etc. Interactions between particles are essentially coupling between fields: for example, two electrons (electron field) produce repulsive force by exchanging photons (vibrations of electromagnetic field). Quantum field theory is compatible with special relativity (excluding gravity) and is currently the most precisely experimentally verified physical theory.
 
-### 标准模型
-到底有哪些基本粒子呢？标准模型给出了所有粒子以及它们之间的相互作用。费米子是有半自旋的粒子，构成物质，如电子、夸克等。标粉色的是6种夸克，标绿色的是6种轻子，轻子的质量比夸克小很多，并因此得名。把它们分成了3列，叫做“世代”，不同世代的对应粒子除了质量不同，其它性质差异不大。从左到右分别为第一、二、三代。我们正常的原子都是由第一代的夸克（上下夸克组成质子、中子）和电子组成的。
-<img style="max-width:450px;width:100%" src="/img/sm402.png" alt="我们世界的标准模型">
-这些粒子如何相互作用呢？电子和夸克带有电荷，与电磁场(光子)有相互作用；夸克与胶子带有“色荷”，通过胶子进行强力作用，将质子中子束缚形成原子核；此外对于左手费米子还有通过W及Z玻色子传递的弱相互作用力，它会引起原子核放射性衰变，而中微子不带电，只参与弱相互作用力与引力作用；最后希格斯玻色子给所有费米子以及W、Z玻色子赋予了质量。
-<img style="max-width:350px;width:100%" src="/img/sm403.png" alt="我们世界粒子之间的相互作用">
+### Standard Model
+What elementary particles are there exactly? The standard model gives all particles and their interactions. Fermions are particles with half-spin that constitute matter, such as electrons, quarks, etc. The 6 types of quarks are marked in pink, the 6 types of leptons are marked in green. Leptons have much smaller mass than quarks, hence the name. They're divided into 3 columns called "generations". Corresponding particles in different generations have little difference in properties except mass. From left to right are the first, second, and third generations. Our normal atoms are all composed of first-generation quarks (up and down quarks forming protons and neutrons) and electrons.
+<img style="max-width:450px;width:100%" src="/img/sm402.png" alt="Standard model of our world">
 
-### 四维场论的标准模型
-四维空间的立方反比衰减规律导致若电子只受到原子核的电磁力，则不再有最低离散能态，电子会不断辐射能量最终落入原子核，因此我们需要引入不同于现实世界的物理机制来消除它。四维原子的不稳定性没有标准的规避解决办法，比如[这篇文献](https://arxiv.org/pdf/1205.3740)发现五维及以上氢原子可能有离散能级，但维度不适用于四维；Hadroncfy认为直接沿用三维的模型虽然导致原子不稳定，但没准有稳定的分子轨道，然而我认为希望渺茫，有兴趣的朋友可自行计算探究。
+How do these particles interact? Electrons and quarks carry electric charge and interact with electromagnetic fields (photons); quarks and gluons carry "color charge" and undergo strong force interactions through gluons, binding protons and neutrons to form atomic nuclei; additionally, left-handed fermions have weak interactions transmitted through W and Z bosons, which cause radioactive decay of atomic nuclei, while neutrinos carry no charge and only participate in weak interactions and gravitational interactions; finally, the Higgs boson gives mass to all fermions and W, Z bosons.
+<img style="max-width:350px;width:100%" src="/img/sm403.png" alt="Interactions between particles in our world">
 
-这里首先要介绍的是《对称4D化学》中提出的新标准模型：通过在现有的$\mathrm{SO}(10)$对称性的大统一理论（Grand Unified Theory）之上加入新的费米子三个世代之间的对称性$\mathrm{U}(3)$引入新的相互作用，既交换了 3 代费米子（由 U 玻色子），又在同一代物质（由 V 玻色子）之间产生了轻微的排斥力，这种排斥力可以阻止电子螺旋进入原子核，让原子稳定变得可能。
+### Standard Model of Four-Dimensional Field Theory
+The inverse cube decay law in four-dimensional space means that if electrons only experience electromagnetic force from atomic nuclei, there are no longer discrete lowest energy states - electrons would continuously radiate energy and eventually fall into the nucleus. Therefore, we need to introduce physical mechanisms different from the real world to eliminate this. There's no standard solution for avoiding four-dimensional atomic instability. For example, [this paper](https://arxiv.org/pdf/1205.3740) found that hydrogen atoms in five dimensions and above might have discrete energy levels, but the dimensions don't apply to four dimensions; Hadroncfy believes directly using three-dimensional models, although causing atomic instability, might have stable molecular orbitals, but I think hope is slim - interested friends can calculate and explore themselves.
 
-![四维世界可能的标准模型](/img/sm401.png)
-这个模型看起来很棒，但作者也坦言只是图好玩造的，很难说是真的给出了四维世界正确的微观理论。因为标准模型的参数非常多，模型中各种粒子均要通过严格计算才知道是否满足稳定性。目前大家都只是定性地给出粒子模型，而无法确切得知是否彻底解决了四维世界中的所有不稳定、重整化等积分发散问题，从而自下而上构筑一个物理上最“真实”的四维世界。
-### 4DEnthusiast的碱金属性质估计
-有趣的是，4DEnthusiast假想的四维化学同样采用的是引入新的带质量的自旋为1的矢量玻色子的方式制造短程斥力来防止电子坠落，不过他并没提出其它的包括交换世代间费米子的超对称模型。
+Here I first need to introduce the new standard model proposed in "Symmetric 4D Chemistry": by adding new fermion three-generation symmetry $\mathrm{U}(3)$ on top of the existing $\mathrm{SO}(10)$ symmetry grand unified theory (GUT) to introduce new interactions that both exchange 3 generations of fermions (by U bosons) and produce slight repulsive force between same-generation matter (by V bosons). This repulsive force can prevent electrons from spiraling into the nucleus, making atomic stability possible.
 
-他通过计算发现，四维原子的半径变化会非常剧烈: 三维世界中最小的氢与最大的铯元素半径也最多只相差10倍，四维引入指数衰减的短程力后这个倍数可以到上百倍，体积比可以达到十的8次方，它们几乎不可能以非离子化元素的形式出现。如果以某种方式将单质分离出来，它们可以在室温下形成稳定的等离子体，且这种气体能够还原与其接触的几乎所有物质。在足够低的温度下，它们可能会凝结形成密度极低的比普通固体轻数百万倍的金属。由于任何可见光子都很容易使电子从这种金属中逸出，4DEnthusiast猜测四维碱金属可能呈现深红色甚至黑色。4DEnthusiast并没有说这种类碱金属就是周期表的所有第一列元素，因为他通过角动量的计算发现，很可能从三维类比到四维的主量子数、角量子数所对应的能量差异很大导致元素周期律变得混乱，导致**能级交错规律完全消失，我们之前给的所有版本的元素周期表可能都是错误的**。目前他还没有给出具体的周期表。
-### 四维核壳模型
-4DEnthusiast认为原子核的内部细节大多与化学关系不大，因为它们比普通电子轨道小得多，通常可以视为点状结构。然而核物理学决定了哪些元素存在及相应丰度，因此还是值得考虑。《对称4D化学》中提出了能够估计各种原子是否具有放射性或放射半衰期的核壳模型：像电子轨道那样算出每层需要几个电子才到稀有气体稳定结构，对于原子核同样可计算质子和中子填充满原子核各层级的数目，不过对于原子核还需要结合自旋角动量和轨道角动量的耦合。他们还草拟了一些氦融合、氦捕获和其它几个核反应式，试图解释恒星演化。4DEnthusiast认为引入新的短程力会让电子与核子之间的作用变得非常不同：假设弱反应$p + e^- \rightarrow n + \nu_e$仍然可能发生，且反应前后短程力对应的“s荷”（类似电磁力对应电荷）是守恒的。根据这个反应式，电子带s荷，而中微子不带任何s荷（否则会干扰化学反应），因此中子必须带一些s荷。最简单的想法是让中子和电子带相同的s荷，而质子不带s荷，但这会导致电子主要通过短程力而不是弱力参与相互作用，为避免这种情况，就需要核子的s荷比电子的大得多，中子的s荷比质子的略多，从而保持上面弱反应方程的s荷守恒。由于中子带s荷，质子数相同而中子数不同的核素的化学性质也会存在显著差异，以至于它们可能被视为完全不同的元素，这也意味着质子中子比足够高的核素中，电子可以完全克服s力落入原子核吸收转化为新的核素。虽然有如此大的不同，但4DEnthusiast认为有机物的骨架元素还会是在正常的碳元素附近。
+![Possible standard model of four-dimensional world](/img/sm401.png)
+This model looks great, but the author also admits it was just made for fun and it's hard to say if it really gives the correct microscopic theory of the four-dimensional world. Because the standard model has many parameters, various particles in the model all require rigorous calculation to know if they satisfy stability. Currently everyone just qualitatively gives particle models without being able to definitively know if all instability and renormalization divergence problems in the four-dimensional world have been completely solved, thus building a physically most "real" four-dimensional world from bottom up.
+
+### 4DEnthusiast's Estimation of Alkali Metal Properties
+Interestingly, 4DEnthusiast's imagined four-dimensional chemistry also adopts introducing new massive spin-1 vector bosons to create short-range repulsive force preventing electron collapse, though he didn't propose other supersymmetric models including exchanging fermions between generations.
+
+Through calculations, he found that four-dimensional atomic radii would change very dramatically: in the three-dimensional world, the radius ratio between smallest hydrogen and largest cesium elements is at most 10 times, but in four dimensions with exponentially decaying short-range force introduced, this ratio can reach hundreds of times, with volume ratios reaching 10 to the 8th power. They almost cannot appear as non-ionized elements. If elemental forms were somehow isolated, they could form stable plasmas at room temperature, and this gas could reduce almost all substances in contact with it. At sufficiently low temperatures, they might condense to form metals millions of times lighter than ordinary solids with extremely low density. Since any visible photon can easily cause electrons to escape from such metals, 4DEnthusiast speculates four-dimensional alkali metals might appear deep red or even black. 4DEnthusiast didn't say these alkali-like metals are all first-column elements of the periodic table, because through angular momentum calculations he found that energy differences corresponding to principal quantum numbers and angular quantum numbers analogized from three to four dimensions might be so large that periodic law becomes chaotic, causing **energy level crossing rules to completely disappear, and all versions of periodic tables we gave before might be wrong**. Currently he hasn't given a specific periodic table.
+
+### Four-Dimensional Nuclear Shell Model
+4DEnthusiast believes internal nuclear details are mostly unrelated to chemistry because they're much smaller than ordinary electron orbitals and can usually be treated as point structures. However, nuclear physics determines which elements exist and their abundances, so it's still worth considering. "Symmetric 4D Chemistry" proposed a nuclear shell model that can estimate whether various atoms are radioactive or their radioactive half-lives: like calculating how many electrons are needed per layer to reach noble gas stable structure for electron orbitals, the same can be calculated for numbers of protons and neutrons filling nuclear layers, though for nuclei coupling of spin angular momentum and orbital angular momentum also needs consideration. They also drafted some helium fusion, helium capture and other nuclear reaction formulas, trying to explain stellar evolution. 4DEnthusiast believes introducing new short-range forces would make electron-nucleon interactions very different: assuming the weak reaction $p + e^- \rightarrow n + \nu_e$ can still occur, and the "s-charge" (similar to electric charge for electromagnetic force) corresponding to short-range force is conserved before and after reaction. According to this reaction formula, electrons carry s-charge while neutrinos carry no s-charge (otherwise would interfere with chemical reactions), so neutrons must carry some s-charge. The simplest idea is to let neutrons and electrons carry the same s-charge while protons carry no s-charge, but this would cause electrons to mainly interact through short-range force rather than weak force. To avoid this situation, nucleon s-charges need to be much larger than electron s-charges, with neutron s-charge slightly more than proton's, thus maintaining s-charge conservation in the above weak reaction equation. Since neutrons carry s-charge, nuclides with same proton number but different neutron numbers would have significantly different chemical properties, to the point they might be considered completely different elements. This also means in nuclides with sufficiently high proton-neutron ratio, electrons can completely overcome s-force to fall into nuclei for absorption and transformation into new nuclides. Despite such large differences, 4DEnthusiast believes organic compound backbone elements would still be near normal carbon element.
 <a name="other"></a>
 
-### 其它周期律世界观设定
-《对称4D化学》中给出了另外两种不同的周期律设定：其中第一种为Higher Space论坛中Vector提出的2自旋电子系统，这其实也是4DEnthusiast的设定：假定四维世界只存在一种手性自旋（比如左等角旋转）的电子，正电子的自旋则都是另一种手性。本文的四维设定则是假设两种电子同时存在且几乎比例相等。“真实”的四维世界采用哪种模式完全要靠实验才能确定：想象一下原本有两个只有左手和右手电子的世界，（如果天生就是四自旋态世界，也可以通过手性磁场筛选分离出不同手性电子来强行组成单手性的原子）某一天它们相遇了，两个世界中的元素之间开始疯狂交换各自的电子最终达到两种手性平衡的结构，所有元素在原子序数不变的情况下从两自旋的周期律变成四自旋的周期律。举个例子：本来是填满两个电子的惰性元素氦（两自旋周期律意义下）突然发现原来对方填入自身手性电子的轨道都还是空着的，于是它们各自交换一个电子变成了两个原子序数为2的氘原子（四自旋周期律意义下），然后形成D<sub>2</sub>分子。注意这个过程原子核、原子序数都没变，因此是一种奇特的化学反应而非核反应。
+### Other Periodic Law Worldview Settings
+"Symmetric 4D Chemistry" gave two other different periodic law settings: the first is Vector's 2-spin electron system proposed in Higher Space forum, which is actually also 4DEnthusiast's setting: assuming the four-dimensional world only has electrons with one chiral spin (like left equiangular rotation), while positrons all have the other chiral spin. This article's four-dimensional setting assumes both types of electrons exist simultaneously in almost equal proportions. Which mode the "real" four-dimensional world adopts can only be determined experimentally: imagine two worlds originally with only left-handed and right-handed electrons (if naturally a four-spin state world, different chiral electrons can also be forcibly separated through chiral magnetic field screening to form single-chirality atoms). One day they meet, and elements between the two worlds start frantically exchanging each other's electrons, finally reaching a structure balanced in both chiralities. All elements change from two-spin periodic law to four-spin periodic law while atomic numbers remain unchanged. For example: the originally inert element helium (under two-spin periodic law meaning) filled with two electrons suddenly discovers the orbitals for filling the other side's chiral electrons are still empty, so they each exchange one electron to become two atoms with atomic number 2 - deuterium atoms (under four-spin periodic law meaning), then form D<sub>2</sub> molecules. Note this process doesn't change nuclei or atomic numbers, so it's a peculiar chemical reaction rather than nuclear reaction.
 
-第二种为忽略轨道角动量必须是简单2-向量的事实，强行认为左右手等角旋转的波动相互独立，可自由组合出一些很奇怪的组合：现在每个电子不仅只用s、p、d单字母表示，而是ss、sp、ps、sd、pp这样的双字母表示，导致元素多得更吓人：![数学上不可能的周期表：允许非简单轨道角动量的四自旋态系统](/img/sm404.png)基于这个模型他们也提出了核物理、分子多中心键等设定。然而数学上计算可知出现非简单2-向量的轨道角动量是不自洽的，可直接认定为错误理论，但去想象一下图个乐也不错。
+The second ignores the fact that orbital angular momentum must be simple 2-vectors, forcibly considering left and right equiangular rotation waves as independent and freely combinable into some very strange combinations: now each electron is represented not just by single letters s, p, d, but double letters like ss, sp, ps, sd, pp, causing even more frightening numbers of elements:![Mathematically impossible periodic table: four-spin state system allowing non-simple orbital angular momentum](/img/sm404.png)Based on this model they also proposed nuclear physics, molecular multi-center bonds and other settings. However, mathematical calculations show non-simple 2-vector orbital angular momentum is self-inconsistent and can be directly determined as incorrect theory, but imagining it for fun isn't bad either.
 
-个人认为2自旋电子系统虽然与三维类似，但从几何上想也有点牵强，因为在四维空间中只选择出两个旋转方向而不是四个直接就破坏宇称（手性）了，但至少没违背数学原理，嗯，反正我们世界也宇称不守恒……其实反正四维世界都是假的，也无所谓了。下面是相关链接：
-- **[Alternative Chemistries](https://blog.4denthusiast.net/)：4DEnthusiast的四维化学，包含粒子物理设定、四维键能计算、元素性质预测等硬核内容。电子采用手性两自旋态设定。（目前看到的最细致的四维微观物理设定，不过也没解决无法重整化的问题）**
-- [对称4D化学](https://docs.google.com/spreadsheets/d/1VhEpUJOCKkW8DUIcfSpqkANfr0qUwo6XlpY69v25-FQ/edit?gid=397336730#gid=397336730)：与本blog设定相同的四自旋态系统<a name="skipgut"></a>
-- [Vector's 4D Chemistry](https://docs.google.com/spreadsheets/d/1DM6wGM4Rbqh2ED8MPRzOYUzh1HxpfkWW9TXBsQihSJI/edit?gid=1478285864#gid=1478285864)	：	Higher Space论坛上发布过的手性两自旋态电子设定
-- [Planet's 4D Chemistry](https://docs.google.com/spreadsheets/d/1KgBywMKfIiSk5MEy-Xj2z_fkWOM4IWdY3zWTdq6Q6F8/edit?gid=0#gid=0)	：	允许非简单轨道角动量的四自旋态系统，对称4D化学的灵感来源
-- [Quack's Old 4D Chemistry](https://docs.google.com/spreadsheets/d/1oUlbahlGETxMivDpsetRmDph4XlM50djtiXxLq-lGA4/edit?gid=213669686#gid=213669686)		对称4D化学的旧系统，也是允许非简单轨道角动量的四自旋态系统
+Personally I think the 2-spin electron system, though similar to three dimensions, is also geometrically far-fetched, because choosing only two rotation directions rather than four in four-dimensional space directly breaks parity (chirality). But at least it doesn't violate mathematical principles. Well, our world also violates parity conservation anyway... Actually since the four-dimensional world is fake anyway, it doesn't matter. Below are related links:
+- **[Alternative Chemistries](https://blog.4denthusiast.net/): 4DEnthusiast's four-dimensional chemistry, including particle physics settings, four-dimensional bond energy calculations, element property predictions and other hardcore content. Electrons adopt chiral two-spin state setting. (Currently the most detailed four-dimensional microscopic physics setting seen, though it also hasn't solved the non-renormalizable problem)**
+- [Symmetric 4D Chemistry](https://docs.google.com/spreadsheets/d/1VhEpUJOCKkW8DUIcfSpqkANfr0qUwo6XlpY69v25-FQ/edit?gid=397336730#gid=397336730): Four-spin state system with same setting as this blog<a name="skipgut"></a>
+- [Vector's 4D Chemistry](https://docs.google.com/spreadsheets/d/1DM6wGM4Rbqh2ED8MPRzOYUzh1HxpfkWW9TXBsQihSJI/edit?gid=1478285864#gid=1478285864): Chiral two-spin state electron setting published on Higher Space forum
+- [Planet's 4D Chemistry](https://docs.google.com/spreadsheets/d/1KgBywMKfIiSk5MEy-Xj2z_fkWOM4IWdY3zWTdq6Q6F8/edit?gid=0#gid=0): Four-spin state system allowing non-simple orbital angular momentum, inspiration source for Symmetric 4D Chemistry
+- [Quack's Old 4D Chemistry](https://docs.google.com/spreadsheets/d/1oUlbahlGETxMivDpsetRmDph4XlM50djtiXxLq-lGA4/edit?gid=213669686#gid=213669686): Old system of Symmetric 4D Chemistry, also a four-spin state system allowing non-simple orbital angular momentum
 
-## 上篇文章的参考答案
-1. 氕与氧形成H<sub>4</sub>O（氧氠），氘与氧形成D<sub>2</sub>O（水）。
-2. 四维世界中的水，请参见[四维海洋小节](/archives/chemie4d/#biomer)。
-3. 四维世界中的苯可能有：C<sub>6</sub>D<sub>6</sub>（苯）、C<sub>6</sub>D<sub>12</sub>（萱）、C<sub>6</sub>H<sub>12</sub>（六泾苯）、Tk<sub>6</sub>H<sub>6</sub>（<span class="elem-font">𥓬</span>苯）、Qc<sub>6</sub>T<sub>6</sub>（砠苯）等。
-4. 氚的单质最可能是正四面体的四原子分子T<sub>4</sub>。其中四个原子的s轨道叠加线性组合成三个充满的能量更低的成键轨道和一个空的能量更高的非键空轨道，形成4中心12电子键，该话题详见[分子轨道理论小节](/archives/chemie4d/#orbit)；
+## Reference Answers for Previous Article
+1. Protium and oxygen form H<sub>4</sub>O (oxygen-shen), deuterium and oxygen form D<sub>2</sub>O (water).
+2. For water in the four-dimensional world, see [Four-dimensional ocean section](/archives/chemie4d/#biomer).
+3. Benzene in the four-dimensional world might include: C<sub>6</sub>D<sub>6</sub> (benzene), C<sub>6</sub>D<sub>12</sub> (xuan), C<sub>6</sub>H<sub>12</sub> (hexajing-benzene), Tk<sub>6</sub>H<sub>6</sub> (<span class="elem-font">technetium</span> benzene), Qc<sub>6</sub>T<sub>6</sub> (quebecium benzene), etc.
+4. The elemental form of tritium is most likely the tetrahedral tetratomic molecule T<sub>4</sub>. The s orbitals of four atoms overlap and linearly combine into three filled lower-energy bonding orbitals and one empty higher-energy non-bonding orbital, forming a 4-center 12-electron bond. See [Molecular orbital theory section](/archives/chemie4d/#orbit) for this topic.
 
+<!-- ### Optional within Optional: Understanding "Spinors"
+Why does rotating 360 degrees result in opposite direction, and rotating 720 degrees return to the original? There's a lot of misleading content online. For example, Wikipedia's spinor entry has a Möbius strip image - though vivid, it just happens to be similar to spinor's double-covering property with no essential connection. The fundamental reason spinors exist is that the topological space formed by all three-dimensional rotations is not simply connected. Many articles also mention the "Dirac Belt Trick": cables are inserted radially between two concentric spherical shells. How can we continuously rotate the inner sphere without tangling the cables? This problem is equivalent to finding a special path in the topological space of three-dimensional rotation groups that can continuously perform rotation transformations without self-intersection. The equivalence works like this: map the initial rotation state to the outer shell orientation, map the rotation process to cable lines, and map the final rotation state to the inner shell. This way, as long as paths in the rotation group topological space don't self-intersect, cables won't tangle.
 
-<!-- ### 选读中的选读：理解“旋量”
-为什么会出现旋转360度后方向相反，旋转720度才重合这么诡异的事情呢？网络上有很多误导性的东西，比如维基百科旋量词条有张莫比乌斯带的图片，虽然形象，但它只是凑巧跟旋量的二重覆盖性质很像，无本质联系。旋量存在的根本原因在于所有的三维旋转构成的拓扑空间不是单连通的。很多文章还会提到“狄拉克皮带把戏”（Dirac Belt Trick）：两个同心的球壳之间的缝隙中径向方向插满了电缆，如何可持续转动内部球壳还不让线缆缠绕呢？这个问题等价于在三维旋转群的拓扑空间中找到一条能够一直做旋转变换都不相交的特殊性质路径，具体是这样等价的：把旋转的初始状态对应到大球壳的朝向上，把旋转的过程对应到电缆线上，再把旋转的最终状态对应到内层的球壳上，这样，只要旋转群拓扑空间中的路径不发生自相交，则就不会出现线缆缠绕。
-
-我们知道，三维旋转对应四元数，但这个表示是一对二的，四元数直接对应三维球面（四维超球的表面），三维旋转则一一对应的是三维球面上的对径点。我们在三维空间中旋转物体一周，对应三维球面上的点跑了半圈。如果假设初始状态下内外球壳朝向一致，则在旋转一圈后“赤道”周围的电缆也缠绕了一圈，随着圈数增多缠绕得也越多，它对应着超球面上绕着赤道的路径缠线，显然这不是我们要找的解。观察那个动画可知，初始状态下物体的朝向就已经旋转了180度了。（单独写一篇dirac belt trick，思考四维双旋转有没有pleto）
+We know three-dimensional rotations correspond to quaternions, but this representation is two-to-one. Quaternions directly correspond to the three-dimensional sphere (surface of four-dimensional hypersphere), while three-dimensional rotations one-to-one correspond to antipodal points on the three-dimensional sphere. When we rotate an object one full turn in three-dimensional space, the corresponding point on the three-dimensional sphere runs half a circle. If we assume inner and outer shells initially have the same orientation, after one rotation the cables around the "equator" also wrap around once. As the number of turns increases, the wrapping increases too, corresponding to paths winding around the equator on the hypersphere - obviously not the solution we seek. Observing the animation shows the object's orientation is already rotated 180 degrees in the initial state. (Write a separate article on dirac belt trick, consider whether four-dimensional double rotation has pleto)
  -->

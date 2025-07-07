@@ -1,41 +1,41 @@
 ---
-title: '四维空间（六）：更多几何体[下]'
+title: "Four-Dimensional Space (Part 6): More Geometric Shapes [Part 2]"
 tags:
-  - 四维
-  - 几何
-  - 分形
-  - 系列文章
-  - 数学
-categories: 四维空间系列
+  - four-dimensional
+  - geometry
+  - fractals
+  - series
+  - mathematics
+categories: Four-Dimensional Space Series
 date: 2016-04-23 20:15:09
 ---
-## 特色内容
-- 旋转、放样体
-- Julia-Mandelbrot过渡动画
-- 二次曲面的所有四维类比
+## Featured Content
+- Solids of revolution, lofted solids
+- Julia-Mandelbrot transition animation
+- All four-dimensional analogues of quadric surfaces
 <a name="index"></a>
 
-### 本文目录：  
- - [旋转体](/archives/plus4ds/#duo)
- - [放样体](/archives/plus4ds/#loft)
- - 四维分形
-   + [Mandelbrot-Julia集](/archives/plus4ds/#mj)
-   + [其它](/archives/plus4ds/#autre)
- - [二次曲胞](/archives/plus4ds/#quadric)
- - [思考题答案](/archives/plus4ds/#answer)
+### Table of Contents:  
+ - [Solids of Revolution](/archives/plus4ds/#duo)
+ - [Lofted Solids](/archives/plus4ds/#loft)
+ - Four-Dimensional Fractals
+   + [Mandelbrot-Julia Sets](/archives/plus4ds/#mj)
+   + [Others](/archives/plus4ds/#autre)
+ - [Quadric Hypersurfaces](/archives/plus4ds/#quadric)
+ - [Answers to Thought Questions](/archives/plus4ds/#answer)
  <a name="duo"></a>
  <!--more-->
 
-### 旋转体
-上一篇文章中，我们看到了直积图形双圆柱和一些圆环的类比。里面充斥着很多“圆形”的东西，一般圆形都是由旋转而来的，我们下面就来从旋转体的角度来看看四维空间的那些我们已熟知和未知的几何体。
-##### 圆柱柱作为旋转体
-　　大家都知道矩形绕一条边旋转得到圆柱，那圆柱柱能由什么旋转而来？我们分析圆柱：它的底面是圆，圆当然由线段绕端点旋转而来，柱体则把线段“拉”成了矩形，把旋转点“拉”成了旋转轴。那么圆柱柱就是矩形升级，“拉”成长方体，绕着一个面旋转。
-##### 面稍微远一些？
+### Solids of Revolution
+In the previous article, we saw direct product shapes like the bicylinder and some analogues of tori. They were filled with many "circular" things, and circles generally come from rotation. Let's look at those familiar and unfamiliar geometric shapes in four-dimensional space from the perspective of solids of revolution.
+##### Cylindrical Prism as a Solid of Revolution
+　　Everyone knows that a rectangle rotated around one edge produces a cylinder, so what can produce a cylindrical prism by rotation? Let's analyze a cylinder: its base is a circle, which of course comes from a line segment rotating around an endpoint, while the cylinder "stretches" the line segment into a rectangle and "stretches" the rotation point into a rotation axis. So the cylindrical prism is an upgraded rectangle, "stretched" into a rectangular box, rotating around a face.
+##### What if the face is slightly farther away?
 ![](/img/plus1.gif)
-　　我们把旋转面稍微平移一下，使之离长方体有一定距离，我们将得到“圆环柱柱”（圆环和长方形的直积）。这里的圆环是二维的那种两个同心圆。当圆环内径为0时就变成了上一种情况：圆柱柱（圆和长方形的直积）。
-##### 旋转圆柱、球
-　　大家思考一下：我们在四维空间中旋转圆柱和球会得到哪些几何体？当然圆柱不是高度对称的几何体，我们可以取以底面、过对称轴的平面、平行底面与圆柱有一定距离的平面、平行对称轴与圆柱有一定距离的平面等作为旋转平面，会得到不同几何体。（当然还可以选斜着的任何面，但得到的不规则图形意义不大）我们来看圆柱绕底面旋转的情况：由于四维空间中的旋转十分抽象，我们是无法直观想出旋转过程的，现在只能通过“截面动画”法“降维”。具体怎么降维呢？假装没有直接想象三维圆形旋转体图形（即圆环）的能力，我们可以这样做：<table><tr border="0"><td>![](/img/plus2.gif)</td><td>![](/img/morepolys9.gif)</td></tr></table>在旋转平面内作很多垂直于旋转轴的截线，这些截线绕旋转轴旋转即在旋转面中绕旋转轴与截线的旋转面的交点旋转，这样成功把三维绕轴旋转问题变成了二维绕点旋转问题。我们通过这些截线旋转图形得到了对应旋转体（圆环）的截面动画。
-下面是圆柱绕它的底面旋转的情形：
+　　If we translate the rotation face slightly so it's at a certain distance from the rectangular box, we'll get a "toroidal cylindrical prism" (the direct product of a torus and a rectangle). The torus here is the 2D kind with two concentric circles. When the inner radius of the torus is 0, it becomes the previous case: cylindrical prism (direct product of circle and rectangle).
+##### Rotating Cylinders and Spheres
+　　Think about this: what geometric shapes do we get when rotating cylinders and spheres in four-dimensional space? Since cylinders aren't highly symmetric, we can choose different rotation planes: the base, a plane through the axis of symmetry, a plane parallel to the base at some distance from the cylinder, a plane parallel to the axis at some distance from the cylinder, etc., yielding different shapes. (We could also choose any oblique plane, but the irregular shapes obtained have little significance.) Let's look at a cylinder rotating around its base: Since rotation in four-dimensional space is very abstract and we cannot directly visualize the rotation process, we can only "reduce dimensions" using the "cross-section animation" method. How exactly do we reduce dimensions? Pretending we don't have the ability to directly visualize 3D circular solids of revolution (i.e., tori), we can do this: <table><tr border="0"><td>![](/img/plus2.gif)</td><td>![](/img/morepolys9.gif)</td></tr></table>Draw many cross-sectional lines perpendicular to the rotation axis in the rotation plane. These lines rotate around the rotation axis, which means rotating around the intersection point of the rotation axis and the cross-sectional line in the rotation plane. This successfully converts a 3D rotation-around-axis problem into a 2D rotation-around-point problem. Through these rotating cross-sectional lines, we obtain cross-section animations of the corresponding solid of revolution (torus).
+Here's the case of a cylinder rotating around its base:
 <table border="0"><tr><td>
 
 ![](/img/plus3.gif)
@@ -46,118 +46,118 @@ date: 2016-04-23 20:15:09
 
 </td></tr></table>
 
-看，右边的截面动画说明这个几何体是**双圆柱**！其他选取旋转平面的情况留给大家思考，我会在文章最后公布答案。
-　　球绕它外面的平面旋转得到**球环**，这是球环最原始的**定义**，而球绕过球心的平面旋转得到超球（想想圆的情况不难理解）。为什么不让球绕不过球心的但与球相交的平面旋转呢？因为这个图形是自相交的（依然想想圆的情况，那个东西像个苹果），我不认为自相交的图形是良好的。
-##### 旋转圆环
-　　我有四种比较“规矩”（不选斜的）的选择旋转平面：其中不与圆环自身相交的两种平面上次都讲过了，还有两种特殊位置上的平面：
- - 过对称轴的平面：我们也提到过旋转后得到**球环**。
- - 垂直对称轴的圆环的对称面：留作思考题，答案见文章最后。（提示：可以从想象截面动画入手）
+Look, the cross-section animation on the right shows that this geometric shape is a **bicylinder**! Other cases of choosing rotation planes are left for you to think about; I'll publish the answers at the end of the article.
+　　A sphere rotating around a plane outside it produces a **spheritorus**, which is the most primitive **definition** of a spheritorus, while a sphere rotating around a plane through its center produces a hypersphere (think about the case of a circle and it's not hard to understand). Why not let the sphere rotate around a plane that doesn't pass through the center but intersects the sphere? Because this shape is self-intersecting (again think about the circle case - that thing looks like an apple), and I don't consider self-intersecting shapes to be well-formed.
+##### Rotating Tori
+　　I have four relatively "proper" (not oblique) choices for rotation planes: two types that don't intersect the torus itself were discussed last time, and there are two more special position planes:
+ - A plane through the axis of symmetry: We also mentioned that rotation produces a **spheritorus**.
+ - The symmetry plane of the torus perpendicular to the axis: Left as a thought question, answer at the end of the article. (Hint: You can start by imagining cross-section animations)
 
-##### 圆柱锥、圆锥柱、圆锥锥作为旋转体
-其实在圆柱柱那里我们已经发现了一个规律：通过“柱体”把旋转体“拉”到高维时，它的旋转“单元”也被“柱体化”了，锥体也一样。所以圆柱锥是一个四棱锥绕侧面三角形旋转而来，且这个侧面垂直于蓝色底面长方形。（我们讨论三维图形，垂直就是二面垂直；别忘了四维空间还有绝对垂直）
-同理，圆锥柱是三棱柱（蓝色三角形被“柱”化）旋转而成的，圆锥锥是三棱锥（蓝色三角形被“锥”化）旋转而成的。（下图红色为旋转面）
+##### Cylindrical Cone, Conical Cylinder, Conical Cone as Solids of Revolution
+Actually, with the cylindrical prism, we've already discovered a pattern: when "stretching" a solid of revolution to higher dimensions through "prism" operations, its rotation "unit" is also "prismified", and the same goes for cones. So a cylindrical cone comes from rotating a quadrilateral pyramid around a triangular side face, with this side face perpendicular to the blue rectangular base. (When discussing 3D shapes, perpendicular means dihedral perpendicular; don't forget that four-dimensional space also has absolute perpendicularity)
+Similarly, a conical cylinder is formed by rotating a triangular prism (blue triangle "prismified"), and a conical cone is formed by rotating a triangular pyramid (blue triangle "conified"). (Red indicates rotation plane in the figure below)
 ![](/img/plus4.gif) <a name="loft"></a>
-[返回目录](#index)
-### 放样体
-　　我以前用过3dMax这样的三维软件，有一种建模方法叫“放样”（lofting）：将一个二维形体对象作为沿某个路径的剖面，而形成复杂的三维对象。
-比如柱体可以看底面作为横截面沿直线放样，圆环可以看成横截面圆沿另一个圆放样。四维空间当然也有放样：我们把三维截面沿直线放样就是四维柱体，沿圆放样就是旋转体，沿其它曲线放样能得到更多更复杂的四维物体。但与三维不同的是，四维还有“二维放样”：我们把二维截面沿一个二维曲面放样！二维曲面是平的就对应直积，是弯曲的就复杂了，我们只见过圆环的一种旋转体——环球——它是横截面圆沿着球面的放样体。如果四维文明也有类似4D建模软件的话这肯定是很好的建模方式。
-　　我想四维文明使用的管道、公路大概都是放样体吧。<a name="mj"></a>
-### 四维分形
-##### Mandelbrot-Julia集
-　　看了《维度》第６集——分形，唯一给我的就是震撼。我们现在要把那两个神奇的集合——Julia集和Mandelbrot集在四维空间中统一起来。
-Julia集的定义就是在复平面上给一个数$z$，然后你不断做运算：$z\to z^2+c$（$c$是固定的复数），最后你的$z$很可能算到无穷大，那些所有不会算到不是无穷大的初始的$z$值就在复平面上构成Julia集。当然Julia集的形状随复数$c$的变化而变化。试想你把$c$取上个10000，随便取哪个$z$进去算都绝对会越平方越大，即到无穷大，所以$c=10000$时的Julia集为空集。那些所有Julia集不是空集的$c$的集合组成了Mandelbrot集。（挺绕的）
-　　有定理保证，只要一个Julia集在$z=0$时都是发散的则它一定是空集，所以Mandelbrot集又可以定义为：取初值$z=0$做迭代运算$z\to z^2+c$不发散的$c$的集合。
-　　$z$是一个复数，$c$也是一个复数，我们可以得到一个复数对$(z_0,c)$，定义：若取初值$z=z_0$做迭代运算$z\to z^2+c$不发散，则复数对$(z_0,c)$属于集合$P$。注意这个复数对其实描述的是四维空间$(x,y,z,w)=(Re (z_0),Im (z_0),Re (c),Im (c))$，则我们的julia集可以看作是四维空间中的集合$P$被面$z=Re(c),w=Im (c)$所截得的图形，Mandelbrot集则是集合$P$被面$x=0,y=0$截得的图形。我们叫集合$P$为Mandelbrot-Julia集（非官方名称）。
-　　Mandelbrot-Julia集高度不规则，我们无法直观看到它（球极投影就不可能了），不妨看看它被6个坐标面截得的截面：
- <table><tr border="0"><td> $xy$面：
+[Return to Contents](#index)
+### Lofted Solids
+　　I've used 3D software like 3ds Max before, which has a modeling method called "lofting": taking a 2D shape object as a cross-section along a certain path to form complex 3D objects.
+For example, a cylinder can be seen as its base lofted along a straight line, and a torus can be seen as a circular cross-section lofted along another circle. Four-dimensional space certainly has lofting too: when we loft a 3D cross-section along a straight line, we get a 4D prism; along a circle, we get a solid of revolution; along other curves, we can get more complex 4D objects. But unlike 3D, 4D also has "2D lofting": we loft a 2D cross-section along a 2D surface! If the 2D surface is flat, it corresponds to a direct product; if curved, it becomes complex. We've only seen one type of rotational torus - the spheritorus - which is a circular cross-section lofted along a spherical surface. If 4D civilizations have something like 4D modeling software, this would surely be a great modeling method.
+　　I imagine the pipes and roads used by 4D civilizations are probably lofted solids.<a name="mj"></a>
+### Four-Dimensional Fractals
+##### Mandelbrot-Julia Sets
+　　After watching Episode 6 of "Dimensions" - Fractals, the only thing it gave me was awe. We now want to unify those two magical sets - the Julia set and the Mandelbrot set - in four-dimensional space.
+The definition of the Julia set is: given a number $z$ on the complex plane, you continuously perform the operation: $z\to z^2+c$ (where $c$ is a fixed complex number), and eventually your $z$ will likely calculate to infinity. All those initial $z$ values that don't go to infinity form the Julia set on the complex plane. Of course, the shape of the Julia set varies with the complex number $c$. Imagine if you take $c$ to be something like 10000 - whatever $z$ you pick will definitely get larger and larger when squared, i.e., go to infinity, so the Julia set for $c=10000$ is the empty set. The set of all $c$ values for which the Julia set is not empty forms the Mandelbrot set. (Quite convoluted)
+　　There's a theorem that guarantees: if a Julia set is divergent at $z=0$, then it must be empty, so the Mandelbrot set can also be defined as: the set of $c$ values for which the iteration $z\to z^2+c$ starting from $z=0$ doesn't diverge.
+　　$z$ is a complex number, and $c$ is also a complex number, so we can get a complex number pair $(z_0,c)$. Definition: if starting from $z=z_0$ and performing the iteration $z\to z^2+c$ doesn't diverge, then the complex number pair $(z_0,c)$ belongs to set $P$. Note that this complex number pair actually describes four-dimensional space $(x,y,z,w)=(Re (z_0),Im (z_0),Re (c),Im (c))$, so our Julia set can be seen as the shape obtained by intersecting set $P$ in four-dimensional space with the plane $z=Re(c),w=Im (c)$, and the Mandelbrot set is the shape obtained by intersecting set $P$ with the plane $x=0,y=0$. We call set $P$ the Mandelbrot-Julia set (unofficial name).
+　　The Mandelbrot-Julia set is highly irregular, and we cannot directly visualize it (stereographic projection is impossible), so let's look at its cross-sections with the 6 coordinate planes:
+ <table><tr border="0"><td> $xy$ plane:
   ![](/img/plusxy.jpg)
- </td><td> $xz$面：
+ </td><td> $xz$ plane:
   ![](/img/plusxz.jpg)</td></tr>
-  <tr border="0"><td> $xw$面：
+  <tr border="0"><td> $xw$ plane:
   ![](/img/plusxt.jpg)
- </td><td> $yz$面：
+ </td><td> $yz$ plane:
   ![](/img/plusyz.jpg)</td></tr>
-  <tr border="0"><td> $yw$面：
+  <tr border="0"><td> $yw$ plane:
   ![](/img/plusyt.jpg)
- </td><td> $zw$面：
+ </td><td> $zw$ plane:
   ![](/img/pluszt.jpg)</td></tr></table>
-　　除了$xy$、$zw$截面，其他截面怎么那么“难看”？它们放大后看不到更细腻的图形，像是被“撕”成了不规则的丝状。复数变换能产生精美图形的秘密就是：它们都是共形（保角）变换。共形能够保证微小的图形保持原样，不会出现“丝状撕裂”。$xy$平面刚好是复数$z$的实部虚部，那个圆正是$c=0$时的Julia集。$zw$平面刚好是复数$c$的实部虚部，对应Mandelbrot集。但$xz$、$xw$、$yz$、$yw$是两个复数之间分量的组合，一旦我们这样割裂开来看复数，它们就没有内在联系了，共性形也没有了，所以图像会很难看。
-　　我们现在旋转Mandelbrot集所在的$zw$平面转到Julia集所在平面，截面就能缓缓地从Mandelbrot集过渡到Julia集！但别忘了截面过原点的Julia集只是一个圆($c=0$)，所以还要同时叠加一个平移变换。为了杜绝旋转中的“丝状撕裂”，我们得选让复数$z$和$c$地位相等的平面——与$xy$平面、$zw$平面等角的平面！前面对纤维丛介绍中说过，等角平面（同手性）的集合与纤维丛中的圆一一对应，所以也和一个球面上的点$k$一一对应（这里有$z=k c$）。我们把Mandelbrot集平面放在南极，则与它绝对垂直的Julia集就在北极，过渡动画需要选一条从南极到北极的路线，但这有无数条——所有经线都连接两极。选择不同的经线我们就能得到不同的过渡动画，我这里选的是本初子午线（其实没有规定死0经度的位置）：
+　　Except for the $xy$ and $zw$ cross-sections, why do the other cross-sections look so "ugly"? When zoomed in, they don't show more delicate patterns, appearing to be "torn" into irregular filaments. The secret to complex transformations producing beautiful patterns is: they are all conformal (angle-preserving) transformations. Conformality ensures that tiny shapes maintain their form and won't have "filamentous tearing". The $xy$ plane happens to be the real and imaginary parts of complex number $z$, and that circle is the Julia set when $c=0$. The $zw$ plane happens to be the real and imaginary parts of complex number $c$, corresponding to the Mandelbrot set. But $xz$, $xw$, $yz$, $yw$ are combinations of components between two complex numbers. Once we split complex numbers apart like this, they lose their internal connection, conformality is lost, and the images become ugly.
+　　We now rotate the $zw$ plane containing the Mandelbrot set to the plane containing the Julia set, and the cross-section can slowly transition from the Mandelbrot set to the Julia set! But don't forget that the Julia set passing through the origin is just a circle ($c=0$), so we also need to add a translation transformation. To prevent "filamentous tearing" during rotation, we must choose planes that give complex numbers $z$ and $c$ equal status - planes at equal angles to both the $xy$ plane and $zw$ plane! As mentioned in the previous introduction to fiber bundles, the set of equiangular planes (same chirality) corresponds one-to-one with circles in the fiber bundle, and thus with points $k$ on a sphere (where $z=k c$). If we place the Mandelbrot set plane at the south pole, then the Julia set absolutely perpendicular to it is at the north pole. The transition animation needs to choose a path from south pole to north pole, but there are infinitely many - all meridians connect the two poles. Choosing different meridians gives us different transition animations. I've chosen the prime meridian here (actually the position of 0 longitude isn't fixed):
 ![](/img/plus5.gif) <a name="autre"></a>
 
-##### 其它
-　　四维分形直接可视化本来就几乎不可能，但我们还是能猜想一些四维生物会喜欢的分形。![Cantor三分点集（此图片及以下图片均来自维基）](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Cantor_set_binary_tree.svg/400px-Cantor_set_binary_tree.svg.png)比如著名的Cantor三分点集的二维推广在平面生物看来没什么意思：它们看不到那些在内部的空心正方形，它们可能喜欢类比成右边这样：<table><tr border="0"><td>![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Menger_4.PNG/122px-Menger_4.PNG)</td><td>![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cantor_dust.png/220px-Cantor_dust.png)</td></tr></table>
-但对我们三维生物来说，右边那种分形几乎快“碎成渣”了，还是中间的谢尔宾斯基地毯看起来顺眼。
-三维空间就对应三种类比了：一种也是我们看起来几乎快“碎成渣”的“门格-谢尔宾斯基雪花”、还有一种是经典的门格海绵，另一种则是四维空间生物喜欢的：将正方体掏空、掏空再掏空。但我们看不到正方体内部，就像二维生物一样无法欣赏谢尔宾斯基地毯一样。
+##### Others
+　　Direct visualization of 4D fractals is almost impossible, but we can still imagine some fractals that 4D beings would enjoy. ![Cantor ternary set (this and following images from Wikipedia)](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Cantor_set_binary_tree.svg/400px-Cantor_set_binary_tree.svg.png) For example, the famous Cantor ternary set's 2D generalization isn't very interesting to planar beings: they can't see those hollow squares inside, they might prefer an analogue like the one on the right: <table><tr border="0"><td>![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Menger_4.PNG/122px-Menger_4.PNG)</td><td>![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cantor_dust.png/220px-Cantor_dust.png)</td></tr></table>
+But for us 3D beings, the one on the right is almost "crumbled to bits", while the Sierpinski carpet in the middle looks more pleasing.
+3D space corresponds to three types of analogues: one that also looks almost "crumbled to bits" to us - the "Menger-Sierpinski snowflake", the classic Menger sponge, and another that 4D space beings would like: hollowing out a cube, hollowing it out again and again. But we can't see inside the cube, just like 2D beings can't appreciate the Sierpinski carpet.
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Cantors_cube.jpg/220px-Cantors_cube.jpg)
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Menger-Schwamm-farbig.png/310px-Menger-Schwamm-farbig.png)
-　　四维这种分形类比应该能分成4种：碎成渣的、门格海绵这种千疮百孔的、挖很多三维孔的（这些孔在四维空间中是连起来的）和四维生物都无法欣赏到的中空超立方体洞。
-　　Mandelbrot集的三维比较好看的类比是Mandelbulb，四维中我们可以用四元数（复数的4维类比）来造分形但共形性很可能保持不了可能只能用四维极坐标（算法：强行平方距离坐标，翻倍角度坐标）而放弃四元数了，但不管怎样，我相信Mandelbulb4D应该会更加好看，~可惜我没4d的眼睛。~(2022年9月更新：现在在[Tesserxel引擎](/archives/tesserxel-hello/)驱动下有了！示例库中有两种四维门格海绵与极坐标Mandelbulb分形！) <a name="quadric"></a>
-[返回目录](#index)
+　　This type of 4D fractal analogue should be divided into 4 types: crumbled to bits, riddled with holes like the Menger sponge, with many 3D holes dug out (these holes are connected in 4D space), and hollow hypercube cavities that even 4D beings cannot appreciate.
+　　A nice-looking 3D analogue of the Mandelbrot set is the Mandelbulb. In 4D we could use quaternions (4D analogue of complex numbers) to create fractals, but conformality likely can't be maintained, so we might have to use 4D polar coordinates (algorithm: forcibly square the distance coordinate, double the angle coordinates) and abandon quaternions. But regardless, I believe Mandelbulb4D should look even better, ~too bad I don't have 4D eyes.~ (Update September 2022: Now we have it powered by the [Tesserxel engine](/archives/tesserxel-hello/)! The example library includes two types of 4D Menger sponges and polar coordinate Mandelbulb fractals!) <a name="quadric"></a>
+[Return to Contents](#index)
 
-### 二次曲胞
-大家都应该知道二次曲面吧:抛物面、柱面、球面、双曲面、锥面、马鞍面等等。之所以叫“二次曲面”那是因为它们的方程是二次的。三维空间中就是三元二次方程，四维当然是四元二次方程。涉及到方程，显然就是代数问题了，所以我尽量多给出一些关于二次曲胞的感性的结论而不是推导过程。
-三维空间中有这么多二次曲面，这是怎么分类出来的呢？这就要涉及到标准二次型的问题了。这个我们不详细讨论，下面只给出分类方法:
-我们总能建一个坐标系，使大部分曲面在坐标系里的方程变为$ax^2+by^2+cz^2=d$
-且不管我们找的什么坐标系方程都有同样数目的正项和负项，我们就可以用这一指标对曲面(胞)分类。所以对三维空间有:
+### Quadric Hypersurfaces
+Everyone should know about quadric surfaces: paraboloids, cylinders, spheres, hyperboloids, cones, saddle surfaces, etc. They're called "quadric surfaces" because their equations are quadratic. In 3D space, these are ternary quadratic equations; in 4D, they're quaternary quadratic equations. Since this involves equations, it's obviously an algebraic problem, so I'll try to give more intuitive conclusions about quadric hypersurfaces rather than derivations.
+There are so many quadric surfaces in 3D space - how are they classified? This involves the problem of standard quadratic forms. We won't discuss this in detail, but here's the classification method:
+We can always establish a coordinate system such that most surfaces have equations of the form $ax^2+by^2+cz^2=d$ in that coordinate system.
+Regardless of which coordinate system we find, the equation has the same number of positive and negative terms, so we can classify surfaces (hypersurfaces) using this criterion. So for 3D space we have:
 
-|正项个数 | 负项个数 | 常数$d$符号 | 名称|
+|Number of positive terms | Number of negative terms | Sign of constant $d$ | Name|
 |----| ----| ----| ---|
-|3 | 0 | + | 球面|
-|3 | 0 | 0 | 一个点|
-|3 | 0 | - | 无解|
-|2 | 1 | + | 单叶双曲面|
-|2 | 1 | 0 | 圆锥面|
-|2 | 1 | - | 双叶双曲面|
+|3 | 0 | + | Sphere|
+|3 | 0 | 0 | A point|
+|3 | 0 | - | No solution|
+|2 | 1 | + | Hyperboloid of one sheet|
+|2 | 1 | 0 | Cone|
+|2 | 1 | - | Hyperboloid of two sheets|
 
-　　注意正项比负项个数少的情况与前面重复了，方程两边同时反号后就一样了。我们这里只列举了系数相等的情况，椭球、椭圆抛物面等只是上面情况的缩放变换，这里省略不写）
-　　但好像我们还漏掉了一些面：它们方程中有一项不是二次的：要么根本没有（柱面：圆柱、抛物柱、双曲柱）或为一次项（抛物面、马鞍面）。
+　　Note that cases with fewer positive than negative terms are duplicates of the above - they become the same after negating both sides of the equation. We only list cases with equal coefficients here; ellipsoids, elliptic paraboloids, etc. are just scaling transformations of the above cases and are omitted here.
+　　But we seem to have missed some surfaces: their equations have one term that isn't quadratic - either missing entirely (cylinders: circular cylinder, parabolic cylinder, hyperbolic cylinder) or linear (paraboloid, saddle surface).
 
-　　根据这个思路我们来看看四维空间中的二次曲胞：
+　　Following this line of thinking, let's look at quadric hypersurfaces in 4D space:
 
-|正项个数 | 负项个数 | 常数$d$符号 | 名称|
+|Number of positive terms | Number of negative terms | Sign of constant $d$ | Name|
 |----| ----| ----| ---|
-|4 | 0 | + | 超球面|
-|4 | 0 | 0 | 一个点|
-|4 | 0 | - | 无解|
-|3 | 1 | + | 单叶双曲胞|
-|3 | 1 | 0 | 球锥面（光椎）|
-|3 | 1 | - | 双叶双曲胞|
-|2 | 2 | + | “直积”双曲胞|
-|2 | 2 | 0 | “直积”双锥胞|
+|4 | 0 | + | Hypersphere|
+|4 | 0 | 0 | A point|
+|4 | 0 | - | No solution|
+|3 | 1 | + | Hyperboloid of one sheet|
+|3 | 1 | 0 | Spherical cone (light cone)|
+|3 | 1 | - | Hyperboloid of two sheets|
+|2 | 2 | + | "Direct product" hyperboloid|
+|2 | 2 | 0 | "Direct product" double cone|
 
-它们方程中有一项不是二次的：要么根本没有（柱面：这里不罗列了，所有三维二次曲面都能“拉”成柱体）或为一次项。我们重点讨论一次项：在一次项出现时常数项能够通过平移消掉，也没有同时两项一次项同时出现，同样选择合适坐标系能只剩一个。所以我们的表格很简单：
+Their equations have one term that isn't quadratic: either missing entirely (cylinders: we won't list them here, all 3D quadric surfaces can be "stretched" into cylinders) or linear. Let's focus on linear terms: when a linear term appears, the constant term can be eliminated by translation, and there won't be two linear terms appearing simultaneously - choosing an appropriate coordinate system leaves only one. So our table is simple:
 
-|正项个数 | 负项个数 | 名称|
+|Number of positive terms | Number of negative terms | Name|
 |----| ----| ----|
-|3 | 0 | 旋转抛物胞|
-|2 | 1 | 马鞍胞|
+|3 | 0 | Rotational paraboloid|
+|2 | 1 | Saddle hypersurface|
 
-下面我们来具体介绍我们不熟悉的图形：
-- 超球是四轴椭超球的特殊情况（类似球与三轴椭球）
+Let's specifically introduce the unfamiliar shapes:
+- The hypersphere is a special case of the four-axis elliptic hypersphere (similar to sphere vs. three-axis ellipsoid)
 
-- 单叶双曲胞（类似单叶双曲面）它有一个**对称轴**。注意一般四维空间只有**对称面**（类似三维对称轴），这里的**对称轴**相当于球对称（类似三维点对称），单叶双曲胞垂直于对称轴的截胞都是球。
+- Hyperboloid of one sheet (similar to hyperboloid of one sheet in 3D) has an **axis of symmetry**. Note that 4D space generally only has **planes of symmetry** (similar to 3D axes of symmetry), the **axis of symmetry** here is equivalent to spherical symmetry (similar to 3D point symmetry). Cross-sections of the hyperboloid of one sheet perpendicular to the axis of symmetry are all spheres.
 
-- 双叶双曲胞（类似单叶双曲面）它也有一个**对称轴**，它垂直于对称轴的截胞也是球，但注意它由独立两部分曲胞构成，像双叶双曲面那样，截胞处在两“叶”之间时什么都截不到。
+- Hyperboloid of two sheets (similar to hyperboloid of one sheet in 3D) also has an **axis of symmetry**, its cross-sections perpendicular to the axis are also spheres, but note it consists of two independent hypersurface parts, like the hyperboloid of two sheets - when the cross-section is between the two "sheets", nothing is intersected.
 
-- 球锥面：它也是**轴对称**（球对称）图形。它的垂直轴的截胞动画是一个球半径均匀缩小成一个点再均匀变大。相对论里面的**光椎**就是球锥！（均匀变大的球对应可观测宇宙的膨胀，球体体积就是哈勃体积）我们的主题是空间，而不是时空，所以我们就不展开了。
+- Spherical cone: It's also an **axially symmetric** (spherically symmetric) figure. Its cross-section animation perpendicular to the axis is a sphere uniformly shrinking to a point then uniformly expanding. The **light cone** in relativity is a spherical cone! (The uniformly expanding sphere corresponds to the expansion of the observable universe, with the sphere's volume being the Hubble volume) Our theme is space, not spacetime, so we won't expand on this.
 
-- “直积”双锥胞：这个图形有点抽象，但还好。我们看它的标准方程：$x^2+y^2=z^2+w^2$ 有没有一种熟悉的感觉？如果我令$x^2+y^2=z^2+w^2=1$，这就是双圆柱的两个曲胞的交面方程。即“直积”双锥胞和超球相交，交集投影下来就是那个圆环面！它高度对称：它有对称面$xy$、$zw$，其实所有与$xy$、$zw$等角的平面都是对称面。但截面动画无法给我们更多信息。
+- "Direct product" double cone: This figure is somewhat abstract, but manageable. Look at its standard equation: $x^2+y^2=z^2+w^2$. Does it feel familiar? If I set $x^2+y^2=z^2+w^2=1$, this is the equation of the intersection of two hypersurfaces of a bicylinder. That is, the "direct product" double cone intersects with a hypersphere, and the intersection projected down is that toroidal surface! It's highly symmetric: it has symmetry planes $xy$, $zw$, and actually all planes at equal angles to $xy$, $zw$ are symmetry planes. But cross-section animations can't give us more information.
 
-- “直积”双曲胞：这个图形更抽象，但“直积”双锥胞绝对是“直积”双曲胞的“渐进三维面”（直积双曲胞的常数趋于0就得到“渐进三维面”，想想双曲线的渐近线和双曲面的渐进锥面）。但截面动画也无法给我们更多信息，欢迎大家提出更好可视化它的方法。
+- "Direct product" hyperboloid: This figure is more abstract, but the "direct product" double cone is definitely the "asymptotic 3D surface" of the "direct product" hyperboloid (when the constant of the direct product hyperboloid approaches 0, we get the "asymptotic 3D surface" - think of the asymptotes of a hyperbola and the asymptotic cone of a hyperboloid). But cross-section animations also can't give us more information. Welcome suggestions for better visualization methods.
 
-- 旋转抛物胞：也是**轴对称**（球对称）图形，可看成抛物面绕它的对称面得到的旋转体。
+- Rotational paraboloid: Also an **axially symmetric** (spherically symmetric) figure, can be seen as a solid of revolution obtained by rotating a paraboloid around its plane of symmetry.
 
-- 马鞍胞：方程：$x^2+y^2-z^2=w$ 它是一个函数：一个三维坐标$(x,y,z)$对应一个数$w$。马鞍面是一个方向凹(凸)另一个方向凸(凹)的，但四维空间反而没这么好的对称性：是一个方向凹(凸)另两个方向凸(凹)（一个平面上）的。但这样描述还是很抽象，欢迎大家提出更好的可视化方法。 [这里CFY](https://hadroncfy.com/articles/2016/04/24/la-dimension-quatre-quatreieme/index.html)使用截面法展示了几种二次曲胞。
+- Saddle hypersurface: Equation: $x^2+y^2-z^2=w$. It's a function: a 3D coordinate $(x,y,z)$ corresponds to a number $w$. A saddle surface is concave (convex) in one direction and convex (concave) in another, but 4D space doesn't have such nice symmetry: it's concave (convex) in one direction and convex (concave) in two other directions (on one plane). But this description is still quite abstract. Welcome suggestions for better visualization methods. [CFY here](https://hadroncfy.com/articles/2016/04/24/la-dimension-quatre-quatreieme/index.html) shows several quadric hypersurfaces using the cross-section method.
 <a name="answer"></a>
 
-[返回目录](#index)
+[Return to Contents](#index)
 
-### 思考题答案
-- 过圆柱对称轴的平面作为旋转平面得到**球柱**。
-- 平行底面与圆柱有一定距离的平面作为旋转平面得到**二维圆环与圆的直积**。
-- 平行对称轴与圆柱有一定距离的平面作为旋转平面得到**圆环柱**（三维圆环与一维线段的直积）。
+### Answers to Thought Questions
+- A plane through the cylinder's axis of symmetry as the rotation plane produces a **spherical cylinder**.
+- A plane parallel to the base at some distance from the cylinder as the rotation plane produces the **direct product of a 2D torus and a circle**.
+- A plane parallel to the axis at some distance from the cylinder as the rotation plane produces a **toroidal cylinder** (direct product of a 3D torus and a 1D line segment).
 
-- 垂直对称轴的圆环的对称面作为旋转平面得到**球环**。
+- The symmetry plane of the torus perpendicular to the axis as the rotation plane produces a **spheritorus**.
 
- [上一篇](/archives/more4ds/)　 [查看系列目录](/categories/四维空间系列/)　[下一篇](/archives/bivector4ds/)
+ [Previous Article](/archives/more4ds/)　 [View Series Contents](/categories/四维空间系列/)　[Next Article](/archives/bivector4ds/)
