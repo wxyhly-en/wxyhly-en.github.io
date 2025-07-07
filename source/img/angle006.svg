@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="139.40691mm"
-   height="70.965424mm"
-   viewBox="0 0 139.40691 70.965424"
+   width="140.35025mm"
+   height="71.139397mm"
+   viewBox="0 0 140.35025 71.139397"
    version="1.1"
    id="svg1320"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
@@ -134,25 +134,25 @@
    id="tspan9768">2</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:4.93889px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="25.582226"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="13.94056"
        y="78.287773"
        id="text11010"><tspan
          sodipodi:role="line"
          id="tspan11008"
-         style="font-size:4.93889px;stroke-width:0.264583"
-         x="25.582226"
-         y="78.287773">自对偶分量球面</tspan></text>
+         style="font-size:4.23333px;stroke-width:0.264583"
+         x="13.94056"
+         y="78.287773">Sphere of Self-Dual Part</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:4.93889px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="99.107506"
-       y="78.287773"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="89.304108"
+       y="77.671333"
        id="text11864"><tspan
          sodipodi:role="line"
          id="tspan11862"
-         style="font-size:4.93889px;stroke-width:0.264583"
-         x="99.107506"
-         y="78.287773">反自对偶分量球面</tspan></text>
+         style="font-size:4.23333px;stroke-width:0.264583"
+         x="89.304108"
+         y="77.671333">Sphere of Anti-Self-Dual Part</tspan></text>
   </g>
 </svg>

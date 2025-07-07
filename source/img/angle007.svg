@@ -126,14 +126,14 @@
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="79.119499"
+       x="55.306999"
        y="125.1114"
        id="text15045"><tspan
          sodipodi:role="line"
          id="tspan15043"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="79.119499"
-         y="125.1114">半平行，二面角为a</tspan></text>
+         x="55.306999"
+         y="125.1114">Half parallel with dihedral angle a</tspan></text>
     <use
        x="0"
        y="0"
@@ -202,14 +202,14 @@
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="39.259151"
+       x="21.796644"
        y="58.609184"
        id="text18839"><tspan
          sodipodi:role="line"
          id="tspan18837"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="39.259151"
-         y="58.609184">左等角，角度为a</tspan></text>
+         x="21.796644"
+         y="58.609184">Left isoclinic with angle a</tspan></text>
     <use
        x="0"
        y="0"
@@ -278,13 +278,13 @@
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="131.00368"
+       x="114.92996"
        y="58.609184"
-       id="text19811"><tspan
+       id="text43526"><tspan
          sodipodi:role="line"
-         id="tspan19809"
+         id="tspan43524"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="131.00368"
-         y="58.609184">右等角，角度为a</tspan></text>
+         x="114.92996"
+         y="58.609184">Right isoclinic with angle a</tspan></text>
   </g>
 </svg>

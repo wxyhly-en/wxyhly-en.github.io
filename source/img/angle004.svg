@@ -118,12 +118,12 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.88426px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.197106"
        x="132.08066"
-       y="115.04716"
+       y="124.36339"
        id="text13566"><tspan
          sodipodi:role="line"
          id="tspan13564"
          x="132.08066"
-         y="115.04716"
+         y="124.36339"
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.197106"><tspan
            style="font-size:4.93889px"
            id="tspan72817">θ</tspan><tspan
@@ -145,12 +145,12 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18616"
-       x="91.002113"
+       x="93.647949"
        y="122.96426"
        id="text13580"><tspan
          sodipodi:role="line"
          id="tspan13578"
-         x="91.002113"
+         x="93.647949"
          y="122.96426"
          style="font-size:4.23333px;stroke-width:0.18616">90°</tspan></text>
     <text
@@ -169,7 +169,7 @@
        y="0"
        xlink:href="#text13580"
        id="use13586"
-       transform="translate(-31.447613,-36.058929)"
+       transform="translate(-34.093448,-36.058929)"
        width="100%"
        height="100%" />
     <text
@@ -191,27 +191,27 @@
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="-21.580469"
-       y="124.00706"
+       x="-29.062925"
+       y="124.13477"
        id="text41019"
        transform="rotate(-44.022132)"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="-21.580469"
-         y="124.00706"
-         id="tspan41519">左等角</tspan></text>
+         x="-29.062925"
+         y="124.13477"
+         id="tspan41519">Left Isoclinic</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="142.88257"
-       y="44.88279"
+       x="135.39914"
+       y="44.924507"
        id="text43295"
        transform="rotate(45.319402)"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="142.88257"
-         y="44.88279"
-         id="tspan43293">右等角</tspan></text>
+         x="135.39914"
+         y="44.924507"
+         id="tspan43293">Right Isoclinic</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -223,19 +223,19 @@
          style="stroke-width:0.264583"
          x="88.51004"
          y="81.843552"
-         id="tspan44805">自对偶</tspan></text>
+         id="tspan44805">Self-Dual</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="87.684105"
-       y="154.76558"
+       x="82.392654"
+       y="154.81302"
        id="text44891"
        transform="rotate(0.51373115)"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="87.684105"
-         y="154.76558"
-         id="tspan44889">反自对偶</tspan></text>
+         x="82.392654"
+         y="154.81302"
+         id="tspan44889">Anti-Self-Dual</tspan></text>
     <use
        x="0"
        y="0"
@@ -255,102 +255,102 @@
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="52.940586"
-       y="116.144"
+       x="52.068127"
+       y="115.64365"
        id="text54065"
        transform="rotate(0.51373115)"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="52.940586"
-         y="116.144"
-         id="tspan54063">重合</tspan></text>
+         x="52.068127"
+         y="115.64365"
+         id="tspan54063">Coincidence</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="125.26759"
-       y="109.6366"
+       x="121.36884"
+       y="109.33277"
        id="text54549"
        transform="rotate(0.51373115)"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="125.26759"
-         y="109.6366"
-         id="tspan54547">反向</tspan><tspan
+         x="121.36884"
+         y="109.33277"
+         id="tspan54573">Opposite</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="125.26759"
-         y="114.13516"
-         id="tspan54573">重合</tspan></text>
+         x="121.36884"
+         y="113.74249"
+         id="tspan14112">Direction</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="78.763535"
-       y="106.07571"
+       y="100.78404"
        id="text55889"><tspan
          sodipodi:role="line"
          id="tspan55887"
          style="stroke-width:0.264583"
          x="78.763535"
-         y="106.07571">F⋅G&gt;0</tspan><tspan
+         y="100.78404">F⋅G&gt;0</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
          x="78.763535"
-         y="110.48542"
+         y="105.19376"
          id="tspan56471" /></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="77.44062"
-       y="111.36737"
+       y="106.07571"
        id="text57427"><tspan
          sodipodi:role="line"
          id="tspan57423"
          style="stroke-width:0.264583"
          x="77.44062"
-         y="111.36737">F∧G&gt;0</tspan><tspan
+         y="106.07571">F∧G&gt;0</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
          x="77.44062"
-         y="115.77708"
+         y="110.48542"
          id="tspan57425" /></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="97.662346"
-       y="127.99833"
+       y="129.05666"
        id="text58371"><tspan
          sodipodi:role="line"
          id="tspan58367"
          style="stroke-width:0.264583"
          x="97.662346"
-         y="127.99833">F⋅G&lt;0</tspan><tspan
+         y="129.05666">F⋅G&lt;0</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
          x="97.662346"
-         y="132.40804"
+         y="133.46637"
          id="tspan58369" /></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="96.339432"
-       y="133.28999"
+       y="134.34831"
        id="text58377"><tspan
          sodipodi:role="line"
          id="tspan58373"
          style="stroke-width:0.264583"
          x="96.339432"
-         y="133.28999">F∧G&lt;0</tspan><tspan
+         y="134.34831">F∧G&lt;0</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
          x="96.339432"
-         y="137.69971"
+         y="138.75803"
          id="tspan58375" /></text>
     <use
        x="0"
        y="0"
        xlink:href="#text58371"
        id="use58827"
-       transform="translate(0.1889881,-21.922619)"
+       transform="translate(0.1889881,-28.27262)"
        width="100%"
        height="100%" />
     <use
@@ -358,7 +358,7 @@
        y="0"
        xlink:href="#text58377"
        id="use58829"
-       transform="translate(-18.716858,0.05827419)"
+       transform="translate(-18.716858,0.05827413)"
        width="100%"
        height="100%" />
     <use
@@ -366,7 +366,7 @@
        y="0"
        xlink:href="#text55889"
        id="use58839"
-       transform="translate(-0.11389064,21.41144)"
+       transform="translate(-0.11389064,27.761441)"
        width="100%"
        height="100%" />
     <use
@@ -374,97 +374,75 @@
        y="0"
        xlink:href="#text57427"
        id="use58841"
-       transform="translate(19.475299,0.34167189)"
+       transform="translate(19.475299,0.34167193)"
        width="100%"
        height="100%" />
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="82.11322"
-       y="101.59432"
+       x="69.413223"
+       y="112.70682"
        id="text59937"><tspan
          sodipodi:role="line"
          id="tspan59935"
          style="stroke-width:0.264583"
-         x="82.11322"
-         y="101.59432">左手</tspan></text>
+         x="69.413223"
+         y="112.70682">Left Haded</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="99.766266"
-       y="123.00576"
+       y="124.06409"
        id="text60519"><tspan
          sodipodi:role="line"
          id="tspan60517"
          style="stroke-width:0.264583"
          x="99.766266"
-         y="123.00576">左手</tspan></text>
+         y="124.06409">Left Handed</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="97.488457"
-       y="101.36654"
+       x="95.371788"
+       y="112.47903"
        id="text60523"><tspan
          sodipodi:role="line"
          id="tspan60521"
          style="stroke-width:0.264583"
-         x="97.488457"
-         y="101.36654">右手</tspan></text>
+         x="95.371788"
+         y="112.47903">Right Handed</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="80.518753"
-       y="122.66409"
+       x="64.643761"
+       y="123.72243"
        id="text60863"><tspan
          sodipodi:role="line"
          id="tspan60861"
          style="stroke-width:0.264583"
-         x="80.518753"
-         y="122.66409">右手</tspan></text>
+         x="64.643761"
+         y="123.72243">Right Handed</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="109.36814"
-       y="118.34831"
-       id="text61895"
+       x="99.202354"
+       y="118.10068"
+       id="use62605"
        transform="rotate(0.51373115)"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="109.36814"
-         y="118.34831"
-         id="tspan61893">半平行</tspan></text>
-    <use
-       x="0"
-       y="0"
-       xlink:href="#text61895"
-       id="use62605"
-       transform="translate(-39.636313)"
-       width="100%"
-       height="100%" />
+         x="99.202354"
+         y="118.10068"
+         id="tspan17256">Semi-Parallel</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;inline-size:4.19944;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;inline-size:37.3613;stroke-width:0.264583"
        x="90.561783"
        y="99.036774"
        id="text63505"
-       transform="rotate(0.51373115,321.82918,149.6904)"><tspan
+       transform="rotate(-89.486269,109.16615,114.50374)"><tspan
          x="90.561783"
          y="99.036774"
-         id="tspan75553">半</tspan><tspan
-         x="90.561783"
-         y="103.53533"
-         id="tspan75555">垂</tspan><tspan
-         x="90.561783"
-         y="108.03389"
-         id="tspan75557">直</tspan></text>
-    <use
-       x="0"
-       y="0"
-       xlink:href="#text63505"
-       id="use64085"
-       transform="translate(0,38.450611)"
-       width="100%"
-       height="100%" />
+         id="tspan20985">Semi-Perpendicular</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18616"
@@ -476,5 +454,17 @@
          x="60.004486"
          y="153.11494"
          style="font-size:4.23333px;stroke-width:0.18616">-90°</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="67.453651"
+       y="118.38534"
+       id="text19112"
+       transform="rotate(0.51373115)"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="67.453651"
+         y="118.38534"
+         id="tspan19110">Semi-Parallel</tspan></text>
   </g>
 </svg>
