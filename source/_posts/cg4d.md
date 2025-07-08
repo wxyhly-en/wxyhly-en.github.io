@@ -1,76 +1,78 @@
 ---
-title: 四维计算机图形学：渲染篇
+title: "4D Computer Graphics: Rendering"
 tags:
-  - 图形学
-  - 四维
-  - 渲染
+  - Graphics
+  - 4D
+  - Rendering
 date: 2024-01-10 16:45:01
-categories: 四维计算机图形学
+categories: 4D Computer Graphics
 ---
 
+Previous articles have covered almost all common methods for visualizing 4D: cross-section method, stereographic projection, contour surfaces or color-coding the fourth dimension, 3D photos, etc. Among these, 3D photos are further divided into wireframe and voxel cloud display methods. While most readers can probably understand these methods, implementing them in computer programs is quite a challenge. Here I'll first introduce some basic computer graphics principles, then delve into various methods for rendering complex 4D objects. Readers can choose sections based on their knowledge level. Perhaps I'll start a series later specifically explaining how to build a 4D graphics engine step by step.<div style="float:right"><img src="/img/render4d008.png" style="width:100%;max-width:480px" alt="Wireframe rendering and cross-section rendering in stereoscopic photos, with wireframe color-coded by depth, left and right images for glasses-free 3D"/></div>
 
-之前的文章中几乎都覆盖了目前常见的可视化四维方法：截面法、球极投影、等高面或颜色标注第四维、3D照片等，其中3D照片又分线框与体素云等展示法。这些方法想必多数读者也能理解，但如何利用计算机程序去展示它们却是一个不小的挑战。这里先介绍一些最基本的计算机图形学原理，然后深入讲解各种绘制复杂四维物体的方法。读者可以根据自己的知识水平选读。或许我后面可以开一个系列专题，专门讲解怎样一步步自己搭建一个四维图形引擎。<div style="float:right"><img src="/img/render4d008.png" style="width:100%;max-width:480px" alt="立体照片中的线框渲染与截面渲染，且线框用颜色标注深度，左右画面为裸眼3D"/></div>
+## Featured Content
+- 3D Computer Graphics Fundamentals
+- Voxel/Cross-section 4D Graphics Rendering
+  - Shadertoy Online 4D Path Tracing Demo
+  - Tetrahedron Method/Cell Complex Method
+  - Voxel Cloud Rendering Methods
+- Wireframe Rendering Occlusion Culling Algorithm<!--more-->
 
-## 特色内容
-- 三维计算机图形学基础
-- 体素/截面四维图形渲染
-  - Shadertoy在线四维路径追踪演示
-  - 四面体法/胞腔复形法
-  - 体素云渲染方法
-- 线框渲染遮挡剔除算法<!--more-->
+## Computer Graphics Fundamentals
+Let me first briefly introduce the basics of 3D computer graphics. If you're already very familiar with this content, please [skip to the next section](/archives/cg4d/#4dbegin). For those wanting to learn more, there are abundant online tutorial resources. I particularly recommend this online course: ["GAMES101-Introduction to Modern Computer Graphics-Lingqi Yan"](https://www.bilibili.com/video/BV1X7411F744/).
 
-## 计算机图形学基础
-这里先非常粗略地介绍一下三维计算机图形学的基础知识，如果你已经非常熟悉这块内容请直接[移步下一小节](/archives/cg4d/#4dbegin)。想要深入了解网上的教程资源非常之多，我比较推荐这个在线课程：[《GAMES101-现代计算机图形学入门-闫令琪》](https://www.bilibili.com/video/BV1X7411F744/)。
+How do computers display graphics? A monitor is essentially a bunch of neatly arranged colored lights emitting different proportional intensities. Graphics are fundamentally a 2D pixel array storing numbers representing these light emission intensity ratios. To quickly calculate these pixels numbering in the hundreds of thousands or millions, GPUs (Graphics Processing Units) were invented. Unlike CPUs that execute one instruction at a time, GPUs receive one instruction and simultaneously perform the same operation on all pixels, making parallel computation thousands of times faster than CPUs processing one pixel at a time.
 
-计算机如何显示图形呢？显示器本质上就是一堆排列整齐的彩灯在发不同比例强度的光，图形的本质其实就是一个二维像素阵列中储存着这些发光的强度比例的数字。为了快速计算这些动辄上十万、百万数量的像素，人们发明了显卡（GPU），不同于CPU一次执行一条单个的指令，GPU是每次接受一条指令，便同时对所有像素进行相同的运算，这样不同像素同时并行运算就比CPU一次处理一个像素快了成千上万倍。
+### 1. Rasterization Technology
 
-### 1.光栅化技术
+How do GPUs calculate and display 3D graphics? The mainstream approach only draws three basic primitives: points, lines, and triangles. The hardware is specifically optimized for drawing these primitives, allowing very fast operation. Here's the general process for drawing triangles:
+![Mainstream GPU rasterization rendering pipeline](/img/render4d001.png)
+1. First, send the vertex data of triangles composing the geometry to the GPU
+2. In the GPU, perform coordinate transformations on all vertex data in parallel to get the final perspective projection coordinates in the image. This vertex coordinate transformation program is called the "**Vertex Shader**"
+3. Through the hardware-optimized "**Rasterizer**", quickly determine which pixels belong to the triangle's interior and calculate their barycentric coordinates relative to the triangle. This part of the program is hardcoded in hardware and generally not programmable.
+4. Color all pixels determined to be inside the triangle in the previous step. This program is called the "**Fragment Shader**". Note that these pixels can be **differentiated based on barycentric coordinate information** to be colored differently, such as mapping to various textures to achieve many material detail effects.
 
-GPU如何计算显示三维图形呢？现在主流的做法是只绘制点、线、三角形这三种基本图形，其硬件有专门为绘制这几个图形进行优化设计，从而可以运行得非常快。下面就绘制三角形说说大致流程：
-![主流GPU光栅化渲染管线](/img/render4d001.png)
-1. 首先将组成几何体的三角形的顶点数据发送至GPU
-2. 在GPU中对所有顶点数据并行计算坐标变换，得到在画面中的透视投影的最终坐标，这段顶点坐标变换程序叫做“**顶点着色器**(Vertex Shader)”
-3. 通过硬件层面优化过的“**光栅化器**(Rasterizer)”快速判断图像中哪些像素属于三角形的内部，并且计算其相对于三角形的重心坐标，这部分程序是写死在硬件里的，一般不可编程。
-4. 对上一步确定在三角形内部的所有像素进行最终上色，这段程序叫做“**片元着色器**(Fragment Shader)”。注意这些像素点可以**根据重心坐标信息来加以区分**从而染上不同的颜色，比如通过映射到各种纹理贴图实现很多材质上的细节效果。
+Rasterization has some non-trivial details, such as view frustum culling in the rasterizer stage and occlusion culling in the fragment shader stage.
 
-光栅化其实还有一些细节问题是不简单的，比如光栅化器阶段的视锥体裁剪与片元着色器阶段的遮挡剔除。
-##### 视锥体裁剪
-我们之前说顶点着色器的输出是投影过后的在画面上的点的坐标其实是不准确的，因为直接绘制有严重的问题。试想有台相机位于原点，在$z=1$处放一块投影画布，根据三角形相似或解直线方程得到远处的点$p(x,y,z)$在画布上的像的位置其实是$b(x/z,y/z,1)$。![透视除法原理](/img/render4d001.svg)这个$1/z$的因子导致了“近大远小”这一最重要的透视现象，因此这个除以$z$的操作叫做“透视除法”，然而透视除法会带来一个很严重的问题，就是相机背后的点会跑到相机前面来，比如点$p(x,y,z)$与点$p(-x,-y,-z)$它们都会映射到屏幕上$(x/z,y/z)$同一点，然而实际上仅有位于相机前方的一个点才能被看到，因此我们要引入**视锥体裁剪**，并且要在透视除法之前完成。视锥体是一种表示场景中相机的视野范围的虚拟的四棱锥，位于视锥体范围外的物体是不会被绘制的。传统的GPU将投影变换与视锥体裁剪的工作放到了一起，使用一种叫“**齐次坐标**(Homogeneous Coordinates)”的数学工具。
+##### View Frustum Culling
+Our earlier statement that the vertex shader outputs projected coordinates on the screen is actually inaccurate, because direct rendering has serious problems. Imagine a camera at the origin with a projection canvas at $z=1$. Using triangle similarity or solving line equations, the position of a distant point $p(x,y,z)$ on the canvas is $b(x/z,y/z,1)$.![Perspective division principle](/img/render4d001.svg)This $1/z$ factor causes the most important perspective phenomenon of "objects appear smaller when farther away", so this division by $z$ is called "perspective division". However, perspective division brings a serious problem: points behind the camera will appear in front of it. For example, points $p(x,y,z)$ and $p(-x,-y,-z)$ both map to the same point $(x/z,y/z)$ on the screen, but actually only the point in front of the camera can be seen. Therefore, we need to introduce **view frustum culling**, which must be completed before perspective division. The view frustum is a virtual pyramid representing the camera's field of view in the scene. Objects outside the frustum won't be rendered. Traditional GPUs combine projection transformation with view frustum culling using a mathematical tool called "**Homogeneous Coordinates**".
 
-既然不能提前去除以这个因子$z$，人们就规定，顶点着色器需要输出一种“齐次坐标”，这种坐标把所有平行的向量视为相同的向量，即点$(x,y,z)$与点$(kx,ky,kz)$与点$(x/z,y/z,1)$都对应到画布上$(x/z,y/z)$这一个点，但显卡最终只绘制齐次坐标的第三个分量大于0的那些点，这样就避免了绘制相机背面的物体。齐次坐标不仅将非线性的透视变换变成线性的，还顺便轻松处理了视锥体裁剪。要注意的是，视锥体裁剪并不能仅仅在顶点着色器这一阶段完成，它将在光栅化阶段对每个像素进行判断，不然你没办法正确渲染那种一半位于相机前、一半位于相机后的线段或三角形。
-##### 遮挡剔除
-除了剔除相机后面的物体，还需剔除被前方物体遮挡的物体。最简单的想法（叫做画家算法）是，将物体按到相机距离排序，从远到近来渲染，后上色的自动就覆盖先上色的，但事先进行排序比较繁琐，且还可能会遇到物体间两两互相遮挡的问题，因此这种事先固定一个绘制顺序的方法是不可取的。![画家算法无法处理的两两互相遮挡情况](/img/render4d002.svg)在成熟三维渲染流程中，遮挡剔除用的是z深度缓存技术，即在每次绘制图元时，除了执行片元着色器对像素上色，还会渲染一张仅包含z轴深度信息的灰度图，叫做“深度缓存(Depth Buffer)”。在绘制下一个图元的某个像素时，将比较它与深度缓存中的深度值，若深度缓存中的深度更近，说明这个像素还在之前绘制的像素之后，则直接放弃该点的上色。之前的齐次坐标里刚好还没进行透视除法，保留了$z$轴深度信息，是不是我们就可以直接拿来用于深度缓存了呢？不是的。电脑储存数字的精度是有限的，物体可以离相机很近也可以很远，近处的细节往往比远处更重要，需要更多精度，因此与其存储深度值$z$还不如存储其倒数$1/z$来得实惠。
-![深度缓冲区的例子，图片来源于英文维基百科](/img/render4d001.jpg)
+Since we can't divide by the factor $z$ early, it's specified that vertex shaders need to output "homogeneous coordinates". These coordinates treat all parallel vectors as identical, i.e., points $(x,y,z)$, $(kx,ky,kz)$, and $(x/z,y/z,1)$ all correspond to the same point $(x/z,y/z)$ on the canvas. But the graphics card only renders points where the third component of homogeneous coordinates is greater than 0, thus avoiding rendering objects behind the camera. Homogeneous coordinates not only linearize the non-linear perspective transformation but also easily handle view frustum culling. Note that view frustum culling cannot be completed solely in the vertex shader stage; it continues in the rasterization stage for each pixel, otherwise you can't correctly render line segments or triangles that are partially in front of and partially behind the camera.
 
-现在既要遮挡剔除又要用齐次坐标做视锥体裁剪，人们规定顶点着色器输出的最终向量是一个四维齐次坐标，前两个坐标分量用于屏幕位置， 第三个坐标分量用于深度检测，第四个坐标用于透视除法。比如空间中的点$(x,y,z)$将变成$(x,y,1,z)$，做透视除法后变成$(x/z,y/z,1/z,1)$，不仅实现了相机背后剔除、正确的近大远小变换，还实现了非均匀精度的深度缓存。其实所有三角形内部需要插值的数据（比如贴图坐标等）都要在透视除法之前完成，否则会导致像下面左边的贴图那样产生透视畸变。![左侧：直接按屏幕坐标线性插值的贴图坐标，右侧：透视除法参与插值的贴图坐标](/img/render4d002.png)总结起来就是，你以为顶点着色器的输出只是屏幕上的二维点的坐标，实际上它却是一个四维的齐次坐标，这很有必要！
+##### Occlusion Culling
+Besides culling objects behind the camera, we also need to cull objects occluded by foreground objects. The simplest idea (called the painter's algorithm) is to sort objects by distance from camera and render from far to near, with later colors automatically covering earlier ones. But pre-sorting is cumbersome and may encounter mutual occlusion problems between objects, so this fixed drawing order method is not feasible.![Mutual occlusion cases that the painter's algorithm cannot handle](/img/render4d002.svg)In mature 3D rendering pipelines, occlusion culling uses z-depth buffer technology. When drawing each primitive, besides executing the fragment shader to color pixels, it also renders a grayscale image containing only z-axis depth information, called the "Depth Buffer". When drawing a pixel of the next primitive, it compares with the depth value in the depth buffer. If the depth buffer's depth is closer, it means this pixel is behind the previously drawn pixel, so coloring is abandoned. The previous homogeneous coordinates happen to retain $z$-axis depth information before perspective division - can we use it directly for the depth buffer? No. Computer number storage precision is limited. Objects can be very close or far from the camera, and near details are often more important than distant ones, requiring more precision. So rather than storing depth value $z$, it's more economical to store its reciprocal $1/z$.
+![Depth buffer example, image from English Wikipedia](/img/render4d001.jpg)
 
-### 2.光线跟踪技术
+Now we need both occlusion culling and homogeneous coordinates for view frustum culling. It's specified that the vertex shader's final output is a 4D homogeneous coordinate vector: the first two components for screen position, the third for depth testing, and the fourth for perspective division. For example, a point $(x,y,z)$ in space becomes $(x,y,1,z)$, and after perspective division becomes $(x/z,y/z,1/z,1)$, achieving camera back-face culling, correct perspective scaling, and non-uniform precision depth buffering. Actually, all data needing interpolation inside triangles (like texture coordinates) must be completed before perspective division, otherwise it causes perspective distortion like the left texture below.![Left: texture coordinates linearly interpolated by screen coordinates, Right: texture coordinates with perspective division interpolation](/img/render4d002.png)In summary, while you might think the vertex shader only outputs 2D point coordinates on screen, it's actually a 4D homogeneous coordinate, which is very necessary!
 
-光栅化方法的优点是快速且技术成熟，但由于绘制三角形的方式跟真实的光学成像过程并不相同，在实现复杂阴影、折反射等光学现象时将非常吃力（在视锥体裁剪与遮挡剔除这里你应该能体会到一些了）。于是另一种方法——光线跟踪诞生了。相机之所以能够拍摄到物体是因为镜头后面的感光器件接受到了光线。最直接（Naïve）的做法就是让场景中的光源均匀采样随机发射光子，模拟光线的反弹，若打到一个相机中的某个像素所在的“感光区域”则记录下该光子对颜色亮度的累加贡献。然而这个算法是非常低效的，因为相机的感光面积一般很小，很多光子最终都不会反射到镜头中，一个简单的场景可能都需要上亿个光子才能勉强得到一张能看的照片。
+### 2. Ray Tracing Technology
 
-解决问题的方法很简单。由于光路可逆，我们可以从相机均匀采样随机发射光线跟物体反弹，只要打到光源就能倒着求出该光线所贡献的亮度，这就是最简单的路径追踪渲染方法，它能渲染出照片级质量的图像！当然它需要发射的光线也非常多，特别是光源体积很小时，击中光源的概率也非常小。这种模拟光线随机反弹的还有个副作用就是图像会产生很多噪点，要想降低噪点只能增加每个像素的采样光线数。
-![每个像素点的光线采样数增加，其画质增加。图片来源于英文维基百科](/img/render4d002.jpg)
-其实不要求照片级的真实性的话，我们完全可以在打到第一个漫反射的物体表面时就停下来，直接根据该物体的漫反射颜色计算该像素的颜色（如Lambert、Phong等光照模型），而不一定要不断随机反射追踪到照亮它的光源，这样就避免了噪点和需要采样很多光线，计算快很多，当然缺乏光线多次反弹物体看起来也假得多。
-<img alt="仅进行镜面反射的光追不会产生噪点，但没有那种多次漫反射的真实质感，图中甚至没计算阴影" src="/img/render4d005.jpg" style="width:100%;max-width:350px">
+The advantage of rasterization is speed and mature technology, but since drawing triangles differs from real optical imaging processes, implementing complex shadows, refraction, reflection and other optical phenomena becomes very difficult (you should have experienced some of this with view frustum culling and occlusion culling). Thus another method was born - ray tracing. Cameras can photograph objects because photosensitive devices behind the lens receive light rays. The most naive approach is to have light sources in the scene uniformly sample and randomly emit photons, simulate light bouncing, and if they hit a pixel's "photosensitive area" in the camera, record that photon's contribution to color brightness. However, this algorithm is very inefficient because camera photosensitive areas are generally small, and many photons ultimately won't reflect into the lens. A simple scene might need hundreds of millions of photons to barely get a viewable photo.
 
-具体怎样用GPU进行光线跟踪呢？我们可以将整个图片覆盖两个三角形，伪装成光栅化渲染交给GPU，在为每个像素上色的片元着色器代码中计算光线向量与物体求交、计算颜色等操作。但GPU仅仅只能快速一次批量执行相同的指令，光线与物体相交与否会让不同的像素需要执行的后续命令大不相同，将大大降低光线跟踪在GPU上的并行计算效率，所以光线跟踪比光栅化要慢很多。为了解决这个问题人们又专门设计了能快速处理与三角形批量求交的硬件光追（如Nvdia的RTX系列）。
+The solution is simple. Since light paths are reversible, we can uniformly sample and randomly emit rays from the camera to bounce off objects. As long as they hit a light source, we can work backwards to find that ray's brightness contribution. This is the simplest path tracing rendering method, capable of rendering photographic quality images! Of course, it also needs many rays, especially when light sources are small, the probability of hitting them is also very small. This simulation of random light bouncing has a side effect of producing many noise spots in the image. To reduce noise, you can only increase the number of sampled rays per pixel.
+![As rays sampled per pixel increase, image quality increases. Image from English Wikipedia](/img/render4d002.jpg)
+Actually, if photographic realism isn't required, we can stop when hitting the first diffuse object surface and directly calculate that pixel's color based on the object's diffuse color (like Lambert, Phong lighting models), rather than continuously randomly reflecting and tracing to the illuminating light source. This avoids noise and the need to sample many rays, computing much faster, though lacking multiple light bounces makes objects look much less realistic.
+<img alt="Ray tracing with only specular reflection produces no noise but lacks the realistic quality of multiple diffuse reflections; the image doesn't even calculate shadows" src="/img/render4d005.jpg" style="width:100%;max-width:350px">
+
+How specifically to use GPU for ray tracing? We can cover the entire image with two triangles, disguising it as rasterization rendering for the GPU, and calculate ray-object intersections, colors, etc. in the fragment shader code that colors each pixel. But GPUs can only quickly execute the same instructions in batches. Whether rays intersect objects makes subsequent commands very different for different pixels, greatly reducing ray tracing's parallel computing efficiency on GPUs, so ray tracing is much slower than rasterization. To solve this problem, people designed hardware ray tracing that can quickly handle batch triangle intersections (like Nvidia's RTX series).
 <a name="4dbegin"></a>
 
-## 四维场景渲染方法
-这就是三维计算机图形学基础知识了，下面我们终于可以正式介绍四维计算机图形学了。跟三维不同的是，在研究四维图形的渲染算法之前我们先得确定可视化四维图形的方法。下面我将先介绍一下使用最广泛的截面法与我最热衷的体素法。
+## 4D Scene Rendering Methods
+That's the basics of 3D computer graphics. Now we can finally formally introduce 4D computer graphics. Unlike 3D, before studying 4D graphics rendering algorithms, we must first determine methods for visualizing 4D graphics. Below I'll introduce the most widely used cross-section method and my favorite voxel method.
 
-### 1.体素/截面渲染
+### 1. Voxel/Cross-section Rendering
 
-比起三维，四维场景的渲染的最大区别就是图片本身变成了一个三维的阵列，除了维数以外没有什么本质的区别，为了能在GPU上运行，我们还需要将三维阵列分层，交给GPU处理渲染得到每一层的普通二维图像，也就是截面渲染，光栅化与光线跟踪两种技术都可以完成这个任务。
+Compared to 3D, the biggest difference in 4D scene rendering is that the image itself becomes a 3D array. Besides dimensionality, there's no essential difference. To run on GPUs, we need to layer the 3D array and have the GPU process each layer to get ordinary 2D images - that's cross-section rendering. Both rasterization and ray tracing technologies can accomplish this task.
 
-#### 1.1光线跟踪
+#### 1.1 Ray Tracing
 
-四维光线跟踪几乎与三维一模一样，建议大家先去熟悉一下三维光线跟踪的简单片元着色器是怎么写的，推荐[Shadertoy](https://www.shadertoy.com/)这个可以在线编辑、浏览各路大神写的着色器的网站。
+4D ray tracing is almost identical to 3D. I recommend first familiarizing yourself with how simple 3D ray tracing fragment shaders are written. I recommend [Shadertoy](https://www.shadertoy.com/), a website where you can edit online and browse shaders written by various experts.
 
-一般常用的着色器语言（GLSL/WSL/HLSL）是支持四维向量vec4这个类型的，虽然它只是为表示三维齐次坐标或红绿蓝透明度四分量颜色设计的，但这刚好方便了我们表示四维坐标。光线跟踪中最重要的事就是计算光线跟物体的交点。如果只考虑与平面、球面求交，我们只需要把正常光追代码里的三维向量vec3改成四维向量vec4，第四个维度填成0，就能把场景直接升级成与超平面、超球求交！
+Common shader languages (GLSL/WSL/HLSL) support the vec4 type for 4D vectors. Although designed for representing 3D homogeneous coordinates or RGBA color components, this conveniently allows us to represent 4D coordinates. The most important thing in ray tracing is calculating ray-object intersections. If we only consider intersections with planes and spheres, we just need to change vec3 to vec4 in normal ray tracing code, fill the fourth dimension with 0, and directly upgrade the scene to intersect with hyperplanes and hyperspheres!
 
-下面是我在shadertoy上随便找到的一个路径追踪的实时渲染小场景：由于在手机浏览器上普遍加载会很卡，请慎重点击下方图片激活：<img class="nofancybox" style="cursor: pointer" src="/img/render4d008.jpg" onclick="let IF= document.getElementById('if1');IF.style.display='block'; const tmpUrl = IF.src; IF.src = 'about:blank'; setTimeout(()=>{IF.src = tmpUrl;}, 300); $(this).hide(); " /><iframe id="if1" style="display:none;margin: auto;" width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/WllGWn?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
-如何将这个3D场景变4D呢？首先我把其中的vec3全换成vec4，然后由于做路径追踪会遇到超球面上的均匀随机采样，需要简重新修改一下采样公式。[点击这里展开分别生成方向均匀分布的单位三维、四维向量的伪代码](javascript:$('#codevec34').toggle())。<div id="codevec34" style="display:none">
+Below is a real-time path tracing scene I randomly found on Shadertoy: Since it generally loads very slowly on mobile browsers, please click the image below carefully to activate:<img class="nofancybox" style="cursor: pointer" src="/img/render4d008.jpg" onclick="let IF= document.getElementById('if1');IF.style.display='block'; const tmpUrl = IF.src; IF.src = 'about:blank'; setTimeout(()=>{IF.src = tmpUrl;}, 300); $(this).hide(); " /><iframe id="if1" style="display:none;margin: auto;" width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/WllGWn?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
+
+How to make this 3D scene 4D? First I replaced all vec3 with vec4, then since path tracing encounters uniform random sampling on hypersphere surfaces, I needed to modify the sampling formula. [Click here to expand pseudocode for generating uniformly distributed unit 3D and 4D vectors](javascript:$('#codevec34').toggle()).<div id="codevec34" style="display:none">
 
 ```typescript
 function generateRandVec3(){
@@ -90,149 +92,159 @@ function generateRandVec4(){
 ```
 </div>
 
-我把球面均匀采样公式换成了超球采样公式，再额外添加了第四个维度上的墙体和两个超球，接着更改设置了**鼠标左右拖动旋转相机，上下拖动则平移第四维的截面位置**，这个4D场景Demo就被<ruby>改造完成<rp>(</rp><rt>四向簿打击</rt><rp>)</rp> </ruby>了！提示：点击下图激活场景。
+I replaced the sphere uniform sampling formula with hypersphere sampling, added walls and two hyperspheres in the fourth dimension, then set **mouse left-right drag to rotate camera, up-down drag to translate the cross-section position in the fourth dimension**. This 4D scene demo is <ruby>transformation complete<rp>(</rp><rt>four-directional attack</rt><rp>)</rp></ruby>! Tip: Click the image below to activate the scene.
 
 <img class="nofancybox" style="cursor: pointer" src="/img/render4d007.jpg" onclick="let IF= document.getElementById('if2');IF.style.display='block'; const tmpUrl = IF.src; IF.src = 'about:blank'; setTimeout(()=>{IF.src = tmpUrl;}, 300); $(this).hide(); " /><iframe style="display:none;margin: auto;" id="if2" width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/Mf23Rd?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 
-由于四维空间更广阔，点光源将立方反比衰减，光线反射也更混乱，所以相同采样率下噪点更多，需要点击三角形播放按钮后等待更长时间才能看到清晰的画质。你应该能看到上面的三维跟四维场景初始角度看起来是完全相同的（除了光线有点点差异），在四维场景中上下拖动可发现这些球大小会变化，可能消失也可能出现新的球，这些都是四维空间中的超球。还有个细节能说明光线在四维空间中传播：拖动截面到合适角度你可以通过左边的那个镜面球中的反射成像发现还没有被画面截面截到的另一个超球。
+Since 4D space is more expansive, point light sources decay by inverse cube law, and light reflection is more chaotic, so there's more noise at the same sampling rate. You need to click the play button and wait longer to see clear image quality. You should see that the 3D and 4D scenes look completely identical from the initial angle (except for slight light differences). In the 4D scene, dragging up and down reveals these spheres changing size, possibly disappearing or new spheres appearing - these are all hyperspheres in 4D space. Another detail showing light propagation in 4D space: by dragging the cross-section to the right angle, you can discover another hypersphere not yet intersected by the screen cross-section through the reflection in the left mirror sphere.
 
-可能你觉得从三维到四维改动的东西还是不少，但其实如果不用随机反射采样而是使用那种遇到漫反射就停下来的光照模型就真的只需要把vec3改vec4就可以了。最后再提一句，由于RTX之类的光追加速显卡是专门为三维空间中三角形求交设计的，它不能对四面体求交提供加速，由于我没有真正接触过光追管线，也不排除能将四维数据“伪装”成三维数据来处理的可能（猜测可行性很小）。
+You might think there's still quite a bit to change from 3D to 4D, but actually if you don't use random reflection sampling and instead use lighting models that stop at diffuse reflection, you really only need to change vec3 to vec4. Finally, since RTX and similar ray tracing acceleration cards are specifically designed for triangle intersections in 3D space, they can't accelerate tetrahedron intersections. Since I haven't really worked with ray tracing pipelines, I can't rule out the possibility of "disguising" 4D data as 3D data for processing (though I suspect feasibility is low).
 
-#### 1.2光栅化方法
-下面来说说更常见的光栅化渲染方法。GPU能处理的基本图元——点、线、三角形，它们都是数学上的单纯形（Simplex），我们自然就想到四维场景需要光栅化四面体。但由于GPU没有针对体素化四面体进行优化的硬件，只能自己写通用的并行计算程序来实现了，我测试了我自己使用计算着色器（一种不用于渲染图形而是可以处理任意数据的GPU程序）写的四面体光栅化器效率并不太高(参考tesserxel中的[这个示例](/tesserxel/examples/#voxeltest::rasterizer))。除非你专门研发设计一款四面体光栅化专用芯片，为了尽可能利用现成的硬件性能优势，一般都采用分层渲染的方式，即计算并渲染3D图像的截面，而不是一次渲染一个四面体。所以我们将重点介绍切片光栅化方法。
+#### 1.2 Rasterization Methods
+Now let's discuss the more common rasterization rendering methods. The basic primitives GPUs can handle - points, lines, triangles - are all mathematical simplices. We naturally think 4D scenes need to rasterize tetrahedra. But since GPUs don't have hardware optimized for voxelizing tetrahedra, we can only write general parallel computing programs to implement this. The tetrahedron rasterizer I tested using compute shaders (a type of GPU program that processes arbitrary data rather than rendering graphics) wasn't very efficient (see [this example](/tesserxel/examples/#voxeltest::rasterizer) in tesserxel). Unless you specifically develop a tetrahedron rasterization chip, to maximize existing hardware performance advantages, layered rendering is generally adopted - computing and rendering cross-sections of 3D images rather than rendering one tetrahedron at a time. So we'll focus on slice rasterization methods.
 
-不考虑复杂的光学现象，单从求图形截面与求图形投影的这两步来说，它们是可交换顺序的，即4D场景被相机拍成的3D图像的二维截面跟4D场景的3D截面再拍成二维图像的几何数据是一样的。现在，如何快速计算四维物体的截面就成了四维计算机图形学中的头号问题。计算截面的方法五花八门，我将介绍我所知道的所有方法。
-##### 四面体法
-用平面去截四面体可能会得到三角形亦或四边形。我们可以通过将四面体四个顶点分别代入平面方程的一边，通过符号判断它们是否位于同侧，若4个点都在一侧则无交集，若两侧分别有1、3个点，则截到三角形，若两侧各有两个点，则截到四边形。
-![来自GL4D论文中的插图](/img/render4d004.png)
-具体怎样编程实现呢？GPU没有能处理四面体截面的相关功能，所以最简单粗暴的方法就是每次渲染前，让CPU先提前计算好四维场景的截面，得到一个三维场景，然后再发送给GPU用传统3D渲染的各种技术去渲染就好了。然而它的缺点是，场景复杂后CPU计算截面的负担会特别重。我们希望在GPU上并行计算四面体截面，这样效率会显著提高。由于GPU的工作流程（渲染管线）都是为常见3D渲染设计的，并没有设计求截面的功能，我们需要通过各种技巧来实现这一功能。下面我将根据求截面使用的着色器的种类介绍三种方法。
+Without considering complex optical phenomena, just from the two steps of finding graphic cross-sections and projections, their order is interchangeable. That is, the 2D cross-section of a 3D image captured by a camera of a 4D scene has the same geometric data as a 3D cross-section of a 4D scene then captured as a 2D image. Now, how to quickly calculate cross-sections of 4D objects becomes the top problem in 4D computer graphics. There are various methods for calculating cross-sections. I'll introduce all the methods I know.
 
-1. 顶点着色器计算截面
-这是[Youtuber CodeParade](https://www.youtube.com/c/CodeParade)在游戏[4D Golf](https://store.steampowered.com/app/2147950/4D_Golf/)中使用的算法。每个四面体为四个顶点，求截面可能得到空集、三角形或四边形，则GPU最后可能要绘制0~2个三角形，即最多会输出四个顶点。我们可以把每个四面体所有四个顶点数据打包起来复制成四份，再加上从0至3的编号作为顶点输入，这样就能让GPU在顶点着色器里运行四次计算截面的四个顶点的最终坐标了。注意由于需要判断顶点编号以及顶点是否位于平面的同侧异侧来决定最终的截面，着色器里面将会充斥着许多影响并行计算效率的条件分支语句。CodeParade采用存储一张预计算的纹理贴图，通过查表的方法来规避它们，详见[这个Youtube视频](https://www.youtube.com/watch?v=dbq9uX_MycY)。
-2. 几何着色器计算截面
-[这篇论文](https://www.cse.cuhk.edu.hk/~cwfu/papers/GL4D/paper/GL4D.pdf)开发了一个叫gl4d的四维图形渲染库，采用的是另一种做法：大多数GPU渲染管线中，在顶点着色器至光栅化器之前其实还可以插入一个可选的几何着色器(Geometry Shader)。这个几何着色器可以接受顶点着色器的输入，并输出程序员可自行控制的任意数量的基本图元，直接控制输出四边形截面感觉这个着色器就像是专门为计算截面设置的！由于几何着色器是在顶点着色器之后，它接受的是由顶点着色器变换后的图元的所有顶点，因此我们需要将四个顶点坐标组合成一种图元。而已知的基本图元里面只有点、线、三角形，它们顶点数都没到4个。幸好，几何着色器的设计者早就料到了人们可能会有这些特殊需求，提供了只能作为几何着色器输入的一类特殊图元（Adjacency Primitives），如使用图元gl_lines_adjacency可以恰好将四个顶点打包扔给几何着色器计算，根据计算结果输出0至2个三角形图元（分别对应不相交、三角形截面与四边形截面），且几何着色器阶段还可以按顶点顺序做背面剔除。相比于CodeParade的方法，该方法不用把每个四面体的数据复制四次，但缺点是某些手机上的GPU可能没有几何着色器，或虽然有但执行效率不高。
-3. 计算着色器计算截面
-由于存在设备不支持几何着色器，所以网页端的传统GPU编程接口WebGl与最新接口WebGPU干脆都没有添加几何着色器的功能，但WebGPU提供了一种新的“计算着色器(Compute Shader)”。计算着色器是为了完成除图像绘制外的通用并行计算任务而生的，比如用于大数据机器学习之类的场景。我们可以将四面体顶点数据发送给计算着色器，计算截面后得到截面的顶点数据，再将这些数据传入至传统渲染管线中的顶点着色器，从而完成后续的渲染工作。Tesserxel默认就采用的是计算着色器来处理四维物体截面。计算着色器并行地处理每一个四面体，得到0至2个三角形。我采用了一个大的数组来存放这些三角形。由于无法知道不同并行计算单元的执行顺序（不知道谁快谁慢），各个并行程序单元往大数组里写三角形时可能会存在“数据竞争(Data Race)”——即可能两个并行的四面体截面程序同时往数组的一个格子里写三角形数据，后写入的数据将覆盖掉先写入的。WebGPU提供了一种叫“原子”的操作来规避数据竞争：我们用一种“原子整数”类型的变量来存储数组下一个空闲位置的角标。第一个执行到需要读写这种原子类型的变量时，就将“锁定”它，直到它读完数据值并将变量更新为下一个空闲位置的角标（其实就是单纯角标值加一）后再“解锁”，而其它程序若执行到了需要读写被上锁的原子类型的变量，它们将在这里停下，等待变量被解锁后再执行。由于读变量和再将变量值递增一的这两步运算时间特别短，所以其它程序不会为等待解锁而浪费太多时间，并行度还是很高的。<a name="cwmesh"></a>
+##### Tetrahedron Method
+Intersecting a tetrahedron with a plane may yield a triangle or quadrilateral. We can substitute the four vertices of the tetrahedron into one side of the plane equation and determine by sign whether they're on the same side. If all 4 points are on one side, there's no intersection. If the two sides have 1 and 3 points respectively, we get a triangle. If each side has two points, we get a quadrilateral.
+![Illustration from the GL4D paper](/img/render4d004.png)
+How to implement this programmatically? GPUs don't have functionality for handling tetrahedron cross-sections, so the simplest brute force method is to have the CPU pre-calculate cross-sections of the 4D scene before each render, obtaining a 3D scene, then send it to the GPU for rendering using traditional 3D rendering techniques. However, its disadvantage is that CPU cross-section calculation becomes very heavy for complex scenes. We want to calculate tetrahedron cross-sections in parallel on the GPU for significantly improved efficiency. Since GPU workflows (rendering pipelines) are designed for common 3D rendering without cross-section calculation functionality, we need various tricks to implement this. Below I'll introduce three methods based on the type of shader used for cross-section calculation.
 
-##### 胞腔复形法
-胞腔复形(CW-Complex)是四面体法的全新升级版。试想我们要用四面体法绘制体素立方体，则先要四面体化立方体，得到最少5个四面体。![GL4D论文中剖分立方体的插图：存在5个与6个四面体的剖分方案](/img/render4d003.png)如果我们要剖分像正十二面体这样复杂的图形，四面体会多达近三十个，但正十二面体的截面最多不超过十边形，这就说明比起全用四面体，直接处理多面体、多边形将会减少很多不必要的图元。胞腔复形是多面体的推广，它提供了不采用四面体来描述四维物体的方法。胞腔复形记录了点、线、面、胞四种数据，其中顶点数据为坐标向量数组，边数据则为它的两个端点在顶点数组中的索引值，面数据中的每个面则记录组成它的所有边在边数组中的索引值，胞数据则为围成它的面在面数组中的索引值，这样层层构造出的东西就叫胞腔复形，它可以推广到任意高维。
-![胞腔复形的数据结构，红色为顶点，绿色为边，蓝色为面，橙色为胞](/img/render4d005.svg)
-以上面的这个立方体胞为例，它的数据结构是这样的：（数组索引以角标形式写出来，跟上图中对应）
+1. Vertex Shader Cross-section Calculation
+This is the algorithm used by [YouTuber CodeParade](https://www.youtube.com/c/CodeParade) in the game [4D Golf](https://store.steampowered.com/app/2147950/4D_Golf/). Each tetrahedron has four vertices. Finding the cross-section may yield an empty set, triangle, or quadrilateral, so the GPU may ultimately draw 0-2 triangles, outputting at most four vertices. We can package all four vertex data of each tetrahedron and duplicate it four times, adding numbering from 0 to 3 as vertex input. This allows the GPU to run four times in the vertex shader to calculate the final coordinates of the four vertices of the cross-section. Note that since we need to determine vertex numbering and whether vertices are on the same or different sides of the plane to determine the final cross-section, the shader will be filled with many conditional branch statements that affect parallel computing efficiency. CodeParade uses a pre-calculated texture map to avoid them through table lookup, detailed in [this YouTube video](https://www.youtube.com/watch?v=dbq9uX_MycY).
 
-<span style="color:red">顶点</span>：{(1,1,1)<sub style="color:red">0</sub>,(1,1,-1)<sub style="color:red">1</sub>,(1,-1,1)<sub style="color:red">2</sub>,(1,-1,-1)<sub style="color:red">3</sub>,(-1,1,1)<sub style="color:red">4</sub>,(-1,1,-1)<sub style="color:red">5</sub>,(-1,-1,1)<sub style="color:red">6</sub>,(-1,-1,-1)<sub style="color:red">7</sub>}
-<span style="color:green">边</span>：{(<span style="color:red">0</span>,<span style="color:red">1</span>)<sub style="color:green">0</sub>,(<span style="color:red">1</span>,<span style="color:red">3</span>)<sub style="color:green">1</sub>,(<span style="color:red">2</span>,<span style="color:red">3</span>)<sub style="color:green">2</sub>,(<span style="color:red">0</span>,<span style="color:red">2</span>)<sub style="color:green">3</sub>, (<span style="color:red">4</span>,<span style="color:red">5</span>)<sub style="color:green">4</sub>,(<span style="color:red">5</span>,<span style="color:red">7</span>)<sub style="color:green">5</sub>,(<span style="color:red">6</span>,<span style="color:red">7</span>)<sub style="color:green">6</sub>,(<span style="color:red">4</span>,<span style="color:red">6</span>)<sub style="color:green">7</sub>, (<span style="color:red">0</span>,<span style="color:red">4</span>)<sub style="color:green">8</sub>,(<span style="color:red">1</span>,<span style="color:red">5</span>)<sub style="color:green">9</sub>,(<span style="color:red">2</span>,<span style="color:red">6</span>)<sub style="color:green">10</sub>,(<span style="color:red">3</span>,<span style="color:red">7</span>)<sub style="color:green">11</sub>}
-<span style="color:blue">面</span>：{(<span style="color:green">0</span>,<span style="color:green">4</span>,<span style="color:green">8</span>,<span style="color:green">9</span>)<sub style="color:blue">0</sub>,(<span style="color:green">1</span>,<span style="color:green">5</span>,<span style="color:green">9</span>,<span style="color:green">11</span>)<sub style="color:blue">1</sub>,(<span style="color:green">2</span>,<span style="color:green">6</span>,<span style="color:green">10</span>,<span style="color:green">11</span>)<sub style="color:blue">2</sub>,(<span style="color:green">3</span>,<span style="color:green">7</span>,<span style="color:green">8</span>,<span style="color:green">10</span>)<sub style="color:blue">3</sub>,(<span style="color:green">0</span>,<span style="color:green">1</span>,<span style="color:green">2</span>,<span style="color:green">3</span>)<sub style="color:blue">4</sub>,(<span style="color:green">4</span>,<span style="color:green">5</span>,<span style="color:green">6</span>,<span style="color:green">7</span>)<sub style="color:blue">5</sub>}
-<span style="color:orange">胞</span>：{(<span style="color:blue">0</span>,<span style="color:blue">1</span>,<span style="color:blue">2</span>,<span style="color:blue">3</span>,<span style="color:blue">4</span>,<span style="color:blue">5</span>)<sub style="color:orange">0</sub>}
+2. Geometry Shader Cross-section Calculation
+[This paper](https://www.cse.cuhk.edu.hk/~cwfu/papers/GL4D/paper/GL4D.pdf) developed a 4D graphics rendering library called gl4d using another approach: In most GPU rendering pipelines, an optional geometry shader can be inserted between the vertex shader and rasterizer. This geometry shader can accept vertex shader input and output any number of basic primitives under programmer control. Directly controlling quadrilateral cross-section output makes this shader seem specifically designed for calculating cross-sections! Since the geometry shader comes after the vertex shader, it accepts all vertices of primitives transformed by the vertex shader, so we need to combine four vertex coordinates into one primitive. Known basic primitives only include points, lines, and triangles, none with 4 vertices. Fortunately, geometry shader designers anticipated these special needs and provided special primitives (Adjacency Primitives) that can only be used as geometry shader input. Using the gl_lines_adjacency primitive can pack exactly four vertices for the geometry shader to calculate, outputting 0 to 2 triangle primitives based on results (corresponding to no intersection, triangle cross-section, and quadrilateral cross-section). The geometry shader stage can also do back-face culling by vertex order. Compared to CodeParade's method, this doesn't require duplicating each tetrahedron's data four times, but the disadvantage is some mobile GPUs may not have geometry shaders, or have them but with low execution efficiency.
 
-虽然胞腔复形的数据结构很直观，但有这么复杂层次的东西如何求它的截面呢？只要这个图形是凸的，其实也可以用分层的算法来完成这个任务：
+3. Compute Shader Cross-section Calculation
+Since some devices don't support geometry shaders, traditional web GPU programming interfaces WebGL and the latest WebGPU simply don't include geometry shader functionality. But WebGPU provides a new "Compute Shader". Compute shaders are designed for general parallel computing tasks beyond image rendering, such as big data machine learning scenarios. We can send tetrahedron vertex data to the compute shader, calculate cross-sections to get cross-section vertex data, then pass this data to the vertex shader in the traditional rendering pipeline to complete subsequent rendering work. Tesserxel uses compute shaders by default to handle 4D object cross-sections. Compute shaders process each tetrahedron in parallel, yielding 0 to 2 triangles. I use a large array to store these triangles. Since we can't know the execution order of different parallel computing units (don't know who's fast or slow), when parallel program units write triangles to the large array, there may be "Data Race" - two parallel tetrahedron cross-section programs may simultaneously write triangle data to the same array cell, with later writes overwriting earlier ones. WebGPU provides "atomic" operations to avoid data races: we use an "atomic integer" type variable to store the array's next free position index. When the first execution needs to read/write this atomic type variable, it "locks" it until it finishes reading the data value and updates the variable to the next free position index (simply incrementing the index value by one) before "unlocking". If other programs execute to need reading/writing the locked atomic type variable, they stop there, waiting for the variable to unlock before executing. Since reading the variable and incrementing by one takes very little time, other programs don't waste much time waiting to unlock, maintaining high parallelism.<a name="cwmesh"></a>
 
-1. 首先计算所有顶点是否分别在超平面的两侧；
-2. 对于每条边，检查它的端点是否跨过平面，若是，计算交点坐标；
-3. 对于每一个面，检查它的边在上一步中有没有产生交点，若有将这些交点构造出截面图形的边。（注：若不要求图形是凸的，则交点可能不止两个，这样会得到不止两个端点的“非法”的边，算法就没法继续了）
-4. 对于每个胞，检查它的面在上一步中有没有产生交线，若有将这些交线构造出截面图形的面。
+##### Cell Complex Method
+Cell Complex (CW-Complex) is a completely upgraded version of the tetrahedron method. Imagine using the tetrahedron method to draw a voxel cube - you first need to tetrahedralize the cube, getting at least 5 tetrahedra.![Cube subdivision illustration from GL4D paper: 5 and 6 tetrahedra subdivision schemes exist](/img/render4d003.png)If we want to subdivide complex shapes like a regular dodecahedron, there would be nearly thirty tetrahedra, but the dodecahedron's cross-section is at most a decagon. This shows that compared to using all tetrahedra, directly handling polyhedra and polygons will reduce many unnecessary primitives. Cell complexes are generalizations of polyhedra, providing a method to describe 4D objects without using tetrahedra. Cell complexes record four types of data: vertices, edges, faces, and cells. Vertex data is coordinate vector arrays, edge data is the indices of its two endpoints in the vertex array, each face in face data records the indices of all edges composing it in the edge array, and cell data is the indices of faces surrounding it in the face array. Things constructed layer by layer this way are called cell complexes, generalizable to arbitrary dimensions.
+![Cell complex data structure, red for vertices, green for edges, blue for faces, orange for cells](/img/render4d005.svg)
+Taking the above cube cell as an example, its data structure is like this: (array indices written as subscripts, corresponding to the figure above)
 
-以下图立方体中蓝色截面为例，我们额外记录这样的一个结构，注意若一个胞的所有边界都没被截到，那么这个胞将被忽略，图中标成了灰色：
+<span style="color:red">Vertices</span>: {(1,1,1)<sub style="color:red">0</sub>,(1,1,-1)<sub style="color:red">1</sub>,(1,-1,1)<sub style="color:red">2</sub>,(1,-1,-1)<sub style="color:red">3</sub>,(-1,1,1)<sub style="color:red">4</sub>,(-1,1,-1)<sub style="color:red">5</sub>,(-1,-1,1)<sub style="color:red">6</sub>,(-1,-1,-1)<sub style="color:red">7</sub>}
+<span style="color:green">Edges</span>: {(<span style="color:red">0</span>,<span style="color:red">1</span>)<sub style="color:green">0</sub>,(<span style="color:red">1</span>,<span style="color:red">3</span>)<sub style="color:green">1</sub>,(<span style="color:red">2</span>,<span style="color:red">3</span>)<sub style="color:green">2</sub>,(<span style="color:red">0</span>,<span style="color:red">2</span>)<sub style="color:green">3</sub>, (<span style="color:red">4</span>,<span style="color:red">5</span>)<sub style="color:green">4</sub>,(<span style="color:red">5</span>,<span style="color:red">7</span>)<sub style="color:green">5</sub>,(<span style="color:red">6</span>,<span style="color:red">7</span>)<sub style="color:green">6</sub>,(<span style="color:red">4</span>,<span style="color:red">6</span>)<sub style="color:green">7</sub>, (<span style="color:red">0</span>,<span style="color:red">4</span>)<sub style="color:green">8</sub>,(<span style="color:red">1</span>,<span style="color:red">5</span>)<sub style="color:green">9</sub>,(<span style="color:red">2</span>,<span style="color:red">6</span>)<sub style="color:green">10</sub>,(<span style="color:red">3</span>,<span style="color:red">7</span>)<sub style="color:green">11</sub>}
+<span style="color:blue">Faces</span>: {(<span style="color:green">0</span>,<span style="color:green">4</span>,<span style="color:green">8</span>,<span style="color:green">9</span>)<sub style="color:blue">0</sub>,(<span style="color:green">1</span>,<span style="color:green">5</span>,<span style="color:green">9</span>,<span style="color:green">11</span>)<sub style="color:blue">1</sub>,(<span style="color:green">2</span>,<span style="color:green">6</span>,<span style="color:green">10</span>,<span style="color:green">11</span>)<sub style="color:blue">2</sub>,(<span style="color:green">3</span>,<span style="color:green">7</span>,<span style="color:green">8</span>,<span style="color:green">10</span>)<sub style="color:blue">3</sub>,(<span style="color:green">0</span>,<span style="color:green">1</span>,<span style="color:green">2</span>,<span style="color:green">3</span>)<sub style="color:blue">4</sub>,(<span style="color:green">4</span>,<span style="color:green">5</span>,<span style="color:green">6</span>,<span style="color:green">7</span>)<sub style="color:blue">5</sub>}
+<span style="color:orange">Cells</span>: {(<span style="color:blue">0</span>,<span style="color:blue">1</span>,<span style="color:blue">2</span>,<span style="color:blue">3</span>,<span style="color:blue">4</span>,<span style="color:blue">5</span>)<sub style="color:orange">0</sub>}
 
-<span style="color:red">顶点</span>：{+<sub style="color:red">0</sub>,-<sub style="color:red">1</sub>,-<sub style="color:red">2</sub>,-<sub style="color:red">3</sub>,+<sub style="color:red">4</sub>,+<sub style="color:red">5</sub>,+<sub style="color:red">6</sub>,-<sub style="color:red">7</sub>}
-<span style="color:green">边（新顶点）</span>：{(<span style="color:red">+0</span>,<span style="color:red">-1</span>)<sub style="color:green">0</sub>,(<span style="color:lightgray">-1,-3</span>)<sub style="color:lightgray">1</sub>,(<span style="color:lightgray">-2,-3</span>)<sub style="color:lightgray">2</sub>,(<span style="color:red">+0</span>,<span style="color:red">-2</span>)<sub style="color:green">3</sub>, (<span style="color:lightgray">+4,+5</span>)<sub style="color:lightgray">4</sub>,(<span style="color:red">+5</span>,<span style="color:red">-7</span>)<sub style="color:green">5</sub>,(<span style="color:red">+6</span>,<span style="color:red">-7</span>)<sub style="color:green">6</sub>,(<span style="color:lightgray">+4,+6</span>)<sub style="color:lightgray">7</sub>, (<span style="color:lightgray">+0,+4</span>)<sub style="color:lightgray">8</sub>,(<span style="color:red">-1</span>,<span style="color:red">+5</span>)<sub style="color:green">9</sub>,(<span style="color:red">-2</span>,<span style="color:red">+6</span>)<sub style="color:green">10</sub>,(<span style="color:lightgray">-3,-7</span>)<sub style="color:lightgray">11</sub>}
-<span style="color:blue">面（新边）</span>：{(<span style="color:green">0</span>,<span style="color:lightgray">4</span>,<span style="color:lightgray">8</span>,<span style="color:green">9</span>)<sub style="color:blue">0</sub>,(<span style="color:lightgray">1</span>,<span style="color:green">5</span>,<span style="color:green">9</span>,<span style="color:lightgray">11</span>)<sub style="color:blue">1</sub>,(<span style="color:lightgray">2</span>,<span style="color:green">6</span>,<span style="color:green">10</span>,<span style="color:lightgray">11</span>)<sub style="color:blue">2</sub>,(<span style="color:green">3</span>,<span style="color:lightgray">7</span>,<span style="color:lightgray">8</span>,<span style="color:green">10</span>)<sub style="color:blue">3</sub>,(<span style="color:green">0</span>,<span style="color:lightgray">1</span>,<span style="color:lightgray">2</span>,<span style="color:green">3</span>)<sub style="color:blue">4</sub>,(<span style="color:lightgray">4</span>,<span style="color:green">5</span>,<span style="color:green">6</span>,<span style="color:lightgray">7</span>)<sub style="color:blue">5</sub>}
-<span style="color:orange">胞（新面）</span>：{(<span style="color:blue">0</span>,<span style="color:blue">1</span>,<span style="color:blue">2</span>,<span style="color:blue">3</span>,<span style="color:blue">4</span>,<span style="color:blue">5</span>)<sub style="color:orange">0</sub>}
+Although the cell complex data structure is intuitive, how do we find cross-sections of such complex hierarchical things? As long as the shape is convex, we can actually use a layered algorithm to accomplish this task:
 
-最后要想渲染这样构造出的新的截面胞腔复形，对于非三角面还是得三角化，但取截面后三角化比起一来就四面体化产生的图元数量要少得多。如何三角化呢？由于我们假设了图形是凸的，完全可以直接选定一个顶点跟所有非相邻顶点连线即可。
-![胞腔复形的截面计算](/img/render4d004.svg)
-虽然胞腔复形的总计算量比四面体小得多，但目前来看它只适合在CPU上运行，因为这个算法必须有顺序地从点、线再到面地串起来执行，且同一能并行计算的层级中每个面、胞的边界数一般也不同，就算并行也很难发挥出并行的效率。我很久前写的4dViewer（除Minecraft4d外）就采用的CPU计算胞腔复形截面来渲染的四维场景，在物体面数不多的情况下其实速度还可以，甚至渲染超球这些都无压力。
+1. First calculate whether all vertices are on different sides of the hyperplane;
+2. For each edge, check if its endpoints cross the plane; if so, calculate intersection coordinates;
+3. For each face, check if its edges produced intersections in the previous step; if so, construct the cross-section shape's edges from these intersections. (Note: if the shape isn't required to be convex, there may be more than two intersections, yielding "illegal" edges with more than two endpoints, and the algorithm can't continue)
+4. For each cell, check if its faces produced intersection lines in the previous step; if so, construct the cross-section shape's faces from these lines.
 
-胞腔复形还有一个缺点就是难以表示贴图坐标（4dViewer中除Minecraft4d外的四维物体表面都是纯色，没有贴图。。）不像每个四面体直接在四个顶点上储存贴图坐标，然后通过线性插值得到内部每一点的坐标，胞腔复形的数据结构只直接包含围成胞的面的信息，并没有显式包含的顶点信息，且若一个胞的四面体剖分（或它的截面的三角剖分）方式不同，中间点插值得到的贴图坐标也会不同，因此现在我写的Tesserxel引擎不直接采用胞腔复形来表示要渲染的四维物体，只是把它作为四维建模的工具，即胞腔复形模型在渲染前必须转换为四面体，我打算在下篇讲四维图形建模的文章中再展开介绍。
+Taking the blue cross-section in the cube below as an example, we additionally record such a structure. Note if all boundaries of a cell aren't intersected, that cell is ignored, shown in gray in the figure:
 
-##### 输出截面顶点坐标
+<span style="color:red">Vertices</span>: {+<sub style="color:red">0</sub>,-<sub style="color:red">1</sub>,-<sub style="color:red">2</sub>,-<sub style="color:red">3</sub>,+<sub style="color:red">4</sub>,+<sub style="color:red">5</sub>,+<sub style="color:red">6</sub>,-<sub style="color:red">7</sub>}
+<span style="color:green">Edges (new vertices)</span>: {(<span style="color:red">+0</span>,<span style="color:red">-1</span>)<sub style="color:green">0</sub>,(<span style="color:lightgray">-1,-3</span>)<sub style="color:lightgray">1</sub>,(<span style="color:lightgray">-2,-3</span>)<sub style="color:lightgray">2</sub>,(<span style="color:red">+0</span>,<span style="color:red">-2</span>)<sub style="color:green">3</sub>, (<span style="color:lightgray">+4,+5</span>)<sub style="color:lightgray">4</sub>,(<span style="color:red">+5</span>,<span style="color:red">-7</span>)<sub style="color:green">5</sub>,(<span style="color:red">+6</span>,<span style="color:red">-7</span>)<sub style="color:green">6</sub>,(<span style="color:lightgray">+4,+6</span>)<sub style="color:lightgray">7</sub>, (<span style="color:lightgray">+0,+4</span>)<sub style="color:lightgray">8</sub>,(<span style="color:red">-1</span>,<span style="color:red">+5</span>)<sub style="color:green">9</sub>,(<span style="color:red">-2</span>,<span style="color:red">+6</span>)<sub style="color:green">10</sub>,(<span style="color:lightgray">-3,-7</span>)<sub style="color:lightgray">11</sub>}
+<span style="color:blue">Faces (new edges)</span>: {(<span style="color:green">0</span>,<span style="color:lightgray">4</span>,<span style="color:lightgray">8</span>,<span style="color:green">9</span>)<sub style="color:blue">0</sub>,(<span style="color:lightgray">1</span>,<span style="color:green">5</span>,<span style="color:green">9</span>,<span style="color:lightgray">11</span>)<sub style="color:blue">1</sub>,(<span style="color:lightgray">2</span>,<span style="color:green">6</span>,<span style="color:green">10</span>,<span style="color:lightgray">11</span>)<sub style="color:blue">2</sub>,(<span style="color:green">3</span>,<span style="color:lightgray">7</span>,<span style="color:lightgray">8</span>,<span style="color:green">10</span>)<sub style="color:blue">3</sub>,(<span style="color:green">0</span>,<span style="color:lightgray">1</span>,<span style="color:lightgray">2</span>,<span style="color:green">3</span>)<sub style="color:blue">4</sub>,(<span style="color:lightgray">4</span>,<span style="color:green">5</span>,<span style="color:green">6</span>,<span style="color:lightgray">7</span>)<sub style="color:blue">5</sub>}
+<span style="color:orange">Cells (new faces)</span>: {(<span style="color:blue">0</span>,<span style="color:blue">1</span>,<span style="color:blue">2</span>,<span style="color:blue">3</span>,<span style="color:blue">4</span>,<span style="color:blue">5</span>)<sub style="color:orange">0</sub>}
 
-截面求出来后下一步就是做渲染。无论是以上哪种方法都会遇到之前的两个问题——视锥体裁剪与遮挡剔除。按三维空间的类比，渲染四维几何体需要一个五维的齐次向量，它前三个分量是体素画布上的位置，第四个是用于处理前后遮挡关系的深度缓存，最后一个则用于透视除法。目前世界上所有的GPU都是为3D渲染设计的，没有提供五阶矩阵与五维向量vec5，光栅化器的硬件层面也没有相应的处理逻辑。幸好我们只是一次绘制一个四维物体的截面，于是可以这样做：
+Finally, to render the newly constructed cross-section cell complex, non-triangular faces still need triangulation, but triangulating after taking cross-sections produces far fewer primitives than tetrahedralizing from the start. How to triangulate? Since we assumed the shape is convex, we can simply select a vertex and connect lines to all non-adjacent vertices.
+![Cell complex cross-section calculation](/img/render4d004.svg)
 
-1. 首先对四面体的顶点进行坐标变换得到五维齐次坐标，由于没有提供vec5这一数据类型，我们可以用一个浮点数变量和一个vec4变量来分别储存。
-2. 在齐次坐标下计算截面数据(计算方法可以简单地从普通坐标系下推导过去得到)，求出交点的齐次坐标。
-3. 假设截面垂直于体素图片的某个坐标轴。由于交点一定位于截面内，我们可以直接忽略掉现在已经无用的垂直于截面的坐标，将齐次向量维数降低成四维，作为最终顶点着色器的输出发送给GPU当成普通的三维图形处理视锥体裁剪与遮挡剔除。
+Although cell complexes have much less total computation than tetrahedra, currently they only seem suitable for CPU execution, because this algorithm must execute sequentially from vertices to edges to faces, and even at the same parallelizable level, each face and cell generally has different numbers of boundaries, making parallel efficiency difficult even with parallelization. My old 4dViewer (except Minecraft4d) used CPU-calculated cell complex cross-sections to render 4D scenes. With not too many object faces, the speed is actually acceptable, even rendering hyperspheres without pressure.
 
-对于在CPU端计算的胞腔复形来说，还有个方法能降低CPU的计算量：按理说我们需要将模型的顶点坐标变换到相机坐标再计算截面，这些操作都在CPU中进行是很慢的，其实可以优化成在CPU中先将截面方程变换到到模型坐标中直接计算截面，然后发送到GPU中再将所有顶点变换到相机坐标。
+Cell complexes have another disadvantage - difficulty representing texture coordinates (4D objects in 4dViewer except Minecraft4d all have pure color surfaces, no textures...) Unlike storing texture coordinates directly on each tetrahedron's four vertices then getting each interior point's coordinates through linear interpolation, cell complex data structures only directly contain information about faces surrounding cells, without explicitly included vertex information. If a cell's tetrahedron subdivision (or its cross-section's triangulation) differs, texture coordinates obtained by interpolating middle points will also differ. Therefore, my current Tesserxel engine doesn't directly use cell complexes to represent 4D objects to be rendered, only as a 4D modeling tool - cell complex models must be converted to tetrahedra before rendering. I plan to expand on this in the next article about 4D graphics modeling.
 
+##### Output Cross-section Vertex Coordinates
 
-##### 光栅化方法流程总结
-我用了一个框图来总结一下这几个方法的流程：
-![四种光栅化截面渲染的流程](/img/render4d006.svg)
-总算把四维物体截面的光栅化渲染方法写完了，然而这些单张的截面还并不是体素照片。如何渲染体素呢？首先我们通过帧缓存(Frame Buffer)技术将单张截面画面渲染到一个纹理当中保存，再我们可以使用GPU提供的透明度混合（Alpha Blending）技术将这些单层照片贴图贴到半透明层上一层层叠起来实现，当层数够多时看起来就是体素云了。这里一般都是渲染一层就马上投影到二维画布上去做透明度混合，这样绘制下一层就可以重复使用刚才的帧缓存纹理，以节约显存。为了叠加起来得到好看的体素云，可以从以下三方面入手：
-1. 给场景中不同的物体赋予不同的不透明度，如地面、天空可以透明些，物体可以不透明些，这可以大大增加需要关注的小物体在体素云中的辨识度，比如下图中的“甜甜圈”几乎是不透明的了；
-2. 根据将体素投影到二维屏幕的方向动态改变体素切片划分的方向，一般按坐标轴分层即可，如果按任意方向分层，计算层的截面形状位置引入的开销不太值得；
-3. 可通过光在均匀介质中传播的指数衰减规律在片元着色器中逐像素调整不透明度，即透过每一层截面的光线比例，因为正对截面时，光线经过两层截面之间的距离短，衰减应该小、更透明，而视线与截面角度大时，经过两层截面之间的距离长，衰减应该大、更不透明。
-![体素云渲染：从左至右截面层数增加](/img/render4d003.jpg)
+After finding cross-sections, the next step is rendering. Regardless of which method above, we encounter the same two problems - view frustum culling and occlusion culling. By analogy with 3D space, rendering 4D geometry requires a 5D homogeneous vector: its first three components are positions on the voxel canvas, the fourth is depth buffer for handling front-back occlusion relationships, and the last is for perspective division. All GPUs in the world are currently designed for 3D rendering, without 5th order matrices and 5D vec5 vectors, and the rasterizer hardware level lacks corresponding processing logic. Fortunately, we're only drawing one cross-section of a 4D object at a time, so we can do this:
 
-##### 补充：裸眼3D渲染技术
-不管是4DBlock还是我的Tesserxel都支持裸眼3D，即显示一左一右两个有点偏差的画面让图片有立体深度感。之前在[《四维世界（五）：体验四维人的视觉与方向感》](/archives/eye3d/)已经详细介绍过，三维立体照片的深度感方向就是立体照片的纵深，而截面画面需要的深度感方向却是第四维的离相机远近的真正的前后方向。这两种裸眼3D的实现方式不太一样。
-1. 三维立体照片的深度感：要获得三维立体照片的深度感，我们就需要左右两个相机在水平距离上各有一定的偏移。由于体素照片是给定的，所以渲染每个截面投影到画布时，只用绘制两次不同角度的待贴图的层叠片二不用重新渲染截面，额外绘制增加的开销可以说非常小。（但其实Alpha混合的开销不小，这个躲不掉。。）
-2. 单截面视图的深度感：由于这是第四维的前后深度，需要在四维场景中架设两个距离相近的相机来实现。是不是这意味着需要在两个位置把所有物体都渲染两遍呢？其实，虽然相机位置偏移，但这个偏移还是位于同一个超平面截面中（否则左右眼看到的东西就完全不一样了，无法产生立体感），所以截到的几何数据是一样的，因此可以在最后输出顶点的时候给不同的偏移即可。即**先做截面再做在截面中的偏移**与**先做截面中的偏移在再做截面**是等价的。但这就要求在四维截面的渲染管线中截面计算与最终的输出顶点的着色器在GPU中是两个步骤，否则这两步分不开也就无法节省时间了，比如Codeparade的只有一次顶点着色器就干完了所有的事情就没有这种优化的余地了。还要注意的一点是，若在计算截面阶段做了背面剔除的也不适合这个优化，因为相机视角偏差后，某些面可能正对一只眼而背对另一只眼。
+1. First perform coordinate transformation on tetrahedron vertices to get 5D homogeneous coordinates. Since vec5 data type isn't provided, we can use a float variable and a vec4 variable to store them separately.
+2. Calculate cross-section data in homogeneous coordinates (calculation methods can be simply derived from ordinary coordinate systems), finding intersection homogeneous coordinates.
+3. Assume the cross-section is perpendicular to some coordinate axis of the voxel image. Since intersections must lie within the cross-section, we can directly ignore the now-useless coordinate perpendicular to the cross-section, reducing the homogeneous vector dimension to four, sending it as the final vertex shader output to the GPU to handle view frustum culling and occlusion culling as ordinary 3D graphics.
 
-体素/截面渲染就讲到这里了，下面来看看一些完全不一样的东西——非体素/截面渲染。
-### 2.球极投影法
-可视化四维图形不一定非得要计算“真实”的光线颜色信息，比如大家熟知的球极投影。球极投影本质上是把超球面——即一种弯曲的三维空间上的图形投影到三维空间，本质上就是三维空间之前的映射，严格来说不涉及四维，因此它几乎不可能用来展示复杂的“真实”四维场景，一般只用于展示四维凸几何体。
-#### 基于光栅化三角形的方法
-稍微会点解析几何就能很容易推出球极投影变换的公式，最简单的方法就是把超球面上的四维顶点坐标投影到三维即可，没什么特殊的地方，比如球极投影软件Jenn3D。需要注意的有两点：
-1. 由于原始模型都得在超球面上的坐标，要想做出有一定厚度的边、顶点等图形就需要开发者对球面几何很熟悉。
-2. 由于越接近北极形变越剧烈，因此建议可以动态增加北极附近多边形的网格剖分，否则就会出现下面的情况。![Jenn3D截图：边过极点时模型精度下降](/img/render4d006.jpg)
+For cell complexes calculated on the CPU side, there's another method to reduce CPU computation: Logically we need to transform model vertex coordinates to camera coordinates then calculate cross-sections. These operations are slow when all done in CPU. We can actually optimize by first transforming the cross-section equation to model coordinates in CPU to directly calculate cross-sections, then send to GPU to transform all vertices to camera coordinates.
 
-#### 基于光线跟踪的方法
-三角形方法得到的球极投影会因为网格精度问题变得不光滑，而高精度的光线追踪可以避免这个问题，具体原理可参考[这个交互式网页](https://syntopia.github.io/Polytopia/polytopes.html)和这个shadertoys上的例子（点击下方图片激活渲染，鼠标左右拖动可以选择不同的正多胞体）：
+##### Rasterization Method Process Summary
+I use a diagram to summarize these method processes:
+![Four rasterization cross-section rendering processes](/img/render4d006.svg)
+
+Finally finished writing about 4D object cross-section rasterization rendering methods, but these single cross-sections aren't yet voxel photos. How to render voxels? First we render single cross-section images to a texture for storage using Frame Buffer technology, then we can use GPU-provided Alpha Blending technology to paste these single-layer photo textures onto translucent layers and stack them up. When there are enough layers, it looks like a voxel cloud. Generally we render one layer then immediately project it onto the 2D canvas for alpha blending, so drawing the next layer can reuse the frame buffer texture just used, saving video memory. To stack up nice-looking voxel clouds, we can work from three aspects:
+1. Give different objects in the scene different opacities, like ground and sky can be more transparent, objects can be more opaque. This greatly increases the visibility of small objects needing attention in voxel clouds, like the almost opaque "donut" in the image below;
+2. Dynamically change voxel slice division direction based on the direction projecting voxels to 2D screen. Generally layering by coordinate axes is sufficient. If layering by arbitrary directions, the overhead introduced by calculating layer cross-section shapes and positions isn't worthwhile;
+3. Can adjust opacity pixel by pixel in fragment shader through exponential decay laws of light propagation in uniform media, i.e., the proportion of light passing through each cross-section layer. When facing the cross-section directly, light travels a short distance between two cross-section layers, so decay should be small and more transparent. When viewing angle to cross-section is large, distance between two cross-section layers is long, so decay should be large and more opaque.
+![Voxel cloud rendering: cross-section layer count increases from left to right](/img/render4d003.jpg)
+
+##### Supplement: Glasses-free 3D Rendering Technology
+Both 4DBlock and my Tesserxel support glasses-free 3D, displaying left and right images with slight differences to give pictures stereoscopic depth. As previously detailed in ["The 4D World (5): Experiencing 4D Vision and Sense of Direction"](/archives/eye3d/), the depth sense direction of 3D stereoscopic photos is the stereoscopic photo's depth, while the depth sense direction needed for cross-section images is the true front-back direction of the fourth dimension's distance from camera. These two types of glasses-free 3D are implemented differently.
+1. 3D stereoscopic photo depth sense: To obtain 3D stereoscopic photo depth sense, we need left and right cameras each offset by a certain horizontal distance. Since voxel photos are given, when rendering each cross-section projection onto canvas, we only need to draw the layered slices to be textured twice at different angles without re-rendering cross-sections. The additional drawing overhead can be said to be very small. (But actually Alpha blending overhead isn't small, this can't be avoided...)
+2. Single cross-section view depth sense: Since this is fourth-dimensional front-back depth, we need to set up two closely spaced cameras in the 4D scene. Does this mean we need to render all objects twice at two positions? Actually, although camera positions are offset, this offset is still within the same hyperplane cross-section (otherwise left and right eyes would see completely different things, unable to produce stereoscopic sense), so the intersected geometric data is the same. Therefore we can just give different offsets when finally outputting vertices. That is, **first doing cross-section then offset within cross-section** is equivalent to **first doing offset within cross-section then doing cross-section**. But this requires that cross-section calculation and final vertex output shader are two steps in the GPU's 4D cross-section rendering pipeline. Otherwise if these two steps can't be separated, there's no room for this optimization. For example, CodeParade's single vertex shader completes everything and has no room for this optimization. Also note that if back-face culling was done in the cross-section calculation stage, it's not suitable for this optimization, because after camera angle deviation, some faces may face one eye while backing the other.
+
+That's it for voxel/cross-section rendering. Now let's look at something completely different - non-voxel/cross-section rendering.
+
+### 2. Stereographic Projection Method
+Visualizing 4D graphics doesn't necessarily require calculating "real" light ray color information. For example, the well-known stereographic projection essentially projects graphics on a hypersphere - a curved 3D space - onto 3D space. It's essentially a mapping between 3D spaces, strictly speaking not involving 4D, so it's almost impossible to use for displaying complex "real" 4D scenes, generally only used for displaying 4D convex geometric objects.
+
+#### Rasterization Triangle-based Method
+With a bit of analytic geometry, it's easy to derive stereographic projection transformation formulas. The simplest method is to project 4D vertex coordinates on the hypersphere to 3D, nothing special. For example, the stereographic projection software Jenn3D. Two things to note:
+1. Since original models must have coordinates on the hypersphere, creating edges and vertices with certain thickness requires developers to be very familiar with spherical geometry.
+2. Since distortion increases closer to the north pole, it's recommended to dynamically increase polygon mesh subdivision near the north pole, otherwise you'll get the situation below.![Jenn3D screenshot: model precision decreases when edges pass through poles](/img/render4d006.jpg)
+
+#### Ray Tracing-based Method
+Stereographic projections from triangle methods become non-smooth due to mesh precision issues, while high-precision ray tracing can avoid this problem. For specific principles, see [this interactive webpage](https://syntopia.github.io/Polytopia/polytopes.html) and this Shadertoy example (click the image below to activate rendering, drag mouse left-right to select different regular polytopes):
 <img class="nofancybox" style="cursor: pointer" src="/img/render4d009.jpg" onclick="let IF= document.getElementById('if3');IF.style.display='block'; const tmpUrl = IF.src; IF.src = 'about:blank'; setTimeout(()=>{IF.src = tmpUrl;}, 300); $(this).hide(); " /><iframe style="display:none;margin: auto;" id="if3" width="640" height="360"  width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/XdfGW4?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 
-### 3.线框渲染
+### 3. Wireframe Rendering
 
-由于我们人类天生就没有能同时看到三维内部所有体素的三维视网膜的眼睛，体素渲染将带来很多颜色的重叠。线框渲染可大大降低重叠的像素，让人的理解难度降低（当然这只是某方面的降低，有得必有失），所以在四维计算机图形学领域，线框渲染反而比那些带体素颜色的渲染运用得更多，比如[4DBlock](http://www.urticator.net/blocks/)、[dearsip](https://github.com/dearsip)与[yugu233](https://space.bilibili.com/613069855)均采用该方法可视化四维物体。
-![yugu233（左）与dearsip（右）的四维图形线框显示器](/img/render4d004.jpg)
-单纯渲染线框没什么好说的：首先对顶点进行坐标变换至三维相机的感光超平面上，得到类似的体素图片中的坐标，然后再将三维坐标投影到二维后，再连接各端点画出线段。但这样的算法有两个大问题——还是那两个问题——视锥体裁剪与遮挡剔除。
-#### 视锥体裁剪
-由于要绘制的线段完全可能一端在相机前，一端在相机后，直接做透视投影中的透视除法将导致结果混乱。又由于不再采用光栅化方法绘制，这就要求我们要手动计算要绘制的线段与视锥体的交点，只保留相交部分。其实不只是前后，现在连上下左右侧前后也必须手动裁剪。
-#### 更棘手的问题——遮挡剔除
-![在没有深度缓冲的情况下必须手动计算蓝色线段被前方物体遮挡一分为二的端点坐标](/img/render4d007.png)
-由于现在是直接在最终的二维屏幕上绘制线条，不再分层渲染，我们也没法得到深度缓存来进行遮挡剔除。于是我们必须像光线跟踪那样来解析地计算线段和每个面的遮挡关系变化处的坐标。如何做到呢？将相机看作一盏灯，每个面（胞）后面的阴影区域即为它遮挡的区域，我们的任务就是算出线段与该区域的交集并剔除掉它们。这些区域都是由超平面围成的，求解交点并不复杂，难的是判断遮挡关系，这里介绍Block4d中的算法。
+Since we humans naturally don't have 3D retinal eyes that can simultaneously see all voxels inside 3D, voxel rendering brings lots of color overlap. Wireframe rendering can greatly reduce overlapping pixels, lowering comprehension difficulty (though this is only reduced in some aspects - there are always tradeoffs). So in the 4D computer graphics field, wireframe rendering is actually used more than voxel color rendering. For example, [4DBlock](http://www.urticator.net/blocks/), [dearsip](https://github.com/dearsip) and [yugu233](https://space.bilibili.com/613069855) all use this method to visualize 4D objects.
+![4D graphics wireframe displays by yugu233 (left) and dearsip (right)](/img/render4d004.jpg)
 
-对于一个$n$维凸多胞体的每个$n-1$维胞，首先通过法线判断从相机看过去是正面还是反面，然后对于凸多胞体的每条$n-2$维棱，看它是不是位于视线转角处，即看两侧的胞是否一个判断为正面另一个判断为反面。然后我们把相机与转角棱所在的超平面记录下来，再连同记录所有那些正面朝着相机的胞的超平面，我们就得到了一个无限大的锥形的遮挡区域，只要有线段位于该区域内就会被裁剪。![红色面为视线转角处的n-2维棱与相机所在超平面，蓝色为完全位于正面的棱，它们共同组成了锥形剔除区域](/img/render4d006.png)具体裁剪的思路很简单：遮挡区域是超平面围出来的，只有那些在所有超平面内侧的点才是内部点，换句话说，对于给定点，只要我们检测到它在某个超平面外，则它一定不会被裁剪。具体算法如下:
-首先前面准备好了一个储存围成锥形裁剪区域的超平面数组$P$，并且法线方向已经调整至统一指向外，然后设第一个端点A的位置为0，第二个端点B的位置为1，我们准备两个临时变量$a$与$b$用于储存线段上的裁剪位置，它们之间的区域视为遮挡区域：
-**左端点A(0)------a-----遮挡区域-----b------(1)右端点B**
-初始化$a=0$和$b=1$，此时代表线段被完全遮挡：
-**左端点A(0=a)---------遮挡区域--------(b=1)右端点B**
-下面我们将进入循环，对每个超平面检查线段的两个端点，逐步找到安全（即不会被遮挡剔除）的区间，慢慢压缩被裁剪的范围：
+There's not much to say about simply rendering wireframes: first transform vertices to coordinates on the 3D camera's photosensitive hyperplane, getting coordinates similar to those in voxel images, then project 3D coordinates to 2D, then connect endpoints to draw line segments. But this algorithm has two big problems - still those two problems - view frustum culling and occlusion culling.
+
+#### View Frustum Culling
+Since line segments to be drawn can completely have one end in front of the camera and one behind, directly doing perspective division in perspective projection will cause chaotic results. Also, since we're no longer using rasterization methods for drawing, this requires us to manually calculate intersections of line segments with the view frustum, keeping only intersecting parts. Actually not just front and back, now we must also manually clip top, bottom, left, right, front and back sides.
+
+#### The More Troublesome Problem - Occlusion Culling
+![Without depth buffer, we must manually calculate the endpoint coordinates where the blue line segment is split in two by foreground object occlusion](/img/render4d007.png)
+Since we're now drawing lines directly on the final 2D screen without layered rendering, we can't get depth buffer for occlusion culling. So we must analytically calculate coordinates where occlusion relationships between line segments and each face change, like ray tracing. How to do this? Treat the camera as a light, the shadow area behind each face (cell) is the area it occludes. Our task is to calculate the intersection of line segments with this area and cull them. These areas are all bounded by hyperplanes, solving intersections isn't complex. The hard part is determining occlusion relationships. Here I'll introduce the algorithm in Block4d.
+
+For each $n-1$ dimensional cell of an $n$-dimensional convex polytope, first determine by normal whether it's front-facing or back-facing from the camera's view. Then for each $n-2$ dimensional ridge of the convex polytope, see if it's at a viewing angle corner, i.e., whether the cells on both sides have one judged as front-facing and the other as back-facing. Then we record the hyperplane containing the camera and corner ridge, along with recording hyperplanes of all cells facing the camera front-on. We get an infinitely large conical occlusion region - any line segment within this region will be clipped.![Red faces are hyperplanes at n-2 dimensional ridges at viewing corners with camera, blue are ridges completely on front side, together forming conical culling region](/img/render4d006.png)The specific clipping idea is simple: the occlusion region is bounded by hyperplanes, only points inside all hyperplanes are interior points. In other words, for a given point, as long as we detect it's outside some hyperplane, it definitely won't be clipped. The specific algorithm is as follows:
+
+First prepare an array $P$ storing hyperplanes bounding the conical clipping region, with normals already adjusted to uniformly point outward. Then set the first endpoint A's position as 0, second endpoint B's position as 1. We prepare two temporary variables $a$ and $b$ to store clipping positions on the line segment, with the region between them considered the occlusion region:
+**Left endpoint A(0)------a-----occlusion region-----b------(1)Right endpoint B**
+Initialize $a=0$ and $b=1$, representing the line segment is completely occluded:
+**Left endpoint A(0=a)---------occlusion region--------(b=1)Right endpoint B**
+Below we enter a loop, checking the line segment's two endpoints for each hyperplane, gradually finding safe (i.e., not occluded) intervals, slowly compressing the clipped range:
 ```
-  对每个锥形裁剪区域的超平面数组P的超平面p执行循环:
-    计算端点A、B在平面p的哪侧；
-    若端点A、B均在平面p外：
-      直接确定整条线段未被遮挡，算法结束；
-    若端点A在平面外、端点B在平面p内：
-      计算线段与平面交点的位置x；
-      若x>a则将a的至更新为x；（扩大确定不会被遮挡剔除的安全区间）
-    若端点B在平面外、端点A在平面p内：
-      计算线段与平面交点的位置x；
-      若x<b则将b的至更新为x；（扩大确定不会被遮挡剔除的安全区间）
+  For each hyperplane p in the conical clipping region's hyperplane array P:
+    Calculate which side of plane p endpoints A, B are on;
+    If endpoints A, B are both outside plane p:
+      Directly determine entire line segment is not occluded, algorithm ends;
+    If endpoint A is outside plane, endpoint B inside plane p:
+      Calculate intersection position x of line segment with plane;
+      If x>a then update a to x; (Expand the safe interval confirmed not to be occluded)
+    If endpoint B is outside plane, endpoint A inside plane p:
+      Calculate intersection position x of line segment with plane;
+      If x<b then update b to x; (Expand the safe interval confirmed not to be occluded)
 ```
-注意上面代码看似循环中有三种情况，其实隐含第四种：若两个端点完全位于超平面内，则此时没有任何有效信息，这种情况什么都不用做，只需继续循环，所以没有写出。
+Note the above code seems to have three cases in the loop, but there's an implicit fourth: if both endpoints are completely inside the hyperplane, there's no valid information. In this case nothing needs to be done, just continue the loop, so it's not written out.
 
-看似我们已经全美解决问题，但其实还有个情况，那就是当相机进入到多胞体内部时，如果想要实现下图那样的剔除，上面的算法就不再适用（此时超平面数组P为空集），此时剔除的部分刚好反过来变成了外部，算法也相应做出调整：<a name="1clip2-figure"></a>
-<img alt="相机位于多胞体内部要剔除外部部分，如蓝色线条" src="/img/render4d005.png" style="width:100%;max-width:400px">
+It seems we've perfectly solved the problem, but there's actually another case: when the camera enters inside the polytope, if we want to implement culling like in the image below, the above algorithm no longer applies (at this time hyperplane array P is empty). The culled part now reverses to become the exterior, and the algorithm adjusts accordingly:<a name="1clip2-figure"></a>
+<img alt="Camera inside polytope needs to cull exterior parts, like blue lines" src="/img/render4d005.png" style="width:100%;max-width:400px">
 
-还是准备两个临时变量$a$与$b$用于储存线段上的裁剪位置，但现在中间的区域变成了没被遮挡的安全区域：
-**左端点A(0)-----遮挡区域-----a--------b-----遮挡区域-----(1)右端点B**
-还是初始化$a=0$和$b=1$，但此时却代表线段完全没有被遮挡：
-**左端点A(0=a)------------------(b=1)右端点B**
-下面我们将进入循环，对每个超平面检查线段的两个端点，逐步找到要剔除的区间，慢慢压缩安全的范围：
+Still prepare two temporary variables $a$ and $b$ to store clipping positions on the line segment, but now the middle region becomes the safe unoccluded region:
+**Left endpoint A(0)-----occlusion region-----a--------b-----occlusion region-----(1)Right endpoint B**
+Still initialize $a=0$ and $b=1$, but now it represents the line segment is completely unoccluded:
+**Left endpoint A(0=a)------------------(b=1)Right endpoint B**
+Below we enter a loop, checking the line segment's two endpoints for each hyperplane, gradually finding regions to cull, slowly compressing the safe range:
 ```
-  对每个锥形裁剪区域的超平面数组P的超平面p执行循环:
-    计算端点A、B在平面p的哪侧；
-    若端点A、B均在平面p外：
-      直接确定整条线完全被遮挡，算法结束；
-    若端点A在平面外、端点B在平面p内：
-      计算线段与平面交点的位置x；
-      若x<b则将b的至更新为x；（扩大剔除区间）
-    若端点B在平面外、端点A在平面p内：
-      计算线段与平面交点的位置x；
-      若x>a则将a的至更新为x；（扩大剔除区间）
+  For each hyperplane p in the conical clipping region's hyperplane array P:
+    Calculate which side of plane p endpoints A, B are on;
+    If endpoints A, B are both outside plane p:
+      Directly determine entire line is completely occluded, algorithm ends;
+    If endpoint A is outside plane, endpoint B inside plane p:
+      Calculate intersection position x of line segment with plane;
+      If x<b then update b to x; (Expand culling region)
+    If endpoint B is outside plane, endpoint A inside plane p:
+      Calculate intersection position x of line segment with plane;
+      If x>a then update a to x; (Expand culling region)
 ```
 
-对于场景中有多个物体的场景，我们需要在上次剔除剩下的线段之上继续进行剔除，注意相机在外部时$0 < a < b < 1$的情况对应线段剔除了中间部分被一分为二(参考[遮挡剔除这一节的第一章图片中的蓝色线段](/archives/cg4d/#1clip2-figure))，它将视为两条线段参与下一轮被其余胞遮挡剔除。最后还有个小细节：那就是为了绘制多胞体表面的棱时不要被浮点数误差误剔除，多胞体的待剔除面可以向内部缩进去一个很小的值。
+For scenes with multiple objects, we need to continue culling on line segments remaining after previous culling. Note when the camera is outside, the case $0 < a < b < 1$ corresponds to the line segment being split in two with the middle part culled (refer to [the blue line segment in the first image of the occlusion culling section](/archives/cg4d/#1clip2-figure)). It's treated as two line segments participating in the next round of occlusion culling by other cells. Finally, there's a small detail: to avoid floating point errors when drawing polytope surface ridges, the polytope's faces to be culled can be shrunk inward by a very small value.
 
-以上就是线段与一个凸多胞体的剔除流程了。然而线框渲染的复杂剔除逻辑导致它能够在CPU上很好实现却难以移植到GPU中，目前我还没发现有并行化的算法，不过还是可以上一些分层的数据结构(如包围盒等)做些有限的优化。值得一提的是，dearsip还实现了三维胞对二维面的遮挡剔除，他的场景里多数都是跟坐标轴对齐的超立方体，在这个条件限制下二维面的遮挡剔除还是比较容易的，但如果要对任意形状的二维面做剔除其实是一件很复杂的事。我还没研究他的源码，不知道他是怎样实现的，等我搞懂后再补充吧。如果读者还知道其它的四维可视化方法并对其绘制原理感兴趣的，欢迎探讨。
+That's the culling process for line segments with one convex polytope. However, the complex culling logic of wireframe rendering makes it well-implemented on CPU but difficult to port to GPU. I haven't found parallelized algorithms yet, though some limited optimization can still be done with hierarchical data structures (like bounding boxes). Worth mentioning, dearsip also implemented 3D cell occlusion culling of 2D faces. Most objects in his scenes are axis-aligned hypercubes. Under this constraint, 2D face occlusion culling is relatively easy, but culling arbitrary-shaped 2D faces is actually very complex. I haven't studied his source code yet, don't know how he implemented it. I'll supplement when I figure it out. If readers know other 4D visualization methods and are interested in their rendering principles, welcome to discuss.
