@@ -3,7 +3,7 @@ title: Tutorial of Tesserxel Examples
 ---
 ![Screenshots of Tesserxel Examples](/img/tsx005.jpg)
 ## Start Tesserxel Examples
-[Click this link to enter Tesserxel Examples](/tesserxel/examples/?en). Playing on Mobile phone is not recommended for controlling reasons. If you see "Oops, your browser doesn't support WebGPU", you may try another browser. Google Chrome (PC version above 113) is all you need to run tesserxel. 
+[Click this link to enter Tesserxel Examples](https://wxyhly.github.io/tesserxel/examples/?en). Playing on Mobile phone is not recommended for controlling reasons. If you see "Oops, your browser doesn't support WebGPU", you may try another browser. Google Chrome (PC version above 113) is all you need to run tesserxel. 
 ## 3D retina and controls
 Tesserxel is the next brand new generation of my old project "4D Viewer". You should firstly read [Tutorial for 4D Viewer](/programs/4dviewertutorial_en) to learn concepts for "3D retina" and basic 4D direction. Since many operations in Tesserxel are the same as the original old engine "4D Viewer", Here is no repeated description of the camera movement rotation and 4D direction control. This article focuses on the related operations of the 3d photo(retina) rendering settings, and lists common camera control shortcuts.
 ![  Press keys for Red functions. Press keys while Holding ALT key for Blue functions.](/img/tsx006.png)

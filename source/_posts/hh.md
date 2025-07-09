@@ -207,7 +207,7 @@ Getting intense now. Through various techniques (using orthogonality conditions 
 <tr><td>3</td> <td></td> <td></td> <td></td> <td>$y^3-$$3x^2y$</td> <td></td> <td></td> <td></td></tr>
 </table></div>
 
-Can't intuitively imagine these function shapes from the expressions? I've prepared [a corresponding scene in Tesserxel](/tesserxel/examples/#hh). With display axes enabled, the scene marks where the <span style="color:green">x</span>, <span style="color:red">y</span>, <span style="color:blue">z</span>, <span style="color:purple">w</span> axes pierce the hypersphere with colors.
+Can't intuitively imagine these function shapes from the expressions? I've prepared [a corresponding scene in Tesserxel](https://wxyhly.github.io/tesserxel/examples/#hh). With display axes enabled, the scene marks where the <span style="color:green">x</span>, <span style="color:red">y</span>, <span style="color:blue">z</span>, <span style="color:purple">w</span> axes pierce the hypersphere with colors.
 
 ![Hyperspherical harmonics scene in Tesserxel](/img/chemie005.jpg)<a name="spin"></a>
 

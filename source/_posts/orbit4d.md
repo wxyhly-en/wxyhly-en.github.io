@@ -55,7 +55,7 @@ Next we'll explore the planet's magnetic field and 4D people's compasses. But si
 ## Update 2023
 
 Along with the electromagnetic fields mentioned above, I created an interactive 4D planetary scene where you can dynamically observe the sun's movement patterns on this planet and navigate with a compass:
-- [Click here to run](/tesserxel/examples/#navigation)
+- [Click here to run](https://wxyhly.github.io/tesserxel/examples/#navigation)
 - If it doesn't open, please refer to [this tutorial](/archives/tesserxel-hello/).
 <img style="max-width:500px" src="/img/tsx002.jpg" width="100%" alt="2023 Update: 4D planetary scene in Tesserxel engine example library, with solar altitude angle variation curve below"/>
 

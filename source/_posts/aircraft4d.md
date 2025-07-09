@@ -18,11 +18,11 @@ What would aircraft structures look like in a four-dimensional world? In this ar
 - 4D Fans
   + Double rotation Hopf fans?
 - Quadcopter Analogy
-  + [4D Drone Simulator (open with PC Chrome browser)](/tesserxel/examples/#drone)
+  + [4D Drone Simulator (open with PC Chrome browser)](https://wxyhly.github.io/tesserxel/examples/#drone)
 - 4D Airliner
   + 4D aircraft attitude terminology
   + Window, seat, wing, engine, landing gear, stabilizer, control surface design
-  + [4D Airliner Flight Simulator (open with PC Chrome browser)](/tesserxel/examples/#aircraft)
+  + [4D Airliner Flight Simulator (open with PC Chrome browser)](https://wxyhly.github.io/tesserxel/examples/#aircraft)
 
 <!--more-->
 
@@ -69,7 +69,7 @@ A quadcopter is a cross-shaped frame with four propellers at the ends. By proper
 
 ![Principle of drone rightward acceleration/leftward deceleration](/img/aircraft007.svg)
 
-As you can imagine, manually controlling individual motor speeds to tilt the aircraft for translation makes stable flight very difficult (you can try this in my [4D drone simulator](/tesserxel/examples/#drone) without auto mode enabled). Generally, automatic control technology uses negative feedback to increase stability, and pilots don't directly control propeller motor speeds but rather aircraft tilt angles or even direct aircraft velocity target values, with control systems automatically adjusting motor outputs to achieve preset values. Both 3D and the 4D aircraft we'll design need automatic control systems with roughly similar principles - we won't elaborate further.
+As you can imagine, manually controlling individual motor speeds to tilt the aircraft for translation makes stable flight very difficult (you can try this in my [4D drone simulator](https://wxyhly.github.io/tesserxel/examples/#drone) without auto mode enabled). Generally, automatic control technology uses negative feedback to increase stability, and pilots don't directly control propeller motor speeds but rather aircraft tilt angles or even direct aircraft velocity target values, with control systems automatically adjusting motor outputs to achieve preset values. Both 3D and the 4D aircraft we'll design need automatic control systems with roughly similar principles - we won't elaborate further.
 
 Let's look at horizontal rotation attitude control. Note that propeller rotation reaction forces cause the aircraft to rotate in the opposite direction (reaction torque), so engineers deliberately design two propellers to rotate clockwise and the other two counterclockwise to prevent the aircraft from spinning immediately upon takeoff. If we want deliberate aircraft rotation, we just adjust speed differences between sides. This reaction torque exists for all propeller aircraft: for example, if a helicopter only has the top "big fan" rotating, the entire fuselage experiences reaction forces and starts spinning madly. To counteract rotation, engineers add tail rotors to helicopters, applying opposite torque to cancel rotation.
 
@@ -108,7 +108,7 @@ If you still find counter-rotation unfavorable, you can also consider spreading 
 
 This is the second typical 4D aircraft design scheme, where each propeller blade's rotation plane forms a 45-degree angle with its connecting axis. Feel free to comment if you come up with other more elegant design ideas!
 
-Tesserxel engine's examples includes a quadcopter simulation scene using typical scheme 1. [Link here](/tesserxel/examples/#drone). You can try the operation hints in the left sidebar first, with detailed gameplay tutorials coming later.
+Tesserxel engine's examples includes a quadcopter simulation scene using typical scheme 1. [Link here](https://wxyhly.github.io/tesserxel/examples/#drone). You can try the operation hints in the left sidebar first, with detailed gameplay tutorials coming later.
 
 ## 4D Airliner
 
@@ -263,4 +263,4 @@ With three controllable rudders but only two yaw angle degrees of freedom, is th
 <img style="width:100%;max-width:500px" src="/img/aircraft021.jpg" alt="Rudder deflection during spin"/>
 
 ## Conclusion
-Here, we've shown the design schemes for all main components of 4D aircraft. While we showed 4D aircraft top and front views, side view of 4D aircraft is never showed - we'll leave this as an exercise for readers. The answer can be found in Tesserxel's 4D aircraft scene, with [link here](/tesserxel/examples/#aircraft). By the way, Tesserxel's 4D aircraft scene lets you control 4D aircraft taxi, takeoff, and landing (providing several different difficulty runway directions for landing practice). [The next article](/archives/tesserxel-flightsim/) will introduce specific operation tutorials for 4d aircraft and drone. We'll also reveal 4D aircraft's four-view and six-view drawings.
+Here, we've shown the design schemes for all main components of 4D aircraft. While we showed 4D aircraft top and front views, side view of 4D aircraft is never showed - we'll leave this as an exercise for readers. The answer can be found in Tesserxel's 4D aircraft scene, with [link here](https://wxyhly.github.io/tesserxel/examples/#aircraft). By the way, Tesserxel's 4D aircraft scene lets you control 4D aircraft taxi, takeoff, and landing (providing several different difficulty runway directions for landing practice). [The next article](/archives/tesserxel-flightsim/) will introduce specific operation tutorials for 4d aircraft and drone. We'll also reveal 4D aircraft's four-view and six-view drawings.

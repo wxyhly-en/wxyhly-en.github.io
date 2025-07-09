@@ -66,7 +66,7 @@ Thus, we've combined two compasses into one. The analogized compass is very perf
 ### Simulation of 4D Planetary Geomagnetic Field and Compass
 
 I've created an interactive 4D planetary scene where you can dynamically observe the sun's movement patterns on this planet while navigating with a compass:
-- [Click here to run](/tesserxel/examples/#navigation)
+- [Click here to run](https://wxyhly.github.io/tesserxel/examples/#navigation)
 - If it doesn't open, please refer to [this tutorial](/archives/tesserxel-hello/).
 <img style="max-width:500px" width="100%" src="/img/tsx002.jpg" alt="Updated April 16, 2023: 4D planetary scene in the Tesserxel engine example library, with solar altitude variation curve below"/>
 

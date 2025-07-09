@@ -32,7 +32,7 @@ Is this design perfect? If we run trains like this now, the consequences would b
 ![Track cross-cell and top view (the top view doesn't show the track base for better observation of the flange)](/img/rail404.png)
 
 ##### December 2023 Update
-The Tesserxel engine has created a railway train scene, [click here for the link](/tesserxel/examples/#rails::rail1d), [click here for the tutorial](/archives/tesserxel-flightsim/).
+The Tesserxel engine has created a railway train scene, [click here for the link](https://wxyhly.github.io/tesserxel/examples/#rails::rail1d), [click here for the tutorial](/archives/tesserxel-flightsim/).
 
 ### Switches
 Now let's talk about switches. Many people might not even understand the switch system of railways in the three-dimensional world. Its principle is simple, and because it's simple, we have the ability to extend it to four dimensions. Here's an animated demonstration from Wikipedia:
@@ -57,6 +57,6 @@ The planar track restricts rotation and steering perpendicular to the track, gre
 ![An arbitrarily curved two-dimensional track (top view)](/img/rail406.jpg)
 
 **December 2023 Update**
-The Tesserxel engine has created a two-dimensional railway car-train scene, [click here for the link](/tesserxel/examples/#rails::rail2d), [click here for the tutorial](/archives/tesserxel-flightsim/).
+The Tesserxel engine has created a two-dimensional railway car-train scene, [click here for the link](https://wxyhly.github.io/tesserxel/examples/#rails::rail2d), [click here for the tutorial](/archives/tesserxel-flightsim/).
 
 All our previous discussions have assumed that the three-dimensional ground is flat. However, roads will have upward and downward slopes when leaving the plains, making them even harder to understand without four-dimensional eyes. Let's end our discussion of transportation here.
