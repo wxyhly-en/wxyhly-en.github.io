@@ -27,7 +27,7 @@ date: 2016-04-23 20:15:09
  <!--more-->
 
 ### Solids of Revolution
-In the previous article, we saw direct product shapes like the bicylinder and some analogues of tori. They were filled with many "circular" things, and circles generally come from rotation. Let's look at those familiar and unfamiliar geometric shapes in four-dimensional space from the perspective of solids of revolution.
+In the previous article, we saw direct product shapes like the duocylinder and some analogues of tori. They were filled with many "circular" things, and circles generally come from rotation. Let's look at those familiar and unfamiliar geometric shapes in four-dimensional space from the perspective of solids of revolution.
 ##### Cylindrical Prism as a Solid of Revolution
 　　Everyone knows that a rectangle rotated around one edge produces a cylinder, so what can produce a cylindrical prism by rotation? Let's analyze a cylinder: its base is a circle, which of course comes from a line segment rotating around an endpoint, while the cylinder "stretches" the line segment into a rectangle and "stretches" the rotation point into a rotation axis. So the cylindrical prism is an upgraded rectangle, "stretched" into a rectangular box, rotating around a face.
 ##### What if the face is slightly farther away?
@@ -46,7 +46,7 @@ Here's the case of a cylinder rotating around its base:
 
 </td></tr></table>
 
-Look, the cross-section animation on the right shows that this geometric shape is a **bicylinder**! Other cases of choosing rotation planes are left for you to think about; I'll publish the answers at the end of the article.
+Look, the cross-section animation on the right shows that this geometric shape is a **duocylinder**! Other cases of choosing rotation planes are left for you to think about; I'll publish the answers at the end of the article.
 　　A sphere rotating around a plane outside it produces a **spheritorus**, which is the most primitive **definition** of a spheritorus, while a sphere rotating around a plane through its center produces a hypersphere (think about the case of a circle and it's not hard to understand). Why not let the sphere rotate around a plane that doesn't pass through the center but intersects the sphere? Because this shape is self-intersecting (again think about the circle case - that thing looks like an apple), and I don't consider self-intersecting shapes to be well-formed.
 ##### Rotating Tori
 　　I have four relatively "proper" (not oblique) choices for rotation planes: two types that don't intersect the torus itself were discussed last time, and there are two more special position planes:
@@ -142,7 +142,7 @@ Let's specifically introduce the unfamiliar shapes:
 
 - Spherical cone: It's also an **axially symmetric** (spherically symmetric) figure. Its cross-section animation perpendicular to the axis is a sphere uniformly shrinking to a point then uniformly expanding. The **light cone** in relativity is a spherical cone! (The uniformly expanding sphere corresponds to the expansion of the observable universe, with the sphere's volume being the Hubble volume) Our theme is space, not spacetime, so we won't expand on this.
 
-- "Direct product" double cone: This figure is somewhat abstract, but manageable. Look at its standard equation: $x^2+y^2=z^2+w^2$. Does it feel familiar? If I set $x^2+y^2=z^2+w^2=1$, this is the equation of the intersection of two hypersurfaces of a bicylinder. That is, the "direct product" double cone intersects with a hypersphere, and the intersection projected down is that toroidal surface! It's highly symmetric: it has symmetry planes $xy$, $zw$, and actually all planes at equal angles to $xy$, $zw$ are symmetry planes. But cross-section animations can't give us more information.
+- "Direct product" double cone: This figure is somewhat abstract, but manageable. Look at its standard equation: $x^2+y^2=z^2+w^2$. Does it feel familiar? If I set $x^2+y^2=z^2+w^2=1$, this is the equation of the intersection of two hypersurfaces of a duocylinder. That is, the "direct product" double cone intersects with a hypersphere, and the intersection projected down is that toroidal surface! It's highly symmetric: it has symmetry planes $xy$, $zw$, and actually all planes at equal angles to $xy$, $zw$ are symmetry planes. But cross-section animations can't give us more information.
 
 - "Direct product" hyperboloid: This figure is more abstract, but the "direct product" double cone is definitely the "asymptotic 3D surface" of the "direct product" hyperboloid (when the constant of the direct product hyperboloid approaches 0, we get the "asymptotic 3D surface" - think of the asymptotes of a hyperbola and the asymptotic cone of a hyperboloid). But cross-section animations also can't give us more information. Welcome suggestions for better visualization methods.
 
