@@ -1,83 +1,124 @@
 ---
-title: 双曲空间——数学艺术
+title: Hyperbolic Space - Mathematical Art
 tags:
-  - 几何
-  - 图形
-  - 数学
+  - geometry
+  - graphics
+  - mathematics
   - javascript
-  - 双曲空间
+  - hyperbolic space
 date: 2016-06-26 13:05:51
 ---
 
 <div style="float:right">
 
-![来自英文维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hyperbolic_tiling_omnitruncated_3-7.png/220px-Hyperbolic_tiling_omnitruncated_3-7.png)
+![From English Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hyperbolic_tiling_omnitruncated_3-7.png/220px-Hyperbolic_tiling_omnitruncated_3-7.png)
 
 </div>
 <div style="width:300px">
 
-![《维度数学漫步》第二集截图](/img/josleys1.jpg)
+![Screenshot from "Dimensions: A walk through mathematics" Episode 2](/img/josleys1.jpg)
 
 </div>
 
-在前面讲解《维度数学漫步》的[系列文章](/categories/四维空间系列/)中，我曾经提到过影片中出现的一个圆盘图案，它是《维度数学漫步》第二集《三维空间》中的那个房间里的装饰。这一集的讲述者是**埃舍尔**（Escher），那个圆盘图案和那些蜥蜴都是他的作品。影片着重讲述的是那些二维蜥蜴的一只从他的画里面逃出来，它该如何向它的二维同伴们解释三维空间存在的故事。而那个作为装饰的圆盘图案只是一晃而过，其实这个图案和四维空间一样精彩：它就是**双曲空间**中的双曲镶嵌。
-网上能搜到很多关于埃舍尔的这些画，但里面具体的数学内容却几乎没有提及到。下面我们就主要说说双曲镶嵌的数学含义，然后我们自己怎么来画一幅这样的画——用电脑画——[在线演示在这里！(附双曲镶嵌版熊猫表情！)](/archives/escher1/#demo)，当然你足够NB也可以像埃舍尔那样手绘！<!--more-->
-### 双曲几何、欧氏几何与球面几何
-这三个概念应该是最普及，网上介绍得最多的了。它们来源于欧几里得的《几何原本》提出的第五条公设，即**过直线外一点有且只有一条直线与已知直线平行**。第五条公设如果成立就是经典的欧氏几何（比如初高中的平面几何、立体几何），第五条公设不成立的最好理解的例子就是**球面几何**。球面上的直线就是过球心的大圆（因为球面上连接两点的最短线路是大圆的一段劣弧），任意两个不重合的大圆都会至少交于两点，即不存在两条直线平行。双曲空间相反，说的是**过直线外一点有无数条直线与已知直线平行**，这里平行即指不相交。为什么要叫“双曲”空间呢？因为它是双曲面上的几何。但这个双曲面上度量长度的方式是很怪的，是**闵可夫斯基空间**的度量（对！就是四维时空的度量方式！）。这种度量下的双曲面就是到顶点距离为定长的点的集合！闵可夫斯基空间中的生物（如果有的话）会认为双曲面是最完美的几何体！所以我们不会太习惯这个模型。
-### 庞加莱共形圆盘模型
-![来源：英文维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/HyperboloidProjection.png/220px-HyperboloidProjection.png)
-就像球面几何一样我们可以用**球极投影**（还记得球极投影吗？《维度》第一集就讲的它）来展示这个球面，双曲几何也能把双曲面投影到平面上来展示，但与球极投影不同的是双曲几何平面上的投影只在一个圆中。埃舍尔的那个圆盘正是庞加莱共形圆盘模型。
-![josleys网站上的讲座视频截图](/img/josleys2.jpg)
-你可呢会说这个模型这么丑，居然周围的图案都拉长了，没有保角性。但其实它是有保角性的！只不过这里的角是闵可夫斯基空间中的**双曲角**！双曲角你可能不知道是啥，但双曲函数我想应该不陌生吧。
-当我们用广角镜头调整角度看整个双曲面。直到一个特殊的角度时，整个双曲面看上去就是一个圆了。即从一点投影（类似球极投影的北极点）：
-![josleys网站上的讲座视频截图](/img/josleys3.jpg)
-![共形圆盘模型](http://www.josleys.com/htmlgalleries/Escher_hyp/Escher_circle_limit_4.jpg)
-注意与球极投影一样，投影是**保角（共形）**的，但这个投影“吞并”了反映闵可夫斯基空间的特殊方向，所以得到的圆盘中的角不再是双曲角，所以我们才能能明显看到角度相等。但投影会改变图形的大小，也就是说其实这些图形的大小都是一样的，只不过投影让我们看到越接近圆盘的边缘物体看起来的大小越小。（想想生活中的透视投影：近大远小）所以这个单位圆盘其实是一个无限大的世界！这不难理解，因为它是双曲面的投影，而后者就是无限大的；而球面几何则是一个有限的封闭空间上的几何。它们的本质都是一种弯曲的空间。
-以后我们就研究这个圆盘中的几何学。这个空间中的直线是与圆盘正交的圆弧，可以看出过一点能作无穷条直线与之平行。![来源：英文维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Poincare_disc_hyperbolic_parallel_lines.svg/300px-Poincare_disc_hyperbolic_parallel_lines.svg.png)
-### 双曲房间
-一个单独的一无所有的空间是没意思的，不能可视化这个空间。所以我们可以用镶嵌（密铺）的方法，用多边形密铺整个双曲空间。**平铺的结果**就是你看到的埃舍尔的画。当然这个世界的多边形的边都是双曲空间中的直线段，即圆弧。
-《维度》制作人之一josleys网站上的一篇文章《[Hyperbolic Chamber](http://www.josleys.com/article_show.php?id=83)》给了一种可视化双曲空间的生物在他们的世界里看到的情景：把多边形的边换成镜子（镜子当然是圆弧的），然后人站在里面就可以近似地体验弯曲的双曲空间了。![图片来自www.josleys.com](http://www.josleys.com/articles/hyperbolic/Hyperbolic04C.png)
-![图片来自www.josleys.com](http://www.josleys.com/articles/hyperbolic/Hyperbolic02C.jpg)
-当然，有二维的双曲空间就自然有三维的、四维的……三维的双曲镶嵌可视化也能用这种房间。更多图片请访问[josleys的文章](http://www.josleys.com/article_show.php?id=83)。
-双曲空间和球面空间都是有常曲率的，所以没有缩放不变性，因此除了全等，你找不到两个相似的三角形。
-看到这里我们大概会有种疑惑，那就是到底有几种正多边形双曲镶嵌？如果我们要构造一个镶嵌满足：n边形、每个顶点发出p条边，则必须要有：
+In my previous series of articles explaining ["Dimensions: A walk through mathematics"](/categories/四维空间系列/), I mentioned a circular disk pattern that appeared in the film. It was a decoration in the room from Episode 2 "Three-dimensional space" of "Dimensions: A walk through mathematics." The narrator of this episode is **Escher**, and both the circular disk pattern and those lizards are his works. The film focuses on telling the story of how one of those two-dimensional lizards escapes from his painting and how it should explain the existence of three-dimensional space to its two-dimensional companions. That circular disk pattern used as decoration only flashes by briefly, but actually this pattern is as fascinating as four-dimensional space: it is **hyperbolic tessellation** in **hyperbolic space**.
+
+You can find many of Escher's paintings online, but the specific mathematical content within them is rarely mentioned. Below we'll mainly discuss the mathematical meaning of hyperbolic tessellation, and then how we can draw such a painting ourselves - using a computer - [online demo here! (including hyperbolic tessellation panda emoji!)](/archives/escher1/#demo). Of course, if you're skilled enough, you can also hand-draw like Escher did!<!--more-->
+
+### Hyperbolic Geometry, Euclidean Geometry, and Spherical Geometry
+
+These three concepts should be the most widespread and most introduced online. They originate from the fifth postulate proposed in Euclid's "Elements": **through a point not on a line, there is exactly one line parallel to the given line**. If the fifth postulate holds, we get classical Euclidean geometry (like plane geometry and solid geometry in middle and high school). The most understandable example of when the fifth postulate doesn't hold is **spherical geometry**. Lines on a sphere are great circles passing through the sphere's center (because the shortest path connecting two points on a sphere is an arc of a great circle), and any two non-coincident great circles will intersect at least at two points, meaning no two lines are parallel. Hyperbolic space is the opposite, stating that **through a point not on a line, there are infinitely many lines parallel to the given line**, where parallel means non-intersecting. Why is it called "hyperbolic" space? Because it's geometry on a hyperboloid. But the way of measuring distances on this hyperboloid is very strange - it's the metric of **Minkowski space** (yes! the same metric used in four-dimensional spacetime!). Under this metric, the hyperboloid is the set of points at a constant distance from the vertex! Beings in Minkowski space (if there were any) would consider the hyperboloid the most perfect geometric body! So we're not very accustomed to this model.
+
+### Poincaré Conformal Disk Model
+
+![Source: English Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/HyperboloidProjection.png/220px-HyperboloidProjection.png)
+
+Just as we can use **stereographic projection** (remember stereographic projection? Episode 1 of "Dimensions" talked about it) to display spherical geometry, hyperbolic geometry can also project the hyperboloid onto a plane for display. But unlike stereographic projection, the projection of hyperbolic geometry on the plane is confined within a circle. Escher's circular disk is precisely the Poincaré conformal disk model.
+
+![Screenshot from lecture video on josleys website](/img/josleys2.jpg)
+
+You might say this model looks ugly, with all the surrounding patterns stretched, lacking conformal properties. But it actually is conformal! It's just that the angles here are **hyperbolic angles** in Minkowski space! You might not know what hyperbolic angles are, but I think you should be familiar with hyperbolic functions.
+
+When we use a wide-angle lens to adjust the angle to view the entire hyperboloid, at a special angle, the entire hyperboloid appears as a circle. That is, projecting from one point (similar to the north pole in stereographic projection):
+
+![Screenshot from lecture video on josleys website](/img/josleys3.jpg)
+![Conformal disk model](http://www.josleys.com/htmlgalleries/Escher_hyp/Escher_circle_limit_4.jpg)
+
+Note that like stereographic projection, the projection is **angle-preserving (conformal)**, but this projection "swallows" the special direction reflecting Minkowski space, so the angles in the resulting disk are no longer hyperbolic angles, which is why we can clearly see equal angles. But projection changes the size of figures, meaning these figures are actually all the same size, but the projection makes objects appear smaller the closer they are to the edge of the disk. (Think of perspective projection in life: near large, far small) So this unit disk is actually an infinitely large world! This isn't hard to understand, because it's a projection of a hyperboloid, which is infinitely large; while spherical geometry is geometry on a finite closed space. Their essence is a kind of curved space.
+
+From now on, we'll study the geometry within this disk. Lines in this space are circular arcs orthogonal to the disk, and you can see that through one point, infinitely many lines can be drawn parallel to it. ![Source: English Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Poincare_disc_hyperbolic_parallel_lines.svg/300px-Poincare_disc_hyperbolic_parallel_lines.svg.png)
+
+### Hyperbolic Room
+
+A single empty space is uninteresting and cannot visualize the space. So we can use the method of tessellation (tiling) to tile the entire hyperbolic space with polygons. **The result of tiling** is what you see in Escher's paintings. Of course, the edges of polygons in this world are all line segments in hyperbolic space, i.e., circular arcs.
+
+An article "[Hyperbolic Chamber](http://www.josleys.com/article_show.php?id=83)" on the website of josleys, one of the creators of "Dimensions," provides a way to visualize what beings in hyperbolic space see in their world: replace the edges of polygons with mirrors (mirrors are naturally circular arcs), and then a person standing inside can approximately experience the curved hyperbolic space. ![Image from www.josleys.com](http://www.josleys.com/articles/hyperbolic/Hyperbolic04C.png)
+![Image from www.josleys.com](http://www.josleys.com/articles/hyperbolic/Hyperbolic02C.jpg)
+
+Of course, with two-dimensional hyperbolic space, there naturally comes three-dimensional, four-dimensional... Three-dimensional hyperbolic tessellation visualization can also use this kind of room. For more images, please visit [josleys' article](http://www.josleys.com/article_show.php?id=83).
+
+Both hyperbolic space and spherical space have constant curvature, so they lack scale invariance. Therefore, except for congruence, you cannot find two similar triangles.
+
+Looking at this, we might have a doubt: exactly how many types of regular polygon hyperbolic tessellations are there? If we want to construct a tessellation satisfying: n-sided polygons, with p edges emanating from each vertex, then we must have:
 $$\frac{1}{n}+\frac{1}{p}<\frac{1}{2}$$
-如果等于1/2就是传统平面上的欧几里得镶嵌了，如果大于1/2则是球面镶嵌。球面镶嵌又是啥？球面正多边形镶嵌只有五种，对应五个正多面体！正多面体的本质就是**正多边形球面镶嵌**！所以正多胞体的本质是超球表面的正多面体镶嵌！有正多面体就有半正多面体（多种正多边形为面的凸多面体），所以双曲空间还有多种正多边形的复合镶嵌……
-根据前面的式子可得出答案正多边形双曲镶嵌有无穷多种，最牛的是双曲空间中允许正无穷边形的存在！（注意这里的正无穷边形不是圆）如果你愿意你还能让每个顶点发出无穷条棱！
-![h{∞,∞} - 来自维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/H2_tiling_iii-1.png/600px-H2_tiling_iii-1.png)
-这里我们可以看到球面几何空间是一个有限封闭的空间，而欧几里得平面几何和双曲几何空间都是无限大的空间，而且在某种意义上双曲几何空间比平面几何空间更大。
-### 莫比乌斯变换
-还记得《复数（上）》讲分形前用照片做共形变换吗？其中复反演变换z->1/z是最精彩最好玩的变换之一。你有没有想过把自己（或你想恶搞的人）的照片放在复平面上变变形呢？我们把复数域中的一次分式变换$(az+b)/(cz+d)$叫莫比乌斯变换。（莫比乌斯变换跟莫比乌斯带又是啥关系???）
-- 我们的欧几里得二维空间中的平移、旋转缩放都是莫比乌斯变换。
-- 如果我们认为球极投影投到了复平面上的话，那么滚动球体复平面上投影的变换就是一种特殊的莫比乌斯变换。特别的把南北极颠倒正对应变换z->1/z！
-- 如果我们认为庞加莱圆盘模型对应复平面上的单位圆，则在双曲空间中的平移、旋转、反演等变换都是莫比乌斯变换。
 
-那你可能会问，三维的双曲空间、球面（其实是四维超球面）空间上的变换由该用什么表示？答案是四元数的莫比乌斯变换！四元数是复数的四维推广。（因为三元数无法推广，所以三维空间也要用四元数表示，多余的维度可以一直置0）
-有了莫比乌斯变换我们就能用计算机方便画出这些双曲正多边形镶嵌了。方法是先计算出中央双曲正多边形，然后通过不断莫比乌斯反射变换，像双曲房间照镜子那样复制多边形来填满整个圆盘。具体细节这里就不详细说明了。josleys的《[Hyperbolic Chamber](http://www.josleys.com/article_show.php?id=83)》上讲了具体的做法。
-### 奇形怪状的世界
-既然复数的共形变换变照片很有趣，为什么不变变有镶嵌的庞加莱圆盘呢？其实根据[黎曼映射定理](https://en.wikipedia.org/wiki/Riemann_mapping_theorem)任何单连通（没有洞）的图形都能共形地映射到单位圆内，反之亦然。
-- 通过莫比乌斯变换可以把单位圆内部变换到半平面（可以想成过极点的圆变成了直线），得到半平面模型。
-- 反双曲正切函数变换可以将单位圆盘变成一个无限长的带子，叫带状世界：$$B(z)=\frac{4}{\pi}\mathrm{arctanh}(z)=\frac{2}{\pi}\ln\left(\frac{1+z}{1-z}\right).$$
-![图片来自images.math.cnrs.fr - by josleys](http://images.math.cnrs.fr/IMG/jpg/Strip01.jpg)
-- 最后是在带状世界的基础上再做一个指数变换，我们就能得到圆环，叫环形世界。有部科幻小说就叫《环形世界》。$$A(z)=\mathrm{e}^{\Large\frac{i2\pi(z+i)}{kP}}$$
-其中参数P是带状世界水平方向的周期，所以给定了一个镶嵌带状世界的的周期是一个固定值，如果选其他值会导致环出现一个断层接不起来，这也导致环形世界的等距变换少了一个自由度。参数整数k可自行调节，是环一圈出现带状世界的周期数，k越大，周期越多，环越细。
-![环形世界](/img/hyperboli1.gif)
-受josleys[另一篇文章（法语，建议可翻译成英语读）](http://images.math.cnrs.fr/L-effet-Droste.html)启发，我们改一改指数映射的表达式就能得到漩涡世界：
-![漩涡世界](/img/hyperboli2.gif)
-- 
-[这个网站](http://bulatov.org/math/1001/)上有很多精彩的图形（其中我最喜欢的是把庞加莱圆盘映射到Julia集的外部的那个动画，觉得能盯着看100遍）里面还给了一些精彩的变换，我试着做出了这个：让我想起了化学实验用的三颈瓶，就叫它“多颈瓶”吧。（请自动忽略freemèrzé的含义）
-![“多颈瓶”](/img/hyperboli3.gif)
+If it equals 1/2, then it's traditional Euclidean tessellation on a plane. If it's greater than 1/2, then it's spherical tessellation. What is spherical tessellation? There are only five types of spherical regular polygon tessellations, corresponding to the five regular polyhedra! The essence of regular polyhedra is **regular polygon spherical tessellation**! So the essence of regular polytopes is regular polyhedral tessellation on the surface of hyperspheres! With regular polyhedra come semi-regular polyhedra (convex polyhedra with various regular polygons as faces), so hyperbolic space also has composite tessellations of various regular polygons...
 
+According to the previous formula, we can deduce that there are infinitely many types of regular polygon hyperbolic tessellations. The most amazing thing is that hyperbolic space allows the existence of regular infinite-sided polygons! (Note that the regular infinite-sided polygon here is not a circle) If you want, you can even have infinitely many edges emanating from each vertex!
 
-### 在线演示
-（我用javascript写的，电脑上Chrome浏览器最佳，[点这里](/three/HyperbolicSpace.html)可单独打开在线演示页面）注意图片模式下有些图形无法计算或正常显示，因为直接画线和画图我用的算法不同，一个是正函数，一个是反函数，有些反函数是多值函数或写不出表达式。图片模式下可以加载您电脑上的图片，进入拖动贴图模式后可以设置图片在中央多边形中的位置（右键拖动可旋转放大）<a name="demo"></a>
+![h{∞,∞} - From Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/H2_tiling_iii-1.png/600px-H2_tiling_iii-1.png)
+
+Here we can see that spherical geometric space is a finite closed space, while Euclidean plane geometry and hyperbolic geometric space are both infinitely large spaces, and in some sense, hyperbolic geometric space is larger than plane geometric space.
+
+### Möbius Transformations
+
+Remember the conformal transformations using photos before discussing fractals in "Complex Numbers (Part 1)"? Among them, the complex inversion transformation z->1/z is one of the most exciting and fun transformations. Have you ever thought about placing your own photo (or someone you want to prank) on the complex plane and deforming it? We call the linear fractional transformation $(az+b)/(cz+d)$ in the complex domain a Möbius transformation. (What's the relationship between Möbius transformations and Möbius strips???)
+
+- Translation, rotation, and scaling in our Euclidean two-dimensional space are all Möbius transformations.
+- If we consider stereographic projection as projecting onto the complex plane, then the transformation of rolling the sphere on the complex plane projection is a special type of Möbius transformation. In particular, flipping the north and south poles corresponds exactly to the transformation z->1/z!
+- If we consider the Poincaré disk model as corresponding to the unit circle on the complex plane, then translations, rotations, inversions, and other transformations in hyperbolic space are all Möbius transformations.
+
+Then you might ask, what should be used to represent transformations on three-dimensional hyperbolic space and spherical (actually four-dimensional hypersphere) space? The answer is quaternion Möbius transformations! Quaternions are four-dimensional generalizations of complex numbers. (Since three-dimensional numbers cannot be generalized, three-dimensional space must also be represented using quaternions, with the extra dimension always set to 0)
+
+With Möbius transformations, we can conveniently draw these hyperbolic regular polygon tessellations using computers. The method is to first calculate the central hyperbolic regular polygon, then through continuous Möbius reflection transformations, like looking in mirrors in a hyperbolic room, copy polygons to fill the entire disk. The specific details won't be explained in detail here. Josleys' "[Hyperbolic Chamber](http://www.josleys.com/article_show.php?id=83)" explains the specific approach.
+
+### Strange and Wonderful Worlds
+
+Since conformal transformations of photos using complex numbers are interesting, why not transform the tessellated Poincaré disk? Actually, according to the [Riemann mapping theorem](https://en.wikipedia.org/wiki/Riemann_mapping_theorem), any simply connected (no holes) figure can be conformally mapped to the interior of a unit circle, and vice versa.
+
+- Through Möbius transformations, the interior of a unit circle can be transformed to a half-plane (you can think of a circle passing through the pole becoming a line), yielding the half-plane model.
+- The inverse hyperbolic tangent function transformation can transform the unit disk into an infinitely long strip, called the strip world: $$B(z)=\frac{4}{\pi}\mathrm{arctanh}(z)=\frac{2}{\pi}\ln\left(\frac{1+z}{1-z}\right).$$
+
+![Image from images.math.cnrs.fr - by josleys](http://images.math.cnrs.fr/IMG/jpg/Strip01.jpg)
+
+- Finally, based on the strip world, we do an exponential transformation to get an annulus, called the ring world. There's a science fiction novel called "Ringworld." $$A(z)=\mathrm{e}^{\Large\frac{i2\pi(z+i)}{kP}}$$
+
+Where parameter P is the period of the strip world in the horizontal direction, so given a tessellation, the period of the strip world is a fixed value. Choosing other values would cause the ring to have a discontinuity that cannot be connected, which also causes the ring world's isometric transformations to lose one degree of freedom. The integer parameter k can be adjusted freely; it's the number of strip world periods that appear in one revolution of the ring. The larger k is, the more periods there are, and the thinner the ring becomes.
+
+![Ring world](/img/hyperboli1.gif)
+
+Inspired by josleys' [another article (in French, suggest translating to English to read)](http://images.math.cnrs.fr/L-effet-Droste.html), we can modify the expression of the exponential mapping to get a spiral world:
+
+![Spiral world](/img/hyperboli2.gif)
+
+- [This website](http://bulatov.org/math/1001/) has many spectacular graphics (my favorite is the animation that maps the Poincaré disk to the exterior of a Julia set, I feel I could stare at it 100 times) and also provides some spectacular transformations. I tried to create this: it reminds me of the three-neck flask used in chemistry experiments, so let's call it "multi-neck flask." (Please automatically ignore the meaning of freemèrzé)
+
+!["Multi-neck flask"](/img/hyperboli3.gif)
+
+### Online Demo
+
+(I wrote this in JavaScript, best viewed in Chrome browser on a computer, [click here](/three/HyperbolicSpace.html) to open the demo page separately) Note that in image mode, some graphics cannot be calculated or displayed normally, because I use different algorithms for drawing lines directly and drawing images - one is a direct function, the other is an inverse function, and some inverse functions are multi-valued or cannot be expressed. In image mode, you can load images from your computer. After entering drag texture mode, you can set the image's position in the central polygon (right-click and drag to rotate and zoom)<a name="demo"></a>
+
 <iframe src="/three/HyperbolicSpace.html" width="100%" height="710"></iframe>
 
-#### 最后推荐一些在网上找到的一些关于双曲空间的小程序
-- 一个可视化三维双曲空间的小软件：[弯曲空间](http://geometrygames.org/CurvedSpaces/index.html)
-- 能在双曲空间中的数独、走迷宫、打台球：[HyperbolicGames](http://www.geometrygames.org/HyperbolicGames/)
-- HyperRogue: **强烈推荐！（[官网](http://www.roguetemple.com/z/hyper/)上可免费下载）**，前两个跟这个比起来就是小打小闹：双曲空间中的Rogue类游戏，无限地图，拥有各种奇怪的生物群系（66种！），还能充分体会到双曲几何中的直线、等距线、极限圆、圆的不同曲率，训练你在双曲空间中的寻路能力，比如找到半径为20格的圆的圆心位置比你想象的要困难、你有时发现双曲空间更像一种分形——永远无法到达中心的漩涡海（基于极限圆）、没有尽头不断分支的树等。它将双曲空间的几何性在游戏中发挥得淋漓尽致，可以说在所有二维双曲游戏中绝对排第一。（其实它也支持3D双曲空间，并且还包含三维球面、直积空间等其它扭曲的怪空间，作者的数学功底非常高）
-![直线（游戏里叫Great Wall）将不同生物群系分开，注意无数直线平行，所以这种分割方式可容纳无数生物群系](/img/hyperrogue.jpg)
-值得一提的是它的实现原理。如果我们用庞加莱模型存储地图的话，那么离我们很远的地方就会集中在圆盘边缘，很小的地方，导致浮点数精度跟不上，所以HyperRogue的作者在程序内部用的是三维的双曲面坐标，只是最后显示时才做庞加莱圆盘投影。[这里有豆瓣的中文介绍](https://www.douban.com/review/9346788/)
-- (22年更新) [Hyperbolica](https://store.steampowered.com/app/1256230/Hyperbolica/) 一个第一人称3D双曲世界游戏。渲染与模型上都很巧妙，但论游戏逻辑上我单方面认为远不及HyperRogue。
-- (24年更新) 我自己做的游戏[Deductrium（推理元素）](https://wxyhly.github.io/deductrium/) 一个在浏览器中用Typescript实现的数学形式系统与双曲空间结合的游戏。目前包含命题逻辑、一阶逻辑、皮亚诺公理、ZFC集合论与一些序数和类型论的内容。其中序数部分充分利用了双曲空间的一些有趣的几何性质。
+#### Finally, here are some programs about hyperbolic space I found online
+
+- A small software for visualizing three-dimensional hyperbolic space: [Curved Spaces](http://geometrygames.org/CurvedSpaces/index.html)
+- You can play Sudoku, navigate mazes, and play billiards in hyperbolic space: [HyperbolicGames](http://www.geometrygames.org/HyperbolicGames/)
+- HyperRogue: **Highly recommended! (Free download available on [official website](http://www.roguetemple.com/z/hyper/))** The first two are just minor compared to this: a Rogue-like game in hyperbolic space, with infinite maps, various strange biomes (66 types!), and you can fully experience lines, equidistant lines, limit circles, and circles of different curvature in hyperbolic geometry. It trains your pathfinding ability in hyperbolic space - for example, finding the center of a circle with radius 20 cells is more difficult than you imagine. You sometimes discover that hyperbolic space is more like a fractal - a spiral sea where you can never reach the center (based on limit circles), endlessly branching trees with no end, etc. It brings out the geometric properties of hyperbolic space to the fullest in the game, and can be said to rank absolutely first among all two-dimensional hyperbolic games. (Actually, it also supports 3D hyperbolic space and includes other twisted strange spaces like three-dimensional spheres and direct product spaces - the author has very strong mathematical foundations)
+
+![Lines (called Great Wall in the game) separate different biomes. Note that countless lines are parallel, so this division method can accommodate countless biomes](/img/hyperrogue.jpg)
+
+It's worth mentioning its implementation principle. If we use the Poincaré model to store the map, then places far from us would be concentrated in very small areas at the edge of the disk, causing floating-point precision issues. So the author of HyperRogue uses three-dimensional hyperboloid coordinates internally in the program, only doing Poincaré disk projection when finally displaying. [Here's a Chinese introduction on Douban](https://www.douban.com/review/9346788/)
+
+- (2022 update) [Hyperbolica](https://store.steampowered.com/app/1256230/Hyperbolica/) A first-person 3D hyperbolic world game. Very clever in rendering and modeling, but in terms of game logic, I unilaterally think it's far inferior to HyperRogue.
+- (2024 update) My own game [Deductrium](https://wxyhly.github.io/deductrium/) A game implemented in TypeScript in the browser that combines mathematical formal systems with hyperbolic space. Currently includes propositional logic, first-order logic, Peano axioms, ZFC set theory, and some content on ordinals and type theory. The ordinal part makes full use of some interesting geometric properties of hyperbolic space.

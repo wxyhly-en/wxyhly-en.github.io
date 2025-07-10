@@ -1,59 +1,85 @@
 ---
-title: 自己打造的一个电脑钢琴
+title: A Self-Made Computer Piano
 tags:
   - javascript
-  - 音乐
-  - B站视频
+  - music
+  - Bilibili video
 date: 2022-07-12 13:05:34
 ---
 
-　　怎么用电脑键盘来弹钢琴？其实这种电脑钢琴软件很多，比如我之前接触过EveryOnePiano，比较出名的还有FreePiano。当然我们也可以自己做一个类似的东西，我的在线钢琴没有取名字，Github仓库名称我索性用了EveryOnePiano的缩写EOP。
-#### [这里是链接，点开即玩](/Eop/)（ie浏览器是不可能支持滴！）
-　　大致的使用方法可以在点开后的菜单条的“?”查看（不详细，最好还是看本文后面给的例子哦），点击键盘，屏幕上会显示一个虚拟电脑键盘，上面将标出每个键的音名、唱名或功能(按住Ctrl、Shift、Alt后会有对应的功能快捷组合键)。本文也有一部分的使用说明，但侧重记录我对它的想法与实现过程。
-　　对了，如果你是手机用户，点击键盘可以模拟电脑键盘，再点一次键盘可以模拟钢琴键盘，类似“完美钢琴”那种手机App哦！
-- Hint1: 在通道里面新加不同的通道可以增加钢琴键盘的排数哦！
-- Hint2：文中附周杰伦[《最伟大的作品》试弹视频](https://www.bilibili.com/video/BV1qa411n7yU/)与讲解哦~
+How do you play piano using a computer keyboard? Actually, there are many computer piano software options available, such as EveryOnePiano which I've used before, and the more famous FreePiano. Of course, we can also create something similar ourselves. My online piano doesn't have a specific name, so I simply used the abbreviation EOP (EveryOnePiano) for the Github repository name.
 
-## 电脑键盘如何弹钢琴
-<!--more-->　　下面重点说说电脑用户。问题是，电脑键盘与钢琴键盘不一样，怎么布局才最合理？我看到过用电脑键盘上ABCDEFG直接对应do re mi fa sol la si的，这种布局导致原音阶顺序完全打乱，不可取，一般采用这种键盘的游戏跟练打字没啥区别。还有更离谱的下图这样黑白交错的键盘，这简直是对钢琴的侮辱！我打死也不会用这种键盘！
-![这简直是对钢琴的侮辱！我打死也不会用这种键盘！](/img/eopplt001.jpg)
-而EveryOnePiano采用的是这样的布局：
-![EveryOnePiano默认键盘布局](/img/eopplt001.png)
-这种布局才是正确的音阶思维方式，但它都还有缺点：无法弹奏半音阶。电脑键盘没有真正的钢琴键盘那么长，如果我们交替在键盘上像钢琴那样安排黑键的位置，虽然这种布局是最接近真实钢琴的，但你几乎别指望用它左右手演奏完整乐曲，因为键位不够，音域会非常狭窄。但有半音（调外音）的曲子很多，为此EveryOnePiano支持设置每个键对应什么音，你可以根据曲子自己把需要的半音安排上去。这种方法在演奏中效果是非常好的，而且通过设置每个键盘的声部，还可以做到伴奏与旋律(左右手)拥有不同力度，甚至Free piano可以把鼠标放在脚下踩当踏板，可以说已经挖掘到到电脑键盘的极限潜力了。
+#### [Here's the link, click to play](/Eop/) (IE browser is definitely not supported!)
 
-　　但我还是不满意。
-## 即兴自由演奏
-　　最先我的在线钢琴只是弹奏、记录弹奏音符、回放这些功能。后来我发现它可以辅助作曲、编曲。说实话，我的演奏技术并不好，所以我从来不追求什么演奏效果，我的兴趣在于作曲、编曲。我需要更加灵活的输入半音的方式（哪怕不太方便快速输入）所以我决定不在我的钢琴里面加入每个键位的修改设置，取而代之，通过很多方法来设置调号的升降记号和临时变音记号。我琢磨了很多方案，升降调输入方式的演变是这样的：
-- 首先要有移调功能，这样就不用弹很多半音（黑键）。但这个只适合真的变调，不适合临时变音记号。
-- 最原始的想法是通过按住空格键的方式来使所有的音升高半音，这样就解决了所有音都能够在一个键盘上弹出来了。之所以选空格键是因为它长，手从哪里都能很快够到它方便。
-- 然而当你弹和弦的时候很致命，比如同时弹2 #4 6，按住空格键所有音都会升高。因此我给方向键引入了#1、#4、#5、#6来解决这个问题：按下一次后即升对应的音，除非按shift键才能还原清除。所以遇到小调里的#5就不用怕了。按方向键#5后就可以弹了，但需要注意的是要弹还原sol之前一定要按shift还原。
-- 由于存在要按shift还原的问题还是不太好用。我又想到了一个奇招：如果同时弹的音只有一个音要升半音，那我还不如稍微提前一点点弹下它来跟其他音区分。我决定还是用空格键实现这个功能：如果你按住空格键不弹没弹其他音就松开了，系统将会等待你弹下一个音把它升高。这样通过微妙控制时间差可以摆脱方向键跟Shift键的束缚。
-- 后来我发现我的键盘还有瑕疵：没有#2(♭3)。我又规定了：按住Shift+方向键可以临时变♭2、♭3、♭5、♭6。后来发现每次按shift也不方便，干脆加了一个升/降快捷键Ctrl+~来交替升/降操作的地位：比如切换到降调模式后按空格键会把所有音降半音而不是默认的升，且方向键直接能临时降四个音，按住Shift反而是临时升。
-- 我也不是只即兴，有时也会去找五线谱弹。虽然可以用移调来弹任何谱子，但这种方法总是很笨拙，也不利于培养绝对音感。我于是又设计了Ctrl+数字的快捷键设置调号：数字代表#的个数（比如A大调#1 #4 #5就按Ctrl+3）。如果是♭记号，则用Ctrl+\~+数字（比如♭A大调♭2 ♭3 ♭6 ♭7就按Ctrl+\~+4）。调号设置在于按Shift不会将它清除（清除调号单独用Ctrl+Q），这样可以放心用方向键临时变音了。
-- 至于小键盘，我完全没给它设置任何键位，一是要兼容笔记本，二是小键盘不是横排的，给它上面排上音也没什么逻辑性（比如在视奏时你发现小键盘就是灾难），所以干脆我就不管小键盘了，实际使用发现大键盘够用了。
+The basic usage instructions can be found in the "?" menu after opening (not very detailed, it's better to check the examples given later in this article). Click the keyboard button and a virtual computer keyboard will appear on screen, showing the note names, solfege syllables, or functions for each key (holding Ctrl, Shift, Alt will show corresponding function shortcut combinations). This article also includes some usage instructions, but focuses more on recording my thoughts and implementation process.
 
-　　虽然这样做还是不能完全跟Midi键盘比，（比如半音阶上行、下行旋律演奏困难、键盘按键冲突）但体验确实好得多。这些操作其实是根据我自己的喜好定制的，现在让我用Everyone piano那种固定键位的来即兴反而不如我的在线钢琴顺手了。
-　　其实这里面可做的东西还很多。比如我之前尝试过用计算机来作曲（根本不会神经网络那些，直接在音阶内一定范围内Math.random()），电脑键盘模拟吉他可以按弦、扫弦（键位冲突太厉害，基本没法用）等，但比较失败。然后也加入了Freepiano那种踩鼠标当踏板的功能。（点击踏板按钮再点击锁尔后放到地上踩，以免脚移动误操作）
-## 实操演练
-　　下面我放一个演奏的例子吧，周杰伦最近的新歌《最伟大的作品》。
+By the way, if you're a mobile user, clicking the keyboard can simulate a computer keyboard, and clicking again can simulate a piano keyboard, similar to mobile apps like "Perfect Piano"!
+
+- Hint1: Adding different channels in the channel panel can increase the number of piano keyboard rows!
+- Hint2: The article includes a trial performance video and explanation of Jay Chou's ["The Greatest Works of Art"](https://www.bilibili.com/video/BV1qa411n7yU/)!
+
+## How to Play Piano with a Computer Keyboard
+<!--more-->Let me focus on computer users below. The question is: computer keyboards are different from piano keyboards, so what's the most reasonable layout? I've seen layouts that directly map ABCDEFG on the computer keyboard to do re mi fa sol la si, but this layout completely scrambles the natural scale order and is unacceptable. Generally, keyboards using this layout are no different from typing practice games. There's an even more ridiculous black-and-white alternating keyboard layout shown below, which is simply an insult to piano! I would never use such a keyboard!
+
+![This is simply an insult to piano! I would never use such a keyboard!](/img/eopplt001.jpg)
+
+While EveryOnePiano uses this layout:
+![EveryOnePiano default keyboard layout](/img/eopplt001.png)
+
+This layout represents the correct scale thinking approach, but it still has drawbacks: it cannot play chromatic scales. Computer keyboards aren't as long as real piano keyboards. If we alternate black key positions on the keyboard like on a real piano, although this layout would be closest to a real piano, you can hardly expect to perform complete pieces with both hands using it, because there aren't enough keys and the range would be very narrow. But many pieces have accidentals (chromatic notes), so EveryOnePiano supports setting what note each key corresponds to, allowing you to arrange the needed accidentals according to the piece. This method works very well in performance, and by setting the voice part for each keyboard key, you can even achieve different dynamics for accompaniment and melody (left and right hands). FreePiano can even use a mouse placed under your foot as a pedal, which can be said to have explored the ultimate potential of computer keyboards.
+
+But I'm still not satisfied.
+
+## Improvised Free Performance
+
+Initially, my online piano only had functions for playing, recording played notes, and playback. Later I discovered it could assist with composition and arrangement. To be honest, my performance skills aren't very good, so I never pursue performance effects. My interest lies in composition and arrangement. I need a more flexible way to input accidentals (even if it's not very convenient for quick input), so I decided not to add key position modification settings to my piano. Instead, I use many methods to set key signature sharps/flats and temporary accidentals. I pondered many solutions, and the evolution of sharp/flat input methods went like this:
+
+- First, there must be a transposition function, so you don't need to play many accidentals (black keys). But this only works for actual key changes, not for temporary accidentals.
+- The most primitive idea was to use the spacebar to make all notes a semitone higher, solving the problem of being able to play all notes on one keyboard. I chose the spacebar because it's long and can be quickly reached from anywhere for convenience.
+- However, this is fatal when playing chords. For example, when playing 2 #4 6 simultaneously, holding the spacebar makes all notes sharp. So I introduced #1, #4, #5, #6 to the arrow keys to solve this problem: pressing once sharpens the corresponding note, and only pressing shift can restore/clear it. So you don't have to worry about #5 in minor keys anymore. After pressing arrow key #5, you can play it, but note that you must press shift to restore before playing natural sol.
+- The need to press shift for restoration still wasn't very user-friendly. I came up with another clever trick: if only one note in a chord needs to be sharpened, why not play it slightly earlier to distinguish it from other notes? I decided to use the spacebar for this function: if you hold the spacebar without playing other notes and then release it, the system will wait for you to play the next note and sharpen it. This way, through subtle time control, you can break free from the constraints of arrow keys and shift keys.
+- Later I found my keyboard still had flaws: no #2(♭3). I also specified: holding Shift+arrow keys can temporarily create ♭2, ♭3, ♭5, ♭6. Later I found pressing shift every time wasn't convenient, so I simply added a sharp/flat toggle shortcut Ctrl+~ to alternate the status of sharp/flat operations: for example, after switching to flat mode, the spacebar will flatten all notes by a semitone instead of the default sharpening, and arrow keys can directly temporarily flatten four notes, while holding Shift actually temporarily sharpens.
+- I don't only improvise; sometimes I also find sheet music to play. Although transposition can be used to play any sheet music, this method is always clumsy and doesn't help develop perfect pitch. So I designed Ctrl+number shortcuts to set key signatures: numbers represent the number of #s (for example, A major with #1 #4 #5 would be Ctrl+3). For ♭ signs, use Ctrl+~+number (for example, ♭A major with ♭2 ♭3 ♭6 ♭7 would be Ctrl+~+4). Key signature settings won't be cleared by pressing Shift (clearing key signatures uses Ctrl+Q separately), so you can confidently use arrow keys for temporary accidentals.
+- As for the numeric keypad, I didn't assign any key positions to it at all. First, to be compatible with laptops, and second, the numeric keypad isn't arranged horizontally, so putting notes on it has no logic (for example, when sight-reading, you'll find the numeric keypad is a disaster), so I simply ignored the numeric keypad. In actual use, I found the main keyboard was sufficient.
+
+Although this still can't completely compare with MIDI keyboards (for example, chromatic scale ascending and descending melody performance is difficult, keyboard key conflicts), the experience is indeed much better. These operations are actually customized according to my own preferences. Now using EveryOnePiano's fixed key positions for improvisation is actually less smooth than my online piano.
+
+Actually, there's still a lot that can be done here. For example, I previously tried using computers for composition (not using neural networks at all, directly using Math.random() within a certain range in the scale), computer keyboard simulation of guitar with fretting and strumming (too many key conflicts, basically unusable), etc., but they were quite unsuccessful. I also added FreePiano's function of using mouse clicks as pedals. (Click the pedal button then click lock, then put it on the ground to step on, to avoid accidental operations from foot movement)
+
+## Practical Performance
+
+Let me give a performance example below: Jay Chou's recent new song "The Greatest Works of Art".
+
 <div style=" position: relative;  margin-bottom: 1em;  padding-bottom: 56.25%;  height: 0; overflow: hidden;  max-width: 100%;"><iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//player.bilibili.com/player.html?aid=215822550&bvid=BV1qa411n7yU&cid=770480308&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
 
-　　也可以[点这里直接去B站看](https://www.bilibili.com/video/BV1qa411n7yU/)哦。
-　　下面解析一下：首先这首歌是g小调，跟♭B大调的调号一样，因为我习惯首调，所以直接按Alt+`两次移调（C大调下移两个半音就是♭B大调），如果你照简谱就跟我一样，找五线谱弹，要用固定调移调，具体做法见下面的谱。开头和弦的根音分别是6-5-4-3-6-5-4-3，但注意中间3那个和弦出现了音#5，我们需要在5与#5之择机按下箭头升高5，或在弹奏#5之前按空格键来临时升高。我这里采用的是第一段按空格键，第二段按方向键。进入到后面《Secret》穿越前的快节奏片段，这里面不再有5，只有#5，所以我们保持#5不变即可演奏完。注意最后旋律671#12#234361'76#566'中的#1 与#2我连按了两次空格来实现，这是全曲最难的部分了，我这里也录了很多遍才过。。
-![谱来源于 https://www.bilibili.com/read/cv17442054 ](/img/eopplt003.png)
-　　进入到主歌，我分别用了打击乐(Percussion)、贝斯(Bass)、弦乐(Strings)、吉他(Guitar)四轨来演奏。切换乐器在上面菜单的通道面板里添加四个通道完成，在第一个通道录完后，可以鼠标右键将定位线移到第一个音符处，点击播放，同时再演奏下一轨来叠加录制。
-![有颜色的是旋律轨道](/img/eopplt004.png)
-　　注意打击乐的键位有点特殊：Midi的标准规范是把打击乐器映射到键盘的白键黑键上，所以我们需要方便直接弹奏黑键的键盘，点击菜单“Eop”按钮将键盘模式切换到“Ki”模式，由于底鼓在钢琴键盘低音区（音符2..），我们连按Ctrl+F降低一个八度，“Ki”模式中才找得到底鼓音色。
-　　不要小看它的演奏能力哦，我可以用这种键盘演奏巴赫的《哥德堡变奏曲》中的第0、1、2、4、5（仅前半段）、7、10、30变奏哦，当然还是我技术太渣，比较流畅的只有1、4、30，说不定以后我可能会再出个展示视频（翻译：咕咕）。
-　　好像李斯特的钟在电脑键盘上难度要稍微降低一些（证明留作习题），但还没进入我的练习计划中（翻译：继续咕咕咕）。
+You can also [click here to go directly to Bilibili](https://www.bilibili.com/video/BV1qa411n7yU/).
 
-## 变成Midi编辑器
-　　在没有MIDI键盘的情况下编曲必须靠鼠标一个一个画音符，速度慢还容易出错。我用的编曲软件Cubase也提供了键盘钢琴输入的功能，但键位很少，并不实用。很可惜javascript不可能与编曲软件通信，但我可以先在这个在线钢琴里面编辑好，然后再导出成midi文件，这样就可以导入到编曲软件进行后加工了。所以我又给在线钢琴加入了导入导出midi文件的功能。其实早在最先我就设计过保存文件，但是当时被定为于用于给好友发音乐片段交流用，所以我自己设计了用4096个汉字对二进制编码的base4096格式。后来由于有跟其他编曲软件互通的需求，我遗弃了这种格式转到midi文件格式。正好又发现cubase占用声卡驱动后会让其他应用无法发声，就算后台释放资源后也得重新开一遍，所以我更加倾向于在我写的在线钢琴上完成，特别是像扒谱前期听音记音的这种工作。我陆续加入了音量、力度、bpm(速度)调节、多通道加载多音色等功能，已经能够大概播放网上下载的各种midi文件了。
-![一些按钮功能分布](/img/eopplt002.png)
-　　由于我本来演奏能力就很菜，加上电脑键盘更不方便，所以实时录音符的时值来编曲也是不太现实的。所以我又制作了特殊的编辑模式，可以自动等待输入音符等。然后就是一些修修补补了，如果时不时有了新想法我也会偶尔更新一下。（ps.看到屎山代码很可能不想动了，等以后重构2.0版吧）
+Let me analyze this: First, this song is in G minor, with the same key signature as ♭B major. Because I'm used to movable-do, I directly pressed Alt+` twice to transpose (C major lowered by two semitones becomes ♭B major). If you follow numbered notation, do the same as me. To play from staff notation, you need to use fixed-do transposition, see the specific method in the score below. The root notes of the opening chords are 6-5-4-3-6-5-4-3, but note that the chord on 3 contains #5. We need to choose between 5 and #5 by pressing the arrow to sharpen 5 at the right time, or pressing the spacebar before playing #5 to temporarily sharpen it. Here I used the spacebar in the first section and arrow keys in the second section. Entering the fast-paced section before the "Secret" time travel, there's no longer 5 here, only #5, so we just keep #5 unchanged to complete the performance. Note that the #1 and #2 in the final melody 671#12#234361'76#566' I achieved by pressing the spacebar twice consecutively. This is the most difficult part of the entire piece, and I recorded many takes here before getting through it...
 
+![Score source: https://www.bilibili.com/read/cv17442054 ](/img/eopplt003.png)
 
-## 技术细节 && 开始的想法
-我开始这个想法是看到了一个叫Midi.js的库，它使用了Html5的新标准Web Audio来播放音频片段，其初衷是为了让Midi文件在浏览器Html5 audio上直接播放出来。Midi文件不同于一般的mp3、wav文件，它不是记录声音的波形，而是记录音符的音高、时值等信息来播放音乐，所以它的文件较小，是非智能手机时代铃声常用的格式。
-　　用MIDI.js很容易就能自己写出一个键盘钢琴程序（会点基础Javascript就行，就是直接添加键盘事件来播放指定的声音文件）而且演奏音符几乎无延迟！我以前用Flash也做过电脑钢琴，但延迟太大。（按下一个键要等将近半秒才发声）在Safari及不同版本Chrome下都能发声，但Edge浏览器好像一直没声音。这主要取决于浏览器对Web audio的支持情况。
-　　本着什么轮子都自己造，锁尔乱七八糟的库的原则，我自己去下载了音色，抛弃MIDI.js，自己写了一个键盘钢琴程序。而且我发现后来MIDI.js这个项目不再更新了，取而代之的是一个叫tone.js的库，这个库更加强大：它可以支持一些简单的合成器与效果器！感觉浏览器都有往编曲软件发展的潜力了。但我还是没有用tone.js，只是借鉴了它的部分源码，比如通过在小范围内调整播放速度改变音高可以减少加载2倍的音色音乐片段！这对提高音色下载速度有重大意义。
+Entering the main verse, I used four tracks: Percussion, Bass, Strings, and Guitar. Switching instruments is done by adding four channels in the channel panel in the top menu. After recording the first channel, you can right-click to move the position line to the first note, click play, and simultaneously perform the next track for layered recording.
+
+![Colored parts are melody tracks](/img/eopplt004.png)
+
+Note that percussion key positions are a bit special: MIDI standard specification maps percussion instruments to white and black keys on the keyboard, so we need a keyboard that can conveniently play black keys directly. Click the "Eop" button in the menu to switch keyboard mode to "Ki" mode. Since the bass drum is in the low register of the piano keyboard (note 2..), we press Ctrl+F consecutively to lower by one octave, and only then can we find the bass drum timbre in "Ki" mode.
+
+Don't underestimate its performance capabilities! I can use this keyboard to perform variations 0, 1, 2, 4, 5 (first half only), 7, 10, 30 from Bach's "Goldberg Variations". Of course, my technique is still too poor; only 1, 4, 30 are relatively fluent. Maybe I'll make another demonstration video in the future (translation: coo coo).
+
+It seems Liszt's "La Campanella" would be slightly easier on computer keyboard (proof left as exercise), but it hasn't entered my practice plan yet (translation: continue cooing).
+
+## Becoming a MIDI Editor
+
+Without a MIDI keyboard, arranging must rely on drawing notes one by one with the mouse, which is slow and error-prone. The arranging software Cubase I use also provides keyboard piano input functionality, but with very few key positions, it's not practical. Unfortunately, JavaScript cannot communicate with arranging software, but I can edit in this online piano first, then export as a MIDI file, which can then be imported into arranging software for post-processing. So I added MIDI file import/export functionality to the online piano. Actually, I designed file saving very early on, but at that time it was intended for sharing music snippets with friends, so I designed my own base4096 format using 4096 Chinese characters to encode binary data. Later, due to the need for interoperability with other arranging software, I abandoned this format and switched to MIDI file format. I also discovered that after Cubase occupies the sound card driver, other applications cannot make sound, and even after releasing resources in the background, you have to restart, so I'm more inclined to complete work in my written online piano, especially work like early audio transcription and note recording. I gradually added volume, velocity, BPM (tempo) adjustment, multi-channel loading of multiple timbres and other functions, and can now roughly play various MIDI files downloaded from the internet.
+
+![Distribution of some button functions](/img/eopplt002.png)
+
+Since my performance ability was already poor to begin with, plus computer keyboards are even less convenient, real-time recording of note values for arranging is also quite unrealistic. So I created a special editing mode that can automatically wait for note input, etc. Then there were various fixes and patches. If I occasionally have new ideas, I'll update it from time to time. (P.S. Seeing the spaghetti code, I probably won't want to touch it. I'll wait for a 2.0 refactor in the future)
+
+## Technical Details && Initial Ideas
+
+I started this idea after seeing a library called Midi.js, which uses HTML5's new Web Audio standard to play audio clips. Its original purpose was to enable MIDI files to play directly on browser HTML5 audio. MIDI files are different from regular mp3 and wav files - they don't record sound waveforms, but record information like note pitch and duration to play music, so their files are smaller and were a common format for ringtones in the pre-smartphone era.
+
+Using MIDI.js, it's easy to write your own keyboard piano program (just need basic JavaScript knowledge - directly add keyboard events to play specified sound files) and note performance is almost without delay! I previously made computer pianos using Flash, but the delay was too large (pressing a key would take nearly half a second to make sound). It can make sound in Safari and different versions of Chrome, but Edge browser seems to never have sound. This mainly depends on browser support for Web Audio.
+
+Following the principle of reinventing every wheel and avoiding messy libraries, I downloaded timbres myself, abandoned MIDI.js, and wrote my own keyboard piano program. And I discovered that the MIDI.js project was no longer being updated, replaced by a library called tone.js, which is more powerful: it can support some simple synthesizers and effects! It feels like browsers have the potential to develop towards arranging software. But I still didn't use tone.js, only borrowed part of its source code, such as changing pitch by adjusting playback speed within a small range can reduce loading 2x the timbre audio clips! This has major significance for improving timbre download speed.

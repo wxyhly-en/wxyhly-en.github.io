@@ -1,18 +1,24 @@
 ---
-title: 缺电子星球Vs富电子星球
+title: Electron-Deficient Planet vs Electron-Rich Planet
 tags:
-  - 化学
-  - 奇特想象
+  - Chemistry
+  - Peculiar Imagination
 date: 2016-05-18 13:10:07
-categories: 奇特世界系列
+categories: Peculiar World Series
 ---
 
-　　在大熊座方向，距地球几十光年处的M82雪茄星系边缘，有一个孤独的恒星系统。这个恒星系统中除了位于中心的恒星外，还有两颗绕着恒星公转的行星，一颗叫缺电子星球，是暗绿色的，另一颗叫富电子星球，是银白色的。它们的公转轨道几乎重合，甚至它们的公转周期也几乎相同，这就导致了它们公转时永远位于中心的恒星的两侧，永远无法“碰面”。
-它们并不真正缺电子，因为它们都不带电，这两颗星球上的质子数是等于电子数的，然而组成它们的化学物质确有强烈的得失电子的欲望。这两颗星球还有个名字——氧化剂星球和还原剂星球。
-　　这两个星球表面都有液态物质。缺电子星球表面被暗绿色的高锰酸酐的海洋所覆盖，大气中含有大量氟气和氧气、五氧化二氮、三氧化硫二氧化氖等气体。海洋中混有少量浓硫酸和$MnO_3^+$，海洋中零星分布着高锰酸钾、重铬酸钾岛屿，而海底则蕴含着高铁酸盐、高氯酸盐、超氧化物等矿物。而富电子星球则有着银色的钾钠合金的海洋，海洋中含少量铯、铷、钫、汞、镁、烷基钠、烷基锂，海底沉积着大量的钠块、单质铯、焦炭、氢化钠、四氢锂铝礁石，星球内部有着液态镁铝合金构成的内核，大气主要成分为氩气、“单质”铵和极少的氢气，硅烷、短链烃。
-然而，一次偶然间，有一个大质量“光粒”（或“质量点”）从仙女座附近的椭圆星系M32方向以近似光速的速度飞过M82雪茄星系， 这个恒星系统中两颗行星的轨道受到了微弱影响，它们轨道周期发生了微小偏差而错位，轨道相位差减小，彼此慢慢靠近。终于在过了两千多万个时间颗粒后，两个星球进入了互相的引力范围，它们将在不到10个时间节点的时间内相撞！这是两颗星球无法改变的最后的宿命。<!--more-->
-　　两颗星球在互相的引力作用下不断加速，五分之一个时间节点内就加速到5光秒每时间丝。两颗星球的大气首先被吸引，外层稀薄的气体首先开始化合。由于富电子星球外层大气氩气含量较多，还原性气体占少数，它们与缺电子星球的氟气相遇后只是发出黯淡幽兰的火光。伴随着两颗星球的不断加速坠落，幽兰的火光逐渐变得明亮，耀眼，好像在两颗星球之间点亮了一颗蓝色的小太阳。此时富电子星球表面温度达到了八百度以上，钾钠合金的海洋开始沸腾汽化，泛起一朵朵银色的气泡，缺电子星球中的高锰酸酐开始脱氧，海底的矿物分解，变成二氧化锰使整个暗绿色海洋变成了灰黑色的冒着氧气的沸腾炉。大气中的二氧化氖开始分解，生成的大量氧气和产生的热量使大气层膨胀，此时汽化的钾钠合金与氟气反应，紫色的火光笼罩了两个星球，两个星球在还没碰撞前就部分解体炸裂。而这一切仅过去了不到半个时间节点。又过了几十分之一个时间节点，两颗星球终于相碰，伴随着剧烈的色彩绚烂的火光（来自富电子星球上的金属发生焰色反应）两星球完全炸成一团燃烧着的碎片，并向四周飞溅开来，不时还有未反应完全的氧化剂和还原剂发出爆鸣的火光。几百个时间节点后，飞溅的碎片一些向中心恒星坠落，一些被抛入深空，只有少数残害围绕恒星形成了一层薄薄的吸积盘，残留的物质燃烧使吸积盘发出黯淡的光芒，又过了几十个时间颗粒，吸积盘完全冷却，这里只看得见那颗孤立的恒星，好像另外两颗星从没有存在过。
-　　惨象，已使我目不忍视了。（如果果太空能传声，那么，爆炸声，尤使我耳不忍闻）我还有有什么话可说呢？我懂得这两颗星球就这样被弹星者用光粒所清理的缘由了。
-　　从此之以后，我再也没有听说过哪个星球多过或缺过电子。
+　　In the direction of Ursa Major, at the edge of the M82 Cigar Galaxy dozens of light-years from Earth, there exists a lonely star system. Apart from the star at its center, this system contains two planets orbiting the star: one called the Electron-Deficient Planet, which is dark green, and another called the Electron-Rich Planet, which is silvery white. Their orbital paths nearly coincide, and even their orbital periods are almost identical, which causes them to forever remain on opposite sides of the central star, never able to "meet."
 
-<p class="likecode">//此文章其实为我的一篇旧文，写于2014年6月19日（高考后不久）</p>
+They don't truly lack electrons, as they are both electrically neutral—the number of protons on these planets equals the number of electrons. However, the chemical substances composing them have an intense desire to lose or gain electrons. These two planets have other names—the Oxidizer Planet and the Reducer Planet.
+
+　　Both planets have liquid substances on their surfaces. The Electron-Deficient Planet's surface is covered by dark green oceans of manganic anhydride, with an atmosphere containing large amounts of fluorine gas, oxygen, dinitrogen pentoxide, sulfur trioxide, neon dioxide, and other gases. The oceans contain small amounts of concentrated sulfuric acid and $MnO_3^+$, with islands of potassium permanganate and potassium dichromate scattered throughout, while the ocean floor contains minerals such as ferrates, perchlorates, and superoxides. The Electron-Rich Planet, on the other hand, has silver oceans of potassium-sodium alloy, containing small amounts of cesium, rubidium, francium, mercury, magnesium, alkyl sodium, and alkyl lithium. The ocean floor is deposited with large amounts of sodium blocks, elemental cesium, charcoal, sodium hydride, and lithium aluminum hydride reefs. The planet's interior has a core composed of liquid magnesium-aluminum alloy, and the atmosphere consists mainly of argon, elemental ammonium, and trace amounts of hydrogen gas, silanes, and short-chain hydrocarbons.
+
+However, by chance, a massive "light particle" (or "mass point") flew past the M82 Cigar Galaxy from the direction of the elliptical galaxy M32 near Andromeda at nearly the speed of light. The orbits of the two planets in this star system were slightly affected, their orbital periods developed small deviations and became misaligned, their orbital phase difference decreased, and they slowly approached each other. Finally, after more than twenty million time grains had passed, the two planets entered each other's gravitational range—they would collide in less than 10 time nodes! This was the inescapable final destiny of the two planets.<!--more-->
+
+　　The two planets continuously accelerated under their mutual gravitational attraction, reaching speeds of 5 light-seconds per time thread within one-fifth of a time node. The atmospheres of the two planets were attracted first, with the outer thin gases beginning to combine. Since the Electron-Rich Planet's outer atmosphere contained more argon, with reducing gases in the minority, when they met the fluorine gas from the Electron-Deficient Planet, they only produced a dim blue flame. As the two planets continued their accelerating fall, the blue flame gradually became brighter and more dazzling, as if a small blue sun had been lit between the two planets. At this point, the surface temperature of the Electron-Rich Planet reached over eight hundred degrees, the potassium-sodium alloy oceans began to boil and vaporize, forming silvery bubbles, while the manganic anhydride on the Electron-Deficient Planet began to release oxygen, minerals on the ocean floor decomposed, turning into manganese dioxide and transforming the entire dark green ocean into a gray-black boiling furnace bubbling with oxygen. The neon dioxide in the atmosphere began to decompose, and the large amounts of oxygen produced along with the heat caused the atmosphere to expand. At this moment, the vaporized potassium-sodium alloy reacted with fluorine gas, purple flames enveloped both planets, and the two planets partially disintegrated and exploded before even colliding. All this occurred in less than half a time node. After another few tenths of a time node, the two planets finally collided. Accompanied by intensely colorful flames (from the flame test reactions of metals on the Electron-Rich Planet), the two planets completely exploded into a mass of burning fragments that splattered in all directions, with occasional explosive flashes from incompletely reacted oxidizers and reducers. After several hundred time nodes, some of the splattered fragments fell toward the central star, others were thrown into deep space, and only a few remnants orbited the star to form a thin accretion disk. The burning of residual matter made the accretion disk emit a dim glow. After another few dozen time grains, the accretion disk completely cooled, and only the solitary star could be seen here, as if the other two planets had never existed.
+
+　　The tragic scene has made it unbearable for me to look. (If sound could travel through space, the explosion would be even more unbearable for me to hear.) What more can I say? I understand the reason why these two planets were thus cleaned up by the star-striker with light particles.
+
+　　From then on, I have never again heard of any planet having too many or too few electrons.
+
+<p class="likecode">//This article is actually an old piece of mine, written on June 19, 2014 (shortly after the college entrance examination)</p>

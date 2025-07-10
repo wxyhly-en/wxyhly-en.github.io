@@ -1,133 +1,132 @@
 ---
-title: 四维空间（四）：纤维与超球
+title: "Four-Dimensional Space (Part 4): Fibers and Hyperspheres"
 tags:
-  - 四维
-  - 几何
-  - 系列文章
-  - 数学
-categories: 四维空间系列
+  - 4D
+  - geometry
+  - series
+  - mathematics
+categories: Four-Dimensional Space Series
 date: 2016-04-16 18:16:48
 ---
 <a name="index"></a>
-\#<span class="likecode">本文内容为对影片《[维度：数学漫步](http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)》第7、8集:纤维丛的解释，并着重讨论Hopf纤维的几何性质</span><div style="padding-left:25px;float:right"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/250px-Hopf_Fibration.png"/><p>图片来自en.wikipedia by Niles Johnson</p></div>
+\#<span class="likecode">This article explains episodes 7 and 8: Fiber bundles from the film "[Dimensions: A Walk Through Mathematics](http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)", with emphasis on the geometric properties of the Hopf fibration</span><div style="padding-left:25px;float:right"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/250px-Hopf_Fibration.png"/><p>Image from en.wikipedia by Niles Johnson</p></div>
 
-## 特色内容
- - 在线webgl查看4D
- - 等角平面
- - 120号的大环结构
- - 什么是纤维丛
+## Featured Content
+ - Online WebGL 4D viewer
+ - Isoclinic planes
+ - Great ring structure of the 120-cell
+ - What is a fiber bundle
 
 <!--more-->
-### 本文目录：    
- - [引子](/archives/fibration4ds/#prev)
- - [锁链](/archives/fibration4ds/#link)
- - [不是只有球极投影](/archives/fibration4ds/#nostereo)
- - [等角平面](/archives/fibration4ds/#isoclinic)
- - [正120胞体中的大环结构](/archives/fibration4ds/#grandering)
- - [正交性](/archives/fibration4ds/#orth)
- - [四维轮胎和环面外翻](/archives/fibration4ds/#flip)
- - [什么是纤维丛？](/archives/fibration4ds/#quecequecest)
+### Table of Contents:    
+ - [Introduction](/archives/fibration4ds/#prev)
+ - [Links](/archives/fibration4ds/#link)
+ - [Not Just Stereographic Projection](/archives/fibration4ds/#nostereo)
+ - [Isoclinic Planes](/archives/fibration4ds/#isoclinic)
+ - [Great Ring Structure in the Regular 120-cell](/archives/fibration4ds/#grandering)
+ - [Orthogonality](/archives/fibration4ds/#orth)
+ - [Four-dimensional Torus and Torus Eversion](/archives/fibration4ds/#flip)
+ - [What is a Fiber Bundle?](/archives/fibration4ds/#quecequecest)
 
-#### 提示：可先参看[影片官网对纤维丛的详细描述](http://www.dimensions-math.org/Dim_CH7_ZH_si.htm)<a name="prev"></a>
-<a href="/three/Hopf fibre2.html" target="_blank" style="font-size: large; color:#EE8800">点击查看纤维丛3D模型(需要支持webgl的浏览器，如Chrome)</a>
+#### Note: You may first refer to [the film's official website for detailed description of fiber bundles](http://www.dimensions-math.org/Dim_CH7_ZH_si.htm)<a name="prev"></a>
+<a href="/three/Hopf fibre2.html" target="_blank" style="font-size: large; color:#EE8800">Click to view 3D model of fiber bundle (requires WebGL-supported browser, such as Chrome)</a>
 
-### 引子
-　　我们先从一个很熟悉的例子开始今天的话题：坐标面$xy、zw$只在原点相交。我们曾经很努力直观想象过两无限大平面只交与一点的情景，但却怎么也想不出来，除了代数解释没有其他办法。有没有更形象的可视化方法呢？下面就有一种方法能同时**可视化**这两个平面的位置关系：在原点处放一个单位超球面($\mathbf S^3$)，它肯定会与所有一张过原点的平面交得单位圆周。现在问题就简单了：我们通过**球极投影**的方法把它降维到三维空间中来直接看到那些单位圆周。<a name="link"></a>
-### 锁链
-　　坐标面$xy、zw$只在原点相交，所以它们交单位超球产生的**圆是不相交的**。那它们与单位超球的两个交圆投影到三维空间的位置关系是怎样的呢？我们可以写程序画出来：两个交圆的球极投影是像锁链那样神奇地扣在一起的！这个锁链一样的图形叫“Hopf link”。
-　　我们还想看到其它更多平面的交圆，影片中引入了复数得到的Hopf纤维丛正达到了这个目的——它让我们更好认识了四维空间中的平面（因为所有圆由过原点平面截得），也认识了超球面$\mathbf S^3$本身的精彩性质。其中，复数的引入是最精妙的地方——视频里是这样讲述的：
-$z_2=k.z_1$ 　（有没有注意到影片中的细节：法国人的乘号像小数点，小数点像逗号）
-很简单的一个式子。我们详细解释一下：先在四维空间中选任意一个平面$A$为坐标轴$z_1$（这个轴是复数的，所以是二维的），再选平面$A$的绝对垂直（因为坐标系$z_1Oz_2$正交）平面$B$为坐标轴$z_2$。比如我们就选$xy$和$zw$这对面吧，具体规定$(x,y,z,w)\to(z_1,z_2)$的计算方法（可以任意规定，这里只是图方便）：
+### Introduction
+　　Let's start today's topic with a familiar example: the coordinate planes $xy$ and $zw$ intersect only at the origin. We have tried very hard to intuitively imagine the scenario where two infinite planes intersect at only one point, but we just can't visualize it, leaving us with no option other than algebraic interpretation. Is there a more visual method? Here's one way to **visualize** the positional relationship of these two planes simultaneously: place a unit hypersphere ($\mathbf S^3$) at the origin, which will certainly intersect all planes passing through the origin in unit circles. Now the problem becomes simple: we can directly see those unit circles by reducing dimensions to 3D space through **stereographic projection**.<a name="link"></a>
+### Links
+　　Since coordinate planes $xy$ and $zw$ only intersect at the origin, their **intersection circles with the unit hypersphere do not intersect**. What is the positional relationship when these two intersection circles are projected to 3D space? We can write a program to draw it: the stereographic projections of the two intersection circles are magically linked together like chain links! This chain-like figure is called a "Hopf link".
+　　We also want to see the intersection circles of more planes. The Hopf fiber bundle introduced in the film, obtained through complex numbers, achieves exactly this purpose—it allows us to better understand planes in 4D space (since all circles are obtained by planes passing through the origin), and also understand the wonderful properties of the hypersphere $\mathbf S^3$ itself. The introduction of complex numbers is the most ingenious part—the video explains it like this:
+$z_2=k.z_1$ 　(Did you notice the detail in the film: French people use a dot for multiplication, and a comma for decimal points)
+A very simple formula. Let's explain in detail: first, choose an arbitrary plane $A$ in 4D space as coordinate axis $z_1$ (this axis is complex, so it's 2-dimensional), then choose plane $B$ absolutely perpendicular to plane $A$ (since the coordinate system $z_1Oz_2$ is orthogonal) as coordinate axis $z_2$. For example, let's choose the pair $xy$ and $zw$, specifically defining the calculation method from $(x,y,z,w)\to(z_1,z_2)$ (can be defined arbitrarily, this is just for convenience):
 $$z_1=x+iy $$$$ z_2=z+iw$$
-代入式子$z_2=k.z_1$就能得到平面满足的方程。其实式子$z_2=k.z_1$中复数的乘法在四维空间并没有明确的**几何意义**，我们只是借助复数很方便随意地得到了一组平面（$k$取不同值就对应不同的平面），但巧就巧在它们都是两两扣在一起的！
-$k$可以在扩充复平面上任取（扩充指$k$可以等于$\infty$，代表平面$z_1=0$）。我们又知道，球极投影能把球($\mathbf S^2$)映射成平面加一个无穷远点，所以我们可以认为$k$是在一个二维球面上取的点，每个$\mathbf S^2$上的点（$k$的值）都对应一个超球($\mathbf S^3$)上的圆($\mathbf S^1$)。当然，这个二维球面上取$k$点存粹是Hopf想从拓扑学上构造$\mathbf S^1\to\mathbf S^3\to\mathbf S^2$的映射搞的数学把戏，它没有直接具体四维几何意义。（其实也有：两个平面的$k$值在这个$\mathbf S^2$上的球面距离正比于这两个平面的夹角，但直接证明繁琐，优雅证明可能需要从“复射影直线”上找灵感？）
+Substituting into the formula $z_2=k.z_1$ gives us the equation that the plane satisfies. Actually, complex multiplication in the formula $z_2=k.z_1$ doesn't have a clear **geometric meaning** in 4D space. We're just conveniently using complex numbers to randomly obtain a set of planes (different values of $k$ correspond to different planes), but the clever thing is that they are all pairwise linked!
+$k$ can take any value in the extended complex plane (extended means $k$ can equal $\infty$, representing the plane $z_1=0$). We also know that stereographic projection can map a sphere ($\mathbf S^2$) to a plane plus a point at infinity, so we can consider $k$ as points taken on a 2-dimensional sphere, where each point on $\mathbf S^2$ (value of $k$) corresponds to a circle ($\mathbf S^1$) on the hypersphere ($\mathbf S^3$). Of course, taking $k$ points on this 2-dimensional sphere is purely a mathematical trick by Hopf to topologically construct the mapping $\mathbf S^1\to\mathbf S^3\to\mathbf S^2$, it has no direct concrete 4D geometric meaning. (Actually it does: the spherical distance between the $k$ values of two planes on this $\mathbf S^2$ is proportional to the angle between the two planes, but direct proof is tedious, an elegant proof might need inspiration from "complex projective line"?)
 <a name="nostereo"></a>
-### 不是只有球极投影
-　　影片里有大量Hopf纤维丛的球极投影动画。其实我们还可以换一个角度来看Hopf纤维丛——用平行投影法仍然能看到它。维度四维空间上集（第3集）、本系列第一篇文章中的各种柱体、锥体都用的这种方法。平行投影不像球极投影形变扭曲那么严重，但平行投影导致很多不相交的地方看起来是相交的，导致线很乱。
-<a href="/three/Hopf fibre3.html" target="_blank" style="font-size: large; color:#EE8800">**点击在线查看4D模型！支持在四维空间中变换视角！**(需要支持webgl的浏览器，如Chrome)</a>
+### Not Just Stereographic Projection
+　　The film contains many animations of stereographic projections of the Hopf fiber bundle. Actually, we can also view the Hopf fiber bundle from another angle—we can still see it using parallel projection. Various cylinders and cones in Dimensions Episode 3 on 4D space and the first article of this series used this method. Parallel projection doesn't have as severe distortion as stereographic projection, but parallel projection causes many non-intersecting parts to appear intersecting, making the lines very messy.
+<a href="/three/Hopf fibre3.html" target="_blank" style="font-size: large; color:#EE8800">**Click to view 4D model online! Supports changing viewpoint in 4D space!** (requires WebGL-supported browser, such as Chrome)</a>
 ![](/img/fibre1.gif)
-线确实很乱，但我们看到了圆周投影到三维空间有时能变成一条线段，从线段一头看过去它就缩成一个点了——我们这样又间接瞥到了平面交于一点的影子。
+The lines are indeed messy, but we see that circles can sometimes project to line segments in 3D space, and looking from one end of the segment it shrinks to a point—thus we indirectly glimpse the shadow of planes intersecting at a point.
 <a name="isoclinic"></a>
-[返回目录](#index)
+[Return to Table of Contents](#index)
 
-### 等角平面
+### Isoclinic Planes
 
-　　显然Hopf纤维丛没有表示出所有过原点的平面。比如面$xz$、面$yw$是永远表示不出来的。(它们与面$xy$、面$zw$上的单位圆周都有交点，不属于这个纤维丛)我们还感觉到Hopf纤维丛都有一种公共的属性。我们后面系统学习四维空间n-向量法能够算它们之间的夹角是等角的——即它们的$\theta_1=\theta_2$！这种平面的位置关系叫**等角**(isoclinic)。我们还可以证明和一个平面所有成**同手性**的等角平面的集合刚好组成一个完整的Hopf纤维丛。什么是同手性？以后会介绍到所有一般位置的两平面位置关系都能够分成像人的左右手那样的对称的两类。还记得《维度》影片中提到了Hopf圆周和它的镜像圆周吗？它们就是分别组成左右手Hopf纤维丛。<a name="grandering"></a>
-### 正120胞体中的大环结构
-既然Hopf纤维反映了超球$\mathbf S^3$的性质，而面数很多的正多胞体又是超球的近似（想想二维是用正多边形逼近圆）。我们看看在正120胞体中能够发现什么秘密。它的基本参数有：
-- 120个正十二面体胞、720个五边形面、1200条棱、600个顶点；
-- 相邻胞形成的二胞角为144°.
-- [分层结构见上一篇文章](/archives/polyhedral4ds/#c120)
-　　前面我们说过整个正一百二十胞体能分成12个大环，每个环上10个正十二面体都是首尾相接的。为了描述清楚这些环的相对位置，我们给分层结构取一些代号：
+　　Obviously, the Hopf fiber bundle doesn't represent all planes passing through the origin. For example, planes $xz$ and $yw$ can never be represented. (They have intersection points with unit circles on planes $xy$ and $zw$, so they don't belong to this fiber bundle) We also sense that all Hopf fiber bundles have a common property. Later when we systematically study 4D space n-vector methods, we can calculate that the angles between them are isoclinic—that is, their $\theta_1=\theta_2$! This positional relationship of planes is called **isoclinic**. We can also prove that the set of all **same-chirality** isoclinic planes with respect to a plane forms exactly one complete Hopf fiber bundle. What is same-chirality? We'll later introduce that all general position relationships between two planes can be divided into two symmetric classes like a person's left and right hands. Remember the film "Dimensions" mentioned the Hopf circle and its mirror circle? They respectively form left and right-handed Hopf fiber bundles.<a name="grandering"></a>
+### Great Ring Structure in the Regular 120-cell
+Since Hopf fibers reflect properties of the hypersphere $\mathbf S^3$, and regular polytopes with many faces approximate hyperspheres (think of how regular polygons approximate circles in 2D), let's see what secrets we can discover in the regular 120-cell. Its basic parameters are:
+- 120 regular dodecahedral cells, 720 pentagonal faces, 1200 edges, 600 vertices;
+- Dihedral angle between adjacent cells is 144°.
+- [See the previous article for layer structure](/archives/polyhedral4ds/#c120)
+　　As mentioned before, the entire regular 120-cell can be divided into 12 great rings, with 10 regular dodecahedra on each ring connected end-to-end. To clearly describe the relative positions of these rings, let's assign some codes to the layer structure:
 
-|分层| 南北极| 极圈| 中纬| 回归线| 赤道|
+|Layer| North/South Pole| Polar Circle| Mid-latitude| Tropic| Equator|
 |----| -----| -----| ----| ----| ----|
-|胞数| 2     | 24  | 40  | 24    | 30|
-|代号| $1$ | $12^1$ | 20 | $12^2$ | 30|
+|Cell count| 2     | 24  | 40  | 24    | 30|
+|Code| $1$ | $12^1$ | 20 | $12^2$ | 30|
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/120-cell_two_orthogonal_rings.png/300px-120-cell_two_orthogonal_rings.png)
 
-<center>正120胞体中的两个正交的环（纤维丛南北极，来自en.wikipedia）</center>
+<center>Two orthogonal rings in the 120-cell (fiber bundle poles, from en.wikipedia)</center>
 
-　　我们再加N或S代表南、北半球，赤道不用加。则12个10元环上十二面体所在的层数分布有四种，分别为：
+　　We add N or S to represent north and south hemispheres, the equator doesn't need this. The distribution of layer numbers for dodecahedra on the 12 rings of 10 elements has four types:
 1. $-N1-N12^1-N12^2-S12^2-S12^1-S-S12^1-S12^2-N12^2-N12^1-　(1\times 10)$
 2. $-N20-N12^1-N12^1-N20-30-S20-S12^1-S12^1-S20-30-　(5\times 10)$
 3. $-N12^2-N20-N20-N12^2-30-S12^2-S20-S20-S12^2-30-　(5\times 10)$
 4. $-30-30-30-30-30-30-30-30-30-30-　(1\times 10)$
 
-　　第一组那个环对应上图红色的十个十二面体，第四组那个环对应中间平躺的橙色十二面体环。第二组5个环与第一个环（红色）交链紧挨缠绕，第三组5个环与第四组的环（橙色）交链紧挨缠绕。
+　　The first group's ring corresponds to the ten red dodecahedra in the image above, the fourth group's ring corresponds to the orange dodecahedra ring lying flat in the middle. The 5 rings in the second group are closely interlinked with the first ring (red), the 5 rings in the third group are closely interlinked with the fourth group's ring (orange).
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/120-cell_rings.jpg/300px-120-cell_rings.jpg)
-<center>正120胞体中的两个交链紧挨缠绕的圆环（来自en.wikipedia）</center>
+<center>Two closely interlinked rings in the 120-cell (from en.wikipedia)</center>
 
-　　如果在Hopf纤维丛里画出这12个大圆，大圆所在平面对应的12个复数$k$的取值在球面$\mathbf S^2$上的分布恰为**正二十面体12个顶点位置**的分布！由此可见这12个环的地位其实是一样的。正120胞体的这些优美的性质正是我喜欢它的原因。
+　　If we draw these 12 great circles in the Hopf fiber bundle, the distribution of the 12 complex numbers $k$ corresponding to the planes containing the great circles on the sphere $\mathbf S^2$ is exactly the distribution of the **12 vertices of a regular icosahedron**! This shows that these 12 rings actually have equal status. These beautiful properties of the regular 120-cell are exactly why I love it.
 <a name="orth"></a>
 
-### 正交性
-　　纤维丛还有很多漂亮的几何性质。六个坐标面可以分成绝对垂直的三对:$xy-zw、xz-wy、xw-yz$这样我们就有三种选$z_1$$z_2$所对应平面的方式:
+### Orthogonality
+　　Fiber bundles have many beautiful geometric properties. The six coordinate planes can be divided into three absolutely perpendicular pairs: $xy-zw$, $xz-wy$, $xw-yz$, so we have three ways to choose the planes corresponding to $z_1$ and $z_2$:
 $$ z_1=x+iy; z_2=z+iw $$$$ z_1=x+iz; z_2=y+iw $$$$ z_1=x+iw; z_2=y+iz $$
-其实我们还能交换实部虚部：
+Actually we can also swap real and imaginary parts:
 $$ z_1=x+iy; z_2=w+iz $$$$ z_1=x+iz; z_2=w+iy $$$$ z_1=x+iw; z_2=z+iy $$
-前三组其实描述的是左手Hopf纤维丛，后三组是右手纤维丛：我们交换两个坐标变量的位置相当于做了空间反射变换，所以$z_1=y+ix; z_2=w+iz$与$z_1=x+iy; z_2=z+iw$交换了两个变量，反射变换了两次又回到自身，它们是同为左手性的（其实Hopf纤维有中心对称性，它们表示的是同一个纤维丛）。
-我们都选左手Hopf纤维，让我们同时画出这三个纤维丛:它们处处正交。
-<a href="/three/Hopf fibre1.html" target="_blank" style="font-size: large; color:#EE8800">点击查看3D模型(需要支持webgl的浏览器，如Chrome)</a>
+The first three groups actually describe the left-handed Hopf fiber bundle, the last three groups are right-handed fiber bundles: swapping the positions of two coordinate variables is equivalent to doing a spatial reflection transformation, so $z_1=y+ix; z_2=w+iz$ and $z_1=x+iy; z_2=z+iw$ have swapped two variables, reflected twice and returned to itself, they are both left-handed (actually Hopf fibers have central symmetry, they represent the same fiber bundle).
+Let's all choose left-handed Hopf fibers and draw these three fiber bundles simultaneously: they are orthogonal everywhere.
+<a href="/three/Hopf fibre1.html" target="_blank" style="font-size: large; color:#EE8800">Click to view 3D model (requires WebGL-supported browser, such as Chrome)</a>
 ![](/img/fibre2.gif)
-它们在空间每一点正交：
+They are orthogonal at every point in space:
 ![](/img/fibre3.gif)
 <a name="flip"></a>
 
-### 四维轮胎、环面外翻等拓补问题
-为什么这些Hopf圆能组成一个像轮胎一样的圆环面？注意:你这里看到的圆环只是四维空间中的三维投影，所以我们要算出它原来的表达式：通过简单计算可以得到这个轮胎在四维空间坐标系方程是：$$\begin{cases}x^2+y^2=|z_1|^2 \\\\ z^2+w^2=|z_2|^2\end{cases}$$我们可以认为这是一个新的四维几何体的表面的一部分:$$\begin{cases}x^2+y^2\le |z_1|^2 \\\\ z^2+w^2\le |z_2|^2\end{cases}$$这个几何体是一个类似于圆柱的东西（注意当然不是圆柱柱）维基百科上把它叫做“doucylinder”，意思是“双圆柱”。我们将在下一节详细讨论它及和它相似的一类图形“直积形”（duoprism，直译过来是“双柱”），并将由此解释为什么圆环翻过来后经线和纬线居然能对调。
-[返回目录](#index)
+### Four-dimensional Torus, Torus Eversion and Other Topological Problems
+Why can these Hopf circles form a torus-like toroidal surface? Note: the torus you see here is just a 3D projection in 4D space, so we need to calculate its original expression: through simple calculation we can get that this torus's equation in the 4D coordinate system is:$$\begin{cases}x^2+y^2=|z_1|^2 \\\\ z^2+w^2=|z_2|^2\end{cases}$$We can consider this as part of the surface of a new 4D geometric object:$$\begin{cases}x^2+y^2\le |z_1|^2 \\\\ z^2+w^2\le |z_2|^2\end{cases}$$This geometric object is something similar to a cylinder (note it's certainly not a cylindrical column). Wikipedia calls it a "duocylinder", meaning "double cylinder". We will discuss it in detail in the next section along with a similar class of shapes called "duoprisms" (literally translated as "double prisms"), and thereby explain why meridians and parallels can actually be swapped when a torus is turned inside out.
+[Return to Table of Contents](#index)
 
-#### 环面外翻
-　　我们研究四维空间却意外遇到了像锁链一样的两个圆、圆环的截面截出两个相交圆等三维空间中的几何知识。其实球极投影还展示了圆环面的另一个拓补性质:有孔的圆环是能够从里到外翻过来的。
+#### Torus Eversion
+　　While studying 4D space, we unexpectedly encountered 3D geometric knowledge like two circles linked like chains, and torus cross-sections showing two intersecting circles. Actually, stereographic projection also demonstrates another topological property of the toroidal surface: a torus with a hole can be turned inside out.
 ![](https://upload.wikimedia.org/wikipedia/commons/b/ba/Inside-out_torus_%28animated%2C_small%29.gif)
-<center>图片来自en.wikipedia</center>
-　　是不是觉得这个外翻过程和球极投影很相似？那个孔就是用来过投影极点的。
+<center>Image from en.wikipedia</center>
+　　Doesn't this eversion process look similar to stereographic projection? That hole is used for passing through the projection pole.
 <a name="quecequecest"></a>
 
-### 什么是纤维丛？
-**直积**
-　　说到纤维丛，我们首先就得说什么是直积：设$A$、$B$是任意两个集合，在集合$A$中任意取一个元素$x$，在集合$B$中任意取一个元素$y$，组成一个有序对$(x，y)$，把这样的有序对作为新的元素，他们的全体组成的集合称为集合$A$和集合$B$的直积，记为$A×B$，即$A×B={(x,y)|x∈A且y∈B}$。
-一些例子：
-- 如果$x$是一条线段，$y$是一条线段，$x×y$就是一个长方形。
-- 如果$x$是一个圆，$y$是一条线段，$x×y$就是圆柱。
-- $R$本来是实数集，$R×R =〡(x,y)〡x∈R,y∈R〡$即为$xy$面上全体点的集合，$R×R$常常记作$R^2$。
+### What is a Fiber Bundle?
+**Direct Product**
+　　When talking about fiber bundles, we first need to explain what a direct product is: Let $A$ and $B$ be any two sets. Take any element $x$ from set $A$ and any element $y$ from set $B$ to form an ordered pair $(x,y)$. Taking such ordered pairs as new elements, the set of all of them is called the direct product of sets $A$ and $B$, denoted as $A×B$, that is $A×B={(x,y)|x∈A$ and $y∈B}$.
+Some examples:
+- If $x$ is a line segment and $y$ is a line segment, $x×y$ is a rectangle.
+- If $x$ is a circle and $y$ is a line segment, $x×y$ is a cylinder.
+- $R$ is originally the set of real numbers, $R×R =〡(x,y)〡x∈R,y∈R〡$ is the set of all points on the $xy$ plane, $R×R$ is often written as $R^2$.
 
-**如果$x$是一个圆，$y$也是一个圆呢？两个二维图形会直积出一个四维图形！它会是怎么样的呢？我们留作思考题，下节将着重介绍它**
+**What if $x$ is a circle and $y$ is also a circle? Two 2D shapes will produce a 4D shape through direct product! What would it look like? We leave this as a thinking question, which will be discussed in detail in the next section**
 
-**直积和纤维**
-　　直积和纤维有什么关系呢？我们可以这样理解直积，比如圆柱可以看作很多线段拼出来的或很多圆拼出来的：
-你可以看到“纤维”的样子了。但由直积产生的纤维结构简单，没有多大意思，我们叫**平凡纤维丛**。
+**Direct Product and Fibers**
+　　What's the relationship between direct product and fibers? We can understand direct product this way, for example, a cylinder can be seen as made up of many line segments or many circles:
+You can see the appearance of "fibers". But the fiber structure produced by direct product is simple and not very interesting, we call it a **trivial fiber bundle**.
 ![](/img/fibre4.gif)
-**最简单的非平凡丛:莫比乌斯带**
+**The simplest non-trivial bundle: Möbius strip**
 ![](/img/fibre5.gif)
-　　看看莫比乌斯带的划分——很像圆柱体上一根根竖着的母线——所以它的局部看起来是它的边和一条竖线的直积，但总体来看它多拧了一圈，所以和圆柱根本不一样，也不满足直积的定义：(x,y)|x∈A且y∈B}。
-　　所以我们抽象定义纤维丛：每个纤维丛是一个连续满射$π： E → B$使得$E$对于某个$F$ (称为纤维）局部看来象直积空间$B × F$。
-　　形象解释就是：有一堆毛茸茸的纤维，充满了一部分空间$E$（没有间隙），这些纤维的端点都在一张皮$B$上，被纤维充满的空间$E$中的任意一个点都对应到一根毛上，这跟毛的根部对应皮$B$上一个点，即满射$π： E → B$。四维空间中除了Hopf纤维丛还有Seifert纤维丛(维度预告片中有出现)等，以后我们将会看到。
-　　Hopf纤维丛的E是超球$\mathbf S^3 $，B是球面$\mathbf S^2 $，F是圆$\mathbf S^1 $，当然圆没有端点，这只是形象的说明球面上的每一个点对应一个超球中的圆。拓扑学很热衷于找这种n-维球面$\mathbf S^n $之间的各种映射！比如他们发现在七维空间还存在这类似的纤维丛，可惜我们无法再清晰可视化出那个维度了。
+　　Look at the division of the Möbius strip—it looks like vertical generating lines on a cylinder—so locally it looks like the direct product of its edge and a vertical line, but overall it has an extra twist, so it's fundamentally different from a cylinder and doesn't satisfy the definition of direct product: {(x,y)|x∈A and y∈B}.
+　　So we abstractly define fiber bundle: each fiber bundle is a continuous surjection $π: E → B$ such that $E$ locally looks like the direct product space $B × F$ for some $F$ (called the fiber).
+　　A visual explanation: there's a bunch of fuzzy fibers filling a portion of space $E$ (without gaps), the endpoints of these fibers are all on a surface $B$, any point in the fiber-filled space $E$ corresponds to a fiber, this fiber's root corresponds to a point on surface $B$, i.e., the surjection $π: E → B$. In 4D space, besides the Hopf fiber bundle there are also Seifert fiber bundles (appearing in the Dimensions trailer) and others, which we will see later.
+　　For the Hopf fiber bundle, E is the hypersphere $\mathbf S^3$, B is the sphere $\mathbf S^2$, F is the circle $\mathbf S^1$. Of course circles have no endpoints, this is just a visual explanation that each point on the sphere corresponds to a circle in the hypersphere. Topology is very enthusiastic about finding various mappings between n-dimensional spheres $\mathbf S^n$! For example, they discovered that similar fiber bundles exist in 7-dimensional space, but unfortunately we can no longer clearly visualize that dimension.
 
-[返回目录](#index)
+[Return to Table of Contents](#index)
 
- [上一篇](/archives/polyhedral4ds/)　 [查看系列目录](/categories/四维空间系列/)　[下一篇](/archives/more4ds/)
-
+ [Previous Article](/archives/polyhedral4ds/)　 [View Series Contents](/categories/四维空间系列/)　[Next Article](/archives/more4ds/)
