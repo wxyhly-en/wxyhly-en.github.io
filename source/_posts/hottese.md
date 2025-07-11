@@ -1,356 +1,357 @@
 ---
-title: 类型论与机器证明简介
+title: Introduction to Type Theory and Machine Proof
 tags:
-  - 数理逻辑
-  - 数学
-  - 拓扑学
+  - Mathematical Logic
+  - Mathematics
+  - Topology
 date: 2024-12-21 13:59:51
 ---
 
-![《同伦类型论》书的扉页](/img/hott003.png)
+![Front page of the "Homotopy Type Theory" book](/img/hott003.png)
 
-上篇文章介绍了命题逻辑、一阶逻辑再到ZFC集合论，本文来看一种新的宣称想要取代集合论在数学中地位的新东西——类型论。事实上它已经广泛运用在机器证明当中，其中最著名的就是四色定理的证明了，同时它跟程序代码很类似。把类型论稍加改造成同伦类型论，它还能比集合论更加“直接”地处理拓扑学中的许多问题。
+The previous article introduced propositional logic, first-order logic, and ZFC set theory. This article examines a new approach that claims to replace set theory's position in mathematics—type theory. In fact, it has been widely used in machine proofs, most famously in the proof of the Four Color Theorem. Additionally, it is very similar to programming code. When type theory is modified into homotopy type theory, it can handle many problems in topology more "directly" than set theory.
 
-### 类型论的动机
-“类型”这一概念广泛被用于编程语言中，具体来说用于编译前的类型检查，比如下面这段C语言代码
+### Motivation for Type Theory
+The concept of "type" is widely used in programming languages, specifically for type checking before compilation. For example, consider this C code:
 ```c
-int i = 0;       // 定义整数变量i，并将其设为0
-string j ="oma"; // 定义字符串变量j，并将其设为"oma"
-int k = i * j;   // 定义整数变量k，并将其设为 i * j
+int i = 0;       // Define integer variable i and set it to 0
+string j ="oma"; // Define string variable j and set it to "oma"
+int k = i * j;   // Define integer variable k and set it to i * j
 ```
-编译时会报错，因为这段程序声明i是整数类型的变量，而j是字符串类型的变量，它们无法相乘，或者说，乘法运算是一个接受两个数作为输入参数，输出返回一个数的函数，这里输入的i、j的类型显然与之不匹配。从上面的例子可以看出，类型检查其实就是编译器帮助我们检查代码有没有明显的低级错误导致执行一些像把数字与字符串相乘的这种无意义的命令。虽然检查一个表达式的类型也是机械化的（可定义成形式系统），但这似乎跟数学逻辑没有一点关系，它居然能用来构建公理化体系？yugu233做过一期视频[《论码农与数学家的相似性【数学地图】》](https://www.bilibili.com/video/BV1NC411G7oK/)非常通俗形象地解释了类型跟证明之间的联系。<!--more-->
+This will cause a compilation error because the program declares i as an integer type variable and j as a string type variable, and they cannot be multiplied. In other words, multiplication is a function that takes two numbers as input parameters and returns a number as output—the types of i and j clearly don't match this. From this example, we can see that type checking is essentially the compiler helping us check for obvious low-level errors that would lead to meaningless operations like multiplying numbers by strings. Although checking the type of an expression is also mechanized (can be defined as a formal system), this seems to have nothing to do with mathematical logic. How can it be used to construct axiomatic systems? yugu233 made a video ["On the Similarity Between Programmers and Mathematicians [Mathematical Map]"](https://www.bilibili.com/video/BV1NC411G7oK/) that explains the connection between types and proofs in a very accessible and vivid way.<!--more-->
 
 <div style="background-color:#EEF">
 
-题外话选读: 
-不知道有没有熟悉typescript(即带类型检查的JavaScript)的读者，它里面的类型推导机制功能很强大，已经达到了图灵完备，只要知道原理就很容易用纯类型推导定义出自然数，并可以进行四则运算，可[参考这里](https://www.everseenflash.com/CS/Snippets/Type%20Metaprogram.html)。这些计算完全在编译器检查代码时完成，这些代码只包含一堆类型声明，编译出的执行文件是空的。注意这其实跟我们要说的类型论没什么关系。</div>
+Optional reading aside: 
+I wonder if any readers are familiar with TypeScript (JavaScript with type checking). Its type inference mechanism is very powerful and has reached Turing completeness. Once you know the principles, it's easy to define natural numbers using pure type inference and perform arithmetic operations. [See here for reference](https://www.everseenflash.com/CS/Snippets/Type%20Metaprogram.html). These calculations are completed entirely during compiler type checking. The code contains only a bunch of type declarations, and the compiled executable is empty. Note that this actually has nothing to do with the type theory we're discussing.</div>
 
-方便起见，我们将“变量a的类型为A”记作“a : A”。类型论的推理能力主要来源于关于函数的事实: 设A和B为类型，假设存在某个函数f : A → B，则f能实现这个功能：给定一个变量a : A，就能得到一个类型为B的变量f(a) : B。
+For convenience, we write "variable a has type A" as "a : A". The reasoning power of type theory mainly comes from facts about functions: Given types A and B, if there exists some function f : A → B, then f can achieve this: given a variable a : A, we can obtain a variable f(a) : B of type B.
 
-跟所有形式系统一样，这些函数、变量都只是一些无意义的符号。如果你把它们理解为一段计算机代码，则它们对应着物理上存在内存中的变量和函数跳转等指令。下面我们用一种全新的视角理解它们：**把“a : A”翻译成“a见证了命题A为真”**。即，把**类型**翻译成**命题**，把相应的**变量**翻译为命题为真的**证据**。让我们想想下面类型论的规则在新视角下代表什么。
-> 已知“a : A”与“f : A → B”，就能构造出“f(a) : B”
+Like all formal systems, these functions and variables are just meaningless symbols. If you understand them as computer code, they correspond to variables physically stored in memory and function jump instructions. Now let's understand them from a completely new perspective: **translate "a : A" as "a witnesses that proposition A is true"**. That is, translate **types** as **propositions**, and translate corresponding **variables** as **evidence** that propositions are true. Let's think about what the following type theory rule represents in this new perspective:
+> Given "a : A" and "f : A → B", we can construct "f(a) : B"
 
-上面这句话在说如果命题A与命题A → B都成立，则能推出命题B成立，等价于命题逻辑的推理规则mp！而且这里**函数类型中的箭头符号**恰好能解释为**推理中的逻辑蕴含箭头符号**！而且类型论其实根本不止这点能耐，它不仅能处理命题逻辑，稍加改造就能处理一阶逻辑和更高阶的逻辑，但在这之前让我们再熟悉一下这个形式系统。比如，如何用类型论证明下面的定理呢？
-> 如果命题A → B与命题B → C都成立，则能推出命题A → C成立
+This statement says that if propositions A and A → B both hold, then we can deduce that proposition B holds—equivalent to the modus ponens (mp) inference rule in propositional logic! Moreover, the **arrow symbol in function types** can be interpreted as the **logical implication arrow symbol** in reasoning! Type theory can actually do much more than this—it can handle not only propositional logic but also first-order logic and higher-order logics with slight modifications. But before that, let's become more familiar with this formal system. For example, how do we use type theory to prove the following theorem?
+> If propositions A → B and B → C both hold, then we can deduce that proposition A → C holds
 
-类型论中，命题成立代表着这个类型下面一定有某个值存在，叫做该类型是**居留**（inhabitated）的。于是我们可以假设存在两个函数f与g，有f : A → B, g : B → C 。只要能构造出新的函数h : A → C我们就算证明了原命题。显然函数复合就能实现，定义h(x) = g(f(x))，很容易验证h的类型就是A → C。
+In type theory, a proposition holding means there must exist some value under that type, called the type being **inhabited**. So we can assume there exist two functions f and g, with f : A → B, g : B → C. As long as we can construct a new function h : A → C, we have proven the original proposition. Obviously, function composition can achieve this—define h(x) = g(f(x)), and it's easy to verify that h's type is indeed A → C.
 
-可是类型论是个形式系统，目前还没具体给出推理规则，否则能否允许定义h(x) = g(f(x))都不清楚。下面我们就来简单介绍一下类型论的基础——$\lambda$演算。
+But type theory is a formal system, and we haven't yet given specific inference rules. Otherwise, we wouldn't even know if we're allowed to define h(x) = g(f(x)). Below we'll briefly introduce the foundation of type theory—λ-calculus.
 
-### 无类型Lambda演算
-Lambda演算有很多种。其中无类型$\lambda$演算是一个所有东西都是函数的形式系统，这跟集合论的那种所有东西都是集合的观点相似。但它不基于一阶逻辑，它有自己的符号构建语法和推理规则：
-- 所有合法的字符串都叫“$\lambda$项”，只能使用以下3条规则构造“$\lambda$项”：
-  1. 变量是$\lambda$项，一般用小写字母表示，如x、y、z、a、b、c、f、g、h等；
-  2. 若x是变量，M是$\lambda$项，则(λx.M)是$\lambda$项，它可以解释为函数f(x)=M；
-  3. 若M、N都是$\lambda$项，则(M N)是$\lambda$项，它可以解释为函数作用M(N)。
-- $\lambda$项只是一个表达式，并不是一个断言或命题，因此还有一种包含等词的字符串断言两个项相等：
-  - 若M、N都是$\lambda$项，则M = N是一个命题
-- $\lambda$项的推理规则有三个：
-  1. (α-变换) 定义函数时自变量的名称并不重要。比如说λx.x和λy.y是同一个函数。α-变换就是说这两者相等，即(λx.M) = (λy.M[x/y])，其中M[x/y]意思是把自由出现的x替换成y。跟一阶逻辑量词的替换规则一模一样，例如：λx.(λx.x) x = λy.(λx.x) y；
-  2. (β-归约) 定义了函数的作用：(λx.M) N = M[x/N]；
-  3. (η-变换) 明确了函数何时相等，有点像集合论中的外延公理：λx.f x = f。
-- 由于等词的存在，其实还有两个隐含的推理规则：
-  1. (eq1) M = M是公理；
-  2. (eq2) 如果有M = N成立，则可以在任意$\lambda$项中将它们互相替换。
+### Untyped Lambda Calculus
+There are many kinds of lambda calculus. Untyped λ-calculus is a formal system where everything is a function, similar to set theory's view that everything is a set. But it's not based on first-order logic—it has its own syntax for symbol construction and inference rules:
+- All valid strings are called "λ-terms", which can only be constructed using these 3 rules:
+  1. Variables are λ-terms, usually denoted by lowercase letters like x, y, z, a, b, c, f, g, h, etc.
+  2. If x is a variable and M is a λ-term, then (λx.M) is a λ-term. It can be interpreted as the function f(x)=M.
+  3. If M and N are both λ-terms, then (M N) is a λ-term. It can be interpreted as function application M(N).
+- λ-terms are just expressions, not assertions or propositions, so there's another kind of string containing equality that asserts two terms are equal:
+  - If M and N are both λ-terms, then M = N is a proposition
+- λ-terms have three inference rules:
+  1. (α-conversion) The name of the parameter when defining a function doesn't matter. For example, λx.x and λy.y are the same function. α-conversion states these two are equal: (λx.M) = (λy.M[x/y]), where M[x/y] means replacing free occurrences of x with y. It's identical to the substitution rule for quantifiers in first-order logic. Example: λx.(λx.x) x = λy.(λx.x) y;
+  2. (β-reduction) Defines function application: (λx.M) N = M[x/N];
+  3. (η-conversion) Clarifies when functions are equal, somewhat like the axiom of extensionality in set theory: λx.f x = f.
+- Due to the existence of equality, there are actually two more implicit inference rules:
+  1. (eq1) M = M is an axiom;
+  2. (eq2) If M = N holds, they can be substituted for each other in any λ-term.
 
-提下关于括号的简写。如果没有括号，则“λx.”后面的管辖范围尽可能长，比如λx.M N代表(λx.(M N))而不是((λx.M) N)。
+A note about parenthesis abbreviations: Without parentheses, the scope of "λx." extends as far as possible. For example, λx.M N represents (λx.(M N)) not ((λx.M) N).
 
-为什么要用“λ”表示函数呢？“f(x)”不挺好吗？那是因为当我们写下“f(x)”时，已经默认给函数起了名字“f”了。“λ”给了一种表达匿名函数的方法，现在很多程序语言都在使用，不过为了输入方便，一般不用符号“λ”而是“function”这类固定的单词了。注意λ演算中的函数都只有一个参数，然而由于多元函数能够看作返回函数的函数，因此这并不是个问题。
+Why use "λ" to represent functions? Isn't "f(x)" fine? That's because when we write "f(x)", we've already implicitly given the function a name "f". "λ" provides a way to express anonymous functions, now used in many programming languages, though for input convenience they generally use keywords like "function" instead of the symbol "λ". Note that functions in λ-calculus only have one parameter, but since multivariate functions can be viewed as functions returning functions, this isn't a problem.
 
-基本的$\lambda$演算可用于建构布尔值，算术，数据结构和递归的模型。这些东西本质上全都是函数，比如定义TRUE为λx.λy.x，可理解为一个永远返回第一个参数的二元函数f(x,y)=x；定义FALSE为λx.λy.y，可理解为一个永远返回第二个参数的二元函数f(x,y)=y。读者可以自行使用形式系统的规则验证下面定义的函数确实能实现相应的布尔逻辑运算：
+Basic λ-calculus can be used to construct models of boolean values, arithmetic, data structures, and recursion. These are all essentially functions. For example, define TRUE as λx.λy.x, which can be understood as a binary function f(x,y)=x that always returns the first parameter; define FALSE as λx.λy.y, which can be understood as a binary function f(x,y)=y that always returns the second parameter. Readers can verify for themselves using the formal system rules that the functions defined below indeed implement the corresponding boolean logic operations:
 AND := λp.λq.p q FALSE
 OR := λp.λq.p TRUE q
 NOT := λp.p FALSE TRUE
-更多无类型$\lambda$演算内容见[维基百科](https://zh.wikipedia.org/wiki/%CE%9B%E6%BC%94%E7%AE%97)。
+For more on untyped λ-calculus, see [Wikipedia](https://zh.wikipedia.org/wiki/%CE%9B%E6%BC%94%E7%AE%97).
 
-### 带类型的Lambda演算
-无类型$\lambda$演算有时会产生一些问题，比如β-归约看似是化简函数，但有时却会让函数变得更复杂，比如尝试使用β-归约化简表达式“(λx:x x)(λx:x x)”会发现化简前后完全一样，而表达式“(λx:(x x) x)(λx:(x x) x)”会“化简”为“((λx:x x x) (λx:x x x)) (λx:x x x)”，继续β-归约得到“(((λx:x x x) (λx:x x x)) (λx:x x x)) (λx:x x x)”……反而变得越来越长且永远停不下来。这也导致致不存在一个通用的算法判定两个lambda项是否相等。类型论使用的就是带类型的Lambda演算，它通过引入类型，限制了上面那种无休止的循环自身作用，其规则大致如下：
-- 除了等词符号“=”可断言两项相等构成命题，还引入了类型断言符号“:”断言值的类型，它也构成命题
-- 定义λ函数时必须说明参数的类型，类型本身也是项。比如(λx:A.M)不能只写成(λx.M)
-- 引入两个类型推导规则：
-  1. (函数构造) 若假设x : A成立能在系统中推出y : B成立，则“(λx:A.y) : A → B”成立；
-  2. (函数应用) 若f : A → B且x : A成立，则“f x : B”成立。这个规则的意思是，如果函数f的类型是A → B，且x的类型是A，则函数作用的结果f(x)的类型就是B；
+### Typed Lambda Calculus
+Untyped λ-calculus sometimes causes problems. For example, β-reduction seems to simplify functions, but sometimes it makes them more complex. Try using β-reduction to simplify the expression "(λx:x x)(λx:x x)" and you'll find it's exactly the same before and after simplification. The expression "(λx:(x x) x)(λx:(x x) x)" will "simplify" to "((λx:x x x) (λx:x x x)) (λx:x x x)", and continuing β-reduction gives "(((λx:x x x) (λx:x x x)) (λx:x x x)) (λx:x x x)"... becoming longer and longer and never stopping. This also means there's no universal algorithm to determine whether two lambda terms are equal. Type theory uses typed lambda calculus, which prevents this kind of endless self-application loop by introducing types. The rules are roughly as follows:
+- Besides the equality symbol "=" that asserts two terms are equal to form propositions, we also introduce the type assertion symbol ":" that asserts the type of values, which also forms propositions
+- When defining λ functions, we must specify the parameter type. Types themselves are also terms. For example, (λx:A.M) cannot be written as just (λx.M)
+- Introduce two type inference rules:
+  1. (Function construction) If assuming x : A holds allows us to derive y : B in the system, then "(λx:A.y) : A → B" holds;
+  2. (Function application) If f : A → B and x : A hold, then "f x : B" holds. This rule means if function f has type A → B and x has type A, then the result of function application f(x) has type B;
 
-注：如果函数参数与作用对象类型不同，则没有推理规则能够推出该表达式的类型，即发生了类似编译器检查到类型不匹配的错误。
+Note: If the function parameter and the applied object have different types, no inference rule can derive the type of that expression—it's like a compiler detecting a type mismatch error.
 
-下面我们重新来写一遍A → B与B → C推出A → C的证明：
-- 1）f : A → B (已知条件)
-- 2）g : B → C (已知条件)
-- 3）引入假设 x : A
-  - 4）f x : B      (函数应用1,3)
-  - 5）g (f x) : C  (函数应用2,4)
-- 6）(λx:A.g (f x)) : A → C (函数构造3,5)
+Let's rewrite the proof that A → B and B → C imply A → C:
+- 1) f : A → B (given)
+- 2) g : B → C (given)
+- 3) Introduce assumption x : A
+  - 4) f x : B      (function application 1,3)
+  - 5) g (f x) : C  (function application 2,4)
+- 6) (λx:A.g (f x)) : A → C (function construction 3,5)
 
-注意由于推理规则中有假设的存在，所以每一步推导都要指明当前的**假设上下文**：缩进的4、5拥有假设3，而其余的假设上下文为空。类型论在函数内部把函数的参数与假设的概念统一了，相当于演绎元定理的作用，因此我们也可以证明下面这个类型是居留的，即存在某个值是该类型：
+Note that since the inference rules involve assumptions, each derivation step must specify the current **assumption context**: the indented 4 and 5 have assumption 3, while the rest have empty assumption contexts. Type theory unifies the concepts of function parameters and assumptions inside functions, equivalent to the role of the deduction metatheorem, so we can also prove that the following type is inhabited, i.e., there exists some value of this type:
 ? : (A → B) → ((B → C) → (A → C))
-推导过程其实都是把上面本来已知的f、g变成假设而已：
-- 1）引入假设 f : A → B
-  - 2）引入假设 g : B → C
-    - 3）引入假设 x : A
-      - 4）f x : B      (函数应用1,3)
-      - 5）g (f x) : C  (函数应用2,4)
-    - 6）(λx:A.g (f x)) : A → C (函数构造3,5)
-  - 7）(λg:B → C.λx:A.g (f x)) : (B → C) → (A → C) (函数构造2,6)
-- 8）(λf:A → B.λg:B → C.λx:A.g (f x)) : (A → B) → ((B → C) → (A → C)) (函数构造1,7)
+The derivation process essentially changes the previously given f and g into assumptions:
+- 1) Introduce assumption f : A → B
+  - 2) Introduce assumption g : B → C
+    - 3) Introduce assumption x : A
+      - 4) f x : B      (function application 1,3)
+      - 5) g (f x) : C  (function application 2,4)
+    - 6) (λx:A.g (f x)) : A → C (function construction 3,5)
+  - 7) (λg:B → C.λx:A.g (f x)) : (B → C) → (A → C) (function construction 2,6)
+- 8) (λf:A → B.λg:B → C.λx:A.g (f x)) : (A → B) → ((B → C) → (A → C)) (function construction 1,7)
 
-是不是看起来有些复杂？如果我们熟悉了类型论的形式系统，可以这样从要证明的目标倒着往回写：
-1. - 假设上下文：空
-   - 待构造的证据：? : (A → B) → ((B → C) → (A → C))
-   - 证明目标：? : (A → B) → ((B → C) → (A → C))
+Does it look a bit complex? If we're familiar with type theory's formal system, we can work backwards from the goal to be proven:
+1. - Assumption context: empty
+   - Evidence to construct: ? : (A → B) → ((B → C) → (A → C))
+   - Proof goal: ? : (A → B) → ((B → C) → (A → C))
 
-引入假设 f : A → B
+Introduce assumption f : A → B
 
-2. - 假设上下文：f : A → B
-   - 待构造的证据：λf:A → B.? : (A → B) → ((B → C) → (A → C))
-   - 证明目标：? : ((B → C) → (A → C))
+2. - Assumption context: f : A → B
+   - Evidence to construct: λf:A → B.? : (A → B) → ((B → C) → (A → C))
+   - Proof goal: ? : ((B → C) → (A → C))
 
-引入假设 g : B → C
+Introduce assumption g : B → C
 
-3. - 假设上下文：f : A → B、g : B → C
-   - 待构造的证据：λf:A → B.λg:B → C.? : (A → B) → ((B → C) → (A → C))
-   - 证明目标：? : (A → C)
+3. - Assumption context: f : A → B, g : B → C
+   - Evidence to construct: λf:A → B.λg:B → C.? : (A → B) → ((B → C) → (A → C))
+   - Proof goal: ? : (A → C)
 
-引入假设 x : A
+Introduce assumption x : A
 
-4. - 假设上下文：f : A → B、g : B → C、x : A
-   - 待构造的证据：λf:A → B.λg:B → C.λx:A.? : (A → B) → ((B → C) → (A → C))
-   - 证明目标：? : C
+4. - Assumption context: f : A → B, g : B → C, x : A
+   - Evidence to construct: λf:A → B.λg:B → C.λx:A.? : (A → B) → ((B → C) → (A → C))
+   - Proof goal: ? : C
 
-? 处填入值 g (f x)，满足证明目标。
+Fill in g (f x) at ?, satisfying the proof goal.
 
-5. 证毕，得到完整的证据(λf:A → B.λg:B → C.λx:A.g (f x)) : (A → B) → ((B → C) → (A → C))
+5. Proof complete, obtaining the complete evidence (λf:A → B.λg:B → C.λx:A.g (f x)) : (A → B) → ((B → C) → (A → C))
 
-每次引入假设时其实就在构建函数，只不过还不知道函数体内“?”处该填入什么值，于是我们将证明目标转移到构造这个值上来，直到最后所有留空的值都填完，整个值就构造完毕，命题也就有了证明。以上这种格式步骤其实是目前计算机证明辅助工具（如Coq、LEAN等）几乎都在用的书写证明的方法。一般将引入假设写作“intro”，填入值写作“apply”或“exact”。![LEAN4中证明刚才的命题，可自动展示当前的假设上下文与证明目标，并打印出最终构造出的值](/img/hott001.png)
-或许你觉得不如直接一口气写出表达式来得痛快，并不习惯用证明助手，后面将看到随着要证明的命题越来越复杂，这种能帮我们倒推目标的证明助手是刚需的，因为实际使用证明助手时其实只需要不断完成证明目标就行，目前构造出的证据长什么样这些细节都由计算机自动把关检查，可以少操不少心。比如上面证明命题(A → B) → ((B → C) → (A → C))，你只需要告诉证明助手以下三件事即可：
-1. 依次引入假设f、g、x； (LEAN中写作intro f g x)
-2. 填入值g (f x)。   (LEAN中写作apply f (g x))
-剩下的都是计算机自动去完成类型检查与生成证据。
+Each time we introduce an assumption, we're actually constructing a function, but we don't yet know what value to fill in at "?" in the function body, so we transfer the proof goal to constructing this value. Once all blanks are filled, the entire value is constructed and the proposition is proven. This format is actually the method used by almost all computer proof assistants (like Coq, LEAN, etc.) for writing proofs. Generally, introducing assumptions is written as "intro", and filling in values is written as "apply" or "exact". ![Proving the proposition in LEAN4, which can automatically display the current assumption context and proof goal, and print the final constructed value](/img/hott001.png)
+Perhaps you think it's more satisfying to write the expression all at once and aren't used to using proof assistants. We'll see later that as propositions become more complex, proof assistants that help us work backwards from goals become essential. When actually using proof assistants, you only need to keep completing proof goals—details like what the currently constructed evidence looks like are automatically handled and checked by the computer, saving a lot of worry. For example, to prove the proposition (A → B) → ((B → C) → (A → C)), you only need to tell the proof assistant three things:
+1. Sequentially introduce assumptions f, g, x; (written as intro f g x in LEAN)
+2. Fill in the value g (f x).   (written as apply f (g x) in LEAN)
+The rest is automatically completed by the computer for type checking and evidence generation.
 
-### 依赖值类型、相等类型与定义相等
+### Dependent Types, Equality Types, and Definitional Equality
 
-个人认为理解带类型的Lambda演算并不困难。下一个东西很可能是开始不太好理解的一个拦路虎：**依赖值类型**。它是由这个需求产生的：既然所有命题都是类型，那么“1=1”、“2=2”当然也该是类型。注意不要跟Lambda演算里面的相等混淆：涉及相等的命题仅仅只是一个类型而已，那种通过(α-变换)、(β-归约)定义的相等叫做“定义相等”的，它们在形式系统里永远视为无条件相等。为了区别两者，我把命题相等暂时写作(1 eq 1)和(2 eq 2)。在一阶逻辑里“1=1”、“2=2”是从等词公理里面直接得到的，因此类型论中也要引入一个“相等公理”的规则，即直接给出一个类型为a eq a的值：
-- 对任意的项$a$，都存在项“$\mathrm{refl}_a $”，且有类型断言“$\mathrm{refl}_a : a\ \mathrm {eq}\ a$”成立。
+I personally think understanding typed lambda calculus isn't difficult. The next thing is likely the first "roadblock" on the learning path: **dependent types**. It arises from this need: since all propositions are types, then "1=1" and "2=2" should certainly be types too. Don't confuse this with equality in lambda calculus: propositions involving equality are merely types, while the equality defined through (α-conversion) and (β-reduction) is called "definitional equality"—they're always considered unconditionally equal in the formal system. To distinguish the two, I'll temporarily write propositional equality as (1 eq 1) and (2 eq 2). In first-order logic, "1=1" and "2=2" are obtained directly from the equality axioms, so type theory also needs to introduce an "equality axiom" rule, directly giving a value of type a eq a:
+- For any term $a$, there exists a term "$\mathrm{refl}_a$", and the type assertion "$\mathrm{refl}_a : a\ \mathrm{eq}\ a$" holds.
 
-注意类型论不再是简单的Lambda演算，因为Lambda演算中的“原子项”只能是变量或Lambda表达式，而类型论中还允许常量符号的存在，比如refl就是个常量符号。这个refl是反射（relexivity）的缩写，代表等式的自反性。设$\mathrm A$是某给定的类型，我们要证明对任意的$x:\mathrm A$，都有$x\ \mathrm {eq}\ x$”成立，这就意味着，我们需要构造一个函数，它随便接收一个变量$x:\mathrm A$，就能输出一个类型为“$x\ \mathrm {eq}\ x$”的变量。这个函数很好构造：它就是：$\lambda x : \mathrm A. \mathrm{refl}\_x$。然而这个函数的类型是什么呢？可以想象，假设$A$代表自然数类型，如果输入1，则输出$\mathrm{refl}\_1$，它的类型是1 eq 1；输入2则输出$\mathrm{refl}\_2$，它的类型是2 eq 2，确实函数的输出类型依赖与输入。我们直接写成“$\mathrm A → x \ \mathrm {eq}\ x$”会让人困惑：箭头右边的x凭空就冒出来了，因此我们要先声明参数x，并引入符号$\prod$专门表示依赖函数：$\prod_{x:A} (x\ \mathrm {eq}\ x)$，在LEAN中则是这样表示依赖函数类型：“$(x:\mathrm A) → (x \ \mathrm {eq}\ x)$”。
+Note that type theory is no longer simple lambda calculus, because "atomic terms" in lambda calculus can only be variables or lambda expressions, while type theory also allows constant symbols like refl. This refl is short for reflexivity, representing the reflexive property of equality. Given some type $\mathrm{A}$, to prove that for any $x:\mathrm{A}$, we have "$x\ \mathrm{eq}\ x$" holds, means we need to construct a function that takes any variable $x:\mathrm{A}$ and outputs a variable of type "$x\ \mathrm{eq}\ x$". This function is easy to construct: it's $\lambda x : \mathrm{A}. \mathrm{refl}_x$. But what is this function's type? Imagine if $A$ represents the natural number type. If we input 1, it outputs $\mathrm{refl}_1$, which has type 1 eq 1; if we input 2, it outputs $\mathrm{refl}_2$, which has type 2 eq 2. Indeed, the function's output type depends on the input. Writing it directly as "$\mathrm{A} → x\ \mathrm{eq}\ x$" would be confusing: the x on the right of the arrow appears out of nowhere. So we need to first declare parameter x and introduce the symbol $\prod$ specifically for dependent functions: $\prod_{x:A} (x\ \mathrm{eq}\ x)$. In LEAN, dependent function types are represented as: "$(x:\mathrm{A}) → (x\ \mathrm{eq}\ x)$".
 
-非依赖的普通函数(→)其实是依赖函数($\Pi$)的特殊情况，我们约定，箭头符号其实就只是依赖函数$\Pi$的简写，即引入一个定义相等的断言：
-> $\prod_{x:A}$ B = A → B，若x不在B中自由出现。
+Non-dependent ordinary functions (→) are actually special cases of dependent functions ($\Pi$). We stipulate that the arrow symbol is just shorthand for dependent function $\Pi$, introducing a definitional equality assertion:
+> $\prod_{x:A}$ B = A → B, if x doesn't occur freely in B.
 
-比如函数类型(A → B) → ((B → C) → (A → C))也可以写作$\prod_{f:A → B} \prod_{g:B → C} \prod_{x:A} C$，更进一步，改写f与g的函数类型最终变成这样：$\prod_{f:\Pi_{x:A} B} \prod_{g:\Pi_{x:B} C} \prod_{x:A} C$。
+For example, the function type (A → B) → ((B → C) → (A → C)) can also be written as $\prod_{f:A → B} \prod_{g:B → C} \prod_{x:A} C$, and further, rewriting f and g's function types finally becomes: $\prod_{f:\Pi_{x:A} B} \prod_{g:\Pi_{x:B} C} \prod_{x:A} C$.
 
-为什么要用连乘符号表示依赖函数的确是个很让初学者困惑的地方，这里面虽然有一定的道理，但更多是历史遗留问题没必要去深究。我最先遇到这个类型时一直卡在去想那个连乘是什么含义，其实把连乘符号换成“$\forall$”还更方便理解（LEAN里面就是这么写的）。
+Why use the product symbol to represent dependent functions is indeed confusing for beginners. While there's some rationale, it's mostly a historical artifact not worth dwelling on. When I first encountered this type, I kept getting stuck trying to understand what that product meant. Actually, replacing the product symbol with "$\forall$" makes it easier to understand (that's how it's written in LEAN).
 
 <div style="background-color:#EEF">
 
-选读：
-我们看到命题相等类型与系统内的定义相等是两个概念，它们最大的区别是命题相等可以作为假设出现在函数参数中，而两个表达式是否定义相等则是固定的，无法在系统中表示“假设x与y定义相等”的概念。其实我们也可以强行加入一条规则让两种相等不再有本质区别：
- - 若存在某个项x使得类型断言“x : a eq b”成立，则定义相等断言“a = b”成立。
+Optional reading:
+We see that propositional equality types and definitional equality within the system are two different concepts. Their biggest difference is that propositional equality can appear as assumptions in function parameters, while whether two expressions are definitionally equal is fixed and cannot represent the concept of "assuming x and y are definitionally equal" within the system. We could actually forcibly add a rule to make the two kinds of equality no longer essentially different:
+ - If there exists some term x such that the type assertion "x : a eq b" holds, then the definitional equality assertion "a = b" holds.
 
-然而事实上是没必要，且不应该的。因为判定一个项的类型往往是靠计算机系统自动完成的，如果把命题相等与定义相等等同，这就要求计算机在类型检查时有猜出“a = b”的证明步骤的能力。类型论中最复杂精妙的地方就是对相等的处理上，我们后面再来细说。</div>
+However, this is actually unnecessary and shouldn't be done. Because determining a term's type is often done automatically by computer systems, and if we equate propositional equality with definitional equality, this would require the computer to have the ability to guess the proof steps for "a = b" during type checking. The most complex and subtle aspect of type theory is in handling equality, which we'll discuss in detail later.</div>
 
-### 宇宙类型
-有了依赖函数类型，我们不但能表达一阶逻辑，甚至还能表达二阶逻辑。比如“对任意命题A，都有A → A成立”这句话的量词作用在任意命题上，而一阶逻辑中量词只允许作用在项（代表集合、自然数等）的概念上，因此是妥妥的二阶逻辑中的命题。如果翻译成类型论，我们需要定义一个接受类型的函数，就会遇到类型的类型。类型论规定所有的类型的类型叫做全类，或宇宙（Universe），记作“U”（LEAN中记作“Type”）。但为了避免悖论，U自己的类型必须是更大的宇宙，记作U<sub>1</sub>、然后U<sub>1</sub> : U<sub>2</sub> : U<sub>3</sub> : ……这样构成了无穷的类型宇宙层级，这些角标甚至可以拓展到序数，然而一般我们只用得到前一两个层级。
-除了引入类型的类型规则，我们还将更新一下规则来确保系统的一致性：
-- 只有A的类型是某个宇宙才能引入假设x : A。
-- 若A:U<sub>m</sub>，B:U<sub>n</sub>，则$\prod_{x:A}$ B : U<sub>max(m,n)</sub>，即函数类型所在的宇宙一定不比输入、输出的类型宇宙层级低。
-- 若A:U<sub>m</sub>，B:U<sub>n</sub>，则A → B : U<sub>max(m,n)</sub>（箭头类型是$\Pi$类型的特殊情况）
+### Universe Types
+With dependent function types, we can express not only first-order logic but even second-order logic. For example, "for any proposition A, A → A holds" has quantifiers acting on arbitrary propositions, while in first-order logic quantifiers are only allowed to act on terms (representing sets, natural numbers, etc.), so it's definitely a proposition in second-order logic. To translate this into type theory, we need to define a function that accepts types, which encounters types of types. Type theory stipulates that the type of all types is called the universe, denoted as "U" (or "Type" in LEAN). But to avoid paradoxes, U's own type must be a larger universe, denoted as U<sub>1</sub>, then U<sub>1</sub> : U<sub>2</sub> : U<sub>3</sub> : ... forming an infinite hierarchy of type universes. These subscripts can even extend to ordinals, but generally we only need the first level or two.
+Besides introducing type-of-type rules, we'll also update rules to ensure system consistency:
+- Only when A's type is some universe can we introduce assumption x : A.
+- If A:U<sub>m</sub>, B:U<sub>n</sub>, then $\prod_{x:A}$ B : U<sub>max(m,n)</sub>, i.e., the universe of a function type is never lower than the universe levels of input and output types.
+- If A:U<sub>m</sub>, B:U<sub>n</sub>, then A → B : U<sub>max(m,n)</sub> (arrow types are special cases of $\Pi$ types)
 
-对任意命题A，都有A → A成立可以翻译成这个依赖函数类型是居留的：$$\prod_{A:\mathrm U} A → A$$下面直接给出构造的函数，读者可自行根据形式系统的规则对其类型进行验证：$$\lambda A:\mathrm U. \lambda x: A.x$$
+"For any proposition A, A → A holds" can be translated as this dependent function type being inhabited: $$\prod_{A:\mathrm{U}} A → A$$ Here's the constructed function directly—readers can verify its type according to the formal system's rules: $$\lambda A:\mathrm{U}. \lambda x: A.x$$
 
-### 简单归纳类型
+### Simple Inductive Types
 
-类型论几乎没有公理，只有规则。刚才我们看到了普通函数与依赖函数类型、全类（宇宙）类型。其实类型论最基础的东西已经说完了，其它的类型（包括上面提到的命题相等类型eq）都是我们将要提到的归纳类型的特例。
+Type theory has almost no axioms, only rules. We've just seen ordinary functions and dependent function types, and universe types. Actually, the most basic things in type theory have been covered. Other types (including the propositional equality type eq mentioned above) are all special cases of inductive types that we'll mention.
 
-归纳类型很简单，定义归纳类型，就是单纯将其可能的值全部列出来。比如只包含一个值的类型，记为True（游戏deductrium中的记法）或$\mathbb{1}$（[同伦类型论（HoTT）书](https://hott.github.io/book/hott-online.pdf.html)中的记法），向系统加入以下规则后就能愉快地使用该类型了：
+Inductive types are simple: defining an inductive type means simply listing all its possible values. For example, a type containing only one value, denoted as True (notation in the game Deductrium) or $\mathbb{1}$ (notation in the [Homotopy Type Theory (HoTT) book](https://hott.github.io/book/hott-online.pdf.html)), can be happily used after adding the following rules to the system:
 - True : U
 - \* : True
-这里的星号代表True类型唯一的元素值，称之为类型True的构造子（constructor），来自同伦类型论书中的记法，游戏deductrium中用小写的“true”表示True的构造子。
+Here the asterisk represents the unique element value of type True, called the constructor of type True, from the notation in the HoTT book. The game Deductrium uses lowercase "true" to represent True's constructor.
 
-我们也可以定义只包含两个值（构造子）的类型，记为Bool或$\mathbb{2}$，需要向系统加入以下规则：
+We can also define a type containing only two values (constructors), denoted as Bool or $\mathbb{2}$, requiring the following rules to be added to the system:
 - Bool : U
 - 0b : Bool
 - 1b : Bool
 
-甚至可以构造不包含任何值的空类型，记为False或$\mathbb{0}$，由于没有值，因此目前仅需加入一条规则：
+We can even construct an empty type containing no values, denoted as False or $\mathbb{0}$. Since there are no values, currently only one rule needs to be added:
 - False : U
 
-看得出来True类型与Bool类型都代表恒为真的命题，而False类型则是恒为假的命题。读者可以自行验证下面的命题的证据：
+It's clear that True type and Bool type both represent propositions that are always true, while False type is a proposition that's always false. Readers can verify the evidence for the following propositions themselves:
 - λx:True.x  :  True → True
 - λx:False.x  :  False → False
 - λx:False.*  :  False → True
 
-然而我们无法证明True → False，这跟命题逻辑是保持一致的，事实上我们能够证明True → False为假命题，因为假设True → False成立我们就能推出False成立：
+However, we cannot prove True → False, which is consistent with propositional logic. In fact, we can prove that True → False is a false proposition, because assuming True → False holds allows us to deduce that False holds:
 - λx:True → False. x *  :  (True → False) → False
 
-在类型论中，我们将命题A的否定直接定义成“A → False”，而不是像命题逻辑把否定看作基本的逻辑符号。
+In type theory, we directly define the negation of proposition A as "A → False", rather than treating negation as a basic logical symbol like in propositional logic.
 
-### 归纳法则
+### Induction Principles
 
-虽然刚才我们定义出来的类型感觉很好用，但遇到稍微复杂的情况却难以应对，比如我们没有证据表明True类型中只有“*”这个唯一元素的事实，于是暂时无法构造出下面这个真命题的证据：
-> 对任意的x:True，都有x 等于 *
+Although the types we've defined seem useful, they struggle with slightly complex situations. For example, we have no evidence for the fact that True type has only "*" as its unique element, so we temporarily cannot construct evidence for this true proposition:
+> For any x:True, x equals *
 
-解决方法很简单：把该事实作为公理加入进系统即可。但关于任意x:True的命题太多了，我们不可能全都作为形式系统的规则加入进去，于是可以制定这样的规则：**要想定义一个对任意x:True都能输出指定类型C的函数，我们只需定义当x等于\*时函数的值即可**。将这句话翻译成公理“rec_True”，它是有两个参数的依赖函数，即：rec_True(C,val) : True → C，且rec_True(C,y) (*) = val。这可能是除依赖值函数外的第二个类型论学习之路上的“拦路虎”，它的困难之处在于符号复杂，经常容易被绕晕，但其中的原理却并不复杂，如果你看不太懂可以往后跳过。
+The solution is simple: add this fact as an axiom to the system. But there are too many propositions about arbitrary x:True—we can't add them all as rules to the formal system. So we can make this rule: **To define a function that outputs a specified type C for any x:True, we only need to define the function's value when x equals \***. Translating this statement into the axiom "rec_True", it's a dependent function with two parameters: rec_True(C,val) : True → C, and rec_True(C,y) (*) = val. This might be the second "roadblock" on the type theory learning path after dependent value functions. Its difficulty lies in complex notation that's easy to get confused by, but the underlying principle isn't complex. If you can't understand it well, you can skip ahead.
 
-我们向系统加入两条规则来描述它：
-- rec_True : $\prod_{\mathrm C:\mathrm U}$ C → (True → C)
-- 对任意的项C、y，都有定义相等断言“rec_True C y * = y”成立
+We add two rules to the system to describe it:
+- rec_True : $\prod_{\mathrm{C}:\mathrm{U}}$ C → (True → C)
+- For any terms C, y, the definitional equality assertion "rec_True C y * = y" holds
 
-第二个规则表示我们用rec_True C y定义出来的函数在x为*时值就是y，因此直接是定义相等。可惜这样定义出来的只是普通函数，并不依赖值，还是无法构造“x eq *”这样的命题证据。下面我们把C换成依赖x的类型，即**一个输入一个x:True就输出一个类型的函数“C: True → U”**（把这里理解了就成功一半了）。![F : A → U的含义图解，图片来自the HoTT Game](/img/hott001.webp)
+The second rule says the function we define using rec_True C y has value y when x is *, hence it's definitionally equal. Unfortunately, functions defined this way are only ordinary functions, not dependent ones, so we still can't construct evidence for propositions like "x eq *". Below we replace C with a type dependent on x, i.e., **a function "C: True → U" that inputs x:True and outputs a type** (understanding this is half the battle). ![Meaning of F : A → U illustrated, image from the HoTT Game](/img/hott001.webp)
 
-引入rec_True函数的依赖函数版本ind_True，同样向系统加入两条规则来描述它：
-- ind_True : $\prod_{\mathrm C:\mathrm{True} → \mathrm U}$ ((C *)  → $\prod_{x:\mathrm{True}}$C x)
-- 对任意的项C、y，都有断言“ind_True C y * = y”成立
+Introduce the dependent function version of rec_True called ind_True, similarly adding two rules to the system to describe it:
+- ind_True : $\prod_{\mathrm{C}:\mathrm{True} → \mathrm{U}}$ ((C *)  → $\prod_{x:\mathrm{True}}$C x)
+- For any terms C, y, the assertion "ind_True C y * = y" holds
 
-如果把C(x):U看作关于x的命题，则“ind_True”在说：随便给定关于x:True的命题C(x)，如果命题C(\*)成立，则对任何x:True，C(x)都成立。
+If we view C(x):U as a proposition about x, then "ind_True" says: given any proposition C(x) about x:True, if proposition C(\*) holds, then for any x:True, C(x) holds.
 
-读者可以验证下面的类型断言确实证明了我们的命题：
+Readers can verify that the following type assertion indeed proves our proposition:
 
 ind_True (λx:True → x eq \*) refl<sub>*</sub> :  $\prod_{x:\mathrm{True}}$x eq \*
 
-如果你觉得这些依赖函数表达式看上去很晕，大概知道它们就是表达“True类型只有唯一值*”的公理即可，或者也可以试着玩玩Deductrium中的类型论形式系统，把鼠标悬停在每一项上都会显示它的类型，应该对理解有很大帮助。Deductrium中要在比较后期才能解锁类型论，没有精力的读者可以去Deductrium的[创造模式](/deductrium/?creative)直接体验：点击类型层，在定理列表中输入表达式，系统就会自动计算它的类型，也可以输入A : B、A === B这种类型断言和定义相等断言表达式，系统会自动判断输入的断言是否正确，你也可以使用xxx := XXX的形式将XXX简写为xxx，定义后即可在位于其后面的定理中（按加号按钮添加）使用。<img style="max-width:500px" src="/img/hott002.png" alt="Deductrium中的形式系统"/>
+If you find these dependent function expressions confusing, just roughly know they express the axiom "True type has unique value *". Or you can try playing with type theory formal systems in Deductrium—hovering over each term shows its type, which should greatly help understanding. Type theory is unlocked relatively late in Deductrium. Readers without time can go directly to Deductrium's [creative mode](/deductrium/?creative) to experience it: click the type layer, enter expressions in the theorem list, and the system will automatically calculate their types. You can also enter type assertions like A : B and definitional equality assertions like A === B, and the system will automatically determine if the input assertions are correct. You can also use the form xxx := XXX to abbreviate XXX as xxx, and after definition you can use it in theorems that follow (add with the plus button). <img style="max-width:500px" src="/img/hott002.png" alt="Formal system in Deductrium"/>
 
-下面回归正题。每一种类型都有相应的归纳法则，比如“ind_Bool”、“ind_False”、甚至“ind_eq”等等。
-我们大概说说它们代表的含义，不再写出其类型与运算法则。
-- ind_Bool：对任意依赖类型C(x)，只要给出了C(0b)与C(1b)的值，就能构造出依赖函数$\prod_{x:\mathrm{Bool}}$C(x)；
-- ind_False：对任意依赖类型C(x)，什么值都不用给，就能构造出依赖函数$\prod_{x:\mathrm{False}}$C(x)；
-- ind_eq：给定类型A，对任意依赖类型C(x:A,y:A,m: x eq y)，只要给出了C(x,x,refl<sub>x</sub>)，就能构造出依赖函数$\prod_{x,y:\mathrm{A}}\prod_{m:\mathrm{x eq y}}$C(x,y,m)；
+Now back to the main topic. Each type has corresponding induction principles, like "ind_Bool", "ind_False", even "ind_eq", etc.
+Let's roughly describe what they represent without writing out their types and computational rules.
+- ind_Bool: For any dependent type C(x), given values for C(0b) and C(1b), we can construct the dependent function $\prod_{x:\mathrm{Bool}}$C(x);
+- ind_False: For any dependent type C(x), without giving any values, we can construct the dependent function $\prod_{x:\mathrm{False}}$C(x);
+- ind_eq: Given type A, for any dependent type C(x:A,y:A,m: x eq y), given C(x,x,refl<sub>x</sub>), we can construct the dependent function $\prod_{x,y:\mathrm{A}}\prod_{m:\mathrm{x eq y}}$C(x,y,m);
 
-说明1. 这里的ind_False其实暗含了“否定爆炸”原理：对于任何命题，我们都能构造出一个接收False类型变量的函数来输出它，因此只要有了False类型的值，我们就能证明一切。
-说明2. eq类型其实不是一个简单的类型，它是带有A、x、y三个参数的复杂类型，然而它只有一种构造方法，那就是refl<sub>a</sub> : a eq a，因此要想构造关于eq类型的函数，就只需考虑x=y(即定义相等)这种情况即可。
+Note 1: ind_False here actually implies the "principle of explosion": for any proposition, we can construct a function that takes a False type variable and outputs it, so once we have a value of False type, we can prove everything.
+Note 2: The eq type isn't actually a simple type—it's a complex type with three parameters A, x, y. However, it has only one construction method: refl<sub>a</sub> : a eq a. So to construct functions about eq type, we only need to consider the case where x=y (definitionally equal).
 
-同样我们可以归纳定义这些带参数的复杂类型：
-- 有序数对，也叫积类型： (a,b) : A x B，它由一个带两个参数（a:A与b:B）的的构造子构成。要构造类型A x B必须同时给出A与B的元素，因此 A x B 可翻译为命题“A且B”。
-- 依赖积类型，若a:A且b:B(a)，则(a,b) : $\sum_{x:A}$ B(x)，它的构造子类型从简单函数变成了依赖函数。由于只要给出任意一组a:A且b:B(a)就能构造依赖积类型，因此$\sum_{x:A}$ B(x)可翻译为“存在x:A使得B(x)成立”。
-- 和类型A + B，它类似布尔类型，有两个构造子：要么由第一个带参数a:A的构造子构造，要么由另一个带参数的b:B构造子构造。要构造类型A + B要么给出A的元素要么给出B的元素，因此 A + B 可翻译为命题“A或B”。
+Similarly, we can inductively define these complex types with parameters:
+- Ordered pairs, also called product types: (a,b) : A × B, constructed by a constructor with two parameters (a:A and b:B). To construct type A × B we must give elements of both A and B, so A × B can be translated as the proposition "A and B".
+- Dependent product types: if a:A and b:B(a), then (a,b) : $\sum_{x:A}$ B(x). Its constructor type changes from simple functions to dependent functions. Since we only need to give any pair a:A and b:B(a) to construct the dependent product type, $\sum_{x:A}$ B(x) can be translated as "there exists x:A such that B(x) holds".
+- Sum type A + B, similar to boolean type, has two constructors: either constructed by the first constructor with parameter a:A, or by another constructor with parameter b:B. To construct type A + B we need either an element of A or an element of B, so A + B can be translated as the proposition "A or B".
 
-由于它们都是归纳类型，因此无一例外都有相应的“ind_xxxx”函数，它们都在断言，给定一个带参数的命题C(x)，只要把这些归纳类型的所有构造子的所有情况都分类讨论了，则可以证明对任意的x，命题C(x)都成立。这里就不展开介绍具体细节了。
+Since they're all inductive types, they all have corresponding "ind_xxxx" functions without exception. They all assert that given a proposition C(x) with parameters, as long as we case-analyze all situations for all constructors of these inductive types, we can prove that for any x, proposition C(x) holds. I won't expand on the specific details here.
 
-### 自然数与数学归纳法
+### Natural Numbers and Mathematical Induction
 
-我们最后再来看自然数类型nat : U，它有两个构造子“0”和“succ”：
+Finally, let's look at the natural number type nat : U, which has two constructors "0" and "succ":
 - 0 : nat
 - succ : nat → nat
 
-这个succ是什么意思呢？它说明如果n是自然数，则succ n也是。也就是说归纳类型中的参数是可以递归的，甚至两个归纳类型的构造子还可以“交叉”构造等等。因此构造子的数量并不等于该类型中真正元素的数量。ind_nat函数正好就等价于数学归纳法：要证明一个命题C(n)对所有自然数n都成立，则需要证明它对0（即C(0)）和succ也成立。succ是带参数的，因此要证对所有的x: nat，都有命题对succ x成立（$\prod_{x:nat}$ C(succ x)）。然而自然数的递归性还没体现出来：所有元素都只能由0或succ生成出来，因此succ x中的x肯定早就是满足命题的自然数，即其实还有个递归给我们的已知条件C(x)，加上后就变成$\prod_{x:nat}$C(x) → C(succ x)。现在它已经跟数学归纳法一模一样了：首先要证明C(0)成立，然后是证明对任意自然数x，都有“从对x成立推出对x+1 (即succ x)成立”。
+What does this succ mean? It says if n is a natural number, then succ n is too. That is, parameters in inductive types can be recursive, and constructors of two inductive types can even "cross" construct, etc. Therefore, the number of constructors doesn't equal the actual number of elements in that type. The ind_nat function is exactly equivalent to mathematical induction: to prove a proposition C(n) holds for all natural numbers n, we need to prove it holds for 0 (i.e., C(0)) and for succ. Since succ has parameters, we need to prove that for all x: nat, the proposition holds for succ x ($\prod_{x:nat}$ C(succ x)). However, the recursive nature of natural numbers isn't reflected yet: all elements can only be generated from 0 or succ, so the x in succ x must already be a natural number satisfying the proposition, i.e., we actually have the given condition C(x) from recursion. Adding this gives $\prod_{x:nat}$C(x) → C(succ x). Now it's identical to mathematical induction: first prove C(0) holds, then prove that for any natural number x, "from holding for x we can deduce it holds for x+1 (i.e., succ x)".
 
-以上是用命题的思考角度来理解ind_nat函数。现在以函数求值的方式重新审视一遍它：要定义一个关于自然数的函数f，首先要定义其在0处的值f(0)，然后，对于任意x，其在succ x处的值f(succ x)不仅可以依赖于x，还可以依赖于之前的f(x)的值，这就允许我们定义递归函数。其实加法、乘法、指数等原始递归运算全都可以用ind_nat函数写出来。有兴趣可以[参考维基百科](https://zh.wikipedia.org/wiki/%E7%B1%BB%E5%9E%8B%E8%AE%BA#%E8%87%AA%E7%84%B6%E6%95%B8)。
+The above uses a propositional perspective to understand the ind_nat function. Now let's re-examine it from a function evaluation perspective: to define a function f about natural numbers, first define its value at 0, f(0), then for any x, its value at succ x, f(succ x), can depend not only on x but also on the previous value f(x). This allows us to define recursive functions. Actually, addition, multiplication, exponentiation, and all primitive recursive operations can be written using the ind_nat function. Those interested can [refer to Wikipedia](https://zh.wikipedia.org/wiki/%E7%B1%BB%E5%9E%8B%E8%AE%BA#%E8%87%AA%E7%84%B6%E6%95%B8).
 
-### 类型论与经典逻辑的区别
+### Differences Between Type Theory and Classical Logic
 
-下面我们来总结对比一下类型论与集合论：
-|项目|类型论|集合论|
+Let's summarize and compare type theory with set theory:
+|Item|Type Theory|Set Theory|
 |----|----|----|
-|假设推演|普通函数|逻辑蕴含符号|
-|否定|命题推出False|否定符号|
-|任意|依赖函数|一阶逻辑量词“任意”|
-|存在|依赖积类型|量词“任意”与否定的组合|
-|与|积类型|否定与逻辑蕴含组合实现|
-|或|和类型|否定与逻辑蕴含组合实现|
+|Hypothetical reasoning|Ordinary functions|Logical implication symbol|
+|Negation|Proposition implies False|Negation symbol|
+|Universal|Dependent functions|First-order logic quantifier "for all"|
+|Existential|Dependent product types|Combination of quantifier "for all" and negation|
+|And|Product types|Combination of negation and logical implication|
+|Or|Sum types|Combination of negation and logical implication|
 
-我们发现一阶逻辑中对待任意与存在、对待与和或是差不多的，而类型论中却差异很大。一阶逻辑属于“经典逻辑”，即承认同一律（$a=a$）、排中律($A\lor\lnot A$)、无矛盾律($\lnot(A\land\lnot A)$)。然而**类型论并不承认排中律**。排中律在说：一个命题要么是真的要么就是假的。这显然是正确的。类型论是为了计算数学而设计的，它的每个“证据”都是可计算的。哥德尔不完备性定理说不是所有命题都是可证明的，也就是说存在命题不能证明也不能证伪。类型论构造“或”的证据时，必须指明选择哪一边的构造子来构造，这是有额外信息的，对于哥德尔命题显然选哪边都构造不出来。其实减少否定符号的很多命题都与排中律等价，它们都不能在类型论中证明，比如双重否定消去律：
+We find that first-order logic treats universal and existential, and and or similarly, while type theory treats them very differently. First-order logic belongs to "classical logic", which accepts the law of identity ($a=a$), law of excluded middle ($A\lor\lnot A$), and law of non-contradiction ($\lnot(A\land\lnot A)$). However, **type theory doesn't accept the law of excluded middle**. The law of excluded middle says: a proposition is either true or false. This is obviously correct. Type theory is designed for computational mathematics, and every "evidence" in it is computable. Gödel's incompleteness theorem says not all propositions are provable, meaning there exist propositions that can neither be proven nor disproven. When constructing "or" evidence in type theory, we must specify which side's constructor to use for construction—this requires extra information. For Gödel propositions, obviously neither side can be constructed. Actually, many propositions without negation symbols are equivalent to the law of excluded middle and cannot be proven in type theory, such as double negation elimination:
 - (¬¬A → A) 
 
-相反，类型论证明双重否定介入则没问题：
+In contrast, type theory has no problem proving double negation introduction:
 (λA:U. λx:A. λy:A → False. y x)  :  (A → ((A → False) → False)) = (A → ¬¬A) 
 
-注意不代表必须要出现否定符号才可能蕴含排中律，这个看似人畜无害的“皮尔士定律”也蕴含排中律，从而不可证：((P → Q) → P) → P。
+Note that the law of excluded middle isn't only implied by propositions with negation symbols. This seemingly harmless "Peirce's law" also implies the law of excluded middle and thus cannot be proven: ((P → Q) → P) → P.
 
-我们完全可以向类型论中引入公理来解决这个问题，但这样可计算性遇到公理后就进行不下去了。其实很多时候并不需要排中律也能证明绝大多数命题了。后面我们将看到同伦类型论将把排中律证伪。
+We could completely solve this problem by introducing axioms into type theory, but then computability would break down when encountering axioms. Actually, the law of excluded middle often isn't needed to prove the vast majority of propositions. We'll see later that homotopy type theory will disprove the law of excluded middle.
 
-#### 常见否定问题的判定
+#### Determining Common Negation Problems
 
-不知大家有没有想过类型论中如何证明0不等于1呢？我们只能用间接的方法来证明：先通过“ind_nat”定义一个函数f : nat → U，把0映射到True，把1映射到False，再利用0与1相等的假设，通过ind_eq得到若f(0)成立则f(1)就成立，因而得到命题False成立。其实所有的构造子都可以用类似的方法附上不同的真假值来推出矛盾，这叫做归纳类型构造子的普遍性质——“不交性”。
-![若假设两个不同的元素相等成立，就可以通过推出True=False来得到矛盾](/img/hott001.svg)
-### 同伦类型论简介
+Have you wondered how to prove 0 ≠ 1 in type theory? We can only use indirect methods: first use "ind_nat" to define a function f : nat → U that maps 0 to True and 1 to False, then use the assumption that 0 equals 1 to get through ind_eq that if f(0) holds then f(1) holds, thus obtaining that proposition False holds. Actually, all constructors can use similar methods to attach different truth values to derive contradictions. This is called the universal property of inductive type constructors—"disjointness".
+![If we assume two different elements are equal, we can derive a contradiction by deducing True=False](/img/hott001.svg)
 
-粗略来说同伦类型论就是专门研究相等类型的理论。它指出类型可按相等类型的性质大至分为以下几类：
-1. 像纯命题的类型A：类似True类型，A中只有一个元素，对于任意的a, b : A，都有a eq b成立。
-2. 像集合的类型A：对于任意的a : A，类型a eq a的元素都是唯一的。
-3. 其它高阶同伦类型：对于对于任意的a : A，类型a eq a的元素不只有refl<sub>a</sub>，还可能存在与其不相等的东西。
+### Introduction to Homotopy Type Theory
 
-下面是解释：
-1. 对于命题来说，无论证据是什么，都仅代表它成立了，不需要其它额外的信息，因此，一个“纯粹”的命题的类型应该满足内部所有元素都相等。
-2. 对于集合来说，不再要求只能有唯一的元素，但每个元素都相当于一个个孤立的点，没有其它额外的结构。
-3. 高阶同伦类型可以看作是一种拓扑空间：每个值就是空间中的点，定义相等的值视为同一点，命题相等但不定义相等的两点视为有一条路径将它们连接在了一起，命题相等的证据就是这一条条的路径。路径之间也可以判断是否相等，相等的路径在拓扑空间中是同伦的——即存在更高维的路径链接它们——存在一个二维面能让一条路径在其上面连续变形到另一条路径。如果存在不同于refl<sub>a</sub>的路径，说明从点a出发的一个圈不能够连续收缩到一点。
+Roughly speaking, homotopy type theory is the theory specifically studying equality types. It points out that types can be broadly classified into the following categories based on the properties of equality types:
+1. Types A that are like mere propositions: Similar to the True type, A has only one element, and for any a, b : A, we have a eq b holds.
+2. Types A that are like sets: For any a : A, the elements of type a eq a are unique.
+3. Other higher homotopy types: For any a : A, the elements of type a eq a include not only refl<sub>a</sub> but possibly other things not equal to it.
 
-为什么能把相等类型看成路径？很容易通过“ind_eq”函数构造等式的自反性、传递性的证明，即构造出函数：
+Here's the explanation:
+1. For propositions, regardless of what the evidence is, it only represents that it holds, without needing other extra information. Therefore, a "mere" proposition's type should satisfy that all internal elements are equal.
+2. For sets, we no longer require only unique elements, but each element is like an isolated point without other extra structure.
+3. Higher homotopy types can be viewed as topological spaces: each value is a point in the space, definitionally equal values are viewed as the same point, propositionally equal but not definitionally equal points are viewed as having a path connecting them, and the evidence of propositional equality is these paths. Paths can also be judged for equality—equal paths are homotopic in the topological space—meaning there exists a higher-dimensional path linking them—a two-dimensional surface that allows one path to continuously deform into another path on it. If there exist paths different from refl<sub>a</sub>, it means a loop starting from point a cannot continuously contract to a point.
+
+Why can we view equality types as paths? It's easy to construct proofs of reflexivity and transitivity of equations through the "ind_eq" function, i.e., construct functions:
 - (x eq y) → (y eq x)
 - (x eq y) → ((y eq z) → (x eq z))
 
-这些函数对应着同伦路径的逆与连接操作。如果读者不太清楚什么是同伦，可以参考[《代数拓扑简介（上）：同伦论》](https://wxyhly.github.io/archives/homotopy/)。
+These functions correspond to inverse and concatenation operations on homotopy paths. If readers aren't clear about what homotopy is, they can refer to ["Introduction to Algebraic Topology (Part 1): Homotopy Theory"](https://wxyhly.github.io/archives/homotopy/).
 
-#### “同构即相等”公理
+#### The "Univalence" Axiom
 
-可除了等式自反性的唯一证据refl之外，这些其它东西到底是什么呢？同伦类型论加入了 “同构即相等”公理——Univalence Axiom，简称ua，有人翻译为“一价公理”或“单价公理”。首先定义两个类型之间如果能定义出双射函数，则称这两个类型等价，记作“A ≃ B”，具体定义表达式是一些依赖的有序对（前面介绍过的依赖积类型），里面装了双射函数与其确实是双射的证据等等，写出来有些复杂，请参考[《HoTT》](https://hott.github.io/book/hott-online.pdf.html)（同伦类型论）这本书。ua公理断言以下命题成立：
+But besides the unique evidence refl of equation reflexivity, what exactly are these other things? Homotopy type theory adds the "univalence axiom"—abbreviated as ua. First, we define that if two types can have bijective functions defined between them, these two types are called equivalent, denoted as "A ≃ B". The specific definition expression involves some dependent ordered pairs (the dependent product types introduced earlier), containing bijective functions and evidence that they're indeed bijective, etc. It's somewhat complex to write out—please refer to the [HoTT](https://hott.github.io/book/hott-online.pdf.html) (Homotopy Type Theory) book. The ua axiom asserts the following proposition holds:
 > (A ≃ B) ≃ (A eq B)
 
-注意等价符号代表着双射，它有两个方向，一个方向是说存在某个值有类型：
+Note the equivalence symbol represents bijection, which has two directions. One direction says there exists some value with type:
 
 - idtoeqv : (A eq B) → (A ≃ B)
 
-这很显然，任意类型都可以定义出自己到自己的双射，这里规定选最简单的恒等映射，即输入一个$refl_A$（A eq A的证据），idtoeqv函数就能给出A到自身的恒等映射，即A ≃ A的证据。
-另一个方向不加入公理就无法证明，于是需要向系统中加入以下公理：
+This is obvious—any type can define a bijection to itself. Here we stipulate choosing the simplest identity mapping, i.e., input a $refl_A$ (evidence of A eq A), and the idtoeqv function gives the identity mapping from A to itself, i.e., evidence of A ≃ A.
+The other direction cannot be proven without adding axioms, so we need to add the following axioms to the system:
 1. ua : (A ≃ B) → (A eq B)
-2. ua与idtoeqv互为逆映射
+2. ua and idtoeqv are inverse mappings of each other
 
-这代表类型A与B之间每种不同的双射都对应着类型A与类型B相等的不同证据。特别地，恒等映射对应refl。
+This means each different bijection between types A and B corresponds to different evidence that types A and B are equal. In particular, the identity mapping corresponds to refl.
 
-同伦类型论除了引入“同构即相等”公理外，还引入了高阶相等类型构造子的归纳类型。下面我们给出圆周$S^1$这个归纳类型的构造子：
+Besides introducing the "univalence" axiom, homotopy type theory also introduces inductive types for higher equality type constructors. Below we give the constructors for the circle $S^1$ as an inductive type:
 - base : $S^1$
 - loop : base eq base
 
-![圆周$S^1$类型，图中的Type相当于宇宙U，图片来自the HoTT Game](/img/hott001.gif)
-注意这里的loop是不同于refl的（后面马上证明）。我们把refl理解为圆周上缩成一点的路径，把loop理解为顺时针绕圆周一圈的路径，等式的自反性、传递性证据相当于路径取逆、路径连接，通过它们可以生成圆周上的整个基本群，即类型为base eq base的值的所有可能情况。注意，要在类型$S^1$上定义函数（即ind_S1），则除了指定该函数在base处的值，还必需要指定把那个loop映射到哪。
+![The circle $S^1$ type, where Type in the image corresponds to universe U, image from the HoTT Game](/img/hott001.gif)
+Note that loop here is different from refl (we'll prove this shortly). We understand refl as a path on the circle contracted to a point, and loop as a path going clockwise around the circle once. The evidence for reflexivity and transitivity of equations corresponds to path inverse and path concatenation. Through them we can generate the entire fundamental group on the circle, i.e., all possible cases for values of type base eq base. Note that to define functions on type $S^1$ (i.e., ind_S1), besides specifying the function's value at base, we must also specify where to map that loop.
 
-有了ind_$S^1$，我们就能够像证明0不等于1那样证明loop等于refl能够推出矛盾。我提供一个可能的思路：通过ind_$S^1$定义一个函数f : $S^1$ → U，它将base映射到布尔类型Bool : U，根据上一小节的同构即相等公理可知，相等类型Bool=Bool也有两个元素，一个是refl，另一个则是将0b(下图中的false)与1b(下图中的true)互换的自同构映射g生成的，记作ua(g) : Bool=Bool。![将loop映射到ua(g)，图片来自the HoTT Game](/img/hott002.gif)
-我们现在将loop映射到ua(g)，由于我们假设loop=refl，于是该函数将等价关系传递到了Bool之中，得到将0b与1b互换的自同构映射生成的p : Bool=Bool与refl : Bool=Bool相等。然而当我们试用这两个相等关系来映射Bool类型中的变量是结果却不同，按假设它们应该相同，即得到0b=1b。
+With ind_$S^1$, we can prove that loop equals refl leads to contradiction, just like proving 0 ≠ 1. I'll provide a possible approach: use ind_$S^1$ to define a function f : $S^1$ → U that maps base to the boolean type Bool : U. According to the univalence axiom from the previous section, we know the equality type Bool=Bool also has two elements: one is refl, the other is generated by the automorphism g that swaps 0b (false in the image below) and 1b (true in the image below), denoted as ua(g) : Bool=Bool. ![Mapping loop to ua(g), image from the HoTT Game](/img/hott002.gif)
+We now map loop to ua(g). Since we assume loop=refl, this function transfers the equivalence relation into Bool, obtaining that p : Bool=Bool generated by the automorphism swapping 0b and 1b equals refl : Bool=Bool. However, when we try to use these two equality relations to map variables in Bool type, the results are different. By assumption they should be the same, thus obtaining 0b=1b.
 <!-- ![](/img/hott002.svg) -->
-![若假设refl=loop，则能推出矛盾0b=1b，图片来自the HoTT Game](/img/hott002.webp)
+![If we assume refl=loop, we can derive the contradiction 0b=1b, image from the HoTT Game](/img/hott002.webp)
 
-而球面$S^2$ : U这个归纳类型的构造子则是这样：
+The constructors for the sphere $S^2$ : U as an inductive type are:
 - base : $S^2$
 - loop : refl<sub>base</sub> eq refl<sub>base</sub>
 
-同伦类型论甚至可以发展出理论计算超球面$\mathbb S^n$的一部分同伦群，我确实也没精力看到那了，这里就没法介绍了。
+Homotopy type theory can even develop theories to calculate parts of the homotopy groups of hyperspheres $\mathbb{S}^n$. I really don't have the energy to get that far, so I can't introduce it here.
 
-### 同伦类型论与排中律
+### Homotopy Type Theory and the Law of Excluded Middle
 
-同伦类型论加入了这条公理“ua”后，导致排中律不再成立，即我们可以构造出下面类型的值：
+After homotopy type theory adds the axiom "ua", the law of excluded middle no longer holds. That is, we can construct a value of the following type:
 
-“( $\prod_{A:\mathrm U}$ (A + (A → False)) ) → False”
+"( $\prod_{A:\mathrm{U}}$ (A + (A → False)) ) → False"
 
-之前我们说过排中律等价于双重否定消去律，因此我们只需要给出一个具体的f : $\prod_{A:\mathrm U}$ ((A → False) → False) → A，能得到False类型的值就能完成原命题的证明（转换步骤留给读者思考）。
+We previously said the law of excluded middle is equivalent to double negation elimination, so we only need to give a specific f : $\prod_{A:\mathrm{U}}$ ((A → False) → False) → A, and obtaining a value of False type completes the proof of the original proposition (I'll leave the conversion steps for readers to think about).
 
-下面我们来具体构造：考察(Bool → False) → False的元素我们知道“Bool → False”是假命题，根据否定爆炸原理（由ind_False构造）可以得到任何命题都成立，因此在任给一个x:Bool → False的前提之下不仅能推出False，还能推出任意(Bool → False) → False中的两个元素u、v得到的u(x)与v(x)都相等。换句话说，函数u和v在任意的输入x下都由相同的输出，因此通过函数的外延公理（可由同伦类型论的公理得到）可证明u与v相等，即(Bool → False) → False的所有元素均彼此相等。
+Let's construct this specifically: examining elements of (Bool → False) → False, we know "Bool → False" is a false proposition. According to the principle of explosion (constructed by ind_False), we can obtain that any proposition holds. Therefore, given any x:Bool → False, we can deduce not only False but also that u(x) and v(x) are equal for any two elements u, v in (Bool → False) → False. In other words, functions u and v have the same output for any input x, so by the function extensionality axiom (obtainable from homotopy type theory axioms), we can prove u and v are equal, i.e., all elements of (Bool → False) → False are equal to each other.
 
-有了以上铺垫，下面就可以正式构造矛盾了。前面说过要构造一个具体的f : $\prod_{A:\mathrm U}$ ((A → False) → False) → A，能得到矛盾（False类型的值）就算完成任务。下面我们考察f(Bool)，它的类型是((Bool → False) → False) → Bool。对于布尔类型Bool，我们通过ind_Bool构造函数 e : Bool → Bool，使得：e(0b)=1b、e(1b)=0b。（又是它来构造反面证据！）很容易看出函数e是Bool类型到Bool类型之间的双射，即有(Bool ≃ Bool)成立。根据ua公理，ua(e)是一条(Bool eq Bool)的证据，且它跟恒等映射id得到的ua(id)=refl<sub>Bool</sub>是不同的证据。
+With this foundation, we can now formally construct the contradiction. We said we need to construct a specific f : $\prod_{A:\mathrm{U}}$ ((A → False) → False) → A, and obtaining a value of False type (contradiction) completes the task. Let's examine f(Bool), which has type ((Bool → False) → False) → Bool. For boolean type Bool, we construct function e : Bool → Bool through ind_Bool such that: e(0b)=1b, e(1b)=0b. (It's this again constructing counterevidence!) It's easy to see that function e is a bijection from Bool type to Bool type, i.e., we have (Bool ≃ Bool) holds. According to the ua axiom, ua(e) is evidence of (Bool eq Bool), and it's different evidence from ua(id)=refl<sub>Bool</sub> obtained from the identity mapping id.
 
-函数f不仅把A类型的值映射到了((A → False) → False) → A，它也把A类型上的相等路径映射到了后者的相等路径。我们看到，由于(Bool → False) → False类型只有一个值，无论是Bool中的refl还是ua(e)都将在此映射到该值的单位路径refl。对于任意的u:(Bool → False) → False，根据相等的映射传递关系（具体细节参考《HoTT》中的3.2小节）我们都有e(f(2)(u)) = f(2)(u)，而函数e是交换0b与1b的映射，不是恒等映射，推出了矛盾。
+Function f not only maps values of type A to ((A → False) → False) → A, it also maps equality paths on A to equality paths on the latter. We see that since type (Bool → False) → False has only one value, both refl and ua(e) in Bool will be mapped to the unit path refl of that value. For any u:(Bool → False) → False, according to the equality mapping transfer relation (see section 3.2 in "HoTT" for specific details), we have e(f(2)(u)) = f(2)(u), but function e is the mapping that swaps 0b and 1b, not the identity mapping, leading to contradiction.
 
-#### 通过“截断”构造纯命题
+#### Constructing Mere Propositions Through "Truncation"
 
-我们看到，排中律不成立的根源在于Bool类型有了多余的元素，而类型(Bool → False) → False又只有单一的元素造成的。对于前面说过那些纯命题的类型是不会产生矛盾的，因此在同伦类型论中可引入“狭义”的排中律公理：
+We see that the root cause of the law of excluded middle not holding is that Bool type has extra elements while type (Bool → False) → False has only a single element. For those mere proposition types mentioned earlier, no contradiction would arise, so we can introduce a "narrow" law of excluded middle axiom in homotopy type theory:
 
-LEM : $\prod_{A:\mathrm U}$ isProp(A) → (A + (A → False)) 
+LEM : $\prod_{A:\mathrm{U}}$ isProp(A) → (A + (A → False)) 
 
-isProp(A)代表“A是纯命题类型”，即任意两个A中的元素均相等，即为$\Pi$x:A,$\Pi$y:A, x eq y的缩写。注意“A是纯命题类型”这个条件是必须的，否则正如我们前面分析的会推出矛盾。
+isProp(A) means "A is a mere proposition type", i.e., any two elements in A are equal, abbreviated as $\Pi$x:A,$\Pi$y:A, x eq y. Note the condition "A is a mere proposition type" is necessary, otherwise as we analyzed earlier it would lead to contradiction.
 
-命题逻辑A或B对应的A+B这种类型有两个不同的构造子，因此不是纯命题。通过带参数的高阶归纳类型可以引入一种“截断”机制，强行定义一个新类型将其纯命题化：
-对任意的A:U，都有：
-- 对任意的a:A，都有|a| : ||A||；
-- 对任意的x,y:||A||，都有x eq y。
+The A+B corresponding to propositional logic A or B has two different constructors, so it's not a mere proposition. Through higher-order inductive types with parameters, we can introduce a "truncation" mechanism to forcibly define a new type to make it a mere proposition:
+For any A:U, we have:
+- For any a:A, we have |a| : ||A||;
+- For any x,y:||A||, we have x eq y.
 
-这样加上“||”后就能把所有命题变成纯命题，然后才能愉快地使用排中律。
-使用这些“截断”技巧我们不难定义出拓扑学中的商空间等概念（将空间中的某些点或路径等视为等价来构造新空间），很多拓扑学中的操作都可以翻译为同伦类型论中的语言，比如我们还没提到拓扑学中的纤维丛其实就对应依赖函数类型。最后，选择公理也有类型论的版本，但也需要在单独作为公理来引入……
+This way, adding "||" can turn all propositions into mere propositions, and then we can happily use the law of excluded middle.
+Using these "truncation" techniques, we can easily define concepts like quotient spaces in topology (constructing new spaces by viewing certain points or paths in the space as equivalent). Many operations in topology can be translated into the language of homotopy type theory. For example, fiber bundles in topology, which we haven't mentioned, actually correspond to dependent function types. Finally, the axiom of choice also has a type theory version, but it also needs to be introduced separately as an axiom...
 
-### 参考
+### References
 
-同伦类型论有点像大数理论，都是最近还处在发展中的新理论。更加成熟的则是机器证明领域，相关的话题实在太多了，本文实在没有能力完全覆盖，请有兴趣的读者请自行探索：
-- [在线版的证明器LEAN](https://live.lean-lang.org/)
-- [LEAN教程](https://subfish-zhou.github.io/theorem_proving_in_lean4_zh_CN/title_page.html)
-- [在线版的证明器jsCoq](https://coq.vercel.app/)
-- [Coq教程](https://coq-zh.github.io/SF-zh/lf-current/toc.html)
-- [The HoTT Game（同伦类型论游戏）](https://thehottgameguide.readthedocs.io/en/latest/index.html)
-- [Homotopy Type Theory: Univalent Foundations of Mathematics（《HoTT》电子书）](https://hott.github.io/book/hott-online.pdf.html)
+Homotopy type theory is somewhat like grand unification theory—both are recent theories still under development. The field of machine proof is more mature. There are too many related topics for this article to cover completely. Interested readers please explore on your own:
+- [Online proof assistant LEAN](https://live.lean-lang.org/)
+- [LEAN tutorial](https://subfish-zhou.github.io/theorem_proving_in_lean4_zh_CN/title_page.html)
+- [Online proof assistant jsCoq](https://coq.vercel.app/)
+- [Coq tutorial](https://coq-zh.github.io/SF-zh/lf-current/toc.html)
+- [The HoTT Game (Homotopy Type Theory Game)](https://thehottgameguide.readthedocs.io/en/latest/index.html)
+- [Homotopy Type Theory: Univalent Foundations of Mathematics (HoTT ebook)](https://hott.github.io/book/hott-online.pdf.html)
 
-最后再安利一下我制作的游戏[Deductrium中的创造模式](/deductrium/?creative)。
+Finally, let me recommend the [creative mode in Deductrium](/deductrium/?creative), a game I created.
