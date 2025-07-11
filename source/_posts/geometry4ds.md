@@ -1,130 +1,128 @@
 ---
-title: 四维空间（二）：超立体几何
+title: "Four-Dimensional Space (Part 2): Hyper-Stereometry"
 date: 2016-04-09 22:40:00
-categories: 四维空间系列
+categories: Four-Dimensional Space Series
 tags:
-- 四维
-- 几何
-- 系列文章
-- 数学
+- four-dimensional
+- geometry
+- series articles
+- mathematics
 ---
-<span class="likecode">#本文讨论的是纯空间上的几何！推荐视频《[维度：数学漫步](http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)》对四维空间作初步了解，大家还可查看<span  style="color:#F00">**CFY的文章[从超立方体说起](http://hadroncfy.com/articles/2016/04/12/la-dimension-quatre-deuxieme/)** 作为本文的补充。</span></span>
-<div style="float:left">今天，我们将接触到更多的四维空间的几何性质、位置关系、更多有趣的四维立体几何题和某些立体几何定理的推广。</div>
+<span class="likecode">#This article discusses geometry in pure space! I recommend the video "[Dimensions: A Mathematical Walk](http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)" for an initial understanding of four-dimensional space. You can also check out <span style="color:#F00">**CFY's article [Starting from the Hypercube](http://hadroncfy.com/articles/2016/04/12/la-dimension-quatre-deuxieme/)** as a supplement to this article.</span></span>
+<div style="float:left">Today, we will explore more geometric properties of four-dimensional space, positional relationships, more interesting 4D solid geometry problems, and generalizations of certain solid geometry theorems.</div>
 <br>
-<div style="float:right"><img src="/img/crossection.gif" width="200" height="200"/><p>three.js绘制的超立方体的斜切胞（黑色是截胞）</p></div>
+<div style="float:right"><img src="/img/crossection.gif" width="200" height="200"/><p>Cross-section cell of a hypercube drawn with three.js (black is the cross-section cell)</p></div>
 <a name="index"></a>
 
-## 特色内容
- - 线、面、胞两两位置关系
- - 超立方体中的几何题
- - 射影面积定理推广
+## Featured Content
+ - Positional relationships between lines, planes, and cells
+ - Geometry problems in the hypercube
+ - Generalization of the projection area theorem
 
 <!--more-->
-### 本文目录：    
- - [位置关系的判定](/archives/geometry4ds/#jihe)
- - [真相：用两个角度描述](/archives/geometry4ds/#deux)
- - [超立方体——最好的朋友](/archives/geometry4ds/#ami)
- - [超立方体截面](/archives/geometry4ds/#cross)
- - [斜着的面](/archives/geometry4ds/#slop)
- - [射影面积定理推广](/archives/geometry4ds/#proj)
+### Table of Contents:    
+ - [Determining Positional Relationships](/archives/geometry4ds/#jihe)
+ - [The Truth: Describing with Two Angles](/archives/geometry4ds/#deux)
+ - [The Hypercube - Our Best Friend](/archives/geometry4ds/#ami)
+ - [Hypercube Cross-sections](/archives/geometry4ds/#cross)
+ - [Oblique Planes](/archives/geometry4ds/#slop)
+ - [Generalization of the Projection Area Theorem](/archives/geometry4ds/#proj)
 <a name="jihe"></a>
 
-### 位置关系的判定
-　　两点确定一条直线，三点（不共线）确定一张平面，四点（不共面）确定一个三维空间（或叫超平面）。四维文明初中学的平面几何和立体几何（高中才学吧？）在前两点上和我们学的是一样的。说明只要四维空间中三维子空间的几何问题我们都能解决！下面我们就试着解决一部分简单的四维空间几何问题：**判定两几何体位置关系，如果有夹角，求出它的值。**
-* ####  点与其他几何体
-  + 点与点、直线、平面、三维空间（胞）——点没方向，所以只有在几何体上和不在两种状态。
+### Determining Positional Relationships
+　　Two points determine a line, three (non-collinear) points determine a plane, and four (non-coplanar) points determine a three-dimensional space (or hyperplane). The plane geometry and solid geometry that 4D civilizations learn in middle school (or is it high school?) are the same as ours for the first two points. This means we can solve any geometry problems in 3D subspaces within 4D space! Let's try to solve some simple 4D space geometry problems: **Determine the positional relationship between two geometric objects, and if there's an angle, find its value.**
+
+* #### Points and Other Geometric Objects
+  + Point and point, line, plane, 3D space (cell) — Points have no direction, so there are only two states: on the geometric object or not on it.
   
-* #### 线与其他几何体
-  + 线与线——四维空间两条线必共三维空间（想想为什么），所以有重合、平行、相交、异面4种情况。都共三维空间了，夹角当然早有定义，我们也会算。
-  + 线与面——开始抽象了。先讨论共三维空间的情况：平行、相交、线在面内；线与面有公共点的情况都共三维空间（同样想想为什么），所以还有一种不共三维空间的线与面既不平行又不相交的位置，就好比像三维空间异面直线不平行不相交那样可以把它们平移至相交。既然所有情况都能平移后共三维空间，线面角当然也有定义，也会算！
-  + 线与胞——是三维空间线与面关系的类比，结论是：平行、相交、线在胞内。线胞角呢？我们规定直线与它在胞内的投影的夹角为线胞角（类比线面角）
+* #### Lines and Other Geometric Objects
+  + Line and line — Two lines in 4D space must share a 3D space (think about why), so there are 4 cases: coincident, parallel, intersecting, skew. Since they share a 3D space, the angle is already well-defined, and we know how to calculate it.
+  + Line and plane — This starts to get abstract. First, let's discuss the case where they share a 3D space: parallel, intersecting, line within the plane; all cases where line and plane have common points share a 3D space (again, think about why), so there's another position where line and plane don't share a 3D space and are neither parallel nor intersecting, just like skew lines in 3D space that are neither parallel nor intersecting but can be translated to intersect. Since all cases can be translated to share a 3D space, the line-plane angle is certainly well-defined and calculable!
+  + Line and cell — This is analogous to the line-plane relationship in 3D space. The conclusion: parallel, intersecting, line within the cell. What about the line-cell angle? We define the angle between a line and its projection within the cell as the line-cell angle (analogous to line-plane angle).
   
-* #### 胞与其他几何体
-  面与面的情况很多很复杂，所以我们先看胞：
-  + 胞与面：面在胞内、面与胞相交于一条线、面与胞平行。面与胞能不能既不平行又不相交？至少四维空间中不能!这就像三维中面与线不能既不平行又不相交一样。
-  + 胞与胞：平行、重合、相交：交集是一个二维平面
-* #### 面与面
-  　　先说已知的情况：共面、平行、相交于一条线（共胞，有二面角的定义）但两平面还可以只相交于一点：比如坐标面$xy$与坐标面$zw$公共解只有原点！无法想象两无限大平面**只在一点相交**！
+* #### Cells and Other Geometric Objects
+  The plane-plane cases are numerous and complex, so let's look at cells first:
+  + Cell and plane: plane within cell, plane intersects cell in a line, plane parallel to cell. Can a plane and cell be neither parallel nor intersecting? At least not in 4D space! This is like how in 3D a plane and line cannot be neither parallel nor intersecting.
+  + Cell and cell: parallel, coincident, intersecting: the intersection is a 2D plane
+
+* #### Plane and Plane
+　　Let's start with known cases: coplanar, parallel, intersecting in a line (sharing a cell, with a defined dihedral angle). But two planes can also intersect at just one point: for example, the coordinate plane $xy$ and coordinate plane $zw$ have only the origin as their common solution! It's hard to imagine two infinite planes **intersecting at only one point**!
 ![](/img/geometry1.gif)  
-  　　由向量内积可知，坐标面$xy$与坐标面$zw$上分别任给两条直线都垂直，所以我们说坐标面$xy$与坐标面$zw$垂直，但记住它们只在原点相交！这和一般两个平面形成二面角相垂直是截然不同的。垂直角度就是90°，所以这暗示着**两个平面的夹角用一个角度描述是不够的！**感觉这里有两个自由度！不管怎么说，我们先把两平面上任两条直线都垂直这种两平面的关系叫**绝对垂直**，以与共胞的二面角垂直区分。
-　　越来越难了，不是吗？到这一步如果不用线性代数理解用硬想的方法求角度就感觉智商不够用了。当我们高中做立体几何束手无策的时候，向量法来拯救我们了，所以下一节我要介绍四维空间中的**向量法**。注意向量的起点无法确定，我们只能表示方向，所以后文都是在所有几何体过原点的基础上讨论的。在学会系统用向量法之前我们还是得硬着头皮先想想四维空间中的两张平面。我曾经想了很久都没结果，后来终于查到了[有关论文](http://www.cnki.com.cn/Article/CJFDTotal-FXKY198501013.htm)：<a name="deux"></a>
+　　From the dot product of vectors, we know that any two lines taken from coordinate planes $xy$ and $zw$ respectively are perpendicular, so we say coordinate planes $xy$ and $zw$ are perpendicular, but remember they only intersect at the origin! This is completely different from two ordinary planes forming a perpendicular dihedral angle. The perpendicular angle is 90°, so this suggests that **one angle is insufficient to describe the angle between two planes!** It feels like there are two degrees of freedom here! Regardless, let's call the relationship where any two lines from two planes are perpendicular **absolutely perpendicular**, to distinguish it from perpendicular dihedral angles in shared cells.
+　　It's getting harder, isn't it? At this point, if we don't use linear algebra and just try to think hard about angles, our IQ feels insufficient. When we're helpless with solid geometry in high school, the vector method comes to our rescue, so in the next section I'll introduce the **vector method** in 4D space. Note that since we can't determine the starting point of vectors, we can only represent directions, so the following discussion assumes all geometric objects pass through the origin. Before we systematically learn to use the vector method, we still have to think hard about two planes in 4D space. I thought about it for a long time without results, but finally found [relevant papers](http://www.cnki.com.cn/Article/CJFDTotal-FXKY198501013.htm):<a name="deux"></a>
 
-[返回目录](#index)
-### 真相：用两个角度来述
+[Return to Contents](#index)
+### The Truth: Describing with Two Angles
 
-　　四维空间两平面$A、B$最一般的位置是只在一点相交。我们这样衡量它们的位置：在平面$A$上取遍所有直线$m，m与B$(或$A$)间所夹的线面角会有一个最大值$\theta_1$和最小值$\theta_2$。我们现在用$\theta_1$、$\theta_2$两个角度参数描写平面$A、B$位置关系。
+　　The most general position of two planes $A, B$ in 4D space is intersecting at only one point. We measure their position this way: Taking all lines $m$ on plane $A$, the line-plane angle between $m$ and $B$ (or $A$) will have a maximum value $\theta_1$ and minimum value $\theta_2$. We now use these two angle parameters $\theta_1$, $\theta_2$ to describe the positional relationship between planes $A, B$.
 
-　　最大最小值？听起来好复杂！或许这样理解要容易些：在平面$A$上作一个单位圆，把单位圆投影到平面$B$上，这个圆变成了椭圆（投影映射是线性的，不可能把圆变成其它图形），椭圆自然有长轴短轴，这两个轴向就是两个**特征方向**——长轴与平面$A$的夹角就是最大值$\theta_1$，所以长半轴长度为$cos\theta_1$；短轴就对应最小值$\theta_2$，所以短半轴长度为$cos\theta_2$。这就是一种叫“单位圆法”的求解夹角的方法的思想，但单位圆法处理椭圆要用线性代数二次型等繁琐的方法。
+　　Maximum and minimum values? Sounds complicated! Perhaps it's easier to understand this way: Draw a unit circle on plane $A$ and project it onto plane $B$. This circle becomes an ellipse (projection mapping is linear and cannot transform a circle into other shapes). The ellipse naturally has a major and minor axis, and these two axial directions are the two **characteristic directions** — the angle between the major axis and plane $A$ is the maximum value $\theta_1$, so the semi-major axis length is $cos\theta_1$; the minor axis corresponds to the minimum value $\theta_2$, so the semi-minor axis length is $cos\theta_2$. This is the idea behind a method called the "unit circle method" for finding angles, but the unit circle method requires tedious linear algebra methods like quadratic forms to handle ellipses.
 ![](/img/geometry2.gif)
-　　长轴短轴相互垂直，所以线面角取最大值时的直线$m\_1$与线面角取最小值时的直线$m\_2$相互垂直。但若我们在平面$B$，而不是平面$A$上取遍所有直线$m$得到的两个线面角最值会不会与刚才的值不一样呢？答案是：不管你先选的是哪个面得到的这两个角都是**一样**的，这保证了定义的良好性。（用线性代数可证，略）
-　　我们先看熟悉的三维空间：
- - $A、B$平行：$A$中任意一条直线与$B$的线面角都是0°，所以最大、最小值都是0°，$\theta_1=\theta_2=0$；当然还可以这样理解：这时$A$上的单位圆投影到$B$上是正投影，即大小形状都不变，所以$cos\theta_1=cos\theta_2=1$.
- - $A、B$二面角垂直：$A$中平行于它们交线的直线与$B$的线面角取最小值0°，$A$中垂直于它们交线的直线与$B$的线面角取最大值90°，所以$\theta_1=90°，\theta_2=0$；当然还有种思路：这时$A$上的单位圆投影到$B$上是一条长为2的线段，我们认为这是长轴为1短轴为0的椭圆。所以$cos\theta_1=0，cos\theta_2=1$.
- - $A、B$成一般二面角：$A$中平行于它们交线的直线与$B$的线面角取最小值0°，$A$中垂直于它们交线的直线与$B$的线面角取某一最大值（即二面角的大小），所以$0<\theta_1<90°，\theta_2=0$.
- 由于$A、B$成二面角时$\theta_2=0$，所以我们也叫$A与B$**半平行**，同时$A、B$二面角垂直我们也叫**半平行半垂直**，原来的$A、B$平行叫**绝对平行**。
+　　The major and minor axes are perpendicular to each other, so the line $m_1$ when the line-plane angle takes its maximum value is perpendicular to the line $m_2$ when the line-plane angle takes its minimum value. But if we take all lines $m$ on plane $B$ instead of plane $A$, would the two maximum and minimum line-plane angles be different from before? The answer is: no matter which plane you choose first, these two angles are **the same**, which ensures the definition is well-defined. (Can be proven using linear algebra, omitted)
+　　Let's look at the familiar 3D space:
+ - $A, B$ parallel: Any line in $A$ has a line-plane angle of 0° with $B$, so both maximum and minimum values are 0°, $\theta_1=\theta_2=0$; Of course, we can also understand it this way: the unit circle on $A$ projects onto $B$ orthogonally, i.e., size and shape remain unchanged, so $cos\theta_1=cos\theta_2=1$.
+ - $A, B$ perpendicular dihedral angle: Lines in $A$ parallel to their intersection have minimum line-plane angle 0° with $B$, lines in $A$ perpendicular to their intersection have maximum line-plane angle 90° with $B$, so $\theta_1=90°, \theta_2=0$; Another way to think about it: the unit circle on $A$ projects onto $B$ as a line segment of length 2, which we consider an ellipse with semi-major axis 1 and semi-minor axis 0. So $cos\theta_1=0, cos\theta_2=1$.
+ - $A, B$ form a general dihedral angle: Lines in $A$ parallel to their intersection have minimum line-plane angle 0° with $B$, lines in $A$ perpendicular to their intersection have some maximum line-plane angle (i.e., the size of the dihedral angle), so $0<\theta_1<90°, \theta_2=0$.
+ Since $\theta_2=0$ when $A, B$ form a dihedral angle, we also call $A$ and $B$ **semi-parallel**, and when $A, B$ form a perpendicular dihedral angle we call it **semi-parallel semi-perpendicular**, while the original $A, B$ parallel is called **absolutely parallel**.
 
- 下面就是四维空间的情况了：
- - $A、B$绝对垂直：由于任意两直线都垂直，平面$A$上任意一点投影在平面$B$上都落在它们垂足所在的点（如平面$xy$在平面$zw$上的投影为原点），所以$\theta_1=\theta_2=90°$。
- - $A、B$处于一般位置：$90°>\theta_1\ge\theta_2>0$。
- - 现在有了**绝对平行**、**半平行**、**半平行半垂直**、**绝对垂直**，我们肯定会想到**半垂直**：$\theta_1=90°>\theta_2>0$，这种情况我们[后面马上](#semivertical)就会看到。<a name="ami"></a>
+ Now for the 4D space cases:
+ - $A, B$ absolutely perpendicular: Since any two lines are perpendicular, any point on plane $A$ projects onto plane $B$ at the point where their perpendiculars meet (like plane $xy$ projecting onto plane $zw$ at the origin), so $\theta_1=\theta_2=90°$.
+ - $A, B$ in general position: $90°>\theta_1\ge\theta_2>0$.
+ - Now we have **absolutely parallel**, **semi-parallel**, **semi-parallel semi-perpendicular**, **absolutely perpendicular**, we surely think of **semi-perpendicular**: $\theta_1=90°>\theta_2>0$, we'll see this case [right away](#semivertical).<a name="ami"></a>
 
-[返回目录](#index)
-### 超立方体是认识四维几何最好的朋友
-　　回想高中立体几何，很多线面关系我们都是在正方体里面找的。现在该轮到超立方体了！超立方体平行投影方向很多，但我选的是能反映出四维方体每条边等长，且八个立方体胞全等的投影图。我们将在这幅图上找到几乎所有的几何关系。
-　　这幅图构造巧妙，但也并不难画。先画一个八角星，再以八角星的每条线向外做正方形，将顶点正确链接即可。
+[Return to Contents](#index)
+### The Hypercube is the Best Friend for Understanding 4D Geometry
+　　Recalling high school solid geometry, we found many line-plane relationships in the cube. Now it's the hypercube's turn! There are many parallel projection directions for the hypercube, but I chose one that shows each edge of the 4D cube as equal length, and all eight cubic cells as congruent. We'll find almost all geometric relationships in this diagram.
+　　This diagram is cleverly constructed but not difficult to draw. First draw an eight-pointed star, then make squares outward from each line of the star, and connect the vertices correctly.
 ![](/img/geometry3.gif)
-　　首先，我们得把这八个正方体胞找到。观察一下我们不难发现，只要找到了这些标有字母的黄色小正方形（其实它们并不存在，只因投影时的线条重合），我们就能找到对应的立方体胞。比如黄色小正方形A所对的立方体为9-12-3-2 — 8-15-10-1。以后为了方便，我们就以这些字母代指立方体胞。 
-不难看出A—E B—F C—G D—H为四对不相邻的胞，它们是互相平行的；顶点之间的距离有四种：1、$\sqrt2$、$\sqrt3$、2。其中距离为2的一对顶点是相距最远的。如1—5、2—6、10—14、12—16。 
-下面只列举不共胞的位置关系 
-- <span style="color:#00F">线面关系：异胞（如面2-3-12-9与直线5-6），即既不平行也不相交，可将直线5-6平移至12-15，现在它们相交且共胞于A</span>
-- <span style="color:#F00">线胞关系：平行（如胞G 与线3-4）</span> 
-- 线胞关系：相交（如胞D 与线6-7只交于点6）
-- <span style="color:#F0F">面面关系：共点（如面2-3-12-9与面 12-5-6-15 交于点12，且绝对垂直）</span> 
-- <span style="color:#0B0">面面关系：半平行，但无公共点（如面2-3-12-9与面 14-5-6-7 无公共元素，且半平行半垂直）</span>
-- 面胞关系：平行（如胞D 与面1-2-11-16） 
-- 面胞关系：相交（如胞D 与面14-5-6-7交于线6-15） 
-- 胞胞关系：平行（如胞D 与胞H） 
-- 胞胞关系：相交（如胞D 与胞E交于面 4-5-6-13）
+　　First, we need to find these eight cubic cells. Observing carefully, we can see that once we find these yellow squares marked with letters (they don't actually exist, only appearing due to overlapping lines in projection), we can find the corresponding cubic cells. For example, the cube corresponding to yellow square A is 9-12-3-2 — 8-15-10-1. For convenience, we'll use these letters to refer to the cubic cells.
+It's easy to see that A—E, B—F, C—G, D—H are four pairs of non-adjacent cells that are parallel to each other; the distances between vertices have four types: 1, $\sqrt2$, $\sqrt3$, 2. Among them, a pair of vertices with distance 2 are the farthest apart, like 1—5, 2—6, 10—14, 12—16.
+Below we only list relationships not sharing a cell:
+- <span style="color:#00F">Line-plane relationship: different cells (like plane 2-3-12-9 and line 5-6), i.e., neither parallel nor intersecting, we can translate line 5-6 to 12-15, now they intersect and share cell A</span>
+- <span style="color:#F00">Line-cell relationship: parallel (like cell G and line 3-4)</span>
+- Line-cell relationship: intersecting (like cell D and line 6-7 only intersect at point 6)
+- <span style="color:#F0F">Plane-plane relationship: sharing a point (like plane 2-3-12-9 and plane 12-5-6-15 intersect at point 12, and are absolutely perpendicular)</span>
+- <span style="color:#0B0">Plane-plane relationship: semi-parallel, but no common points (like plane 2-3-12-9 and plane 14-5-6-7 have no common elements, and are semi-parallel semi-perpendicular)</span>
+- Plane-cell relationship: parallel (like cell D and plane 1-2-11-16)
+- Plane-cell relationship: intersecting (like cell D and plane 14-5-6-7 intersect in line 6-15)
+- Cell-cell relationship: parallel (like cell D and cell H)
+- Cell-cell relationship: intersecting (like cell D and cell E intersect in plane 4-5-6-13)
 
-
-![与上面文字颜色对应](/img/geometry4.gif)
-[返回目录](#index)
-### 其他<a name="cross"></a>
-　　你可能会说我找的都是正方形面，没意思。好，现在我们找一些有趣的超立方体的截面和“斜着的面”的位置关系。
-#### 超立方体截面
-　　验证四点确定胞：在超立方体里任选四个不共面的顶点都可以确定一个胞。就像我们做立体几何体一样，有时这四个顶点组成的四面体胞并不是完整的超立方体中的截面（注意，这里是三维的面），我们可以“补形”，将其截胞补充出来。如点1 、点15 、点9 、点13（红色标出）所确定的胞（设为胞$\Pi$）就需要“补形”。我们注意到顶点9和顶点13是一组相对的顶点（即距离最远，为2）则线段9 13过超立方体体心（暂记为点O）。所以胞$\Pi$过点O。而点1与点O所在直线也该属于胞$\Pi$，又因为点1、点O、点5共线，所以点5也属于胞$\Pi$。类似地，我们可知，点15、点O、点11也共线，则点11也属于胞$\Pi$。（补出来的点用黑色标出）把这些点连起来（注意相对点不能相连，因为连成的体对角线在超立方体内部，不是截面的边界图形）。再计算一下我们发现，除了这些相对顶点之外，其余任何两点之间的距离均为根号二。这说明胞$\Pi$与超立方体八个胞都相交，得截超立方体为一**正八面体胞**。
+![Corresponding to the text colors above](/img/geometry4.gif)
+[Return to Contents](#index)
+### Others<a name="cross"></a>
+　　You might say all I found were square faces, which is boring. Fine, now let's find some interesting cross-sections of the hypercube and positional relationships of "oblique planes".
+#### Hypercube Cross-sections
+　　Verifying that four points determine a cell: Choosing any four non-coplanar vertices in the hypercube can determine a cell. Just like when we do solid geometry, sometimes the tetrahedral cell formed by these four vertices is not a complete cross-section in the hypercube (note, this is a 3D face here), we can "complete the shape" by supplementing its cross-section cell. For example, the cell determined by points 1, 15, 9, 13 (marked in red) (let's call it cell $\Pi$) needs "shape completion". We notice that vertices 9 and 13 are a pair of opposite vertices (i.e., farthest apart, distance 2), so line segment 9-13 passes through the hypercube's center (temporarily denoted as point O). So cell $\Pi$ passes through point O. The line containing point 1 and point O should also belong to cell $\Pi$, and since points 1, O, and 5 are collinear, point 5 also belongs to cell $\Pi$. Similarly, we know that points 15, O, and 11 are also collinear, so point 11 also belongs to cell $\Pi$. (Supplemented points are marked in black) Connect these points (note that opposite vertices cannot be connected, as the formed body diagonal is inside the hypercube, not on the boundary of the cross-section). Calculating further, we find that except for these opposite vertices, the distance between any two points is $\sqrt{2}$. This shows that cell $\Pi$ intersects all eight cells of the hypercube, cutting the hypercube into a **regular octahedral cell**.
 ![](/img/octahedral.gif) ![](/img/geometry7.gif)
-　　怎么确定你的形状补完了呢？如果你的所有截胞图形的面都在超立方体表面上——八个立方体胞内——即所有棱都在超立方体的24个正方形面内，说明补形才算完。
-　　在超立方体里任选四个不共面的顶点可确定的胞的形状很多，这里我把它们在下图左边罗列了一部分：分别是（1）对角胞（如1-8-15-5）（2）正方体胞（如5-7-8-15）（3）截角产生的正四面体（如1-11-13-7）（4）最大截面正八面体（如1-7-9-13）（5）截棱产生的三棱柱（如1-2-4-7）
+　　How do you know your shape is complete? If all the faces of your cross-section figure are on the hypercube's surface — within the eight cubic cells — i.e., all edges are within the hypercube's 24 square faces, then the shape completion is done.
+　　Choosing any four non-coplanar vertices in the hypercube can determine cells of many shapes. Here I've listed some on the left side of the figure below: (1) diagonal cell (like 1-8-15-5) (2) cubic cell (like 5-7-8-15) (3) regular tetrahedron from truncation (like 1-11-13-7) (4) maximum cross-section regular octahedron (like 1-7-9-13) (5) triangular prism from edge truncation (like 1-2-4-7)
 ![](/img/geometry6.gif) ![](/img/geometry8.gif)
-　　但这里值得我们一提的是在超立方体里任选四个不共面的顶点确定的胞补形后补出的顶点可能不是超立方体的顶点，比如右上图点1、点9、点4、点15所确定的胞$\Gamma$。补出的三个顶点居然是**棱的中点**！具体补法：因线段4-9过胞C中心点（暂记为点P）过点P作平面平行于面1-8-15-10 交胞C于一正方形（粉红色标出），其中产生了R、S两点。则点R（线段2-11中点）、S（线段12-5中点）在胞$\Gamma$内。原因：∵RS∥线1 15，∴R、P、S、1、15共面。∵1、15、P在胞$\Gamma$内，∴R、S也在胞$\Gamma$内。而补出了R、S点，剩下的T点用做平行线的方法也就不难补出了。最后我们来观察一下这个完整的截胞。这是有着三个边长为$\sqrt5/2$的菱形，一个边长为$\sqrt2$的正三角形，和三个等腰三角形构成的七面体。有七个面，说明胞$\Gamma$与七个胞都相交，而有一个胞没有相交，那就是胞E(这里单独用黄色表示)<a name="slop"></a>
-[返回目录](#index)
-#### 斜着的面
-- 绝对垂直
-　　请找出找面1-3-13（下图左边的红色面）的法平面。
-思路：只要我们找到两条相交直线都垂直于这个平面，则那个相交直线确定的平面就绝对垂直与这个平面。（这是绝对垂直垂直的很好的判定方法哦）
-　　因为面1-3-13在胞B内，所以我们不妨在胞B内找一条面1-3-13的法线，即10-11（立体几何三垂线定理不难得证），那么直线10-11即为一条我们要找的直线。
-而胞B垂直于线10-15，所以在胞B内的面1-3-13也垂直于线10-15。这样，由线10-15、线10-11确定的平面10-11-14-15即为所求法平面。（蓝色面）它们的唯一公共点在线段10-11上靠近10的三分点处。
+　　But what's worth mentioning is that when choosing any four non-coplanar vertices in the hypercube to determine a cell, the supplemented vertices after shape completion might not be vertices of the hypercube. For example, the cell $\Gamma$ determined by points 1, 9, 4, 15 in the upper right figure. The three supplemented vertices are actually **edge midpoints**! Specific completion method: Since line segment 4-9 passes through the center of cell C (temporarily denoted as point P), through point P make a plane parallel to face 1-8-15-10 intersecting cell C in a square (marked in pink), which produces points R and S. Then point R (midpoint of line segment 2-11) and S (midpoint of line segment 12-5) are in cell $\Gamma$. Reason: Since RS∥line 1-15, therefore R, P, S, 1, 15 are coplanar. Since 1, 15, P are in cell $\Gamma$, therefore R, S are also in cell $\Gamma$. Having supplemented points R and S, the remaining point T can be easily supplemented using the parallel line method. Finally, let's observe this complete cross-section cell. It's a heptahedron consisting of three rhombi with side length $\sqrt{5}/2$, one equilateral triangle with side length $\sqrt{2}$, and three isosceles triangles. Having seven faces means cell $\Gamma$ intersects seven cells, with one cell not intersecting, which is cell E (shown separately in yellow here)<a name="slop"></a>
+[Return to Contents](#index)
+#### Oblique Planes
+- Absolutely Perpendicular
+　　Please find the normal plane to face 1-3-13 (the red face on the left side of the figure below).
+Approach: As long as we find two intersecting lines both perpendicular to this plane, the plane determined by those intersecting lines is absolutely perpendicular to this plane. (This is a good criterion for absolute perpendicularity!)
+　　Since face 1-3-13 is in cell B, we might as well find a normal line to face 1-3-13 within cell B, which is 10-11 (easily proven by the three perpendiculars theorem in solid geometry), so line 10-11 is one line we're looking for.
+Since cell B is perpendicular to line 10-15, face 1-3-13 within cell B is also perpendicular to line 10-15. Thus, the plane 10-11-14-15 determined by lines 10-15 and 10-11 is the required normal plane. (Blue face) Their only common point is on line segment 10-11 at the one-third point closer to 10.
 ![](/img/geometry5.gif)
-- 半垂直<a name="semivertical"></a>
-　　如上图右边所示，面1-3-13与面10-11-8半垂直：直线10-11垂直于面1-3-13，但点8在面1-3-13上的投影为1，显然没落到它们的唯一公共点上。所以点8与公共点的连线不垂直于面1-3-13。所以这两个平面半垂直，$\theta_1=90°$，但我们怎样求出$\theta_2$的值呢？它是一个最小值，感觉怎么都从图上看不出来。<a name="proj"></a>
-好像现在继续往下走行不通了。但回想一下高中的立体几何，好像在求两平面夹角（当然是二面角）时老师还讲了一种方法：**射影面积定理**。
+- Semi-perpendicular<a name="semivertical"></a>
+　　As shown on the right side of the figure above, face 1-3-13 and face 10-11-8 are semi-perpendicular: line 10-11 is perpendicular to face 1-3-13, but the projection of point 8 onto face 1-3-13 is 1, obviously not falling on their only common point. So the line connecting point 8 and the common point is not perpendicular to face 1-3-13. Therefore these two planes are semi-perpendicular, $\theta_1=90°$, but how do we find the value of $\theta_2$? It's a minimum value, and it seems impossible to see from the diagram.<a name="proj"></a>
+It seems we can't proceed further now. But recalling high school solid geometry, when finding the angle between two planes (of course, dihedral angle), the teacher also taught another method: **projection area theorem**.
 
-思考题：请画出右上图中绿色平面的法平面（绝对垂直平面）
+Thinking question: Please draw the normal plane (absolutely perpendicular plane) to the green plane in the upper right figure.
 
+### Generalization of the Projection Area Theorem
+> The projection area theorem states that the projected area of a plane figure equals the area S of the projected figure multiplied by the cosine of the angle between the plane containing the figure and the projection plane.
 
-### 射影面积定理的推广
-> 射影面积定理是平面图形射影面积等于被射影图形的面积S乘以该图形所在平面与射影面所夹角的余弦。
+This is familiar to us in 3D space. Here's a rough proof outline:
+　　We choose a specially shaped projected figure: a square. The position is also special: one side of the square is chosen parallel to the intersection of the two planes, and the other side is naturally perpendicular to this intersection. After projection, the side parallel to the intersection remains unchanged in length, while the side perpendicular to the intersection becomes $cos\theta$ times its original length, where $\theta$ is the dihedral angle between the two planes, so the square area becomes $cos\theta$ times the original. We divide other irregular shapes into countless such small squares, so the overall area also satisfies the $cos\theta$ times relationship.
+　　It's the same in 4D, except when choosing square area elements for projection, both sides in the maximum and minimum angle directions (remember? these two directions are exactly perpendicular) must be multiplied by the cosine of the angle, causing the area to become $cos\theta_1cos\theta_2$ times the original. That is:
+> The projection area theorem in 4D: The projected area of a plane figure equals the area S of the projected figure multiplied by the product of the cosines of the angles $\theta_1, \theta_2$ between the plane containing the figure and the projection plane.
 
-这是我们三维空间中熟知的。下面给一个大概证明思路：
-　　我们在选一种特殊形状的被射影图形：正方形。位置也很特殊：正方形一边选到平行于两个平面的交线，另一边自然就垂直与此交线。投影后平行于交线的边长度不变，垂直与交线的一边变成了$cos\theta$倍，其中$\theta$是两平面二面角，所以正方形面积变成了$cos\theta$倍。我们把其他不规则形状划分成无数这样小的方格，所以整体面积也满足$cos\theta$倍的关系。
-　　四维也一样，只是选正方形面积元投影到两边在夹角最大值方向和最小值方向上（还记得吗？这两个方向刚好垂直）都要乘上角度的余弦值，导致面积变为原来的$cos\theta_1cos\theta_2$倍。即：
-> 四维中射影面积定理是：平面图形射影面积等于被射影图形的面积S乘以该图形所在平面与射影面夹角$\theta_1、\theta_2$的余弦的乘积。
+　　Using this magical method, we can only get $cos\theta_1cos\theta_2$, obviously still lacking conditions. It seems we must use algebra to find angles. [Later](/archives/bivector4ds/) we'll see that the vector method is no longer suitable for 4D geometry, and the vector method needs to be transformed. In the transformed vector method, we'll still need to use the generalization of the projection area theorem.
 
-　　我们用这种神奇的方法都只能得到$cos\theta_1cos\theta_2$，显然还差条件。看来必须用代数才能求夹角了。[后面](/archives/bivector4ds/)我们将看到向量法也不再适应四维几何，向量法需要被改造，在改造的向量法中我们还需要用到射影面积定理的推广。
+[Return to Contents](#index)
 
-[返回目录](#index)
-
- [上一篇](/archives/objects4ds/)　 [查看系列目录](/categories/四维空间系列/)　[下一篇](/archives/polyhedral4ds/)
-
-
+ [Previous Article](/archives/objects4ds/)　 [View Series Contents](/categories/四维空间系列/)　[Next Article](/archives/polyhedral4ds/)

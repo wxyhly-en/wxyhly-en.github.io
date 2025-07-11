@@ -1,120 +1,142 @@
 ---
-title: 群论系列(二)：数域的扩张
+title: "Group Theory Series (2): Field Extensions"
 tags:
-  - 数学
-  - 群论
-  - 系列文章
+  - Mathematics
+  - Group Theory
+  - Series Articles
 date: 2018-06-16 09:54:29
 ---
 
-有了群的一些基础知识，下面我们就该来讨论n次方程的根的问题了。在具体讨论这个问题之前，我们还得引入一些新概念，这些概念很多已经不再局限于群，属于抽象代数的范围了。这篇文章的内容有点进阶了，但本文定位于让读者对伽罗瓦理论有一个感性的认识，所以一般性的结论和证明都尽量不讲，读者有兴趣可以参阅维基百科或抽象代数的书籍。
-## 数域的扩张
-我们先来看另一个类似群的代数结构——**域**
-简单来说，域就是定义了加减乘除四则运算的集合（群则只定义了乘法）。我们不给出严格的定义，这篇文章也只涉及**数域**，即上面的四则运算就是我们平时用的四则运算，而不是其他定义。
+With some basic knowledge of groups, we should now discuss the problem of roots of n-degree equations. Before specifically discussing this problem, we need to introduce some new concepts. Many of these concepts are no longer limited to groups and belong to the scope of abstract algebra. This article is somewhat advanced, but it aims to give readers an intuitive understanding of Galois theory, so general conclusions and proofs will be minimized. Interested readers can refer to Wikipedia or abstract algebra textbooks.
+
+## Field Extensions
+
+Let's first look at another algebraic structure similar to groups—**fields**.
+Simply put, a field is a set with four arithmetic operations defined (addition, subtraction, multiplication, and division), while a group only defines multiplication. We won't give a strict definition, and this article only deals with **number fields**, where the four arithmetic operations are the ones we normally use, not other definitions.
 <!--more-->
-除了有限域之外，最小的数域是有理数域$Q$，因为它满足对除法封闭。（最小的域是只有两个元素{0,1}组成的有限域，但四则运算不是我们平时用的定义，如$1+1=0$，这里不讨论）当我们解方程$ax+b=0;a,b\in Q$时，所有解也落在这个域中，这很好，但到了二次方程，比如$x^2-2=0$，我们知道解$\sqrt{2}$是无理数，不在有理数域$Q$里了。这里初中老师说，我们扩充数域得到包括所有从负无穷到正无穷的数的新数域$R$。但这种方法简单粗暴，一下子让实数轴“充满”了。我们不妨先只让$\sqrt{2}$和有理数参与四则运算，就能生成一个更大的域，记作$Q(\sqrt{2})$，这个域中的每个数都能写作$a+b\sqrt{2};a,b\in Q$的形式，读者可以自行验证这个形式下的四则运算的封闭性。我们把给一个域$k$添加一些元素从而得到更大的域$K$的操作叫**域扩张**，记作$K/k$（其实意思就是$k \subseteq K$）。扩域中的元素$a+b\sqrt{2};a,b\in Q$可以看成是原来域通过二维的线性组合得到的，我们把维数二叫做扩张的**次数**。
+Apart from finite fields, the smallest number field is the rational field $Q$, because it is closed under division. (The smallest field is the finite field with only two elements {0,1}, but the four arithmetic operations are not our usual definitions, like $1+1=0$, which we won't discuss here.) When we solve the equation $ax+b=0; a,b\in Q$, all solutions also fall within this field, which is good. But for quadratic equations, like $x^2-2=0$, we know the solution $\sqrt{2}$ is irrational and not in the rational field $Q$. Here, middle school teachers say we extend the number field to get a new number field $R$ that includes all numbers from negative infinity to positive infinity. But this method is crude and suddenly "fills" the real number line. We might first let only $\sqrt{2}$ and rational numbers participate in arithmetic operations, which generates a larger field, denoted as $Q(\sqrt{2})$. Every number in this field can be written in the form $a+b\sqrt{2}; a,b\in Q$. Readers can verify the closure of the four arithmetic operations under this form themselves. We call the operation of adding some elements to a field $k$ to obtain a larger field $K$ a **field extension**, denoted as $K/k$ (which actually means $k \subseteq K$). Elements in the extension field $a+b\sqrt{2}; a,b\in Q$ can be seen as obtained through two-dimensional linear combinations of the original field. We call dimension two the **degree** of the extension.
 
-域扩张$Q(\pi)/Q$的次数又是怎样的呢？由于乘法的封闭性，$\pi^n$都应该在扩域当中。$\pi$和$\sqrt{2}$不一样，$\pi$是**超越数**，所以$\pi^n$不可能是有理数，所以数$a_0+a_1\pi+a_2\pi^2+..$得由无穷维线性组合得到。注意看似对于域$Q(\sqrt{2})$来说也有元素$a_0+a_1\sqrt{2}+a_2\sqrt{2}^2+a_3\sqrt{2}^3..$，但一旦角标大于1，就可以通过$\sqrt{2}^2=2$来化简，因此这些线性组合不独立，虽然有无穷个向量，但最终只有两个**线性独立**的向量，对应向量空间的维数还是2。注意如果做除法导致分母也含有根式，我们可以进行分母有理化，但含$\pi$的超越数可不行。这种包含超越数的扩张会导致扩张的次数维无穷，我们叫**无限扩张**，比如$Q$到$R$也是无限扩张，而像$Q(\sqrt{2})$这种扩张叫**有限扩张**，我们只关心有限扩张。
-## 中间扩张
-回到我们关心的问题上来：我们希望五次方程的根有求根公式，这其实等价于五次方程的根能落在给定了一种结构的域扩张后得到的域中。在描述这些扩张前，我们先多看看一些简单的例子：
+What about the degree of the field extension $Q(\pi)/Q$? Due to the closure of multiplication, $\pi^n$ should all be in the extension field. $\pi$ is different from $\sqrt{2}$; $\pi$ is a **transcendental number**, so $\pi^n$ cannot be rational. Therefore, numbers $a_0+a_1\pi+a_2\pi^2+..$ must be obtained through infinite-dimensional linear combinations. Note that for the field $Q(\sqrt{2})$, there also seem to be elements $a_0+a_1\sqrt{2}+a_2\sqrt{2}^2+a_3\sqrt{2}^3..$, but once the index is greater than 1, it can be simplified using $\sqrt{2}^2=2$, so these linear combinations are not independent. Although there are infinitely many vectors, there are ultimately only two **linearly independent** vectors, and the dimension of the corresponding vector space is still 2. Note that if division results in a denominator containing radicals, we can rationalize the denominator, but transcendental numbers containing $\pi$ cannot. This kind of extension containing transcendental numbers leads to infinite-dimensional extensions, which we call **infinite extensions**, like from $Q$ to $R$ is also an infinite extension, while extensions like $Q(\sqrt{2})$ are called **finite extensions**. We only care about finite extensions.
 
-加入$\sqrt{2}$、$\sqrt{3}$生成的域$K=Q(\sqrt{2},\sqrt{3})$,可以证明这个扩域$K$中的所有元素都能写成$a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6}$的形式。我们发现$E_1=Q(\sqrt{2})$、$E_2=Q(\sqrt{3})$和$E_3=Q(\sqrt{6})$都是这个域的子域。由于这些域都是$Q$的扩域，所以$E_1、E_2、E_3$就是在域$Q$和域$K$间的**中间域**。中间域在一定意义上代表了域扩张的结构。那给一个域扩张我们有什么通用的方法求中间扩张呢？
+## Intermediate Extensions
+
+Returning to our concern: we hope that roots of quintic equations have root formulas, which is actually equivalent to saying that roots of quintic equations can fall within a field obtained after a field extension with a given structure. Before describing these extensions, let's look at some simple examples:
+
+The field $K=Q(\sqrt{2},\sqrt{3})$ generated by adding $\sqrt{2}$ and $\sqrt{3}$ can be proven to have all elements writable in the form $a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6}$. We find that $E_1=Q(\sqrt{2})$, $E_2=Q(\sqrt{3})$, and $E_3=Q(\sqrt{6})$ are all subfields of this field. Since these fields are all extensions of $Q$, $E_1, E_2, E_3$ are **intermediate fields** between fields $Q$ and $K$. Intermediate fields represent the structure of field extensions in a certain sense. So given a field extension, what general method do we have to find intermediate extensions?
 ![](/img/group2img2.gif)
-答案是：用**群论**！！
-## 域扩张的自同构群（伽罗瓦群）
+The answer is: use **group theory**!!
 
-之所以能用群论研究五次方程根的问题，是因为研究域扩张的问题能转化成研究域扩张的自同构群的问题。什么是域扩张的自同构群？简单地说就是我们规定一些**自同构映射**，然后它们通过复合操作组成群，而域扩张$K/k$的自同构映射$f$定义为：
-- $K$到自身的双射（$K$中元素的一个置换操作，参看上一篇文章）；
-- 保持域结构不变，结构即域上面的四则运算。比如$f(a)+f(b)=f(a+b)$，$f(a)\*f(b)=f(a\*b)$等；
-- 额外要求（不然就和一般的域自同构群没区别了）：置换操作必须保持原域$k$不变，即对所有$a\in k$有$f(a)=a$。
+## Automorphism Groups of Field Extensions (Galois Groups)
 
-为纪念数学家伽罗瓦，我们把满足一定条件（这里条件先暂时不管）的域扩张$K/k$的自同构群叫**伽罗瓦群**，并记为$Gal(K/k)$。
+The reason we can use group theory to study the problem of roots of quintic equations is that studying field extensions can be transformed into studying automorphism groups of field extensions. What is an automorphism group of a field extension? Simply put, we define some **automorphism mappings**, and they form a group through composition operations. An automorphism mapping $f$ of a field extension $K/k$ is defined as:
+- A bijection from $K$ to itself (a permutation operation on elements in $K$, see the previous article);
+- Preserves the field structure, meaning the four arithmetic operations on the field. For example, $f(a)+f(b)=f(a+b)$, $f(a)*f(b)=f(a*b)$, etc.;
+- Additional requirement (otherwise it's no different from general field automorphism groups): the permutation operation must keep the original field $k$ unchanged, i.e., for all $a\in k$, we have $f(a)=a$.
 
-定义有点抽象，我们多看几个例子（以下例子均来自于维基百科）：最简单的例子，求$Gal(Q(\sqrt{2})/Q)$：首先得找出自同构映射$f:Q(\sqrt{2})\rightarrow Q(\sqrt{2})$。注意不是随便给每个$Q(\sqrt{2})$中的元素指定不相同的元素就行，因为按定义置换操作必须保持原域$k$不变，而且要保持原域的结构：我们有$\sqrt{2}^2=2$，就必须有$f(\sqrt{2})^2=f(\sqrt{2}^2)=f(2)=2$，所以解出$f(\sqrt{2})$可以取$\pm\sqrt{2}$，这对应了两个自同构映射，其中$f_1(\sqrt{2})=\sqrt{2}$是恒等映射，$f_2(\sqrt{2})=-\sqrt{2}$则把$a+b\sqrt{2}$映射为$a-b\sqrt{2}$。它们通过复合操作形成的群同构于$S_2$，即$Gal(Q(\sqrt{2})/Q)=S_2$。
+In honor of mathematician Galois, we call the automorphism group of a field extension $K/k$ satisfying certain conditions (we'll ignore the conditions for now) the **Galois group**, denoted as $Gal(K/k)$.
 
-再来一个稍微复杂点的：$Q(\sqrt{2},\sqrt{3})$。有了上次的经验，我们可以快速地给出四个映射（其核心是利用$\sqrt{x}^{2}=x,x\in Q$）：
-- $e$：$e(\sqrt{2})=\sqrt{2}$，$e(\sqrt{3})=\sqrt{3}$（即恒映射）
-- $a$：$a(\sqrt{2})=-\sqrt{2}$，$a(\sqrt{3})=\sqrt{3}$
-- $b$：$b(\sqrt{3})=-\sqrt{3}$，$b(\sqrt{2})=\sqrt{2}$
-- $ab$：$ab(\sqrt{2})=-\sqrt{2}$，$ab(\sqrt{3})=-\sqrt{3}$
+The definition is somewhat abstract, so let's look at several examples (the following examples are all from Wikipedia): The simplest example, find $Gal(Q(\sqrt{2})/Q)$: First, we need to find the automorphism mapping $f:Q(\sqrt{2})\rightarrow Q(\sqrt{2})$. Note that we can't just assign different elements to each element in $Q(\sqrt{2})$, because by definition the permutation operation must keep the original field $k$ unchanged and preserve the structure of the original field: we have $\sqrt{2}^2=2$, so we must have $f(\sqrt{2})^2=f(\sqrt{2}^2)=f(2)=2$, solving this gives $f(\sqrt{2})$ can be $\pm\sqrt{2}$. This corresponds to two automorphism mappings, where $f_1(\sqrt{2})=\sqrt{2}$ is the identity mapping, and $f_2(\sqrt{2})=-\sqrt{2}$ maps $a+b\sqrt{2}$ to $a-b\sqrt{2}$. They form a group isomorphic to $S_2$ through composition operations, i.e., $Gal(Q(\sqrt{2})/Q)=S_2$.
 
-可以证明这就是所有自同构映射了。我们看到这四个元素构成了一个群，这个群的特点是所有元素都是二阶的，且任意两个非单位元的乘积等于另一个非单位元（比如$ab\*a=b$），并且是交换群。它叫**克莱因四元群**。
-## 子群与中间扩张
-我们现在看看不同中间扩张对应的自同构群之间有什么联系，现在有两个可能的思路：
-- 从下往上扩张：以最小的域$Q$为基准，考虑群$Gal(Q(\sqrt{2},\sqrt{3})/Q)$、$Gal(Q(\sqrt{2})/Q)$、$Gal(Q(\sqrt{3})/Q)$、$Gal(Q/Q)$之间的关系；
-- 从上往下扩张：以最大的域$Q(\sqrt{2},\sqrt{3})$为基准，考虑群$Gal(Q(\sqrt{2},\sqrt{3})/Q(\sqrt{2},\sqrt{3}))$、$Gal(Q(\sqrt{2},\sqrt{3})/Q(\sqrt{2}))$、$Gal(Q(\sqrt{2},\sqrt{3})/Q(\sqrt{3}))$、$Gal(Q(\sqrt{2},\sqrt{3})/Q)$之间的关系。
+Let's try a slightly more complex one: $Q(\sqrt{2},\sqrt{3})$. With the experience from last time, we can quickly give four mappings (the key is using $\sqrt{x}^{2}=x,x\in Q$):
+- $e$: $e(\sqrt{2})=\sqrt{2}$, $e(\sqrt{3})=\sqrt{3}$ (i.e., identity mapping)
+- $a$: $a(\sqrt{2})=-\sqrt{2}$, $a(\sqrt{3})=\sqrt{3}$
+- $b$: $b(\sqrt{3})=-\sqrt{3}$, $b(\sqrt{2})=\sqrt{2}$
+- $ab$: $ab(\sqrt{2})=-\sqrt{2}$, $ab(\sqrt{3})=-\sqrt{3}$
 
-由于从下往上扩张即一直以最小的域$Q$为基准，导致我们研究$Gal(Q/Q)$时根本没有$\sqrt{2}$、$\sqrt{3}$什么事，无法将它们作为一个整体连起来，所以我们选择考虑从上往下扩张，即以最大的域$Q(\sqrt{2},\sqrt{3})$为基准。
+It can be proven that these are all the automorphism mappings. We see that these four elements form a group. The characteristic of this group is that all elements are of order two, and the product of any two non-identity elements equals another non-identity element (for example, $ab*a=b$), and it is an abelian group. It's called the **Klein four-group**.
+
+## Subgroups and Intermediate Extensions
+
+Let's now see what connections exist between automorphism groups corresponding to different intermediate extensions. There are two possible approaches:
+- Bottom-up extension: Taking the smallest field $Q$ as the baseline, consider the relationship between groups $Gal(Q(\sqrt{2},\sqrt{3})/Q)$, $Gal(Q(\sqrt{2})/Q)$, $Gal(Q(\sqrt{3})/Q)$, $Gal(Q/Q)$;
+- Top-down extension: Taking the largest field $Q(\sqrt{2},\sqrt{3})$ as the baseline, consider the relationship between groups $Gal(Q(\sqrt{2},\sqrt{3})/Q(\sqrt{2},\sqrt{3}))$, $Gal(Q(\sqrt{2},\sqrt{3})/Q(\sqrt{2}))$, $Gal(Q(\sqrt{2},\sqrt{3})/Q(\sqrt{3}))$, $Gal(Q(\sqrt{2},\sqrt{3})/Q)$.
+
+Since bottom-up extension always takes the smallest field $Q$ as the baseline, when we study $Gal(Q/Q)$, it has nothing to do with $\sqrt{2}$ or $\sqrt{3}$, and we cannot connect them as a whole. So we choose to consider top-down extension, taking the largest field $Q(\sqrt{2},\sqrt{3})$ as the baseline.
 ![](/img/group2img1.gif)
-上图每个域$K$旁都标出了伽罗瓦群$Gal(Q(\sqrt{2},\sqrt{3})/K)$中的元素。我们看到**一个域对应的伽罗瓦群是其子域对应伽罗瓦群的子群！**这就是**伽罗瓦理论基本定理**。这很好理解：伽罗瓦群由保持原域不变的映射组成，所以原域扩大后，映射就会减少，从而形成原来群的子群。比如从$Q$到$Q(\sqrt{2},\sqrt{3})$本来能操作$\sqrt{2}$和$\sqrt{3}$，但从$Q(\sqrt{2})$到$Q(\sqrt{2},\sqrt{3})$的伽罗瓦群中就不能再操作$\sqrt{2}$了，所以仅剩{e,b}两个操作。
-## 伽罗瓦扩张
-我们再来看扩张$Q(\sqrt[3]{2})/Q$。由于$(\sqrt[3]{2})^3=2$，所以我们要求映射$f$满足$f(\sqrt[3]{2})=2$，但这个方程还有两个根是虚根，不会出现在扩域$Q(\sqrt[3]{2})$中。这导致了满足要求的映射只有恒等映射，伽罗瓦群是平凡群{e}。感觉伽罗瓦群没有像我们期待的那样反映出扩张$Q(\sqrt[3]{2})/Q$的三次结构，这正是前面我们略过的：**只有满足一定条件的域扩张的自同构群才叫伽罗瓦群**：我们不应考虑那种加入随便的数来扩充的域，而应该考虑恰好把一个多项式方程（多项式系数都取有理数）的所有根都加进去，（这种恰好添加一个多项式方程所有根而得到的域叫做**分裂域**，因为我们可以在扩域里完全分解开因式）我们把满足以上条件的扩张叫**正规扩张**，也叫**伽罗瓦扩张**（注：还好我们只研究数域，不然正规扩张不等价于伽罗瓦扩张，还需要可分扩张的条件。）可以证明，**只有伽罗瓦扩张才能让域扩张与子群一一对应**。
+The diagram shows elements of the Galois group $Gal(Q(\sqrt{2},\sqrt{3})/K)$ next to each field $K$. We see that **the Galois group corresponding to a field is a subgroup of the Galois group corresponding to its subfield!** This is the **Fundamental Theorem of Galois Theory**. This makes sense: the Galois group consists of mappings that keep the original field unchanged, so when the original field expands, the mappings decrease, forming a subgroup of the original group. For example, from $Q$ to $Q(\sqrt{2},\sqrt{3})$ we could originally operate on $\sqrt{2}$ and $\sqrt{3}$, but in the Galois group from $Q(\sqrt{2})$ to $Q(\sqrt{2},\sqrt{3})$, we can no longer operate on $\sqrt{2}$, so only {e,b} operations remain.
 
-回到前面，由于$\sqrt[3]{2}$是方程$x^3=2$的根，这个方程还有两根$\sqrt[3]{2}\omega$、$\sqrt[3]{2}\omega^{2}$（其中$\omega=1/2+i\sqrt{3}/2，\omega^{3}=1$）。所以我们最好考虑把问题换成求添加这三个根的扩域$Q(\sqrt[3]{2}, \sqrt[3]{2}\omega$, $\sqrt[3]{2}\omega^{2})$对$Q$的扩张，这样的扩张才“有利可图”。
-为书写简便，记$\sqrt[3]{2}=\theta$，下面我们写出联系$\theta$、$\omega$与$Q$的方程：
-<center>$\theta^{3}=2$ &nbsp; &nbsp; 第一个方程的解为$\theta$、$\theta\omega$、$\theta\omega^{2}$，
-$\omega^{3}=1$ &nbsp; &nbsp; 第二个方程的解为$1$、$\omega$、$\omega^{2}$。</center>
+## Galois Extensions
 
-我们的自同构映射就是这些根的置换……但注意，$1$是有理数，我们必须保留**不能置换**$1$。所以自同构映射作用在$\theta$上的结果有三种：$\theta$、$\theta\omega$或$\theta\omega^{2}$，而作用在$\omega$上的结果只能有两种：$\omega$或$\omega^{2}$。这表明$Gal(Q(\sqrt[3]{2}))/Q$中元素有六个，可以表示为 {e, f, f<sup>2</sup>, g, gf, gf<sup>2</sup>}. 其中：
-$$f(\theta) = \omega\theta, \; f(\omega) = \omega, \quad g(\theta) = \theta, \; g(\omega) = \omega^2. $$注意这个群不是可交换群，因为$fg = gf^2$。
-我们来画这个群的凯莱图：
+Let's look at the extension $Q(\sqrt[3]{2})/Q$. Since $(\sqrt[3]{2})^3=2$, we require the mapping $f$ to satisfy $f(\sqrt[3]{2})=2$, but this equation has two other roots that are complex and won't appear in the extension field $Q(\sqrt[3]{2})$. This results in only the identity mapping satisfying the requirements, and the Galois group is the trivial group {e}. It feels like the Galois group doesn't reflect the cubic structure of the extension $Q(\sqrt[3]{2})/Q$ as we expected. This is what we skipped earlier: **Only automorphism groups of field extensions satisfying certain conditions are called Galois groups**: We shouldn't consider fields extended by adding arbitrary numbers, but should consider those that add exactly all roots of a polynomial equation (with polynomial coefficients all rational). (This kind of field obtained by adding exactly all roots of a polynomial equation is called a **splitting field**, because we can completely factor the polynomial in the extension field.) We call extensions satisfying the above conditions **normal extensions**, also called **Galois extensions** (Note: Fortunately we only study number fields, otherwise normal extensions wouldn't be equivalent to Galois extensions and would require the condition of separable extensions.) It can be proven that **only Galois extensions allow a one-to-one correspondence between field extensions and subgroups**.
+
+Going back, since $\sqrt[3]{2}$ is a root of the equation $x^3=2$, this equation has two other roots $\sqrt[3]{2}\omega$ and $\sqrt[3]{2}\omega^{2}$ (where $\omega=1/2+i\sqrt{3}/2, \omega^{3}=1$). So we'd better consider changing the problem to finding the extension of the field $Q(\sqrt[3]{2}, \sqrt[3]{2}\omega, \sqrt[3]{2}\omega^{2})$ over $Q$. Only such extensions are "profitable".
+
+For brevity, let $\sqrt[3]{2}=\theta$. Below we write the equations connecting $\theta$, $\omega$, and $Q$:
+<center>$\theta^{3}=2$ &nbsp; &nbsp; The solutions of the first equation are $\theta$, $\theta\omega$, $\theta\omega^{2}$,
+$\omega^{3}=1$ &nbsp; &nbsp; The solutions of the second equation are $1$, $\omega$, $\omega^{2}$.</center>
+
+Our automorphism mappings are permutations of these roots... but note that $1$ is rational, so we must preserve it and **cannot permute** $1$. So the results of automorphism mappings acting on $\theta$ have three possibilities: $\theta$, $\theta\omega$, or $\theta\omega^{2}$, while acting on $\omega$ can only have two results: $\omega$ or $\omega^{2}$. This shows that $Gal(Q(\sqrt[3]{2})/Q)$ has six elements, which can be represented as {e, f, f<sup>2</sup>, g, gf, gf<sup>2</sup>}. Where:
+$$f(\theta) = \omega\theta, \; f(\omega) = \omega, \quad g(\theta) = \theta, \; g(\omega) = \omega^2. $$Note this group is not abelian, because $fg = gf^2$.
+
+Let's draw the Cayley diagram of this group:
 
 ![](/img/group2img3.gif)
-眼熟吗？它同构于我们之前研究过的对称群$S_3$：![](/img/group1img3.gif)
-群$S_3$的**非平凡子群**和陪集我们也在上一篇文章中讨论过了，这里再放一下结果：![黑色表示子群，灰色为对应的陪集，只有第一个非平凡子群是正规子群](/img/group1img4.gif)
-这些非平凡子群与中间域的对应关系为：![图片来自维基百科词条“伽罗瓦理论基本定理”](https://upload.wikimedia.org/wikipedia/commons/6/68/Lattice_diagram_of_Q_adjoin_a_cube_root_of_2_and_a_primitive_cube_root_of_1%2C_its_subfields%2C_and_Galois_groups_variant.png)
-注意平凡子群{e}对应平凡扩张，平凡子群{e, f, f<sup>2</sup>, g, gf, gf<sup>2</sup>}对应整个扩张，也不是中间扩张（我们也认为是平凡的中间扩张）。看来平凡子群刚好对应平凡扩张。
-前面我们把恰好包含一个多项式所有根的扩张叫做**正规扩张**，它之所以叫“正规”难道是因为它跟**正规子群**对应？答案是肯定的！比如{e, f, f<sup>2</sup>}对应正规扩张$Q(\omega)/Q$，有定理：
+Look familiar? It's isomorphic to the symmetric group $S_3$ we studied before: ![](/img/group1img3.gif)
+We also discussed the **non-trivial subgroups** and cosets of group $S_3$ in the previous article. Here's the result again: ![Black represents subgroups, gray represents corresponding cosets, only the first non-trivial subgroup is a normal subgroup](/img/group1img4.gif)
+The correspondence between these non-trivial subgroups and intermediate fields is: ![Image from Wikipedia entry "Fundamental Theorem of Galois Theory"](https://upload.wikimedia.org/wikipedia/commons/6/68/Lattice_diagram_of_Q_adjoin_a_cube_root_of_2_and_a_primitive_cube_root_of_1%2C_its_subfields%2C_and_Galois_groups_variant.png)
+Note that the trivial subgroup {e} corresponds to the trivial extension, and the trivial subgroup {e, f, f<sup>2</sup>, g, gf, gf<sup>2</sup>} corresponds to the entire extension, which is also not an intermediate extension (we also consider it a trivial intermediate extension). It seems trivial subgroups exactly correspond to trivial extensions.
 
- 设域扩张$k\subset K\subset E$，其中$K/k$，$E/k$都是正规扩张，则$Gal(E/K)$是$Gal(E/k)$的一个正规子群，且$$Gal(E/k)/Gal(E/K)\cong Gal(K/k)$$
+Earlier we called extensions that contain exactly all roots of a polynomial **normal extensions**. Is it called "normal" because it corresponds to **normal subgroups**? The answer is yes! For example, {e, f, f<sup>2</sup>} corresponds to the normal extension $Q(\omega)/Q$. There's a theorem:
 
-等等！我们现在讨论了那么多，跟最初要研究的n次方程解的根式表示有什么关系？我们先把上面那个定理的证明放一边，看看怎样用域扩张的语言描述“n次方程解有根式表示”。
-## 根式塔
-首先，我们说一个数可以用有限的四则运算和不允许嵌套的平方根表示，其实等价于说一定存在一个数域$K_1=Q(\sqrt{u_1},\sqrt{u_2},..,\sqrt{u_n}), (u_1, .., u_n \in Q)$使这个数落在其中。
-说一个数可以用有限的四则运算和平方根表示，就默认了我们也可以嵌套平方根，如：
-$${\sqrt{\sqrt{2}+5}\over 1+\sqrt{\sqrt{\sqrt{3}-2}+\sqrt{7}}}$$ 这时怎样构造扩域呢？答案是：一层一层的构造。比如我们先得到了包含只允许一层根号的域$K_1$，然后我们在它的基础上再做一层根式扩张得到$K_2=K_1(\sqrt{u_1},\sqrt{u_2},..,\sqrt{u_n}), (u_1, .., u_n \in K_1)$。$K_2$就代表能用两层平方根表示的数。这样层层扩张$Q\subset K_1\subset K_2 ...\subset K_n $来描述根式嵌套的方法叫**根式塔**。
+Given field extensions $k\subset K\subset E$, where $K/k$ and $E/k$ are both normal extensions, then $Gal(E/K)$ is a normal subgroup of $Gal(E/k)$, and $$Gal(E/k)/Gal(E/K)\cong Gal(K/k)$$
 
-n次方程解有根式表示的意思是说，解可以用系数有限的四则运算和根式表示。我们假定系数域为k，则它等价于解落在域塔
-$k\subset K_1\subset K_2 ...\subset K\_n$中，其中$K_{i+1} = K_i(u_i), u_i^{n}\in K_i, n\in Z$，注意我们一次只添加一个元素，如$\sqrt{2}+\sqrt{3}$认为做了两次扩张，这种看法并不影响结果，甚至我们还能要求次数n为素数（质数)，因为一个数的合数次方根可以用合数的质因数次方根的嵌套表示。
-下面来看最大的域扩张$K\_n/k$的伽罗瓦群：当然域扩张添加根$u_j$时我们得把所有$u^{n}=a, a\in K_i$的解加入使得扩张都是正规的（这并不影响我们希望的数落入其中或落入其它不希望的数）根据之前的定理，域塔的正规性对应着子群的正规性。如果一个域扩张对应的伽罗瓦群找不到对应结构的一系列正规子群，则这个域扩张肯定不是根式扩张，即这个扩张里的数无法用有限的四则运算和根式表示。
-## 根式扩张的伽罗瓦群
-下面我们来处理一些细节，比如对应结构的一系列正规子群到底需要什么结构？我们先看一层根式扩张的伽罗瓦群：$Gal(k(u)/k),u^n\in k$.
-根据代数基本定理，方程$u^n=a, a\in k, a\neq 0$的根一定有n个，它们分别是$$\left\lbrace  u,u\omega,...,u\omega^{n-1}\right\rbrace , \omega=exp(2\pi i/n), \omega^n=1$$这里要分两种情况：$u\in k$和$u\not\in k$。
-- $u\in k$：这种情况说明能在数域$k$中开得尽方，所以$u$不能参与置换，我们只能对其余根置换。如果n是质数，我们就能证明
-所有映射$f\_a(u\omega)=u\omega^a , a < n$组成了一个循环群$C_{n-1}$：因为我们容易验证$f\_a f\_b (u\omega)= f\_b f\_a (u\omega) = u\omega^{a+b} = f\_{a+b} (u\omega)$. （一个值得注意的细节是：如果n是合数，则这些映射的复合可能把$u\omega^a$映射到$u\omega^n=1$，这是我们不希望的，比如对应n=4，$f_2(u\omega^2)=u\omega^4=u$，不符合映射固定$u$的要求。）
-比如我们取$u=1$，则表示添加了所有的n次单位根$\omega,..,\omega^{n-1}$的扩张。
-- $u\not\in k$：这种情况说明所有的根都能置换，但这里我们先假设单位根$\omega,..,\omega^{n-1}$已经被加进域k中了，我们就不做那些置换$\omega^n$但保留u不变的映射，只做$u,u\omega,..,u\omega^{n-1}$之间的映射。同样我们可以证明它们组成了循环群$C_{n}$.
+Wait! We've discussed so much now, what does this have to do with the radical representation of roots of n-degree equations that we originally wanted to study? Let's put aside the proof of the above theorem and see how to use the language of field extensions to describe "n-degree equations have radical representations for their solutions".
 
-总结一下就是：现在给定一个根式塔，我们先把所有根号拆成质数次方根式的嵌套，然后添加需要用到根式的所有n次单位根，再逐层添加根式得到最后的根式塔。根据前面的分析，***根式塔的每一步域扩张（它们都是正规扩张）的伽罗瓦群都是循环群**。
+## Radical Towers
 
-下面该用上我们还没证明的那个关于正规子群和正规扩张的定理了：
+First, saying a number can be represented using finite arithmetic operations and non-nested square roots is actually equivalent to saying there must exist a number field $K_1=Q(\sqrt{u_1},\sqrt{u_2},..,\sqrt{u_n}), (u_1, .., u_n \in Q)$ such that this number falls within it.
 
-> 设域扩张$k\subset K\subset E$，其中$K/k$，$E/k$都是正规扩张，则$Gal(E/K)$是$Gal(E/k)$的一个正规子群，且$$Gal(E/k)/Gal(E/K)\cong Gal(K/k)$$
+Saying a number can be represented using finite arithmetic operations and square roots implicitly allows us to nest square roots, like:
+$${\sqrt{\sqrt{2}+5}\over 1+\sqrt{\sqrt{\sqrt{3}-2}+\sqrt{7}}}$$ How do we construct the extension field in this case? The answer is: construct it layer by layer. For example, we first obtain the field $K_1$ containing only one layer of radicals, then we do another layer of radical extension on its basis to get $K_2=K_1(\sqrt{u_1},\sqrt{u_2},..,\sqrt{u_n}), (u_1, .., u_n \in K_1)$. $K_2$ represents numbers that can be expressed with two layers of square roots. This method of describing radical nesting through layer-by-layer extensions $Q\subset K_1\subset K_2 ...\subset K_n$ is called a **radical tower**.
 
-（证明这个定理要用到群同构第一定理<a href="javascript:$('#detail').toggle();setJax();$('#details').text($('#details').text()=='+'?'-':'+');void(0)" target="_self">[<span id="details">+</span>]显示详情</a>）
-<div id="detail" style="display:none; background-color:#EEE">群就是集合加一种运算，集合与集合间可以有映射。我们把能**保持群结构**的映射$f$叫做群同态，即保持群运算$f(a)*f(b)=f(a*b)$。容易验证，如果群A中的某些元素被映射到了群B中的单位元，则这些元素组成了群A中的子群，我们称之为映射的**核**。也不难验证，A的某个陪集中的所有元素将会被一起映射到B中的一个元素上。由于B也是群，这样可以反过来说明A中的陪集之间乘法运算可以良好定义，即映射的**核**永远是A的**正规子群**。而映射的像（群B中的子群）同构于群A除以核的商群。这就是**群同构第一定理**。
-首先我们知道$Gal(E/K)$是$Gal(E/k)$的子群，因为前者的自同构只是后者的一部分。所以如果我们能够在两个自同构之间定义一个同态映射，则问题就解决了。如果扩张是正规的，我们才能找到这样的同态映射（大概是将大自同构群中的映射作用限制在小自同构群中），详情见相关书籍。
+That solutions of n-degree equations have radical representations means the solutions can be expressed using the coefficients with finite arithmetic operations and radicals. Assuming the coefficient field is k, this is equivalent to the solutions falling within the field tower
+$k\subset K_1\subset K_2 ...\subset K_n$, where $K_{i+1} = K_i(u_i), u_i^{n}\in K_i, n\in Z$. Note we only add one element at a time, like $\sqrt{2}+\sqrt{3}$ is considered as two extensions. This view doesn't affect the result. We can even require the degree n to be prime, because a composite root of a number can be expressed as nested roots of the prime factors of the composite.
+
+Now let's look at the Galois group of the largest field extension $K_n/k$: Of course, when the field extension adds root $u_j$, we need to add all solutions of $u^{n}=a, a\in K_i$ to make all extensions normal (this doesn't affect whether the numbers we want fall within or whether other unwanted numbers fall within). According to the previous theorem, the normality of the field tower corresponds to the normality of subgroups. If a field extension's corresponding Galois group cannot find a series of normal subgroups with the corresponding structure, then this field extension definitely isn't a radical extension, meaning numbers in this extension cannot be expressed using finite arithmetic operations and radicals.
+
+## Galois Groups of Radical Extensions
+
+Now let's handle some details, like what structure exactly do we need for a series of normal subgroups with the corresponding structure? Let's first look at the Galois group of a one-layer radical extension: $Gal(k(u)/k),u^n\in k$.
+
+According to the fundamental theorem of algebra, the equation $u^n=a, a\in k, a\neq 0$ must have n roots, which are respectively $$\left\lbrace  u,u\omega,...,u\omega^{n-1}\right\rbrace , \omega=exp(2\pi i/n), \omega^n=1$$We need to consider two cases: $u\in k$ and $u\not\in k$.
+- $u\in k$: This case means we can extract the nth root within the number field $k$, so $u$ cannot participate in permutations, and we can only permute the other roots. If n is prime, we can prove that all mappings $f_a(u\omega)=u\omega^a , a < n$ form a cyclic group $C_{n-1}$: because we can easily verify $f_a f_b (u\omega)= f_b f_a (u\omega) = u\omega^{a+b} = f_{a+b} (u\omega)$. (A noteworthy detail is: if n is composite, the composition of these mappings might map $u\omega^a$ to $u\omega^n=1$, which we don't want. For example, when n=4, $f_2(u\omega^2)=u\omega^4=u$, which doesn't meet the requirement that the mapping fixes $u$.)
+For example, if we take $u=1$, it represents the extension adding all nth roots of unity $\omega,..,\omega^{n-1}$.
+- $u\not\in k$: This case means all roots can be permuted, but here we first assume the roots of unity $\omega,..,\omega^{n-1}$ have already been added to field k, so we won't do mappings that permute $\omega^n$ but keep u unchanged, only do mappings between $u,u\omega,..,u\omega^{n-1}$. Similarly, we can prove they form the cyclic group $C_{n}$.
+
+To summarize: Given a radical tower, we first decompose all radicals into nested prime power radicals, then add all nth roots of unity needed for the radicals, then add radicals layer by layer to get the final radical tower. According to the previous analysis, **the Galois group of each field extension step in the radical tower (they are all normal extensions) is a cyclic group**.
+
+Now we should use the theorem about normal subgroups and normal extensions that we haven't proven yet:
+
+> Given field extensions $k\subset K\subset E$, where $K/k$ and $E/k$ are both normal extensions, then $Gal(E/K)$ is a normal subgroup of $Gal(E/k)$, and $$Gal(E/k)/Gal(E/K)\cong Gal(K/k)$$
+
+(Proving this theorem requires the First Isomorphism Theorem for groups <a href="javascript:$('#detail').toggle();setJax();$('#details').text($('#details').text()=='+'?'-':'+');void(0)" target="_self">[<span id="details">+</span>]Show details</a>)
+<div id="detail" style="display:none; background-color:#EEE">A group is a set plus an operation. There can be mappings between sets. We call mappings $f$ that **preserve group structure** group homomorphisms, i.e., preserve group operations $f(a)*f(b)=f(a*b)$. It's easy to verify that if some elements of group A are mapped to the identity element of group B, then these elements form a subgroup in group A, which we call the **kernel** of the mapping. It's also not hard to verify that all elements in a coset of A will be mapped together to one element in B. Since B is also a group, this conversely shows that multiplication between cosets in A can be well-defined, i.e., the **kernel** of the mapping is always a **normal subgroup** of A. And the image of the mapping (a subgroup in group B) is isomorphic to the quotient group A modulo the kernel. This is the **First Isomorphism Theorem for groups**.
+
+First, we know $Gal(E/K)$ is a subgroup of $Gal(E/k)$, because the automorphisms of the former are just part of the latter. So if we can define a homomorphic mapping between the two automorphisms, the problem is solved. If the extension is normal, we can find such a homomorphic mapping (roughly restricting the action of mappings in the large automorphism group to the small automorphism group). See relevant books for details.
 </div>
-我们把这个定理用到根式塔上：$k\subset K\_1\subset ..\subset K\_{i}\subset E$
 
-$$Gal(E/K\_1)/Gal(E/K\_{2})\cong Gal(K\_{2}/K\_{1})\\\\
-Gal(E/K\_2)/Gal(E/K\_{3})\cong Gal(K\_{3}/K\_{2})\\\\
+Let's apply this theorem to the radical tower: $k\subset K_1\subset ..\subset K_{i}\subset E$
+
+$$Gal(E/K_1)/Gal(E/K_{2})\cong Gal(K_{2}/K_1)\\\\
+Gal(E/K_2)/Gal(E/K_{3})\cong Gal(K_{3}/K_{2})\\\\
 ...\\\\
-Gal(E/K\_{i-1})/Gal(E/K\_{i})\cong Gal(K\_{i}/K\_{i-1})\\\\
-Gal(E/K\_{i})/Gal(E/E)\cong Gal(E/K\_{i})$$
+Gal(E/K_{i-1})/Gal(E/K_{i})\cong Gal(K_{i}/K_{i-1})\\\\
+Gal(E/K_{i})/Gal(E/E)\cong Gal(E/K_{i})$$
 
-说明了$Gal(E/K\_{2})$是$Gal(E/K\_1)$的正规子群、$Gal(E/K\_{3})$是$Gal(E/K\_2)$的正规子群、……、$Gal(E/E)=${e}是$Gal(E/K\_i)$的正规子群。我们得到了一个结论：$Gal(E/K\_1)$一定要有正规子群的正规子群的……的正规子群，最后得到平凡群{e}，当然这些正规子群对应的商群都必须是循环群。我们把有这种结构的群叫**可解群**，也就是说添加可以用四则运算加根式表示的数得到的扩张的伽罗瓦群一定是可解群，如果不是，说明我们添加的数不是可以用四则运算加根式表示的数。
+This shows that $Gal(E/K_{2})$ is a normal subgroup of $Gal(E/K_1)$, $Gal(E/K_{3})$ is a normal subgroup of $Gal(E/K_{2})$, ..., $Gal(E/E)=${e} is a normal subgroup of $Gal(E/K_i)$. We get a conclusion: $Gal(E/K_1)$ must have a normal subgroup of a normal subgroup of... of a normal subgroup, finally getting the trivial group {e}, and of course the quotient groups corresponding to these normal subgroups must all be cyclic groups. We call groups with this structure **solvable groups**, which means the Galois group of an extension obtained by adding numbers that can be expressed using arithmetic operations plus radicals must be a solvable group. If not, it means the numbers we added cannot be expressed using arithmetic operations plus radicals.
 
-我们最后来看把一个五次方程的所有根都加入得到的域扩张的伽罗瓦群是怎样的：对于群元素f来说
-$$f(x^5+a\_4 x^4+..+a_0)=f(0)=0\\\\
-f(x)^5+a\_4 f(x)^4+..+a_0=0$$
-对于这个方程最一般的情况为5个不同的无理根。比如添加方程$x^5-4x+2=0$所有根的域扩张的伽罗瓦群：它最多能置换所有的根，所以是群$S_5$的子群，但容易验证方程$x^5-4x+2=0$有两个共轭复根，说明我们至少可以交换这两根，即它包含阶数为二的群元，其实所有无有理根的五次方程的伽罗瓦群的元素个数一定是五的整数倍，（因为添加每个根$z$后的数域中的数都能唯一写成$a+bz+cz^2+dz^3+ez^4$的形式<a href="javascript:$('#pourquoi').toggle();setJax();$('#pourquois').text($('#pourquois').text()=='+'?'-':'+');void(0)" target="_self">[<span id="pourquois">+</span>]为什么？</a>，说明了存在一个五次扩张。），而同时满足以上两个条件的子群就只能是$S_5$自身了（我们将在下篇文章中分析$S_5$的结构）。
-<div id="pourquoi" style="display:none; background-color:#EEE">首先，数域中的数都能写成$a+bz+cz^2+dz^3+ez^4$，因为根据方程，$z^5$可以被前式表示，除法的封闭性并不显而易见，但我们可以用待定系数法求到每一个形如$a+bz+cz^2+dz^3+ez^4$数的倒数也能写成这样的形式$a'+b'z+c'z^2+d'z^3+e'z^4$，根据方程$(a'+b'z+c'z^2+d'z^3+e'z^4)(a+bz+cz^2+dz^3+ez^4)=1$中对应系数相等我们能得到一个方程组，可验证一般情况下均有解。下面说明唯一性：如果不唯一，则说明根$z$也是某有理系数方程$a+bz+cz^2+dz^3+z^4=0$的解，我们将多项式$x^5-4x+2$与$a+bz+cz^2+dz^3+z^4$现在最大的复数域上完全分解因式，然后相除可以把共同的根$z$约掉得到一个分式，剩下分子分母都是不可约的无理因子，而最开始分子分母是有理系数的多项式，约掉无理因式$(x-z)$后系数一定是无理的，但两个有理多项式相除后系数一定是有理的，这就矛盾了。（注意这里并不严谨，证明详见相关书籍）</div>
+Finally, let's look at the Galois group of the field extension obtained by adding all roots of a quintic equation: For group element f,
+$$f(x^5+a_4 x^4+..+a_0)=f(0)=0\\\\
+f(x)^5+a_4 f(x)^4+..+a_0=0$$
+The most general case for this equation is 5 different irrational roots. For example, the Galois group of the field extension adding all roots of equation $x^5-4x+2=0$: it can at most permute all roots, so it's a subgroup of group $S_5$, but it's easy to verify that equation $x^5-4x+2=0$ has two conjugate complex roots, meaning we can at least exchange these two roots, i.e., it contains group elements of order two. Actually, the number of elements in the Galois group of all quintic equations without rational roots must be a multiple of five (because numbers in the number field after adding each root $z$ can be uniquely written in the form $a+bz+cz^2+dz^3+ez^4$ <a href="javascript:$('#pourquoi').toggle();setJax();$('#pourquois').text($('#pourquois').text()=='+'?'-':'+');void(0)" target="_self">[<span id="pourquois">+</span>]Why?</a>, indicating the existence of a degree-five extension.), and the only subgroup satisfying both conditions above is $S_5$ itself (we will analyze the structure of $S_5$ in the next article).
+<div id="pourquoi" style="display:none; background-color:#EEE">First, numbers in the number field can all be written as $a+bz+cz^2+dz^3+ez^4$, because according to the equation, $z^5$ can be expressed by the previous form. The closure under division is not obvious, but we can use the method of undetermined coefficients to find that the inverse of every number of the form $a+bz+cz^2+dz^3+ez^4$ can also be written in this form $a'+b'z+c'z^2+d'z^3+e'z^4$. From the equation $(a'+b'z+c'z^2+d'z^3+e'z^4)(a+bz+cz^2+dz^3+ez^4)=1$, by equating corresponding coefficients, we get a system of equations that can be verified to have solutions in general cases. Now for uniqueness: if not unique, it means root $z$ is also a solution of some rational coefficient equation $a+bz+cz^2+dz^3+z^4=0$. We completely factor the polynomials $x^5-4x+2$ and $a+bz+cz^2+dz^3+z^4$ over the largest complex field, then divide to cancel the common root $z$ to get a fraction. The remaining numerator and denominator are irreducible irrational factors. Since the numerator and denominator were originally rational coefficient polynomials, after canceling the irrational factor $(x-z)$, the coefficients must be irrational. But the quotient of two rational polynomials must have rational coefficients, which is a contradiction. (Note this is not rigorous; see relevant books for proof.)</div>
 
-我们将证明群$S_5$不可解，即不存在前面叙述的那种正规子群列，到这里我们就成功把问题完全转化为了群论问题。因为只要能包含添加进一个根$z$的那些扩域对应的自同构群就一定能将$z$与其他四个根交换，说明这个群至少包含了$S_5$。但由于$S_5$不可解，将导致所有包含了$S_5$的更大的群都不可解。
-我们将通过**共轭类**来分析$S_5$中为何没有相应的正规子群列。（未完待续）
+We will prove that group $S_5$ is not solvable, i.e., there doesn't exist the series of normal subgroups described earlier. Here we have successfully transformed the problem completely into a group theory problem. Because any extension field corresponding to an automorphism group that contains adding a root $z$ must be able to exchange $z$ with the other four roots, meaning this group contains at least $S_5$. But since $S_5$ is not solvable, all larger groups containing $S_5$ will also not be solvable.
+
+We will analyze why there is no corresponding series of normal subgroups in $S_5$ through **conjugacy classes**. (To be continued)
+
 <p class="likecode">/***<br>
-　　注意，本文目的只是给读者呈现伽罗瓦理论的一个大概脉络，有很多细节我也没弄明白<br>
-　　更多详情见《抽象代数基础教程》<br>
+　　Note, this article only aims to present readers with a general outline of Galois theory, and there are many details I haven't clarified<br>
+　　For more details, see "A First Course in Abstract Algebra"<br>
 ***/</p>
 <!-- 120|展纸泪科泪表泪健烤弯难单陆展递周烤选健茫瓶扰陆弯诗贿递帜状瓶徐帜健牵物 -->
