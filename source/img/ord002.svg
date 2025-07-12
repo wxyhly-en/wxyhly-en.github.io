@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="49.522652mm"
-   height="41.469643mm"
-   viewBox="0 0 49.522652 41.469643"
+   width="70.920914mm"
+   height="42.369644mm"
+   viewBox="0 0 70.920914 42.369644"
    version="1.1"
    id="svg79694"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
@@ -26,16 +26,16 @@
      fit-margin-top="1"
      fit-margin-left="1"
      fit-margin-right="1"
-     fit-margin-bottom="1"
+     fit-margin-bottom="1.9"
      inkscape:zoom="2.5537756"
-     inkscape:cx="75.378588"
-     inkscape:cy="89.475362"
+     inkscape:cx="110.22895"
+     inkscape:cy="85.559593"
      inkscape:window-width="1440"
      inkscape:window-height="838"
      inkscape:window-x="-6"
      inkscape:window-y="-6"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g107672" />
   <defs
      id="defs79691">
     <marker
@@ -57,50 +57,50 @@
      inkscape:label="图层 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-32.568899,-9.717879)">
+     transform="translate(-32.568899,-9.1887123)">
     <g
        id="g107672"
        transform="matrix(1.4622372,0,0,1.4622372,-15.516796,-5.4833696)">
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         style="font-size:2.89511px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
          x="54.876705"
          y="13.790689"
          id="text80769"><tspan
            sodipodi:role="line"
            id="tspan80767"
-           style="stroke-width:0.264583"
+           style="font-size:2.89511px;stroke-width:0.264583"
            x="54.876705"
-           y="13.790689">自然数</tspan></text>
+           y="13.790689">Natural Number</tspan></text>
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         style="font-size:2.89511px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
          x="51.825245"
          y="25.115311"
          id="text81279"><tspan
            sodipodi:role="line"
-           id="tspan81277"
-           style="stroke-width:0.264583"
+           style="font-size:2.89511px;stroke-width:0.264583"
            x="51.825245"
-           y="25.115311">递归序数</tspan></text>
+           y="25.115311"
+           id="tspan13824">Recursive Ordinal</tspan></text>
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         style="font-size:2.89511px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
          x="48.44379"
          y="37.074982"
          id="text81781"><tspan
            sodipodi:role="line"
            id="tspan81779"
-           style="stroke-width:0.264583"
+           style="font-size:2.89511px;stroke-width:0.264583"
            x="48.44379"
-           y="37.074982">非递归序数</tspan></text>
+           y="37.074982">Non-Recursive Ordinal</tspan></text>
       <path
          style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
-         d="M 58.203734,21.726737 V 14.949589"
+         d="M 72.67927,21.726737 V 14.949589"
          id="path82248" />
       <path
          style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
-         d="M 58.336621,33.088423 V 26.244835"
+         d="M 72.812157,33.088423 V 26.244835"
          id="path82250" />
       <text
          xml:space="preserve"
@@ -112,18 +112,18 @@
            id="tspan83660"
            style="font-size:2.11667px;stroke-width:0.264583"
            x="33.803272"
-           y="19.276241">快增长层级函数f  (FGH)</tspan></text>
+           y="19.276241">Fast Growing Hierarchy (FGH)</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-         x="35.899139"
+         x="34.089699"
          y="30.555725"
          id="text83918"><tspan
            sodipodi:role="line"
            id="tspan83916"
            style="font-size:2.11667px;stroke-width:0.264583"
-           x="35.899139"
-           y="30.555725">序数坍缩函数Ψ (OCF)</tspan></text>
+           x="34.089699"
+           y="30.555725">Ordinal Collapse FunctionΨ (OCF)</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:4.72525px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.354394"

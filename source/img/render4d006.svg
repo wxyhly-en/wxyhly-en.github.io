@@ -11,6 +11,7 @@
    sodipodi:docname="render4d006.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -28,7 +29,7 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="0.31559025"
-     inkscape:cx="971.19604"
+     inkscape:cx="945.84671"
      inkscape:cy="438.8602"
      inkscape:window-width="1440"
      inkscape:window-height="838"
@@ -66,7 +67,7 @@
        y="32.961483" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       style="font-style:normal;font-weight:normal;font-size:9px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="75.911636"
        y="51.601509"
        id="text190835"><tspan
@@ -74,12 +75,12 @@
          id="tspan190833"
          style="text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="75.911636"
-         y="51.601509">有重复的</tspan><tspan
+         y="51.601509">Repeated Tetraheral</tspan><tspan
          sodipodi:role="line"
          style="text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="75.911636"
          y="65.097176"
-         id="tspan209465">四面体顶点数据</tspan></text>
+         id="tspan209465">Vertices Data</tspan></text>
     <rect
        style="fill:none;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect194877"
@@ -89,15 +90,20 @@
        y="89.605774" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="39.014778"
-       y="115.65413"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="77.016228"
+       y="108.94712"
        id="text194881"><tspan
          sodipodi:role="line"
          id="tspan194879"
-         style="stroke-width:0.264583"
-         x="39.014778"
-         y="115.65413">四面体顶点数据</tspan></text>
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="77.016228"
+         y="108.94712">Tetrahedral </tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="77.016228"
+         y="121.44712"
+         id="tspan6151">Vertices Data</tspan></text>
     <rect
        style="fill:none;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect194883"
@@ -105,17 +111,6 @@
        height="43.318413"
        x="30.52306"
        y="146.17728" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="39.014778"
-       y="172.22565"
-       id="text194887"><tspan
-         sodipodi:role="line"
-         id="tspan194885"
-         style="stroke-width:0.264583"
-         x="39.014778"
-         y="172.22565">四面体顶点数据</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect194889"
@@ -133,7 +128,12 @@
          id="tspan194891"
          style="stroke-width:0.264583"
          x="131.3028"
-         y="59.00985">坐标变换/计算截面</tspan></text>
+         y="59.00985">Coord. transform</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="131.3028"
+         y="72.238976"
+         id="tspan1369">/Cross-section</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect194895"
@@ -151,7 +151,12 @@
          id="tspan194897"
          style="stroke-width:0.264583"
          x="131.35428"
-         y="115.65413">坐标变换/计算截面</tspan></text>
+         y="115.65413">Coord. transform</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="131.35428"
+         y="128.88326"
+         id="tspan2725">/Cross-section</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect194901"
@@ -162,14 +167,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="151.94017"
+       x="130.77348"
        y="172.22565"
        id="text194905"><tspan
          sodipodi:role="line"
          id="tspan194903"
          style="stroke-width:0.264583"
-         x="151.94017"
-         y="172.22565">坐标变换</tspan></text>
+         x="130.77348"
+         y="172.22565">Coord. transform</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -180,7 +185,7 @@
          id="tspan200191"
          style="font-size:8.46667px;fill:#0000ff;stroke-width:0.264583"
          x="131.3028"
-         y="42.428566">顶点着色器</tspan></text>
+         y="42.428566">Vertex Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -191,7 +196,7 @@
          id="tspan201849"
          style="font-size:8.46667px;fill:#ff00ff;stroke-width:0.264583"
          x="131.79048"
-         y="99.560539">计算着色器</tspan></text>
+         y="99.560539">Compute Shader</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect202749"
@@ -202,14 +207,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="249.10495"
+       x="229.52605"
        y="59.00985"
        id="text202753"><tspan
          sodipodi:role="line"
          id="tspan202751"
          style="stroke-width:0.264583"
-         x="249.10495"
-         y="59.00985">逐像素上色</tspan></text>
+         x="229.52605"
+         y="59.00985">Coloring per Pixel</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00c600;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -220,7 +225,7 @@
          id="tspan202755"
          style="font-size:8.46667px;fill:#00c600;fill-opacity:1;stroke-width:0.264583"
          x="231.11322"
-         y="42.428566">片元着色器</tspan></text>
+         y="42.428566">Fragment Shader</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect205793"
@@ -245,18 +250,18 @@
          id="tspan205797"
          style="font-size:8.46667px;fill:#0000ff;stroke-width:0.264583"
          x="231.60089"
-         y="99.072868">顶点着色器</tspan></text>
+         y="99.072868">Vertex Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="247.65193"
+       x="241.30194"
        y="115.65413"
        id="text205803"><tspan
          sodipodi:role="line"
          id="tspan205801"
          style="stroke-width:0.264583"
-         x="247.65193"
-         y="115.65413">什么都不干</tspan></text>
+         x="241.30194"
+         y="115.65413">Nothing to do</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -267,7 +272,7 @@
          id="tspan206151"
          style="font-size:8.46667px;fill:#0000ff;stroke-width:0.264583"
          x="131.79047"
-         y="155.64435">顶点着色器</tspan></text>
+         y="155.64435">Vertex Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -278,18 +283,18 @@
          id="tspan206155"
          style="font-size:8.46667px;fill:#ff0000;stroke-width:0.264583"
          x="230.66699"
-         y="155.64435">几何着色器</tspan></text>
+         y="155.64435">Geometry Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="253.11057"
+       x="241.99806"
        y="172.71333"
        id="text206507"><tspan
          sodipodi:role="line"
          id="tspan206505"
          style="stroke-width:0.264583"
-         x="253.11057"
-         y="172.71333">计算截面</tspan></text>
+         x="241.99806"
+         y="172.71333">Cross-section</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect210437"
@@ -321,7 +326,7 @@
          id="tspan210443"
          style="stroke-width:0.264583"
          x="353.11765"
-         y="59.00985">绘制完成</tspan></text>
+         y="59.00985">Finish</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -332,7 +337,7 @@
          id="tspan211157"
          style="stroke-width:0.264583"
          x="454.15225"
-         y="115.52972">绘制完成</tspan></text>
+         y="115.52972">Finish</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -343,7 +348,7 @@
          id="tspan211161"
          style="stroke-width:0.264583"
          x="454.15225"
-         y="172.5889">绘制完成</tspan></text>
+         y="172.5889">Finish</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect211165"
@@ -354,14 +359,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="349.25003"
+       x="332.25003"
        y="115.28841"
        id="text211169"><tspan
          sodipodi:role="line"
          id="tspan211167"
          style="stroke-width:0.264583"
-         x="349.25003"
-         y="115.28841">逐像素上色</tspan></text>
+         x="332.25003"
+         y="115.28841">Coloring per Pixel</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00c600;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -372,7 +377,7 @@
          id="tspan211171"
          style="font-size:8.46667px;fill:#00c600;fill-opacity:1;stroke-width:0.264583"
          x="331.25836"
-         y="98.707092">片元着色器</tspan></text>
+         y="98.707092">Fragment Shader</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect211175"
@@ -383,14 +388,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="349.25003"
+       x="332.25003"
        y="172.34756"
        id="text211179"><tspan
          sodipodi:role="line"
          id="tspan211177"
          style="stroke-width:0.264583"
-         x="349.25003"
-         y="172.34756">逐像素上色</tspan></text>
+         x="332.25003"
+         y="172.34756">Coloring per Pixel</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00c600;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -401,7 +406,7 @@
          id="tspan211181"
          style="font-size:8.46667px;fill:#00c600;fill-opacity:1;stroke-width:0.264583"
          x="331.25836"
-         y="155.76628">片元着色器</tspan></text>
+         y="155.76628">Fragment Shader</tspan></text>
     <path
        style="fill:none;stroke:#cccccc;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 121.68277,226.74051 h 308.5399"
@@ -416,15 +421,20 @@
        y="203.724" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="43.248116"
-       y="229.77235"
+       style="font-style:normal;font-weight:normal;font-size:10px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="80.265846"
+       y="225.00984"
        id="text211725"><tspan
          sodipodi:role="line"
          id="tspan211723"
-         style="stroke-width:0.264583"
-         x="43.248116"
-         y="229.77235">胞腔复形数据</tspan></text>
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="80.265846"
+         y="225.00984">CW Complex </tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="80.265846"
+         y="237.50984"
+         id="tspan7061">Data</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect211727"
@@ -434,15 +444,20 @@
        y="203.724" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="134.52924"
+       style="font-style:normal;font-weight:normal;font-size:8.81944px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="174.70334"
        y="229.77235"
        id="text211731"><tspan
          sodipodi:role="line"
          id="tspan211729"
-         style="stroke-width:0.264583"
-         x="134.52924"
-         y="229.77235">计算截面后三角化</tspan></text>
+         style="font-size:8.81944px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="174.70334"
+         y="229.77235">Cross-section</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:8.81944px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="174.70334"
+         y="240.79666"
+         id="tspan3135">Then triangulation</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -453,7 +468,7 @@
          id="tspan211733"
          style="font-size:8.46667px;fill:#808080;stroke-width:0.264583"
          x="131.79048"
-         y="213.67877">CPU端计算</tspan></text>
+         y="213.67877">Runs on CPU</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect211737"
@@ -471,18 +486,18 @@
          id="tspan211739"
          style="font-size:8.46667px;fill:#0000ff;stroke-width:0.264583"
          x="231.60089"
-         y="213.1911">顶点着色器</tspan></text>
+         y="213.1911">Vertex Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="254.00206"
+       x="229.66034"
        y="229.77235"
        id="text211745"><tspan
          sodipodi:role="line"
          id="tspan211743"
          style="stroke-width:0.264583"
-         x="254.00206"
-         y="229.77235">坐标变换</tspan></text>
+         x="229.66034"
+         y="229.77235">Coord. transform</tspan></text>
     <rect
        style="fill:none;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect211747"
@@ -500,7 +515,7 @@
          id="tspan211749"
          style="stroke-width:0.264583"
          x="454.15225"
-         y="229.64795">绘制完成</tspan></text>
+         y="229.64795">Finish</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:1.13821;stroke-linecap:round"
        id="rect211753"
@@ -511,14 +526,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="349.25003"
+       x="332.25003"
        y="229.40663"
        id="text211757"><tspan
          sodipodi:role="line"
          id="tspan211755"
          style="stroke-width:0.264583"
-         x="349.25003"
-         y="229.40663">逐像素上色</tspan></text>
+         x="332.25003"
+         y="229.40663">Coloring per Pixel</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00c600;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -529,7 +544,7 @@
          id="tspan211759"
          style="font-size:8.46667px;fill:#00c600;fill-opacity:1;stroke-width:0.264583"
          x="331.25836"
-         y="212.82532">片元着色器</tspan></text>
+         y="212.82532">Fragment Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -597,9 +612,9 @@
        id="text3036"><tspan
          sodipodi:role="line"
          id="tspan3034"
-         style="font-size:8.46667px;fill:#0000ff;stroke-width:0.264583"
+         style="font-size:7px;fill:#0000ff;stroke-width:0.264583"
          x="-27.447195"
-         y="67.2994">顶点着色器法</tspan></text>
+         y="67.2994">Vertex Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -608,9 +623,9 @@
        id="text3324"><tspan
          sodipodi:role="line"
          id="tspan3322"
-         style="font-size:8.46667px;fill:#ff00ff;stroke-width:0.264583"
+         style="font-size:7px;fill:#ff00ff;stroke-width:0.264583"
          x="-26.959505"
-         y="128.66473">计算着色器法</tspan></text>
+         y="128.66473">Compute Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -619,9 +634,9 @@
        id="text4096"><tspan
          sodipodi:role="line"
          id="tspan4094"
-         style="font-size:8.46667px;fill:#ff0000;stroke-width:0.264583"
+         style="font-size:7px;fill:#ff0000;stroke-width:0.264583"
          x="-26.508039"
-         y="176.28195">几何着色器法</tspan></text>
+         y="176.28195">Geometry Shader</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -630,8 +645,16 @@
        id="text4634"><tspan
          sodipodi:role="line"
          id="tspan4632"
-         style="font-size:8.46667px;fill:#808080;stroke-width:0.264583"
+         style="font-size:7px;fill:#808080;stroke-width:0.264583"
          x="-25.372"
-         y="240.66635">CPU端计算</tspan></text>
+         y="240.66635">Runs on CPU</tspan></text>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#text194881"
+       id="use6935"
+       transform="translate(0,56.091671)"
+       width="100%"
+       height="100%" />
   </g>
 </svg>

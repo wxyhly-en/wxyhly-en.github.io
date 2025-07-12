@@ -385,8 +385,8 @@
          sodipodi:role="line"
          id="tspan37790"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="18.581156"
-         y="45.167492">氕气</tspan></text>
+         x="10.581156"
+         y="45.167492">Protium gas</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -396,8 +396,8 @@
          sodipodi:role="line"
          id="tspan40514"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="61.921852"
-         y="45.167492">氘气</tspan></text>
+         x="49.921852"
+         y="45.167492">Deuterium gas</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -407,8 +407,8 @@
          sodipodi:role="line"
          id="tspan40518"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="105.8968"
-         y="45.167492">氘化氕</tspan></text>
+         x="90.8968"
+         y="45.167492">Protium deuteride</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -418,8 +418,8 @@
          sodipodi:role="line"
          id="tspan42484"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="149.81763"
-         y="45.167492">氚化氕</tspan></text>
+         x="143.81763"
+         y="45.167492">Protiotritiide</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -429,8 +429,8 @@
          sodipodi:role="line"
          id="tspan42698"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="197.17526"
-         y="45.167492">氦气</tspan></text>
+         x="189.17526"
+         y="45.167492">Helium gas</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -440,8 +440,8 @@
          sodipodi:role="line"
          id="tspan42804"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="238.40178"
-         y="45.167492">氖气</tspan></text>
+         x="232.40178"
+         y="45.167492">Neon gas</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,9.0673453,3.9409768)"

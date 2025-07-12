@@ -952,7 +952,7 @@
          id="tspan13005"
          style="stroke-width:0.264583"
          x="50.373623"
-         y="60.615608">乙烷</tspan></text>
+         y="60.615608">Ethane</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -963,7 +963,7 @@
          id="tspan13463"
          style="stroke-width:0.264583"
          x="87.6017"
-         y="60.615608">乙烜</tspan></text>
+         y="60.615608">Ethone</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -974,7 +974,7 @@
          id="tspan15003"
          style="stroke-width:0.264583"
          x="122.24045"
-         y="60.615608">乙烯</tspan></text>
+         y="60.615608">Ethene</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -985,7 +985,7 @@
          id="tspan15943"
          style="stroke-width:0.264583"
          x="159.1757"
-         y="60.615608">乙炔</tspan></text>
+         y="60.615608">Ethyne</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -995,8 +995,8 @@
          sodipodi:role="line"
          id="tspan16459"
          style="stroke-width:0.264583"
-         x="50.373623"
-         y="95.35582">甲烷</tspan></text>
+         x="48"
+         y="95.35582">Methane</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -1006,8 +1006,8 @@
          sodipodi:role="line"
          id="tspan16865"
          style="stroke-width:0.264583"
-         x="79.256233"
-         y="95.35582">硝氨</tspan></text>
+         x="69"
+         y="95.35582">Entrogen ammonia</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -1017,8 +1017,8 @@
          sodipodi:role="line"
          id="tspan17303"
          style="stroke-width:0.264583"
-         x="111.53539"
-         y="95.35582">氮氨</tspan></text>
+         x="101.53539"
+         y="95.35582">Nitrogen ammonia</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -1028,8 +1028,8 @@
          sodipodi:role="line"
          id="tspan17849"
          style="stroke-width:0.264583"
-         x="139.05235"
-         y="95.35582">水</tspan></text>
+         x="136.05235"
+         y="95.35582">Water</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7.42151px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#808000;stroke-width:0.556614"
@@ -1136,7 +1136,7 @@
          sodipodi:role="line"
          id="tspan21581"
          style="stroke-width:0.264583"
-         x="161.00943"
-         y="95.35582">氟化氢</tspan></text>
+         x="150"
+         y="95.35582">Hydrogen fluoride</tspan></text>
   </g>
 </svg>

@@ -9,7 +9,7 @@ tags:
 - 数学
 ---
  <span class="likecode">#本文讨论的是纯空间上的欧氏四维几何，而不是物理上的闵氏四维时空！（试想如果有二维生物，他们可能会认为三维是2维空间+时间，这就是三维时空，而不是我们的三维欧氏几何空间）本文不讨论把第4个方向当时间的情况！所以本文不会涉及物理相对论等内容。</span><div style="float:right"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/From_Point_to_Tesseract_%28Looped_Version%29.gif"/><p>图片来自en.wikipedia：By Vitaly Ostrosablin</p></div>
-\#<span class="likecode">本文针对于对四维空间有初步了解（比如知道超立方体等）的读者写的。如还没了解，推荐视频《[维度：数学漫步](http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)》（它对我数学影响深远），<span style="color:#F00">**[CFY的这篇文章](http://hadroncfy.com/articles/2016/04/09/la-dimension-quatre-premier/)对四维空间有更基础的介绍。**（CFY和我一起研究的四维空间，可能有些介绍有重复）</span>
+\#<span class="likecode">本文针对于对四维空间有初步了解（比如知道超立方体等）的读者写的。如还没了解，推荐视频《[维度：数学漫步](https://www.dimensions-math.org/Dim_E.htm)》（它对我数学影响深远），<span style="color:#F00">**[CFY的这篇文章](http://hadroncfy.com/articles/2016/04/09/la-dimension-quatre-premier/)对四维空间有更基础的介绍。**（CFY和我一起研究的四维空间，可能有些介绍有重复）</span>
 </span></span>
 　　四维空间太抽象，所以我们不能直接感性地接触它（直接看到或摸到），但我们可以用类比法或解析法像“盲人摸象”那样建立起对它的认识。类比法较直观，但对想象力要求高，且不严谨；解析法（计算法）严谨，但缺乏直观几何意义，滥用会把几何沦为代数，只有两者结合起来才能更好地认识四维空间。<a name="index"></a>
 ## 特色内容
@@ -44,7 +44,7 @@ tags:
   - 圆柱柱对称性
 不知道你有没有注意到，看了圆柱柱展开图、体积、表面积计算公式后我们都发现，底面圆柱高$h_1$和圆柱柱高$h_2$的地位是一样的，这就暗示我们圆柱柱也像长方体那样可以任选一个圆柱面做底面。别看着另一个圆柱斜斜的，这只是角度问题，转正了看就是一样的了。
 ![](/img/dcylinder2.gif)
-  - 《[维度](http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)》里的老朋友：球极投影
+  - 《[维度](https://www.dimensions-math.org/Dim_E.htm)》里的老朋友：球极投影
 其实用球极投影的方法将四维投到三维只是对很特殊的图形作展示的方法，因为它只是把三维球面$\mathbf S^3$投到了三维空间$\mathbf R^3$，不规则的（如有孔、凹陷、交叉的）图形都无法投影到$\mathbf S^3$上，所以我们一般采用平行投影或透视投影。但我们的圆柱柱还算规则，Let's have a look look! ![](/img/dcylinder3.gif)<center>来自[jenn3d](http://www.jenn3d.org/)软件截图</center>
 嗯，大圆柱里套小圆柱，就像超立方体大立方套小立方一样。所有柱体的球极投影和透视投影角度合适的话都是大套小。右边换了一个侧面过极点的视角。（其实这是个十棱柱柱，真的圆柱柱是$\infty$棱柱柱）
 <a name="lzhu"></a>
