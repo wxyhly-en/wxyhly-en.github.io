@@ -1,107 +1,105 @@
 ---
-title: 四维世界（四）：二维生物视觉
+title: "Four-Dimensional World (4): Vision of Two-Dimensional Beings"
 date: 2020-01-12 19:45:04
 tags: 
-  - 奇特想象
-  - 系列文章
-categories: 四维世界系列
+  - Peculiar Imagination
+  - Series Articles
+categories: Four-Dimensional World Series
 ---
 
-很多文学影视作品里都提及过虚拟的二维平面世界以及其中的生物，因为大家很关注维度变化带来的各种效应，比如物理定律、生物和机械结构设计等。今天我们来看看大家比较忽视的一点，就是二维生物的视觉。我们不停留在描述的层面，而是通过电脑的帮助来真切体验平面生物的第一人称视角。当然我们关心二维人的体验是为了给**理解四维生物的视觉做铺垫**。
+Many literary and cinematic works have mentioned fictional two-dimensional flat worlds and their inhabitants, because people are very interested in various effects brought by dimensional changes, such as physical laws, biological and mechanical structural design, etc. Today we'll look at something people often overlook: the vision of two-dimensional beings. We won't stop at the descriptive level, but will truly experience the first-person perspective of flat beings with the help of computers. Of course, we care about the experience of 2D people to **lay the groundwork for understanding the vision of four-dimensional beings**.
 
-## 二维生物的眼睛
+## Eyes of Two-Dimensional Beings
 
-首先我们假设一个二维的世界。这是一个圆形星球，星球上住着二维人。它们的眼睛和我们的一样是通过感受光线来看到物体的。我们假设二维世界也有电磁波（这是可以存在的！只是电场是矢量，而磁场是个标量），我们只会考虑几何光学。光线从哪里发出？当然是通过这个世界中的恒星太阳与其他人造光源发出，注意所有的光线都只能在平面世界内传播。所以我们最常见的笑脸表情可不是一种二维生物——**因为笑脸表情的眼睛长在脑子里，接受不到任何光线！嘴巴也在头里面，吃不到东西！**所以二维生物的眼睛应该是长在头的表面的。它们眼睛的感光层是一条一维的曲线段，所以它们看到的画面是一维的。
-![左边的笑脸等“二次元”生物不是二维生物，只是三维生物的投影，右边的才是真二维生物](/img/eye2d001.svg)
-## 挑战降维打击
+First, let's assume a two-dimensional world. This is a circular planet inhabited by two-dimensional people. Their eyes, like ours, see objects by sensing light. We assume that the two-dimensional world also has electromagnetic waves (this can exist! Only the electric field is a vector, while the magnetic field is a scalar), and we'll only consider geometric optics. Where does light come from? Of course, it's emitted by the star sun in this world and other artificial light sources. Note that all light rays can only propagate within the flat world. So our most common smiley face emoji is not a two-dimensional being—**because the smiley face's eyes are inside its brain and can't receive any light! Its mouth is also inside its head and can't eat anything!** So the eyes of two-dimensional beings should be on the surface of their heads. Their eyes' photosensitive layer is a one-dimensional curved segment, so what they see is one-dimensional.
+![The smiley face and other "2D" creatures on the left are not two-dimensional beings, they're just projections of three-dimensional beings. The one on the right is a true two-dimensional being](/img/eye2d001.svg)
+## Challenging Dimensional Reduction
 <!--more-->
-![站在地上的二维人与立方体](/img/eye2d002.svg)
-比如上面是一个简单的场景——地上放着一个正方形，在二维人眼中看来是下图最左边那样的：
-![一维视觉（左）与场景柱体化的对比（右）](/img/eye2d003.svg)
-这个画面感觉就像是从侧面看整个柱体化了的场景的感觉。为什么会有这个感觉呢？因为生活在$xy$平面中的二维人根本不对z轴方向有半点感觉。它们的视野是绝对的一维直线。这里着重要澄清一点的就是：二维生物对z轴上的维度毫无感知，它们不会觉得自己的一维视野很“窄”，它们也永远不在意、也永远想不出他看到的一维画面外的存在，虽然我们觉得生活在没有厚度的平面上的他们很可怜，但他们就像没有电也没有网络的在贫困山区里的孩子一样，不知道外面的世界照样能过得很开心（但看到了外面的世界后观念就彻底改变了，参考节目《变形记》）。所以上面图中左边两种不同的色带宽度是没区别的，我画得有宽度仅仅是图方便，因为真要画成无穷细的理想直线就会细到我们三维生物无法看到。你可以想，如果有四维人想象我们看到的画面，它们也会惊奇于我们的视野居然是无限薄得都看不见的理想平面，但其实我们居然感觉良好！
+![A 2D person standing on the ground with a cube](/img/eye2d002.svg)
+For example, above is a simple scene—a square placed on the ground. In the eyes of a 2D person, it looks like the leftmost image below:
+![One-dimensional vision (left) compared with the cylindricalized scene (right)](/img/eye2d003.svg)
+This view feels like looking at the entire cylindricalized scene from the side. Why does it feel this way? Because 2D people living in the $xy$ plane have absolutely no sense of the z-axis direction. Their field of view is an absolute one-dimensional straight line. Here I must clarify one important point: two-dimensional beings have no perception of dimensions on the z-axis, they don't feel their one-dimensional vision is "narrow," and they never care about or can never imagine existence outside their one-dimensional view. Although we think they're pitiful living on a plane without thickness, they're like children in poor mountainous areas without electricity or internet—they can still live happily without knowing the outside world (but their worldview completely changes after seeing the outside world, refer to the show "X-Change"). So the different widths of the two color bands on the left side of the image above make no difference. I drew them with width merely for convenience, because if I really drew them as infinitely thin ideal lines, they would be so thin that we three-dimensional beings couldn't see them. You can imagine that if four-dimensional people tried to imagine what we see, they would be amazed that our field of view is an infinitely thin ideal plane that can't even be seen, yet we actually feel fine!
 
-
-下面我们试试挑战一些稍微复杂的二维场景。
+Now let's try to challenge some slightly more complex two-dimensional scenes.
 ![](/img/eye2d010.gif)
-猜出答案来了吗？我相信这应该不算很难。
+Did you figure out the answer? I believe this shouldn't be too difficult.
 
-三
+Three
 
-二
+Two
 
-一
+One
 
-下面揭晓答案：<a onclick="$('#nanj1').toggle()" href="javascript:void(0)" target="_self">点这里</a>
+Here's the answer: <a onclick="$('#nanj1').toggle()" href="javascript:void(0)" target="_self">Click here</a>
 <div id="nanj1" style="display:none">
 
-![蓝色的三角形可能有点挑战性](/img/eye2d001.gif)
+![The blue triangle might be a bit challenging](/img/eye2d001.gif)
 
 </div>
 
-## 立体视觉
+## Stereo Vision
 
-人为什么要有两只眼睛？因为两只眼睛的位置略有不同，视觉差通过大脑运算可以得到物体离我们的远近来产生立体感。其实二维生物也有两只眼睛，与我们的立体视觉类似，它们也能感知物体的远近。我们也来试试看它们左右眼的画面吧：如果你会做对对眼（斗鸡眼），你应该可以轻而易举地将下面左右两幅画面重合在一起。如果不会的话没关系。拿出你的手指放在屏幕中央，用你的目光死盯住指尖，然后你的手逐渐像你眼睛方向上靠拢。这个过程中左右视线一定要保持水平，用你的余光看会发现后面屏幕上的内容开始错位并有点模糊，当屏幕上两幅画面刚好重叠时你会惊奇地发现这副重叠的画面浮起来了！这个浮起来的位置大概和你现在指尖的位置相同。这时你就可以看到立体图像了。
+Why do humans have two eyes? Because the two eyes are in slightly different positions, the visual disparity can be calculated by the brain to determine how far objects are from us, creating a sense of depth. Actually, two-dimensional beings also have two eyes, and similar to our stereo vision, they can also perceive the distance of objects. Let's try looking at their left and right eye images: if you can cross your eyes, you should be able to easily overlap the left and right images below. If you can't, no worries. Put your finger in the center of the screen, stare at your fingertip, then gradually move your hand toward your eyes. During this process, make sure to keep your left and right lines of sight horizontal. Using your peripheral vision, you'll notice the content on the screen behind starts to shift and becomes a bit blurry. When the two images on the screen just overlap, you'll be amazed to find that this overlapped image floats up! This floating position is roughly the same as your current fingertip position. Then you can see the stereoscopic image.
 <iframe src="/three/eye2d.html?2" width="100%" height="110" scrolling="no"></iframe>
 
-## 三维人拥有透视内部的能力？
+## Do Three-Dimensional People Have the Ability to See Through Interiors?
 
-但是我现在要告诉你，你刚才看到的场景其实是这样的：
+But now I'm going to tell you that the scene you just saw might actually be like this:
 ![](/img/eye2d002.gif)
-或是这样的：
+Or like this:
 ![](/img/eye2d001.jpg)
-都是可能的！因为二维生物看不到方块里面，鬼知道里面藏着什么东西！
-其实这些图片都有点问题：光线只能把表面照亮，所以物体里面应该永远是黑色，但里面的材料是确定的，把物体砍开光线就能照进去，所以你可以认为我们的上色方法是按照材料进行上色，而不是实际能够看到的二维世界。注意二维世界中空气是透明的，我们却按“材料”将空气涂成了黑色。二维生物真正看到的黑色是无穷远的黑色背景，不是空气的颜色。其实在三维世界的我们根本看不见二维世界，因为这个世界中的光是到达不了第三个维度被我们观察到的。所以我们画的二维世界都只是示意图而已，既然是示意图，画法就可以千差万别，比如刚才的场景也可以画成这样：（棋盘格表示空气的透明色）
+Both are possible! Because two-dimensional beings can't see inside blocks, who knows what's hidden inside!
+Actually, these images all have some issues: light can only illuminate surfaces, so the inside of objects should always be black, but the materials inside are definite. If you cut open the object, light can get in, so you can think of our coloring method as coloring by material, not what can actually be seen in the two-dimensional world. Note that air in the two-dimensional world is transparent, but we colored air black according to "material." The black that two-dimensional beings actually see is the black background at infinity, not the color of air. Actually, we in the three-dimensional world can't see the two-dimensional world at all, because light in that world cannot reach the third dimension to be observed by us. So the two-dimensional worlds we draw are just schematic diagrams. Since they're schematic diagrams, the drawing methods can vary greatly. For example, the scene just now could also be drawn like this: (The checkerboard pattern represents the transparent color of air)
 ![](/img/eye2d003.gif)
-## 升维打击？
+## Dimensional Elevation Attack?
 
-现在我们告诉二维生物，其实还有个三维的世界。但注意二维世界中的所有电磁波都只能在那个平面上传播，这也包括了所有分子间作用力，所以我们**假设维度不同的世界是无法在物理上直接相互作用的，但可以通过手段相互发送信息**。我们怎样让它们看到我们的三维世界呢？最简单的方法就是把照片发送给二维人。由于二维人视觉是一维的，它们的显示器也做成一维的。就算二维工程师开发出了二维显示屏，或直接用2D打印机将照片打出来，它们也看不见照片的“内部”。
-![二维人看三维世界传来的二维照片lena](/img/eye2d002.jpg)
-二维人绕着照片转了一圈，发现这就是个每边有着很多颜色花纹的正方形：至于照片里的图形它根本没机会看到。
-![你能说出这四条边分别对应照片lena的哪些边缘吗？](/img/eye2d003.jpg)
-这可怎么办呢？只看得到照片边缘也太憋屈了吧。二维人可以一点一点把照片撕碎来逐渐看到里面，就像我们剥洋葱一样，可这种方法太麻烦了。二维工程师很聪明，把照片的材料做成半透明的，不就可以看到里面了嘛。
-### 透明照片法
+Now we tell the two-dimensional beings that there's actually a three-dimensional world. But note that all electromagnetic waves in the two-dimensional world can only propagate on that plane, which includes all intermolecular forces, so we **assume that worlds of different dimensions cannot physically interact directly, but can send information to each other through certain means**. How can we let them see our three-dimensional world? The simplest method is to send photos to the 2D people. Since 2D people's vision is one-dimensional, their displays are also made one-dimensional. Even if 2D engineers develop two-dimensional display screens, or directly print photos with a 2D printer, they can't see the "interior" of the photos.
+![2D person looking at a 2D photo of Lena transmitted from the 3D world](/img/eye2d002.jpg)
+The 2D person walks around the photo and finds it's just a square with many colored patterns on each side: as for the graphics in the photo, they have no chance to see them.
+![Can you tell which edges of the Lena photo these four sides correspond to?](/img/eye2d003.jpg)
+What can we do about this? Only being able to see the edges of photos is too frustrating. 2D people can tear the photos apart bit by bit to gradually see inside, like how we peel onions, but this method is too troublesome. 2D engineers are clever—if they make the photo material semi-transparent, won't they be able to see inside?
+### Transparent Photo Method
 
-下面我们假装是二维人，来试着从它们的视角看一看半透明的二维照片，先来一张简单的几何图形照片：一个画在白色画布上的蓝色菱形。
+Let's pretend to be 2D people and try to look at semi-transparent 2D photos from their perspective. Let's start with a simple geometric photo: a blue diamond drawn on a white canvas.
 ![](/img/eye2d006.gif)
-让我们试着从侧面去看这个透明化了的照片：
+Let's try to look at this transparentized photo from the side:
 ![](/img/eye2d005.gif)
-我画出了左右眼两幅图，请用之前教的方法观看。二维人也长着两只眼睛以用来确定物体远近，这是靠两只眼睛的视觉差通过大脑运算得到的，跟我们一样。用上立体视觉后要稍微好一点点。但其实二维生物只能看见这样的一条线：
+I've drawn the left and right eye images, please view them using the method taught earlier. 2D people also have two eyes to determine the distance of objects, which is calculated by the brain through the visual disparity of the two eyes, just like us. Using stereo vision makes it slightly better. But actually, 2D beings can only see a line like this:
 ![](/img/eye2d004.gif)
-有立体视觉也根本看不清，不是吗？现在这个菱形内部都充满了均匀的纯蓝色，不再有光照变化，再叠加上周围的白色背景显得更模糊，二维生物很难知道它的形状，但它们至少知道照片中央有一个蓝色区域，周围是白色。
+Even with stereo vision, they can't see clearly, can they? Now the interior of this diamond is filled with uniform pure blue, with no light variation, and overlaid with the surrounding white background, it appears even more blurry. 2D beings have difficulty knowing its shape, but they at least know there's a blue area in the center of the photo, surrounded by white.
 
-而我们的lena照片变成了这样：
-![上：二维人视角下看到的照片 下：在三维以一定角度看透明化的照片](/img/eye2d007.gif)
-### 截线扫描法
+And our Lena photo becomes like this:
+![Top: Photo seen from a 2D person's perspective. Bottom: Looking at the transparentized photo from a certain angle in 3D](/img/eye2d007.gif)
+### Cross-Section Scanning Method
 
-这个方法虽然理论上可行，但实际照片信息量太复杂了，二维生物无法很好分辨这些堆叠的像素。还有一个方法：既然把二维直接压缩到一维的信息量过大导致视野不清，干脆我们就只看一些截线上的画面就是了，通过截线扫描整个画面来间接读取所有画面上的内容，有点像做CT扫描的过程。这种方法虽然能看清每一个像素，但这些像素的位置关系远没有第一种方式直接明了。有没有兼顾两者优点的方法呢？恐怕很难找到。
+Although this method is theoretically feasible, actual photos contain too much information, and 2D beings cannot distinguish these stacked pixels well. There's another method: since compressing 2D directly to 1D results in too much information causing unclear vision, we might as well just look at images on some cross-section lines, indirectly reading all the content on the screen by scanning the entire image with cross-sections, a bit like the CT scanning process. Although this method can see each pixel clearly, the positional relationships of these pixels are far less direct and clear than the first method. Is there a method that combines the advantages of both? I'm afraid it's hard to find.
 
-下面我们来试着以二维人的视角在它们的电脑上操作以第一人称的视角看一些3D场景。我们先回到普通的二维屏幕前，看看这个三维场景，然后再到二维人的一维屏幕前再看一遍。最好在Chrome上观看，如果你用的是手机，那就跳过去直接看后面的图吧。。
-**按键提示：**
-- 3D控制：键盘**WASD**为角色上下左右移动，左右移动鼠标或按键盘**JL**可以看向不同的水平方位；转动**鼠标滚轮**或按键盘**IK**可以看向不同的垂直方位（俯视仰视）。这里不用上下左右一起移动鼠标来控制朝向也是为了更接近二维人的体验：它们只能把鼠标放在一维的地面上移动。（用滚轮也是为了适应我们以后在4维空间里操作哦）
-- 视图控制：**左右方向键** / 键盘**ZW**可旋转二维视图
+Now let's try to operate on 2D people's computers from their perspective, viewing some 3D scenes in first person. Let's first return to a normal 2D screen to look at this 3D scene, then look at it again on 2D people's 1D screen. Best viewed in Chrome. If you're using a phone, skip ahead and look at the images below...
+**Key Instructions:**
+- 3D Control: Keyboard **WASD** for character movement up/down/left/right, move mouse left/right or press keyboard **JL** to look at different horizontal directions; scroll **mouse wheel** or press keyboard **IK** to look at different vertical directions (look up/down). Not using mouse movement in all directions to control orientation is also to get closer to the 2D person's experience: they can only move their mouse on the one-dimensional ground. (Using the scroll wheel is also to adapt to our future operations in 4D space)
+- View Control: **Left/Right arrow keys** / Keyboard **ZW** to rotate 2D view
 
 <iframe src="/three/3dviewer42der.html?iframe" width="100%" height="466" scrolling="no"></iframe>
 
-我们过视野中心横竖切两刀，把这些截到的像素单独画出来给二维人展示，注意这些截线色带也做成了左右眼两份，我们普通的照片只能展示上下左右，前后方向信息已经丢失，但为了更好让二维生物认识三维世界，我们使用拍摄3D电影的那种摄像机位置稍微不同的双摄像头，分别在两幅画面上选对应截线，从而能让二维人有前后的立体视觉。
-想必3D控制操作我们是非常熟悉的了，但要注意的是，真正的二维人只能看到最上面三排色带的画面，只有不断旋转二维图像它们才大概知道二维视图中的内容。。我估计二维生物主要还是会依赖于前两排截线。
+We make two cuts horizontally and vertically through the center of our field of view, and draw these intercepted pixels separately for 2D people to see. Note that these cross-section color bands are also made in pairs for left and right eyes. Our ordinary photos can only show up/down/left/right, with front/back directional information already lost. But to better help 2D beings understand the 3D world, we use the kind of dual cameras with slightly different positions used for shooting 3D movies, selecting corresponding cross-sections on the two images respectively, thus allowing 2D people to have front/back stereo vision.
+I'm sure we're very familiar with 3D control operations, but note that real 2D people can only see the images in the top three rows of color bands. Only by constantly rotating the 2D image can they roughly know the content in the 2D view... I estimate 2D beings would mainly rely on the first two rows of cross-sections.
 
-## 二维人看到这些色带到底有什么样的直觉？
-我们能直接看到二维，拥有三维空间想象的直觉；二维生物则是能直接看到一维，拥有二维空间想象的直觉。由于通过左右眼立体视觉还能多感受一个维度，这里有必要说一下现在画面各部分都有哪些维度。首先二维人只知道上下前后，没有左右的概念（所以严格说他们的双眼该叫上眼与下眼才对）我把他们感知的方向标在了下图中：
-![平时二维生物站在地上看到的视觉场景方向标注](/img/eye2d001.png)
-其实这张图是下面照片中沿亮紫色竖线截下来的。二维人通过立体视觉能知道天空与绿色的地面，但让它们感到不解的是有个漂浮在半空中的灰色圆，下面除了灰色圆的影子还多了它在视野里找不到的一个物体的影子。这在二维世界里是不可能的，当然我们知道这只是三维世界的一个截面就不奇怪了：圆可以悬浮是因为它是灰色圆拱的一部分，它从另一个二维人看不见的维度上被支撑；多出来的影子是与竖直截线完全不相交的立方体，但它的影子却投到了截线上。
-![我们的视觉场景方向标注](/img/eye2d002.png)
-二维生物看过那条水平黑线的截线色带会觉得他们像是漂浮在“太空”一样，因为这个色带上没有竖直方向，至于我为什么说像“太空”，到时去四维你也能体验到。
-![二维生物全新体验到的方向标注](/img/eye2d003.png)
-最后我们来标注一下半透明照片上的方向：注意这里的方向并不绝对，它们可以旋转照片使上下左右的位置互换。
-![半透明照片上的方向标注](/img/eye2d004.png)
-半透明照片观察法虽然最直接自然简单粗暴，但它太模糊了，我是没找到任何直觉的。
-还有一些有意思的现象值得我们注意：
+## What Kind of Intuition Do 2D People Have When Seeing These Color Bands?
+We can directly see 2D and have intuition for imagining 3D space; 2D beings can directly see 1D and have intuition for imagining 2D space. Since they can sense one more dimension through left/right eye stereo vision, it's necessary to mention which dimensions each part of the current image has. First, 2D people only know up/down/front/back, with no concept of left/right (so strictly speaking, their two eyes should be called upper eye and lower eye). I've marked the directions they perceive in the image below:
+![Direction annotation of the visual scene that 2D beings usually see when standing on the ground](/img/eye2d001.png)
+Actually, this image is cut along the bright purple vertical line in the photo below. Through stereo vision, 2D people can know the sky and green ground, but what puzzles them is a gray circle floating in mid-air. Below, besides the shadow of the gray circle, there's also a shadow of an object they can't find in their field of view. This is impossible in the 2D world, but of course we know it's just a cross-section of the 3D world, so it's not strange: the circle can float because it's part of a gray arch, supported from another dimension that 2D people can't see; the extra shadow is from a cube that doesn't intersect with the vertical cross-section at all, but its shadow is cast on the cross-section.
+![Direction annotation of our visual scene](/img/eye2d002.png)
+2D beings who have seen the cross-section color band of that horizontal black line will feel like they're floating in "space" because there's no vertical direction on this color band. As for why I say it's like "space," you'll also be able to experience it when you go to 4D.
+![Direction annotation newly experienced by 2D beings](/img/eye2d003.png)
+Finally, let's annotate the directions on the semi-transparent photo: note that the directions here are not absolute, they can rotate the photo to interchange the positions of up/down/left/right.
+![Direction annotation on semi-transparent photo](/img/eye2d004.png)
+Although the semi-transparent photo observation method is the most direct, natural, simple and crude, it's too blurry. I haven't found any intuition for it.
+There are some interesting phenomena worth noting:
 
-- 虽然我们给二维生物展示的是照片（将3D场景投影到2D）的截线，但二维人觉得更像是在看3D场景的2D截面的一维照片（2D截面场景投影到1D）；
-- 当左右环视时，二维人就感觉它在环视第一排色带（水平截面）展示的三维场景的二维截面，而第二排色带（垂直截面）展示的二维截面则不断变化；
-- 当上下俯仰时，二维人就感觉它在俯仰第二排色带（垂直截面）展示的三维场景的二维截面，而第一排色带（水平截面）展示的二维截面则不断变化；
+- Although we show 2D beings cross-sections of photos (projecting 3D scenes to 2D), 2D people feel it's more like looking at 1D photos of 2D cross-sections of 3D scenes (2D cross-section scenes projected to 1D);
+- When looking around left and right, 2D people feel like they're looking around the 2D cross-section of the 3D scene shown in the first row of color bands (horizontal cross-section), while the 2D cross-section shown in the second row of color bands (vertical cross-section) constantly changes;
+- When looking up and down, 2D people feel like they're looking up and down at the 2D cross-section of the 3D scene shown in the second row of color bands (vertical cross-section), while the 2D cross-section shown in the first row of color bands (horizontal cross-section) constantly changes;
 
+## Will We Also Be Hit by Dimensional Elevation?
 
-## 我们也要被升维打击？
-
-好了，降维打击体验之旅就先告一段落了。但，突然有一天，一个自称是四维人的生物要向人类展示从四维世界传来的三维照片！我们将与二维生物的经历极为相似！(未完待续。。把海弄干的鱼不在)
+Well, the dimensional reduction attack experience tour comes to an end for now. But suddenly one day, a being claiming to be a four-dimensional person wants to show humanity three-dimensional photos transmitted from the four-dimensional world! Our experience will be extremely similar to that of two-dimensional beings! (To be continued... The fish that dries up the sea is not here)
