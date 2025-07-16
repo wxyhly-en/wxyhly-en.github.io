@@ -114,10 +114,10 @@ Now we can conclude about electron spin in four-dimensional atoms - it indeed ha
 4. Each shell's f orbitals have 16, holding 64 electrons.
 
 This periodic table is very large. Together with netizen Ningning, I created a complete 7-row table with 396 elements (finding so many Chinese characters with metal radicals was quite a challenge). Since the d transition series is already very long (36 columns), not to mention the actinides and lanthanides (64 columns), I initially thought of two layout methods: the first was directly similar to the three-dimensional periodic table layout, the second was to list the d transition series separately like actinides and lanthanides, then also break each row of actinides and lanthanides in the middle. But later I found the second one too ugly and didn't use it. Although the first is very long, it still looks beautiful when laid out:
-![Four-dimensional periodic table](/img/periodic_table_4d.png)<link rel="stylesheet" href="/Chem4D/periodic/periodicTable.css"><!-- <iframe class="scroll" src="/programs/periodic_table_4d.pdf"></iframe> -->
+![Four-dimensional periodic table](/img/periodic_table_4d.png)<link rel="stylesheet" href="https://wxyhly.github.io/Chem4D/periodic/periodicTable.css"><!-- <iframe class="scroll" src="/programs/periodic_table_4d.pdf"></iframe> -->
 
 Here are several formats of the four-dimensional periodic table available:
-- <b>For desktop, recommended to <a href="/Chem4D/periodic" target="periodic">view online</a> in a separate browser tab</b> (note that mobile default fonts may not display all characters fully);
+- <b>For desktop, recommended to <a href="https://wxyhly.github.io/Chem4D/periodic" target="periodic">view online</a> in a separate browser tab</b> (note that mobile default fonts may not display all characters fully);
 - Download [PDF document](/Chem4D/periodic/periodic_table_4d.pdf);
 - Download [png image](/img/periodic_table_4d.png);
 - Download editable [Excel version](/Chem4D/periodic/periodic_table_4d.xlsx), recommend also installing the simplified [Chemical4D font file](/Chem4D/periodic/Chemical4D.otf).
@@ -137,7 +137,7 @@ In the four-dimensional world, we use arrows in four directions to represent fou
 Hund's rule exceptions tell us that electron shells are most stable when fully filled, and half-filled is also relatively stable. We can assume that in four-dimensional space, electron shells with 1/4 filled and 3/4 filled states still have some stability, but these two states are still not as stable as half-filled and fully filled. This causes some transition metal elements' electron configurations to no longer strictly follow the energy level crossing order. For example, copper's electron configuration is 3d<sup>36</sup>4s<sup>2</sup> (3d fully filled, 4s half-filled), rather than 3d<sup>34</sup>4s<sup>4</sup>, similar to the three-dimensional world situation.
 
 ### Properties of Common Elements
-<div id="periodic-1st"></div><script src="/Chem4D/periodic/periodic4d.js"></script>
+<div id="periodic-1st"></div><script src="https://wxyhly.github.io/Chem4D/periodic/periodic4d.js"></script>
 
 Since the number of electrons has doubled, we can naturally assume that under normal circumstances, covalent compounds no longer share 2 electrons to form bonds, but need 4 electrons instead. Taking the first row elements protium, deuterium, and tritium as examples, they can form the following compounds to achieve the noble gas helium's electron configuration.
 ![](/img/chemie401.svg)

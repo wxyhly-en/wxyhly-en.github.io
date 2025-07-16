@@ -2,10 +2,10 @@
 title: Minecraft4D Tutorial
 date: 2020-03-12 13:17:29
 ---
-（[Minecraft4D中文教程](/archives/mc4tutorial/)）
+
 Minecraft4D is a sandbox game in 4th spatial dimiension. There are infinity generated terrains, rivers, villages and different biomes. You can build and destroy, fly and exploit. It is a simple 4D version of Minecraft. Now there is only creative mode. You can play it in your browser(Chrome recommended), and  keyboard is needed to control the character, so it cannot be played on the mobile phone.
 
-### [Minecraft4D](/4dViewer/minecraft4d/) 
+### [Minecraft4D](https://wxyhly.github.io/4dViewer/minecraft4d/) 
 
 After entering the game and waiting texture to be loaded, you can see the world in two separate cubic retinas. [This article](/programs/4dviewertutorial_en.html) explains what 3D retina is, and it will guide you to know how to see 4D objects in 4D Viewer.
 
@@ -13,9 +13,9 @@ After entering the game and waiting texture to be loaded, you can see the world 
 
 The picture below shows all the directions in Minecraft4D world. You can press the keys `W` `S` `A` `D` `Q` `E` to move.
 ![](/img/minecraft01.jpg)
-Be careful, front and back can't be marked in th retina, because they are perpendicular to the retina. The move direction of key `Q` `E` (Blue line in the picture above) is a new direction for us: I call it sidefront and sideback, because there are "front side" and "back side" in the retina like left side and right side.
+Be careful, front and back can't be marked in th retina, because they are perpendicular to the retina. The move direction of key `Q` `E` (Blue line in the picture above) is a new direction for us: **Ana** and **Kata**. In Chinese I call it sidefront and sideback, because there are "front side" and "back side" in the retina like left side and right side.
 Because of the messy overlapping colors, it's better to show colors on some cross sections separately.
-（$x$ axis: Left and right; $y$ axis: Up and down; $z$ axis: New side direction; $w$ axis: Front and back）
+（$x$ axis: Left and right; $y$ axis: Up and down; $z$ axis: New Ana and Kata direction; $w$ axis: Front and back）
 ![](/img/eye3d005.jpg)
 Similar to original Minecraft, click the canvas to lock and hide your mouse pointer, and move your mouse to look around. Press `Esc` to unlock. Note that moving mouse vertically does not correspond to look upward or downward, instead you will turn to the new 4th direction. Please scroll mouse wheel (or press key `I` and `K` if you want) to look upward and downward.
 ## World generation
@@ -68,16 +68,16 @@ The 4D space is much wider that 3D one. You need to place many blocks by hand ev
 |`S`   |Move back|
 |`A`   |Move to left|
 |`D`   |Move to right|
-|`Q`   |Move to sideback|
-|`E`   |Move to sidefront|
+|`Q`   |Move to ana|
+|`E`   |Move to kata|
 |`Shift`   |Descend|
 |`Space`   |Jump / Ascend|
 |`I`   |Look upward|
 |`K`   |Look downward|
 |`J`   |Turn left|
 |`L`   |Turn right|
-|`U`   |Turn "side left"|
-|`O`   |Turn "side right"|
+|`U`   |Turn ana|
+|`O`   |Turn kata|
 |`Z`   |Rotate 3D retina|
 |`X`   |Rotate 3D retina (reverse)|
 
@@ -134,7 +134,7 @@ The 4D space is much wider that 3D one. You need to place many blocks by hand ev
 In Minecraft4D world, the blocks increase dramatically with the increasement of the size. Building operations are often done with many commands. For convenience, a series of commands can be put together into a text macro file. Use `/macro` to load a macro and to execute those series of commands at once. `def <Constant identifier> Value` is supported to increase readability. A code block can be defined beginning with `fn <code block identifier>:` and ending with `endfn`. You can reuse the code block by command `<code block identifier>` anywhere. (Recursive reuses are not allowed, which will crash the game -\_-)
 In the macro, you can use almost all the commands in the [Command list](#sudo), but file operations are exceptions:  \save \open \load \macro.
 Example: A small town with 26 houses.
-<iframe src="/4dViewer/minecraft4d/macro.txt"></iframe><a name="touhh"></a>
+<iframe src="https://wxyhly.github.io/4dViewer/minecraft4d/macro.txt"></iframe><a name="touhh"></a>
 Result after running the macro:
 ![](/img/minecraft02.jpg)
 
