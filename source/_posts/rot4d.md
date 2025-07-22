@@ -1,18 +1,18 @@
 ---
-title: "Four-Dimensional Space (9): Curved Shapes"
+title: "4D Space (9): Curved Shapes"
 tags:
-  - Four-dimensional
+  - 4D
   - Geometry
-categories: Four-Dimensional Space Series
+categories: 4D Space Series
 date: 2018-09-02 16:03:30
+excerpt: We will focus on curved surface (cell) in 4D. We'll understand them from new perspectives (thickening, lofting, solids of revolutions). Then some new objects - duocones, Polytwisters, and 4D spirals.
+index_img: /img/rot413.gif
 ---
+![Cross-sections of Polytwister and 4D spiral, stereographic projection of 8-8 duopyramid](/img/rot413.gif?size=400x)
+### Overview
+In this article, we will focus on curved surface (cell) shapes in four-dimensional space. We'll first gain deeper understanding of some important solids of revolution from new perspectives (thickening, lofting) that were briefly introduced in the previous article [More Geometries](/archives/more4ds/) (with a [list of common solids of revolution](/archives/rot4d/#rotlist)!). Then I will introduce some new geometric bodies: duocones, Polytwisters, and four-dimensional spirals.
+<span class="likecode">&lt;!-\- Warning: Many images  -\-></span><!--more-->
 
-<div style="float:right"><img src="/img/rot413.gif" width="400px"/><center>Cross-sections of Polytwister and 4D spiral, stereographic projection of 8,8-bipyramid</center></div>
-
-### Content Overview
-In this article, we will focus on curved surface (cell) shapes in four-dimensional space. We'll first gain deeper understanding of some important solids of revolution from new perspectives (thickening, lofting) that were briefly introduced in the previous article [More Geometries](/archives/more4ds/) (with a [list of common solids of revolution](/archives/rot4d/#rotlist)!). Then I will introduce some new geometric bodies: double cones, Polytwisters, and four-dimensional spirals.
-<span class="likecode">&lt;!-\- Many images warning -\-></span>
-<!--more-->
 ### Review: Flat Torus (or Clifford Torus)
 The duocylinder is the direct product of two circles. It can be understood as a generalized cylinder with a circular base and circular lateral surface. What, you say a circular lateral surface is unimaginable? Let me tell you: a cylinder in three-dimensional space is actually a geometric body with a line segment as its base and a circle as its lateral surface.
 The duocylinder is a closed four-dimensional figure with two congruent curved lateral cells, each lateral cell being the direct product of a solid circle and a hollow circle. The two three-dimensional lateral cells intersect at a two-dimensional curved surface, which is the direct product of two hollow circles. Here's the key point: the key is to understand this two-dimensional curved surface in four-dimensional space - the duocylinder is simply its "solidification".
@@ -72,34 +72,32 @@ Finally, I want to summarize the relationship between direct product and lofting
 
 ### Double Cones
 
-We know the cylinder's analogies include spherical cylinder, cylindrical prism, and duocylinder; the cone's analogies include spherical cone, cylindrical cone, and conical cone. Now we'll see there also exists a double cone similar to the duocylinder!! I'll give three ways to understand it.
+We know the cylinder's analogies include spherical cylinder, cylindrical prism, and duocylinder; the cone's analogies include sphone, cylindrone, and conical cone. Now we'll see there also exists a duocone similar to the duocylinder!! I'll give three ways to understand it.
 ##### As a Solid of Revolution
-Rotating with the cone's base as the rotation plane gives a highly symmetric figure - the double cone. First, the cone's base circle remains fixed on the rotation plane, while the cone's apex rotates one revolution to get a circle absolutely perpendicular to the cone's base. These two circles actually have equal status (might not be very intuitive). Note these two circles are hollow structures, they are protruding edges on the double cone's surface, and there are no two-dimensional solid circular surfaces on the double cone.
+Rotating with the cone's base as the rotation plane gives a highly symmetric figure - the duocone. First, the cone's base circle remains fixed on the rotation plane, while the cone's apex rotates one revolution to get a circle absolutely perpendicular to the cone's base. These two circles actually have equal status (might not be very intuitive). Note these two circles are hollow structures, they are protruding edges on the duocone's surface, and there are no two-dimensional solid circular surfaces on the duocone.
 ![Solid of revolution diagram, red circle and blue circle have equal status (can't draw the real appearance...)](/img/rot406.jpg)
 ##### As a Bipyramid
-To truly understand that the two circles have equal status, we need to first understand a new geometric body - the [**bipyramid**](https://en.wikipedia.org/wiki/Duopyramid). Its definition is: given two absolutely perpendicular planar figures $A$ and $B$ both centered at the origin, take their convex hull, denoted as $A+B$ (Schläfli symbol). What is a convex hull? Figuratively speaking, it's like covering the figure with a layer of plastic wrap, wrapping it tightly. For example, a square is the convex hull of two mutually perpendicular line segments, an octahedron is the convex hull of three mutually perpendicular line segments, or the convex hull of a square and a perpendicular line segment. A bipyramid formed by placing two n-pyramids base to base is the convex hull of a regular polygon and a line segment. We note that its dual polyhedron is an n-prism.
+To truly understand that the two circles have equal status, we need to first understand a new geometric body - the [**duopyramid**](https://en.wikipedia.org/wiki/Duopyramid). Its definition is: given two absolutely perpendicular planar figures $A$ and $B$ both centered at the origin, take their convex hull, denoted as $A+B$ (Schläfli symbol). What is a convex hull? Figuratively speaking, it's like covering the figure with a layer of plastic wrap, wrapping it tightly. For example, a square is the convex hull of two mutually perpendicular line segments, an octahedron is the convex hull of three mutually perpendicular line segments, or the convex hull of a square and a perpendicular line segment. A duopyramid formed by placing two n-pyramids base to base is the convex hull of a regular polygon and a line segment. We note that its dual polyhedron is an n-prism.
 ![Dual polyhedra](/img/rot405.jpg)
-Moving to four dimensions, the 16-cell is the convex hull of four mutually perpendicular line segments, or the convex hull of two absolutely perpendicular squares, or the convex hull of an octahedron and a perpendicular line segment... More generally, the convex hull of regular p and q polygons we call a p,q-bipyramid (p,q-duopyramid), and its dual polytope is a p,q-duoprism.
-![Perspective projection of 10,10-bipyramid](/img/rot402.png)
+Moving to four dimensions, the 16-cell is the convex hull of four mutually perpendicular line segments, or the convex hull of two absolutely perpendicular squares, or the convex hull of an octahedron and a perpendicular line segment... More generally, the convex hull of regular p and q polygons we call a p,q-duopyramid (p,q-duopyramid), and its dual polytope is a p,q-duoprism.
+![Perspective projection of 10,10-duopyramid](/img/rot402.png)
 Inflating these onto the hypersphere and projecting down gives two circles at the north and south poles with p and q points respectively, and north-south running edges in between. Points on the two polygons are connected pairwise, each cell is a tetrahedral cell formed by combining edges from their respective polygons pairwise.
-![Stereographic projection of 16,16-bipyramid](/img/rot414.gif)
-The duocylinder and double cone also inherit the duality relationship between duoprisms and bipyramids. The duocylinder has two congruent lateral cells, the double cone has two congruent circular edges. The duocylinder's unique two-dimensional edge, the flat torus, corresponds to the double cone's unique curved cell.
+![Stereographic projection of 16,16-duopyramid](/img/rot414.gif)
+The duocylinder and duocone also inherit the duality relationship between duoprisms and duopyramids. The duocylinder has two congruent lateral cells, the duocone has two congruent circular edges. The duocylinder's unique two-dimensional edge, the flat torus, corresponds to the duocone's unique curved cell.
 
-We know that cones in three-dimensional space can also roll, but not straight rolling - rather spinning around the apex. We'll see later that the double cone's rolling method is very special, because the two circles on the $xy$ plane and $zw$ plane simultaneously play the role of apex. Since rolling analysis is troublesome, I won't expand on it here.
+We know that cones in three-dimensional space can also roll, but not straight rolling - rather spinning around the apex. We'll see later that the duocone's rolling method is very special, because the two circles on the $xy$ plane and $zw$ plane simultaneously play the role of apex. Since rolling analysis is troublesome, I won't expand on it here.
 **(Update: The rolling simulator based on 4D rigid body mechanics is ready, [click here!](/archives/newton4/))**
 
 ##### Cross-section Animations
 To be honest, I can't imagine these cross-section animations at all:
-![Straight through](/img/rot405.gif)
-![45° oblique cut](/img/rot406.gif)
-<a name="rotlist"></a>
+![Straight cut](/img/rot405.gif)![45° oblique cut](/img/rot406.gif)<a name="rotlist"></a>
 ### List of Important Solids of Revolution
 Let's summarize various common four-dimensional solids of revolution: this table shows what three-dimensional figures they are and what plane they rotate around.
 ![](/img/rot402.jpg)
 I've colored green the surface parts of three-dimensional figures that generate four-dimensional curved cells after rotation, and colored red the parts that generate flat three-dimensional cells after rotation.
 
 ### Polytwister
-We have another tool for creating geometric bodies - convex hull. Actually, the rhombic dodecahedron is the convex hull of a cube and an octahedron; the duocylinder is the convex hull of a flat torus. The duocylinder is the convex hull of two orthogonal circles. What if the circles are oblique? We'd probably get something like an oblique bipyramid, not very interesting. But we know that circles on the Hopf fibration all make equal angles with each other. Each circle $z\_2=k z\_1$ can correspond to a point on an abstract sphere through the complex number $k$. If we inflate a regular polyhedron framework onto this sphere, then the Hopf circles corresponding to points on these frameworks will maintain a highly symmetric structure with the original regular polyhedron's symmetry. Taking the convex hull of all these circles will give us something called a Polytwister. I learned about Polytwisters from [this website](http://www.polytope.net/hedrondude/twisters.htm).
+We have another tool for creating geometric bodies - convex hull. Actually, the rhombic dodecahedron is the convex hull of a cube and an octahedron; the duocylinder is the convex hull of a flat torus. The duocylinder is the convex hull of two orthogonal circles. What if the circles are oblique? We'd probably get something like an oblique duopyramid, not very interesting. But we know that circles on the Hopf fibration all make equal angles with each other. Each circle $z\_2=k z\_1$ can correspond to a point on an abstract sphere through the complex number $k$. If we inflate a regular polyhedron framework onto this sphere, then the Hopf circles corresponding to points on these frameworks will maintain a highly symmetric structure with the original regular polyhedron's symmetry. Taking the convex hull of all these circles will give us something called a Polytwister. I learned about Polytwisters from [this website](http://www.polytope.net/hedrondude/twisters.htm). **(Update in 2025: Later I discovered that there are two definitions of Polytwister. One is the convex hull described above, which results in softer edges. The other is the intersection of many bicylinders, producing sharper edges. What is actually shown below are all hard polytwisters.)**
 Under stereographic projection, Hopf circles are linked together, so when we take the convex hull we get some bands twisted once around. For example, below is the Polytwister corresponding to a regular dodecahedron.
 ![Left image shows part of stereographic projection, right image shows two orthogonal bands (source: www.polytope.net)](/img/rot403.png)
 Cutting open these twisted bands gives us the Polytwister's net:
@@ -118,4 +116,4 @@ Are there other possible shapes? Like a square rotating while translating? (Note
 The other type rotates around the helix translation direction, but due to the helix's properties it can be considered as not rotating, instead equivalent to the helix translating up and down, finally resulting in a kind of oblique helical cylindrical surface.
 ![The cross-section animation from the bottom right direction best shows that this figure is a cylindrical surface](/img/rot412.gif)
 Finally, you might also ask, why should the analogy of a helix be a 2-dimensional curved surface, why not continue to be a one-dimensional curve in four-dimensional space? It's indeed possible, but I haven't found any line-like things that look particularly like helices yet...
- [Previous](/archives/lavie4ds/)　 [View Series Contents](/categories/四维空间系列/)　[Next](/archives/knot4d/)
+ [Previous](/archives/lavie4ds/)　 [View Series Contents](/categories/4D-Space-Series/)　[Next](/archives/knot4d/)

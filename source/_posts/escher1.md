@@ -6,21 +6,23 @@ tags:
   - mathematics
   - javascript
   - hyperbolic space
+index_img: /img/josleys1.jpg
 date: 2016-06-26 13:05:51
+excerpt: I mentioned a circular disk pattern that appeared in the film "Dimensions：A walk through mathematics". Actually this pattern is as fascinating as 4D space - Hperbolic tessellation in hyperbolic space.
 ---
 
-<div style="float:right">
+<!-- <div style="float:right"> -->
 
-![From English Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hyperbolic_tiling_omnitruncated_3-7.png/220px-Hyperbolic_tiling_omnitruncated_3-7.png)
+![From Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hyperbolic_tiling_omnitruncated_3-7.png/220px-Hyperbolic_tiling_omnitruncated_3-7.png)
 
-</div>
-<div style="width:300px">
+<!-- </div>
+<div style="width:300px"> -->
 
 ![Screenshot from "Dimensions: A walk through mathematics" Episode 2](/img/josleys1.jpg)
 
-</div>
+<!-- </div> -->
 
-In my previous series of articles explaining ["Dimensions: A walk through mathematics"](/categories/四维空间系列/), I mentioned a circular disk pattern that appeared in the film. It was a decoration in the room from Episode 2 "Three-dimensional space" of "Dimensions: A walk through mathematics." The narrator of this episode is **Escher**, and both the circular disk pattern and those lizards are his works. The film focuses on telling the story of how one of those two-dimensional lizards escapes from his painting and how it should explain the existence of three-dimensional space to its two-dimensional companions. That circular disk pattern used as decoration only flashes by briefly, but actually this pattern is as fascinating as four-dimensional space: it is **hyperbolic tessellation** in **hyperbolic space**.
+In my previous series of articles explaining ["Dimensions: A walk through mathematics"](/categories/4D-Space-Series/), I mentioned a circular disk pattern that appeared in the film. It was a decoration in the room from Episode 2 "Three-dimensional space" of "Dimensions: A walk through mathematics." The narrator of this episode is **Escher**, and both the circular disk pattern and those lizards are his works. The film focuses on telling the story of how one of those two-dimensional lizards escapes from his painting and how it should explain the existence of three-dimensional space to its two-dimensional companions. That circular disk pattern used as decoration only flashes by briefly, but actually this pattern is as fascinating as 4D space: it is **hyperbolic tessellation** in **hyperbolic space**.
 
 You can find many of Escher's paintings online, but the specific mathematical content within them is rarely mentioned. Below we'll mainly discuss the mathematical meaning of hyperbolic tessellation, and then how we can draw such a painting ourselves - using a computer - [online demo here! (including hyperbolic tessellation panda emoji!)](/archives/escher1/#demo). Of course, if you're skilled enough, you can also hand-draw like Escher did!<!--more-->
 

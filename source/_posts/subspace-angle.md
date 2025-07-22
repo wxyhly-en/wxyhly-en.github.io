@@ -1,24 +1,15 @@
 ---
-title: "Four-Dimensional Space (14): Plane State Space and Angle Problems (Part 1)"
+title: "4D Space (XIV): Plane State Space (Part 1)"
 tags:
-  - Four-dimensional
+  - 4D
   - Geometry
   - Series articles
   - Mathematics
-categories: Four-Dimensional Space Series
+categories: 4D Space Series
 date: 2025-06-28 00:38:14
+excerpt: This article defined an abstract plana state space for easier geometric visualization of angles between planes, extending angles from acute to real number. A simulator explores their possible ranges.
+index_img: /img/angle005.svg
 ---
-
-<p></p>
-<div style="float:right"><img src="/img/angle005.svg" style="width:100%;max-width:380px" alt="Relationship between two angles and plane positions with orientation information"/><p></p></div>
-
-## Content Overview
-
-- [Definition of Plane State Space](/archives/subspace-angle/#def)
-- [Extending Angle Values to Real Numbers](/archives/subspace-angle/#ext)
-- [Plane Angle Random Simulator](/archives/subspace-angle/#rnd)
-- [A Challenging Problem](/archives/subspace-angle/#quest)
-
 ## Introduction
 
 Let's first look at a simple angle range problem in 3D:

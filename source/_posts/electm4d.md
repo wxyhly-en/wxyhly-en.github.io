@@ -1,12 +1,14 @@
 ---
-title: "Four-Dimensional World (7): Electromagnetism"
+title: "4D World (VII): Electromagnetism"
 tags:
-  - Four-dimensional
+  - 4D
   - Physics
   - Series
   - Mathematics
-categories: Four-Dimensional World Series
+categories: 4D World Series
 date: 2020-03-28 16:20:11
+excerpt: In our 3D world, one of the most magical things is the electromagnetic field. Various induction phenomena are 3D and require the right-hand rule in space. Can we analogize these things to 4D?
+index_img: /img/em4d005.svg
 ---
 
 <p class="likecode">/**
@@ -24,7 +26,7 @@ In our three-dimensional world, one of the most magical things is the electromag
   + [Torque on Current Loops](/archives/electm4d/#d4)
   + [Cross Product Has More Than One Generalization](/archives/electm4d/#d5)
   + [Geomagnetic Field and Compasses](/archives/electm4d/#d6)
-- Four-Dimensional Maxwell's Equations?
+- 4D Maxwell's Equations?
   + [Ampère's Circuital Law](/archives/electm4d/#d7)
   + [Faraday's Law of Electromagnetic Induction](/archives/electm4d/#d8)
   + [Gauss's Law](/archives/electm4d/#d9)

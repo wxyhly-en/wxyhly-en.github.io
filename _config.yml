@@ -7,14 +7,17 @@ title: Blog de Hqak (WXYHLY)
 subtitle: 
 description:
 author: wxyhly
-language: zh-CN
+language: en
 timezone:
+
+marked:
+  # smartypants: false
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://wxyhly-en.github.io/
+url: https://wxyhly.github.io/
 root: /
-permalink: /archives/:title/
+permalink: archives/:title/
 permalink_defaults:
 
 # Directory
@@ -40,11 +43,6 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: false
-highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace:
 
 # Category & Tag
 default_category: uncategorized
@@ -81,9 +79,7 @@ category_generator:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
-# Disqus
-disqus_shortname: wxyhly
+theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

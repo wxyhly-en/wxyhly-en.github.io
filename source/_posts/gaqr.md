@@ -1,12 +1,14 @@
 ---
-title: "Four-Dimensional Space (XI): Geometric Algebra, Quaternions and Spatial Rotation"
+title: "4D Space (XI): Geometric Algebra, Quaternions and Rotation"
 tags:
-  - Four-dimensional
+  - 4D
   - Series Articles
   - Mathematics
   - Algebra
-categories: Four-Dimensional Space Series
+categories: 4D Space Series
 date: 2020-04-27 12:39:11
+index_img: /img/gaqr001.svg
+excerpt: Here we introduce a new algebraic system that can "unify" high-dimensional geometry - Geometric Algebra. This encompasses scalars, vectors, n-vectors. It even includes spinors (rotate twice to look the same)
 ---
 
 <span class="likecode">#Warning: This article contains super advanced content, covering essentially all the basic algebraic theory of 4D Euclidean space. This article emphasizes algebra over geometry, so it may be difficult to understand</span>
@@ -22,15 +24,15 @@ When we discussed [magnetic fields in four-dimensional space](https://wxyhly.git
 |Outer product$\wedge$|0|0|$e\_{ijkl}$|
 
 At that time, we observed that identical letters could be merged and canceled, while different letters were simply written together to form a n-vector, so that each type of n-vector corresponds exactly to one multiplication operation. Let's define a new multiplication operation to satisfy all the above features simultaneously. To distinguish it from inner and outer products, the new multiplication uses no symbol:
-- For vector $\boldsymbol v$, we define $\boldsymbol v^2=\boldsymbol v \boldsymbol v=||\boldsymbol v||$. This is the definition of inner product.
-- Then we "forcibly" incorporate the definition of outer product: for mutually perpendicular vectors $\boldsymbol u$ and $\boldsymbol v$, we define $\boldsymbol u \boldsymbol v = -\boldsymbol v \boldsymbol u$.
-- We further stipulate that this multiplication satisfies associativity and left-right distributivity for any k-vectors $\boldsymbol A$, $\boldsymbol B$: $(\boldsymbol A \boldsymbol B) \boldsymbol C = \boldsymbol A (\boldsymbol B \boldsymbol C) $, $(\boldsymbol A+ \boldsymbol B) \boldsymbol C = \boldsymbol A \boldsymbol C +\boldsymbol B \boldsymbol C $, $\boldsymbol A( \boldsymbol B+ \boldsymbol C) = \boldsymbol A \boldsymbol B +\boldsymbol A \boldsymbol C $.
+- For vector $\mathrm v$, we define $\mathrm v^2=\mathrm v \mathrm v=||\mathrm v||$. This is the definition of inner product.
+- Then we "forcibly" incorporate the definition of outer product: for mutually perpendicular vectors $\mathrm u$ and $\mathrm v$, we define $\mathrm u \mathrm v = -\mathrm v \mathrm u$.
+- We further stipulate that this multiplication satisfies associativity and left-right distributivity for any k-vectors $\mathrm A$, $\mathrm B$: $(\mathrm A \mathrm B) \mathrm C = \mathrm A (\mathrm B \mathrm C) $, $(\mathrm A+ \mathrm B) \mathrm C = \mathrm A \mathrm C +\mathrm B \mathrm C $, $\mathrm A( \mathrm B+ \mathrm C) = \mathrm A \mathrm B +\mathrm A \mathrm C $.
 
 This new multiplication is the **geometric product**. For consistency, we define scalars as 0-vectors.
 <!--more-->
-Let's see what happens when two arbitrary vectors $\boldsymbol u$, $\boldsymbol v$ with angle $\theta$ form the geometric product $\boldsymbol u\boldsymbol v$. The definition only gives properties of the geometric product for vectors in parallel and perpendicular directions, so we first need to orthogonally decompose $\boldsymbol u$ onto $\boldsymbol v$:
-$$\boldsymbol u = \boldsymbol e\_{\parallel v}||\boldsymbol u||\cos \theta + \boldsymbol e\_{\perp v}||\boldsymbol u||\sin \theta$$
-$$\boldsymbol u \boldsymbol v = \boldsymbol e\_{\parallel v} \boldsymbol v ||\boldsymbol u||\cos \theta + \boldsymbol e\_{\perp v} \boldsymbol v ||\boldsymbol u ||\sin \theta=||\boldsymbol u||||\boldsymbol v||\cos \theta + e\_{\perp v} e\_v ||\boldsymbol u||||\boldsymbol v||\sin \theta = \boldsymbol u \cdot \boldsymbol v + \boldsymbol u \wedge \boldsymbol v$$
+Let's see what happens when two arbitrary vectors $\mathrm u$, $\mathrm v$ with angle $\theta$ form the geometric product $\mathrm u\mathrm v$. The definition only gives properties of the geometric product for vectors in parallel and perpendicular directions, so we first need to orthogonally decompose $\mathrm u$ onto $\mathrm v$:
+$$\mathrm u = \mathrm e\_{\parallel v}||\mathrm u||\cos \theta + \mathrm e\_{\perp v}||\mathrm u||\sin \theta$$
+$$\mathrm u \mathrm v = \mathrm e\_{\parallel v} \mathrm v ||\mathrm u||\cos \theta + \mathrm e\_{\perp v} \mathrm v ||\mathrm u ||\sin \theta=||\mathrm u||||\mathrm v||\cos \theta + e\_{\perp v} e\_v ||\mathrm u||||\mathrm v||\sin \theta = \mathrm u \cdot \mathrm v + \mathrm u \wedge \mathrm v$$
 What? A scalar and a 2-vector added together? Does this make sense? This was my first reaction when I saw geometric algebra on Wikipedia, and then I clicked the close button in the upper right corner of the window. Later I gradually came to understand the power of geometric algebra. So let's not talk about meaning first, let's continue to see what happens when two 2-vectors form a geometric product.
 
 Due to the complex spatial position of 2-vectors, we'll compute directly using coordinates. Let
@@ -41,7 +43,7 @@ The expansion calculation is somewhat large, but not difficult. The expanded ter
 - Partially identical, like $e\_{xy}e\_{xz}$: $e\_{xy}e\_{xz}=e\_xe\_ye\_xe\_z=-e\_x(e\_xe\_y)e\_z=-(e\_xe\_x)e\_ye\_z=-e\_{yz}$
 - Completely different, like $e\_{xy}e\_{zw}$: $e\_{xy}e\_{zw}=e\_xe\_ye\_ze\_w=e_{xyzw}$
 
-Observing that after combining like terms, we get three parts added together: scalar part + 2-vector part + 4-vector part. It's not hard to see that except for the scalar part differing by a sign, each part's result is exactly the multiplication given in the opening table, so we have $\boldsymbol {A B}=-\boldsymbol A\cdot \boldsymbol B + \boldsymbol A\times \boldsymbol B + \boldsymbol A\wedge \boldsymbol B$.
+Observing that after combining like terms, we get three parts added together: scalar part + 2-vector part + 4-vector part. It's not hard to see that except for the scalar part differing by a sign, each part's result is exactly the multiplication given in the opening table, so we have $\mathrm {A B}=-\mathrm A\cdot \mathrm B + \mathrm A\times \mathrm B + \mathrm A\wedge \mathrm B$.
 
 ## Geometric Algebra is a Graded Algebra
 We call this mixed vector containing different dimensions a Multivector. For a multivector $A$, we define a projection operator: $\left\langle A\right\rangle\_k$ represents taking the k-vector part of multivector $A$. This way we can define the outer product using geometric algebra: (Here $\left\langle A\right\rangle\_m$ and $\left\langle B\right\rangle\_n$ represent two pure m-vectors and n-vectors)
@@ -103,7 +105,7 @@ Quaternions satisfy associativity like rotations, e.g., $(ij)k=kk=-1=ii=i(jk)$. 
 
 If you're interested in why quaternions are defined this way, you can expand this section:
 ### <a href="javascript:$('#varq').toggle();setJax();void(0)" target="_self">Various Quaternions</a>
-<div id="varq" style="display:none; background-color:#EDE4FF"><p>
+<div id="varq" style="display:none; background-color:var(--color-EEF)"><p>
 
 Before specifically discussing how quaternions represent rotation, let's first look at why we define the multiplication table of quaternions $i$, $j$, $k$ this way. Are there alternative schemes? For example, I'm dissatisfied with the lack of commutativity and want to construct new "commutative quaternions". Is this possible? Note that this doesn't mean I can randomly fill in the multiplication table, because there are restrictions like associativity, invertibility, etc. (and commutativity, if you want it). First, multiplying 1 by any number doesn't change it (property of the identity element). This rule is best not broken, otherwise it won't look like an extension of numbers. In the previously mentioned quaternion multiplication table (to distinguish from here "non-standard quaternions" later, we call it standard quaternions), for $i$, $j$, $k$, why are their squares all -1? Logically, ±i should be sufficient as square roots of -1. In fact, mathematicians have proven that the complex field is already **algebraically closed**, meaning in layman's terms that all polynomial roots are complex numbers, and we don't need to introduce new numbers outside of complex numbers to represent them. For example, even $^{i}\sqrt{i}$ is a real number (and of course a complex number). So from this perspective, extending complex numbers is completely redundant. Now we need to clarify our purpose: we don't really want to represent more numbers, but are purely interested in its algebraic structure. Since there are no such restrictions, let's think of some crazy things:
 
@@ -159,9 +161,9 @@ Define $A^\*=A^\dagger I$, i.e., let A do "partial" inner product with unit volu
 
 ## Some Applications of Geometric Algebra Beyond Rotation
 ### Proving Equations in Vector Field Theory
-Let's use geometric algebra to prove this equation encountered in wave equations ($E$ is a vector): $\nabla \times\nabla \times\boldsymbol{E}=-\boldsymbol{\Delta \boldsymbol{E}}+\text{grad}(\text{div}(\boldsymbol{E}))$
-$$\begin{align}\nabla \times\nabla \times\boldsymbol{E}=&(\boldsymbol{d}\wedge(\boldsymbol{d}\wedge\boldsymbol{E})^\*)^\*\\\\=&-\left\langle\boldsymbol{d}(\boldsymbol{d}\wedge\boldsymbol{E})\right\rangle_1\\\\=&-\left\langle\boldsymbol{d}(\boldsymbol{dE}-\boldsymbol{Ed})/2\right\rangle_1\\\\=&-(\boldsymbol{d}(\boldsymbol{dE}-\boldsymbol{Ed})-(\boldsymbol{dE}-\boldsymbol{Ed})\boldsymbol{d})/4\\\\=&-(\boldsymbol{d}^2\boldsymbol{E}+\boldsymbol{E}\boldsymbol{d}^2)/4+\boldsymbol{dEd}/2\\\\=&-\boldsymbol{d}^2\boldsymbol{E}/2+\boldsymbol{dEd}/2\end{align}$$
-$$\begin{align}-\boldsymbol{\Delta \boldsymbol{E}}+\text{grad}(\text{div}(\boldsymbol{E}))=&-(\boldsymbol{d}\cdot \boldsymbol{d})E+\boldsymbol{d}(\boldsymbol{d}\cdot \boldsymbol{E})\\\\=&-\boldsymbol{d}^2E+\boldsymbol{d}(\boldsymbol{dE}+\boldsymbol{Ed})/2\\\\=&-\boldsymbol{d}^2\boldsymbol{E}/2+\boldsymbol{dEd}/2\end{align}$$
+Let's use geometric algebra to prove this equation encountered in wave equations ($E$ is a vector): $\nabla \times\nabla \times\mathrm{E}=-\mathrm{\Delta \mathrm{E}}+\text{grad}(\text{div}(\mathrm{E}))$
+$$\begin{align}\nabla \times\nabla \times\mathrm{E}=&(\mathrm{d}\wedge(\mathrm{d}\wedge\mathrm{E})^\*)^\*\\\\=&-\left\langle\mathrm{d}(\mathrm{d}\wedge\mathrm{E})\right\rangle_1\\\\=&-\left\langle\mathrm{d}(\mathrm{dE}-\mathrm{Ed})/2\right\rangle_1\\\\=&-(\mathrm{d}(\mathrm{dE}-\mathrm{Ed})-(\mathrm{dE}-\mathrm{Ed})\mathrm{d})/4\\\\=&-(\mathrm{d}^2\mathrm{E}+\mathrm{E}\mathrm{d}^2)/4+\mathrm{dEd}/2\\\\=&-\mathrm{d}^2\mathrm{E}/2+\mathrm{dEd}/2\end{align}$$
+$$\begin{align}-\mathrm{\Delta \mathrm{E}}+\text{grad}(\text{div}(\mathrm{E}))=&-(\mathrm{d}\cdot \mathrm{d})E+\mathrm{d}(\mathrm{d}\cdot \mathrm{E})\\\\=&-\mathrm{d}^2E+\mathrm{d}(\mathrm{dE}+\mathrm{Ed})/2\\\\=&-\mathrm{d}^2\mathrm{E}/2+\mathrm{dEd}/2\end{align}$$
 Without geometric algebra, one would probably have to expand all coordinates honestly, but the geometric algebra method reduces most of the computational load.
 
 ### Geometric Meaning of Various Products
@@ -175,4 +177,4 @@ Note the first step matches up the projected vectors, using the negative commuta
 - [An Introduction to Geometric Algebra and Calculus(PDF)](https://www.researchgate.net/profile/Jafar_Biazar/post/can_anyone_offer_me_a_booklist_about_learning_algebraic_geometry/attachment/5bd89cc9cfe4a76455fe769d/AS%3A687493238231042%401540922569376/download/bookGA.pdf)
 - [Let's remove Quaternions from every 3D Engine(Marc ten Bosch, Interactive webpage)](https://www.marctenbosch.com/quaternions/)
 
- [Previous](/archives/knot4d/)　 [View Series Index](/categories/四维空间系列/)　  [Next](/archives/unknots2/)
+ [Previous](/archives/knot4d/)　 [View Series Index](/categories/4D-Space-Series/)　  [Next](/archives/unknots2/)

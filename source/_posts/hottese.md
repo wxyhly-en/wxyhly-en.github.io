@@ -4,12 +4,14 @@ tags:
   - Mathematical Logic
   - Mathematics
   - Topology
+index_img: /img/hott001.png
 date: 2024-12-21 13:59:51
+excerpt: This article introduced type theory, which claims to replace set theory's position in mathematics. It has been widely used in machine proofs, most famously in the proof of the Four Color Theorem.
 ---
 
 ![Front page of the "Homotopy Type Theory" book](/img/hott003.png)
 
-The previous article introduced propositional logic, first-order logic, and ZFC set theory. This article examines a new approach that claims to replace set theory's position in mathematics—type theory. In fact, it has been widely used in machine proofs, most famously in the proof of the Four Color Theorem. Additionally, it is very similar to programming code. When type theory is modified into homotopy type theory, it can handle many problems in topology more "directly" than set theory.
+The previous article introduced propositional logic, first-order logic, and ZFC set theory. This article examines a new approach that claims to replace set theory's position in mathematics — type theory. In fact, it has been widely used in machine proofs, most famously in the proof of the Four Color Theorem. Additionally, it is very similar to programming code. When type theory is modified into homotopy type theory, it can handle many problems in topology more "directly" than set theory.
 
 ### Motivation for Type Theory
 The concept of "type" is widely used in programming languages, specifically for type checking before compilation. For example, consider this C code:
@@ -20,7 +22,7 @@ int k = i * j;   // Define integer variable k and set it to i * j
 ```
 This will cause a compilation error because the program declares i as an integer type variable and j as a string type variable, and they cannot be multiplied. In other words, multiplication is a function that takes two numbers as input parameters and returns a number as output—the types of i and j clearly don't match this. From this example, we can see that type checking is essentially the compiler helping us check for obvious low-level errors that would lead to meaningless operations like multiplying numbers by strings. Although checking the type of an expression is also mechanized (can be defined as a formal system), this seems to have nothing to do with mathematical logic. How can it be used to construct axiomatic systems? yugu233 made a video ["On the Similarity Between Programmers and Mathematicians [Mathematical Map]"](https://www.bilibili.com/video/BV1NC411G7oK/) that explains the connection between types and proofs in a very accessible and vivid way.<!--more-->
 
-<div style="background-color:#EEF">
+<div style="background-color:var(--color-EEF)">
 
 Optional reading aside: 
 I wonder if any readers are familiar with TypeScript (JavaScript with type checking). Its type inference mechanism is very powerful and has reached Turing completeness. Once you know the principles, it's easy to define natural numbers using pure type inference and perform arithmetic operations. [See here for reference](https://www.everseenflash.com/CS/Snippets/Type%20Metaprogram.html). These calculations are completed entirely during compiler type checking. The code contains only a bunch of type declarations, and the compiled executable is empty. Note that this actually has nothing to do with the type theory we're discussing.</div>
@@ -140,7 +142,7 @@ For example, the function type (A → B) → ((B → C) → (A → C)) can also 
 
 Why use the product symbol to represent dependent functions is indeed confusing for beginners. While there's some rationale, it's mostly a historical artifact not worth dwelling on. When I first encountered this type, I kept getting stuck trying to understand what that product meant. Actually, replacing the product symbol with "$\forall$" makes it easier to understand (that's how it's written in LEAN).
 
-<div style="background-color:#EEF">
+<div style="background-color:var(--color-EEF)">
 
 Optional reading:
 We see that propositional equality types and definitional equality within the system are two different concepts. Their biggest difference is that propositional equality can appear as assumptions in function parameters, while whether two expressions are definitionally equal is fixed and cannot represent the concept of "assuming x and y are definitionally equal" within the system. We could actually forcibly add a rule to make the two kinds of equality no longer essentially different:

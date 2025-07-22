@@ -28,9 +28,9 @@
      fit-margin-left="1"
      fit-margin-right="1"
      fit-margin-bottom="1"
-     inkscape:zoom="0.67607821"
-     inkscape:cx="571.67942"
-     inkscape:cy="420.8093"
+     inkscape:zoom="0.63550845"
+     inkscape:cx="457.1143"
+     inkscape:cy="442.95241"
      inkscape:window-width="1440"
      inkscape:window-height="838"
      inkscape:window-x="-6"
@@ -42,6 +42,12 @@
      inkscape:guide-bbox="true" />
   <defs
      id="defs2">
+    <rect
+       x="226.30518"
+       y="137.55805"
+       width="44.373564"
+       height="31.061495"
+       id="rect1985" />
     <rect
        x="-83.6231"
        y="454.27682"
@@ -429,19 +435,19 @@
        xml:space="preserve"
        style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="137.37698"
-       y="136.11882"
+       y="130.82715"
        id="text7684"><tspan
          sodipodi:role="line"
          id="tspan7682"
          style="font-size:14.1111px;stroke-width:0.264583"
          x="137.37698"
-         y="136.11882">Fd</tspan></text>
+         y="130.82715">Fd</tspan></text>
     <use
        x="0"
        y="0"
        xlink:href="#use6844"
        id="use7686"
-       transform="translate(33.712737,93.061355)"
+       transform="translate(33.712737,87.769688)"
        width="100%"
        height="100%" />
     <use
@@ -449,7 +455,7 @@
        y="0"
        xlink:href="#use7450"
        id="use7688"
-       transform="translate(31.752082,50.781667)"
+       transform="translate(31.752082,45.49)"
        width="100%"
        height="100%" />
     <use
@@ -457,7 +463,7 @@
        y="0"
        xlink:href="#use7452"
        id="use7690"
-       transform="translate(43.517781,54.614167)"
+       transform="translate(43.517781,49.3225)"
        width="100%"
        height="100%" />
     <use
@@ -465,7 +471,7 @@
        y="0"
        xlink:href="#use7454"
        id="use7692"
-       transform="translate(53.695981,51.672737)"
+       transform="translate(53.695981,46.38107)"
        width="100%"
        height="100%" />
     <use
@@ -473,7 +479,7 @@
        y="0"
        xlink:href="#use7456"
        id="use7694"
-       transform="translate(55.038371,34.024187)"
+       transform="translate(55.038371,28.73252)"
        width="100%"
        height="100%" />
     <use
@@ -481,7 +487,7 @@
        y="0"
        xlink:href="#use3442"
        id="use7696"
-       transform="translate(134.30697,89.457365)"
+       transform="translate(134.30697,84.165698)"
        width="100%"
        height="100%" />
     <use
@@ -858,19 +864,19 @@
        xml:space="preserve"
        style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="27.554817"
-       y="136.65033"
+       y="131.35866"
        id="text11734"><tspan
          sodipodi:role="line"
          id="tspan11732"
          style="font-size:14.1111px;stroke-width:0.264583"
          x="27.554817"
-         y="136.65033">Fn</tspan></text>
+         y="131.35866">Fn</tspan></text>
     <use
        x="0"
        y="0"
        xlink:href="#use6844"
        id="use11736"
-       transform="translate(-79.412791,93.838015)"
+       transform="translate(-79.412791,88.546348)"
        width="100%"
        height="100%" />
     <use
@@ -878,7 +884,7 @@
        y="0"
        xlink:href="#use7450"
        id="use11738"
-       transform="translate(-78.070111,51.842351)"
+       transform="translate(-78.070111,46.550684)"
        width="100%"
        height="100%" />
     <use
@@ -886,7 +892,7 @@
        y="0"
        xlink:href="#use7452"
        id="use11740"
-       transform="translate(-66.304406,54.616518)"
+       transform="translate(-66.304406,49.324851)"
        width="100%"
        height="100%" />
     <use
@@ -894,7 +900,7 @@
        y="0"
        xlink:href="#use7454"
        id="use11742"
-       transform="translate(-59.958701,50.733543)"
+       transform="translate(-59.958701,45.441876)"
        width="100%"
        height="100%" />
     <use
@@ -902,7 +908,7 @@
        y="0"
        xlink:href="#use7456"
        id="use11744"
-       transform="translate(-53.725486,34.555695)"
+       transform="translate(-53.725486,29.264028)"
        width="100%"
        height="100%" />
     <use
@@ -910,7 +916,7 @@
        y="0"
        xlink:href="#use6930"
        id="use11746"
-       transform="translate(-51.235667,95.806205)"
+       transform="translate(-51.235667,90.514538)"
        width="100%"
        height="100%" />
     <use
@@ -918,7 +924,7 @@
        y="0"
        xlink:href="#use11746"
        id="use11748"
-       transform="translate(8.3340404,8.8242786)"
+       transform="translate(8.3340404,8.8242783)"
        width="100%"
        height="100%" />
     <use
@@ -933,19 +939,19 @@
        xml:space="preserve"
        style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="86.772629"
-       y="135.7982"
+       y="130.50653"
        id="text11754"><tspan
          sodipodi:role="line"
          id="tspan11752"
          style="font-size:14.1111px;stroke-width:0.264583"
          x="86.772629"
-         y="135.7982">Fn</tspan></text>
+         y="130.50653">Fn</tspan></text>
     <use
        x="0"
        y="0"
        xlink:href="#use6844"
        id="use11756"
-       transform="translate(-20.194978,92.985865)"
+       transform="translate(-20.194978,87.694198)"
        width="100%"
        height="100%" />
     <use
@@ -953,7 +959,7 @@
        y="0"
        xlink:href="#use7450"
        id="use11758"
-       transform="translate(-18.852298,50.990207)"
+       transform="translate(-18.852298,45.69854)"
        width="100%"
        height="100%" />
     <use
@@ -961,7 +967,7 @@
        y="0"
        xlink:href="#use7452"
        id="use11760"
-       transform="translate(-7.0865965,53.764374)"
+       transform="translate(-7.0865965,48.472707)"
        width="100%"
        height="100%" />
     <use
@@ -969,7 +975,7 @@
        y="0"
        xlink:href="#use7454"
        id="use11762"
-       transform="translate(-0.74089268,49.881399)"
+       transform="translate(-0.74089268,44.589732)"
        width="100%"
        height="100%" />
     <use
@@ -977,7 +983,7 @@
        y="0"
        xlink:href="#use7456"
        id="use11764"
-       transform="translate(5.4923248,33.703551)"
+       transform="translate(5.4923248,28.411884)"
        width="100%"
        height="100%" />
     <use
@@ -985,7 +991,7 @@
        y="0"
        xlink:href="#use6930"
        id="use11766"
-       transform="translate(7.9821418,94.954055)"
+       transform="translate(7.9821418,89.662388)"
        width="100%"
        height="100%" />
     <use
@@ -993,7 +999,7 @@
        y="0"
        xlink:href="#use4854"
        id="use11932"
-       transform="translate(30.98157,119.04851)"
+       transform="translate(30.98157,113.75684)"
        width="100%"
        height="100%" />
     <text
@@ -1111,7 +1117,7 @@
        y="0"
        xlink:href="#use11766"
        id="use13982"
-       transform="translate(118.60971,70.629175)"
+       transform="translate(118.60971,75.920842)"
        width="100%"
        height="100%" />
     <text
@@ -1178,7 +1184,7 @@
        y="0"
        xlink:href="#use11746"
        id="use14082"
-       transform="translate(6.7911093,58.779841)"
+       transform="translate(6.7911093,64.071508)"
        width="100%"
        height="100%" />
     <use
@@ -1186,7 +1192,7 @@
        y="0"
        xlink:href="#use11748"
        id="use14084"
-       transform="translate(-24.552061,70.131731)"
+       transform="translate(-24.552061,75.423398)"
        width="100%"
        height="100%" />
     <use
@@ -1250,7 +1256,7 @@
        y="0"
        xlink:href="#use11932"
        id="use14424"
-       transform="translate(-14.707117,60.366781)"
+       transform="translate(-14.707117,65.658448)"
        width="100%"
        height="100%" />
     <use
@@ -1323,157 +1329,74 @@
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="18.581156"
-       y="45.167492"
-       id="text37792"><tspan
-         sodipodi:role="line"
-         id="tspan37790"
-         style="font-size:5.64444px;stroke-width:0.264583"
-         x="18.581156"
-         y="45.167492">氕气</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="61.921852"
-       y="45.167492"
-       id="text40516"><tspan
-         sodipodi:role="line"
-         id="tspan40514"
-         style="font-size:5.64444px;stroke-width:0.264583"
-         x="61.921852"
-         y="45.167492">氘气</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="105.8968"
-       y="45.167492"
-       id="text40520"><tspan
-         sodipodi:role="line"
-         id="tspan40518"
-         style="font-size:5.64444px;stroke-width:0.264583"
-         x="105.8968"
-         y="45.167492">氘化氕</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="149.81763"
-       y="45.167492"
-       id="text42486"><tspan
-         sodipodi:role="line"
-         id="tspan42484"
-         style="font-size:5.64444px;stroke-width:0.264583"
-         x="149.81763"
-         y="45.167492">氚化氕</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="197.17526"
-       y="45.167492"
-       id="text42700"><tspan
-         sodipodi:role="line"
-         id="tspan42698"
-         style="font-size:5.64444px;stroke-width:0.264583"
-         x="197.17526"
-         y="45.167492">氦气</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="238.40178"
-       y="45.167492"
-       id="text42806"><tspan
-         sodipodi:role="line"
-         id="tspan42804"
-         style="font-size:5.64444px;stroke-width:0.264583"
-         x="238.40178"
-         y="45.167492">氖气</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="39.541821"
+       x="28.958487"
        y="107.07712"
        id="text43038"><tspan
          sodipodi:role="line"
          id="tspan43036"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="39.541821"
-         y="107.07712">氛气</tspan></text>
+         x="28.958487"
+         y="107.07712">Funigen gas</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="111.22997"
+       x="95.354973"
        y="107.17075"
        id="text43458"><tspan
          sodipodi:role="line"
          id="tspan43456"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="111.22997"
-         y="107.17075">氲气</tspan></text>
+         x="95.354973"
+         y="107.17075">Fudine gas</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="165.62007"
+       x="149.74506"
        y="107.17075"
        id="text45088"><tspan
          sodipodi:role="line"
          id="tspan45086"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="165.62007"
-         y="107.17075">氟化氛</tspan></text>
+         x="149.74506"
+         y="107.17075">Funigen fluoride</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="224.88441"
+       x="214.30107"
        y="107.14867"
        id="text45598"><tspan
          sodipodi:role="line"
          id="tspan45596"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="224.88441"
-         y="107.14867">氲化氛</tspan></text>
+         x="214.30107"
+         y="107.14867">Funigen fudide</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:4.93889px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="18.759081"
-       y="152.64264"
+       style="font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="37.177429"
+       y="147.35097"
        id="text48978"><tspan
          sodipodi:role="line"
          id="tspan48976"
-         style="font-size:4.93889px;stroke-width:0.264583"
-         x="18.759081"
-         y="152.64264">氛化氕（不稳定异构）</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:4.93889px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="73.865837"
-       y="152.64264"
-       id="text49168"><tspan
+         style="font-size:4.93889px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="37.177429"
+         y="147.35097">Protium funide</tspan><tspan
          sodipodi:role="line"
-         id="tspan49166"
-         style="font-size:4.93889px;stroke-width:0.264583"
-         x="73.865837"
-         y="152.64264">氛化氕氘（不稳定异构）</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:4.93889px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="134.40677"
-       y="152.64264"
-       id="text51414"><tspan
-         sodipodi:role="line"
-         id="tspan51412"
-         style="font-size:4.93889px;stroke-width:0.264583"
-         x="134.40677"
-         y="152.64264">氲化氕（不稳定异构）</tspan></text>
+         style="font-size:4.93889px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="37.177429"
+         y="153.52458"
+         id="tspan23831">(unstable)</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="214.14449"
+       x="200.38618"
        y="143.81058"
        id="text52726"><tspan
          sodipodi:role="line"
          id="tspan52724"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="214.14449"
-         y="143.81058">氲化氘</tspan></text>
+         x="200.38618"
+         y="143.81058">Deuterium fudide</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -1481,10 +1404,10 @@
        y="210.85103"
        id="text53444"><tspan
          sodipodi:role="line"
-         id="tspan53442"
          style="font-size:5.64444px;stroke-width:0.264583"
          x="20.346582"
-         y="210.85103">氛氨（氛化氕）</tspan></text>
+         y="210.85103"
+         id="tspan10837">Funiammnonia </tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -1495,7 +1418,7 @@
          id="tspan53446"
          style="font-size:5.64444px;stroke-width:0.264583"
          x="79.157509"
-         y="210.85103">氛水（氛化氕氘）</tspan></text>
+         y="210.85103">Funiwater</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -1506,7 +1429,7 @@
          id="tspan53450"
          style="font-size:5.64444px;stroke-width:0.264583"
          x="135.99417"
-         y="210.85103">氲水（氲化氕）</tspan></text>
+         y="210.85103">Fudiwater</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,9.0673453,3.9409768)"
@@ -1515,25 +1438,25 @@
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="213.61533"
-       y="174.50221"
+       x="208.98131"
+       y="176.16754"
        id="text61222"><tspan
          sodipodi:role="line"
          id="tspan61220"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="213.61533"
-         y="174.50221">氛化氚</tspan></text>
+         x="208.98131"
+         y="176.16754">Tritium funide</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="213.61533"
-       y="211.54391"
+       x="202.50275"
+       y="210.4856"
        id="text61226"><tspan
          sodipodi:role="line"
          id="tspan61224"
          style="font-size:5.64444px;stroke-width:0.264583"
-         x="213.61533"
-         y="211.54391">氟化氕</tspan></text>
+         x="202.50275"
+         y="210.4856">Protium fluoride</tspan></text>
     <use
        x="0"
        y="0"
@@ -1566,5 +1489,108 @@
        transform="translate(4.5005271,10.566455)"
        width="100%"
        height="100%" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,7.6161639,3.9409768)"
+       id="text1983"
+       style="font-family:sans-serif;font-size:13.33333333px;line-height:1.25;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect1985)" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="44.39146"
+       y="42.139626"
+       id="text40516"><tspan
+         sodipodi:role="line"
+         id="tspan40514"
+         style="font-size:5.64444px;stroke-width:0.264583"
+         x="44.39146"
+         y="42.139626">Deuterium gas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="88.895592"
+       y="42.139626"
+       id="text40520"><tspan
+         sodipodi:role="line"
+         id="tspan40518"
+         style="font-size:5.64444px;stroke-width:0.264583"
+         x="88.895592"
+         y="42.139626">Protium deuteride</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="143.39978"
+       y="42.139626"
+       id="text42486"><tspan
+         sodipodi:role="line"
+         id="tspan42484"
+         style="font-size:5.64444px;stroke-width:0.264583"
+         x="143.39978"
+         y="42.139626">Protium tritide</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="191.81573"
+       y="42.139626"
+       id="text42700"><tspan
+         sodipodi:role="line"
+         id="tspan42698"
+         style="font-size:5.64444px;stroke-width:0.264583"
+         x="191.81573"
+         y="42.139626">Helium gas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="233.04225"
+       y="42.139626"
+       id="text42806"><tspan
+         sodipodi:role="line"
+         id="tspan42804"
+         style="font-size:5.64444px;stroke-width:0.264583"
+         x="233.04225"
+         y="42.139626">Neon gas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="8.7445297"
+       y="41.998905"
+       id="text37792"><tspan
+         sodipodi:role="line"
+         id="tspan37790"
+         style="font-size:5.64444px;stroke-width:0.264583"
+         x="8.7445297"
+         y="41.998905">Protium gas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="95.385757"
+       y="147.35097"
+       id="text25737"><tspan
+         sodipodi:role="line"
+         id="tspan25733"
+         style="font-size:4.93889px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="95.385757"
+         y="147.35097">Protium deuterium funide</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:4.93889px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="95.385757"
+         y="153.52458"
+         id="tspan25735">(unstable)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.93889px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="148.8316"
+       y="147.35097"
+       id="text25743"><tspan
+         sodipodi:role="line"
+         id="tspan25739"
+         style="font-size:4.93889px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="148.8316"
+         y="147.35097">Protium fudide</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:4.93889px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="148.8316"
+         y="153.52458"
+         id="tspan25741">(unstable)</tspan></text>
   </g>
 </svg>

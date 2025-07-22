@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="140.09624mm"
-   height="68.512474mm"
-   viewBox="0 0 140.09624 68.512472"
+   width="145.14915mm"
+   height="68.743294mm"
+   viewBox="0 0 145.14916 68.743292"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.1942951"
-     inkscape:cx="92.523195"
+     inkscape:cx="273.38302"
      inkscape:cy="110.10679"
      inkscape:window-width="1440"
      inkscape:window-height="838"
@@ -989,46 +989,46 @@
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="50.373623"
+       x="45.081955"
        y="95.35582"
        id="text16461"><tspan
          sodipodi:role="line"
          id="tspan16459"
          style="stroke-width:0.264583"
-         x="48"
+         x="45.081955"
          y="95.35582">Methane</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="79.256233"
+       x="73.435402"
        y="95.35582"
        id="text16867"><tspan
          sodipodi:role="line"
          id="tspan16865"
          style="stroke-width:0.264583"
-         x="69"
-         y="95.35582">Entrogen ammonia</tspan></text>
+         x="73.435402"
+         y="95.35582">Entroammonia</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="111.53539"
+       x="104.65622"
        y="95.35582"
        id="text17305"><tspan
          sodipodi:role="line"
          id="tspan17303"
          style="stroke-width:0.264583"
-         x="101.53539"
-         y="95.35582">Nitrogen ammonia</tspan></text>
+         x="104.65622"
+         y="95.35582">Nitroammonia</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="139.05235"
+       x="136.40656"
        y="95.35582"
        id="text17851"><tspan
          sodipodi:role="line"
          id="tspan17849"
          style="stroke-width:0.264583"
-         x="136.05235"
+         x="136.40656"
          y="95.35582">Water</tspan></text>
     <text
        xml:space="preserve"
@@ -1130,13 +1130,13 @@
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="161.00943"
+       x="150.42609"
        y="95.35582"
        id="text21583"><tspan
          sodipodi:role="line"
          id="tspan21581"
          style="stroke-width:0.264583"
-         x="150"
+         x="150.42609"
          y="95.35582">Hydrogen fluoride</tspan></text>
   </g>
 </svg>

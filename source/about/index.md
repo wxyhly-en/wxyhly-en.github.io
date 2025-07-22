@@ -2,6 +2,8 @@
 title: About me
 date: 2019-03-30 20:30:29
 ---
+<div class="markdown-body">
+
 ## Hqak (github account is wxyhly)
 Hqak \[International Phonetic Alphabet: ʁak (Pronunciation "Rac" in French), Pronunciation approximation: Hak\] is a word in the constructed language Dichuu ([Tutorial available here](https://wxyhly.github.io/DichuuConlang/)).
     
@@ -13,4 +15,5 @@ Hqak \[International Phonetic Alphabet: ʁak (Pronunciation "Rac" in French), Pr
     [DichuuCraft](https://github.com/dichuucraft/)
 
 ## About English Translation
-Thanks to **[Ilya Sheprut](https://github.com/optozorax)** for creating this English version of the website by AI and guiding me using GitHub Actions to automate blog updates. All translation revisions is in progress.
+This website is originally written in Chinese (accesible in navigation bar). Thanks to **[Ilya Sheprut](https://github.com/optozorax)** for helping me creating this English website by AI and guiding me using GitHub Actions to automate blog updates. I'm revising all the AI translations, still in progress.
+</div>

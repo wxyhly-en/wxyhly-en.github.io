@@ -1,10 +1,13 @@
 ---
-title: "Four-Dimensional World (4): Vision of Two-Dimensional Beings"
+title: "4D World (IV): Vision of 2D Beings"
 date: 2020-01-12 19:45:04
 tags: 
   - Peculiar Imagination
   - Series Articles
-categories: Four-Dimensional World Series
+categories: 4D World Series
+index_img: /img/eye2d001.svg
+excerpt: Many literary works have mentioned fictional 2D flat worlds. We'll experience the first-person perspective of flat beings with computers. This is a pre-excercise for the vision of 4D beings.
+
 ---
 
 Many literary and cinematic works have mentioned fictional two-dimensional flat worlds and their inhabitants, because people are very interested in various effects brought by dimensional changes, such as physical laws, biological and mechanical structural design, etc. Today we'll look at something people often overlook: the vision of two-dimensional beings. We won't stop at the descriptive level, but will truly experience the first-person perspective of flat beings with the help of computers. Of course, we care about the experience of 2D people to **do a pre-excercise for understanding the vision of four-dimensional beings**.
@@ -70,16 +73,16 @@ Even with stereo vision, they can't see clearly, can they? Now the interior of t
 
 And our Lena photo becomes like this:
 ![Top: Photo seen from a 2D person's perspective. Bottom: Looking at the transparent photo from a certain angle in 3D](/img/eye2d007.gif)
-### Cross-Section Scanning Method
+### Cutting line Scanning Method
 
-Although this method is theoretically feasible, actual photos contain too much information, and 2D beings cannot distinguish these stacked pixels well. There's another method: since compressing 2D directly to 1D results in too much information causing unclear vision, we might as well just look at images on some cross-section lines, indirectly reading all the content on the screen by scanning the entire image with cross-sections, a bit like the CT scanning process. Although this method can see each pixel clearly, the positional relationships of these pixels are far less direct and clear than the first method. Is there a method that combines the advantages of both? I'm afraid it's hard to find.
+Although this method is theoretically feasible, actual photos contain too much information, and 2D beings cannot distinguish these stacked pixels well. There's another method: since compressing 2D directly to 1D results in too much information causing unclear vision, we might as well just look at images on some cutting lines, indirectly reading all the content on the screen by scanning the entire image with cross-sections, a bit like the CT scanning process. Although this method can see each pixel clearly, the positional relationships of these pixels are far less direct and clear than the first method. Is there a method that combines the advantages of both? I'm afraid it's hard to find.
 
 Now let's try to operate on 2D people's computers from their perspective, viewing some 3D scenes in first person. Let's first return to a normal 2D screen to look at this 3D scene, then look at it again on 2D people's 1D screen. Best viewed in Chrome. If you're using a phone, skip ahead and look at the images below...
 **Key Instructions:**
 - 3D Control: Keyboard **WASD** for character movement up/down/left/right, move mouse left/right or press keyboard **JL** to look at different horizontal directions; scroll **mouse wheel** or press keyboard **IK** to look at different vertical directions (look up/down). Not using mouse movement in all directions to control orientation is also to get closer to the 2D person's experience: they can only move their mouse on the one-dimensional ground. (Using the scroll wheel is also to adapt to our future operations in 4D space)
-- View Control: **Left/Right arrow keys** / Keyboard **ZW** to rotate 2D view
+- View Control: **Left/Right arrow keys** / Keyboard **ZX** to rotate 2D view
 
-<iframe src="/three/3dviewer42der.html?iframe" width="100%" height="466" scrolling="no"></iframe>
+<iframe src="/three/3dviewer42der.html?iframe" width="100%" height="466" scrolling="no" style="background-color:rgb(255,255,255,0.8)"></iframe>
 
 We make two cuts horizontally and vertically through the center of our field of view, and draw these intercepted pixels separately for 2D people to see. Note that these cross-section color bands are also made in pairs for left and right eyes. Our ordinary photos can only show up/down/left/right, with front/back directional information already lost. But to better help 2D beings understand the 3D world, we use the kind of dual cameras with slightly different positions used for shooting 3D movies, selecting corresponding cross-sections on the two images respectively, thus allowing 2D people to have front/back stereo vision.
 I'm sure we're very familiar with 3D control operations, but note that real 2D people can only see the images in the top three rows of color bands. Only by constantly rotating the 2D image can they roughly know the content in the 2D view... I estimate 2D beings would mainly rely on the first two rows of cross-sections.

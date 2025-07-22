@@ -3,11 +3,12 @@ title: "【Minecraft】 2B2T Survival Diary: Escaping Spawn in One Go"
 tags:
   - Minecraft
   - 2b2t
+index_img: /img/2b2t/2019-09-10_13.07.06.jpg
 date: 2019-11-07 18:03:09
 ---
 
 
-2B2T (2b2t.org) is an ancient Minecraft server, famous for being unmoderated and chaotic. There are many clickbait titles online that make it sound terrifying: "Veteran player survival rate only 20%! 2B2T Survival Guide, how many days can you survive?" Out of curiosity, I also wanted to challenge myself on this legendary server. I read several posts and saw that many players didn't last long before dying, but after joining the server, I discovered that as long as you master certain techniques, you can easily survive indefinitely. (Though I was indeed lucky - if I had spawned very close to origin, escaping would have been much more difficult.) I won't waste time introducing the server as there's plenty of information online - let me get straight to my experience.
+2B2T (2b2t.org) is the oldest anarchy server in Minecraft, famous for being unmoderated and chaotic. There are many clickbait titles online that make it sound terrifying: "Veteran player survival rate only 20%! 2B2T Survival Guide, how many days can you survive?" Out of curiosity, I also wanted to challenge myself on this legendary server. I read several posts and saw that many players didn't last long before dying, but after joining the server, I discovered that as long as you master certain techniques, you can easily survive indefinitely. (Though I was indeed lucky - if I had spawned very close to origin, escaping would have been much more difficult.) I won't waste time introducing the server as there's plenty of information online - let me get straight to my experience.
 
 First, this is an international server requiring a legitimate Mojang account (my ID was rakc at the time, now changed to hqak), and the server is crowded, requiring queuing to enter. Before joining, I did some preparation work and read some survival guides. The biggest threat to newcomers is hunger, as there's no food within several kilometers of spawn.
 <!--more-->

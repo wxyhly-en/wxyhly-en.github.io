@@ -1,40 +1,22 @@
 ---
-title: "Four-Dimensional Space (Part 13): Hyperspherical Harmonics"
+title: "4D Space (XIII): Hyperspherical Harmonics"
 tags:
   - Geometry
   - Algebra
-  - Four-dimensional
-categories: Four-Dimensional Space Series
+  - 4D
+categories: 4D Space Series
+index_img: /img/chemie004.jpg
 date: 2025-01-01 12:52:49
+excerpt: This time we'll look at standing wave patterns on hyperspheres — what Hyperspherical Harmonics look like. They are related to possible wave function shapes of 4D atoms (which I plan to explore in detail in the next article)
 ---
-
-<style>
-    .smallTable{
-         border:2px solid black;
-         max-width: 400px;
-    }
-    .smallTable td{
-        border:1px solid #AAA;
-        width: 50px;
-        text-align: center;
-    }
-</style>
-<p class="likecode">// This article only discusses solutions to certain partial differential equations on hyperspheres and does not involve imaginary four-dimensional world physics settings, hence it is categorized in the Four-Dimensional Space series.</p>
+<p class="likecode">// This article only discusses solutions to certain partial differential equations on hyperspheres and does not involve imaginary 4D world physics settings, hence it is categorized in the 4D Space series.</p>
 <p class="likecode">// Note: This article contains many formulas. Feel free to ignore the details and just appreciate the various wave functions.</p>
 
 ![Hyperspherical harmonics with 120/600-cell symmetry, image from Greg Egan's website](/img/chemie004.jpg)
-This time we'll look at standing wave patterns on hyperspheres—what Hyperspherical Harmonics look like. They are solutions to the Laplace equation on hyperspheres and are related to possible wave function shapes of four-dimensional atoms (which I plan to explore in detail in the next article). They can also accelerate four-dimensional ray tracing rendering through "hyperspherical harmonic lighting" algorithms. Perhaps readers are already familiar with spherical harmonics on spheres and know that their expressions are somewhat complex. This article will try to avoid these complicated expressions and understand them from a new perspective.
+This time we'll look at standing wave patterns on hyperspheres — what Hyperspherical Harmonics look like. They are solutions to the Laplace equation on hyperspheres and are related to possible wave function shapes of 4D atoms (which I plan to explore in detail in the next article). They can also accelerate 4D ray tracing rendering through "hyperspherical harmonic lighting" algorithms. Perhaps readers are already familiar with spherical harmonics on spheres and know that their expressions are somewhat complex. This article will try to avoid these complicated expressions and understand them from a new perspective.
+<a name="2d"></a>
 
-## Table of Contents
-- [Two-dimensional "Circular Harmonics"](/archives/hh/#2d)
-- [Three-dimensional Spherical Harmonics](/archives/hh/#3d)
-- [Homogeneous Harmonic Polynomials (Solid Harmonics)](/archives/hh/#pn)
-- [Four-dimensional Hyperspherical Harmonics](/archives/hh/#4d)
-- [Isoclinic Double Rotation Waves](/archives/hh/#spin)
-- [Highly Symmetric Standing Waves](/archives/hh/#symm)
-<!--more--><a name="2d"></a>
-
-## Two-dimensional "Circular Harmonics"
+## 2D "Circular Harmonics"
 Following convention, let's start with two dimensions. Imagine a circular thin membrane like a soap bubble that begins to deform and vibrate when subjected to external force (like flicking it with your finger). Simulating its vibration process is complex. Ignoring compression and stretching along the circumferential surface and considering only the spring-like restoring force in the perpendicular direction due to pressure differences, we obtain a second-order partial differential equation. The standard approach to solving it is called "separation of variables," which intuitively decomposes arbitrary vibrations on the circle by frequency like a Fourier transform, finding several basic standing wave vibration modes (i.e., particular solutions to the equation). Any vibration under arbitrary conditions can be obtained by superposing these standing waves with different amplitudes.
 
 The vibration modes on a circle are simple. Classified by the number of spatial vibration periods (also called angular quantum number), each class has two phase modes of sine and cosine vibrations. "Circular harmonics" are essentially trigonometric functions. These standing waves with different phases can be superposed to create traveling waves on the circle. Since these wave numbers coincide exactly with the quantum number concept in quantum mechanics, these period numbers are called angular quantum numbers.
@@ -71,26 +53,26 @@ Note that these standing wave functions are only amplitudes; actual motion requi
 </g>
 </svg></div>
 
-If a two-dimensional "hydrogen atom" existed, according to the Schrödinger equation, its electron's wave function distribution in the circumferential direction would match the standing waves on circles we analyzed, while the radial wave function would need to be solved based on the electron's potential energy function. Together, the resulting wave functions would be similar to three-dimensional atomic orbital shapes.
+If a 2D "hydrogen atom" existed, according to the Schrödinger equation, its electron's wave function distribution in the circumferential direction would match the standing waves on circles we analyzed, while the radial wave function would need to be solved based on the electron's potential energy function. Together, the resulting wave functions would be similar to 3D atomic orbital shapes.
 
-![Imaginary two-dimensional atom's two d-orbitals with different phases (angular quantum number 3)](/img/chemie002.png)
-We won't further analyze the electron's two-dimensional wave function here, but we can draw the following conclusions:
+![Imaginary 2D atom's two d-orbitals with different phases (angular quantum number 3)](/img/chemie002.png)
+We won't further analyze the electron's 2D wave function here, but we can draw the following conclusions:
 1. The wave function's total energy is quantized, called the principal quantum number $n$, which can take all natural numbers starting from 0.
 2. The wave function's total angular momentum is also quantized, called the angular quantum number $l$, which can only take integers (positive/negative corresponding to clockwise/counterclockwise traveling waves), and limited by total energy must satisfy $-n \leq l \leq n$. Note that high total energy with small angular quantum number is allowed, indicating the wave function mainly vibrates in the radial direction.<a name="3d"></a>
 
-## Three-dimensional Spherical Harmonics
-The three-dimensional problem becomes more complex. Two-dimensional vibrations only have radial and circumferential directions, described by two quantum numbers. Three-dimensional vibrations add another direction, requiring an additional quantum number. Solving after separation of variables in spherical coordinates encounters complex things like associated Legendre equations. In general: decompose the wave motion on a sphere into products and superpositions of longitudinal and latitudinal vibrations. Since longitude goes 360 degrees around, its vibration modes are the same as in two dimensions, taking all integers (positive/negative signs corresponding to sine/cosine phases). If we take the "north and south poles" as the $z$-axis, then vibrations along meridians represent rotation in the $xy$ plane, which can be interpreted as the angular momentum component in the $z$ direction, called the magnetic quantum number $m_l$. Vibrations along latitudes can have all natural number periods, but vibrations in this direction don't have a good physical interpretation. We still prefer to use the angular quantum number $l$ corresponding to total angular momentum, i.e., the sum of meridional and latitudinal vibration numbers.
+## 3D Spherical Harmonics
+The 3D problem becomes more complex. 2D vibrations only have radial and circumferential directions, described by two quantum numbers. 3D vibrations add another direction, requiring an additional quantum number. Solving after separation of variables in spherical coordinates encounters complex things like associated Legendre equations. In general: decompose the wave motion on a sphere into products and superpositions of longitudinal and latitudinal vibrations. Since longitude goes 360 degrees around, its vibration modes are the same as in two dimensions, taking all integers (positive/negative signs corresponding to sine/cosine phases). If we take the "north and south poles" as the $z$-axis, then vibrations along meridians represent rotation in the $xy$ plane, which can be interpreted as the angular momentum component in the $z$ direction, called the magnetic quantum number $m_l$. Vibrations along latitudes can have all natural number periods, but vibrations in this direction don't have a good physical interpretation. We still prefer to use the angular quantum number $l$ corresponding to total angular momentum, i.e., the sum of meridional and latitudinal vibration numbers.
 
 ![Image from Wikipedia Spherical harmonics entry, author: Krishnavedala](/img/chemie001.svg)
 When I first studied chemistry in high school and saw these electron orbital shapes, I was puzzled: s-orbitals are spheres, p-orbitals are three perpendicular dumbbells, d-orbitals have 4 that are flower petals in different orientations, but why does one d-orbital have a stick with a hula hoop shape? Now the mystery is solved: the consistency of the previous orbital shapes was just coincidence—they're all standing waves with different vibration frequencies in meridional and latitudinal directions that happen to look similar. (This coincidence has a reason—it reflects certain rotational properties of spherical harmonics)<a name="pn"></a>
 
 ## Homogeneous Harmonic Polynomials (Solid Harmonics)
 
-While we can qualitatively analyze standing wave patterns on circles and spheres, actually calculating spherical harmonic expressions is difficult. Before continuing to analyze four-dimensional hyperspherical harmonics, let's look at a new approach to handling spherical harmonics.
+While we can qualitatively analyze standing wave patterns on circles and spheres, actually calculating spherical harmonic expressions is difficult. Before continuing to analyze 4D hyperspherical harmonics, let's look at a new approach to handling spherical harmonics.
 
 The difficulty in calculating spherical harmonics stems from restricting the wave equation to the sphere's surface, where the Laplacian operator becomes very complex in spherical coordinates, making the equation hard to solve. The wave equation is actually simpler in Cartesian coordinates—just take second derivatives with respect to coordinates and add them up. If we ignore the spherical constraint and find special functions that permeate all of space, then restrict their domain to the sphere, we get **Solid Harmonics**. Don't confuse these with hydrogen atom electron wave functions. Wave functions concentrate near the origin, while solid harmonics are polynomials that grow larger farther from the origin.
 
-Specifically, we want to find spatial function fields $f(x,y,z)$ that don't vary much radially (since we only care about the sphere), satisfying the Laplace equation—standing waves of the entire three-dimensional space membrane vibrating in a fourth dimension. According to Taylor's theorem, any function satisfying certain conditions can be approximated by polynomials, so we only need to consider polynomial solutions. Furthermore, since we want minimal radial variation, we prefer homogeneous polynomials. This way, when coordinates are all scaled radially by factor k, we can factor out the coefficient uniformly without causing different shapes of spherical harmonics at different radii. Thus our focus narrows to **homogeneous harmonic polynomials**, where harmonic means satisfying the Laplace equation $\partial^2 f/\partial x^2 + \partial^2 f/\partial y^2 + \partial^2 f/\partial z^2 = 0$. Let's enumerate them by polynomial degree.
+Specifically, we want to find spatial function fields $f(x,y,z)$ that don't vary much radially (since we only care about the sphere), satisfying the Laplace equation—standing waves of the entire 3D space membrane vibrating in a fourth dimension. According to Taylor's theorem, any function satisfying certain conditions can be approximated by polynomials, so we only need to consider polynomial solutions. Furthermore, since we want minimal radial variation, we prefer homogeneous polynomials. This way, when coordinates are all scaled radially by factor k, we can factor out the coefficient uniformly without causing different shapes of spherical harmonics at different radii. Thus our focus narrows to **homogeneous harmonic polynomials**, where harmonic means satisfying the Laplace equation $\partial^2 f/\partial x^2 + \partial^2 f/\partial y^2 + \partial^2 f/\partial z^2 = 0$. Let's enumerate them by polynomial degree.
 
 ### Constants (s orbitals)
 Any constant has zero derivative, naturally satisfying the Laplace equation.
@@ -110,7 +92,7 @@ Observing the number of wave peaks in meridional and latitudinal directions for 
 </table>
 In general, more vibrations in the $x$ and $y$ directions indicate larger z-axis angular momentum components. For third-degree and higher polynomials it's similar, so I won't draw them out here—they match the s, p, d, f... orbital shapes we learn in chemistry.
 
-![Three-dimensional spherical harmonic shapes and corresponding homogeneous polynomials, image from Wikipedia](/img/chemie001.jpg)
+![3D spherical harmonic shapes and corresponding homogeneous polynomials, image from Wikipedia](/img/chemie001.jpg)
 Note: Some details we haven't covered:
 1. While the polynomials in the table are orthogonal in standard function space, they're not normalized—the true basis functions need to be multiplied by some ugly coefficients, which I've omitted for simplicity.
 2. Quantum mechanics conventionally uses complex spherical harmonics. For example, p-orbitals don't choose bases $x$, $y$, $z$, but rather $x+iy$, $x-iy$, $z$, because the latter are common eigenstates of angular momentum and z-axis angular momentum component. They can be viewed as traveling waves rotating around the $z$-axis formed by superposing standing waves of different phases, so amplitude is uniform everywhere while phase (hue) varies with rotation angle, looking like donuts.
@@ -118,9 +100,9 @@ Note: Some details we haven't covered:
 ![Left shows real spherical harmonics, right shows complex spherical harmonics which are all angular momentum eigenstates. The hue variation period corresponds to the magnetic quantum number Jz. Image from Wikipedia](/img/chemie002.jpg)
 <a name="4d"></a>
 
-## Four-dimensional Hyperspherical Harmonics
+## 4D Hyperspherical Harmonics
 
-Even if you don't know how to solve partial differential equations or understand group representation theory, using solid harmonic techniques we can roughly determine the distribution of four-dimensional hyperspherical harmonics and their quantum numbers. How should we choose quantum numbers? The simplest idea is: since we already know vibration modes on spheres, we can add another directional vibration through hyperspherical coordinates. Hyperspherical coordinates determine positions on hyperspheres like this: given a primary latitude determining a latitude hypersphere (like a latitude circle), then use regular spherical coordinates with secondary latitude and longitude to finally determine the point. Hyperspherical harmonic quantum numbers can use the same approach: first take the $w$-axis as the north-south pole direction, count waves in the $w$ direction, then look at total waves on the $xyz$ sphere, which subdivides like spherical harmonics into two steps: waves in the $xy$ plane, and remaining waves in the $z$ direction.
+Even if you don't know how to solve partial differential equations or understand group representation theory, using solid harmonic techniques we can roughly determine the distribution of 4D hyperspherical harmonics and their quantum numbers. How should we choose quantum numbers? The simplest idea is: since we already know vibration modes on spheres, we can add another directional vibration through hyperspherical coordinates. Hyperspherical coordinates determine positions on hyperspheres like this: given a primary latitude determining a latitude hypersphere (like a latitude circle), then use regular spherical coordinates with secondary latitude and longitude to finally determine the point. Hyperspherical harmonic quantum numbers can use the same approach: first take the $w$-axis as the north-south pole direction, count waves in the $w$ direction, then look at total waves on the $xyz$ sphere, which subdivides like spherical harmonics into two steps: waves in the $xy$ plane, and remaining waves in the $z$ direction.
 
 #### s orbitals (total angular quantum number 0):
 Only the constant term, no spatial wave fluctuations. Both quantum numbers are 0, which we put in this table:
@@ -165,7 +147,7 @@ Similar approach to d orbitals. First we want a standing wave vibrating entirely
 
 ## Hyperspherical Harmonics in Hopf Coordinates
 
-Since four-dimensional space's double rotation effect means $xy$ and $zw$ planes don't interfere, why not choose the angular momenta in these two planes as quantum numbers, i.e., count wave oscillations in the $xy$ plane and $zw$ plane separately? This approach corresponds to using another four-dimensional polar coordinate system—Hopf coordinates. We've already analyzed its advantages over the other hyperspherical coordinates. What differences will hyperspherical harmonics have in this coordinate system? As a reminder, starting in four dimensions we must use the direction of the angular velocity bivector, not the stationary rotation axis direction, to describe rotation. For example, $J_{xy}=1$ represents waves in the $xy$ plane, corresponding to rotation occurring in the $xy$ plane, with the $zw$ plane being the stationary rotation "axis."
+Since 4D space's double rotation effect means $xy$ and $zw$ planes don't interfere, why not choose the angular momenta in these two planes as quantum numbers, i.e., count wave oscillations in the $xy$ plane and $zw$ plane separately? This approach corresponds to using another 4D polar coordinate system—Hopf coordinates. We've already analyzed its advantages over the other hyperspherical coordinates. What differences will hyperspherical harmonics have in this coordinate system? As a reminder, starting in four dimensions we must use the direction of the angular velocity bivector, not the stationary rotation axis direction, to describe rotation. For example, $J_{xy}=1$ represents waves in the $xy$ plane, corresponding to rotation occurring in the $xy$ plane, with the $zw$ plane being the stationary rotation "axis."
 
 #### s orbitals (angular quantum number 0):
 Only the constant term, no spatial wave fluctuations. Both quantum numbers are 0, which we put in this table:
@@ -184,7 +166,7 @@ Also simple—four coordinate axes correspond to four bases. We count their spat
 </table>
 
 #### d orbitals (angular quantum number 2):
-Products of two coordinates are all harmonic (satisfy the Laplace equation), giving us 6 candidate bases: $xy$, $xz$, $xw$, $yz$, $yw$, $zw$. Additionally, observing that $(x^2)''=2$, such squared terms must appear in pairs to cancel each other for harmonicity, i.e., $x^2-y^2$, $x^2-z^2$, $x^2-w^2$, $y^2-z^2$, $y^2-w^2$, $z^2-w^2$ as 6 candidate bases. Similar to 3D, we find three of these six bases are linearly dependent. How to choose? Since we selected wave numbers in the $xy$ and $zw$ planes as quantum numbers, we prioritize keeping $x^2-y^2$ and $z^2-w^2$. For the third, we see that all previously selected bases have waves in xy or zw, i.e., the east-west and yin-yang longitude directions in four-dimensional hypersphere Hopf coordinates. Using those bases we can superpose a wave function vibrating only in the north-south direction (vibrating between $xy$ and $zw$ planes): $x^2+y^2-z^2-w^2$, which is our final basis. Counting by quantum numbers gives this table:
+Products of two coordinates are all harmonic (satisfy the Laplace equation), giving us 6 candidate bases: $xy$, $xz$, $xw$, $yz$, $yw$, $zw$. Additionally, observing that $(x^2)''=2$, such squared terms must appear in pairs to cancel each other for harmonicity, i.e., $x^2-y^2$, $x^2-z^2$, $x^2-w^2$, $y^2-z^2$, $y^2-w^2$, $z^2-w^2$ as 6 candidate bases. Similar to 3D, we find three of these six bases are linearly dependent. How to choose? Since we selected wave numbers in the $xy$ and $zw$ planes as quantum numbers, we prioritize keeping $x^2-y^2$ and $z^2-w^2$. For the third, we see that all previously selected bases have waves in xy or zw, i.e., the east-west and yin-yang longitude directions in 4D hypersphere Hopf coordinates. Using those bases we can superpose a wave function vibrating only in the north-south direction (vibrating between $xy$ and $zw$ planes): $x^2+y^2-z^2-w^2$, which is our final basis. Counting by quantum numbers gives this table:
 <div class="scroll-smallTable"><table class="smallTable">
 <tr><td>Jxy\Jzw</td><td>-2</td><td>-1</td><td>0</td><td>1</td><td>2</td></tr>
 <tr><td>-2</td><td></td><td></td><td>$x y$</td><td></td><td></td></tr>
@@ -245,9 +227,9 @@ f orbitals:
 <tr><td>3/2</td><td>$w^3-3z^2w$</td><td>$yz^2-yw^2$</td><td>$x^2w-y^2w$</td><td>$y^3-3x^2y$</td></tr>
 </table></div>
 
-This is no coincidence—the group structure of four-dimensional rotations explains this phenomenon well: four-dimensional rotations can be uniquely decomposed into superpositions of left and right isoclinic rotations, i.e., the direct product of left and right isoclinic rotation groups is a double cover of the four-dimensional rotation group, and each isoclinic rotation group is isomorphic to the double cover of the three-dimensional rotation group, i.e., the spin group.
+This is no coincidence—the group structure of 4D rotations explains this phenomenon well: 4D rotations can be uniquely decomposed into superpositions of left and right isoclinic rotations, i.e., the direct product of left and right isoclinic rotation groups is a double cover of the 4D rotation group, and each isoclinic rotation group is isomorphic to the double cover of the 3D rotation group, i.e., the spin group.
 
-One thing is quite strange: although left and right isoclinic rotation components $J^+$ and $J^-$ don't interfere and can have definite left and right rotation quantum numbers simultaneously, the bases in the tables above have equal total left and right isoclinic rotation magnitudes $J_L^2$ and $J_R^2$, producing only simple rotations. ($J^+$ is just one of the three components of $J_L$, like the relationship between $J_z$ and $J$ in three-dimensional space; similarly $J^-$ is one of the three components of $J_R$.) Expanding the calculation shows that the operator reflecting bivector singularity simplifies to 0, i.e., $J\wedge J=2(J_{xy}J_{zw}-J_{xz}J_{yw}+J_{xw}J_{yz})=0$, which further gives $J_L^2=J_R^2$ always holds, meaning no wave phenomena related to double rotations exist. You might ask: can't I superpose angular momentum eigenstates in the xy and zw planes separately to get a double rotation state? Calculation shows that while such a superposition state has $J^+$ and $J^-$ with one greater than 0 and one equal to 0, these are just components of left and right isoclinic rotations—$J_L^2$ and $J_R^2$ are still equal.
+One thing is quite strange: although left and right isoclinic rotation components $J^+$ and $J^-$ don't interfere and can have definite left and right rotation quantum numbers simultaneously, the bases in the tables above have equal total left and right isoclinic rotation magnitudes $J_L^2$ and $J_R^2$, producing only simple rotations. ($J^+$ is just one of the three components of $J_L$, like the relationship between $J_z$ and $J$ in 3D space; similarly $J^-$ is one of the three components of $J_R$.) Expanding the calculation shows that the operator reflecting bivector singularity simplifies to 0, i.e., $J\wedge J=2(J_{xy}J_{zw}-J_{xz}J_{yw}+J_{xw}J_{yz})=0$, which further gives $J_L^2=J_R^2$ always holds, meaning no wave phenomena related to double rotations exist. You might ask: can't I superpose angular momentum eigenstates in the xy and zw planes separately to get a double rotation state? Calculation shows that while such a superposition state has $J^+$ and $J^-$ with one greater than 0 and one equal to 0, these are just components of left and right isoclinic rotations—$J_L^2$ and $J_R^2$ are still equal.
 
 Why are there no double rotation wave functions? My personal understanding is: since isoclinic double rotation trajectories on hyperspheres form the Hopf fibration, if such traveling waves existed, they would only change phase along Hopf fibers with no waves in other directions. Constructing such functions would be equivalent to describing any point on the hypersphere directly by its phase and which fiber it's on, essentially mapping the hypersphere $\mathrm S^3$ one-to-one onto the non-homeomorphic $\mathrm S^2\times \mathrm S^1$. In other words, there would exist wavefronts of constant phase on the Hopf fibration, but the Hopf fibration has no such global section structure.<a name="symm"></a>
 
@@ -263,16 +245,16 @@ Greg Egan didn't stop at three dimensions—he used similar methods to find stan
 
 ## Applications of Hyperspherical Harmonics
 
-Finally, let's discuss some practical uses of hyperspherical harmonics. Like Fourier series and spherical harmonics, they form a complete orthogonal basis for functions on hyperspheres, allowing compression and storage of global illumination information in four-dimensional scene rendering through methods similar to 3D. For an explanation of the principles of 3D spherical harmonic lighting, see [this video course "GAMES202-High Quality Real-time Rendering"](https://www.bilibili.com/video/BV1YK4y1T7yY?p=6).
+Finally, let's discuss some practical uses of hyperspherical harmonics. Like Fourier series and spherical harmonics, they form a complete orthogonal basis for functions on hyperspheres, allowing compression and storage of global illumination information in 4D scene rendering through methods similar to 3D. For an explanation of the principles of 3D spherical harmonic lighting, see [this video course "GAMES202-High Quality Real-time Rendering"](https://www.bilibili.com/video/BV1YK4y1T7yY?p=6)(In Chinese).
 
-Additionally, while four-dimensional hyperspherical harmonics exceed our real three-dimensional space and seem impractical, when solving multi-quantum problems in the three-dimensional world, their wave functions exist in spaces with dimensions greater than three. This is where four-dimensional and higher hyperspherical harmonics become useful—see books like "Hyperspherical Harmonics and Their Physical Applications."
+Additionally, while 4D hyperspherical harmonics exceed our real 3D space and seem impractical, when solving multi-quantum problems in the 3D world, their wave functions exist in spaces with dimensions greater than three. This is where 4D and higher hyperspherical harmonics become useful—see books like "Hyperspherical Harmonics and Their Physical Applications."
 
 ## References
 [[1] Harmonic polynomials, hyperspherical harmonics, and atomic spectra](https://www.sciencedirect.com/science/article/pii/S0377042709001411#fd5)
 This paper describes constructing hyperspherical harmonics through harmonic polynomials and derives that the eigenvalue of the angular momentum squared operator in $d$ dimensions is $l(l+d-2)$, where $l$ is the angular quantum number.
 
 [[2] Hyperspherical harmonics with arbitrary arguments](https://arxiv.org/pdf/0807.2128)
-This paper describes hyperspherical harmonics in two four-dimensional polar coordinates and gives the correspondence between their quantum numbers.
+This paper describes hyperspherical harmonics in two 4D polar coordinates and gives the correspondence between their quantum numbers.
 
 [[3] Greg Egan. Symmetric Waves](https://www.gregegan.net/SCIENCE/SymmetricWaves/SymmetricWaves.html)
 Greg Egan's original website article.

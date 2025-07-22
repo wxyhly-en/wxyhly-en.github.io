@@ -1,78 +1,78 @@
----
-title: Programs - JS小程序
+title: Programs - JS applet
 date: 2019-03-30 20:30:29
+layout: page
 ---
-## [四维化学（Chem4D）](https://wxyhly.github.io/Chem4D/)
-一个假想的四维化学常见物质结构式查看器，并支持与Tesserxel示例库交互生成4D分子模型。四维元素设定详见[《四维世界（十一）：元素周期表》](/archives/elem4d/)。
-- [元素周期表纯享版链接](https://wxyhly.github.io/Chem4D/periodic/)
-<img src="/img/chemie006.jpg" style="max-width:500px;width:100%" alt="Tesserxel示例库中的四维分子">
+<div class="markdown-body">
 
-## [Deductrium（推理元素）](https://wxyhly.github.io/deductrium/)
-一个在浏览器中用Typescript实现的数学形式系统与双曲空间结合的游戏。目前包含命题逻辑、一阶逻辑、皮亚诺公理、ZFC集合论与一些序数和类型论的内容。点击这里查看：（非必须，游戏内有引导） 1. [游戏介绍](https://github.com/wxyhly/deductrium/blob/main/readme.md)； 2. [集合论简介](/archives/1stlogic/)； 3. [类型论简介](/archives/hottese/)。
+## [Chem4D (4D Chemistry)](https://wxyhly.github.io/Chem4D/)
+A conceptual viewer for common substance structures in four-dimensional chemistry, supporting interaction with the Tesserxel demo library to generate 4D molecular models. See [“4D World (XI): The Periodic Table”](/archives/elem4d/) for the element system.
+- [Link to the simplified version of the Periodic Table](https://wxyhly.github.io/Chem4D/periodic/)
 
-如果觉得游戏太难，我还提供了一个Deductrium创造模式，链接请在博文中自行寻找。创造模式中，可直接解锁所有的公理系统，并提供了很多现成的定理，然而该模式下无法体验双曲空间以及序数系统等游戏内容。
-这里再给一个生存模式游戏进度存档：可直接跳到开启类型论的地方：复制下面的进度码。
+![4D molecules from the Tesserxel demo library](/img/chemie006.jpg?size=500x)
+## [Deductrium](https://wxyhly.github.io/deductrium/)
+A browser-based game combining mathematical formal systems and hyperbolic space using TypeScript. Includes propositional logic, first-order logic, Peano axioms, ZFC set theory, and some ordinal and type theory content. See: 1. [Game Introduction](https://github.com/wxyhly/deductrium/blob/main/readme_en.md); 2. [Intro to Set Theory](/archives/1stlogic/); 3. [Intro to Type Theory](/archives/hottese/).
+
+If you find the game too difficult, a “Creative Mode” is available (link provided in related blog post), where all axiom systems are unlocked and many theorems are preloaded—but hyperbolic space and ordinals are disabled in this mode.  
+Here’s a survival mode save file for quick access to Type Theory: copy the following code.
 
 <textarea id="progress-hott" style="width:100%" disabled>.203U,6m1U,`]"2`,U:tl,2=,rt(.a]r"g],0",{)[32e`2{3}af,8,,1`]0.`U161.7["`1L5,`l0U-[m-7,)0[,,U-[2c8ljm-b"5`]4=,a[9,.`2..4"e`#j],0(,,,:`i`i9a,1"09.yo0,3(`p,rU[d73]}l.g`.-"j198]e.]c",)""p"-0fo[[U.o1ph=2#,</textarea>
 <script>
     const textarea = document.getElementById("progress-hott");
     textarea.onclick = window.onload = function() {
-        textarea.select(); // 全选内容
+        textarea.select(); // Select all content
     };
 </script>
 
-## [OrdMap（序数地图）](https://wxyhly.github.io/ordmap/)
-[[源码](https://github.com/wxyhly/ordmap)]
-序数是比所有自然数都大但小于绝对无穷的东西，概念详细解释参见[《大数数学简介》](/archives/ggg-ord/)。序数地图中序数最大到EBO，支持BOCF/MOCF与Veblen表示。
-![起点附近的序数地图](/img/ord006.png)
-手机端拖拽屏幕空白部分平移地图，点击加减号缩放。按住加减号不放往右边滑动可加速缩放；电脑端鼠标按住拖拽平移地图，滚轮缩放，按键盘T/G可调节缩放速率，按W/S键可调节迭代绘制深度。
+## [OrdMap (Ordinal Map)](https://wxyhly.github.io/ordmap/)
+[[Source Code](https://github.com/wxyhly/ordmap)]  
+Ordinals are larger than all natural numbers but still short of absolute infinity. See [“Introduction to Big Numbers”](/archives/ggg-ord/) for more. The map goes up to EBO, supports BOCF/MOCF and Veblen notation.  
+![Ordinal map near the origin](/img/ord006.png)  
+On mobile, drag the empty space to move the map, tap +/− to zoom. Hold +/− and swipe right to zoom faster. On PC, drag with the mouse, scroll to zoom, press T/G to change zoom speed, and W/S to adjust iteration depth.
 
 ## [Tesserxel](https://wxyhly.github.io/tesserxel/examples/#)
-[[源码](https://github.com/wxyhly/tesserxel)]
-全新的基于WebGPU的关于四维世界的引擎：代数、建模、渲染、物理……[这里是系列文章介绍](/categories/Tesserxel系列/)，以后将出详细游玩教程与开发教程。
-## [4D Viewer](/4dViewer/) 
-[[源码](https://github.com/wxyhly/4dViewer)]
+[[Source Code](https://github.com/wxyhly/tesserxel)]  
+A new WebGPU-based 4D engine for algebra, modeling, rendering, and physics. [Intro series here](/categories/Tesserxel系列/), detailed tutorials and guides coming soon.
 
-四维引擎Tesserxel的前身，是一个使用立体视野来显示四维空间的js库（类似Three.js），目标是尽让我们可能体会到四维人的三维视觉。附带一些Demo，比如超立方体、正多胞体、关卡游戏等等。
+## [4D Viewer](/4dViewer/)  
+[[Source Code](https://github.com/wxyhly/4dViewer)]  
+The precursor to Tesserxel, this JS library (like Three.js) renders 4D spaces with stereoscopic vision to help humans imagine 4D perception. Includes demos like hypercubes, polytopes, and puzzle levels.
 
-[使用教程点这里](/archives/eye3d/)
+[Usage guide here](/archives/eye3d/)
 
-### 4D 刚体物理引擎
-4D Viewer中的简单的4D刚体物理引擎，有一些交互式的场景，如锁链、齿轮、汽车、积木、陀螺等。现已移植进新版四维引擎Tesserxel。
+### 4D Rigid Body Physics Engine  
+A simple 4D rigid body engine inside 4D Viewer with interactive scenes: chains, gears, cars, blocks, tops, etc. Now ported to Tesserxel.  
+[Details and tutorial here](/archives/newton4/)
 
-[详情与教程点这里](/archives/newton4/)
+### [Minecraft4D](/4dViewer/minecraft4d/)  
+- Minecraft-style game using 4D ray tracing and 3D textures on hypercubes  
+- Infinite procedural world with 4D terrain, biomes, villages  
+- Supports a Minecraft-like command system including teleport and fill commands  
+- Save/load for global and local structures  
 
-### [Minecraft4D](/4dViewer/minecraft4d/) 
-- 基于四维光线跟踪的Minecraft游戏，超立方体方块表面采用3D贴图
-- 基于种子的随机无限地图，所有景观与结构都是四维的，不同生物群系和村庄等着你来探索！
-- 支持Minecraft中类似的命令系统，包括传送、快速填充选区（类似于MC的worldedit插件）等
-- 支持世界与局部结构的保存
+[Tutorial here](/archives/mc4tutorial/)
 
-[游戏教程点这里](/archives/mc4tutorial/)
+## [Computer Piano](/Eop/)  
+[[Source Code](https://github.com/wxyhly/Eop)]  
+![Screenshot: editing “Frère Jacques”](img/eopplt002.png)  
+A personalized keyboard piano app. No keybinding options, adapted for improvised playing. Supports MIDI import/export, note editing, multitrack, and basic MIDI controls (7, 64), with features like quantization, velocity adjustment, and speed recording. Also includes non-piano sounds.
 
+[More details here](/archives/Eop-Analogue/)
 
-## [电脑钢琴](/Eop/) 
-[[源码](https://github.com/wxyhly/Eop)]
-![编辑钢琴“两只老虎”截图](img/eopplt002.png)
-一个定制化的键盘钢琴小程序，我根据自己的习惯进行了改良，有各种变调、移调的方式，所以没有键位设置选项，适合即兴。可以导入导出MIDI文件，编辑音符,支持多音轨和少数MIDI控制器(7、64)，有对齐网格量化、力度调节、速度录制等功能。此外除了钢琴还可选其他几个音色。
+## JS Applet Collection in Blog Posts
+- [[Original](/archives/subspace-angle/)] [Angle ranges of Planes](/three/angle_range.html)
+- [[Original](/archives/eye2d/)] [Experience 2D perspective in 3D world](/three/3dviewer42der.html)
+- [[Original](/archives/orbit4d/)] [Solar altitude on 4D planets](/three/4dOrbit.html)
+- [[Original](/archives/projearth/)] Mercator projection:
+    + [Mercator projections in different Earth orientations](/three/shaderEarth.html)
+    + [Mercator projection of regular polyhedral](/three/ployhedralEarth.html)
+- [[Original](/archives/escher1/)] [Hyperbolic tiling model](/three/HyperbolicSpace.html)
+- [[Original](/archives/josleys4ds/)] [Lattice space from Dimension Film's preview](/three/LatticeViewer.html)
+- [[Original](/archives/fibration4ds/)] Hopf fibration:
+    + [Three orthogonal Hopf fibrations](/three/Hopf%20fibre1.html)
+    + [Part of a Hopf fibration](/three/Hopf%20fibre2.html)
+    + [Orthogonal projection of Hopf fibration](/three/Hopf%20fibre3.html)
 
-[点这里查看详情](/archives/Eop-Analogue/)
+## Other WebGL Mini Demos
+- [Latitude and longitude on a 4D planet in Hopf coordinates](/three/mercator.html)
 
-## 博文中的JS小程序集合
-- [[原文](/archives/eye2d/)] [体验二维人看三维场景](/three/3dviewer42der.html)
-- [[原文](/archives/orbit4d/)] [计算四维星球上的太阳高度角](/three/4dOrbit.html)
-- [[原文](/archives/projearth/)] 墨卡托投影
-    + [地球不同方向上的墨卡托投影](/three/shaderEarth.html)
-    + [正多面体的墨卡托投影](/three/ployhedralEarth.html)
-- [[原文](/archives/escher1/)] [双曲镶嵌模型](/three/HyperbolicSpace.html)
-- [[原文](/archives/josleys4ds/)] [维度数学漫步预告片中的格子空间](/three/LatticeViewer.html)
-- [[原文](/archives/fibration4ds/)] Hopf纤维丛
-    + [三个正交的Hopf纤维丛](/three/Hopf%20fibre1.html)
-    + [Hopf纤维丛的一部分](/three/Hopf%20fibre2.html)
-    + [Hopf纤维丛的正交投影](/three/Hopf%20fibre3.html)
-    + [Hopf纤维丛的正交投影](/three/Hopf%20fibre4.html)
-
-
-## 其他WebGL小Demo集合
-- [四维星球Hopf坐标地图经纬线](/three/mercator.html)
-
+</div>

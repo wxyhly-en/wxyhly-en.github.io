@@ -4,6 +4,7 @@ tags:
   - Chemistry
   - Peculiar Imagination
 date: 2016-05-18 13:10:07
+index_img: /img/chemical-planets.jpg
 categories: Peculiar World Series
 ---
 

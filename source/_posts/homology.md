@@ -6,6 +6,8 @@ tags:
   - Graphics
   - Mathematics
 date: 2022-12-18 12:00:37
+index_img: /img/homology012.png
+excerpt: We'll talk about Homology Groups, the notions of chains, boundaries, and provide concrete examples of their computation. We'll explain Poincaré duality and introduce de Rham cohomology, which connects field theory with topology.
 ---
 
  

@@ -5,25 +5,14 @@ tags:
   - Group Theory
   - Series Articles
 date: 2017-05-22 23:51:03
+index_img: /img/group1img5.gif
+excerpt: Why do quintic equations have no radical solutions? Galois provided a perfect answer using group theory. Most engineering students haven't studied group theory or abstract algebra. I plan to write a series of articles, hoping to explain everything starting from zero foundation.
 ---
 
 Why do quintic equations have no radical solutions? Galois provided a perfect answer using group theory. For the history and introduction of group theory, I highly recommend this article "[Finite Simple Groups: A Century-Long Journey](http://songshuhui.net/archives/57697)".
 But what specific knowledge do we need to understand Galois theory? Most engineering students haven't studied group theory or abstract algebra. I plan to write a series of articles, hoping to explain everything starting from zero foundation. Our main thread is understanding Galois theory, though groups have many other applications in mathematics, physics, and chemistry, and I'll cover some of these other applications.
-<div style="float:right">
-
 ![Cayley graph of symmetric group S4](/img/group1img5.gif)
 
-</div>
-
-## Table of Contents
- - [What is a Group?](/archives/group1/#a1)
- - [Cyclic Groups](/archives/group1/#a2)
- - [Subgroups](/archives/group1/#a3)
- - [Cosets and Lagrange's Theorem](/archives/group1/#a4)
- - [Symmetric Groups](/archives/group1/#a5)
- - [Quotient Groups](/archives/group1/#a6)
- - [Alternating Groups](/archives/group1/#a7)
- - [Simple Groups](/archives/group1/#a8)
 <!--more--><a name="a1"></a>
 
 ## What is a Group?
@@ -37,7 +26,7 @@ Let a, b, and c be arbitrary elements of G. Then:
 The multiplication operation mentioned in the definition is not actual multiplication, but rather an operation satisfying certain requirements. I think calling it a "composition operation" would be less misleading than multiplication. We just denote it as \*: a\*b represents doing operation b first, then operation a. (The right-to-left notation is just to be consistent with the convention for composite functions $f*g(x)=f(g(x))$)
 <a target="_self" href="javascript:void(0)" onclick="var spanNumber=2;$('#proof'+spanNumber).toggle();setJax();$('#preuve'+spanNumber).text($('#preuve'+spanNumber).text()=='Show'?'Hide':'Show')"><span id="preuve2">Show</span> detailed explanation of these four axioms using addition as an example</a>
 
-<div id="proof2" style="display:none"><ol><li>First, each element in a group's set is an "operation", and any two elements can be multiplied to get another element in the set, i.e., the composition of two operations. For example, integers with integer addition form a group, where element n represents the operation +n, and the composition of elements n and m is the operation +n+m = +(n+m), corresponding to element n+m.</li><li>(a\*b)\*c = a\*(b\*c) because both sides represent the composite operation "first c, then b, then a".</li><li>Groups also require an "identity element", i.e., "no operation", like adding 0. This operation composed with any operation a is still operation a.</li><li>The multiplication operation in groups defined this way seems too broad - it seems all operations could satisfy it. So we require that each operation can find a corresponding "inverse operation" in the group, such that the composition of these two operations is the identity element "no operation". For example, in addition, the inverse of +n is -n, and their composition is adding 0. So integers with integer addition satisfy the group requirements, but natural numbers with addition don't work, because the inverse of adding a natural number is a negative number, which isn't in the natural number set.</li></ol>
+<div id="proof2" style="display:none"><ol><li>First, each element in a group's set is an "operation", and any two elements can be multiplied to get another element in the set, i.e., the composition of two operations. For example, integers with integer addition form a group, where element n represents the operation +n, and the composition of elements n and m is the operation +n+m = +(n+m), corresponding to element n+m.</li><li>(a*b)*c = a*(b*c) because both sides represent the composite operation "first c, then b, then a".</li><li>Groups also require an "identity element", i.e., "no operation", like adding 0. This operation composed with any operation a is still operation a.</li><li>The multiplication operation in groups defined this way seems too broad - it seems all operations could satisfy it. So we require that each operation can find a corresponding "inverse operation" in the group, such that the composition of these two operations is the identity element "no operation". For example, in addition, the inverse of +n is -n, and their composition is adding 0. So integers with integer addition satisfy the group requirements, but natural numbers with addition don't work, because the inverse of adding a natural number is a negative number, which isn't in the natural number set.</li></ol>
 </div>
 
 Note: The group axioms **do not require multiplication to be commutative**, meaning two operations in different orders are different. For example, matrix multiplication and geometric rotations and translations: imagine a person walking forward one meter then turning left 90°, versus turning left 90° then walking forward one meter - the final results are different.

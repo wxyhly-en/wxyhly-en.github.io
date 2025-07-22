@@ -5,9 +5,10 @@ tags:
   - javascript
   - mathematics
   - games
+index_img: /img/ord008.png
 date: 2024-08-25 23:49:15
 ---
-<img style="max-width:300px" src="/img/ord008.png" alt="Fast-growing hierarchy functions can convert ordinals into super large numbers through continuous nesting"/>
+![Fast-growing hierarchy functions can convert ordinals into super large numbers through nesting](/img/ord008.png?size=300x)
 
 Last year [CFY](https://hadroncfy.com/) suddenly became interested in "googology" and "ordinals", and even recommended an "ordinal incremental" game [Ordinal Markup](https://patcailmemer.github.io/Ordinal-Markup/) to me, and then I unfortunately fell into the rabbit hole. ![All ordinals before the limit ordinal $\omega^\omega$](/img/ord001.png)<!--more-->
 
@@ -27,7 +28,7 @@ Now let's talk about the protagonist of googology—ordinals. Ordinals are thing
 $$0=\left\\{\right\\}=\phi$$$$1=\left\\{0\right\\}$$$$2=\left\\{0,1\right\\}$$$$3=\left\\{0,1,2\right\\}$$$$...$$Observing carefully, we find $x+1=x\cup\left\\{x\right\\}$, for example $5=\left\\{0,1,2,3,4\right\\}$, $6=5\cup\left\\{5\right\\}=\left\\{0,1,2,3,4,5\right\\}$
 The set of all natural numbers $\left\\{0,1,2,3,....\right\\}$ is certainly no longer a natural number, but if we forcibly treat it as a number, we can transcend infinity and continue counting upward—these are "ordinals". Let $\omega=\left\\{0,1,2,3,....\right\\}$ then$$\omega+1=\omega\cup\left\\{\omega\right\\}$$This way we have$$\omega+2$$$$\omega+3$$$$...$$And the number containing all the above ordinals is called $\omega+\omega$, also written as $\omega2$. Continuing this expansion leads to $\omega3$, $\omega4$, until the limit $\omega^2$, then continuing to $\omega^2+1$, $\omega^2+\omega$, $\omega^2 2$, $\omega^3$ and so on. We see that an ordinal is either a successor ordinal: obtained by adding one to an ordinal, or a limit ordinal: obtained by encompassing infinitely many previous ordinals. Although limit ordinals exist, just like natural numbers, there is never a largest ordinal: just add one to it.
 
-<div style="background-color:#EEF">
+<div style="background-color:var(--color-EEF)">
 
 Optional reading: Continuing this enumeration reaches $\omega^\omega$, $\omega^{\omega^\omega}$. Perhaps you think the next ones would be $\omega\uparrow^4 \omega$, $\omega\uparrow^\omega \omega$, $\omega\uparrow^{\omega\uparrow^\omega \omega} \omega$ etc., but due to infinity, many operational rules between ordinals differ from natural numbers. For example, addition and multiplication no longer have commutativity ($2\omega$ means adding $\omega$ twos together, the limit is still $\omega$; adding two $\omega$s gives the larger $\omega 2$), so we can't generalize to the fourth-level operation after exponentiation. Beyond this, we can only continue by introducing many fixed points of exponential tower iteration, fixed points of fixed points of fixed points... For details, see the Veblen $\varphi$ function in the ordinal tutorials linked later.</div>
 
@@ -58,13 +59,16 @@ If you want to continue learning about large ordinals in depth, you can refer to
 ### Tools
 - [Naruyoko's googology-related calculation tools](https://naruyoko.github.io/googology/): Including BMS and 0-Y sequence converters, mountain diagrams for various Y-sequences, online fundamental sequence calculators, etc. He has also implemented online calculators for many large number notations I've never heard of.
 - [Ordinal Browser](https://rgetar.github.io/), highly recommended, can arbitrarily expand fundamental sequences of limit ordinals, and you can choose your preferred ordinal representation.
+
 ![Ordinal Browser expanding fundamental sequences of ordinals](/img/ord002.png)
 ![Ordinal Browser settings to represent everything using "0", "[c]" (equivalent to $\Omega$), "+" and BOCF $\psi$ function](/img/ord003.png)
 - My own [Ordinal Map](/ordmap/), similar to Ordinal Browser, but uses a more visual method to display ordinals: just zoom like an online map to find all ordinals (currently maximum ordinal reaches EBO, supports BOCF/MOCF and Veblen representation, may plan to support recursively inaccessible ordinal I etc. in the future), no need to click any expand buttons.
+
 ![Ordinal Map near the starting point](/img/ord006.png)
 Operation tips:
 1. Mobile: Drag blank areas to pan the map, click plus/minus to zoom. Hold plus/minus and slide right to accelerate zooming.
 2. Desktop: Click and drag to pan the map, scroll wheel to zoom, press T/G keys to adjust zoom rate, press W/S keys to adjust iterative rendering depth.
+
 ![Ordinal Veblen functions and BOCF functions in the Ordinal Map](/img/ord005.png)
 
 ## Non-recursive Ordinals

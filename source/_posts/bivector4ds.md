@@ -1,46 +1,25 @@
 ---
-title: "Four-Dimensional Space (VII): N-Dimensional Vectors"
+title: "4D Space (VII): N-Dimensional Vectors"
 date: 2016-04-23 20:20:48
-categories: Four-Dimensional Space Series
+categories: 4D Space Series
 tags:
-- Four-Dimensional
+- 4D
 - Algebra
 - Series Articles
 - Mathematics
+excerpt: Calculations are essential for programming 4D graphics. It's time to talk about quantitative calculations in 4D. Feature Content - Using "2D vectors" to represent planes to solve angle problems.
+index_img: /img/N_vector_positive.png
 ---
-<div style="padding-left:25px;float:right"><img src="/img/N_vector_positive.png" width="200" height="380"/><p>Image from en.wikipedia: Geometric meaning of multivectors</p></div>
-<span class="likecode">
 
-\# This series discusses geometry in pure space, but some properties of **k-vectors** discussed in this article also hold in four-dimensional spacetime (just with different metrics). This article requires high mathematical ability: many mathematical formulas will appear. **k-vectors** have applications in physics beyond relativity (spacetime), see <span style="color:#F00">CFY's article [Angular Velocity, Axial Vectors, Bivectors](http://hadroncfy.com/articles/2016/04/21/axial-vectors/) which introduces k-vectors from physics.</span>
+<span class="likecode"># This series discusses geometry in pure space, but some properties of **k-vectors** discussed in this article also hold in four-dimensional spacetime (just with different metrics). This article requires high mathematical ability: many mathematical formulas will appear. **k-vectors** have applications in physics beyond relativity (spacetime), see <span style="color:#F00">CFY's article [Angular Velocity, Axial Vectors, Bivectors](http://hadroncfy.com/articles/2016/04/21/axial-vectors/) which introduces k-vectors from physics.</span></span>
 
-</span>
-<a name="index"></a>
-
-## Featured Content
- - Using "2-dimensional vectors" to represent planes
- - Calculating angles using vector inner and outer products
- - Singular (non-simple) bivectors
- - Bivectors generating rotation
+![Image from en.wikipedia: Geometric meaning of multivectors](/img/N_vector_positive.png?size=300x)
 
 　　It's time to talk about quantitative calculations in four-dimensional space. On one hand, this can verify the correctness of our geometric intuition, otherwise our intuition is just blind guessing without evidence; on the other hand, calculations are essential for programming 4D graphics.
  <!--more-->
-### Table of Contents:    
- - [Vectors No Longer Suit 4D Geometry](/archives/bivector4ds/#jihe)
- - [Wedge Product and Bivectors](/archives/bivector4ds/#bivector)
- - [Bivector Inner Product and Its Meaning](/archives/bivector4ds/#dot)
- - [Generalizing the Cross Product](/archives/bivector4ds/#dual)
-   + [Hodge Dual](/archives/bivector4ds/#dual)
-   + [Bivector Outer Product](/archives/bivector4ds/#cross)
-   + [Geometric Meaning](/archives/bivector4ds/#shape)
- - [Perfect Solution to the Problem](/archives/bivector4ds/#parfait)
- - [Dark Clouds](#nuage)
- - [Singular (Non-simple) Bivectors](/archives/bivector4ds/#strange)
- - [Dual Decomposition](/archives/bivector4ds/#dualde)
- - [Orthogonal Decomposition](/archives/bivector4ds/#orth)
- - [Relationship with Rotation Matrices: Generators](/archives/bivector4ds/#gen)
 <a name="jihe"></a>
 
-### Vectors No Longer Suit Four-Dimensional Geometry
+### Vectors No Longer Suit 4D Geometry
 　　It is well-known that n-dimensional vector dot and cross products can calculate angles and normal vectors. The dot product has long been extended to N dimensions, so calculating line-line angles is no problem. In three-dimensional space, when we encounter a plane, we use its normal vector to participate in angle calculations—because the plane's normal vector direction is unique; for three-dimensional cells in four-dimensional space, we also use their normal vectors for calculations—because their normal vector direction is also unique. But the problem is: a plane's **normal vector is not unique**. In 4D space, a plane's normal space is also two-dimensional, meaning the normal plane is also a plane. This way **we can never convert to vector solutions**!
 　　Of course, planes can be written in analytical form: the intersection of two cell equations, but it's too cumbersome—do you like using intersection equations to represent lines in 3D solid geometry?
 　　Planes can be represented by vectors: $\vec x=\lambda\vec m+\mu\vec n {,}\lambda,\mu\in \mathbf R$, but the choice of vectors and parameters here is arbitrary, and it's inconvenient for calculations. We can only break through on another level: **extend the cross product to higher dimensions**.
@@ -61,11 +40,11 @@ tags:
 
   This correspondence is called the **Hodge dual**, which we'll use extensively later.
 
-  - Four-dimensional case
+  - 4D case
   　　In four-dimensional space, lines and planes (bivectors) no longer have a one-to-one correspondence:
 　　Let $\vec m=(x_1,y_1,z_1,w_1), \vec n=(x_2,y_2,z_2,w_2)$, then$$\begin{align} \vec m\wedge\vec n&=(x_1\vec e_x+y_1\vec e_y+z_1\vec e_z+w_1\vec e_w)\wedge(x_2\vec e_x+y_2\vec e_y+z_2\vec e_z+w_2\vec e_w) \\\\ &=(x_1y_2-x_2y_1)e_x\wedge e_y+(x_1z_2-x_2z_1)e_x\wedge e_z+(x_1w_2-x_2w_1)e_x\wedge e_w+(y_1z_2-z_1y_2)e_y\wedge e_z+(y_1w_2-w_1y_2)e_y\wedge e_w+(z_1w_2-w_1z_2)e_z\wedge e_w\end{align}$$
 　　We see that bivectors in four-dimensional space have six independent components, which are pairwise combinations of coordinates, with component magnitudes being cross multiplication then subtraction of the two coordinates. Good, we can finally represent planes.<a name="dot"></a>
-[Return to Contents](#index)
+
 
 ### Bivector Inner Product and Its Meaning
 　　The next step is to define the inner product between bivectors: the most natural definition is to multiply corresponding components and add them, i.e.$$\begin{align} A&=a\_1e\_{xy}+b\_1e\_{xz}+c\_1e\_{xw}+d\_1e\_{yz}+e\_1e\_{yw}+f\_1e\_{zw}  \\\\ B&=a\_2e\_{xy}+b\_2e\_{xz}+c\_2e\_{xw}+d\_2e\_{yz}+e\_2e\_{yw}+f\_2e\_{zw}  \\\\ \text{then } A\cdot B&=a\_1a\_2+b\_1b\_2+c\_1c\_2+d\_1d\_2+e\_1e\_2+f\_1f\_2 \end{align}$$
@@ -97,7 +76,7 @@ Finally, we obtain: the cross product between bivectors also yields a scalar. We
 $A \times B$ is a scalar: its absolute value equals the hypervolume of the hyper-parallelepiped they span (think of a parallelepiped): how do two planes span a parallelepiped? If $A=\vec a\wedge \vec b$, $B=\vec c\wedge \vec d$, then $A\wedge B=\vec a\wedge \vec b\wedge \vec c\wedge \vec d$—actually the parallelepiped formed by these four vectors. This definition is well-defined, because if $\vec a_1\wedge\vec b_1=\vec a_2\wedge\vec b_2=A$, although the parallelepipeds enclosed by $\vec a_1, \vec b_1, \vec c, \vec d$ and $\vec a_2, \vec b_2, \vec c, \vec d$ have different shapes, it can be proven that **their volumes are the same**.
 ![](/img/bivector1.gif)
 For convenience, let's first choose a special pair $\vec a\wedge \vec b=A$: where $\vec a, \vec b$ are vectors parallel to the directions of maximum and minimum angles between the two planes (their angles with $B$ are $\theta_1, \theta_2$). The four-dimensional volume of the parallelepiped $V_4=V_3h$. $V_3$ refers to the three-dimensional volume of any parallelepiped cell in the parallelepiped (like the green one in the figure), $h$ is the height corresponding to this cell in the parallelepiped. And $V_3=SH$. From geometric relationships: $h=\lVert\vec a\rVert \sin\theta_1$, $H=\lVert\vec b\rVert \sin\theta_2$, we get: $V_4=S\lVert\vec a\rVert\lVert\vec b\rVert \sin\theta_1 \sin\theta_2=\lVert A \rVert \lVert B \rVert \sin\theta_1 \sin\theta_2$<a name="parfait"></a>
-[Return to Contents](#index)
+
 
 ### Perfect Solution to the Problem!
 $$\lvert \cos\theta_1\cos\theta_2\rvert={\lvert A\cdot B\rvert \over \lVert A \rVert \lVert B \rVert}  $$$$ \lvert \sin\theta_1\sin\theta\_2\rvert={\lvert A\times B\rvert\over \lVert A \rVert \lVert B \rVert}$$
@@ -120,7 +99,7 @@ Let's answer one by one:
 $$\begin{align}(xe\_x+ye\_y+ze\_z+we\_w)\wedge(e\_{xy}+e\_{zw})&=0 \\\\ (ze\_z+we\_w)\wedge e\_{xy}+(xe\_x+ye\_y)e\_{zw}&=0 \\\\ ze\_{zxy}+we\_{wxy}+xe\_{xzw}+ye\_{yzw}&=0 \\\\ \text{Hodge dual gives: }ye\_x-xe\_y+we\_z-ze\_w&=0\end{align}$$Note this is a vector equation, requiring the left side to be the zero vector, **so here's the problem**—we get the unique solution $\vec m=\vec 0$! No lines are parallel to the face $e\_{xy}+e\_{zw}$? Don't panic, let's look at the angles of other lines with it:$$\begin{align}\lvert \sin\theta\rvert &={\lVert\vec m\times A\rVert\over \lVert \vec m \rVert \lVert A \rVert} \\\\ &={\sqrt{y^2+(-x)^2+w^2+(-z)^2}\over\sqrt{x^2+y^2+z^2+w^2}\sqrt 2} \\\\ &={\sqrt 2\over 2} \end{align}$$Here $m$ is any arbitrary vector, and they all make 45° angles with face $e\_{xy}+e\_{zw}$! What's going on with face $e\_{xy}+e\_{zw}$?
 What about $e\_{xy}+e\_{xz}+e\_{xw}$? We similarly set up equations and simplify to get: $(z-w)e\_y+(w-y)e\_z+(z-y)e\_w=0$: setting these coefficients to 0, we get $y=z=w$, with $x$ unrestricted. This plane looks normal. We understand the addition of cocellular planes this way: vectors perpendicular to their intersection do normal vector addition, then span a plane with their intersection. In the figure below, blue is the intersection of all faces, you can see the red vectors perpendicular to the intersection add to give the green vector, finally spanning the yellow plane: $e\_{xy}+e\_{xz}+e\_{xw}$.
 ![](/img/bivector2.gif)<a name="strange"></a>
-[Return to Contents](#index)
+
 
 ### Singular (Non-simple) Bivectors
 
@@ -159,6 +138,6 @@ Non-simple bivectors are nothing more than ordinary blades obtained through addi
 
 For more content on bivectors, see [Wikipedia: Exterior algebra](https://en.wikipedia.org/wiki/Exterior_algebra).
 
-[Return to Contents](#index)
 
- [Previous Article](/archives/plus4ds/)　 [View Series Contents](/categories/四维空间系列/) [Next Article](/archives/lavie4ds/)
+
+ 

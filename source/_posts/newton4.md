@@ -1,12 +1,14 @@
 ---
-title: "Four-Dimensional World (Part 6): Newtonian Mechanics"
+title: "4D World (VI): Newtonian Mechanics"
 tags:
-  - four-dimensional
+  - 4D
   - physics
   - series
   - javascript
-categories: Four-Dimensional World Series
+categories: 4D World Series
+index_img: /img/newtonf005.jpg
 date: 2020-03-11 16:10:48
+excerpt: This series has been imagining a fictional 4D world. No matter how we describe its appearance in words, a world lacking physics is static and non-interactive. So today we'll study Newtonian mechanics in this world.
 ---
 
 This series has been imagining a fictional four-dimensional world. No matter how we describe its appearance in words, a world lacking physics is static and non-interactive. So today we'll study Newtonian mechanics in this world. The construction philosophy of this world is to be as close as possible to our real world, differing only in dimensions, so we can simply copy all the theories from the 3D world. Following 3D game physics engines, we can also write a 4D physics engine. For example, Marc ten Bosch's [4D Toys](https://4dtoys.com/) is quite good, but the game only allows fixed movement of cross-sections (2024 update: it seems the author later added rotation functionality), and you can't customize scenes, so I reinvented the wheel and wrote my own.
@@ -55,46 +57,47 @@ Here are many 4D physics scenes (more may be added in the future), where you can
 
 <!--more-->Below are the control methods and significance of certain scenes:
 
-### 4D Car
-#### Operation Method
+## 4D Car
+### Operation Method
 Use `W` `S` for forward/backward, `J` `L` `I` `K` for left/right and lateral forward/backward steering, `U` `O` for rotation. The camera is fixed to the car, press number keys `1` `2` `3` to switch between three viewpoints.
-#### Explanation
+### Explanation
 This is a hyper-rectangular rear-wheel drive car with 8 duocylinder wheels. The physics engine directly applies torque to the four rear wheels, and applies torque to the front wheels when turning. The car moves forward or steers naturally through friction calculated by the physics engine. This 4D car is mainly to verify the concept of 4D vehicles in the article ["Four-Dimensional World (Part 2): Road Traffic"](/archives/trans4d/). It's recommended to read together with that article.
 
 ---
-### 4D Gyroscopes
+## 4D Gyroscopes
 We mentioned the rolling of different objects in the article ["Four-Dimensional Space (Part 8): Visiting the Four-Dimensional Country"](/archives/trans4d/). Now let's look at the rolling of various spheres, cylinders, and cones, whether cones can be used as tops when inverted, and their stability. We won't prove this mathematically here, but will draw qualitative conclusions directly through experiments (or playing with toys). Switch between different scenes using the control panel on the right. You can right-click to fire hyperspheres to interact with objects. (Note that firing too many will slow down the scene calculation, and in severe cases will reduce calculation precision leading to clipping. The physics engine is too difficult to optimize...)
 
-#### Rolling
+### Rolling
 Here are common 4D objects rolling on 3D ground: (Default degrees of freedom is 1 unless stated)
 - Hypersphere: Can roll in any direction; (Degrees of freedom: 3)
 - Spherinder: When laid flat, can move perpendicular to the generatrix direction (Degrees of freedom: 2)
-- Cylindrical cylinder and duocylinder: Both can only roll in one direction. The cylindrical cylinder must be laid horizontally on the ground, but the duocylinder has circular bases and sides, so there's no difference between horizontal and vertical - both can roll.
-- Coninder: When laid horizontally on the ground (note that the base cell has an inclined angle with the ground, same below), the contact shape with the ground is a triangle, with two vertices being the two cone angles and the other vertex being the tangent point of the upright circle with the ground. The coninder can rotate around the axis determined by the two cone angles on 3D ground, just like a 3D cone rotates around its vertex when rolling.
-- Cylindrical cone: Similar to the coninder. When laid horizontally, the contact shape with the ground is a rectangle, with one set of parallel sides in the cylinder's generatrix direction, and the other set being the tangent lines between the cone base and the ground. It can rotate around the generatrix direction passing through the cone angle as the axis, meaning the cylinder direction remains unchanged, feeling like the cone base is rolling in the 3D space perpendicular to the generatrix.
-- Spherical cone: Tangent to the 3D ground along a line segment, with one end being the cone angle and the other being the tangent point of the sphere cell with the ground. Can rotate freely around the cone angle. (Degrees of freedom: 2)
-- Dicone: Tangent to the 3D ground along a line segment. The two endpoints of the segment correspond to the tangent points of two absolutely perpendicular circles with the ground. The tangent lines of the two circles at the tangent points and the segment are mutually perpendicular. The dicone can rotate around either endpoint with that endpoint's circle tangent as the axis, while the other endpoint moves in the direction of that endpoint's tangent. But the non-interference of absolutely perpendicular rotations allows the rotations at both ends to not interfere with each other, meaning there exists a double rolling where each endpoint moves in its own tangent direction. The dicone's rotation is the strangest and most difficult to understand, as we have no similar experience in 3D space.
+- Cubinder and duocylinder: Both can only roll in one direction. The cubinder must be laid horizontally on the ground, but the duocylinder has circular bases and sides, so there's no difference between horizontal and vertical - both can roll.
+- Dicone: When laid horizontally on the ground (note that the base cell has an inclined angle with the ground, same below), the contact shape with the ground is a triangle, with two vertices being the two cone vertices and the other vertex being the tangent point of the upright circle with the ground. The dicone can rotate around the axis determined by the two cone vertices on 3D ground, just like a 3D cone rotates around its vertex when rolling.
+- Coninder: Similar to the dicone. When laid horizontally, the contact shape with the ground is a rectangle, with one set of parallel sides in the cylinder's generatrix direction, and the other set being the tangent lines between the cone base and the ground. It can rotate around the generatrix direction passing through the cone vertex as the axis, meaning the generatrix direction remains unchanged, feeling like the conic base is rolling in the 3D space perpendicular to the generatrix.
+- Sphone: Tangent to the 3D ground along a line segment, with one end being the cone vertex and the other being the tangent point of the sphere cell with the ground. Can rotate freely around the cone vertex. (Degrees of freedom: 2)
+- Duocone: Tangent to the 3D ground along a line segment. The two endpoints of the segment correspond to the tangent points of two absolutely perpendicular circles with the ground. The tangent lines of the two circles at the tangent points and the segment are mutually perpendicular. The duocone can rotate around either endpoint with that endpoint's circle tangent as the axis, while the other endpoint moves in the direction of that endpoint's tangent. But the non-interference of absolutely perpendicular rotations allows the rotations at both ends to not interfere with each other, meaning there exists a double rolling where each endpoint moves in its own tangent direction. The duocone's rotation is the strangest and most difficult to understand, as we have no similar experience in 3D space.
+
 ![Illustration of eight geometric bodies' imprints and rolling directions on 3D ground](/img/newtonf001.svg)
 
-#### Tops
-- Coninder: Place the two cone angles on the ground and rotate in the plane of the circle. This top has stability: conservation of angular momentum ensures the rotation plane of the circle won't tilt, while angular momentum is zero in the absolutely perpendicular rotation direction, but the two cone angles on the ground prevent rotation in this direction.
-- Cylindrical cone: Place the cone line (generatrix passing through the cone angle) on the ground, with the cylinder cell flipped to be parallel to the ground, rotating in the plane of the circle. Equivalent to directly cylindrifying the entire 3D cone scene. Similar to the coninder, when rotating, the cone line on the ground prevents tumbling, also providing stability.
-- Spherical cone: Cone point facing down on the ground, with the sphere cell flipped upward parallel to the ground. Rotation can be any simple rotation within the sphere cell (i.e., rotation parallel to the ground). But the spherical cone top has no stability, because there's angular momentum in a direction parallel to the ground that maintains this plane from tilting, but the plane perpendicular to this plane can rotate, meaning the rotation axis within the sphere can rotate in the vertical direction. A small disturbance in this direction will make the top fall directly. Interestingly, even if the top falls, it won't roll chaotically, because the angular momentum in the direction parallel to the ground will continue to maintain rotation stability. This means after falling, the top will continue rotating, contacting the ground along a line that connects the sphere's rotation axis. All points on this line are stationary, so it won't roll chaotically.
-- Dicone: Let one circle be parallel to the ground and the other perpendicular on the ground. Rotate in the plane of the circle parallel to the ground. Since the plane of the perpendicular circle has no angular momentum, any slight disturbance will cause this circle to fall, so there's no stability. If it's a double rotation, no fixed points can be found on the dicone, and the vertical circle will act as a wheel causing the dicone to roll away.
-- Cylindrical cone: Like previous cones, there's no stability in the direction perpendicular to rotation, and there's only one cone point on the ground, unlike the coninder and cylindrical cone which have support, so it's prone to tipping and unstable.
+### Gyros
+- Dicone: Place the two cone vertices on the ground and rotate in the plane of the circle. This gyro has stability: conservation of angular momentum ensures the rotation plane of the circle won't tilt, while angular momentum is zero in the absolutely perpendicular rotation direction, but the two cone angles on the ground prevent rotation in this direction.
+- Coninder: Place the cone line (generatrix passing through the cone angle) on the ground, with the cylinder cell flipped to be parallel to the ground, rotating in the plane of the circle. Equivalent to directly cylindrifying the entire 3D cone scene. Similar to the dicone, when rotating, the cone line on the ground prevents tumbling, also providing stability.
+- Sphone: Cone point facing down on the ground, with the sphere cell flipped upward parallel to the ground. Rotation can be any simple rotation within the sphere cell (i.e., rotation parallel to the ground). But the sphone gyro has no stability, because there's angular momentum in a direction parallel to the ground that maintains this plane from tilting, but the plane perpendicular to this plane can rotate, meaning the rotation axis within the sphere can rotate in the vertical direction. A small disturbance in this direction will make the gyro fall directly. Interestingly, even if the gyro falls, it won't roll chaotically, because the angular momentum in the direction parallel to the ground will continue to maintain rotation stability. This means after falling, the gyro will continue rotating, contacting the ground along a line that connects the sphere's rotation axis. All points on this line are stationary, so it won't roll chaotically.
+- Duocone: Let one circle be parallel to the ground and the other perpendicular on the ground. Rotate in the plane of the circle parallel to the ground. Since the plane of the perpendicular circle has no angular momentum, any slight disturbance will cause this circle to fall, so there's no stability. If it's a double rotation, no fixed points can be found on the duocone, and the vertical circle will act as a wheel causing the duocone to roll away.
+- Cylindrone: Like previous cones, there's no stability in the direction perpendicular to rotation, and there's only one cone point on the ground, unlike the coninder and cylindrone which have support, so it's prone to tipping and unstable.
 
 ---
-### 4D Gears
-#### Operation Method
+## 4D Gears
+### Operation Method
 Expand the control panel on the right to adjust torque parameters to control the gear motor speed.
-#### Explanation
+### Explanation
 4D Gear One is an absolutely perpendicular gear transmission mechanism. You can control the green gear's speed to drive the absolutely perpendicular yellow gear. The principle of absolutely perpendicular gear transmission is achieved through two half-parallel half-perpendicular gear transmissions.
 4D Gear Two is a double rotation synthesizer. The colored gear consists of two absolutely perpendicular single-disc gears connected together, which can be driven separately by gears in different perpendicular directions without interference.
 
 ---
-### 4D Chains
+## 4D Chains
 Right-click to fire hyperspheres to interact with objects. (Don't fire too many, it will crash...)
-For details on how the specific geometric bodies are linked, please refer to this article: ["Four-Dimensional Space (Part 10): Knots and Links"](/archives/knot4d/).
+For details on how the specific geometric bodies are linked, please refer to this article: ["4D Space (X): Knots and Links"](/archives/knot4d/).
 
 ---
 ## Rigid Body Mechanics

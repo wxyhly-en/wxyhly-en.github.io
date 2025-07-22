@@ -5,10 +5,11 @@ tags:
   - 4D
   - Rendering
 date: 2024-01-10 16:45:01
+index_img: /img/eye2d001.svg
 categories: 4D Computer Graphics
 ---
 
-Previous articles have covered almost all common methods for visualizing 4D: cross-section method, stereographic projection, contour surfaces or color-coding the fourth dimension, 3D photos, etc. Among these, 3D photos are further divided into wireframe and voxel cloud display methods. While most readers can probably understand these methods, implementing them in computer programs is quite a challenge. Here I'll first introduce some basic computer graphics principles, then delve into various methods for rendering complex 4D objects. Readers can choose sections based on their knowledge level. Perhaps I'll start a series later specifically explaining how to build a 4D graphics engine step by step.<div style="float:right"><img src="/img/render4d008.png" style="width:100%;max-width:480px" alt="Wireframe rendering and cross-section rendering in stereoscopic photos, with wireframe color-coded by depth, left and right images for glasses-free 3D"/></div>
+Previous articles have covered almost all common methods for visualizing 4D: cross-section method, stereographic projection, contour surfaces or color-coding the fourth dimension, 3D photos, etc. Among these, 3D photos are further divided into wireframe and voxel cloud display methods. While most readers can probably understand these methods, implementing them in computer programs is quite a challenge. Here I'll first introduce some basic computer graphics principles, then delve into various methods for rendering complex 4D objects. Readers can choose sections based on their knowledge level. Perhaps I'll start a series later specifically explaining how to build a 4D graphics engine step by step.![Wireframe rendering and cross-section rendering in stereoscopic photos, with wireframe color-coded by depth, left and right images for glasses-free 3D](/img/render4d008.png)
 
 ## Featured Content
 - 3D Computer Graphics Fundamentals

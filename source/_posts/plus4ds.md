@@ -1,28 +1,19 @@
 ---
-title: "Four-Dimensional Space (Part 6): More Geometric Shapes [Part 2]"
+title: "4D Space (VI): More Geometric Shapes [Part 2]"
 tags:
-  - four-dimensional
+  - 4D
   - geometry
   - fractals
   - series
   - mathematics
-categories: Four-Dimensional Space Series
+categories: 4D Space Series
 date: 2016-04-23 20:15:09
+index_img: /img/plus1.gif
+excerpt: Featured Content
+  1. Solids of revolution, lofted solids
+  2. Julia-Mandelbrot transition animation
+  3. All four-dimensional analogues of quadric surfaces
 ---
-## Featured Content
-- Solids of revolution, lofted solids
-- Julia-Mandelbrot transition animation
-- All four-dimensional analogues of quadric surfaces
-<a name="index"></a>
-
-### Table of Contents:  
- - [Solids of Revolution](/archives/plus4ds/#duo)
- - [Lofted Solids](/archives/plus4ds/#loft)
- - Four-Dimensional Fractals
-   + [Mandelbrot-Julia Sets](/archives/plus4ds/#mj)
-   + [Others](/archives/plus4ds/#autre)
- - [Quadric Hypersurfaces](/archives/plus4ds/#quadric)
- - [Answers to Thought Questions](/archives/plus4ds/#answer)
  <a name="duo"></a>
  <!--more-->
 
@@ -54,10 +45,10 @@ Look, the cross-section animation on the right shows that this geometric shape i
  - The symmetry plane of the torus perpendicular to the axis: Left as a thought question, answer at the end of the article. (Hint: You can start by imagining cross-section animations)
 
 ##### Cylindrone, Coninder, Dicone as Solids of Revolution
-Actually, with the cubinder, we've already discovered a pattern: when extruding a solid of revolution to higher dimensions to obtain a prism, its rotation "unit" is also extruded or "prismified", and the same goes for cones. So a cylindrone (cylindrical cone) comes from rotating a square pyramid around a triangular side face, with this side face perpendicular to the blue rectangular base. (When discussing in 3D, perpendicular means right dihedral angle; don't forget that 4D space also has absolute perpendicularity)
+Actually, with the cubinder, we've already discovered a pattern: when extruding a solid of revolution to higher dimensions to obtain a prism, its rotation "unit" is also extruded or "prismified", and the same goes for cones. So a cylindrone (cylindrone) comes from rotating a square pyramid around a triangular side face, with this side face perpendicular to the blue rectangular base. (When discussing in 3D, perpendicular means right dihedral angle; don't forget that 4D space also has absolute perpendicularity)
 Similarly, a coninder (conical cylinder) is formed by rotating a triangular prism (blue triangle "prismified"), and a dicone (conical cone) is formed by rotating a triangular pyramid (blue triangle "conified"). (Red indicates rotation plane in the figure below)
 ![](/img/plus4.gif) <a name="loft"></a>
-[Return to Contents](#index)
+
 ### Lofted Solids
 　　I've used 3D software like 3ds Max before, which has a modeling method called "lofting": taking a 2D shape object as a cross-section along a certain path to form complex 3D objects.
 For example, a cylinder can be seen as its base lofted along a straight line, and a torus can be seen as a circular cross-section lofted along another circle. Four-dimensional space certainly has lofting too: when we loft a 3D cross-section along a straight line, we get a 4D prism; along a circle, we get a solid of revolution; along other curves, we can get more complex 4D objects. But unlike 3D, 4D also has "2D lofting": we loft a 2D cross-section along a 2D surface! If the 2D surface is flat, it corresponds to a direct product; if curved, it becomes complex. We've only seen one type of rotational torus - the torisphere - which is a circular cross-section lofted along a spherical surface. If 4D civilizations have something like 4D modeling software, this would surely be a great modeling method.
@@ -93,7 +84,7 @@ But for us 3D beings, the one on the right seems almost "crumbled to bits", whil
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Menger-Schwamm-farbig.png/310px-Menger-Schwamm-farbig.png)
 　　This type of 4D fractal analogue should be divided into 4 types: crumbled to bits, riddled with holes like the Menger sponge, with many 3D holes dug out (these holes are connected in 4D space), and hollow hypercube cavities that even 4D beings cannot appreciate.
 　　A nice-looking 3D analogue of the Mandelbrot set is the Mandelbulb. In 4D we could use quaternions (4D analogue of complex numbers) to create fractals, but conformality likely can't be maintained, so we might have to use 4D polar coordinates (algorithm: forcibly square the distance coordinate, double the angle coordinates) and abandon quaternions. But regardless, I believe Mandelbulb4D should look even better, ~too bad I don't have 4D eyes.~ (Update September 2022: Now we have it powered by the [Tesserxel engine](/archives/tesserxel-hello/)! The example browser includes two types of 4D Menger sponges and two type of polar coordinate Mandelbulb fractals!) <a name="quadric"></a>
-[Return to Contents](#index)
+
 
 ### Quadric Hypersurfaces
 Everyone should know about quadric surfaces: paraboloids, cylinders, spheres, hyperboloids, cones, saddle surfaces, etc. They're called "quadric surfaces" because their equations are quadratic. In 3D space, these are ternary quadratic equations; in 4D, they're quaternary quadratic equations. Since this involves equations, it's obviously an algebraic problem, so I'll try to give more intuitive conclusions about quadric hypersurfaces rather than derivations.
@@ -151,7 +142,7 @@ Let's specifically introduce the unfamiliar shapes:
 - Saddle hypersurface: Equation: $x^2+y^2-z^2=w$. It's a function: a 3D coordinate $(x,y,z)$ corresponds to a number $w$. A saddle surface is concave (convex) in one direction and convex (concave) in another, but 4D space doesn't have such nice symmetry: it's concave (convex) in one direction and convex (concave) in two other directions (on one plane). But this description is still quite abstract. Welcome suggestions for better visualization methods. [CFY here](https://hadroncfy.com/articles/2016/04/24/la-dimension-quatre-quatreieme/index.html) shows several quadric hypersurfaces using the cross-section method.
 <a name="answer"></a>
 
-[Return to Contents](#index)
+
 
 ### Answers to Thought Questions
 - A plane through the cylinder's axis of symmetry as the rotation plane produces a **spherinder**.
@@ -160,4 +151,4 @@ Let's specifically introduce the unfamiliar shapes:
 
 - The symmetry plane of the torus perpendicular to the axis as the rotation plane produces a **spheritorus**.
 
- [Previous Article](/archives/more4ds/)　 [View Series Contents](/categories/四维空间系列/)　[Next Article](/archives/bivector4ds/)
+ 

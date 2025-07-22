@@ -1,33 +1,17 @@
 ---
-title: "Four-Dimensional Space (Part 2): Hyper-solid Geometry"
+title: "4D Space (II): Hyper-solid Geometry"
 date: 2016-04-09 22:40:00
-categories: Four-Dimensional Space Series
+categories: 4D Space Series
 tags:
-- four-dimensional
+- 4D
 - geometry
 - series articles
 - mathematics
+index_img: /img/crossection.gif
+excerpt: Today, we will explore 4D positional relationships between lines, planes, and cells, more interesting 4D solid geometry problems in tesseract, and generalizations of certain solid geometry theorems.
 ---
 <span class="likecode">#This article discusses geometry in pure space! I recommend the video "[Dimensions: a walk through mathematics](https://www.dimensions-math.org/Dim_E.htm)" for an initial understanding of four-dimensional space. You can also check out <span style="color:#F00">**CFY's article [Starting from the Hypercube](http://hadroncfy.com/articles/2016/04/12/la-dimension-quatre-deuxieme/)** as a supplement to this article.</span></span>
-<div style="float:left">Today, we will explore more geometric properties of four-dimensional space, positional relationships, more interesting 4D solid geometry problems, and generalizations of certain solid geometry theorems.</div>
-<br>
-<div style="float:right"><img src="/img/crossection.gif" width="200" height="200"/><p>Cross-section cell of a hypercube drawn with three.js (black is the cross-section cell)</p></div>
-<a name="index"></a>
-
-## Featured Content
- - Positional relationships between lines, planes, and cells
- - Geometry problems in the hypercube
- - Generalization of the projection area theorem
-
-<!--more-->
-### Table of Contents:    
- - [Determining Positional Relationships](/archives/geometry4ds/#jihe)
- - [The Truth: Describing with Two Angles](/archives/geometry4ds/#deux)
- - [The Hypercube - Our Best Friend](/archives/geometry4ds/#ami)
- - [Hypercube Cross-sections](/archives/geometry4ds/#cross)
- - [Oblique Planes](/archives/geometry4ds/#slop)
- - [Generalization of the Projection Area Theorem](/archives/geometry4ds/#proj)
-<a name="jihe"></a>
+Today, we will explore more geometric properties of four-dimensional space, positional relationships, more interesting 4D solid geometry problems, and generalizations of certain solid geometry theorems.![Cross-section cell of a hypercube drawn with three.js (black is the cross-section)](/img/crossection.gif?size=200x200)<a name="index"></a>
 
 ### Determining Positional Relationships
 　　Two points determine a line, three (non-collinear) points determine a plane, and four (non-coplanar) points determine a three-dimensional space (or hyperplane). The plane geometry and solid geometry that 4D civilizations learn in middle school (or is it high school?) are the same as ours for the first two points. This means we can solve any geometry problems in 3D subspaces within 4D space! Let's try to solve some simple 4D space geometry problems: **Determine the positional relationship between two geometric objects, and if there's an angle, find its value.**
@@ -51,7 +35,7 @@ tags:
 　　From the dot product of vectors, we know that any two lines taken from coordinate planes $xy$ and $zw$ respectively are perpendicular, so we say coordinate planes $xy$ and $zw$ are perpendicular, but remember they only intersect at the origin! This is completely different from two ordinary planes forming a perpendicular dihedral angle. The perpendicular angle is 90°, so this suggests that **one angle is insufficient to describe the angle between two planes!** It feels like there are two degrees of freedom here! Regardless, let's call the relationship where any two lines from two planes are perpendicular **absolutely perpendicular**, to distinguish it from perpendicular dihedral angles in shared cells.
 　　It's getting harder, isn't it? At this point, if we don't use linear algebra and just try to think hard about angles, our IQ feels insufficient. When we're helpless with solid geometry in high school, the vector method comes to our rescue, so in the next section I'll introduce the **vector method** in 4D space. Note that since we can't determine the starting point of vectors, we can only represent directions, so the following discussion assumes all geometric objects pass through the origin. Before we systematically learn to use the vector method, we still have to think hard about two planes in 4D space. I thought about it for a long time without results, but finally found [relevant papers](http://www.cnki.com.cn/Article/CJFDTotal-FXKY198501013.htm):<a name="deux"></a>
 
-[Return to Contents](#index)
+
 ### The Truth: Describing with Two Angles
 
 　　The most general position of two planes $A, B$ in 4D space is intersecting at only one point. We measure their position this way: Taking all lines $m$ on plane $A$, the line-plane angle between $m$ and $B$ (or $A$) will have a maximum value $\theta_1$ and minimum value $\theta_2$. We now use these two angle parameters $\theta_1$, $\theta_2$ to describe the positional relationship between planes $A, B$.
@@ -60,8 +44,8 @@ tags:
 ![](/img/geometry2.gif)
 　　The major and minor axes are perpendicular to each other, so the line $m_1$ when the line-plane angle takes its maximum value is perpendicular to the line $m_2$ when the line-plane angle takes its minimum value. But if we take all lines $m$ on plane $B$ instead of plane $A$, would the two maximum and minimum line-plane angles be different from before? The answer is: no matter which plane you choose first, these two angles are **the same**, which ensures the definition is well-defined. (Can be proven using linear algebra, omitted)
 　　Let's look at the familiar 3D space:
- - $A, B$ parallel: Any line in $A$ has a line-plane angle of 0° with $B$, so both maximum and minimum values are 0°, $\theta_1=\theta_2=0$; Of course, we can also understand it this way: the unit circle on $A$ projects onto $B$ orthogonally, i.e., size and shape remain unchanged, so $\cos\theta_1=cos\theta_2=1$.
- - $A, B$ perpendicular dihedral angle: Lines in $A$ parallel to their intersection have minimum line-plane angle 0° with $B$, lines in $A$ perpendicular to their intersection have maximum line-plane angle 90° with $B$, so $\theta_1=90°, \theta_2=0$; Another way to think about it: the unit circle on $A$ projects onto $B$ as a line segment of length 2, which we consider an ellipse with semi-major axis 1 and semi-minor axis 0. So $\cos\theta_1=0, cos\theta_2=1$.
+ - $A, B$ parallel: Any line in $A$ has a line-plane angle of 0° with $B$, so both maximum and minimum values are 0°, $\theta_1=\theta_2=0$; Of course, we can also understand it this way: the unit circle on $A$ projects onto $B$ orthogonally, i.e., size and shape remain unchanged, so $\cos\theta_1=\cos\theta_2=1$.
+ - $A, B$ perpendicular dihedral angle: Lines in $A$ parallel to their intersection have minimum line-plane angle 0° with $B$, lines in $A$ perpendicular to their intersection have maximum line-plane angle 90° with $B$, so $\theta_1=90°, \theta_2=0$; Another way to think about it: the unit circle on $A$ projects onto $B$ as a line segment of length 2, which we consider an ellipse with semi-major axis 1 and semi-minor axis 0. So $\cos\theta_1=0, \cos\theta_2=1$.
  - $A, B$ form a general dihedral angle: Lines in $A$ parallel to their intersection have minimum line-plane angle 0° with $B$, lines in $A$ perpendicular to their intersection have some maximum line-plane angle (i.e., the size of the dihedral angle), so $0<\theta_1<90°, \theta_2=0$.
  Since $\theta_2=0$ when $A, B$ form a dihedral angle, we also call $A$ and $B$ **semi-parallel**, and when $A, B$ form a perpendicular dihedral angle we call it **semi-parallel semi-perpendicular**, while the original $A, B$ parallel is called **absolutely parallel**.
 
@@ -70,7 +54,7 @@ tags:
  - $A, B$ in general position: $90°>\theta_1\ge\theta_2>0$.
  - Now we have **absolutely parallel**, **semi-parallel**, **semi-parallel semi-perpendicular**, **absolutely perpendicular**, we surely think of **semi-perpendicular**: $\theta_1=90°>\theta_2>0$, we'll see this case [right away](#semivertical).<a name="ami"></a>
 
-[Return to Contents](#index)
+
 ### The Hypercube is the Best Friend for Understanding 4D Geometry
 　　Recalling high school solid geometry, we found many line-plane relationships in the cube. Now it's the hypercube's turn! There are many parallel projection directions for the hypercube, but I chose one that shows each edge of the 4D cube as equal length, and all eight cubic cells as congruent. We'll find almost all geometric relationships in this diagram.
 　　This diagram is cleverly constructed but not difficult to draw. First draw an eight-pointed star, then make squares outward from each line of the star, and connect the vertices correctly.
@@ -89,7 +73,7 @@ Below we only list relationships not sharing a cell:
 - Cell-cell relationship: intersecting (like cell D and cell E intersect in plane 4-5-6-13)
 
 ![Corresponding to the text colors above](/img/geometry4.gif)
-[Return to Contents](#index)
+
 ### Others<a name="cross"></a>
 　　You might say all I found were square faces, which is boring. Fine, now let's find some interesting cross-sections of the hypercube and positional relationships of "oblique planes".
 #### Hypercube Cross-sections
@@ -99,7 +83,7 @@ Below we only list relationships not sharing a cell:
 　　Choosing any four non-coplanar vertices in the hypercube can determine cells of many shapes. Here I've listed some on the left side of the figure below: (1) diagonal cell (like 1-8-15-5) (2) cubic cell (like 5-7-8-15) (3) regular tetrahedron from truncation (like 1-11-13-7) (4) maximum cross-section regular octahedron (like 1-7-9-13) (5) triangular prism from edge truncation (like 1-2-4-7)
 ![](/img/geometry6.gif) ![](/img/geometry8.gif)
 　　But what's worth mentioning is that when choosing any four non-coplanar vertices in the hypercube to determine a cell, the supplemented vertices after shape completion might not be vertices of the hypercube. For example, the cell $\Gamma$ determined by points 1, 9, 4, 15 in the upper right figure. The three supplemented vertices are actually **edge midpoints**! Specific completion method: Since line segment 4-9 passes through the center of cell C (temporarily denoted as point P), through point P make a plane parallel to face 1-8-15-10 intersecting cell C in a square (marked in pink), which produces points R and S. Then point R (midpoint of line segment 2-11) and S (midpoint of line segment 12-5) are in cell $\Gamma$. Reason: Since RS∥line 1-15, therefore R, P, S, 1, 15 are coplanar. Since 1, 15, P are in cell $\Gamma$, therefore R, S are also in cell $\Gamma$. Having supplemented points R and S, the remaining point T can be easily supplemented using the parallel line method. Finally, let's observe this complete cross-section cell. It's a heptahedron consisting of three rhombi with side length $\sqrt{5}/2$, one equilateral triangle with side length $\sqrt{2}$, and three isosceles triangles. Having seven faces means cell $\Gamma$ intersects seven cells, with one cell not intersecting, which is cell E (shown separately in yellow here)<a name="slop"></a>
-[Return to Contents](#index)
+
 #### Oblique Planes
 - Absolutely Perpendicular
 　　Please find the normal plane to face 1-3-13 (the red face on the left side of the figure below).
@@ -123,6 +107,6 @@ This is familiar to us in 3D space. Here's a rough proof outline:
 
 　　Using this magical method, we can only get $\cos\theta_1\cos\theta_2$, obviously still lacking conditions. It seems we must use algebra to find angles. [Later](/archives/bivector4ds/) we'll see that the vector method is no longer suitable for 4D geometry, and the vector method needs to be upgraded. In the upgraded vector method, we'll still need to use the generalization of the projection area theorem.
 
-[Return to Contents](#index)
 
- [Previous Article](/archives/objects4ds/)　 [View Series Contents](/categories/四维空间系列/)　[Next Article](/archives/polyhedral4ds/)
+
+ 

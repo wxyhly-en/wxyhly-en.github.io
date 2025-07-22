@@ -349,11 +349,11 @@ isDragImg = false;
 <body onload="Painter.loadIMG('/img/till.jpg',main);">
 
 	<div>
-	最小细节 <input id="minp" value='1'>px; 
-	圆弧分段 <input id="seg" value='4'> ; 
-	迭代深度<input id="step" value='4'>;<p>
-	<input id="p" value='4'>边形; 
-	<input id="n" value='5'>边/顶点;
+	Min Detail <input id="minp" value='1'>px; 
+	Segments <input id="seg" value='4'> ; 
+	Iterations <input id="step" value='4'>;<p>
+	<input id="p" value='4'>-gon; 
+	<input id="n" value='5'> edgs per vertex;
 	<div style="display:none">Mobius Transformation:<p>
 	<input id="a" value="1">
 	<input id="b" value="0"><br>
@@ -361,18 +361,18 @@ isDragImg = false;
 	<button onclick="Gol('Prefer')">prefered world</button><p>
 	<button onclick="Gol('Cauchy')">Oval world</button>
 	<input id="d" value="1">;<p></div>
-	<button onclick="Gol('Poincare')">庞加莱圆盘</button>;
-	<button onclick="Gol('Nome')">nome 圆盘</button>;
-	<button onclick="Gol('Band')">带状世界</button>
-	<input id="cut" value='180,0' style="width: 80px"> 带状分支角度;<p>
-	<button onclick="Gol('Vo')">漩涡世界</button>
-	<input id="vop" value='0.7'> 漩涡参数;
-	<button onclick="Gol('Ring')">环形世界</button>
-	<input id="per" value='4'> 环形世界周期数;<p>
-	<button onclick="Go(currentMoyen)">渲染填充图案</button>
+	<button onclick="Gol('Poincare')">Poincaré disk</button>;
+	<button onclick="Gol('Nome')">Nome disk</button>;
+	<button onclick="Gol('Band')">Band world</button>
+	<input id="cut" value='180,0' style="width: 80px"> Band branch angles;<p>
+	<button onclick="Gol('Vo')">Spiral world</button>
+	<input id="vop" value='0.7'> Spiral params;
+	<button onclick="Gol('Ring')">Ring world</button>
+	<input id="per" value='4'> Ring world Period;<p>
+	<button onclick="Go(currentMoyen)">Render Img Fill</button>
 	<input type="file" id="doc" style="width:150px;" onchange="setImagePreview(this);">
-	当前为<button onclick="isDragImg = !isDragImg;this.innerHTML=(this.innerHTML=='拖动空间模式')?'拖动贴图模式':'拖动空间模式'">拖动空间模式</button>
-	<button onclick="TransformMobius=new Cmplx.Mobius();Gol(currentMoyen)">重置鼠标拖动</button>
+	Currently in <button onclick="isDragImg = !isDragImg;this.innerHTML=(this.innerHTML=='Drag Space Mode')?'Drag Image Mode':'Drag Space Mode'">Drag Space Mode</button>
+	<button onclick="TransformMobius=new Cmplx.Mobius();Gol(currentMoyen)">Reset Mouse Drag</button>
 </div><div style="float:rigth">
 	<canvas id="HyperCanvas" width="500" height="500"  onmousedown="canvas1_onmousedown(event)" onmousemove="canvas1_onmousemove(event)" onmouseup="canvas1_onmouseup(event)"></div>
 </body>

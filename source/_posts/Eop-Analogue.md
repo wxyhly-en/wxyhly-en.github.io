@@ -5,6 +5,7 @@ tags:
   - music
   - Bilibili video
 date: 2022-07-12 13:05:34
+index_img: /img/eopplt004.png
 ---
 
 How do you play piano using a computer keyboard? Actually, there are many computer piano simulation softwares available, such as EveryOnePiano which I've used before, and the more famous FreePiano. Of course, we can also create something similar ourselves. My online piano doesn't have a specific name, so I simply used the abbreviation EOP (EveryOnePiano) for the Github repository name.
@@ -24,7 +25,7 @@ By the way, if you're a mobile user, clicking the keyboard can simulate a comput
 ![This is simply an insult to piano! I would never use such a keyboard!](/img/eopplt001.jpg)
 
 While EveryOnePiano uses this layout:
-![EveryOnePiano's default keyboard layout](/img/eopplt001.png)
+![EveryOnePiano's default keyboard layout, numerical notation is used](/img/eopplt001.png)
 
 This layout represents the correct scale thinking approach, but it still has drawbacks: it cannot play chromatic scales. Computer keyboards aren't as long as real piano keyboards. If we alternate black key positions on the keyboard like on a real piano, although this layout would be closest to a real piano, you can hardly expect to perform complete pieces with both hands using it, because there aren't enough keys and the range would be very narrow. But many pieces have accidentals (chromatic notes), so EveryOnePiano supports setting what note each key corresponds to, allowing you to arrange the needed accidentals according to the piece. This method works very well in performance, and by setting the voice part for each keyboard key, you can even achieve different dynamics for accompaniment and melody (left and right hands). FreePiano can even use a mouse placed under your foot as a pedal, which can be said to have explored the ultimate potential of computer keyboards.
 

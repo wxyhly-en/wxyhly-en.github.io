@@ -4,7 +4,9 @@ tags:
   - Mathematical Logic
   - Mathematics
   - Games
+index_img: /img/1stlogic001.png
 date: 2024-11-17 17:55:32
+excerpt: Formal systems were proposed to check proofs. I’ll start with simple formal systems then to propositional logic and ZFC set theory. I also built a web-based simulator, which later evolved into a game called Deductrium.
 ---
 
 <span class="likecode">// Note: This article is merely a rough summary of the author's recent study of set theory. If you want to delve deeper, I strongly recommend finding a mathematical logic textbook for systematic study. Wikipedia is also good.</span>
@@ -82,7 +84,7 @@ The proof method is to write out the derivation steps. Independently thinking of
 
 Perhaps you've noticed that this system doesn't even have the most basic logical connectives "and" and "or", but actually "A or B" can be expressed through "(¬A → B)", and "A and B" can be expressed through "¬(A → ¬B)". We can also introduce new axioms to add "and" and "or" symbols to the system. [Click to expand/collapse how to introduce new symbols and axioms](javascript:$('#ifff').toggle()).
 
-<div style="background-color:#EEF;display:none" id="ifff">
+<div style="background-color:var(--color-EEF);display:none" id="ifff">
 
 ### Optional Reading: Introducing New Symbols and Axioms
 You might think this formal system is too cumbersome, requiring even concepts like "and" and "or" to be written out in expanded form. For example, the common "A if and only if B" can be expressed as "A → B and B → A", expanded into a big mess "¬((A → B) → ¬(B → A))". Actually, we can specifically introduce some symbol definition axioms to bring abbreviation symbols into the system:
@@ -111,7 +113,7 @@ The deduction metatheorem and mp rule tell us that the external behavior of the 
 
 Systems that include both "and" and "or" often have more inference rules, but they are equivalent in some sense—starting from the same assumptions, they can derive the same things, although the intermediate steps may differ greatly.
 
-### Soundness and Completeness, Internal and External Theorems
+## Soundness and Completeness, Internal and External Theorems
 
 I wonder if readers might doubt whether the formal system with three axiom schemas and one inference rule we just introduced can really handle propositional logic reasoning? This question can actually be divided into two aspects: First (soundness), are the propositions it derives all true propositions? Second (completeness), for all true propositions, can they all be derived from this formal system? For propositional logic, both answers are affirmative. The soundness proof only requires listing the truth tables of all propositions involved in axioms and inference steps and verifying their correctness; while the completeness proof is a bit complex. In the later stages of the game Deductrium, an "automatic proof" metatheorem ability will be unlocked—as long as the system exhaustively verifies that all truth table propositions for atomic propositions hold, there is a method to write out the inference steps within the system.
 
@@ -122,7 +124,7 @@ A proven proposition is called a theorem, and the above statement itself is also
 1. Things derived by the formal system, we just call them "theorems", or the system's "internal theorems". They are just concepts within a certain formal system. Although they somewhat resemble ordinary mathematical theorems, they are not the same thing. The way to verify internal theorems is to provide inference steps within the system.
 2. The theorem we proved is a theorem in the theory about formal systems. For convenience of distinction, it's also called a "metatheorem" or "external theorem". External theorems are the real mathematical theorems, just like the commutative law of addition in arithmetic or Taylor expansion theorem in advanced mathematics—they are all derived within the mathematical system we've learned.
 
-### The Ultimate Question: Which Came First, the Chicken or the Egg?
+## The Ultimate Question: Which Came First, the Chicken or the Egg?
 
 Some people might be confused: to mechanically verify that proofs of mathematical theorems are error-free, we need to define the entire mathematical system as a more complex meta-formal system to describe and determine it. And to verify the correctness of the larger meta-formal system, we need to construct a meta-meta system, mechanically verify meta-meta theorems... (P.S. If you're interested in this nesting, you can refer to this [story of Aladdin's lamp and the creator god](https://www.physixfan.com/zaowushendegushi/)). Specifically, formal systems can be precisely defined using the language of set theory, but as we'll see later, set theory is defined by formal systems! We've fallen into the chicken-and-egg dilemma.
 
@@ -134,7 +136,7 @@ However, isn't our purpose to formalize all mathematical theory? Mathematical th
 
 This is also much like compiler bootstrapping in computers—the C++ compiler is written in C++! This seems like another chicken-and-egg dilemma, but it's not: First, manually write a program that translates assembly language into machine code. This program can only be written in machine code, and whether the machine code runs correctly depends on whether we believe the electrons in the CPU chip move according to physical laws. Once this program is written, we can use assembly language to write a more advanced C language compiler, then use C to write a more advanced C++ compiler. Once we have a C++ compiler, we can abandon the original C language version of the C++ compiler and completely switch to using C++ to compile the C++ compiler.
 
-### First-Order Logic
+## First-Order Logic
 In propositional logic, we only use letters to represent "atomic propositions" and haven't dealt with how to specifically describe their "internal structure". Let's now look at first-order logic. First, let's introduce the syntactic aspects:
 
 In first-order logic, besides the concept of propositions, we also introduce the concepts of "terms" and "predicates": variables and constant symbols are "atomic terms", n terms acted upon by an n-ary function yield a term, and acted upon by an n-ary predicate yield an "atomic proposition". Note that first-order logic is a class of systems; choosing different constant symbols or predicates results in different formal systems. Here are two examples of first-order logic formal systems:
@@ -166,11 +168,11 @@ Using (eq1) and (eq2), it's not difficult to prove that equality has reflexivity
 
 Let me emphasize again: although words like "for all" and "there exists" appear in first-order logic, the formal system only has these mechanized axiom schemas; it cannot understand the meaning behind these quantifiers. Correct logic can be achieved through mechanization alone, although these axiom schemas are somewhat complex. [Click here to expand/collapse specific details about substitution/free occurrence in axioms](javascript:$('#fst-detail').toggle()).
 
-<div style="background-color:#EEF;display:none" id="fst-detail">
+<div style="background-color:var(--color-EEF);display:none" id="fst-detail">
 
-#### Optional Reading:
+### Optional Reading:
 
-##### 1. Bound Variables and Free Occurrence
+#### 1. Bound Variables and Free Occurrence
 Free occurrence is different from mere occurrence. First, let's introduce the concept of quantifier scope, which refers to the expression range of the proposition after the quantifier's colon. For example, in
 
 $\forall$ x : $\forall$ y : (($\forall$ z : X) → (Y → X))
@@ -183,7 +185,7 @@ Free occurrence means ignoring bound variables—those variables that appear aft
 
 Note that in the second proposition, although z appears multiple times, only the first z is free; the later ones are bound by $\forall$ z.
 
-##### 2. Axiom Schema Explanation
+#### 2. Axiom Schema Explanation
 Let's explain these axiom schemas. We'll go backwards:
 - For example, from propositional logic (a1) axiom continuously applying (a7), we get the following are all axioms:
   1. $\forall$ z : (X → (Y → X))
@@ -195,7 +197,7 @@ Let's explain these axiom schemas. We'll go backwards:
   1. ($\forall$ x : ¬(x $\in\phi$)) → ¬(0 $\in\phi$)
   2. ($\forall$ x : ¬(x $\in\phi$)) → ¬(2+x $\in\phi$)
 
-##### 3. Substitutability
+#### 3. Substitutability
 
 However, axiom (a4) still has some detailed issues. For any integer x, we can find a number y different from it. This is obvious, i.e.,
 
@@ -215,7 +217,7 @@ $\exists$ z : ¬(y=z)
 
 However, there's no axiom or inference rule that allows us to directly rename bound variables as a whole. This is actually an external theorem (metatheorem). The specific proof process is left for readers to think about.
 
-##### 4. Other Approaches to First-Order Logic
+#### 4. Other Approaches to First-Order Logic
 Although concepts like "free occurrence" and "substitutability" can be precisely defined recursively, they are indeed much more complex than the simple match-and-replace rules of propositional logic. The game Deductrium specifically introduces fuzzy logic and a special class of assertion functions to handle them. Although reasoning currently works normally, I really can't guarantee there are no bugs, i.e., I can't guarantee the system won't derive false propositions. For mathematicians, they need more easily verifiable computer programs to handle first-order logic. [Metamath](https://us.metamath.org/mpeuni/mmset.html) is one of the few mathematical reasoning libraries based on first-order logic and ZFC set theory formal systems. It doesn't have concepts like free occurrence and substitutability, only introducing the simplest assertion that variables are distinct. However, the cost is many more axioms, and these axioms aren't very intuitive or easy to understand. Of course, although the number and content of axioms differ greatly, these two axiom systems are completely equivalent.
 </div>
 
@@ -223,9 +225,9 @@ Finally, let's talk about what "first-order logic" means. Propositional logic is
 
 The famous Peano axiom system describing properties of natural numbers is constructed on the basis of first-order logic. [Click here to expand/collapse details](javascript:$('#peano').toggle()).
 
-<div style="background-color:#EEF;display:none" id="peano">
+<div style="background-color:var(--color-EEF);display:none" id="peano">
 
-### Optional Reading: Peano Axiom System
+## Optional Reading: Peano Axiom System
 Let's first look at a simple and practical axiom system built on first-order logic—the Peano axioms. It defines integers and mathematical induction, allowing us to express almost everything about integers. The informal statement of Peano axioms is:
 1. 0 is a natural number;
 2. Every definite natural number a has a definite successor Sa, and Sa is also a natural number;
@@ -246,9 +248,9 @@ Additionally, to make the system convenient for handling general arithmetic prob
 
 The last of the Peano axioms, mathematical induction, is the core of the entire system. It means that for a property P(n) of natural numbers, if P(0) is known to hold and P(n+1) can be derived from P(n), then it holds for all natural numbers.
 
-<div style="background-color:#DDF; margin:0.5em">
+<div style="background-color:var(--color-DDF); margin:0.5em">
 
-Optional reading within optional reading:
+### Optional reading within optional reading:
 
 By induction, holding for all natural numbers means holding for all elements in the ordinal $\omega$. If we want to continue applying mathematical induction to larger ordinals, we encounter limit ordinals, and induction needs to be slightly modified into something called "[transfinite induction](https://www.bananaspace.org/wiki/%E8%B6%85%E9%99%90%E5%BD%92%E7%BA%B3%E6%B3%95)". In fact, transfinite induction in Peano axioms can only be proven up to the ordinal $\varepsilon_0$ (the limit of the $\omega$ exponential tower), and ordinals beyond $\varepsilon_0$ cannot be proven in the Peano axiom system. We say this ordinal $\varepsilon_0$ is the **proof-theoretic ordinal** of the Peano axiom system, denoted PTO(PA) (PA is the abbreviation for Peano axioms). For example, the famous "Hydra problem" and "Goodstein sequence problem". See the relevant chapters on proof-theoretic ordinals in "Large Number Theory". For the proof process, see [this series of articles on Zhihu](https://www.zhihu.com/column/c_1676959615533875200).
 
@@ -258,7 +260,7 @@ By induction, holding for all natural numbers means holding for all elements in 
 
 <!-- It needs to be emphasized again here: there's no concept of truth or falsity of propositions inside formal systems. Just as we externally assign truth values to propositional logic, we can also assign truth values to first-order logic statements. Since quantifiers like "for all" and "there exists" appear, discussing their correctness necessarily requires specifying a "domain of discourse", such as natural numbers for the Peano axiom system; then mapping constant symbols, predicate symbols, and function symbols to real mathematical constants, relations, and functions respectively, thus enabling judgment of the truth or falsity of first-order logic formulas. Note that the formal system itself only contains symbols and rules for generating symbol strings (so-called propositions), not models. Choosing different models may lead to different truth values for propositions within the system, but may also have no effect on truth values. For example, in ZFC set theory introduced below, the existence of uncountable sets can be derived from the axiom of infinity and power set axiom, yet we can even find a countable model of ZFC. It will "incorrectly" think it has uncountably many objects. -->
 
-### ZFC Set Theory
+## ZFC Set Theory
 ZFC set theory considers everything, including elements of sets, to be sets. Building on first-order logic, it only adds the predicate "belongs to" symbol "$\in$", along with 9 axioms about sets:
 - Axiom of Extensionality (defines the condition for set equality)
 - Axiom of Pairing (defines how to construct sets from elements)
@@ -276,7 +278,7 @@ The specific forms of these axioms are somewhat complex and won't be listed here
 
 Note that the above 9 axioms are completely described by first-order logic and don't include any symbols besides the membership symbol (such as empty set symbol, intersection/union/complement, etc.). However, mathematicians certainly wouldn't only use these few symbols. [Click here to expand/collapse about the specification problem of defining new symbols](javascript:$('#empty-set').toggle())
 
-<div style="background-color:#EEF;display:none" id="empty-set">
+<div style="background-color:var(--color-EEF);display:none" id="empty-set">
 
 ### Optional Reading: Symbol Definition Problem
 
@@ -302,7 +304,7 @@ There are also some details to note about set theory itself. For example, all se
 
 Set theory has a very close relationship with ordinals. [Click here to expand/collapse how to describe the strength of ZFC set theory using ordinals](javascript:$('#pto').toggle()).
 
-<div style="background-color:#EEF;display:none" id="pto">
+<div style="background-color:var(--color-EEF);display:none" id="pto">
 
 ### Optional Reading: The Strength of ZFC Set Theory
 Mathematical induction can be derived from the axiom of choice in ZFC, so the strength of ZFC set theory is greater than (actually far greater than) Peano axioms. However, ZFC set theory is not omnipotent. For example, the existence of certain large cardinals cannot be proven in ZFC; we can only add more axioms to ZFC to get stronger systems. Let's start from the empty set and see how formal systems gradually become more powerful:

@@ -4,6 +4,11 @@ tags:
   - Minecraft
   - 2b2t
 date: 2020-01-03 22:29:05
+
+excerpt: While scouting at Y=120 in the Nether, I found a mature tunnel network and ran 100k blocks before returning to spawn. I Joined a Chinese group, helped build an llama dupe base, but it was griefed by FluixCarvin after an insider leak.
+
+
+index_img: /img/2b2t/plepon.jpg
 ---
 
 After dying last time, I respawned at the bed in our temporary base. After respawning, hadroncfy and I discussed and decided to travel further through the Nether. The Nether terrain is rugged, so we decided to follow others' example and tunnel at y=120, as there's no lava at this height. Shortly after departing, hadroncfy got stuck and disconnected in the Nether. I continued traveling alone in the Nether. After digging for a while, I discovered there's actually a dense tunnel transportation network around y=120! Following it for maybe two hours, I easily ran 100k blocks! I reached 300k! But at this time, the Avengers Alliance group we joined was distributing lots of supplies near spawn. I decided I couldn't go any further. Although I had spent several days arduously reaching 200k, traveling through the Nether would only take a day to return, so I felt it wasn't a loss to go back and return later. So I found a portal, made a bed, placed an ender chest, prepared to sleep, break the bed, and commit suicide. Before suicide, I organized what to put in the ender chest, then typed /kill.

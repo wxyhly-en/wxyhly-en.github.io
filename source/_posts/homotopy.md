@@ -5,21 +5,16 @@ tags:
   - Topology
   - Graphics
   - Mathematics
+index_img: /img/homology004.png
 date: 2022-07-02 20:28:40
+excerpt: In previous article, we introduced various figures with holes in 4D. How to study  these holes? This article aims to provide an intuition of homotopy and homology in algebraic topology.
+
 ---
 
 Note: This article does not require readers to have a professional background in topology. The term "algebraic" might give the impression of something abstract and difficult to understand, so this article aims to provide an intuitive understanding of homotopy and homology in algebraic topology. Specific formal definitions and technical details can be found in any algebraic topology textbook.<a name="l1"></a>
 ![](/img/homology004.png)
-## Table of Contents
-- [Introduction to Topology](/archives/homotopy/#l1)
-- [Path Homotopy and the Fundamental Group](/archives/homotopy/#l2)
-- [Homotopy Between Topological Spaces](/archives/homotopy/#l3)
-- [Van Kampen's Theorem and Computation of Fundamental Groups](/archives/homotopy/#l4)
-- [Covering Spaces and Path Lifting](/archives/homotopy/#l5)
-- [Introduction to Higher Homotopy Groups](/archives/homotopy/#l6)
-
 <!--more-->
-In "[Four-Dimensional Space (Part 10): Knots and Links](/archives/knot4d/)", we introduced various figures with holes in four-dimensional space. How to study and distinguish these holes is an important problem in topology. If you are not familiar with topological concepts like homeomorphism and isotopy, let's briefly discuss these basic topological concepts first. Readers already familiar with these can skip ahead.
+In "[4D Space (X): Knots and Links](/archives/knot4d/)", we introduced various figures with holes in four-dimensional space. How to study and distinguish these holes is an important problem in topology. If you are not familiar with topological concepts like homeomorphism and isotopy, let's briefly discuss these basic topological concepts first. Readers already familiar with these can skip ahead.
 
 ## Introduction to Topology
 Topology doesn't concern itself with the specific dimensions and shapes of geometric figures; it only cares about how figures are connected. The first intuitive explanation is that as long as you can arbitrarily stretch a figure without tearing or gluing it, topologists consider the figures to be identical. Overly colloquial descriptions inevitably lose some details, so here's a second-level explanation: two figures are topologically equivalent (technically: homeomorphic) if there's a one-to-one mapping between every point in both figures, and the mapping is continuous.
@@ -27,6 +22,7 @@ Topology doesn't concern itself with the specific dimensions and shapes of geome
 It's worth noting that while the first and second descriptions seem consistent, if we want to untie a knotted string with its ends glued together, we would have to cut the string, untie it, and then glue it back—but the second description doesn't require the entire motion process between the two states to remain continuous, only that the two states can be continuously corresponded. So from the second perspective, a knot is equivalent to a circle, but not from the first perspective. Here we need to get used to a somewhat counterintuitive concept: when studying topological figures, we default to studying only the figure itself, not the external space it occupies. Thus when two figures are topologically equivalent, we call them "homeomorphic," and when we talk about studying a "topological space," we generally mean the figure itself, not the external space it occupies. But sometimes we do need to consider the space a figure occupies (for example, knots only exist in three-dimensional space and come undone in four dimensions or higher). In this case, we require that both the figures and their surrounding spaces undergo continuous mapping together. We say a trefoil knot and a circle are not "isotopic" in three-dimensional space but are "isotopic" in four-dimensional space. Compared to the first level, the second level of description can also handle things involving limits and infinity, which are difficult to "deform" intuitively. Let's look at some examples:
 
 1. When mapping a circle to a broken circle, there's a discontinuity at the opening, which topology doesn't allow, so a circle and an arc are not homeomorphic.
+
 ![A circle cannot be continuously mapped to a cut circle, because the red parts on the left are very close regions, but they map to separated parts at the gap on the right](/img/homology002.svg)
 
 2. The shapes of the letters O and Q are not homeomorphic, because if Q's tail maps to a point on O, then that one point on O corresponds to all points on Q's tail, violating the one-to-one correspondence. If Q's tail maps to a small arc on O, then it overlaps with Q's circle, also violating the one-to-one mapping requirement.

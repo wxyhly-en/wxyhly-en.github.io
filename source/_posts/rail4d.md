@@ -1,15 +1,16 @@
 ---
-title: "Four-Dimensional World (Part 3): Road and Railway Design"
+title: "4D World (Part 3): Road and Railway Design"
 tags:
-  - Four-dimensional
+  - 4D
   - Peculiar Imagination
   - Series Articles
-categories: Four-Dimensional World Series
+categories: 4D World Series
+index_img: /img/rail401.png
 date: 2019-01-10 16:00:00
 ---
 The previous article introduced various types of vehicles in the four-dimensional world, all of which can freely drive and steer on three-dimensional ground surfaces. Since four-dimensional space doesn't require traffic lights and overpasses, does this mean transportation for four-dimensional beings is extremely convenient? Yes, but four-dimensional traffic still has some minor issues. We know that in three-dimensional space there are two-way roads with median strips or yellow lines separating them, and everyone follows the rule of keeping to the right; in the four-dimensional world's two-way roads, the median barrier on the three-dimensional road surface must be two-dimensional to separate the roads - drawing a single line no longer serves this purpose. The simplest two-way road would probably look like this:
 ![](/img/rail401.png)<!--more-->
-As we can see, it's like a blood vessel, where cars inside can move freely at various angles like cells, as long as the front of the car points forward. Whether the road's cross-section should be circular is indeed a question, because even if cars are approximately hyper-rectangular, the car's free rotation means the corners of a square cross-section aren't efficiently utilized. Of course, we could align the car's rotation with the road's cross-section, but as we'll see, this is cumbersome and unnatural. Due to this directional arbitrariness, following the keep-right principle becomes meaningless - four-dimensional beings must mark driving directions everywhere on highways to prevent vehicles from entering and driving against traffic.
+As we can see, it's like a blood vessel, where cars inside can move freely at various angles like cells, as long as the front of the car points forward. Whether the road's cross-section should be circular is indeed a question, because even if cars are approximately hyper-rectangular, the car's free rotation means the corners of a square cross-section aren't efficiently utilized. Of course, we could align the car's rotation with the road's cross-section, but as we'll see, this is cumbersome and unnatural. Due to this directional arbitrariness, following the keep-right principle becomes meaningless - 4D beings must mark driving directions everywhere on highways to prevent vehicles from entering and driving against traffic.
 
 As for multi-lane roads, this becomes entirely a two-dimensional problem of allocating cross-sectional space. Below are some possible multi-lane patterns: (Blue represents traffic direction perpendicular to the page going inward, red represents outward)
 ![](/img/rail402.png)

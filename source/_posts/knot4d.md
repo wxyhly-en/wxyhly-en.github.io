@@ -1,11 +1,13 @@
 ---
-title: "Four-Dimensional Space (Part 10): Knots and Links"
+title: "4D Space (Part 10): Knots and Links"
 tags:
-  - four-dimensional
+  - 4D
   - geometry
   - topology
-categories: Four-Dimensional Space Series
+categories: 4D Space Series
 date: 2019-03-23 19:49:13
+index_img: /img/knot417.jpg
+excerpt: All knots in 3D can be easily untangled in 4D. There are no knots in 4D. End of article. Of course I wouldn't end this article like that. 2D surfaces (2D ropes?) can form knots!
 ---
 
 This time we'll look at an interesting topic: knots in four-dimensional space. Perhaps everyone should already know that due to the extra degree of freedom, all knots in three-dimensional space can be easily untangled in four-dimensional space, so knots are unique products of three-dimensional space. There are no knotting phenomena in four-dimensional space. End of article.
@@ -157,8 +159,8 @@ Actually we already know that if these materials are soft, torus surfaces and fl
 ![](/img/knot412.jpg)
 We see green points inevitably exist on circles - tori or spheres can't be removed from circles. So four-dimensional space necklaces will have two types: one circle with a string of spheres, or one sphere with a string of circles. Note "string" is inappropriate here because circles can slide freely on sphere surfaces without forming strings. The most likely four-dimensional necklace is many small circles on a sphere, because considering four-dimensional beings' necks should be cylinder-like (one-dimensional lines thickened) with two-dimensional holes, circle necklaces would be unstable.
 ![Colored projection of sphere necklace](/img/knot419.jpg)
-Could those small rings also be linked? NO! We said earlier that all knots and links in three-dimensional space can be easily unknotted in four-dimensional space. Even if projections show linking, just "shaking" this key chain separates them. So circle linking is unique to three-dimensional space - four-dimensional space has no circle linking phenomena. End of article.
+Could those small rings also be linked? NO! We said earlier that all knots and links in three-dimensional space can be easily unknotted in four-dimensional space. Even if projections show linking, just "shaking" this key chain separates them. So circle linking is unique to three-dimensional space - 4D space has no circle linking phenomena. End of article.
 
 I ~~of course~~ (actually) will end this article like this.
 
- [Previous](/archives/rot4d/)　 [View Series Index](/categories/四维空间系列/) 　 [Next](/archives/gaqr/)
+ [Previous](/archives/rot4d/)　 [View Series Index](/categories/4D-Space-Series/) 　 [Next](/archives/gaqr/)

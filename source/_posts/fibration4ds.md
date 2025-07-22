@@ -1,39 +1,27 @@
 ---
-title: "Four-Dimensional Space (Part 4): Fibers and Hyperspheres"
+title: "4D Space (IV): Fibers and Hyperspheres"
 tags:
   - 4D
   - geometry
   - series
   - mathematics
-categories: Four-Dimensional Space Series
+categories: 4D Space Series
 date: 2016-04-16 18:16:48
+excerpt: Coordinate planes xy and zw intersect only at the origin. Place a unit hypersphere at the origin, we can see those intersected unit circles by stereographic projection.
+index_img: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/250px-Hopf_Fibration.png
 ---
 <a name="index"></a>
-\#<span class="likecode">This article explains episodes 7 and 8: Fiber bundles from the film "[Dimensions: A Walk Through Mathematics](https://www.dimensions-math.org/Dim_E.htm)", with emphasis on the geometric properties of the Hopf fibration</span><div style="padding-left:25px;float:right"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/250px-Hopf_Fibration.png"/><p>Image from en.wikipedia by Niles Johnson</p></div>
-
-## Featured Content
- - Online WebGL 4D viewer
- - Isoclinic planes
- - Great ring structure of the 120-cell
- - What is a fiber bundle
+<span class="likecode"># This article explains episodes 7 and 8: Fiber bundles from the film "[Dimensions: A Walk Through Mathematics](https://www.dimensions-math.org/Dim_E.htm)", with emphasis on the geometric properties of the Hopf fibration</span>
+![Image from en.wikipedia by Niles Johnson](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/250px-Hopf_Fibration.png)
 
 <!--more-->
-### Table of Contents:    
- - [Introduction](/archives/fibration4ds/#prev)
- - [Links](/archives/fibration4ds/#link)
- - [Not Just Stereographic Projection](/archives/fibration4ds/#nostereo)
- - [Isoclinic Planes](/archives/fibration4ds/#isoclinic)
- - [Great Ring Structure in the 120-cell](/archives/fibration4ds/#grandering)
- - [Orthogonality](/archives/fibration4ds/#orth)
- - [Torus in 4D and Torus Eversion](/archives/fibration4ds/#flip)
- - [What is a Fiber Bundle?](/archives/fibration4ds/#quecequecest)
 
-#### Note: You may first refer to [the film's official website for detailed description of fiber bundles](http://www.dimensions-math.org/Dim_CH7_ZH_si.htm)<a name="prev"></a>
+Note: You may first refer to [the film's official website for detailed description of fiber bundles](http://www.dimensions-math.org/Dim_CH7_ZH_si.htm)<a name="prev"></a>
 <a href="/three/Hopf fibre2.html" target="_blank" style="font-size: large; color:#EE8800">Click to view 3D model of fiber bundle (requires WebGL-supported browser, such as Chrome)</a>
 
-### Introduction
+## Introduction
 　　Let's start today's topic with a familiar example: the coordinate planes $xy$ and $zw$ intersect only at the origin. We have tried very hard to intuitively imagine the scenario where two infinite planes intersect at only one point, but we just can't visualize it, leaving us with no geometrical intuition other than algebraic interpretation. Is there a more visual method? Here's one way to **visualize** the position of these two planes simultaneously: place a unit hypersphere ($\mathbf S^3$) at the origin, which will certainly intersect all planes passing through the origin in unit circles. Now the problem becomes simple: we can directly see those unit circles by reducing dimensions to 3D space through **stereographic projection**.<a name="link"></a>
-### Links
+## Links
 　　Since coordinate planes $xy$ and $zw$ only intersect at the origin, their **intersection circles with the unit hypersphere do not intersect**. What is the positional relationship when these two intersection circles are projected to 3D space? We can write a program to draw it: the stereographic projections of the two intersection circles are magically linked together like chain links! This chain-like figure is called a "Hopf link".
 　　We also want to see the intersection circles of more planes. The Hopf fiber bundle introduced in the film, obtained through complex numbers, achieves exactly this purpose: It allows us to better understand planes in 4D space (since all circles are obtained by planes passing through the origin), and also understand the wonderful properties of the hypersphere $\mathbf S^3$ itself. The introduction of complex numbers is the most ingenious part. The video explains it like this:
 $z_2=k.z_1$ 　(Did you notice the detail in the film: French people use a dot for multiplication, and a comma for decimal points)
@@ -48,12 +36,12 @@ $k$ can take any value in the extended complex plane (extended means $k$ can equ
 ![](/img/fibre1.gif)
 The lines are indeed messy, but we see that circles can sometimes project to line segments in 3D space, and looking from one end of the segment it shrinks to a point—thus we indirectly glimpse the shadow of planes intersecting at a point.
 <a name="isoclinic"></a>
-[Return to Table of Contents](#index)
 
-### Isoclinic Planes
+
+## Isoclinic Planes
 
 　　Obviously, the Hopf fiber bundle doesn't represent all planes passing through the origin. For example, planes $xz$ and $yw$ can never be represented. (They have intersection points with unit circles on planes $xy$ and $zw$, so they don't belong to this fiber bundle) It also seems that all Hopf fiber bundles have a common property. Later when we systematically study 4D space n-vector methods, we can calculate that the angles between them are isoclinic—that is, their $\theta_1=\theta_2$! This positional relationship of planes is called **isoclinic**. We can also prove that the set of all **same-chirality** isoclinic planes with respect to a plane forms exactly one complete Hopf fiber bundle. What is same-chirality? We'll later introduce that all general position relationships between two planes can be divided into two symmetric classes like a person's left and right hands. Remember the film *Dimensions* mentioned the Hopf circle and its mirror circle? They respectively form left and right-handed Hopf fiber bundles.<a name="grandering"></a>
-### Great Ring Structure in the 120-cell
+## Great Ring Structure in the 120-cell
 Since Hopf fibers reflect properties of the hypersphere $\mathbf S^3$, and regular polytopes with many cells approximate hyperspheres (think of how regular polygons approximate circles in 2D), let's see what secrets we can discover in the 120-cell (Hecatonicosachoron). Its basic properties are:
 - 120 regular dodecahedral cells, 720 pentagonal faces, 1200 edges, 600 vertices;
 - Dihedral angle between adjacent cells is 144°.
@@ -82,7 +70,7 @@ Since Hopf fibers reflect properties of the hypersphere $\mathbf S^3$, and regul
 　　If we draw these 12 great circles in the Hopf fiber bundle, the distribution of the 12 complex numbers $k$ corresponding to the planes containing the great circles on the sphere $\mathbf S^2$ is exactly the distribution of the **12 vertices of a regular icosahedron**! This shows that these 12 rings actually have equal status. These beautiful properties of the 120-cell are exactly why I love it.
 <a name="orth"></a>
 
-### Orthogonality
+## Orthogonality
 　　Fiber bundles have many beautiful geometric properties. The six coordinate planes can be divided into three absolutely perpendicular pairs: $xy-zw$, $xz-wy$, $xw-yz$, so we have three ways to choose the planes corresponding to $z_1$ and $z_2$:
 $$ z_1=x+iy; z_2=z+iw $$$$ z_1=x+iz; z_2=y+iw $$$$ z_1=x+iw; z_2=y+iz $$
 Actually we can also swap real and imaginary parts:
@@ -95,19 +83,19 @@ They are orthogonal at every point in space:
 ![](/img/fibre3.gif)
 <a name="flip"></a>
 
-### Torus in 4D, Torus Eversion and Other Topological Problems
+## Torus in 4D, Eversion and Topological Problems
 Why can these Hopf circles form a torus-like toroidal surface? Note that the torus you see here is just a 3D projection in 4D space, so we need to calculate its original expression: through simple calculation we can get that this torus's equation in the 4D coordinate system is:$$\begin{cases}x^2+y^2=|z_1|^2 \\\\ z^2+w^2=|z_2|^2\end{cases}$$We can consider this as part of the surface of a new 4D geometric object:$$\begin{cases}x^2+y^2\le |z_1|^2 \\\\ z^2+w^2\le |z_2|^2\end{cases}$$This geometric object is something similar to a cylinder (note it's certainly not a cylindrical column). Wikipedia calls it a "duocylinder". We will discuss it in detail in the next section along with a similar class of shapes called "duoprisms", and thereby explain why meridians and parallels can actually be swapped when a torus is turned inside out.
-[Return to Table of Contents](#index)
 
-#### Torus Eversion
+
+### Torus Eversion
 　　While studying 4D space, we unexpectedly encountered 3D geometric knowledge like two circles linked like chains, and torus cross-sections showing two intersecting circles. Actually, stereographic projection also demonstrates another topological property of the toroidal surface: a torus with a hole can be turned inside out.
 ![](https://upload.wikimedia.org/wikipedia/commons/b/ba/Inside-out_torus_%28animated%2C_small%29.gif)
 <center>Image from en.wikipedia</center>
 　　Doesn't this eversion process look similar to stereographic projection? That hole is used for passing through the projection pole.
 <a name="quecequecest"></a>
 
-### What is a Fiber Bundle?
-**Direct Product**
+## What is a Fiber Bundle?
+### Direct Product
 　　When talking about fiber bundles, we first need to explain what a direct product is: Let $A$ and $B$ be any two sets. Take any element $x$ from set $A$ and any element $y$ from set $B$ to form an ordered pair $(x,y)$. Taking such ordered pairs as new elements, the set of all of them is called the direct product of sets $A$ and $B$, denoted as $A×B$, that is $A×B=\\{(x,y)|x∈A$ and $y∈B\\}$.
 Some examples:
 - If $x$ is a line segment and $y$ is a line segment, $x×y$ is a rectangle.
@@ -116,17 +104,13 @@ Some examples:
 
 **What if $x$ is a circle and $y$ is also a circle? Two 2D shapes will produce a 4D shape through direct product! What would it look like? We leave this as a thinking question, which will be discussed in detail in the next section**
 
-**Direct Product and Fibers**
+### Direct Product and Fibers
 　　What's the relationship between direct product and fibers? We can understand direct product this way, for example, a cylinder can be seen as made up of many line segments or many circles:
 You can see the appearance of "fibers". But the fiber structure produced by direct product is simple and not very interesting, we call it a **trivial fiber bundle**.
 ![](/img/fibre4.gif)
-**The simplest non-trivial bundle: Möbius strip**
+### The simplest non-trivial bundle: Möbius strip
 ![](/img/fibre5.gif)
 　　Look at the grid lines of the Möbius strip: It looks like vertical generating lines on a cylinder—so locally it looks like the direct product of its edge and a vertical line, but overall it has an extra twist, so it's fundamentally different from a cylinder and doesn't satisfy the definition of direct product: {(x,y)|x∈A and y∈B}.
 　　So we abstractly define fiber bundle: each fiber bundle is a continuous surjection $π: E → B$ such that $E$ locally looks like the direct product space $B × F$ for some $F$ (called the fiber).
 　　A visual explanation: there's a bunch of fuzzy fibers filling a portion of space $E$ (without gaps), the endpoints of these fibers are all on a surface $B$, any point in the fiber-filled space $E$ corresponds to a fiber, this fiber's root corresponds to a point on surface $B$, i.e., the surjection $π: E → B$. In 4D space, besides the Hopf fiber bundle there are also Seifert fiber bundles (appearing in the Dimensions Film's upcoming trailer) and others, which we will see later.
 　　For the Hopf fiber bundle, E is the hypersphere $\mathbf S^3$, B is the sphere $\mathbf S^2$, F is the circle $\mathbf S^1$. Of course circles have no endpoints, this is just a visual explanation that each point on the sphere corresponds to a circle in the hypersphere. Topologists are very enthusiastic about finding various mappings between n-dimensional spheres $\mathbf S^n$! For example, they discovered that similar fiber bundles exist in 7-dimensional space, but unfortunately we can no longer clearly visualize such high dimension.
-
-[Return to Table of Contents](#index)
-
- [Previous Article](/archives/polyhedral4ds/)　 [View Series Contents](/categories/四维空间系列/)　[Next Article](/archives/more4ds/)

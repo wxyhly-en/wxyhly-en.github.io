@@ -1,14 +1,16 @@
 ---
-title: "Four-Dimensional World (Part 2): Road Traffic"
+title: "4D World (Part 2): Road Traffic"
 date: 2018-08-16 15:44:37
 tags: 
-- Four-dimensional
+- 4D
 - Peculiar Imagination
 - Series Articles
-categories: Four-Dimensional World Series
+categories: 4D World Series
+excerpt: In the last post I mentioned that 4D urban traffic doesn't need overpasses because the ground is 3D, and traffic flows in two directions only need to follow skew lines. Now let's first study what roads in 4D actually look like, how cars drive on them, and the analogues of tricycles and bicycles in 4D space.
+index_img: /img/trans401.gif
 ---
 
-This article is a continuation of "Visiting the Four-Dimensional Country". In that article, I mentioned that 4D urban traffic doesn't need overpasses because the ground is three-dimensional, and traffic flows in two directions only need to follow skew lines. Now let's first study what roads in the 4D country actually look like, how cars drive on them, and the analogues of tricycles and bicycles in four-dimensional space. To study general objects in 4D, we can't use stereographic projection, because stereographic projection essentially studies hyperspheres - we need to project regular polytopes onto hyperspheres. So we'll start with the cross-section method and projection method. First, let's look at a straight road with curbs in 3D: ![](/img/trans400.gif)
+This article is a continuation of "Visiting the Four-Dimensional Country". In that article, I mentioned that 4D urban traffic doesn't need overpasses because the ground is three-dimensional, and traffic flows in two directions only need to follow skew lines. Now let's first study what roads in 4D actually look like, how cars drive on them, and the analogues of tricycles and bicycles in four-dimensional space. To study general objects in 4D, we can't use stereographic projection, because stereographic projection essentially studies hyperspheres - we need to project regular polytopes onto hyperspheres. So we'll start with the cross-section method and projection method. First, let's look at a straight road with curbs in 3D: ![](/img/trans400.gif)
 We see that the top view is the clearest, except that you can't see the height of the curbs. What about 4D roads? Their top view is a three-dimensional cylindrical shape, but should the base be square? Or circular to make the road cylindrical? ![](/img/trans401.gif)<!--more-->
 We see that due to the extra dimension, the question of the road's 2D cross-sectional shape becomes meaningful (there's only one type of one-dimensionally connected figure: a line segment). Note that I drew the road as transparent only for observational convenience. Actually, 4D people can directly see 3D images without obstruction - they would see each point on the curb as uniformly light yellow, and the road surface as uniformly gray. 4D people don't need to cross the road - they can just go around from the curb! Note this isn't climbing over or building an overpass, because this is a top view, and gravity is perpendicular to all directions in the projection. What if there are no curbs? Would they then have to cross the road? Actually, no. Vehicles are concentrated in the cylindrical shape, so you just need to walk around the edge and you'll be fine (though with some risk). So which is better - roads with square or circular cross-sections? How should lanes be divided (like whether there should be a line in the middle)? These two questions are actually related, and we'll discuss them later.
 
