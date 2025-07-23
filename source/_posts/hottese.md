@@ -63,7 +63,7 @@ Basic λ-calculus can be used to construct models of boolean values, arithmetic,
 AND := λp.λq.p q FALSE
 OR := λp.λq.p TRUE q
 NOT := λp.p FALSE TRUE
-For more on untyped λ-calculus, see [Wikipedia](https://zh.wikipedia.org/wiki/%CE%9B%E6%BC%94%E7%AE%97).
+For more on untyped λ-calculus, see [Wikipedia](https://en.wikipedia.org/wiki/Lambda_calculus).
 
 ### Typed Lambda Calculus
 Untyped λ-calculus sometimes causes problems. For example, β-reduction seems to simplify functions, but sometimes it makes them more complex. Try using β-reduction to simplify the expression "(λx:x x)(λx:x x)" and you'll find it's exactly the same before and after simplification. The expression "(λx:(x x) x)(λx:(x x) x)" will "simplify" to "((λx:x x x) (λx:x x x)) (λx:x x x)", and continuing β-reduction gives "(((λx:x x x) (λx:x x x)) (λx:x x x)) (λx:x x x)"... becoming longer and longer and never stopping. This also means there's no universal algorithm to determine whether two lambda terms are equal. Type theory uses typed lambda calculus, which prevents this kind of endless self-application loop by introducing types. The rules are roughly as follows:

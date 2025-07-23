@@ -5,7 +5,7 @@ tags:
   - Peculiar Imagination
 date: 2016-05-18 13:10:07
 index_img: /img/chemical-planets.jpg
-categories: Peculiar World Series
+categories: Strange World Series
 ---
 
 　　In the direction of Ursa Major, at the edge of the M82 Cigar Galaxy dozens of light-years from Earth, there exists a lonely star system. Apart from the star at its center, this system contains two planets orbiting the star: one called the Electron-Deficient Planet, which is dark green, and another called the Electron-Rich Planet, which is silvery white. Their orbital paths nearly coincide, and even their orbital periods are almost identical, which causes them to forever remain on opposite sides of the central star, never able to "meet."

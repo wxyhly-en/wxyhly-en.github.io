@@ -1,5 +1,5 @@
 ---
-title: "4D Space (9): Curved Shapes"
+title: "4D Space (IX): Curved Shapes"
 tags:
   - 4D
   - Geometry

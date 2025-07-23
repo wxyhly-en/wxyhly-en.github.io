@@ -4,7 +4,7 @@ tags:
   - Peculiar Imagination
   - Physics
 date: 2016-05-04 14:58:34
-categories: Peculiar World Series
+categories: Strange World Series
 index_img: /img/inverseEarth.jpg
 excerpt: This is a special world. In this world, you still have blue sky overhead and solid ground beneath your feet, seemingly no different—yet this world is completely different. In this world, even vacuum has mass! And vacuum has the highest density, gas has lower density, liquid even lower, and solid has the lowest density, exactly opposite to our world...
 ---

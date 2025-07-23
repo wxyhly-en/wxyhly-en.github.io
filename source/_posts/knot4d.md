@@ -1,5 +1,5 @@
 ---
-title: "4D Space (Part 10): Knots and Links"
+title: "4D Space (X): Knots and Links"
 tags:
   - 4D
   - geometry

@@ -6,7 +6,7 @@ layout: page
 
 ## [Chem4D (4D Chemistry)](https://wxyhly.github.io/Chem4D/)
 A conceptual viewer for common substance structures in four-dimensional chemistry, supporting interaction with the Tesserxel demo library to generate 4D molecular models. See [“4D World (XI): The Periodic Table”](/archives/elem4d/) for the element system.
-- [Link to the simplified version of the Periodic Table](https://wxyhly.github.io/Chem4D/periodic/)
+- [Link to the Periodic Table Page](https://wxyhly.github.io/Chem4D/periodic/)
 
 ![4D molecules from the Tesserxel demo library](/img/chemie006.jpg?size=500x)
 ## [Deductrium](https://wxyhly.github.io/deductrium/)

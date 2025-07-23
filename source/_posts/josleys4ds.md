@@ -1,12 +1,12 @@
 ---
 title: Explaining the "Dimensions" Trailer
 tags:
-  - Four-dimensional
+  - 4D
   - Topology
   - Translation
   - Series
   - Mathematics
-categories: Four-dimensional Space Series
+categories: 4D Space Series
 date: 2016-05-01 12:24:37
 index_img: /img/S3_01.jpg
 excerpt: "The last episode of the 'Dimensions' series is a trailer: Dimensions II — its content is not the later released 'Chaos', but the latest research results of one of the 'Dimensions' creators — mathematician Étienne Ghys. This content is even more profound, and I estimate they probably won't release this episode. I found an article on the website of Jos Leys, another creator of 'Dimensions', introducing the graphics that appear in the trailer (i.e., Étienne Ghys's latest research results)..."
@@ -16,7 +16,7 @@ excerpt: "The last episode of the 'Dimensions' series is a trailer: Dimensions I
 
 The last episode of the "Dimensions" series is a trailer: Dimensions II — its content is not the later released "Chaos", but the latest research results of one of the "Dimensions" creators — mathematician Étienne Ghys. This content is even more profound, and I estimate they probably won't release this episode. I found an article on the website of Jos Leys, another creator of "Dimensions", introducing the graphics that appear in the trailer (i.e., Étienne Ghys's latest research results):
 
-- **Please first read the <a href="/three/lorenz3.html" target="_blank">translation</a>** (or directly read the <a href="http://www.josleys.com/articles/ams_article/Lorenz3.htm" target="_blank">original</a>)
+- **Please first read the <a href="http://www.josleys.com/articles/ams_article/Lorenz3.htm" target="_blank">original article</a> by Jos Leys**
 
 - And **<a href="http://www.ams.org/happening-series/hap7-new-twist.pdf" target="_blank">another PDF introducing it</a>**
 
