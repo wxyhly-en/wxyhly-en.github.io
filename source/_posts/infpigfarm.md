@@ -1,76 +1,76 @@
 ---
-title: 参观无限大养猪场
+title: Visiting the Infinite Pig Farm
 tags:
-  - 奇特想象
-  - 数学
-  - 代数
+  - Peculiar Imagination
+  - Mathematics
+  - Algebra
 date: 2022-12-17 18:31:56
 index_img: /img/infpig001.jpg
-excerpt: 藤瑟先生被邀请来参观无限大养猪场。工作人员负责向他介绍这里的管理模式。工作人员：欢迎您前来参观无限大养猪场。这是个无限大的养猪场，我们养了无数头猪，有无数个饲养员，我们的管理模式很特别。每个饲养员都对猪编号，方便识别它们，但每个饲养员都很有个性，他们对猪的编号系统都完全不一样……
+excerpt: "Mr. Tensor was invited to visit the Infinite Pig Farm. The staff member is responsible for introducing him to the management model here. Staff member: Welcome to the Infinite Pig Farm. This is an infinitely large pig farm where we raise countless pigs, have countless feeders, and our management model is very special. Each feeder numbers the pigs for easy identification, but each feeder has a strong personality, and their pig numbering systems are all completely different..."
 ---
 
-<p class="likecode">(** 注：本文为一篇好几年前的旧文，是作者对于<b>对偶空间</b>这一数学概念的形象化的想象，因下一篇文章涉及对偶空间概念，故在此发出(然而与其它文章并无因果联系，本文也毫无逻辑可言，看一乐就行，仅在文末给出了一些概念之间的对应关系) **)</p>
+<p class="likecode">(** Note: This article is an old piece from several years ago, an imaginative visualization by the author of the mathematical concept of <b>dual space</b>. Since the next article involves the concept of dual space, it is published here (however, it has no causal relationship with other articles, and this article has no logic whatsoever - just read it for fun. Only at the end are some correspondences between concepts given) **)</p>
 
 ![](/img/infpig001.jpg)
 
-（藤瑟先生被邀请来参观无限大养猪场。工作人员负责向他介绍这里的管理模式。）
+(Mr. Tensor was invited to visit the Infinite Pig Farm. The staff member is responsible for introducing him to the management model here.)
 
-工作人员：欢迎您前来参观无限大养猪场。这是个无限大的养猪场，我们养了无数头猪，有无数个饲养员，我们的管理模式很特别。每个饲养员都对猪编号，方便识别它们，但每个饲养员都很有个性，他们对猪的编号系统都完全不一样。
+Staff member: Welcome to the Infinite Pig Farm. This is an infinitely large pig farm where we raise countless pigs, have countless feeders, and our management model is very special. Each feeder numbers the pigs for easy identification, but each feeder has a strong personality, and their pig numbering systems are all completely different.
 
-藤瑟先生：你们不统一编号不会导致管理混乱吗？
+Mr. Tensor: Won't your lack of unified numbering lead to management chaos?
 
-工作人员：不会的，无限大养猪场中的饲养员的个性丰富程度也是无穷的，我们必须要充分尊重饲养员们的个性，这自有解决方法。<!--more-->
+Staff member: No, the personality diversity of feeders in the Infinite Pig Farm is also infinite. We must fully respect the feeders' personalities, and we have our own solutions for this.<!--more-->
 
-藤瑟先生：你们对饲养员编号，是吗？
+Mr. Tensor: Do you number the feeders?
 
-工作人员：其实猪已经做过类似的事情了，每当饲养员来喂猪时猪会听到饲养员在叫它的编号，不同饲养员对它的编号一般都是不一样的，所以猪索性就用这些本来叫它的编号给饲养员编了号，饲养员对不同猪编不同号，所以不同的猪对同一个饲养员编号的方式也不一样。而你对饲养员编号就是这无穷多的猪里面某一头猪天天做的事情。
+Staff member: Actually, the pigs have already done something similar. Whenever a feeder comes to feed the pigs, the pig hears the feeder calling its number. Different feeders generally give it different numbers, so the pig simply uses these numbers that were originally used to call it to number the feeders. Feeders give different numbers to different pigs, so different pigs also number the same feeder differently. And numbering feeders is exactly what one of these infinite pigs does every day.
 
-藤瑟先生：我可不想做一头猪做的事。我好想明白了，意思是说你们不给饲养员编号，而是让饲养员和猪互相辨认，是吗？
+Mr. Tensor: I don't want to do what a pig does. I think I understand - you mean you don't number the feeders, but let the feeders and pigs identify each other, right?
 
-工作人员：对。但不等于管理人员就闲得没事，我们还是有很多号需要编的，比如我们会给每两头猪的所有组合进行编号。
+Staff member: Right. But that doesn't mean the management staff has nothing to do. We still have many numbers to assign. For example, we number all combinations of every two pigs.
 
-藤瑟先生：给每两头猪的所有组合编号？我完全想象不出这有什么意义。
+Mr. Tensor: Number all combinations of every two pigs? I can't imagine what use that could possibly have.
 
-工作人员：不，这样做反而对我们的管理很重要，因为这样编号的用意在于给每一头猪指定一个饲养员。
+Staff member: No, doing this is actually very important for our management, because the purpose of this numbering is to assign a feeder to each pig.
 
-藤瑟先生：怎么会这样？
+Mr. Tensor: How can that be?
 
-工作人员：你看，我们给猪A和猪B组合对应号码b，猪A和猪C组合对应号码c，猪A和猪D组合对应号码d，以此类推，只要给定了一头猪A，再给定另一头猪，这个号码就决定了，所以给定了一头猪A就对应着一套给另一头猪编号的法则，记住，我们的饲养员有无数个，所以你总能找到一个饲养员对猪编号的法则和那套给另一头猪编号的法则一样，我们就让这个饲养员去喂猪A。
+Staff member: Look, we assign the number b to the combination of Pig A and Pig B, number c to the combination of Pig A and Pig C, number d to the combination of Pig A and Pig D, and so on. As long as we have a given Pig A and another pig, this number is determined. So given a Pig A, there's a corresponding rule for numbering other pigs. Remember, we have countless feeders, so you can always find a feeder whose pig numbering rule is the same as that rule for numbering other pigs. We then have this feeder feed Pig A.
 
-藤瑟先生：听起来有点晕，你们的饲养员个性真强，真是辛苦你们工作人员了。
+Mr. Tensor: It sounds a bit confusing. Your feeders really have strong personalities. You management staff must have it tough.
 
-工作人员：不，这其实没有什么，因为，我们工作人员的个性也是很强的。
+Staff member: No, this is actually nothing, because we management staff also have very strong personalities.
 
-藤瑟先生：你们不会也有无数个工作人员吧？如果真是的话，也太恐怖了。
+Mr. Tensor: You don't also have countless staff members, do you? If that's true, it's terrifying.
 
-工作人员：被你猜对了。要不然我们有限个人怎么管得了无限大的养猪场？工作人员的个性体现在每个工作人员都有一套自己的给猪两两组合编号的方案，也就是说，每个工作人员给猪分配饲养员的方式都不一样。我们每个工作人员的方案会被轮流执行，从而充分尊重每个饲养员的个性。
+Staff member: You guessed it. Otherwise, how could a finite number of us manage an infinite pig farm? The staff's personality is reflected in each staff member having their own scheme for numbering pig pairs. That is, each staff member assigns feeders to pigs differently. Each staff member's scheme is executed in rotation, thus fully respecting each feeder's personality.
 
-藤瑟先生：我还是有一点很疑惑，饲养员是怎么区分无穷头猪的？他们脑袋里能装下无穷头猪的信息？
+Mr. Tensor: I still have one doubt. How do feeders distinguish infinite pigs? Can their brains hold information about infinite pigs?
 
-工作人员：这个问题问得好。不瞒你说，即使饲养员的个性再强，我们也得有个标准，不然无穷多的信息早就把我们搞崩溃了。每当一只猪出生我们就会在它耳朵上绑一个电子显示牌，标上一串数字。饲养员都拥有一套独特的算法将牌子上的那一串数字对应到他们习惯的编号上。
+Staff member: That's a good question. To be honest, no matter how strong the feeders' personalities are, we need to have standards, otherwise the infinite amount of information would have driven us crazy long ago. Whenever a pig is born, we attach an electronic display board to its ear with a string of numbers. Feeders all have unique algorithms to map the numbers on the board to their preferred numbering.
 
-藤瑟先生：这些饲养员还真不嫌麻烦！
+Mr. Tensor: These feeders really don't mind the trouble!
 
-工作人员：这还不算麻烦。真正麻烦的是，后来饲养员们不服电子显示牌上的数字，说这样体现了某种编号的特殊性，是不尊重其他饲养员的，他们的个性很强，差点罢工。最后我们达成协议：每天早上我们会修改电脑程序，用一套算法使每头猪牌子上显示的数字换成另一个数字。
+Staff member: That's not even the real trouble. The real trouble is that later the feeders objected to the numbers on the electronic displays, saying it showed favoritism to certain numbering systems and was disrespectful to other feeders. Their personalities are very strong - they almost went on strike. Finally, we reached an agreement: every morning we modify the computer program, using an algorithm to change the numbers displayed on each pig's board to different numbers.
 
-藤瑟先生：编号天天都在变，这些饲养员还怎么区分分无穷头猪啊？
+Mr. Tensor: With the numbers changing every day, how can these feeders still distinguish infinite pigs?
 
-工作人员：我们有的是办法！无穷工作人员的智慧是无穷的，没有问题难得到我们。我们每天都会向饲养员公布电脑程序把头一天每头猪牌子上的数字换成这一天的数字的算法，饲养员看到一头猪的牌子后，用这个算法逆着倒推出它昨天的编号，问题就解决了。也就是说猪的编号变了，饲养员的算法也会跟着改变，而且还是反着变的。比如某一天猪的编号都翻了一倍还加了一，饲养员就得减一再除以二才能继续按原来的方式计算他们想要的编号。
+Staff member: We have our ways! The collective wisdom of infinite staff is infinite - no problem is too difficult for us. Every day we announce to the feeders the algorithm that the computer program uses to change the numbers on each pig's board from the previous day to that day. When feeders see a pig's board, they use this algorithm in reverse to deduce yesterday's number, and the problem is solved. In other words, when the pig's numbers change, the feeders' algorithms change accordingly, and in the opposite direction. For example, if one day all pig numbers are doubled and then one is added, the feeders must subtract one and then divide by two to continue calculating the numbers they want in their original way.
 
-藤瑟先生：经营无穷大养猪场真是不容易啊！你们工作人员的上司，对工作人员编号吗？
+Mr. Tensor: Running an infinite pig farm really isn't easy! Do your staff members' supervisors number the staff?
 
-工作人员：不用。我们自己给自己编号。具体做法是，当我遇到一个工作人员时，我知道他给猪指定饲养员，除非我碰到了奇葩饲养员给几头（甚至无穷头）猪指定同一个饲养员，一般而言猪和饲养员就是一一对应的，也就是说他们也在为饲养员指定猪，即给饲养员的两两组合编号。而我是给每两头猪两两编号的。你随便找来两个饲养员和两头猪，把那个工作人员对两个饲养员和我对两头猪的编号相乘，得到一个数字，然后你再去找N个这样的两个饲养员和两头猪的组合，只要这N个组合没有特别的关系，把这些数字再加在一起都能得到一个固定的号码，与你找的哪个组合没关系。这就是我遇到一个工作人员时给他的编号。
+Staff member: No need. We number ourselves. Specifically, when I meet a staff member, I know he assigns feeders to pigs. Unless I encounter an oddball feeder who assigns the same feeder to several (or even infinite) pigs, generally pigs and feeders correspond one-to-one, meaning they're also assigning pigs to feeders, i.e., numbering pairs of feeders. And I number pairs of pigs. You randomly find two feeders and two pigs, multiply that staff member's number for the two feeders by my number for the two pigs to get a number, then find N such combinations of two feeders and two pigs. As long as these N combinations don't have special relationships, adding these numbers together always gives a fixed number, regardless of which combinations you found. This is the number I give when I meet a staff member.
 
-藤瑟先生：这N个组合没有特别的关系是什么意思？
+Mr. Tensor: What do you mean by these N combinations not having special relationships?
 
-工作人员：只要这N个组合中的饲养员对猪编号的方法都是独立的，没抄袭其他工作人员的做法，就是没有特别的关系。
+Staff member: As long as the feeders' methods of numbering pigs in these N combinations are all independent and haven't copied other staff members' approaches, there's no special relationship.
 
-藤瑟先生：你确定这样都能得到一个固定的号码？而且你们每次都要辨别他们对猪编号的方式独不独立，这个操作要做N次，N次到底是几次？
+Mr. Tensor: Are you sure this always gives a fixed number? And you have to identify whether their pig numbering methods are independent each time - this operation needs to be done N times. How many times exactly is N?
 
-工作人员：嗯，这种方式确实很难以理解，但对不起，这些是我们养猪场的商业机密，关系到整个养猪场的结构，我无法过多透露细节。我们的上司不给我们编号，因为这是工作人员内部的事情。上司分了无穷级，层层管理，但每个上司做的事情都很类似：给M头猪和N个饲养员的任意排列编号，这样做也相当于给任意的猪、饲养员或上司组合指定为另一个猪、饲养员或上司的组合，也就是说，所有的管理工作我们都能够胜任了。
+Staff member: Well, this method is indeed hard to understand, but I'm sorry, these are trade secrets of our pig farm relating to the entire farm's structure. I cannot reveal too many details. Our supervisors don't number us because this is an internal staff matter. Supervisors are divided into infinite levels with hierarchical management, but each supervisor does something very similar: numbering any arrangement of M pigs and N feeders. Doing this is equivalent to assigning any combination of pigs, feeders, or supervisors to another combination of pigs, feeders, or supervisors. In other words, we can handle all management tasks.
 
-藤瑟先生：好吧，本来我已就经听晕了你们的管理制度了，既然还涉及到你们的商业机密，那我就不问了。我们去参观那边的猪舍吧。
+Mr. Tensor: Alright, I was already confused by your management system, and since it involves your trade secrets, I won't ask further. Let's go visit the pig pens over there.
 
-（随后，工作人员带领藤瑟先生参观了一部分猪舍和员工宿舍，藤瑟先生在养猪场度过了愉快的一天。）
+(Subsequently, the staff member led Mr. Tensor to visit some pig pens and employee dormitories. Mr. Tensor spent a pleasant day at the pig farm.)
 
-解释：故事的主角藤瑟——是张量（tensor）的谐音。猪对应向量（列向量、逆变向量），饲养员对应对偶向量（行向量、协变向量）。工作人员对应向量空间中的内积（度规，或向量到对偶向量的线性映射）。猪耳朵上的电子显示牌对应向量的坐标。奇葩饲养员对应退化的度规，N是向量空间的维数。 
+Explanation: The story's protagonist Tensor (藤瑟) is a homophone for "tensor." Pigs correspond to vectors (column vectors, contravariant vectors), feeders correspond to dual vectors (row vectors, covariant vectors). Staff members correspond to inner products in vector spaces (metrics, or linear mappings from vectors to dual vectors). The electronic displays on pigs' ears correspond to vector coordinates. Oddball feeders correspond to degenerate metrics, and N is the dimension of the vector space.

@@ -1,58 +1,79 @@
 ---
-title: 解释《维度》预告片
+title: Explaining the "Dimensions" Trailer
 tags:
-  - 四维
-  - 拓扑学
-  - 翻译
-  - 系列文章
-  - 数学
-categories: 四维空间系列
+  - Four-dimensional
+  - Topology
+  - Translation
+  - Series
+  - Mathematics
+categories: Four-dimensional Space Series
 date: 2016-05-01 12:24:37
 index_img: /img/S3_01.jpg
-excerpt: 《维度》系列的最后一集是一个预告片：Dimensions II ——它的内容不是后来出的《混沌》（chaos），而是《维度》制作者之一——数学家Étienne Ghys的最新研究成果。这些内容就更深奥了，我估计他们可能不会出这集了。我在《维度》另一个制作者Jos Leys的网站上找到了介绍预告片中出现的图形（即Étienne Ghys的最新研究成果）的文章……
+excerpt: "The last episode of the 'Dimensions' series is a trailer: Dimensions II — its content is not the later released 'Chaos', but the latest research results of one of the 'Dimensions' creators — mathematician Étienne Ghys. This content is even more profound, and I estimate they probably won't release this episode. I found an article on the website of Jos Leys, another creator of 'Dimensions', introducing the graphics that appear in the trailer (i.e., Étienne Ghys's latest research results)..."
 ---
 
 ![](/img/S3_01.jpg)
 
+The last episode of the "Dimensions" series is a trailer: Dimensions II — its content is not the later released "Chaos", but the latest research results of one of the "Dimensions" creators — mathematician Étienne Ghys. This content is even more profound, and I estimate they probably won't release this episode. I found an article on the website of Jos Leys, another creator of "Dimensions", introducing the graphics that appear in the trailer (i.e., Étienne Ghys's latest research results):
 
-　　《维度》系列的最后一集是一个预告片：Dimensions II ——它的内容不是后来出的《混沌》（chaos），而是《维度》制作者之一——数学家Étienne Ghys的最新研究成果。这些内容就更深奥了，我估计他们可能不会出这集了。我在《维度》另一个制作者Jos Leys的网站上找到了介绍预告片中出现的图形（即Étienne Ghys的最新研究成果）的文章：
+- **Please first read the <a href="/three/lorenz3.html" target="_blank">translation</a>** (or directly read the <a href="http://www.josleys.com/articles/ams_article/Lorenz3.htm" target="_blank">original</a>)
 
- - **请先看<a href="/three/lorenz3.html" target="_blank">译文</a>**  (或直接看<a href="http://www.josleys.com/articles/ams_article/Lorenz3.htm" target="_blank">原文</a>)
- 
- - 和 **<a href="http://www.ams.org/happening-series/hap7-new-twist.pdf" target="_blank">另一个介绍它的PDF</a>**
- 
- - 这里是我做的<a href="/three/LatticeViewer.html" target="_blank">格子空间4D在线查看器</a>
- 
-（我一直很奇怪我画出的modular动力系统的轨道与判别式三叶结为什么会靠得很近，检查了很多遍代码都没找到原因）
-　　大家感兴趣还想深入下去可以看一些关于椭圆函数、模形式的书，建议参阅潘承洞的《模形式导引》（网上有pdf，我前三章还能看懂，后面就看不懂了）
- <!--more-->
-下面是我在阅读这篇文章遇到的一些难懂的地方的理解和补充。
-## 洛伦兹吸引子
-　　若无法理解或想了解关于洛伦兹吸引子更多的信息，请看《维度》制作者的另一系列视频：《[混沌](https://www.chaos-math.org/zh-hans.html)》。真的要定量分析的话肯定涉及到大片大片公式推导，我们这里就不讨论它了。
-## Seifert曲面
-　　Seifert曲面非常有意思：它指的是以扭结或链环为边界的曲面。比如Hopf链环上的Seifert曲面(Hopf link)：![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hopf_band_wikipedia.png/150px-Hopf_band_wikipedia.png)
-　　曲面分单侧曲面（不定向）和双侧曲面（定向）。单侧曲面最著名的例子就是莫比乌斯带。莫比乌斯带的边界是一个圆，当然，圆可以看成平凡的扭结。所以，以圆为边界的Seifert至少有两种：![莫比乌斯带](/img/josleys2.gif)![普通圆片](/img/josleys1.gif)
-其中我在扭结外面涂上颜色是指这个曲面像一个从内部看一个有孔的气球一样，把它翻下再扭半圈去就得到了普通圆片。
-我们再来看三叶结：我们有这几种Seifert曲面：注意右边两个也是三叶结，只是投影方式不同，后来构造“模板”时$\Delta =0$曲线的样子就是这样的。![](/img/josleys3.gif)
-我们可以用**涂色法**来判断这些Seifert曲面是否为单侧曲面：扭结的每一个“交点”处的曲面看起来被扭转了180°，所以过一个交点后正面、背面应该交换，如果我们能相间隔地用两种颜色（正反面各对应一种）涂满曲面，说明就是双侧曲面，否则就是单侧的。
-通过这种方法我们发现只有第一种曲面是双侧的——它就是Josleys文章里在四维空间中的曲面！
-## 矩阵
-modular动力系统中的格子动画是最精彩的了。要看懂文章中对这个构造的具体描述，你首先得有线性代数矩阵的概念、特征值、相似矩阵的概念。这些概念并不复杂，可以在网上或任何一本线性代数书上找到。我唯一想提的就是模矩阵分解成U、V矩阵的方法：一个矩阵左乘U矩阵或V矩阵对应着这个矩阵简单的列变换：把一列加到另一列。所以我们倒过来做：每次操作都是大列减小列，总能到单位矩阵。如果是右乘则对应行变换，最后也能求出分解成U、V矩阵的式子。
-## 格子空间结构图
-$g_2$、$g_3$是描述格子的核心参数，它们在模形式理论中也是很重要的量。但它们的定义都是对格点无限求和的形式，要搞清楚它们似乎要涉及复杂的高等数学运算。我们不打算涉及太多这方面内容，下面我们从文章中给出的现成线索最大化地了解一下格子空间中的点到底对应了哪些格子：
-　　首先，文章中提到了$g_2=0$和$g_3=0$这两个圆，它们分别是正方形格子和正六边形格子。然后我们还有一个黄色的三叶结对应$\Delta =0$的曲线。文章中还告诉我们，$\Delta =0$时$(g_2,g_3)$不和任何格子对应，这说明在$\Delta =0$的曲线附近一定有什么发生。计算可得，如果一个格子很“扁”，它的$|\Delta |$就会非常小，如果无限扁，它的$\Delta =0$，当然无限扁是不存在的。
-![很“扁”的格子](/img/josleys4.gif)
-**为什么$\Delta =0$对应一个三叶结？**
-　　一般我们旋转一个格子半周格子就和原来重合了。这个过程中参数$g_2$在复平面中以四倍角速度在旋转（因为g_2的定义式里有格点4次方，幅角乘4），$g_3$在复平面中以六倍角速度在旋转，这两种旋转合成了格子空间中的总运动：**不等角的双旋转**。CFY的[这篇文章](http://hadroncfy.com/articles/2016/04/28/la-dimension-quatre-cinqieme/)已经分析过这种运动了，它的轨迹就是三叶结。
-这种运动使四维球面中充满了三叶结，这些三叶结与两个圆周（$g_2=0$、$g_3=0$）填满了整个四维超球，我们又得到了一种**纤维丛**！
-　　从这里我们看到无限扁的格子也被当成了普通格子旋转，它只是纤维丛中看起来一个很普通的三叶结。
-　　现在我们在两个视图中标一下我们已知的结构：![$g_3=0$过极点](/img/josleys5.gif)![$g_2=0$过极点](/img/josleys6.gif)
-　　文章后面在构造“模板”的时候给了我们一个信息：所有正六边形格子所在的圆（$g_3=0$）的某一条直径都是一些对角线水平的棱形，且顶角在60°到120°之间变化。那如顶角超出60°到120°这个范围这些点会在哪？我们猜想把这条直径延伸出去就对应那些点。无限延伸？我们会“撞”到$\Delta =0$这条线：它对应着顶角为0°和180°的很扁的棱形。![](/img/josleys8.gif)
-　　如果我们穿过$\Delta =0$继续延伸，最终会延伸到无穷远：那个点对应着正方形格子。从$\Delta =0$到无穷远对应着无限扁的棱形到正方形格子，这个过程又是怎么回事呢？其实穿过$\Delta =0$的瞬间，格子已经从棱形变成了矩形！因为无限扁时你已经分不清矩形和棱形了。红色延长线对应矩形的压缩与拉伸。![矩形和棱形的扁格子](/img/josleys9.gif)
-让我们换另一个视角看这条延长线：![](/img/josleys10.gif)
-　　我们发现红色部分上的点对应任意长宽比、两边平行于实轴、虚轴的所有矩形。如果我们旋转它们，就能得到所有矩形的集合。还记得旋转后的轨迹是三叶结吗？这些点旋转得到的无穷多三叶结的并集我们得到了一张新的三叶结的Seifert曲面（下图紫色）——这是所有矩形格子的集合——它像莫比乌斯带那样也是单侧曲面，只不过是把纸条扭转一圈半粘起来！（莫比乌斯带是半圈）![三叶结的两个Seifert曲面](/img/josleys7.gif)![](/img/josleys11.gif)
-## 双曲空间中的测地线
-最后我们来看格子空间的另外一个表示方法：不仅舍弃关注格子的大小，连格子方向也不管（比如认为所有正方形格子都一样）我们有另一种可视化的方法：用复数$\tau = w_2/w_1$来表示一个格子。但我们交换$w_2$、$w_1$的位置得到$1/\tau = w_1/w_2$也是一个$\tau$的取值，但它们两个值只有一个落在上半平面（$Im(\tau)>0$）中。所以这里加上限制：我们**今后只在上半平面中讨论**。但复数$w_2$、$w_1$有无穷多种取法，所以我们会得到无穷多的$\tau$的值，但我们一般始终能在区域$|Re(\tau)|\le\frac12,|\tau|\ge 1$中找到一个唯一的$\tau$值，我们称这个区域为**基本区域**（fundamental domain）。其他区域的点与这个区域的点差在哪？它们的$w_1$、$w_2$选取时相差了**模矩阵**——行列式为1的二阶整数矩阵。反映到复数$\tau = w_2/w_1$上来，它们相差了一些**莫比乌斯矩阵**（和莫比乌斯带没一点关系）。具体细节见<a href="http://www.ams.org/happening-series/hap7-new-twist.pdf" target="_blank">**介绍它的PDF**</a>。比如$\Delta=0$的无限扁格子在$\tau=+i\infty$处，正方形格子在$\tau=i$处，正六边形格子在$\tau=r=1/2+i\sqrt 3/2$处。![黄色区域为“基本区域”，黑点为某个格子对应的所有$\tau$](/img/josleys12.gif)
-　　模动力系统反映到$\tau$的上半平面中都是一些圆心在实数轴上的圆弧。我们可以认为这是一个**弯曲的二维空间**：你看到的圆心在实数轴上的所有圆弧都是“直线”，只是弯曲的二维空间给你造成的错觉——因为我们所在的平直空间无法完美地表达出弯曲的二维空间，就像我们用**球极投影画球面上的东西一样图象是扭曲的**；这个弯曲的二维空间里面每一个曲边三角形都是一样大的，实轴附近的三角形看上去很小也是弯曲给你造成的错觉——这就是**双曲空间**！这些“直线”我们叫“测地线”（数学影片《混沌》中讲过测地线）。双曲空间不满足“**过直线外一点只能做一条平行线**”，它能做无数条平行线！什么是平行？在二维中不相交就是平行。你能在上图中找出否定“过直线外一点只能做一条平行线”的例子吗？
-　　双曲空间早在《维度》第2集就出现过了：![](/img/josleys1.jpg)
-注意到那个圆盘和墙上的图形没？那是埃舍尔从双曲空间的几何学中获得灵感的作品。我们[以后将详细讲双曲空间](/archives/escher1/)。
+- And **<a href="http://www.ams.org/happening-series/hap7-new-twist.pdf" target="_blank">another PDF introducing it</a>**
+
+- Here is my <a href="/three/LatticeViewer.html" target="_blank">Lattice Space 4D Online Viewer</a>
+
+(I've always wondered why the trajectories of the modular dynamical system I drew are so close to the discriminant trefoil knot, I've checked the code many times but couldn't find the reason)
+
+If you're interested and want to go deeper, you can read some books about elliptic functions and modular forms. I recommend Pan Chengdong's "Introduction to Modular Forms" (there's a PDF online, I can understand the first three chapters, but not the later ones)
+<!--more-->
+Below are my understanding and supplements for some difficult parts I encountered while reading this article.
+
+## Lorenz Attractor
+If you cannot understand or want to know more about the Lorenz attractor, please watch another video series by the "Dimensions" creators: "[Chaos](https://www.chaos-math.org/zh-hans.html)". If we really want to do quantitative analysis, it would definitely involve extensive formula derivations, so we won't discuss it here.
+
+## Seifert Surface
+Seifert surfaces are very interesting: they refer to surfaces bounded by knots or links. For example, the Seifert surface on the Hopf link: ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hopf_band_wikipedia.png/150px-Hopf_band_wikipedia.png)
+
+Surfaces are divided into one-sided surfaces (non-orientable) and two-sided surfaces (orientable). The most famous example of a one-sided surface is the Möbius strip. The boundary of a Möbius strip is a circle, and of course, a circle can be viewed as a trivial knot. So, there are at least two types of Seifert surfaces with a circle as boundary: ![Möbius strip](/img/josleys2.gif)![Regular disk](/img/josleys1.gif)
+Where I've colored the outside of the knot means this surface is like looking at a balloon with a hole from the inside, flip it over and twist it half a turn to get a regular disk.
+
+Let's look at the trefoil knot: we have these types of Seifert surfaces: Note that the two on the right are also trefoil knots, just with different projections. The shape of the $\Delta = 0$ curve when constructing the "template" later looks like this. ![](/img/josleys3.gif)
+
+We can use the **coloring method** to determine whether these Seifert surfaces are one-sided: the surface at each "crossing" of the knot appears to be twisted 180°, so after passing through a crossing, the front and back should be swapped. If we can alternately color the entire surface with two colors (one for each side), it means it's a two-sided surface, otherwise it's one-sided.
+
+Using this method, we find that only the first surface is two-sided — it's the surface in four-dimensional space mentioned in Josleys' article!
+
+## Matrices
+The lattice animation in the modular dynamical system is the most spectacular. To understand the specific description of this construction in the article, you first need to have concepts of linear algebra matrices, eigenvalues, and similar matrices. These concepts are not complex and can be found online or in any linear algebra textbook. The only thing I want to mention is the method of decomposing modular matrices into U and V matrices: left-multiplying a matrix by a U or V matrix corresponds to simple column operations on this matrix: adding one column to another. So we work backwards: each operation subtracts the smaller column from the larger column, and we can always reach the identity matrix. If it's right multiplication, it corresponds to row operations, and we can eventually find the formula for decomposition into U and V matrices.
+
+## Lattice Space Structure Diagram
+$g_2$ and $g_3$ are core parameters describing lattices, and they are also important quantities in modular form theory. But their definitions are all infinite sums over lattice points, and understanding them seems to involve complex advanced mathematical operations. We don't plan to delve too deeply into this content. Below, we'll maximize our understanding from the ready-made clues given in the article about which lattices the points in lattice space actually correspond to:
+
+First, the article mentions the two circles $g_2 = 0$ and $g_3 = 0$, which are square lattices and regular hexagonal lattices respectively. Then we have a yellow trefoil knot corresponding to the curve $\Delta = 0$. The article also tells us that when $\Delta = 0$, $(g_2, g_3)$ doesn't correspond to any lattice, which means something must happen near the curve $\Delta = 0$. Calculations show that if a lattice is very "flat", its $|\Delta|$ will be very small. If it's infinitely flat, its $\Delta = 0$, but of course infinitely flat doesn't exist.
+![Very "flat" lattice](/img/josleys4.gif)
+
+**Why does $\Delta = 0$ correspond to a trefoil knot?**
+
+Generally, when we rotate a lattice half a turn, the lattice coincides with the original. During this process, the parameter $g_2$ rotates in the complex plane at four times the angular velocity (because the definition of g_2 contains the fourth power of lattice points, multiplying the argument by 4), and $g_3$ rotates in the complex plane at six times the angular velocity. These two rotations combine to form the total motion in lattice space: **double rotation at unequal angles**. CFY's [this article](http://hadroncfy.com/articles/2016/04/28/la-dimension-quatre-cinqieme/) has already analyzed this kind of motion, and its trajectory is a trefoil knot.
+
+This motion fills the four-dimensional sphere with trefoil knots. These trefoil knots together with two circles ($g_2 = 0$, $g_3 = 0$) fill the entire four-dimensional hypersphere, and we get another **fiber bundle**!
+
+From here we see that infinitely flat lattices are also treated as ordinary lattice rotations, it's just a very ordinary trefoil knot in the fiber bundle.
+
+Now let's mark the structures we already know in two views: ![$g_3 = 0$ passing through the pole](/img/josleys5.gif)![$g_2 = 0$ passing through the pole](/img/josleys6.gif)
+
+Later in the article, when constructing the "template", it gives us information: a certain diameter of the circle where all regular hexagonal lattices are located ($g_3 = 0$) consists of rhombuses with horizontal diagonals, with vertex angles varying between 60° and 120°. What if the vertex angle exceeds this range of 60° to 120°? We conjecture that extending this diameter outward corresponds to those points. Extend infinitely? We'll "hit" the line $\Delta = 0$: it corresponds to very flat rhombuses with vertex angles of 0° and 180°. ![](/img/josleys8.gif)
+
+If we pass through $\Delta = 0$ and continue extending, we'll eventually extend to infinity: that point corresponds to a square lattice. From $\Delta = 0$ to infinity corresponds to infinitely flat rhombuses to square lattices. What's going on in this process? Actually, the moment we pass through $\Delta = 0$, the lattice has already changed from a rhombus to a rectangle! Because when infinitely flat, you can't distinguish between rectangles and rhombuses. The red extension line corresponds to the compression and stretching of rectangles. ![Rectangle and rhombus flat lattices](/img/josleys9.gif)
+
+Let's look at this extension line from another perspective: ![](/img/josleys10.gif)
+
+We find that points on the red part correspond to all rectangles with arbitrary aspect ratios and sides parallel to the real and imaginary axes. If we rotate them, we get the set of all rectangles. Remember that the trajectory after rotation is a trefoil knot? The union of infinitely many trefoil knots obtained by rotating these points gives us a new Seifert surface of the trefoil knot (purple in the figure below) — this is the set of all rectangular lattices — it's also a one-sided surface like the Möbius strip, except the paper strip is twisted one and a half turns before gluing! (The Möbius strip is half a turn) ![Two Seifert surfaces of the trefoil knot](/img/josleys7.gif)![](/img/josleys11.gif)
+
+## Geodesics in Hyperbolic Space
+Finally, let's look at another representation method for lattice space: not only do we ignore the size of the lattice, but we also ignore the lattice direction (for example, considering all square lattices as the same). We have another visualization method: use the complex number $\tau = w_2/w_1$ to represent a lattice. But when we exchange the positions of $w_2$ and $w_1$ to get $1/\tau = w_1/w_2$, it's also a value of $\tau$, but only one of these two values falls in the upper half-plane ($Im(\tau) > 0$). So we add a restriction here: we **will only discuss in the upper half-plane from now on**. But there are infinitely many ways to choose the complex numbers $w_2$ and $w_1$, so we'll get infinitely many values of $\tau$. But we can generally always find a unique value of $\tau$ in the region $|Re(\tau)| \le \frac{1}{2}, |\tau| \ge 1$. We call this region the **fundamental domain**. How do points in other regions differ from points in this region? Their choice of $w_1$ and $w_2$ differs by a **modular matrix** — a second-order integer matrix with determinant 1. Reflected in the complex number $\tau = w_2/w_1$, they differ by some **Möbius matrices** (which have nothing to do with the Möbius strip). For specific details, see **<a href="http://www.ams.org/happening-series/hap7-new-twist.pdf" target="_blank">the PDF introducing it</a>**. For example, the infinitely flat lattice with $\Delta = 0$ is at $\tau = +i\infty$, the square lattice is at $\tau = i$, and the regular hexagonal lattice is at $\tau = r = 1/2 + i\sqrt{3}/2$. ![Yellow region is the "fundamental domain", black dots are all $\tau$ corresponding to a certain lattice](/img/josleys12.gif)
+
+The modular dynamical system reflected in the upper half-plane of $\tau$ consists of arcs with centers on the real axis. We can think of this as a **curved two-dimensional space**: all the arcs you see with centers on the real axis are "straight lines", it's just an illusion created by the curved two-dimensional space — because our flat space cannot perfectly express the curved two-dimensional space, just like when we use **stereographic projection to draw things on a sphere, the image is distorted**; in this curved two-dimensional space, every curved-edge triangle is the same size. The triangles near the real axis look small, which is also an illusion created by the curvature — this is **hyperbolic space**! These "straight lines" we call "geodesics" (geodesics were discussed in the mathematical film "Chaos"). Hyperbolic space doesn't satisfy "**only one parallel line can be drawn through a point outside a line**", it can draw infinitely many parallel lines! What is parallel? In two dimensions, not intersecting is parallel. Can you find examples in the above figure that negate "only one parallel line can be drawn through a point outside a line"?
+
+Hyperbolic space appeared as early as Episode 2 of "Dimensions": ![](/img/josleys1.jpg)
+Notice that disk and the pattern on the wall? That's a work by Escher inspired by the geometry of hyperbolic space. We [will discuss hyperbolic space in detail later](/archives/escher1/).
