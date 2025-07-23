@@ -3,7 +3,6 @@ title: "Group Theory Series (2): Field Extensions"
 tags:
   - Mathematics
   - Group Theory
-  - Series Articles
 index_img: /img/group2img2.gif
 date: 2018-06-16 09:54:29
 excerpt: With some basic knowledge of groups, we should now discuss the problem of roots of n-degree equations. This article is somewhat advanced, but it aims to give readers an intuitive understanding of Galois theory, so general conclusions and proofs will be minimized. 

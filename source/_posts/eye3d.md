@@ -2,7 +2,6 @@
 title: "4D World (V): 4D Vision and Orientation"
 tags:
   - 4dViewer
-  - Series Articles
 categories: 4D World Series
 index_img: /img/eye3d017.jpg
 date: 2020-02-27 11:05:42

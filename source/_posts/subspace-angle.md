@@ -3,7 +3,6 @@ title: "4D Space (XIV): Plane State Space (Part 1)"
 tags:
   - 4D
   - Geometry
-  - Series articles
   - Mathematics
 categories: 4D Space Series
 date: 2025-06-28 00:38:14

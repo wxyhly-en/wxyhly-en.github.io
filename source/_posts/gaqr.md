@@ -2,7 +2,6 @@
 title: "4D Space (XI): Geometric Algebra, Quaternions and Rotation"
 tags:
   - 4D
-  - Series Articles
   - Mathematics
   - Algebra
 categories: 4D Space Series

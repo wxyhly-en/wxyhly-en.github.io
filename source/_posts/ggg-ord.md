@@ -1,10 +1,10 @@
 ---
 title: Introduction to Googology
 tags:
-  - googology
-  - javascript
-  - mathematics
-  - games
+  - Googology
+  - Javascript
+  - Mathematics
+  - Games
 index_img: /img/ord008.png
 date: 2024-08-25 23:49:15
 ---

@@ -2,10 +2,9 @@
 title: "4D Space (VI): More Geometric Shapes [Part 2]"
 tags:
   - 4D
-  - geometry
-  - fractals
-  - series
-  - mathematics
+  - Geometry
+  - Fractals
+  - Mathematics
 categories: 4D Space Series
 date: 2016-04-23 20:15:09
 index_img: /img/plus1.gif

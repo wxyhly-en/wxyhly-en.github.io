@@ -2,9 +2,8 @@
 title: "4D World (VI): Newtonian Mechanics"
 tags:
   - 4D
-  - physics
-  - series
-  - javascript
+  - Physics
+  - Javascript
 categories: 4D World Series
 index_img: /img/newtonf005.jpg
 date: 2020-03-11 16:10:48

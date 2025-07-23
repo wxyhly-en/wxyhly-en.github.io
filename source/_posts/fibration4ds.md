@@ -2,9 +2,8 @@
 title: "4D Space (IV): Fibers and Hyperspheres"
 tags:
   - 4D
-  - geometry
-  - series
-  - mathematics
+  - Geometry
+  - Mathematics
 categories: 4D Space Series
 date: 2016-04-16 18:16:48
 excerpt: Coordinate planes xy and zw intersect only at the origin. Place a unit hypersphere at the origin, we can see those intersected unit circles by stereographic projection.

@@ -1,8 +1,8 @@
 ---
 title: A Self-Made Computer Piano
 tags:
-  - javascript
-  - music
+  - Javascript
+  - Music
   - Bilibili video
 date: 2022-07-12 13:05:34
 index_img: /img/eopplt004.png

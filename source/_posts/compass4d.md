@@ -3,7 +3,6 @@ title: "4D World (VIII): Navigation on a 4D Planet"
 tags:
   - 4D
   - Physics
-  - Series Articles
   - Mathematics
 index_img: /img/compass4d08.jpg
 categories: 4D World Series

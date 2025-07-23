@@ -4,7 +4,7 @@ tags:
   - Chemistry
   - 4D
   - Physics
-  - tesserxel
+  - Tesserxel
 categories: 4D World Series
 date: 2025-04-20 09:53:39
 index_img: /img/chemie406.png

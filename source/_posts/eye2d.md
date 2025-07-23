@@ -3,7 +3,6 @@ title: "4D World (IV): Vision of 2D Beings"
 date: 2020-01-12 19:45:04
 tags: 
   - Peculiar Imagination
-  - Series Articles
 categories: 4D World Series
 index_img: /img/eye2d001.svg
 excerpt: Many literary works have mentioned fictional 2D flat worlds. We'll experience the first-person perspective of flat beings with computers. This is a pre-excercise for the vision of 4D beings.

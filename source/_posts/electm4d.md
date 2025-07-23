@@ -3,7 +3,6 @@ title: "4D World (VII): Electromagnetism"
 tags:
   - 4D
   - Physics
-  - Series
   - Mathematics
 categories: 4D World Series
 date: 2020-03-28 16:20:11

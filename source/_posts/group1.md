@@ -3,7 +3,6 @@ title: "Group Theory Series (Part 1): Introduction to Group Theory"
 tags:
   - Mathematics
   - Group Theory
-  - Series Articles
 date: 2017-05-22 23:51:03
 index_img: /img/group1img5.gif
 excerpt: Why do quintic equations have no radical solutions? Galois provided a perfect answer using group theory. Most engineering students haven't studied group theory or abstract algebra. I plan to write a series of articles, hoping to explain everything starting from zero foundation.

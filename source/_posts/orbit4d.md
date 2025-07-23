@@ -2,9 +2,8 @@
 title: "4D World (I): Planetary Day-Night and Seasonal Cycles"
 tags:
   - 4D
-  - javascript
-  - geometry
-  - series
+  - Javascript
+  - Geometry
 categories: 4D World Series
 date: 2018-08-12 17:27:59
 excerpt: In my previous articles on 4D space, I described a world on a 4D planet. This time, I'll investigate the day-night and seasonal changes produced by a 4D planet's rotation and revolution. The first thing we need to do is figure out how to describe a point on a hyperspherical planet.

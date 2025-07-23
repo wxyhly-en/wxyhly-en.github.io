@@ -1,6 +1,6 @@
 ---
 title: The Magical Hyperbolic World
-categories: Strange Worlds Series
+categories: Strange World Series
 date: 2023-06-28 23:02:11
 tags:
     - Geometry

@@ -2,7 +2,7 @@
 title: Four-Dimensional Games I've Played
 tags:
   - 4D
-  - games
+  - Games
 index_img: /img/game2.jpg
 date: 2018-06-29 22:48:42
 excerpt: To experience the "feeling" of 4D space, interactions on computer is really helpful. Here I'll organize the 4D programs I've played (not necessarily all games, 4DGolf、4DMiner、4D Toys、Miegakure、4DBlock etc.) and give some subjective reviews.

@@ -2,9 +2,9 @@
 title: "4D World (IX): Aircraft Design"
 tags:
   - 4D
-  - physics
-  - simulation
-  - tesserxel
+  - Physics
+  - Simulation
+  - Tesserxel
 categories: 4D World Series
 index_img: /img/aircraft006.png
 date: 2023-11-27 00:06:15

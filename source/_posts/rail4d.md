@@ -3,7 +3,6 @@ title: "4D World (Part 3): Road and Railway Design"
 tags:
   - 4D
   - Peculiar Imagination
-  - Series Articles
 categories: 4D World Series
 index_img: /img/rail401.png
 date: 2019-01-10 16:00:00

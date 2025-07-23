@@ -3,8 +3,6 @@ title: Explaining the "Dimensions" Trailer
 tags:
   - 4D
   - Topology
-  - Translation
-  - Series
   - Mathematics
 categories: 4D Space Series
 date: 2016-05-01 12:24:37

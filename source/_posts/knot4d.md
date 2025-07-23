@@ -2,8 +2,8 @@
 title: "4D Space (X): Knots and Links"
 tags:
   - 4D
-  - geometry
-  - topology
+  - Geometry
+  - Topology
 categories: 4D Space Series
 date: 2019-03-23 19:49:13
 index_img: /img/knot417.jpg
