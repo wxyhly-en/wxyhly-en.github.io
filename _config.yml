@@ -8,7 +8,7 @@ subtitle:
 description:
 author: wxyhly
 language: en
-timezone:
+timezone: Asia/Shanghai
 
 marked:
   # smartypants: false
