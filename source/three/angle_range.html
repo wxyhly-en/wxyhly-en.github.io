@@ -1,21 +1,46 @@
 <!-- layout: false
 --- -->
 <!DOCTYPE html>
-	<head>
-		<meta charset="unicode">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<title>wxyhly - Hopf Fibration1</title>
-		
-		<script>
-		</script>
-	</head>
-	<body style="height: 100vh;overflow:hidden">
-		<div style="position: absolute;"><span style="color: purple;">Plane A and Plane B:<input type="number" min="-180" max="180" value="0"><input type="number" min="-180" max="180" value="0"></span>
-		<br>	<span style="color: darkgreen;">Plane B and Plane C:<input type="number" min="-180" max="180" value="0"><input type="number" min="-180" max="180" value="0"></span><br>
-			<label><input type="radio" name="mode">Select AB</label> <label><input type="radio" name="mode">Select BC</label> <label><input type="radio" name="mode" checked>Auto Select</label><br>
-			Range of <span style="color: rgb(223, 210, 27);">Plane B and Plane C</span>
+
+<head>
+	<meta charset="unicode">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Angle range Simulator - Hqak</title>
+
+	<script>
+	</script>
+</head>
+
+<body style="height: 100vh;overflow:hidden">
+	<div style="position: absolute;display:none">
+		<span style="color: purple;">Plane A and Plane B:<input type="number" min="-180"
+				max="180" value="0"><input type="number" min="-180" max="180" value="0"></span>
+		<br> <span style="color: darkgreen;">Plane B and Plane C:<input type="number" min="-180" max="180"
+				value="0"><input type="number" min="-180" max="180" value="0"></span><br>
+		<label><input type="radio" name="mode">Select AB</label> <label><input type="radio" name="mode">Select
+			BC</label> <label><input type="radio" name="mode" checked>Auto Select</label><br>
+		Range of <span style="color: rgb(223, 210, 27);">Plane B and Plane C</span>
 	</div>
-		<canvas style="width: 100%; height: 100%;"></canvas>
-		<script src="angle_range.js" type="module"></script>
-	</body>
+
+	<div style="position: absolute;display:none">
+		<span style="color: purple;">Plane A and Plane B:<input type="number" min="-180" max="180" value="0"><input type="number"
+				min="-180" max="180" value="0"></span>
+		<br> <span style="color: darkgreen;">Plane A and Cell C:<input type="number" min="-180" max="180" value="0"></span><br>
+		<label><input type="radio" name="mode2">Select AB</label> <label><input type="radio" name="mode2">Select AC</label>
+		<label><input type="radio" name="mode2" checked>Auto Select</label><br>
+		Range of <span style="color: rgb(223, 210, 27);">Plane B and Cell C</span>
+	</div>
+
+	<div style="position: absolute;display:none">
+		<span style="color: purple;">Plane A and Cell C:<input type="number" min="-180" max="180" value="0"></span>
+		<br> <span style="color: darkgreen;">Plane B and Cell C:<input type="number" min="-180" max="180" value="0"></span><br>
+		<label><input type="radio" name="mode3">Select AC</label> <label><input type="radio" name="mode3">Select BC</label>
+		<label><input type="radio" name="mode3" checked>Auto Select</label><br>
+		Range of <span style="color: rgb(223, 210, 27);">Plane A and Plane B</span>
+	</div>
+
+
+	<canvas style="width: 100%; height: 100%;"></canvas>
+	<script src="angle_range.js" type="module"></script>
+</body>
 </html>

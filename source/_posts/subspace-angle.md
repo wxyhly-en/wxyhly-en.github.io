@@ -121,7 +121,7 @@ We obtain the equations of four boundary lines. Calculating their coordinates sh
 
 ## Random Simulator
 
-Here's a small simulator I created using Monte Carlo sampling to verify the range of angles between two 2-vectors (i.e., oriented planes): First, I generate planes A and B with angles $\alpha_1$ and $\alpha_2$ using a fixed formula, then generate planes C and D with angles $\beta_1$ and $\beta_2$. Subsequently, we apply many random rotations to C and D simultaneously, and finally use [the LookAt algorithm from this article](http://127.0.0.1:4000/archives/so4/) to align planes B and C. This way we obtain many samples that satisfy the angle constraints in the problem but have completely random orientations.
+Here's a small simulator I created using Monte Carlo sampling to verify the range of angles between two 2-vectors (i.e., oriented planes): First, I generate planes A and B with angles $\alpha_1$ and $\alpha_2$ using a fixed formula, then generate planes C and D with angles $\beta_1$ and $\beta_2$. Subsequently, we apply many random rotations to C and D simultaneously, and finally apply a rotation on C and D by using [the LookAt algorithm from this article](http://127.0.0.1:4000/archives/so4/) to align planes B and C. This way we obtain many samples that satisfy the angle constraints in the problem but have completely random orientations.
 
 Operation instruction: Either input angle values or drag the corresponding points in the diagram to observe the distribution of yellow sample points.
 <iframe src="/three/angle_range.html" style="width:100%; height:80vh; background-color:rgb(247,250,255);"></iframe><a name="quest"></a>
