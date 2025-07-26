@@ -5,7 +5,7 @@ tags:
   - Graphics
   - Mathematics
   - Javascript
-  - Hyperbolic space
+  - Hyperbolic Space
 index_img: /img/josleys1.jpg
 date: 2016-06-26 13:05:51
 excerpt: I mentioned a circular disk pattern that appeared in the film "Dimensions：A walk through mathematics". Actually this pattern is as fascinating as 4D space - Hperbolic tessellation in hyperbolic space.

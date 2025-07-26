@@ -4,7 +4,6 @@ date: 2018-08-16 15:44:37
 tags: 
 - 4D
 - Peculiar Imagination
-- Series Articles
 categories: 4D World Series
 excerpt: In the last post I mentioned that 4D urban traffic doesn't need overpasses because the ground is 3D, and traffic flows in two directions only need to follow skew lines. Now let's first study what roads in 4D actually look like, how cars drive on them, and the analogues of tricycles and bicycles in 4D space.
 index_img: /img/trans401.gif

@@ -5,7 +5,6 @@ categories: 4D Space Series
 tags:
 - 4D
 - Algebra
-- Series Articles
 - Mathematics
 excerpt: Calculations are essential for programming 4D graphics. It's time to talk about quantitative calculations in 4D. Feature Content - Using "2D vectors" to represent planes to solve angle problems.
 index_img: /img/N_vector_positive.png

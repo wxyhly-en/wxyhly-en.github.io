@@ -5,7 +5,6 @@ categories: 4D Space Series
 tags:
 - 4D
 - Geometry
-- Series articles
 - Mathematics
 index_img: /img/crossection.gif
 excerpt: Today, we will explore 4D positional relationships between lines, planes, and cells, more interesting 4D solid geometry problems in tesseract, and generalizations of certain solid geometry theorems.
