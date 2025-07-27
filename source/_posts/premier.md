@@ -2,31 +2,30 @@
 title: Ceci n'est pas le premier article ! 
 date: 2016-04-07 22:23:19
 tags: 
-- 自我描述
-- 杂记  
-excerpt: 这不是第一篇文章！？但这确实是我的第一篇文章。对标题与自我描述句的解释...
+- Self-reference
+- Miscellaneous
+excerpt: This is not the first article!? But this is indeed my first article. An explanation of the title and the self-referential sentence...
 index_img: https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg
 ---
-## 这不是第一篇文章！
-### 对标题的解释
-这是一个**自我描述**句，是我看了《哥德尔艾舍尔巴赫：集异璧之大成》（GEB）里面一张图模仿的。"Ceci n'est pas"是法语，意即“这不是……”；这张图出自比利时艺术家勒内·马格里特的画作《形象的叛逆》 (《La trahison des images》)，画中描绘了一只烟斗，但其下写着"Ceci n'est pas une pipe."（这不是烟斗。）：![图片来自en.wikipedia](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg)
-自我描述是一个很神奇的东西，他能引起悖论、甚至能解释著名的哥德尔定理……
-后来我发现在Minecraft标题画面闪烁标语中也有类似这句话： *Ceci n'est pas une title screen！(这不是标题画面)* 。看来这个作品在外国知名度挺高的。
+## This is not the first article!
+### Explanation of the title
+This is a **self-referential** sentence, which I imitated from a picture in "Gödel, Escher, Bach: An Eternal Golden Braid" (GEB). "Ceci n'est pas" is French, meaning "This is not..."; this picture is from the painting "The Treachery of Images" (《La trahison des images》) by Belgian artist René Magritte. The painting depicts a pipe, but beneath it is written "Ceci n'est pas une pipe." (This is not a pipe.): ![Image from en.wikipedia](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg)
+Self-description is a very fascinating thing; it can lead to paradoxes and even explain the famous Gödel's theorem...
+Later, I found a similar phrase in the flashing slogans on the Minecraft title screen: *Ceci n'est pas une title screen!* (This is not a title screen!).
 
-### 但这确实是我的第一篇文章
+### But this is indeed my first article
   #### For What?
-<!--more-->
-我会陆续写一些我一切感兴趣的内容，如高维空间 分形混沌 自动机 webgl ......
+I will successively write about everything that interests me, such as high-dimensional space, fractal chaos, automata, webgl ......
 ......
-当然也包括生活中发现的有趣的事物或一些新奇的想法等……总之，我将尽量让博客涵盖的内容更丰富些。
+Of course, this also includes interesting things discovered in life or some novel ideas, etc... In short, I will try to make the blog's content richer and more diverse.
 
-要写出一个成功的博客肯定离不开读者的支持。我希望大家能够一起讨论我们共同感兴趣的事。最后特别感谢[飞二爷(CFY)](https://hadroncfy.com/)给我提供blog技术支持。
+To write a successful blog, reader support is definitely essential. I hope everyone can discuss things of common interest together. Finally, special thanks to [HadronCFY (CFY)](https://hadroncfy.com/) for providing me with blog technical support.
 ### What a coincidence! 2 Anniversaries!
-- 明天也是我们学校（[XJTU](http://www.xjtu.edu.cn/)）校庆120周年！
-- ~~昨天又是[飞二爷](https://hadroncfy.com/)脑膜炎4周年庆！~~
+- Tomorrow is also the 120th anniversary of my university ([XJTU](http://www.xjtu.edu.cn/))!
+- ~~Yesterday was also [Fei Erye's](https://hadroncfy.com/) 4th anniversary of meningitis!~~
 
 
 <p class="likecode">&lt;!--
-Ceci n'est pas la dernière phrase de cet article ? (这不是这篇文章最后一句话吧？)
-<br/>Bien sûr ! Parce que je suis la dernière! (当然，因为我才是那最后一句话！)
+Ceci n'est pas la dernière phrase de cet article ? (Isn't this the last sentence of this article?)
+<br/>Bien sûr ! Parce que je suis la dernière! (Of course, because I am the last one!)
 --></p>

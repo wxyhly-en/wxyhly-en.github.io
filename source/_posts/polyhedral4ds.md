@@ -1,122 +1,121 @@
 ---
-title: 四维空间（三）：谈正多胞体
+title: "4D Space (III): On Regular Polytopes"
 tags:
-  - 四维
-  - 几何
-  - 系列文章
-  - 数学
-categories: 四维空间系列
+  - 4D
+  - Geometry
+  - Mathematics
+categories: 4D Space Series
 date: 2016-04-16 17:53:06
-excerpt:  四维正多胞体一共有六个。维度数学漫步影片中只展现了它们的投影图（平行投影和球极投影）和一些基本几何信息，我们今天来看看它们具体是怎样构成的。特色内容：
- 1. 正16胞体、正24胞体的类比过程
- 2. 超球最密堆积问题
- 3. 正120胞体的分层结构
- 4. 镶嵌
+excerpt: Today, let's look at how regular polytopes are specifically constructed. Featured content：
+ 1. Analogous processes for the 16-cell and 24-cell
+ 2. Hypersphere densest packing problem
+ 3. Layered structure of the 120-cell
+ 4. Tessellations
 index_img: https://www.software3d.com/Thumb/120CellPt8.jpg
 ---
 
-<span class="likecode">#本文讨论的是纯空间上的几何，而不是物理上的时空！推荐视频《[维度：数学漫步](https://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1)》对四维空间作初步了解</span>
+<span class="likecode">#This article discusses geometry in pure space, not spacetime in physics! Recommended video "[Dimensions: A Walk through Mathematics](https://www.dimensions-math.org/Dim_E.htm)" for a preliminary understanding of 4D space</span>
 
-　　研究四维空间中的正多胞体的基本方法还是类比：所以你恐怕得先对我们三维中的正多面体有点了解（可参看[Matrix67对正多面体的介绍](http://www.matrix67.com/blog/archives/6161)）。
-　　正多胞体一共有六个：**单形（正五胞体）、超立方体（正八胞体）、正十六胞体、正二十四胞体、正一百二十胞体、正六百胞体**。影片中只展现了它们的投影图（平行投影和球极投影）和一些基本几何信息，我们今天来看看它们具体是怎样构成的。其中除了正二十四胞体以外其他五种正多胞体我们都能找到三维类比——它们分别是正四面体、正方体、正八面体、正十二面体和正二十面体。<img src="https://www.software3d.com/Thumb/120CellPt8.jpg" alt="网站 www.software3d.com 上的120号模型 by Robert Webb"/><a name="index"></a>
+　　The basic method for studying regular polytopes in 4D space is still analogy: so you probably need to have some understanding of regular polyhedra in our three-dimensional space first (you can refer to [Matrix67's introduction to regular polyhedra](http://www.matrix67.com/blog/archives/6161)).
+　　There are a total of six regular polytopes: **simplex (5-cell), tesseract (or hypercube, 8-cell), 16-cell, 24-cell, 120-cell, and 600-cell**. The film only shows their projections (parallel projection and stereographic projection) and some basic geometric information. Today, let's look at how they are specifically constructed. Except for the 24-cell, we can find three-dimensional analogies for the other five regular polytopes—they are the regular tetrahedron, cube, octahedron, dodecahedron, and icosahedron, respectively. <img src="https://www.software3d.com/Thumb/120CellPt8.jpg" alt="Model 120 by Robert Webb on www.software3d.com"/><a name="index"></a>
 
-<!--more--><a name="simplex"></a>
+<a name="simplex"></a>
 
-### 单形（正五胞体）
-　　《维度》第三集中讲的第一个四维几何体就是单形（Simplex）。虽然影片中的类比很合理，但我们要知道为上么这样类比是对的——随便画五个点连起来就是单形？为了好理解，我们从0维开始：
- - 0维——一个点（0-单形）；
- - 1维：这个点和它外面一点连线，得到一条线段（1-单形）；
- - 2维：这条线段和它外面一点连线，得到一个三角形，其中这个三角形底边为原线段，另外两条边分别由外面一点与原线段端点连线所得（2-单形）；
- - 3维：这个三角形和它外面一点连线，得到一个四面体，其中这个四面体底面为原三角形，另外三个面分别由外面一点与原三角形三边组成三角形所得（3-单形）；
- - 4维：这个四面体和它外面一点连线，得到一个五胞体，其中这个五胞体底胞为原四面体，另外四个胞分别由外面一点与原四面体四面组成四面体所得（4-单形）；
- - 5维：这个五胞体和它外面一点连线，得到一个“六超胞体”……
+### Simplex (5-cell)
+　　The first 4D geometric object discussed in the third episode of "Dimensions" is the simplex. Although the analogy in the film is reasonable, we need to know why this analogy is correct—is it just drawing five points and connecting them to get a simplex? For better understanding, let's start from 0 dimensions:
+ - 0-dimension—a point (0-simplex);
+ - 1-dimension: Connect this point with another point outside it to get a line segment (1-simplex);
+ - 2-dimension: Connect this line segment with a point outside it to get a triangle, where the base of this triangle is the original line segment, and the other two sides are formed by connecting the outside point to the endpoints of the original line segment (2-simplex);
+ - 3-dimension: Connect this triangle with a point outside it to get a tetrahedron, where the base of this tetrahedron is the original triangle, and the other three faces are formed by connecting the outside point to the three sides of the original triangle to form triangles (3-simplex);
+ - 4-dimension: Connect this tetrahedron with a point outside it to get a 5-cell, where the base cell of this 5-cell is the original tetrahedron, and the other four cells are formed by connecting the outside point to the four faces of the original tetrahedron to form tetrahedra (4-simplex);
+ - 5-dimension: Connect this 5-cell with a point outside it to get a "6-supercell"…
  - ……
 
- ![图片来自《维度》影片官网](https://www.dimensions-math.org/CH34_B.JPG)
-　　我们看到，一个图形与它外面一点的连线正是构成**锥体**的方式。而n维空间的单形就是一系列这样的锥体，我们可以把三角形看成“线段锥”、四面体看成三棱锥、五胞体看成“四面体锥”……
-### 超立方体（正八胞体）
-　　对超立方体网上的解释太多了，且它是最容易理解的，我就没必要再讲了。<a name="c16"></a>
-### 正十六胞体
-　　奇怪的是《维度》视频里讲完超立方体就把正十六胞体跳过直接讲正二十四胞体了，其实正十六胞体也很精彩。![](/img/polyhedral8.gif)
-　　得到的这一系列n维几何体叫n-cross。正十六胞体是三维空间中正八面体的类比，所以我们要先清楚了解正八面体。正八面体是正方体的**对偶多面体**——在几何学中，若一种多面体的每个顶点均能对应到另一种多面体上的每个面的中心，它就是对方的对偶多面体。
-　　正八面体给我们还有一个更直观的感受，那就是它像两个倒扣着的金字塔（四棱锥）。两个金字塔的底面形成了一个**中空的正方形结构**。其实我们在正十六胞体里也能找到中空的八面体结构！它可以看作两个倒扣着的“八面体锥”，左下图是正八面体顶点过极点的球极投影，可以清楚看到中间八面体框架。
+ ![Image from "Dimensions" film official website](https://www.dimensions-math.org/CH34_B.JPG)
+　　We see that connecting a figure with a point outside it is precisely the way **cones** are formed. And the n-dimensional simplex is a series of such cones. We can view a triangle as a "line segment cone," a tetrahedron as a triangular pyramid, a 5-cell as a "tetrahedral cone," and so on.
+### Tesseract (8-cell)
+　　There are too many explanations of the tesseract online, and it is the easiest to understand, so I don't need to explain it again. <a name="c16"></a>
+### 16-cell
+　　Strangely, in the "Dimensions" film, after discussing the hypercube, it skipped the 16-cell and went directly to the 24-cell. In fact, the 16-cell is also quite fascinating. ![](/img/polyhedral8.gif)
+　　This series of n-dimensional geometric objects is called n-cross. The 16-cell is the 4D analogue of the regular octahedron in three-dimensional space, so we must first clearly understand the regular octahedron. The regular octahedron is the **dual polyhedron** of the cube—in geometry, if every vertex of one polyhedron can correspond to the center of every face of another polyhedron, it is the dual polyhedron of the other.
+　　The regular octahedron also gives us a more intuitive feeling: it looks like two inverted pyramids (square pyramids). The bases of the two pyramids form a **hollow square structure**. In fact, we can also find a hollow octahedral structure in the 16-cell! It can be seen as two inverted "octahedral pyramids." The bottom-left image shows the stereographic projection of the 16-cell with a vertex at the pole, clearly revealing the central octahedral framework.
 ![](/img/polyhedral9.gif)
-　　正十六胞体球极投影还能看成四个球体两两相交（右图），所以它可以用来画4个集合的韦恩图。<a name="c24"></a>
+　　The stereographic projection of the 16-cell can also be seen as four spheres intersecting pairwise (right image), so it can be used to draw Venn diagrams for 4 sets. <a name="c24"></a>
 
 
-### 正二十四胞体
-　　这是《维度》影片中讲述者最喜爱的图形，影片中说它没有三维类比其实是不对的。它有一个三维类比——菱形十二面体。和搞清正十六胞体的步骤一样，我们要先清楚了解菱形十二面体。
-　　可能之前很多人都没听说过菱形十二面体，现在我们从大家最熟悉的正方体开始来讲一讲它的形成过程。
+### 24-cell
+　　This is the narrator's favorite figure in the "Dimensions" film. The film says it has no three-dimensional analogy, which is actually incorrect. It does have a three-dimensional analogy—the rhombic dodecahedron. Similar to understanding the 16-cell, we must first clearly understand the rhombic dodecahedron.
+　　Perhaps many people have not heard of the rhombic dodecahedron before. Now let's explain its formation process starting from the most familiar cube.
 ![](/img/polyhedral7.gif)
- - 正方体有8个顶点，六个面。我们设想抓住这6个面的面心处往外拉，把每个面都拉得像四棱锥：
- - 这样继续往外扩展，直到相邻两个三角形面共面，它们构成一个菱形。
+ - A cube has 8 vertices and 6 faces. Imagine pulling outwards from the center of these 6 faces, making each face resemble a square pyramid:
+ - Continue expanding outwards until two adjacent triangular faces become coplanar, forming a rhombus.
 
-　　我们现在观察一下：新得到的菱形十二面体一共有两类顶点：原来正方体8个顶点（每点发出3条棱）+面心“拉出”的6个顶点（每点发出4条棱），菱形十二面体的每个菱形面都是相邻两个三角形面共面形成，所以一个菱形面对应原正方体的一条棱，正方体刚好12条棱，所以我们也有12个菱形。而原来的正方形的棱都已经不复存在——它们已经变成菱形里面的对角线了，不再是图形的边界。
-　　下面该到四维里了：
- - 超立方体有16个顶点，八个胞。我们设想抓住这八个立方体胞的体心处往外拉，把每个胞都拉得像立方体锥：
- - 这样继续往外扩展，直到相邻两个四棱锥共胞，它们构成一个八面体（两个倒扣着的四棱锥组成一个）。
+　　Now let's observe: The newly formed rhombic dodecahedron has two types of vertices: the original 8 vertices of the cube (3 edges connected to each point) + the 6 vertices "pulled out" from the face centers (4 edges connected to each point). Each rhombic face of the rhombic dodecahedron is formed by two adjacent triangular faces becoming coplanar, so one rhombic face corresponds to one edge of the original cube. The cube has exactly 12 edges, so we also have 12 rhombic faces. The original square edges no longer exist—they have become diagonals within the rhombic faces and are no longer the boundaries of the figure.
+　　Now to four dimensions:
+ - A hypercube has 16 vertices and 8 cells. Imagine pulling outwards from the center of these 8 cubic cells, making each cell resemble a cubic pyramid:
+ - Continue expanding outwards until two adjacent square pyramids become coplanar, forming an octahedron (two inverted square pyramids form one).
 
-　　我们现在观察一下：新得到的多胞体一共有两类顶点：原来超立方体16个顶点（每点发出4条棱）+胞心“拉出”的8个顶点（每点发出4条棱），这个多胞体的每个八面体都是相邻两个四棱锥共胞形成，所以一个八面体胞对应原超立方体的一个二维正方形面，超立方体刚好24个二维面，所以我们也有24个八面体。而原来的超立方体的二维面都已经不复存在——它们已经变成八面体胞里面的中空的正方形结构，不再是图形的边界，但正方形的边界还是多胞体的边界，所以这导致看它的投影图里含有一个超立方体——其实只是一个中空的结构（想想棱形十二面体吧）。
-　　我们看到多胞体的两类顶点：原来超立方体16个顶点和胞心“拉出”的8个顶点都是每点发出4条棱，且可以几何证明那个八面体是正八面体！所以这个菱形十二面体的高维类比居然华丽升级成了正多胞体，不可思议！我是这样理解这个“逆袭”现象的：超立方体的体对角线是一个整数2，这使得对角方向的几何图形的边和原坐标轴方向上的边才有可能等长，进而才有所有棱长相等的可能吧。<a name="densest"></a>
+　　Now let's observe: The newly formed polytope has two types of vertices: the original 16 vertices of the hypercube (4 edges connected to each point) + the 8 vertices "pulled out" from the cell centers (4 edges connected to each point). Each octahedral cell of this polytope is formed by two adjacent square pyramids becoming coplanar, so one octahedral cell corresponds to one 2D square face of the original hypercube. The hypercube has exactly 24 2D faces, so we also have 24 octahedral cells. The original 2D faces of the hypercube no longer exist—they have become the hollow square structures inside the octahedral cells and are no longer the boundaries of the figure, but the boundaries of the squares are still the boundaries of the polytope. This is why its projection diagram appears to contain a hypercube—it's actually just a hollow structure (think of the rhombic dodecahedron).
+　　We see that both types of vertices of the polytope: the original 16 vertices of the hypercube and the 8 vertices "pulled out" from the cell centers, all have 4 edges connected to them. And it can be geometrically proven that the octahedra are regular! So this high-dimensional analogue of the rhombic dodecahedron surprisingly upgraded into a regular polytope, incredible! I understand this "comeback" phenomenon as follows: the body diagonal of the hypercube is an integer 2, which allows the edges of the diagonal geometric figures and the edges along the original coordinate axes to be of equal length, thereby making it possible for all edges to be of equal length. <a name="densest"></a>
 
 
-### 最密堆积问题
-　　有类很著名的几何问题就是同样大小的圆或球的最密堆积问题，二维情形是这样的：![](/img/polyhedral2.gif)
-　　三维一般有两种最密堆积：面心堆积和六方堆积，它们区别是上下两层一个是一样的，一个转了180°。
+### Densest Packing Problem
+　　There is a very famous class of geometric problems concerning the densest packing of circles or spheres of the same size. The two-dimensional case is as follows: ![](/img/polyhedral2.gif)
+　　In three dimensions, there are generally two densest packings: face-centered cubic (FCC) packing and hexagonal close-packed (HCP) packing. Their difference is that the top and bottom layers are either identical or rotated by 180°.
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Cuboctahedron_3_planes.png/120px-Cuboctahedron_3_planes.png)
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Triangular_orthobicupola_wireframe.png/120px-Triangular_orthobicupola_wireframe.png)<center>（中间的球没画，这里画出了与之紧挨着的球的位置）</center>
-　　其中第一幅图面心堆积的外框是一个**截半立方体**——立方体截去两角，直到相邻顶点截出的三角面刚好交于一点。它是菱形十二面体的对偶多面体，其中截出的三角面对应菱形十二面体的8个正方形顶点，剩下被截成45°正方形的面对应菱形十二面体面心拉出的6个顶点。我们来看三维最密堆积的结构：我们把它解析为三层的叠加：其中中间（白色）那层球就是平面中的球最密堆积方法，上、下面三个球刚好隔一个放进中间球堆积形成的六个凹陷里面。
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Triangular_orthobicupola_wireframe.png/120px-Triangular_orthobicupola_wireframe.png)<center>（The central sphere is not drawn, here the positions of its tightly packed neighbors are shown）</center>
+　　Among these, the frame of the first image (FCC packing) is a **cuboctahedron**—a cube with its corners truncated until the triangular faces created by truncating adjacent vertices just meet at a point. It is the dual polyhedron of the rhombic dodecahedron. The truncated triangular faces correspond to the 8 square vertices of the rhombic dodecahedron, and the remaining 45° square faces correspond to the 6 vertices pulled out from the face centers of the rhombic dodecahedron. Let's look at the structure of three-dimensional densest packing: We analyze it as a superposition of three layers: the middle (white) layer of spheres is the densest packing method for circles in a plane, and the three spheres on the top and bottom layers fit perfectly into the six depressions formed by the packing of the central spheres.
 
 ![](/img/polyhedral1.gif)
-　　四维的超球最密堆积应该也分三层：中间这层就是三维的最密堆积。问题是“上”、“下”两层的超球该填在哪？我们也可以在上层试着隔一个填入一个球的间隙里：这里可以填六个正方形对进去的三棱柱或六个三角形对进去的四面体，但这个四面体感觉体积太小了，似乎填不进（不是填不进，而是超球占下层空间小的话空间利用率会变低，进而不是最密堆积）所以我们选择填入正方形对进去的三棱柱里；下层还需不需要交错着填呢？不需要，因为交错着填要求我们要把下层的球填到狭窄的四面体中去，这不是我们想做的，再说没有规定上下层必须交错（三维空间另一种最密堆积六方堆积上下层就是一样的）所以我们上下层一共12个超球的投影下来的位置是重合的，即下图中6个蓝色点。
+　　The 4D hypersphere densest packing should also consist of three layers: the middle layer being the three-dimensional densest packing. The question is, where should the "upper" and "lower" layers of hyperspheres be filled? We can also try to fill them in the gaps of the upper layer, alternating: here we can fill six triangular prisms formed by the square pairs or six tetrahedra formed by the triangular pairs. However, the tetrahedron seems too small to fill (it's not that it cannot be filled, but if the hypersphere occupies less space in the lower layer, the space utilization rate will decrease, thus not being the densest packing). So we choose to fill the triangular prisms formed by the square pairs; does the lower layer still need to be filled alternately? No, because filling alternately would require us to fill the lower layer spheres into narrow tetrahedra, which is not what we want to do. Besides, there is no rule that the upper and lower layers must alternate (in the other three-dimensional densest packing, HCP, the upper and lower layers are the same). Therefore, the projected positions of the total 12 hyperspheres in the upper and lower layers coincide, as shown by the 6 blue points in the figure below.
 ![](/img/polyhedral3.gif)
-　　结果：上层有六个超球，构成正八面体，下层也一样，最密堆积中一个超球紧密相邻的球一共6+12+6=24个！一个熟悉的数字！事实，我们剖分正24胞体的球极投影就能发现最中间那层**截半立方体**！截半立方体里面的正八面体当然就是下层那六个点构成的，上层的就是最外面最大的已截掉的八面体的6个顶点。<a name="rectified"></a>
+　　Result: The upper layer has six hyperspheres, forming a regular octahedron, and the lower layer is the same. In the densest packing, one hypersphere is tightly adjacent to a total of 6+12+6=24 spheres! A familiar number! In fact, if we dissect the stereographic projection of the 24-cell, we can find the innermost layer is a **cuboctahedron**! The regular octahedron inside the cuboctahedron is, of course, formed by those six points in the lower layer, and the upper layer consists of the 6 vertices of the largest, already truncated octahedron on the outermost part. <a name="rectified"></a>
 ![](/img/polyhedral4.gif)
-　　我们通过这个思路又给了正二十四胞体另一个类比解释：它是三维空间**截半立方体的四维推广**：其实这和菱形十二面体推广不矛盾，因为菱形十二面体与截半立方体对偶，而正二十四胞体是**自对偶**——它顶点和胞数都是24！我们也给出了正二十四胞体在超球上的一种胞的分布情况：
+　　Using this idea, we provided another analogous explanation for the 24-cell: it is the **4D generalization of the cuboctahedron** in three-dimensional space. In fact, this does not contradict the rhombic dodecahedron generalization, because the rhombic dodecahedron is dual to the cuboctahedron, and the 24-cell is **self-dual**—its number of vertices and cells are both 24! We also presented a distribution of cells for the 24-cell on a hypersphere:
 
-| 位置　 | 胞数 | 说明
-|  ----- | -----| ---
-| 北极　 | 1	| 最外面的八面体
-| 北半球 | 8	| 与北极八面体8个面相邻
-| 赤道　 | 6	| 与南\北极八面体6个顶点相对
-| 南半球 | 8	| 与南极八面体8个面相邻
-| 南极　 | 1	| 最里面的八面体
+| Position | Number of cells | Description |
+| ----- | -----| --- |
+| North Pole | 1 | Outermost octahedron |
+| Northern Hemisphere | 8 | Adjacent to the 8 faces of the North Pole octahedron |
+| Equator | 6 | Opposite the 6 vertices of the North/South Pole octahedron |
+| Southern Hemisphere | 8 | Adjacent to the 8 faces of the South Pole octahedron |
+| South Pole | 1 | Innermost octahedron |
 
-　　我们再换个角度思考：正二十四胞体是不是像截半立方体那样是什么图形截角得到的呢？由于正二十四胞体每个胞是正八面体，如果它是截角得到的截胞，则截下的顶点应该发出8条棱，显然不是超立方体或正十六胞体了，所以这个类比是失败的。
-　　[MathWorld](http://mathworld.wolfram.com/HyperspherePacking.html)网站上说，五维空间中的最密堆积也是这样类比的，八维空间中的最密堆积又是两个面心立方堆积的组合，而六、七维空间中的最密堆积的基本结构是八位最密堆积方式中的截面（之前我把截面错误看成了正轴形，本文已更正），而其他一些高维空间中的最密堆积还有乱的（即超球排列没有周期规律）。<a name="c120"></a>
+　　Let's consider another perspective: is the 24-cell obtained by truncating some figure, similar to the cuboctahedron? Since each cell of the 24-cell is a regular octahedron, if it were a truncated cell, the truncated vertices should have 8 edges connected to them, which is clearly not a hypercube or a 16-cell. So this analogy fails.
+　　The [MathWorld](http://mathworld.wolfram.com/HyperspherePacking.html) website states that the densest packing in five-dimensional space is also analogous in this way. The densest packing in eight-dimensional space is a combination of two face-centered cubic packings. However, the basic structures for densest packing in six and seven-dimensional spaces are cross-sections of the eight-dimensional densest packing method (I previously mistakenly thought the cross-sections were n-cross polytopes; this has been corrected in this article). Some other higher-dimensional spaces have "disordered" densest packings (i.e., hypersphere arrangements without periodic patterns). <a name="c120"></a>
 
 
-### 正一百二十胞体
-　　《维度》影片中讲述者最喜爱的图形是24号，而我最喜欢的图形就是120号。我曾经用掉一个本子满篇画正一百二十胞体球极投影结构。
-　　它的球极投影图就是119个有着十二个面的“泡泡”组成的一个大泡泡。有人把119个十二面体3d打印了出来，感觉就是一套目的是拼出一个大十二面体的拼图玩具。我们现在要搞清的是这里面119个“泡泡”是怎么做到无缝精致拼接在一起的。注意，我们现在不再从五边形-正十二面体-正一百二十胞体这样一层一层类比了。正十二面体结构太复杂了，所以我们直接把它当作超球上的一种正十二面体密铺的图案。既然这样我们先一层一层看十二面体在超球上的分布情况：
+### 120-cell
+　　The narrator's favorite figure in the "Dimensions" film is the 24-cell, but my favorite is the 120-cell. I once filled a notebook with drawings of the 120-cell's stereographic projection structure.
+　　Its stereographic projection diagram is a large bubble composed of 119 "bubbles" with twelve faces each. Someone 3D-printed 119 dodecahedra, and it felt like a jigsaw puzzle designed to form a large dodecahedron. What we need to understand now is how these 119 "bubbles" achieve seamless and intricate tiling. Note that we are no longer analysing analogies from pentagon to regular dodecahedron and to 120-cell. The regular dodecahedron's structure is too complex, so we directly consider it as a pattern of regular dodecahedral tiling on a hypersphere. Given this, let's look at the distribution of dodecahedra on the hypersphere layer by layer:
 
-| 位置　 | 胞数 | 说明|
-|  ----- | -----| ---|
-| 北极　 | 1	| 最外面的12面体|
-| 北极圈 | 12	| 与北极12面体12个面相邻|
-| 中纬度 | 20	| 填补北极圈对应北极12面体20个顶点位置的凹陷|
-|北回归线| 12	| 分别与北极圈12个12面体靠南的12个面相邻|
-| 赤道　 | 30	| 填补对应南北极12面体30条棱上的30个空隙|
-|南回归线| 12	| 分别与北回归线12个12面体靠南的12个面相邻|
-| 中纬度 | 20	| 填补南极圈对应南极12面体20个顶点位置的凹陷|
-| 南极圈 | 12	| 分别与南回归线12个12面体靠南的12个面相邻，且与南极12面体12个面相邻|
-| 南极　 | 1	| 最里面的12面体|
+| Position | Number of cells | Description |
+| ----- | -----| --- |
+| North Pole | 1 | Outermost dodecahedron |
+| Arctic Circle | 12 | Adjacent to the 12 faces of the North Pole dodecahedron |
+| Mid-Latitudes | 20 | Fills the depressions corresponding to the 20 vertex positions of the North Pole dodecahedron around the Arctic Circle |
+| Tropic of Cancer | 12 | Adjacent to the 12 southward faces of the 12 dodecahedra in the Arctic Circle |
+| Equator | 30 | Fills the 30 gaps on the 30 edges corresponding to the North and South Pole dodecahedra |
+| Tropic of Capricorn | 12 | Adjacent to the 12 southward faces of the 12 dodecahedra at the Tropic of Cancer |
+| Mid-Latitudes | 20 | Fills the depressions corresponding to the 20 vertex positions of the South Pole dodecahedron around the Antarctic Circle |
+| Antarctic Circle | 12 | Adjacent to the 12 southward faces of the 12 dodecahedra at the Tropic of Capricorn, and also adjacent to the 12 faces of the South Pole dodecahedron |
+| South Pole | 1 | Innermost dodecahedron |
 
 ![](/img/polyhedral5.gif) ![](/img/polyhedral6.gif)
-　　可能还有疑惑的就是中间那圈30个12面体了，它们分布在12面体棱上的30个位置。我们把正十二面体所有棱的中点连起来得到了一个“截半二十面体”，画出来长这样：（以下图片均出自en.wikipedia Icosidodecahedron页面）![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Icosidodecahedron.jpg/320px-Icosidodecahedron.jpg)
-　　其中你能发现很多正十边形的中空结构。它的球极投影能更好反映这些正十边形：![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Icosidodecahedron_stereographic_projection_pentagon.png/160px-Icosidodecahedron_stereographic_projection_pentagon.png)
-　　好神奇！球极投影图就是六个圆周。我很喜欢徒手画一些多面体的球极投影图，我遇到其他投影图是圆周的还有正八面体：3个圆、截半立方体：4个圆（好熟悉，对，它就是讲最密堆积是出现的图形）。其实只要一个顶点发出4条棱的（半）正多面体都能投出圆形。说明我们在30个正十二面体中能发现六个首尾相接的环形结构，其中每个环上都有10个正十二面体，因此**每两个正十二面体形成的二胞角等于$180°-360°/10=144°$**。其实整个正一百二十胞体能分成12个大环，每个环上10个正十二面体都是首尾相接的。我们将在下一节[纤维丛](/archives/fibration4ds/#grandering)中具体描述这些环形结构。<a name="c600"></a>
+　　Perhaps there is still confusion about the middle ring of 30 dodecahedra; they are distributed in 30 positions on the edges of the dodecahedra. If we connect the midpoints of all edges of a regular dodecahedron, we get a "rectified icosahedron" (icosidodecahedron), which looks like this: (all images below are from en.wikipedia Icosidodecahedron page) ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Icosidodecahedron.jpg/320px-Icosidodecahedron.jpg)
+　　Among them, you can find many hollow decagonal structures. Its stereographic projection can better reflect these decagons: ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Icosidodecahedron_stereographic_projection_pentagon.png/160px-Icosidodecahedron_stereographic_projection_pentagon.png)
+　　How magical! The stereographic projection diagram consists of six circles. I enjoy drawing stereographic projections of various polyhedra freehand. Other projection diagrams I've encountered that are circles include the regular octahedron: 3 circles, and the cuboctahedron: 4 circles (how familiar, yes, it's the figure that appeared when talking about densest packing). In fact, any (semi-)regular polyhedron where a vertex has 4 edges connected to it can be projected as circles. This indicates that within the 30 regular dodecahedra, we can find six end-to-end connected ring structures, with each ring having 10 regular dodecahedra. Therefore, the **dihedral angle formed by any two regular dodecahedra is $180° - 360°/10 = 144°$**. In fact, the entire 120-cell can be divided into 12 great rings, each with 10 regular dodecahedra connected end-to-end. We will describe these ring structures in detail in the next section, [Fibration](/archives/fibration4ds/#grandering). <a name="c600"></a>
 
 
-### 正六百胞体
-　　正六百胞体与正120胞体对偶，正120胞体是十二面体胞中心的地方正六百胞体就有一个发出12条棱的顶点，正六百胞体是四面体体胞中心的地方正120胞体就有一个发出4条棱的顶点，所以根据对偶性（顶点-胞、棱-边）正六百胞体没有什么新的结构了，我们就暂不讨论了。至于有人说正六百胞体球极投影里面有单形（正五胞体）展开图，我认为这只是巧合看起来像而已，它们无实际联系。<a name="till"></a>
-### 镶嵌
-　　还记得《维度》影片中出现的那些蜥蜴吗？我们仔细看那幅画有蜥蜴的画：二维的蜥蜴可以无缝地铺满整个二维空间。这幅画的原作是埃舍尔（Escher，有一本介绍他的很好的书《哥德尔艾舍尔巴赫：集异璧之大成》），他是一个奇特的画家，专门画错觉图形和数学几何图形。
-![图片来自《维度》影片官网](https://www.dimensions-math.org/Episode_3B_3174.jpg)
-　　这种图形密铺我们叫做“欧几里得镶嵌”。当然我们最关心的还是正多边形镶嵌:
- - 二维只有三角形、正方形、正六边形镶嵌。
- - 三维空间只有正方体镶嵌。但放宽点不限于正多面体镶嵌，比如我们发现菱形十二面体能够密铺三维空间！
- 
- ![图片出自en.wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Rhombic_dodecahedra.png/300px-Rhombic_dodecahedra.png)
- - 四维空间有三种正多胞体镶嵌：超立方体、正十六胞体、正二十四胞体。但除了超立方体其他两个我还没去想象它们怎么堆叠的……大家有兴趣可以思考一下。
-　　为什么要叫“欧几里得镶嵌”？难到还有“非欧几里得镶嵌”吗？“欧几里得”指平直空间，它的曲率为0。前面我们说我们把正一百二十胞体看成超球表面上的“图案”，这就是球面镶嵌，球面具有大于0的曲率。正多面体也可以看做二维的球面镶嵌，这才是正多面体、正多胞体的本质。还有一种“双曲镶嵌”，它的曲率小于0。双曲镶嵌也是相当震撼的，是埃舍尔很多代表画作的题材。
+### 600-cell
+　　The 600-cell is dual to the 120-cell. Where the 120-cell has a cell center, the 600-cell has a vertex with 12 edges connected to it. Where the 600-cell has a tetrahedral cell center, the 120-cell has a vertex with 4 edges connected to it. Therefore, due to duality (vertex-cell, edge-face), the 600-cell has no new structures, so we will not discuss it for now. As for some people saying that the stereographic projection of the 600-cell contains the unfolded diagram of a simplex (5-cell), I believe this is just a coincidental resemblance and they have no actual connection. <a name="till"></a>
+### Tessellations
+　　Do you remember the lizards that appeared in the "Dimensions" film? Let's look closely at the painting with the lizards: the two-dimensional lizards can seamlessly tile the entire two-dimensional space. The original artwork is by Escher (there is an excellent book about him, "Gödel, Escher, Bach: An Eternal Golden Braid"). He was a peculiar artist who specialized in drawing optical illusions and mathematical geometric figures.
+![Image from "Dimensions" film official website](https://www.dimensions-math.org/Episode_3B_3174.jpg)
+　　This type of close packing of figures is called "Euclidean tessellation." Of course, what we are most concerned about is regular polygon tessellation:
+ - In two dimensions, only triangles, squares, and regular hexagons can tessellate.
+ - In three-dimensional space, only cubes can tessellate. However, if we broaden the scope beyond regular polyhedra, for example, we find that rhombic dodecahedra can densely pack three-dimensional space!
+
+ ![Image from en.wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Rhombic_dodecahedra.png/300px-Rhombic_dodecahedra.png)
+ - In 4D space, there are three regular polytope tessellations: the hypercube, the 16-cell, and the 24-cell. However, I haven't yet imagined how the latter two stack... If you're interested, you can think about it.
+　　Why is it called "Euclidean tessellation"? Does that mean there are "non-Euclidean tessellations"? "Euclidean" refers to flat space, which has zero curvature. Earlier, we said that we view the 120-cell as a "pattern" on the surface of a hypersphere; this is spherical tessellation, where the sphere has positive curvature (>0). Regular polyhedra can also be seen as two-dimensional spherical tessellations, which is the essence of regular polyhedra and regular polytopes. There is also "hyperbolic tessellation," which has negative curvature (<0). Hyperbolic tessellations are also quite stunning and are the subject of many of Escher's representative artworks.
