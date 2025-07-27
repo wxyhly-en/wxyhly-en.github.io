@@ -1,50 +1,55 @@
 ---
-title: 四维空间（八）：参观四维国
+title: "4D Space (VIII): Visiting a 4D Country"
 tags:
-  - 四维
-  - 几何
-  - 物理
-  - 奇特想象
-  - 系列文章
-categories: 四维空间系列
+  - 4D
+  - Geometry
+  - Physics
+  - Strange imagination
+categories: 4D Space Series
 date: 2016-05-02 20:45:29
-excerpt: 我们对四维几何体已经有了比较全面的了解。现在试想有一天你被邀请去参观四维国，并了解他们的文化与科学技术这会是怎样的一番体验？在浩瀚的四维宇宙中，零星散布着一些星系。你要参观的那个星球就在某一个星系当中。那个星球是一个超球，它也绕着一颗恒星旋转。
+excerpt: Now imagine one day you are invited to visit a 4D country and learn about their culture and science and technology. What would that be? In the vast 4D universe, galaxies are scattered sporadically. The planet you are going to visit is in one of those galaxies. That planet is a hypersphere, and it also revolves around a star.
 index_img: /img/lavie1.gif
 ---
 
-**注意，这篇文章中的有些内容纯属想象，里面有很多漏洞，不要当真。**
+**Note: Some content in this article is purely imaginative and contains many loopholes; do not take it seriously.**
 
-## 天体力学
-　　我们对四维几何体已经有了比较全面的了解。现在试想有一天你被邀请去参观四维国，并了解他们的文化与科学技术这会是怎样的一番体验？
-在浩瀚的四维宇宙中，零星散布着一些星系。你要参观的那个星球就在某一个星系当中。那个星球是一个超球，它也绕着一颗恒星旋转。<!--more-->但由于多了一个维度，根据“高斯定理”，恒星引力将随距离**立方反比衰减**。你可能觉得这没什么，但计算可得，这将会导致行星运行轨道极其**不稳定**：要么坠毁要么飞出星系。
-　　你要去的这颗行星是一个奇迹——它的轨道几乎完全是个正圆！这颗行星上的文明已经有一万年历史，他们夜晚的天空上只看得见几颗很暗的星星。因为如果近处有天体，就将打破行星在圆轨道上的运行。一万年以来，这颗行星上的科学家在他们计算精度范围内算不出它的轨道与正圆形有偏差，但在四千年前新的测算结果显示这颗行星偏离了圆轨道，或许再过一千年就会离开恒星。科学家们后来只好通过几次小型核爆修正了这点轨道上的微小差异。修正后的轨道可以满足行星再运行一万年以上。![不稳定的轨道：以不同初速度抛出的物体要么坠毁要么远离星体](/img/lavie1.gif)
-## 地理、交通等
-　　这个世界中有繁华的城市和街道，也有森林、高山与海洋。他们早就绘制出了世界地图，他们使用二次墨卡托投影——先把超球面投影到球柱面上，再投影到圆柱柱面上，最后展开得到一幅长方体地图。没错，他们使用的**所有地图都是三维的**。在地图上，它们的河流看起来像空间中的有粗细的曲线，湖泊是一个立体的图形，他们从来不会遇到**过河**这件事：在三维中完全可以绕着空间曲线走，所以除了专门去河上钓鱼，你是找不到一条建在河上的道路的。但这并不代表山区就不用修桥：河床冲出的线状山沟确实能绕着走。但如果遇到湖泊或三维洼地或二维的断裂面就必须要修桥了。但盘山路、隧道还是躲不过的。我想隧道的截胞形状应该是球体吧。
-　　在城市里面交通拥堵对他们来说根本就不是个问题。路口也不用修立交桥，车流量大的主干道还可以修成二维的！（它们的广场都是三维的）当然他们的路其实都是四维的，只是在地图上没标高度，且忽略路的宽度，才说路是一维或二维的。![六个方向的十字路口不用建立交桥](/img/lavie7.gif)
-　　至于公路的截面（不是截到露出地基的那种截胞）是什么形状的这个我们完全没有经验——我们的二维公路截面就只是一条线，它的长短代表路宽。上面我画的路的截面是圆形的，但如果是双向车道感觉这种设计也不是太好。我也不知道哪种截面的路最好，但从隧道的截胞形状应该是球体推出隧道里面路的截面是圆形的好一点。
-　　注意，这些他们看似能在三维中随意行走的能力并不代表他们能飞行，他们都是“脚踏实地”地站在他们的星球上的。这个世界中一般的房间都是超立方体结构的，当然不排除设计师修建圆柱柱或球柱房间……水管一般是球体放样体，（直的水管就是球柱）Hopf纤维丛是他们最常见的几何艺术形式，常常拿这些图案刻在超球珠子上卖。他们的项链都是些打孔的小超球串起来的，但还有一种球环的首饰也很受欢迎：用线把我们三维球体的二维球壳（记上厚度就是球环）穿在一起。他们的衣服都是三维的面料！他们也从来不会纺织：四维空间绳子无法打结，我们三维空间中一件好好的毛衣拿去一扯就变成一根线了。当然这也有好处：他们放风筝时线永远不会缠在一起。至于交通工具汽车，它们不能只有4个轮子了，这样车是不稳的，另一侧会着地（想想你的三维车只有左侧有前轮、后轮，右边就拖地上了）。所以你将看到四维汽车有8个轮子。当然我们其实也有三轮车这种简易的交通工具，对于他们来说，如果能稳着不倒，四个轮子是四维车必须的。当然这里轮子的形状不是圆柱或三维圆环了，我觉得是球柱或环球。但球使得控制方向成了问题，所以他们可能还会把前轮做成圆柱柱（或圆环环）。自行车？用两个球或两个圆做轮子骑起来估计都不会倒，但球形轮子无法控制滚动方向，所以估计还是用两个圆形的轮子好些。他们去远的地方还是要坐飞机，因为地面虽然交通畅通，但弯道和摩擦都是存在的，也有最高限速。
-## 四维物体滚动
-　　说起四维空间中的“圆”的物体的滚动，简单的有超球、球柱、双圆柱、圆柱柱这四种。
-![圆柱的侧视图、俯视图](/img/lavie2.gif)<center>（黑色为桌面，红色为几何体，俯视图中只画出了与桌面相交的部分，下同）</center>
-- 三维空间里平放的圆柱在2维桌面上，这种摆放方式决定了滚动方向是唯一的:垂直于它的旋转轴(即高)，即垂直于它与桌面的交线。若硬要沿着交线移动，这就是摩擦打滑了。
+## Celestial Mechanics
+　　We have a relatively comprehensive understanding of 4D geometric bodies. Now imagine one day you are invited to visit a 4D country and learn about their culture and science and technology. What kind of experience would that be?
+In the vast 4D universe, galaxies are scattered sporadically. The planet you are going to visit is in one of those galaxies. That planet is a hypersphere, and it also revolves around a star. However, due to an additional dimension, according to "Gauss's Law," stellar gravity will decay with the **inverse cubic law**. You might think this is nothing, but calculations show that this will lead to extremely **unstable** planetary orbits: they will either crash or fly out of the galaxy.
+　　The planet you are going to is a miracle—its orbit is almost perfectly circular! The civilization on this planet has a history of ten thousand years, and they can only see a few very dim stars in their night sky. This is because if there were nearby celestial bodies, they would disrupt the planet's circular orbit. For ten thousand years, scientists on this planet could not calculate any deviation from a perfect circle within their precision. However, four thousand years ago, new measurements showed that the planet was deviating from its circular orbit and might leave the star in another thousand years. The scientists later had to correct this tiny orbital difference through several small nuclear explosions. The corrected orbit can sustain the planet for more than another ten thousand years. ![Unstable orbits: objects thrown with different initial velocities either crash or move away from the star](/img/lavie1.gif)
 
-![圆柱柱的侧视图、俯视图](/img/lavie3.gif)
-- 四维空间中圆柱柱平放在3维桌面上，滚动方向也是唯一的:垂直于它的旋转平面(它平行于与桌面的交面)，若硬要沿着它与桌面的交面移动，这也是打滑了。
+## Geography, Transportation, etc.
+　　This world has bustling cities and streets, as well as forests, mountains, and oceans. They have long since drawn world maps, using a double Mercator projection—first projecting the hypersphere onto a spherindrical surface, then projecting it onto a cylindrical surface, and finally unfolding it to obtain a rectangular map. That's right, **all their maps are three-dimensional**. On the map, their rivers look like spatial curves with thickness, and lakes are three-dimensional shapes. They never encounter the problem of **crossing a river**: in three dimensions, you can completely walk around a spatial curve, so unless you're specifically going fishing in the river, you won't find a road built on a river. But this doesn't mean that bridges aren't needed in mountainous areas: linear ravines carved by riverbeds can indeed be walked around. However, if they encounter lakes, three-dimensional depressions, or two-dimensional fracture planes, bridges must be built. But winding mountain roads and tunnels are unavoidable. I suppose the cross-cell shape of a tunnel should be a sphere.
+　　In cities, traffic congestion is not a problem for them at all. Intersections don't require overpasses, and main roads with heavy traffic can even be two-dimensional! (Their squares are all three-dimensional.) Of course, their roads are actually 4D; it's just that height isn't marked on maps, and road width is ignored, leading to roads being described as one-dimensional or two-dimensional. ![A 4D intersection with six directions does not require overpasses](/img/lavie7.gif)
+　　As for the cross-section of a road (not the one cut to expose the foundation), we have no experience whatsoever—our two-dimensional road cross-section is just a line, its length representing the road width. The road I drew above has a circular cross-section, but for a two-way road, this design doesn't seem very good. I don't know which cross-section is best, but inferring from the spherical cross-cell shape of tunnels, it's probably better for the roads inside tunnels to have circular cross-sections.
+　　Note that these abilities, which seem like they can walk freely in three dimensions, do not mean they can fly; they are all "down to earth" on their planet. General rooms in this world are hypercube structures, although designers might build spherindrical or spherindrical rooms... Water pipes are generally sphere-lofted bodies (straight pipes are spherinders). Hopf fibration is their most common form of geometric art, often used to engrave patterns on hyperspherical beads for sale. Their necklaces are made of small, perforated hyperspheres strung together, but another type of spheritorus jewelry is also very popular: using a string to thread together the two-dimensional spherical shells (with thickness, forming a spheritorus) of our three-dimensional spheres. Their clothes are three-dimensional fabrics! They also never weave: a rope in 4D space cannot be knotted, and a perfectly good sweater in our three-dimensional space would turn into a single thread if pulled. Of course, this has advantages: their kite strings will never get tangled. As for vehicles like cars, they can no longer have only 4 wheels, as the car would be unstable, with one side dragging on the ground (imagine your 3D car only having front and rear wheels on the left side, with the right side dragging). So you would see 4D cars with 8 wheels. Of course, we also have simple vehicles like tricycles; for them, if it can stay stable and not fall over, four wheels are essential for a 4D car. Of course, here the shape of the wheels is not a cylinder or a 3D torus; I think they are spherinders or torispheres. But a sphere makes controlling direction a problem, so they might make the front wheels cubinders (or ditorus). Bicycles? Using two spheres or two circles as wheels would probably prevent them from falling, but spherical wheels cannot control the rolling direction, so it's probably better to use two circular wheels. They still take planes for long distances because, although ground traffic is smooth, turns and friction exist, and there is a maximum speed limit.
 
-![球体的侧视图、俯视图](/img/lavie4.gif)
-- 球柱平放在3维桌面上可以在垂直于它的高的平面里任意滚动，就像球体放在桌子上那样滚动。
+## Rolling of 4D Objects
+　　Speaking of the rolling of "round" objects in 4D space, the simplest ones are the hypersphere, spherinder, duocylinder, and cubinder.
+![Side view and top view of a cylinder](/img/lavie2.gif)<center>(Black is the tabletop, red is the geometric body. In the top view, only the part intersecting the tabletop is drawn, same below)</center>
+- A cylinder placed flat on a 2D table in 3D space, this placement determines that the rolling direction is unique: perpendicular to its axis of rotation (i.e., its height), which is perpendicular to its intersection line with the tabletop. If forced to move along the intersection line, this is friction and skidding.
 
-![球柱的侧视图(也是个圆柱)、俯视图](/img/lavie5.gif)
-- 超球可以在3维桌面上任意滚动
+![Side view and top view of a cubinder](/img/lavie3.gif)
+- A cubinder placed flat on a 3D table in 4D space, the rolling direction is also unique: perpendicular to its plane of rotation (it is parallel to its intersection plane with the tabletop). If forced to move along its intersection plane with the tabletop, this is also skidding.
 
-![双圆柱与超球的俯视图](/img/lavie6.gif)
-- 双圆柱虽然有等角旋转对称性，但是放在3维桌面时只能把一个曲胞放置与桌面相切(相切于一个圆)，导致它只能向垂直于相切圆的方向滚动，也就是说它的滚动性质和圆柱柱是一样的，只是不参与滚动的侧面圆柱柱是方形，双圆柱是圆形。总的来说，圆柱柱双圆柱能朝一个方向滚动，球柱能在２维平面上自由滚动，超球可以在3维的胞中任意滚动。
-**（更新：基于4D刚体力学的滚动模拟器做好了，[戳这里！](/archives/newton4/)）**
-　　这个世界中引力、电磁力都是立方反比衰减的。所以为了应对衰减过快的困难，他们的路灯修建得比我们的更密集；但他们的电路板、芯片也是三维的，所以信息技术非常发达。我们知道三维空间中锥形齿轮用于相交轴间的传动。与柱形齿轮相比，能够改变传动方向。到了四维空间，只需要给它们都加点“厚度”：锥柱形齿轮用于相交轴间的传动。与柱柱形齿轮相比，能够改变传动方向。但这个传动方向的改变还是在一个三维空间中。我们怎样设计一套装置使得$xy$平面上的运动能传到$zw$平面上去呢？我们可以用两套锥柱形齿轮，第一套负责把$xy$平面上的运动转到$xw$平面上，第二套再把$xw$平面运动转到$zw$平面上。但这个方法有点笨拙，四维文明肯定发明了一步到位的传动零件。（我想不出来了）
-## 常见建筑、物品及文字
-　　四维文明的文字是不是三维的？如果是，它们是由曲面构成还是由空间曲线构成？我认为首先它们都会选择三维文字，但不同的四维文明都有自己不同的习惯选择用线还是用面。从方便性来说，空间曲线是最好“写”出来的了。但他们肯定会遇到画线、面、胞等情况，笔还得换。因为你肯定不想用画空间曲线的笔来涂满整个三维胞吧。所以它们有专门画面的笔（可能像把刷子），用这种笔填三维胞工作量就小多了（就像我们用一般的笔涂一个区域那样）。想画直线／平面？那还得借助各种维度的尺子才能画平直。<a name="5dgate"></a>
-## 一点电磁场物理猜想
-　　有科学家发现了光速不变和相对论，还提出了“五维时空”的理论！其实这些和我们四维时空的性质都大同小异。但唯一例外的是他们的磁场：磁场不再是矢量，而是２－向量。最简单的情形是放一根通电导线发现平行于某一平面时受到的“安培力”最大，平行于某一平面的绝对垂直面时不受力的作用。当然很多时候２－向量不是简单的，这时导线在任何取向下都会受到磁力！三维空间对应的四维时空中的电磁张量（其实也是个2-向量）长这样：$$F=\begin{pmatrix} 0 &  E_x/c &   E_y/c &   E_z/c \\\\     -E_x/c & 0 &  -B_z &  B_y \\\\ -E_y/c & B_z & 0 &  -B_x \\\\ -E_z/c &   -B_y &  B_x & 0 \end{pmatrix}$$我猜四维空间对应的五维的电磁张量（2-向量）长这样：$$F=\begin{pmatrix} 0 &  E_x/c &   E_y/c &   E_z/c &   E\_w/c \\\\     -E\_x/c & 0 &  B\_{xy} & B\_{xz} & B\_{xw} \\\\ -E\_y/c & -B\_{xy} & 0 & B\_{yz} & B\_{yw} \\\\ -E\_z/c &   -B\_{xz} &  -B\_{yz} & 0 & B\_{zw} \\\\ -E\_w/c & -B\_{xw} & -B\_{yw} & -B\_{zw} & 0\end{pmatrix}$$
+![Side view and top view of a sphere](/img/lavie4.gif)
+- A spherinder placed flat on a 3D table can roll arbitrarily in the plane perpendicular to its height, just like a sphere rolling on a table.
 
-## 四维世界系列
-　　这个世界不同于之前讨论的几何学或代数学，它包含物理等更多设定，所以客观性真实性大打折扣。但四维世界很精彩，我建立了一个独立于四维空间系列的新系列：[四维世界系列](/categories/四维世界系列/)来探索这个充满着未知的地方。
+![Side view (also a cylinder) and top view of a spherinder](/img/lavie5.gif)
+- A hypersphere can roll arbitrarily on a 3D table.
+
+![Top view of a duocylinder and a hypersphere](/img/lavie6.gif)
+- Although a duocylinder has equal angular rotational symmetry, when placed on a 3D table, only one cell can be tangent to the table (tangent to a circle), causing it to only be able to roll in the direction perpendicular to the tangent circle. In other words, its rolling behaviors are the same as a cubinder, except that the non-rolling side cubinder is square, while the duocylinder is circular. Overall, cubinders and duocylinders can roll in one direction, spherinders can roll freely on a 2D plane, and hyperspheres can roll arbitrarily within a 3D cell.
+
+**(Update: A rolling simulator based on 4D rigid body mechanics has been completed, [click here!](/archives/newton4/))**
+
+　　In this world, gravity and electromagnetic forces both decay by the inverse cubic law of the distance. So, to cope with the difficulty of overly fast decay, their streetlights are built more densely than ours; but their circuit boards and chips are also three-dimensional, so information technology is very developed. We know that in three-dimensional space, bevel gears are used for power transmission between intersecting axes. Compared to cylindrical gears, they can change the direction of transmission. In 4D space, you just need to add some "thickness" to them: conindrical gears are used for power transmission between intersecting axes. Compared to cubinder gears, they can change the direction of transmission. However, this change in transmission direction is still within a three-dimensional space. How can we design a device that transfers motion in the $xy$ plane to the $zw$ plane? We can use two sets of conindrical gears: the first set is responsible for converting motion in the $xy$ plane to the $xw$ plane, and the second set then converts the $xw$ plane motion to the $zw$ plane. But this method is a bit clumsy; a 4D civilization would surely have invented a one-step transmission part. (I can't think of it.)
+
+## Common Buildings, Items, and Writing
+　　Are the letters of a 4D civilization three-dimensional? If so, are they composed of curved surfaces or spatial curves? I believe that first, they would all choose three-dimensional letters, but different 4D civilizations would have different habits of choosing to use lines or surfaces. For convenience, spatial curves would be the easiest to "write." However, they would certainly encounter situations where they need to draw lines, surfaces, or cells, and they would need to change pens. Because you certainly wouldn't want to use a pen for drawing spatial curves to fill an entire three-dimensional cell. So they would have special pens for drawing surfaces (perhaps like brushes), making the work of filling three-dimensional cells much easier (just as we use ordinary pens to color an area). Want to draw straight lines/planes? You would need various dimensional rulers to draw them straight. <a name="5dgate"></a>
+
+## A Little Speculation on Electromagnetic Field
+　　Some scientists have discovered the constancy of the speed of light and the theory of relativity, and have also proposed the theory of "five-dimensional spacetime"! In fact, these are largely similar to the properties of our 4D spacetime. But the only exception is their magnetic field: the magnetic field is no longer a vector, but a 2-vector. In the simplest case, if you place a current-carrying wire, you find that the "Ampère force" is maximal when parallel to a certain plane, and there is no force when parallel to a plane absolutely perpendicular to it. Of course, often a 2-vector is not simple, in which case the wire will experience a magnetic force in any orientation! The electromagnetic tensor (which is also a 2-vector) in 4D spacetime corresponding to 3D space looks like this: $$F=\begin{pmatrix} 0 &  E_x/c &   E_y/c &   E_z/c \\\\     -E_x/c & 0 &  -B_z &  B_y \\\\ -E_y/c & B_z & 0 &  -B_x \\\\ -E_z/c &   -B_y &  B_x & 0 \end{pmatrix}$$I guess the electromagnetic tensor (2-vector) in 5D spacetime corresponding to 4D space looks like this: $$F=\begin{pmatrix} 0 &  E_x/c &   E_y/c &   E_z/c &   E\_w/c \\\\     -E\_x/c & 0 &  B\_{xy} & B\_{xz} & B\_{xw} \\\\ -E\_y/c & -B\_{xy} & 0 & B\_{yz} & B\_{yw} \\\\ -E\_z/c &   -B\_{xz} &  -B\_{yz} & 0 & B\_{zw} \\\\ -E\_w/c & -B\_{xw} & -B\_{yw} & -B\_{zw} & 0\end{pmatrix}$$
+
+## 4D World Series
+　　This world is different from the previously discussed geometry or algebra; it includes more settings like physics, so its objectivity and realism are greatly reduced. But the 4D world is wonderful, and I have created a new series independent of the 4D Space Series: 4D World Series to explore this place full of unknowns.
