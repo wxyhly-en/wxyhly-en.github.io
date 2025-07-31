@@ -1,5 +1,5 @@
 ---
-title: "4D Space (VI): More Geometric Shapes [Part 2]"
+title: "4D Space (VI): More Geometries [Part 2]"
 tags:
   - 4D
   - Geometry

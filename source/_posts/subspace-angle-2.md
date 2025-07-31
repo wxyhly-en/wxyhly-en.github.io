@@ -1,5 +1,5 @@
 ---
-title: "4D Space (XV): Plane State Space (Part II)"
+title: "4D Space (XV): Plane State Space (Part 2)"
 tags:
   - 4D
   - Geometry
@@ -92,7 +92,7 @@ We know that for the two mappings of a line, the points on both sides of the map
 
 ### Regular Octahedron - Regular Octahedron
 First, let's look at the case where both sides are vertices of regular octahedra.
-#### Number of Circles and Intersections
+#### Intersections and Number of Circles
 Since a regular octahedron has opposite vertices, the same plane with different orientations will be counted twice. A regular octahedron has 6 vertices, so permuting and combining them yields $6\times 6=36$ 2-vectors. After removing duplicates, we get 18 planes. Will these 18 planes intersect? Since any two vertices on the left and right spheres can be arbitrarily moved along an edge by a fixed distance to find two other points, this implies that each circle will intersect at least some other circles. It is worth noting that there are two types of distances between vertices in a regular octahedron: the first is the distance between two points separated by one edge, and the second is the distance between two points at the farthest opposite positions. But the second type actually corresponds to the same plane with opposite orientation, so we don't need to consider them here.
 
 #### Number of Circles at Intersection Points
@@ -112,7 +112,7 @@ Upon closer inspection, I found that although each circle in this figure only ha
 
 ### Cube - Cube
 We can analyze this example as same as the regular octahedron. However, this example will have some differences.
-#### Number of Circles and Intersections
+#### Intersections and Number of Circles
 A cube also has opposite vertices, which will count the same plane with different orientations twice. Permuting and combining yields $8\times 8=64$ 2-vectors. After removing duplicates, we get 32 planes. There are three types of distances between vertices in a cube: the first is the distance between two points separated by one edge, the second is the distance between two points separated by a face diagonal, and the third is the distance between two points separated by a body diagonal. The third type corresponds to the same plane with opposite orientation, so we ignore it. Thus, there are two types of distances, corresponding to two angles when circles intersect.
 
 #### Number of Circles at Intersection Points

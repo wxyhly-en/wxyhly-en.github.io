@@ -4,7 +4,7 @@ date: 2016-04-08 13:10:35
 categories: 4D Space Series
 tags:
 - 4D
-- Graphics
+- Geometry
 - Mathematics
 excerpt: This article is for readers with a basic understanding of 4D space (e.g., knowing about tesseracts, etc.). Featured content includes prisms, pyramids, hypervolumes, and surcell volumes.
 index_img: https://upload.wikimedia.org/wikipedia/commons/d/d9/From_Point_to_Tesseract_%28Looped_Version%29.gif

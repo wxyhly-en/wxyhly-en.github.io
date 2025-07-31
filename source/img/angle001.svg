@@ -131,58 +131,62 @@
     <text
        xml:space="preserve"
        style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="144.53513"
-       y="122.01453"
-       id="text8020"><tspan
-         sodipodi:role="line"
-         id="tspan8018"
-         style="font-size:7.05556px;stroke-width:0.264583"
-         x="144.53513"
-         y="122.01453">右等角旋转</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="35.629593"
-       y="121.34228"
+       x="21.848337"
+       y="121.67841"
        id="text9584"><tspan
          sodipodi:role="line"
          id="tspan9582"
          style="font-size:7.05556px;stroke-width:0.264583"
-         x="35.629593"
-         y="121.34228">左等角旋转</tspan></text>
+         x="21.848337"
+         y="121.67841">Left Isoclinic Rotation</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="84.7043"
+       x="63.528225"
        y="15.125762"
        id="text10032"><tspan
          sodipodi:role="line"
          id="tspan10030"
          style="font-size:7.05556px;stroke-width:0.264583"
-         x="84.7043"
-         y="15.125762">过原点的直线</tspan></text>
+         x="63.528225"
+         y="15.125762">Line pass through origin</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="26.890251"
-       y="41.343761"
+       x="50.121803"
+       y="34.957325"
        id="text10606"><tspan
          sodipodi:role="line"
-         style="font-size:7.05556px;stroke-width:0.264583"
-         x="26.890251"
-         y="41.343761"
-         id="tspan10630">自对偶分量空间</tspan></text>
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="50.121803"
+         y="34.957325"
+         id="tspan10630">Space of</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="50.121803"
+         y="43.776775"
+         id="tspan4707">Self-dual Part</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="130.75386"
-       y="41.67989"
+       x="159.21382"
+       y="34.621197"
        id="text10950"><tspan
          sodipodi:role="line"
-         style="font-size:7.05556px;stroke-width:0.264583"
-         x="130.75386"
-         y="41.67989"
-         id="tspan10948">反自对偶分量空间</tspan></text>
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="159.21382"
+         y="34.621197"
+         id="tspan10948">Space of </tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="159.21382"
+         y="43.440647"
+         id="tspan9431">Anti-self-dual</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="159.21382"
+         y="52.260098"
+         id="tspan9435">Part</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:13.5066px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:1.013"
@@ -223,5 +227,16 @@
          rx="30.466166"
          ry="5.5872207" />
     </g>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="108.90555"
+       y="122.01454"
+       id="text13483"><tspan
+         sodipodi:role="line"
+         id="tspan13481"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="108.90555"
+         y="122.01454">Right Isoclinic Rotation</tspan></text>
   </g>
 </svg>
