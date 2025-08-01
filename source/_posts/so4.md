@@ -9,7 +9,7 @@ tags:
 - Algorithm
 categories: 4D Computer Graphics
 date: 2024-05-21 21:05:36
-index\_img: https://www.google.com/search?q=/img/so4001.gif
+index_img: https://www.google.com/search?q=/img/so4001.gif
 excerpt: This article is a overview of various algorithms for 4D rotation. It covers computational methods for 3D quaternions and 4D rotors, a comparison with Geometric Algebra, as well as various lookAt algorithms and 4D camera control methods.
 -----
 
