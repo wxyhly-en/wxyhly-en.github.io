@@ -1,355 +1,468 @@
----
-title: 四维计算机图形学：旋转篇
+-----
+
+title: "4D Computer Graphics: Rotation"
 tags:
-  - 四维
-  - 数学
-  - 几何
-  - 图形学
-  - 算法
-categories: 四维计算机图形学
+- 4D
+- Math
+- Geometry
+- Graphics
+- Algorithm
+categories: 4D Computer Graphics
 date: 2024-05-21 21:05:36
-index_img: /img/so4001.gif
-excerpt: 本文综述了实现旋转这一基础变换的多种算法，包括三维四元数与四维旋量的计算方法、几何代数对比，以及各种 lookAt 算法与四维相机控制方式。内容偏重理论推导因此略显枯燥，适合有一定数学基础的读者，实用教程将在后续 Tesserxel4D 系列中展开。
----
+index\_img: https://www.google.com/search?q=/img/so4001.gif
+excerpt: This article is a overview of various algorithms for 4D rotation. It covers computational methods for 3D quaternions and 4D rotors, a comparison with Geometric Algebra, as well as various lookAt algorithms and 4D camera control methods.
+-----
 
-这次来看看如何实现最基础的坐标变换——旋转，它是渲染建模动画等一切技术的基石。这篇文章相当于一篇关于旋转的算法综述，虽然不需要读者熟悉计算机图形学，但会对数学水平要求稍微高一些，本文主要是罗列陈述算法，因此内容略显枯燥，若读者仅想学习使用这些工具构建四维交互场景，请关注后续的Tesserxel4D场景开发教程。
-![一般使用旋量表示 N 维空间中的旋转。特别地，3 维与 4 维的旋量代数可以用四元数表示](/img/so4001.png?size=200x)
+In this article, we'll look at how to implement the most fundamental coordinate transformation—rotation, which is the cornerstone of all technologies like rendering, modeling, and animation. While it doesn't require readers to be familiar with computer graphics, it does demand a slightly higher level of mathematical proficiency. The article mainly lists and describes algorithms, so the content is a bit boring. If readers only want to learn how to use these tools to build 4D interactive scenes, please follow the subsequent Tesserxel4D scene development tutorials.
 
-## 前置知识
-<!--more-->我本来打算先讲二维旋转、三维旋转的表示方法再讲到四维，逐渐引入旋转平面、2-向量、几何代数、旋量的，但由于低维旋转方面网上资料很多，且前面我也已经写过关于旋转平面、2-向量、几何代数、旋量的内容了，因此就不想啰嗦了（其实是懒~~），于是我整理了一下需要读者先了解的前置知识，大致知道这些内容后就可再继续阅读：
-1. [《四维空间（七）：N维的向量》](/archives/bivector4ds/) 中开头至奇异2-向量小节。
-2. [《四维空间（十一）：几何代数、四元数与空间旋转》](/archives/gaqr/) 中开头至四元数与四维空间旋转小节。
+## Prerequisites
 
-## 三维旋转的处理
-首先空间中的点与向量都以三个浮点数来储存定义为三维向量类（```class Vec3```），我采用四元数表示三维旋转，因此需要定义个四元数类（```class Quaternion```），最后，矩阵（```class Mat3```、```class Mat4```）作为最经典的图形学工具也是必不可少的。
+I originally planned to start with 2D rotation, then 3D rotation, and finally 4D, gradually introducing rotation planes, 2-vectors, geometric algebra, and rotors. However, there's a lot of information on low-dimensional rotations online, and I've already written about rotation planes, 2-vectors, geometric algebra, and rotors before, so I won't be verbose (I'm lazy\~\~). So, I just give a list of prerequisites that readers should be familiar with before continuing:
 
-建议在计算机上采用四元数储存旋转，首先欧拉角有万向锁问题，其次矩阵有16个元素，远多于三维旋转的3个自由度，一是浪费内存，二是不便于纠正浮点数误差累积。若想利用显卡对矩阵乘法的并行优化，可在发送给显卡时再转换为矩阵。
-### 基础数学类的运算
-我们会定义上面类的成员变量和一些常用方法，下面以三维向量Vec3类为例，它的伪代码大概是这个样子：
+1.  [《4D Space (VII): N-dimensional Vectors》](https://www.google.com/search?q=/archives/bivector4ds/) from the beginning to the section on simple 2-vectors.
+2.  [《4D Space (XI): Geometric Algebra, Quaternions, and Rotation》](https://www.google.com/search?q=/archives/gaqr/) from the beginning to the section on quaternions and 4D spatial rotation.
+
+## Handling 3D Rotation
+
+First, points and vectors in space are stored as three floating-point numbers, defined as a 3D vector class (`class Vec3`). I use quaternions to represent 3D rotation, so a quaternion class (`class Quaternion`) needs to be defined. Finally, matrices (`class Mat3`, `class Mat4`), as the most classic graphics tool, are also essential.
+
+It is recommended to store rotations using quaternions on a computer. First, Euler angles have the problem of gimbal lock. Second, matrices have 16 elements, far more than the 3 degrees of freedom of a 3D rotation, which wastes memory and makes it difficult to correct for accumulated floating-point errors. If you want to leverage the GPU's parallel optimization for matrix multiplication, you can convert it to a matrix only when sending it to the GPU.
+
+### Basic Mathematical Class Operations
+
+We will define member variables and some common methods for the above classes. Taking the 3D vector class Vec3 as an example, its pseudocode looks something like this:
+
 ```typescript
 class Vec3{
 
-    // 成员变量：
+    // Member variables:
 
     x: number; y: number; z: number;
 
-    // 构造函数：
+    // Constructor:
 
     constructor(x: number, y: number, z: number){
         this.x = x; this.y = y; this.z = z;
     }
 
-    // 常用方法：
+    // Common methods:
 
-    // 反向
+    // Negation
     neg():Vec3{
         return new Vec3(-this.x, -this.y, -this.z);
     }
-    // 加法
+    // Addition
     add(v3:Vec3):Vec3{
         return new Vec3(this.x + v3.x, this.y + v3.y, this.z + v3.z);
     }
     ...
-    // 内积
+    // Dot product
     dot(v3:Vec3):number{
         return this.x * v3.x + this.y * v3.y + this.z * v3.z;
     }
     ...
 }
 ```
-如果你无法理解上述代码，提前学习typescript/javascript、java、C#或C++中某一个语言中关于类(class)的相关概念即可，它们并不复杂。本文采用类似typescript的伪代码来描述算法，即函数参数名冒号后面代表参数类型，函数返回值类型则在参数括号后以冒号标注。
 
-四元数类的定义为：
+If you can't understand the above code, you can learn the concepts of classes in one of the following languages: typescript/javascript, java, C\#, or C++. They are not complicated. This article uses pseudocode similar to typescript to describe the algorithms, where the name after the colon in a function parameter represents the parameter type, and the function's return type is indicated after the parentheses with a colon.
+
+The definition of the quaternion class is:
+
 ```typescript
 class Quaternion{
-    // r代表实数分量，i/j/k分别代表三个虚数前的系数
+    // r represents the real component, i/j/k represent the coefficients of the three imaginary parts
     r: number; i:number; j: number; k: number;
     ...
 }
 ```
-### 旋转坐标与四元数转矩阵
-给定一个旋转$R$和一个向量$p$，如何计算旋转后的新向量$R(p)$是最基本的需求，我们将这个函数命名为```apply```。如果旋转用的是矩阵表示，则使用矩阵乘法完成计算：（矩阵与向量的乘法公式是明确的，本文假设读者有能力写出写出该函数的实现细节，故省略之，下同）
+
+### Rotating Coordinates and Quaternion-to-Matrix Conversion
+
+Given a rotation $R$ and a vector $p$, how to calculate the new rotated vector $R(p)$ is the most basic requirement. We will name this function `apply`. If the rotation is represented by a matrix, matrix multiplication is used to perform the calculation: (The formula for matrix-vector multiplication is well-defined, and this article assumes the reader is capable of implementing the details of this function, hence they are omitted, and so on for the following.)
 
 ```typescript
 function apply(R:Mat3, p:Vec3):Vec3{
-    return R.mul(p); // mul函数是矩阵与向量的乘法。
+    return R.mul(p); // The mul function is for matrix-vector multiplication.
 }
 ```
 
+If the rotation is represented by a quaternion, we use the [rotation coordinate algorithm here](https://www.google.com/search?q=/archives/gaqr/%23quanternion_as_rotor3) for calculation:
 
-如果旋转用的是四元数表示，则我们采用[这里的旋转坐标算法](/archives/gaqr/#quanternion_as_rotor3)计算：
 ```typescript
 function apply(R:Quaternion, p:Vec3):Vec3{
-    let p0 = new Quaternion(0, p.x, p.y, p.z); // 向量转四元数，注意实部为0。
-    let p1 = R.mul(p0).mul(R.conj()); // mul、conj函数分别是四元数乘法与共轭。
-    return new Vec3(p1.i, pi.j, p1.k); // 四元数转回向量。
+    // Convert vector to quaternion, note the real part is 0.
+    let p0 = new Quaternion(0, p.x, p.y, p.z); 
+    // mul and conj are quaternion multiplication and conjugation functions.
+    let p1 = R.mul(p0).mul(R.conj()); 
+    // Convert quaternion back to vector.
+    return new Vec3(p1.i, p1.j, p1.k); 
 }
 ```
-但一般显卡中处理旋转还是用矩阵比较多，如何将四元数表示的旋转转为矩阵表示呢？下面提供两种方法：
-1. 硬推公式法：我们将上面算法中的四元数乘法按坐标展开，整理出线性变换的公式，将它写成矩阵即可，建议使用Mathematica等工具推导公式，推导结果可见我的tesserxel库中[Quaternion类的toMat3函数](https://github.com/wxyhly/tesserxel/blob/main/src/math/algebra/quaternion.ts#L170)。
-2. 变换基向量法：如果嫌公式推导麻烦，可直接将矩阵按列分块，会发现它是由所有坐标基向量旋转后得到的新向量拼成的。因此我们无需理会四元数如何旋转空间中的点，就能构造出矩阵（注意这些都是是列向量）：
+
+However, rotations are generally handled using matrices in GPUs. How do we convert a quaternion-represented rotation into a matrix representation? Here are two methods:
+
+1.  Derive the formula directly: We can expand the quaternion multiplication in the above algorithm by coordinates, organize the linear transformation formula, and write it as a matrix. It is recommended to use tools like Mathematica to derive the formula. The result can be seen in the [toMat3 function of my tesserxel library's Quaternion class](https://github.com/wxyhly/tesserxel/blob/main/src/math/algebra/quaternion.ts#L170).
+2.  Transform basis vectors: If you find formula derivation troublesome, you can directly partition the matrix by columns and you will find that it is composed of the new vectors obtained by rotating all coordinate basis vectors. Therefore, we can construct the matrix without needing to understand how quaternions rotate points in space (note that these are column vectors):
 
 $$M=\begin{pmatrix}R(e_x)&R(e_y)&R(e_z)\end{pmatrix}$$
 
-翻译成伪代码则是：
-```javascript
+Translated into pseudocode, this is:
+
+```typescript
 function quaternion2mat3(R:Quaternion):Mat3{
     let ex = apply(R, new Vec3(1, 0, 0));
     let ey = apply(R, new Vec3(0, 1, 0));
     let ez = apply(R, new Vec3(0, 0, 1));
     return new Mat3(
-        ex.x, ey.x, ez.x, 
-        ex.y, ey.y, ez.y, 
-        ex.z, ey.z, ez.z, 
+        ex.x, ey.x, ez.x,
+        ex.y, ey.y, ez.y,
+        ex.z, ey.z, ez.z,
     );
 }
 ```
-注意虽然第二种方法看似写出的代码优雅，但效率不如第一种快：基向量中要么是1要么是0，很多乘法与加法都是不必要的，将式子化简后效率更高，但其实就变成第一种方法了。
 
-相反，把矩阵转换为四元数不太容易，我们将在[后面](/archives/so4/#mat32q)解决这个问题。现在有了初步处理旋转的能力，下面先来看怎样生成旋转。
-### 旋转的复合与逆
-采用欧拉角或其它多步骤复合表示旋转：则使用该算法生成多次旋转的四元数，注意四元数$p$、$q$先后作用到点$x$上为$q(pxp^\*)q^\*=(qp)x(qp)^\*$，相当于四元数$qp$单次作用，因此四元数跟矩阵一样表示复合旋转是直接按从右到左的顺序乘起来。求旋转的逆就更简单了，单位四元数乘以自己的共轭就是1，因此四元数共轭就是逆。
+Note that although the second method's code looks more elegant, it is less efficient than the first: the basis vectors are either 1 or 0, so many multiplications and additions are unnecessary. Simplifying the expression leads to higher efficiency, but that essentially turns it into the first method.
 
-### 轴与角度生成旋转
+Conversely, converting a matrix to a quaternion is not easy. We will solve this problem [later](https://www.google.com/search?q=/archives/so4/%23mat32q). Now that we have the basic ability to handle rotations, let's first look at how to generate them.
 
-1. 直接给出旋转的轴与角度：其算法已在[刚才的链接](/archives/gaqr/#quanternion_as_rotor3)中与旋转坐标算法一起给出了，这里放一下伪代码：
-```javascript
-// 给定单位向量axis表示的旋转轴，与旋转角度angle，生成四元数表示的旋转
+### Rotation Composition and Inverse
+
+To represent rotation using Euler angles or other multi-step composition: use the algorithm to generate the quaternion for each rotation. Note that if quaternions $p$ and $q$ are applied to a point $x$ in that order, the result is $q(pxp^\*)q^\*=(qp)x(qp)^\*$. This is equivalent to a single application of the quaternion $qp$. Therefore, composing rotations with quaternions, just like with matrices, is a direct multiplication in right-to-left order. Finding the inverse of a rotation is even simpler: a unit quaternion multiplied by its conjugate is 1, so the quaternion's conjugate is its inverse.
+
+### Axis-Angle Rotation Generation
+
+1.  Given the rotation axis and angle directly: The algorithm for this, along with the rotation coordinate algorithm, has been provided in the [link mentioned earlier](https://www.google.com/search?q=/archives/gaqr/%23quanternion_as_rotor3). Here's the pseudocode:
+
+<!-- end list -->
+
+```typescript
+// Given a rotation axis represented by the unit vector axis, and a rotation angle, generate the quaternion for the rotation.
 function axisAngle2quaternion(axis: Vec3, angle: number): Quaternion{
-    angle *= 0.5; // 将角度减半，并计算其正余弦值s与c
+    // Halve the angle and calculate its sine and cosine values, s and c.
+    angle *= 0.5;
     let s = Math.sin(angle);
     let c = Math.cos(angle);
     return new Quaternion(c, s * axis.x, s * axis.y, s * axis.z);
 }
 ```
-2. 直接给出旋转生成元2-向量：由于三维的2-向量可以霍奇对偶到普通的1-向量，因此其实这相当于给出了平行于旋转轴的向量，且向量的长度为旋转角度，相当于把旋转的轴与角度两个参数合二为一了，类似于角速度矢量这种东西，这种把大小方向合二为一的表示法又是比第一种更方便。它的算法其实是一样的，只是增加一些步骤：首先计算向量的长度的一半得到半角$\theta = ||l||/2$，然后将向量单位化后就跟第一种方法一样了。我们可进行化简：由于单位化即除以角度$2\theta$，最后四元数的虚部是单位向量乘以半角的正弦值$\sin(\theta)$，把这两步合并即向量乘以$\sin(\theta)/(2\theta)$。显然这个系数在角度接近零时分子分母都接近0，但极限为1/2，这并不是个数值稳定的方法，可以在角度小于$\epsilon$时将表达式用前两项泰勒展开$\(1/2)(1-\theta^2/3!)$来避免。这相当于生成元到旋转的指数映射，因此该函数命名为```exp```。下面给出伪代码：
-```javascript
+
+2.  Given the rotation generator 2-vector directly: Since a 3D 2-vector can be Hodge dualized to an ordinary 1-vector, this is equivalent to giving a vector parallel to the rotation axis, where the vector's length is the rotation angle. This combines the two parameters, axis and angle, into one, similar to an angular velocity vector. This representation, which combines magnitude and direction, is more convenient than the first method. The algorithm is essentially the same, just with some additional steps: first, calculate half the vector's length to get the half-angle $\\theta = ||l||/2$, then normalize the vector, and the rest is the same as the first method. We can simplify this: since normalization means dividing by the angle $2\\theta$, the imaginary part of the final quaternion is the unit vector multiplied by $\\sin(\\theta)$, the sine of the half-angle. Combining these two steps, we get the vector multiplied by $\\sin(\\theta)/(2\\theta)$. Clearly, this coefficient approaches $1/2$ when the angle is close to zero (the numerator and denominator both approach 0), but this is not a numerically stable method. To avoid this, when the angle is less than $\\epsilon$, we can use the first two terms of the Taylor expansion of the expression, $(1/2)(1-\\theta^2/3\!)$. This is equivalent to the exponential map from the generator to the rotation, so the function is named `exp`. Here's the pseudocode:
+
+<!-- end list -->
+
+```typescript
 function exp(v: Vec3): Quaternion {
-    let theta = v.length() * 0.5; // length函数求向量模长，得到半角
+    // The length function calculates the vector's magnitude, giving the half-angle.
+    let theta = v.length() * 0.5; 
     let epsilon = 0.005;
-    // 若角度的绝对值大于epsilon，则直接计算系数s，否则用泰勒展开
+    // If the absolute value of the angle is greater than epsilon, calculate the coefficient s directly, otherwise use a Taylor expansion.
     let s:number;
     if (Math.abs(theta) > epsilon) {
         s = Math.sin(theta) / theta * 0.5;
     } else {
         s = 0.5 - theta * theta / 12;
-    } 
+    }
     return new Quaternion(Math.cos(theta), s * v.x, s * v.y, s * v.z);
 }
 ```
-### lookAt生成旋转
-仅给出物体的初始朝向与最终朝向，找到符合要求的旋转：比如在一个射击游戏里，大炮需要始终自动对焦到移动的敌机，设大炮的局部坐标系中炮管的方向为$x$轴，则要求一个旋转变换，它能把$x$轴旋转到从炮到敌机连线的方向$v$。几乎所有游戏引擎中都有现成的函数供程序员使用，一般叫“lookAt”函数，下面我们来看如何实现它。
-给定两个单位向量$u$与$v$，我们希望构造旋转$R$，使得$R(u)=v$。由于两个向量确定一个平面，最简便的方式就是在$u$-$v$平面中进行旋转，或绕轴$u\times v$旋转，旋转的角度则可以通过计算向量的夹角得到，此时已知转轴和夹角，使用前面的算法就能生成旋转了：
+
+### LookAt Rotation Generation
+
+Given only the initial and final orientations of an object, find the required rotation. For example, in a shooting game, a cannon needs to automatically aim at a moving enemy aircraft. Assuming the cannon's barrel direction is the x-axis in its local coordinate system, we need a rotation that transforms the x-axis to the direction $v$ of the line from the cannon to the enemy. Almost all game engines have a ready-made function for this, generally called a "lookAt" function. Let's see how to implement it.
+Given two unit vectors $u$ and $v$, we want to construct a rotation $R$ such that $R(u)=v$. Since two vectors define a plane, the simplest way is to rotate within the $u$-$v$ plane, or around the axis $u\\times v$. The rotation angle can be found by calculating the angle between the vectors. With the axis and angle known, we can use the previous algorithm to generate the rotation:
+
 ```typescript
 function lookAt(u:Vec3, v:Vec3):Quaternion{
-    let axis = u.cross(v); // 通过向量叉乘函数cross计算旋转轴
-    let e_axis = axis.normalize(); // normalize函数将转轴缩放为单位向量
-    let angle = Math.acos(u.dot(v)); // 内积dot函数求夹角余弦，反余弦函数Math.acos求角度
-    return axisAngle2quaternion(e_axis, angle); // 已知转轴和夹角，使用前面的算法生成旋转
+    // Calculate the rotation axis using the cross product function.
+    let axis = u.cross(v); 
+    // The normalize function scales the axis to a unit vector.
+    let e_axis = axis.normalize(); 
+    // The dot function finds the cosine of the angle, and Math.acos finds the angle.
+    let angle = Math.acos(u.dot(v)); 
+    // With the axis and angle known, use the previous algorithm to generate the rotation.
+    return axisAngle2quaternion(e_axis, angle); 
 }
 ```
-其实上面的代码漏掉了一个特殊情况：若$u$与$v$方向相同或相反，叉乘得到的轴为$0$，这些特殊情况的处理留作习题。
-注意，满足$R(u)=v$的旋转$R$是不唯一的：$R$上再任意复合一个以$v$为轴的旋转也符合要求。上面算法求得的旋转在某种意义下是“距离”最近的旋转，但有时候会像下图那样出现不好的“倾斜”感，比如摄像机运镜时可能就希望画面不要左右倾斜，我们马上来解决这个问题。![将蓝色方向对齐的“最短”旋转路径会让绿色水平轴不再水平](/img/so4001.gif)
 
-给出物体的初始朝向与最终朝向，与物体的上方，找到保持物体不侧倾的旋转。方法有两种，一是将旋转拆成水平与垂直的两步可以避免物体侧倾，二是可以先用```lookAt```函数旋转到位后，再叠加一个以目标为轴的旋转纠正倾斜。这两种方法其实都相当于欧拉角，只是旋转的次序存在差异，具体代码实现留作习题。![避免绿轴“侧倾”的旋转生成方法之一](/img/so4002.gif)
+The code above actually omits a special case: if $u$ and $v$ are in the same or opposite direction, the cross product gives an axis of $0$. Handling these special cases is left as an exercise.
+Note that the rotation $R$ satisfying $R(u)=v$ is not unique: any rotation around axis $v$ composed with $R$ also satisfies the requirement. The algorithm above finds the rotation that is "closest" in some sense, but sometimes this can lead to an undesirable "tilting" effect, as shown in the figure below. For example, in camera work, you might want the screen to not tilt sideways. We will solve this problem right away.
+
+Given the initial and final orientations of an object, as well as its upward direction, find a rotation that keeps the object from tilting. There are two methods: first, the rotation can be broken down into horizontal and vertical steps to prevent tilting; second, one can first use the `lookAt` function to align the object, and then apply another rotation around the target axis to correct the tilt. These two methods are essentially equivalent to Euler angles, just with different rotation orders. The specific code implementation is left as an exercise.
 <a name="mat32q"></a>
 
-### 旋转矩阵转四元数
-前面说过旋转矩阵的自由度超过了旋转的自由度，数值误差导致不一定是精确的旋转矩阵，因此很可能问题没有解，但有了“lookAt”函数，我们就可以通过类似“Schmidt正交化”的方式来逐步逼近得到四元数：旋转矩阵按列分块后能够告诉我们原来的各坐标轴旋转到的新位置，因此可先使用```lookAt```函数生成对齐x轴前后位置的旋转```r1```，此时y轴与z轴还没对齐，然后再来一次lookAt对齐y轴，剩下的z轴就自动对齐了，将两次lookAt得到的四元数乘起来就得到了最终的转换结果。
+### Rotation Matrix to Quaternion
+
+As mentioned earlier, a rotation matrix's degrees of freedom exceed those of a rotation, so numerical errors can prevent it from being a precise rotation matrix. In such cases, there might not be a solution. However, with the "lookAt" function, we can gradually approximate a quaternion in a way similar to "Schmidt orthogonalization": a rotation matrix partitioned by columns tells us the new positions of the original coordinate axes. Therefore, we can first use the `lookAt` function to generate a rotation `r1` that aligns the x-axis. At this point, the y-axis and z-axis are not yet aligned. Then, we perform another `lookAt` to align the y-axis, and the remaining z-axis will automatically align. Multiplying the quaternions from the two `lookAt` steps gives the final conversion result.
+
 ```typescript
 function mat32quaternion(m:mat3): Quaternion{
-    // 第一次旋转：对齐x轴
-    let r1 = lookAt(new Vec3(1, 0, 0), m.x_()); // x_函数返回矩阵m的第一个列向量
-    // 第二次旋转：对齐y轴
-    let newY = apply(r1, new Vec3(0, 1, 0)); // 注意y轴已经被r1旋转到了newY
-    let r2 = lookAt(newY, m.y_()); // y_函数返回矩阵m的第二个列向量
-    return r2.mul(r1); // 将两步旋转复合
+
+    // First rotation: align the x-axis
+
+    // The x_ function returns the first column vector of matrix m.
+    let r1 = lookAt(new Vec3(1, 0, 0), m.x_()); 
+
+    // Second rotation: align the y-axis
+
+    // Note that the y-axis has been rotated to newY by r1.
+    let newY = apply(r1, new Vec3(0, 1, 0)); 
+    // The y_ function returns the second column vector of matrix m.
+    let r2 = lookAt(newY, m.y_()); 
+
+    // Compose the two rotations.
+    return r2.mul(r1); 
 }
 ```
-### 已知旋转找转轴与角度
-有些时候会遇到旋转的生成的逆问题：给定旋转找出它的生成元，由于生成元生成旋转是指数映射```exp```，因此这个函数叫它对数映射```log```。求逆映射并不难，很容易通过四元数实部值求出半角的余弦，下面是伪代码：
+
+### Given a Rotation, Find the Axis and Angle
+
+Sometimes, we encounter the inverse problem of rotation generation: given a rotation, find its generator. Since the generator maps to a rotation via an exponential map `exp`, this inverse function is called a logarithmic map `log`. The inverse mapping is not difficult to find; we can easily find the cosine of the half-angle from the real part of the quaternion. Below is the pseudocode:
+
 ```typescript
 log(R: quaternion): Vec3 {
-    let theta = Math.acos(R.r); // 通过四元数实部求半角
-    let s = 2 * theta / Math.sin(theta); // 恢复旋转轴，再乘上角度值
+    // Find the half-angle from the quaternion's real part.
+    let theta = Math.acos(R.r); 
+    // Recover the rotation axis, and multiply by the angle value.
+    let s = 2 * theta / Math.sin(theta); 
     return new Vec3(R.i * s, R.j * s, R.k * s);
 }
 ```
-### 旋转的插值
-在动画制作中常会遇到已知物体始末初始状态，需补出中间帧以实现动画效果。若已知$0$时刻的旋转对应四元数$R_a$，$1$时刻对应四元数$R_b$，求时刻$t$的旋转对应的四元数$R_t$。旋转是由单位四元数表示的，相当于在超球面$S^3$上插值，算法可参考[这里](https://zhuanlan.zhihu.com/p/538653027)，代码见[这里的slerp函数](https://github.com/wxyhly/tesserxel/blob/main/src/math/algebra/quaternion.ts#L134)。
-### 数值稳定性
-在对场景的计算中，随着三维物体的不断旋转，四元数一直在做连乘，这是数值不稳定的，因为只要有点误差，四元数的模长不为1，就会导致一段时间后要么衰减至零或发散至无穷。解决该问题的方法很简单，隔一段时间（如刷新每一帧时）强行把四元数除以它的长度单位化即可。
-## 四维旋转的处理
-计算机表示四维空间中的点、向量跟三维向量是大同小异的，比如有四维向量类（```class Vec4```），和矩阵（```class Mat4```），甚至你可以定义仿射矩阵（```class Mat5```）。四维旋转同样不建议用矩阵表示，它采用旋量（Rotor）表示旋转，且旋量还分四元数与几何代数两种版本。无论用哪个版本，都会用到表示平面的2-向量（```class Bivec```），我们先来看它的定义。
-### 2-向量类
 
-四维空间的2-向量则用六个浮点数来储存，定义为2-向量类（class Bivec4）。由于我不打算开发通用的高维图形库，因此不会出现Bivec5、Bivec6……又由于霍奇对偶，三维中的Bivec3其实就是Vec3、因此也就只有Bivec4才有用，于是我把Bivec4简写为Bivec不会有歧义。它的伪代码定义如下：
-```
+### Rotation Interpolation
+
+In animation, it's common to be given the initial and final states of an object and need to fill in the intermediate frames to create the animation. If the rotation at time $0$ corresponds to quaternion $R\_a$ and at time $1$ to quaternion $R\_b$, we need to find the quaternion $R\_t$ corresponding to the rotation at time $t$. Rotations are represented by unit quaternions, which is equivalent to interpolating on the hypersphere $S^3$. The algorithm can be found [here](https://zhuanlan.zhihu.com/p/538653027), and the code can be seen in the [slerp function here](https://github.com/wxyhly/tesserxel/blob/main/src/math/algebra/quaternion.ts#L134).
+
+### Numerical Stability
+
+In scene calculations, as 3D objects continuously rotate, quaternions are constantly being multiplied, which is numerically unstable. If there are any errors, the quaternion's length will not be 1, causing it to either decay to zero or diverge to infinity over time. The solution to this problem is simple: periodically (e.g., every frame) force the quaternion to be a unit quaternion by dividing it by its length.
+
+## Handling 4D Rotation
+
+Representing points and vectors in 4D space on a computer is very similar to 3D vectors. For example, there's a 4D vector class (`class Vec4`) and matrices (`class Mat4`), and you can even define affine matrices (`class Mat5`). It is also not recommended to represent 4D rotation using matrices. It uses rotors, and rotors come in two versions: a quaternion-based version and a geometric algebra-based version. No matter which version is used, a 2-vector class (`class Bivec`) is needed to represent planes. Let's first look at its definition.
+
+### 2-Vector Class
+
+A 4D space 2-vector is stored using six floating-point numbers, defined as a 2-vector class (class Bivec4). Since I do not plan to develop a general high-dimensional graphics library, there will be no Bivec5, Bivec6, etc. Also, due to Hodge duality, a 3D Bivec3 is actually just a Vec3, so only Bivec4 is useful. Thus, I abbreviate Bivec4 to Bivec without ambiguity. Its pseudocode definition is as follows:
+
+```typescript
 class Bivec{
     xy: number; xz:number; xw: number;
     yz: number; yw:number; zw: number;
 }
 ```
-其实它很像一个6维的向量，比如可以定义加法(add)、减法(sub)、取反(neg)、数乘(mul)、内积(dot)、单位化(normalize)等方法。同时，我们添加一些2-向量独有的方法，比如霍奇对偶(dual)、混合积（也叫交换积）(cross)，并给四维向量类添加楔积运算(wedge)得以生成2-向量等。
 
-### 四维旋量
+It is very much like a 6D vector. For example, you can define methods for addition (add), subtraction (sub), negation (neg), scalar multiplication (mul), dot product (dot), and normalization (normalize). At the same time, we add some methods unique to 2-vectors, such as Hodge duality (dual) and cross product (cross), and add the wedge product operation (wedge) to the 4D vector class to generate 2-vectors.
 
-四维旋量分两种表示法：一是四元数版的旋量（```class Rotorq```），二是几何代数版的旋量（```class Rotorg```），其中几何代数版最原始且易懂，而四元数版处理旋转算法更多更方便。由于几乎没人会直接输入旋量的各分量来描述旋转，它们仅为程序内部的中间数据，所以搭建渲染引擎时一般仅选其一，比如[Marc ten Bosch的四维引擎](https://marctenbosch.com/ndphysics/)就仅支持几何代数版本的旋量，而[我的tesserxel引擎](https://github.com/wxyhly/tesserxel/)就只支持四元数版本的旋量而不支持几何代数版的，下面我把这两种版本旋量各自的相关旋转算法分为两节进行罗列，请**按需展开阅读**：
+### 4D Rotors
+
+There are two ways to represent 4D rotors: one is the quaternion-based rotor (`class Rotorq`), and the other is the geometric algebra-based rotor (`class Rotorg`). The geometric algebra version is the most original and easy to understand, while the quaternion version has more convenient rotation algorithms. Since almost no one directly inputs the components of a rotor to describe a rotation (they are just internal intermediate data), when building a rendering engine, one usually only chooses one of them. For example, [Marc ten Bosch's 4D engine](https://marctenbosch.com/ndphysics/) only supports the geometric algebra version of rotors, while [my tesserxel engine](https://www.google.com/search?q=https://github.com/wxyhly/tesserxel/) only supports the quaternion version. Below, I will list the relevant rotation algorithms for these two versions separately. Please **expand and read as needed**:
 
 <br/>
 
-### <a href="javascript:void(0);" onclick="$('#ga').toggle();$('#ga_').text($('#ga_').text()==='+'?'-':'+')"><span id="ga_">+</span>旋量类（几何代数版）</a>
+### <a href="javascript:void(0);" onclick="$('\#ga').toggle();$('\#ga\_').text($('\#ga\_').text()==='+'?'-':'+')"><span id="ga\_">+</span>Rotor Class (Geometric Algebra Version)</a>
 
 <div style="background-color:var(--color-FFE); display:none" id="ga">
 
-由[这里的介绍](/archives/gaqr/#def_spinor)可知，旋量是几何代数中偶数阶向量组成的子代数，因此对于四维空间，它由标量```r```(0-向量)、2-向量```b```与伪标量```i```(4-向量)三部分组成，于是可以这样定义旋量类：
+As described in [this introduction](https://www.google.com/search?q=/archives/gaqr/%23def_spinor), a rotor is a subalgebra composed of even-grade vectors in geometric algebra. Therefore, for 4D space, it consists of a scalar `r` (0-vector), a 2-vector `b`, and a pseudoscalar `i` (4-vector). Thus, the rotor class can be defined as:
+
 ```
 class Rotorg{
     r: number; b: Bivec, i: number;
 }
 ```
-除此之外，我们定义旋量之间的加减法、数乘、单位化、共轭与几何积等。注意可以利用2-向量定义好的函数简化某些工作，比如2-向量乘以伪标量等于2-向量取霍奇对偶后乘以标量等等。
-#### 旋转坐标算法
-给定旋量$R$，它作用在坐标$p$上后$R(p)$的坐标为$RpR^\dagger$，即
+
+In addition, we define addition, subtraction, scalar multiplication, normalization, conjugation, and geometric product for rotors. Note that we can use the already-defined functions for 2-vectors to simplify some tasks, for example, multiplying a 2-vector by a pseudoscalar is equivalent to multiplying the Hodge dual of the 2-vector by a scalar, and so on.
+
+#### Rotation Coordinate Algorithm
+
+Given a rotor $R$, the coordinates of $R(p)$ after it acts on the coordinates $p$ are $RpR^\\dagger$, i.e.,
+
 ```typescript
 function apply(R:Rotorg, p:Vec4){
-    return R.mul(p).mul(R.conj()); // 如何定义这里的mul函数？
+    // How to define the mul function here?
+    return R.mul(p).mul(R.conj()); 
 }
 ```
-可惜这样写会导致一个问题：由偶数阶k-向量组成的旋量乘上向量会产生1-向量或3-向量，这并不在旋量（class Rotorg）的定义中，因此我们无法写出mul函数的实现。有两个解决思路：一是写一个几何代数类(class GA)，它包含从0至4阶所有向量，二是直接将公式按坐标展开，把化简结果放在apply函数中。我推荐第二种方法，因为第一种方法包含所有阶数向量分量在大多数时候用不上，会浪费计算步骤与内存空间，第二种则没有这些问题且化简公式后性能最优。
 
-#### 旋转的复合与逆
-与四元数一样，四维旋量的复合就是按从右到左的顺序做几何积，求逆对应几何代数里的共轭：几何代数里的共轭是将所有k-向量的顺序反着写，比如$(e_xe_y)^\dagger=e_ye_x=-e_xe_y$，$(e_xe_ye_ze_w)^\dagger=e_we_ze_ye_x=e_xe_ye_ze_w$，对应到四维旋量其实就是将2-向量部分取反，标量和伪标量部分均不变。
-#### 旋转平面算法
-四维比三维多一种情况，即旋转可以通过作用张成2-向量的两个基向量上来作用到2-向量（平面）上对其旋转，即定义$R(a\wedge b) = R(a)\wedge R(b)$，最朴素的方法是写出2-向量的六个坐标基底$e_ie_j$，计算旋转$R$作用后的新2-向量基底$R(e_i)\wedge R(e_j)$，将2-向量视为六维线性空间，这样就得到了一个6x6的旋转2-向量的矩阵。其实几何代数还有个更好的方法，设$a$与$b$垂直，注意到$$R(a)\wedge R(b)=R(a)R(b)=(RaR^\dagger) (RbR^\dagger) = Ra(R^\dagger R)bR^\dagger=R a b R^\dagger$$
-因此可以直接两边做几何积。又由于所有2-向量都能分解为正交的坐标基向量楔积之和，所以这个算法对任意2-向量均成立：
+Unfortunately, this leads to a problem: a rotor composed of even-grade k-vectors multiplied by a vector will produce a 1-vector or a 3-vector, which is not included in the definition of a rotor (class Rotorg). Therefore, we cannot implement the mul function directly. There are two solutions: one is to write a geometric algebra class (class GA) that contains all vectors from grade 0 to 4; the other is to directly expand the formula by coordinates and put the simplified result in the apply function. I recommend the second method because the first method contains components of all vector grades that are mostly unused and would waste computation steps and memory, while the second method has none of these problems and is the most performant after simplifying the formula.
+
+#### Rotation Composition and Inverse
+
+Similar to quaternions, the composition of 4D rotors is a geometric product performed in right-to-left order. The inverse corresponds to conjugation in geometric algebra: conjugation in geometric algebra reverses the order of all k-vectors, for example, $(e\_xe\_y)^\\dagger=e\_ye\_x=-e\_xe\_y$, and $(e\_xe\_ye\_ze\_w)^\\dagger=e\_we\_ze\_ye\_x=e\_xe\_ye\_ze\_w$. Applied to a 4D rotor, this means negating the 2-vector part, while the scalar and pseudoscalar parts remain unchanged.
+
+#### Bivector Rotation Algorithm
+
+4D has an additional case compared to 3D, where a rotation can act on a 2-vector (plane) by acting on the two basis vectors that span it. This is defined as $R(a\\wedge b) = R(a)\\wedge R(b)$. The most straightforward method is to write out the six coordinate basis bivectors $e\_ie\_j$, calculate the new 2-vector basis $R(e\_i)\\wedge R(e\_j)$ after rotation by $R$, and then treating the 2-vector as a 6D linear space, we get a 6x6 matrix for rotating 2-vectors. Geometric algebra offers a better method. Assuming $a$ and $b$ are orthogonal, note that $$R(a)\wedge R(b)=R(a)R(b)=(RaR^\dagger) (RbR^\dagger) = Ra(R^\dagger R)bR^\dagger=R a b R^\dagger$$
+Therefore, we can directly perform the geometric product on both sides. Since all 2-vectors can be decomposed into a sum of wedge products of orthogonal coordinate basis vectors, this algorithm holds for any 2-vector:
+
 ```typescript
 function apply(r:Rotorg, b:Bivec){
     return r.mul(b).mul(r.conj());
 }
 ```
 
-#### 平面与角度生成旋转
-跟三维的旋转生成需求类似但有些不同：
-1. 给定旋转平面$B$与角度$\alpha$生成旋转：注意旋转平面只能用2-向量表示，它可能是对应简单旋转的简单2-向量，也可能是对应双旋转的复合（奇异）2-向量。我们先考虑简单旋转，因为[这里的算法](/archives/gaqr/#formula_spinor_rotate)必须假设2-向量$B$是简单且单位化的，才能得到旋转公式：$R=\cos(\alpha/2)+B\sin(\alpha/2)$，这跟三维旋转的四元数公式可以说几乎一样。下面是伪代码：
-```javascript
-// 给定简单单位2-向量plane表示的旋转平面，与旋转角度angle，生成旋量表示的旋转
+#### Plane-Angle Rotation Generation
+
+This is similar to the 3D rotation generation requirement but with some differences:
+
+1.  Given a rotation plane $B$ and an angle $\\alpha$, generate a rotation: Note that the rotation plane can only be represented by a 2-vector. It might be a simple 2-vector corresponding to a simple rotation, or a compound (singular) 2-vector corresponding to a double rotation. We first consider a simple rotation, because the [algorithm here](https://www.google.com/search?q=/archives/gaqr/%23formula_spinor_rotate) must assume the 2-vector $B$ is simple and normalized to obtain the rotation formula: $R=\\cos(\\alpha/2)+B\\sin(\\alpha/2)$, which is almost identical to the 3D quaternion formula. Here's the pseudocode:
+
+<!-- end list -->
+
+```typescript
+// Given a simple normalized 2-vector plane representing the rotation plane, and a rotation angle, generate the rotor.
 function planeAngle2rotorg(plane: Bivec, angle: number): Quaternion{
-    angle *= 0.5; // 将角度减半，并计算其正余弦值s与c
+    // Halve the angle and calculate its sine and cosine values, s and c.
+    angle *= 0.5; 
     let s = Math.sin(angle);
     let c = Math.cos(angle);
     return new Rotorg(
-        c,            // 标量部分
-        plane.mul(s), // 2-向量部分，mul函数为2-向量的数乘
-        0             // 无伪标量分量
+        c,            // Scalar part
+        plane.mul(s), // 2-vector part, mul is scalar multiplication for 2-vectors
+        0             // No pseudoscalar component
     );
 }
 ```
-注意简单旋转是不含伪标量分量的，因此上面最后构造```Rotorg```时最后参数是0，但简单旋转的复合可能得到双旋转，此时伪标量分量不再为0。
-2. 直接给出旋转生成元2-向量：此时我们不再要求2-向量是简单的、单位化的，然而对于一般的2-向量，指数映射公式并不好化简，要么按定义$$R=\exp(B\theta/2)=I+B\theta/2+{B^2(\theta/2)^2\over2!}+{B^3(\theta/2)^3\over3!}+..$$计算，但这是个无穷级数，只能算前$n$项将其截断；要么将它分解为简单2-向量计算，[这里给出了一个分解算法](/archives/bivector4ds/#orth)，但相当麻烦，后面我们将看到，用四元数表示的旋量版本不会存在这些问题，故tesserxel选用四元数表示四维旋量。<a name="lookat"></a>
 
-#### lookAt生成旋转
-1. 仅给出物体的初始朝向与最终朝向，找到符合要求的旋转，即四维版本的```lookAt```函数：只要把叉乘换成它的推广楔积即可。
+Note that a simple rotation has no pseudoscalar component, so the last parameter when constructing `Rotorg` is 0. However, the composition of simple rotations can result in a double rotation, in which case the pseudoscalar component will no longer be 0.
+2\.  Given the rotation generator 2-vector directly: Here, we no longer require the 2-vector to be simple or normalized. However, for a general 2-vector, the exponential map formula is not easy to simplify. One can either calculate it by definition $$R=\exp(B\theta/2)=I+B\theta/2+{B^2(\theta/2)^2\over2!}+{B^3(\theta/2)^3\over3!}+..$$ which is an infinite series that can only be truncated after the first $n$ terms; or one can decompose it into simple 2-vectors for calculation. [An algorithm for this decomposition is given here](https://www.google.com/search?q=/archives/bivector4ds/%23orth), but it is quite cumbersome. We will see later that the quaternion-based rotor version does not have these problems, which is why tesserxel uses quaternions to represent 4D rotors.<a name="lookat"></a>
+
+#### lookAt Rotation Generation
+
+1.  Given only the initial and final orientations of an object, find the required rotation. This is the 4D version of the `lookAt` function: just replace the cross product with its generalized wedge product.
+
+<!-- end list -->
+
 ```typescript
 function lookAt(u:Vec4, v:Vec4):Rotorg{
-    let plane = u.wedge(v); // 通过向量楔积函数wedge计算旋转平面2-向量
-    let e_plane = plane.normalize(); // normalize函数将其缩放为单位2-向量
-    let angle = Math.acos(u.dot(v)); // 内积dot函数求夹角余弦，反余弦函数Math.acos求角度
-    return planeAngle2rotorg(e_plane, angle); // 已知旋转平面和夹角，使用前面的算法生成旋转
+    // Calculate the rotation plane 2-vector using the wedge product function.
+    let plane = u.wedge(v); 
+    // The normalize function scales it to a unit 2-vector.
+    let e_plane = plane.normalize(); 
+    // The dot function finds the cosine of the angle, and Math.acos finds the angle.
+    let angle = Math.acos(u.dot(v)); 
+    // With the rotation plane and angle known, use the previous algorithm to generate the rotation.
+    return planeAngle2rotorg(e_plane, angle); 
 }
 ```
-与三维情况类似，若u与v方向相同或相反，楔积得到的平面也为0，这些特殊情况的处理同样留作习题。
 
-2. 通过lookAt函数旋转四维相机同样会有水平倾斜的问题，此时亦可采用两种方法解决：一是先做水平旋转，再做垂直旋转，二是先用lookAt函数旋转到位后再去对齐其它轴。到了四维，由于轴数增多，第二种方法其实比较困难，故推荐第一种：设竖直方向为$y$轴，则水平胞为三维子空间$xzw$。第一次旋转我们只在子空间$xzw$中通过lookAt函数对齐初始向量与目标向量在其中的投影，第二次旋转则再次用lookAt仅在竖直平面中旋转。
-#### 旋转矩阵转旋量
-与三维情形类似，可先使用```lookAt```函数生成对齐x轴前后位置的旋转```r1```，此时y、z、w轴还没对齐，然后来一次```lookAt```对齐y轴，剩下的z轴、w轴还没对齐，最后再来一次```lookAt```对齐z轴此时w轴就自动对齐了，将三次```lookAt```得到的旋量按几何积乘起来就得到了最终的转换结果。
-#### 已知旋转找平面与角度
-与三维情况类似，通过求指数映射的逆可解得旋转平面与角度：
+Similar to the 3D case, if u and v are in the same or opposite direction, the wedge product will result in a zero plane. Handling these special cases is also left as an exercise.
+
+2.  Rotating a 4D camera with the lookAt function can also cause the problem of horizontal tilting. In this case, two methods can also be used: one is to perform a horizontal rotation first, then a vertical rotation; the other is to use the lookAt function to align the camera first, and then superimpose a rotation around the target axis to correct the tilt. In 4D, because there are more axes, the second method is actually more difficult, so the first method is recommended: assume the vertical direction is the $y$-axis, then the horizontal cell is the 3D subspace $xzw$. For the first rotation, we use the lookAt function only in the subspace $xzw$ to align the projections of the initial and target vectors. For the second rotation, we use lookAt again, but only in the vertical plane.
+
+#### Rotation Matrix to Rotor
+
+This is implemented by using the lookAt function multiple times. The method is exactly the same as for the geometric algebra version of rotors. Please refer to <a href='javascript:void(0);' onclick='if($("\#qa\_").text()=="+"){$("\#ga").show();$("\#ga\_").text("-");}window.location.href="\#lookat";'>here</a>.
+
+#### Given a Rotation, Find the Plane and Angle
+
+Similar to the 3D case, the rotation plane and angle can be found by inverting the exponential map:
 $$B=\log(R)=(R-I)-(R-I)^2/2+(R-I)^3/3-..$$
-注意得到的2-向量若是简单的，则它的模长就是旋转角度，若它是复合（奇异）的，则需要通过[此算法](/archives/bivector4ds/#orth)分解后才知道具体的双旋转的两个旋转平面与角度。若不想用泰勒级数展开，后面的四元数版旋量给了一个<a href='javascript:void(0);' onclick='if($("#qt_").text()=="+"){$("#qt").show();$("#qt_").text("-");}window.location.href="#rotorq_log";'>更好的算法</a>。
-#### 旋转的插值
-对旋量进行插值并不方便，因为它的拓扑空间不再是一个高维球面。我们可以通过取对数操作先求得生成元，生成元做完线性插值缩放后重新再做指数映射：设$0$时刻的旋转对应四元数$R_a$，$1$时刻对应四元数$R_b$，则时刻$t$的旋转对应的四元数$R_t=\exp(t\log(R_bR_a^{-1}))R_a$。说明一下，该方法是通用的，它对三维空间旋转也适用。
-#### 数值稳定性
-在对场景的计算中，随着四维物体的不断旋转，旋量一直在做连乘，也会产生数值不稳定问题。然而将几何代数版的旋量做单位化并没有简单的算法。[Marc ten bosch的这篇论文中](https://marctenbosch.com/ndphysics/)提到，他将旋量进行“因式分解”后再对每部分单位化，具体算法仅给出了一个参考文献书籍，但我没找到免费的全文阅读，可能类似于四元数版旋量。</div>
+Note that if the resulting 2-vector is simple, its magnitude is the rotation angle. If it is a compound (singular) 2-vector, it must be decomposed using [this algorithm](https://www.google.com/search?q=/archives/bivector4ds/%23orth) to find the specific rotation planes and angles of the double rotation. If you don't want to use a Taylor series expansion, the quaternion-based rotor version provides a <a href='javascript:void(0);' onclick='if($("\#qt\_").text()=="+"){$("\#qt").show();$("\#qt\_").text("-");}window.location.href="\#rotorq\_log";'>better algorithm</a>.
+
+#### Rotation Interpolation
+
+Interpolating rotors is not convenient because their topological space is no longer a high-dimensional sphere. We can use a logarithmic operation to first find the generators. After performing linear interpolation and scaling on the generators, we can reapply the exponential map: suppose the rotation at time $0$ corresponds to quaternion $R\_a$ and at time $1$ to quaternion $R\_b$. Then the quaternion for the rotation at time $t$ is $R\_t=\\exp(t\\log(R\_bR\_a^{-1}))R\_a$. This method is general and also applies to 3D spatial rotation.
+
+#### Numerical Stability
+
+In scene calculations, as 4D objects continuously rotate, rotors are constantly being multiplied, which also causes numerical instability. However, there is no simple algorithm to normalize geometric algebra-based rotors. [Marc ten Bosch's paper](https://marctenbosch.com/ndphysics/) mentions that he "factorizes" the rotor and then normalizes each part. The specific algorithm only references a book that I couldn't find a free full-text version for. It may be similar to the quaternion-based rotor.</div>
 <br>
 
-### <a href="javascript:void(0);" onclick="$('#qt').toggle();$('#qt_').text($('#qt_').text()==='+'?'-':'+')"><span id="qt_">+</span>旋量类（四元数版）</a>
+### <a href="javascript:void(0);" onclick="$('\#qt').toggle();$('\#qt\_').text($('\#qt\_').text()==='+'?'-':'+')"><span id="qt\_">+</span>Rotor Class (Quaternion Version)</a>
 
 <div style="background-color:var(--color-FFE); display:none" id="qt">
 
-首先明确一下什么是四元数版的旋量。旋量的定义其实只有几何代数那一种，之所以有所谓“几何代数版”、“四元数版”可以理解为选择的表示方法不一样，就像不同的坐标系那样。几何代数版旋量直接在直角坐标系中展开所有分量，而四元数版的旋量则是将旋量因式分解为左、右等角旋转两部分，其中每个部分都类似于一个三维空间中的旋转，所以用两个四元数表示。但注意不管是哪种表示法，旋量的特殊“二对一”的性质始终是不变的，举个例子：$xy$平面旋转90度，有以下两种拆分方式：
-1. “$xy$旋转45度与$zw$旋转45度右等角双旋转”复合“$xy$旋转45度与$zw$旋转-45度左等角双旋转”
-2. “$xy$旋转-135度与$zw$旋转-135度右等角双旋转”复合“$xy$旋转-135度与$zw$旋转135度左等角双旋转”
+First, let's clarify what a quaternion-based rotor is. A rotor's definition is actually only the geometric algebra one. The reason there are "geometric algebra" and "quaternion" versions is that different representations are chosen, like different coordinate systems. The geometric algebra version of the rotor directly expands all its components in a Cartesian coordinate system, while the quaternion-based rotor version factorizes the rotor into a left and a right isoclinic rotation part. Each part is analogous to a rotation in 3D space, so it is represented by two quaternions. But note that regardless of the representation, the special "two-to-one" property of rotors remains unchanged. For example, a 90-degree rotation in the $xy$ plane can be decomposed in two ways:
 
-再举个极端的例子，$xy$与$zw$平面均旋转180度，它是唯一没有手性的双旋转——中心反演变换，把它视为左手/右手等角双旋转就对应着两种旋量表示：
-1. “$xy$旋转180度与$zw$旋转180度右等角双旋转”复合“$xy$旋转0度与$zw$旋转-0度左等角双旋转”
-2. “$xy$旋转0度与$zw$旋转0度右等角双旋转”复合“$xy$旋转180度与$zw$旋转-180度左等角双旋转”
+1.  A "right isoclinic double rotation with 45-degree rotation in the $xy$ plane and 45-degree rotation in the $zw$ plane" composed with a "left isoclinic double rotation with 45-degree rotation in the $xy$ plane and -45-degree rotation in the $zw$ plane".
+2.  A "right isoclinic double rotation with -135-degree rotation in the $xy$ plane and -135-degree rotation in the $zw$ plane" composed with a "left isoclinic double rotation with -135-degree rotation in the $xy$ plane and 135-degree rotation in the $zw$ plane".
 
-定义四元数版旋量类的伪代码很简单，它包含左/右两个四元数：
+To give a more extreme example, a 180-degree rotation in both the $xy$ and $zw$ planes is a central inversion, which is the only double rotation without chirality. Viewing it as a left/right isoclinic double rotation corresponds to two rotor representations:
+
+1.  A "right isoclinic double rotation with 180-degree rotation in the $xy$ plane and 180-degree rotation in the $zw$ plane" composed with a "left isoclinic double rotation with 0-degree rotation in the $xy$ plane and -0-degree rotation in the $zw$ plane".
+2.  A "right isoclinic double rotation with 0-degree rotation in the $xy$ plane and 0-degree rotation in the $zw$ plane" composed with a "left isoclinic double rotation with 180-degree rotation in the $xy$ plane and -180-degree rotation in the $zw$ plane".
+
+The pseudocode for defining the quaternion-based rotor class is simple; it contains two quaternions, left and right:
+
 ```typescript
 class Rotorq{
     l: Quaternion; r: Quaternion;
 }
 ```
-我们无需为```Rotorq```定义加法与数乘运算，不像几何代数既表示2-向量又表示旋转，这里的四元数版旋量无法表示线性的2-向量，加法与数乘是无意义的，后面我们仅定义乘法与逆。
-#### 旋转坐标算法
-三维空间中，需把空间向量$v=(x,y,z)$映射到四元数纯虚数$V=ix+jy+kz$，四维空间则直接是坐标一一对应，将空间向量$v=(x,y,z,w)$直接映射到四元数$V=x+iy+jz+kw$。给定旋量$R$，由于左等角（生成元自对偶）对应左乘，右等角（生成元反自对偶）对应右乘，因此记它的左等角旋转的四元数为$R_l$，右等角旋转的四元数为$R_r$，它作用在坐标$p$上后$R(p)$的坐标计算公式为$R_lpR_r$，即
+
+We don't need to define addition or scalar multiplication for `Rotorq`. Unlike geometric algebra, which represents both 2-vectors and rotations, the quaternion-based rotor here cannot represent linear 2-vectors, so addition and scalar multiplication are meaningless. We will only define multiplication and inverse later.
+
+#### Rotation Coordinate Algorithm
+
+In 3D space, a spatial vector $v=(x,y,z)$ needs to be mapped to a purely imaginary quaternion $V=ix+jy+kz$. In 4D space, the coordinates have a one-to-one correspondence, and the spatial vector $v=(x,y,z,w)$ is directly mapped to the quaternion $V=x+iy+jz+kw$. Given a rotor $R$, since the left isoclinic part (self-dual generator) corresponds to left multiplication and the right isoclinic part (anti-self-dual generator) corresponds to right multiplication, let its left isoclinic rotation quaternion be $R\_l$ and its right be $R\_r$. The formula for calculating the coordinates of $R(p)$ after acting on a coordinate $p$ is $R\_lpR\_r$, i.e.,
+
 ```typescript
 function apply(R:Rotorq, p:Vec4){
-  let P = new Quaternion(p); // 将向量p转四元数P
-    return new Vec4(R.l.mul(P).mul(R.r)); // 将计算后的四元数转回向量
+  let P = new Quaternion(p); // Convert vector p to quaternion P.
+    return new Vec4(R.l.mul(P).mul(R.r)); // Convert the calculated quaternion back to a vector.
 }
 ```
-#### 旋转平面算法
-使用四元数表示的旋量作用于2-向量（平面）上也有更直接的算法，而无需使用2-向量的6维线性空间中的6阶矩阵。我们将2-向量$B$分解为自对偶与反自对偶部分：$B=B_a+B_b=(B+B^*)/2+(B-B^*)/2$，它们可按照以下方式同构于三维向量，比如自对偶部分：
-$(x_a,y_a,z_a)$对应$B_a = x_a (e_{xy}+e_{zw}) + y_a (e_{xz}-e_{yw}) + z_a (e_{xw}+e_{yz})$
-反自对偶部分：
-$(x_b,y_b,z_b)$对应$B_b = x_b (e_{xy}-e_{zw}) + y_b (e_{xz}+e_{yw}) + z_b (e_{xw}-e_{yz})$
 
-左/右等角旋转则同构于（严格说是二对一的同态）三维向量的普通三维旋转，因此我们可以使用左右四元数来旋转这两部分向量，最后再将2-向量恢复到普通的直角坐标系表示。注意虽然这些左右等角旋转空间跟三维空间局部同构，但四元数上的同构映射不一定是恒等映射，共轭也是同构映射，代入具体算例可以发现右乘的右等角旋转需要取共轭。注：左乘不取共轭而右乘取共轭的深层原因其实是一般旋转的复合都是左乘，同态映射到右乘当然要逆一下顺序才一致）
+#### Bivector Rotation Algorithm
+
+The quaternion-based rotor also has a more direct algorithm for acting on 2-vectors (planes), without needing a 6x6 matrix in the 6D linear space of 2-vectors. We decompose the 2-vector $B$ into its self-dual and anti-self-dual parts: $B=B\_a+B\_b=(B+B^*)/2+(B-B^*)/2$. These can be isomorphic to 3D vectors in the following way. For the self-dual part:
+$(x\_a,y\_a,z\_a)$ corresponds to $B\_a = x\_a (e\_{xy}+e\_{zw}) + y\_a (e\_{xz}-e\_{yw}) + z\_a (e\_{xw}+e\_{yz})$
+For the anti-self-dual part:
+$(x\_b,y\_b,z\_b)$ corresponds to $B\_b = x\_b (e\_{xy}-e\_{zw}) + y\_b (e\_{xz}+e\_{yw}) + z\_b (e\_{xw}-e\_{yz})$
+
+The left/right isoclinic rotations are isomorphic to (strictly speaking, a two-to-one homomorphism with) ordinary 3D rotations of 3D vectors. Therefore, we can use the left and right quaternions to rotate these two vector parts, and finally convert the 2-vector back to the ordinary Cartesian coordinate representation. Note that although these left and right isoclinic rotation spaces are locally isomorphic to 3D space, the isomorphic mapping on quaternions is not necessarily an identity map. Conjugation is also an isomorphic map, and by working through a specific example, one can find that the right isoclinic rotation applied via right multiplication requires conjugation. Note: The deeper reason why the left multiplication does not require conjugation but the right multiplication does is that the composition of general rotations is left multiplication, and a homomorphic mapping to right multiplication must be inverted to be consistent.
+
 ```typescript
 function apply(r: Rotorq, b: Bivec): Bivec {
-    // 计算2-向量的自对偶与反自对偶部分
+    // Calculate the self-dual and anti-self-dual parts of the 2-vector.
     let A = new Vec3(this.xy + this.zw, this.xz - this.yw, this.xw + this.yz);
     let B = new Vec3(this.xy - this.zw, this.xz + this.yw, this.xw - this.yz);
-    // 左等角旋转旋转对偶分量
+    // Rotate the dual component with the left isoclinic rotation.
     A = apply(r.l, A);
-    // 右等角旋转旋转反对偶分量，注意该同构差一个共轭映射
+    // Rotate the anti-dual component with the right isoclinic rotation. Note that this isomorphism requires a conjugation map.
     B = apply(r.r.conj(), B);
-    // 从对偶分解表示法中恢复至普通直角坐标表示旋转后的2-向量
+    // Restore the rotated 2-vector from the dual decomposition representation to the ordinary Cartesian representation.
     return new Bivec(
         A.x + B.x, A.y + B.y, A.z + B.z, A.z - B.z, B.y - A.y, A.x - B.x
     ).mul(0.5);
 }
 ```
 
-#### 旋转的复合与逆
-由于四元数版的旋量有两部分，复合时两部分要分别做复合，且要注意旋转顺序，比如旋转R1再旋转R2：$$R_{2l}(R_{1l}pR_{1r})R_{2r}=(R_{2l}R_{1l})p(R_{1r}R_{2r})$$即新的$R_l=R_{2l}R_{1l}$，$R_r=R_{1r}R_{2r}$。于是我们定义旋量的乘法：
+#### Rotation Composition and Inverse
+
+Since the quaternion-based rotor has two parts, both parts must be composed separately, and the order of rotation must be considered. For example, to rotate by R1 then R2: $$R_{2l}(R_{1l}pR_{1r})R_{2r}=(R_{2l}R_{1l})p(R_{1r}R_{2r})$$
+This means the new $R\_l=R\_{2l}R\_{1l}$ and $R\_r=R\_{1r}R\_{2r}$. Thus, we define the rotor multiplication as:
+
 ```typescript
-// 旋转R1再旋转R2定义为r2乘r1:
+// Rotating by R1 and then by R2 is defined as r2 multiplied by r1:
 mul(r2:Rotorq, r1:Rotorq){
     return new Rotorq(r2.l.mul(r1.l), r1.r.mul(r2.r));
 }
 ```
-旋量的逆则是将左右四元数分别取逆，即共轭：
+
+The inverse of a rotor is found by taking the inverse (conjugate) of its left and right quaternions respectively:
+
 ```typescript
-// 求旋量r的逆
+// Find the inverse of rotor r.
 inverse(r:Rotorq){
     return new Rotorq(r.l.conj(), r.r.conj());
 }
 ```
 
-#### 平面与角度生成旋转
-由于左右等角旋转完全不互相干扰，我们可将生成元2-向量分解为自对偶向量与反自对偶向量，由于左右等角旋转的结构类似三维旋转，因此可套用三维空间的旋转生成四元数的公式：
+#### Plane-Angle Rotation Generation
+
+Since the left and right isoclinic rotations do not interfere with each other, we can decompose the generator 2-vector into a self-dual and an anti-self-dual vector. Because the structure of left and right isoclinic rotations is similar to 3D rotations, we can apply the 3D rotation generation formula for quaternions:
+
 ```typescript
 exp(p:Bivec): Rotorq {
-    // A 为 p的自对偶部分，B 为反自对偶部分
+    // A is the self-dual part of p, B is the anti-self-dual part.
     let A = new Vec3(p.xy + p.zw, p.xz - p.yw, p.xw + p.yz).mul(0.5);
     let B = new Vec3(p.xy - p.zw, p.xz + p.yw, p.xw - p.yz).mul(0.5);
-    // a与b为自对偶/反自对偶2-向量的模长
+    // a and b are the magnitudes of the self-dual/anti-self-dual 2-vectors.
     let a = A.norm(); let b = B.norm();
-    // 按三维2-向量生成四元数的公式分别计算左右等角两部分四元数
-    // 注意由于算对偶分解时已经将向量长度除以2，因此这里的四元数旋转角度不再需除以2
+    // Use the 3D 2-vector to quaternion generation formula to calculate the left and right isoclinic quaternion parts separately.
+    // Note that since the vector length was divided by 2 during the dual decomposition, the rotation angle here no longer needs to be divided by 2.
     let sa = Math.sin(a) / a;
     let sb = Math.sin(b) / b;
     return new Rotorq(
@@ -358,61 +471,81 @@ exp(p:Bivec): Rotorq {
     );
 }
 ```
-#### lookAt生成旋转
-用于给定始末向量的lookAt生成旋转的算法其实并不依赖具体使用的是哪种旋量的表示法，请参考<a href='javascript:void(0);' onclick='if($("#qa_").text()=="+"){$("#ga").show();$("#ga_").text("-");}window.location.href="#lookat";'>几何代数版旋量小节中的lookAt算法</a>
-其实四维空间除了通过旋转让向量对齐向量，还会有向量对齐平面、平面对齐平面两种新需求。
-1. 向量对齐平面：给定向量$v$与简单的单位化的2-向量表示的平面$B$，求将$v$旋转至平面$B$中的距离最近的旋转。我们可通过几何积的技巧找到向量$v$在平面$B$上的投影，然后使用普通向量至向量的lookAt函数将$v$旋转至投影即符合要求：向量与2-向量可以规定一种部分的内积，定义为它们的几何积的1-向量部分，容易验证若它们都是单位化的，则向量与2-向量内积后得到的新向量为该向量在平面上的投影顺着平面的涡漩方向旋转90度的新向量，我们可以将新向量再与平面做一次内积，此时得到与投影反向的向量，再求内积即得投影。于是定义投影函数与lookAt函数如下：
+
+#### lookAt Rotation Generation
+
+The lookAt algorithm for generating a rotation given initial and final vectors does not depend on the specific rotor representation used. Please refer to the <a href='javascript:void(0);' onclick='if($("\#qa\_").text()=="+"){$("\#ga").show();$("\#ga\_").text("-");}window.location.href="\#lookat";'>lookAt algorithm in the Geometric Algebra version section</a>.
+In 4D space, besides rotating a vector to align with another vector, there are two new requirements: aligning a vector with a plane, and aligning a plane with another plane.
+
+1.  Vector to plane alignment: Given a vector $v$ and a simple, normalized 2-vector representing a plane $B$, find the rotation that rotates $v$ into plane $B$ by the shortest distance. We can use a geometric product trick to find the projection of vector $v$ onto plane $B$, and then use the ordinary vector-to-vector lookAt function to rotate $v$ to its projection. This fulfills the requirement: a certain partial inner product can be defined between a vector and a 2-vector as the 1-vector part of their geometric product. It is easy to verify that if they are both normalized, the new vector obtained by the inner product of the vector and the 2-vector is the projection of the vector onto the plane, rotated 90 degrees in the plane's vortex direction. We can take the inner product of this new vector with the plane again to get the vector opposite to the projection, and then take the inner product to get the projection. Thus, we define the projection and lookAt functions as follows:
+
+<!-- end list -->
+
 ```typescript
 function project(v:Vec4,b:Bivec):Vec4{
-    // dot函数为向量与2-向量的内积，neg函数将向量取反
+    // The dot function is the inner product of a vector and a 2-vector, neg negates the vector.
     return v.dot(b).dot(b).neg();
 }
 function lookAt(v:Vec4,b:Bivec):Rotorq{
-    // 求得投影并将其单位化
+    // Find the projection and normalize it.
     let pv = project(v,b).normalize();
     return lookAt(v, pv);
 }
 ```
-注：以上算法对两种版本旋量均可用。
 
-2. 平面对齐平面：给定两个简单的单位化的2-向量表示的平面$A$与$B$，求将$A$旋转至与$B$重合的距离最近的旋转。虽然也可以在平面上选取两个向量投影到另一张平面上，用多次向量至向量lookAt方法处理，但平面上方向很多，选取方向就是个麻烦问题，更别说还要处理各种垂直、反向等特殊情况。我找到了一个仅适用于四元数版本旋量的精妙算法：因此我们可以将2-向量做对偶分解，这个旋转的左等角旋转会将两个2-向量的自对偶部分对齐，而右等角旋转则将反自对偶部分对齐。由于自对偶/反自对偶2-向量同构于三维空间，我们可以使用三维空间的向量至向量的lookAt函数来实现对齐，代码如下：
+Note: The above algorithm works for both versions of rotors.
+
+2.  Plane to plane alignment: Given two simple, normalized 2-vectors representing planes $A$ and $B$, find the rotation that rotates $A$ to overlap with $B$ by the shortest distance. Although one could select two vectors on plane $A$ and project them onto plane $B$, using multiple vector-to-vector lookAt methods, there are many directions on a plane, so selecting the directions is a troublesome problem, not to mention handling various special cases like perpendicularity and opposition. I found an elegant algorithm that only applies to the quaternion-based rotor version: we can perform a dual decomposition on the 2-vectors. The left isoclinic rotation of this rotation will align the self-dual parts of the two 2-vectors, while the right isoclinic rotation will align the anti-self-dual parts. Since the self-dual/anti-self-dual 2-vectors are isomorphic to 3D space, we can use the 3D vector-to-vector lookAt function to achieve alignment. The code is as follows:
+
+<!-- end list -->
+
 ```typescript
 function lookAt(A: Bivec, B: Bivec): Rotorq {
     let Aa = new Vec3(A.xy + A.zw, A.xz - A.yw, A.xw + A.yz);
     let Ab = new Vec3(A.xy - A.zw, A.xz + A.yw, A.xw - A.yz);
     let Ba = new Vec3(B.xy + B.zw, B.xz - B.yw, B.xw + B.yz);
     let Bb = new Vec3(B.xy - B.zw, B.xz + B.yw, B.xw - B.yz);
-    // 注意这里lookAt是前面定义过的三维向量至向量的，此处为重载而非递归调用自身
+    // Note that this lookAt is the 3D vector-to-vector one defined earlier, this is an overload, not a recursive call to itself.
     return new Rotorq(lookAt(Aa, Ba), lookAt(Bb, Ab));
 }
 ```
-注意虽然这些左右等角旋转空间跟三维空间局部同构，但由于同样的原因，右乘的右等角分量的四元数变换需要取共轭（即旋转的逆），因此最后返回的第二个参数为```lookAt(Bb, Ab)```而不是```lookAt(Ab, Bb)```。
-#### 旋转矩阵转旋量
-多次使用lookAt函数实现，方法完全与几何代数版旋量一样，请参考<a href='javascript:void(0);' onclick='if($("#ga_").text()=="+"){$("#ga").show();$("#ga_").text("-");}window.location.href="#lookat";'>这里</a>。<a name="rotorq_log"></a>
-#### 已知旋转找平面与角度
-除了使用对数映射的泰勒展开，四元数的版本还有更方便的做法：由于旋量由两个四元数表示的等角旋转组成，我们可以使用这里的三维旋转找生成元的方法得到相应的自对偶与反自对偶2-向量，最后再合成恢复出整个2-向量：
+
+Note that although these left and right isoclinic rotation spaces are locally isomorphic to 3D space, for the same reason, the quaternion transformation of the right isoclinic component in right multiplication requires conjugation (i.e., the inverse of the rotation), so the second parameter returned is `lookAt(Bb, Ab)` instead of `lookAt(Ab, Bb)`.
+
+#### Rotation Matrix to Rotor
+
+This is implemented by using the lookAt function multiple times. The method is exactly the same as for the geometric algebra version of rotors. Please refer to <a href='javascript:void(0);' onclick='if($("\#ga\_").text()=="+"){$("\#ga").show();$("\#ga\_").text("-");}window.location.href="\#lookat";'>here</a>.<a name="rotorq\_log"></a>
+
+#### Given a Rotation, Find the Plane and Angle
+
+Besides using the Taylor expansion of the logarithmic map, the quaternion version has a more convenient approach: since a rotor is composed of two quaternions representing isoclinic rotations, we can use the 3D rotation method to find the generator to get the corresponding self-dual and anti-self-dual 2-vectors, and finally synthesize them to restore the entire 2-vector:
+
 ```typescript
 function log(r: Rotorq): Bivec {
-    // 计算log(r.l)，由于这里只是一半的旋转，故恢复角度无需乘2
-    // 因此这里无法直接调用前面三维空间中对四元数的对数函数
+    // Calculate log(r.l). Since this is only half of the rotation, the angle does not need to be multiplied by 2 when restored.
+    // Therefore, we cannot directly call the 3D quaternion logarithmic function from before.
     let ls = Math.acos(r.l.x);
     let a = new Vec3(r.l.y, r.l.z, r.l.w).mul(ls / Math.sin(ls));
-    // 计算log(r.r)，方法同上
+    // Calculate log(r.r). The method is the same as above.
     let rs = Math.acos(r.r.x);
     let b = new Vec3(r.r.y, r.r.z, r.r.w).mul(rs / Math.sin(rs));
-    // 将左右两半的生成元合并，转换至普通直角坐标表示
+    // Merge the generators of the left and right halves and convert to the ordinary Cartesian representation.
     return new Bivec(
         a.x + b.x, a.y + b.y, a.z + b.z, a.z - b.z, b.y - a.y, a.x - b.x
     );
 }
 ```
+
 </div>
 
 <br/>
 
-## 随机方向/旋转的生成
-### 随机单位向量的生成
-随机单位向量的生成问题其实等价于在球面上生成均匀分布的点。这个问题在数学上已经研究得十分透彻了：首先直接均匀生成一段区间上的随机数，再根据坐标映射的“伸缩”系数通过一个非线性函数映射到球坐标上的经纬度值。下面直接列出伪代码：
+## Generating Random Directions/Rotations
+
+### Generating a Random Unit Vector
+
+The problem of generating a random unit vector is equivalent to generating a uniformly distributed point on a sphere. This problem is well-studied in mathematics: first, generate random numbers uniformly over an interval, and then map them to the latitude and longitude values of the spherical coordinates using a nonlinear function based on the "scaling" coefficients of the coordinate mapping. The pseudocode is listed directly below:
+
 ```typescript
 function randVec3(){
     let a = Math.random() * 2.0 * Math.PI;
@@ -429,9 +562,13 @@ function randVec4(){
     return new Vec4(sc * Math.cos(a), sc * Math.sin(a), cc * Math.cos(b), cc * Math.sin(b));
 }
 ```
-顺便提一句，这两个函数在[上一篇文章](/archives/cg4d/)提到的路径追踪算法生成照片级渲染中大有用处。<a name="randrotor"></a>
-### 随机旋转的生成
-由于三维旋转可以由同构于超球面的单位四元数表示，因此可以使用前面生成四维随机单位向量的算法生成四元数。若采用四元数版本的旋量，则四维旋转由左、右两个四元数表示，随机生成两个超球上的两个点即可；若采用几何代数版本的旋量，我目前还不知道有很方便的生成算法。
+
+As a side note, these two functions are very useful for generating photorealistic renders with path tracing, as mentioned in the [previous article](https://www.google.com/search?q=/archives/cg4d/).<a name="randrotor"></a>
+
+### Generating a Random Rotation
+
+Since a 3D rotation can be represented by a unit quaternion, which is isomorphic to a hypersphere, we can use the algorithm for generating a random 4D unit vector to generate a quaternion. If a quaternion-based rotor is used, a 4D rotation is represented by two quaternions, left and right, so two random points on the hypersphere can be generated. If a geometric algebra-based rotor is used, I am currently unaware of a convenient generation algorithm.<a name="randsimplbiv"></a>
+
 ```typescript
 function randQuaternion():Quaternion{
     return new Quaternion(randVec4());
@@ -440,60 +577,71 @@ function randRotorq():Rotorq{
     return new Rotorq(randQuaternion(), randQuaternion());
 }
 ```
-<a name="randsimplbiv"></a>
 
-### 随机简单旋转的生成
-上面的随机旋转算法生成的朝向是任意的，如果要求必须生成简单旋转则必须先生成随机朝向的简单单位2-向量，再随机生成一个角度来实现。最简单生成随机朝向的简单单位2-向量的做法为先生成两个随机向量，通过楔积张成2-向量将它单位化即可。其实还有一种更快捷的生成方法：简单2-向量的自对偶与反自对偶部分大小相等，因此它们的长度都是$\sqrt 2/2$。而每个部分都相当于一个二维球面，因此可以用过随机生成二维球面上的点来生成这些单位自对偶/反自对偶2-向量，将它们乘以$\sqrt 2/2$加在一起就得到了单位化的简单2-向量。
+### Generating a Random Simple Rotation
 
-## 四维相机的常见控制方式
-### 轨道球（TrackBall）控制模式
-该模式类似一般3D软件中的视图旋转，对应到四维则类似Jenn3D的操作方式。该控制器存储一个旋转中心点和距离，再加一个相机朝向的旋量，该模式中相机始终面对中心点，设相机坐标系下前方为w轴，则可按以下方式更新它的位置：
+The random rotation algorithm above generates an arbitrary orientation. If a simple rotation is required, one must first generate a simple unit 2-vector with a random orientation, and then generate a random angle to achieve it. The simplest way to generate a simple unit 2-vector with a random orientation is to first generate two random vectors, use the wedge product to span a 2-vector, and then normalize it. There is actually a faster generation method: the self-dual and anti-self-dual parts of a simple 2-vector have equal magnitudes, so their lengths are both $\\sqrt 2/2$. Since each part is equivalent to a 2D sphere, one can generate these unit self-dual/anti-self-dual 2-vectors by generating random points on a 2D sphere, and then multiply them by $\\sqrt 2/2$ and add them together to get a normalized simple 2-vector.
+
+## Common 4D Camera Controller
+
+### TrackBall Control Mode
+
+This mode is similar to the view rotation in common 3D software, and corresponds to the operation style of Jenn3D in 4D. This controller stores a rotation center point and a distance, plus a rotor for the camera's orientation. In this mode, the camera always faces the center point. Assuming the camera's forward direction in its local coordinate system is the w-axis, its position can be updated as follows:
+
 ```typescript
 class TrackBallController{
-    // 旋转中心坐标
+    // Rotation center coordinates
     center: Vec4;
-    // 相机距中心的距离
+    // Distance from the camera to the center
     distance: number;
-    // 相机朝向
+    // Camera orientation
     rotor: Rotorq;
     update(camera: Object4D){
-        // 更新相机旋转
+        // Update camera rotation
         camera.rotation = this.rotor;
-        // 初始位置设为相机前方给定长度的向量，通过相机朝向求出相机相对中心的位置，最后叠加上中心
+        // The initial position is set to a vector of a given length in front of the camera. The camera's position relative to the center is found through the camera's orientation, and finally the center is added.
         camera.position = center.add(apply(this.rotor,new Vec4(0,0,0,distance)));
     }
 }
 ```
-用户使用键鼠交互更新距离与旋量，比如鼠标左键在屏幕上上下左右拖拽时在每帧的移动量被转换成一个在相机坐标系下仅有yw和xw分量的2-向量$B$，它生成的旋转$V'=\exp(B)$首先变换至世界坐标$V$，即$V=RV'R^{-1}$，然后再叠加到目前相机的朝向$R$上得到总旋转$VR = RV'R^{-1}R=RV'=R\exp(B)$，这可以总结为若后面叠加的旋转是在旋转物体的局部坐标系中表示的就用右乘，若都是同样的全局坐标系则使用通常的左乘。伪代码如下：
+
+The user interacts with the keyboard and mouse to update the distance and the rotor. For example, when the mouse is dragged left, right, up, or down with the left button, the movement in each frame is converted into a 2-vector $B$ in the camera's local coordinate system with only $yw$ and $xw$ components. The rotation generated by it, $V'=\\exp(B)$, is first transformed to world coordinates, $V=RV'R^{-1}$, and then superimposed on the current camera orientation $R$ to get the total rotation $VR = RV'R^{-1}R=RV'=R\\exp(B)$. This can be summarized as: if the superimposed rotation is expressed in the rotating object's local coordinate system, use right multiplication; if both are in the same global coordinate system, use the usual left multiplication. The pseudocode is as follows:
+
 ```typescript
 class TrackBallController{
     ...
     onLeftButtonDrag(dx:number, dy:number){
-        // 根据鼠标移动距离生成2-向量 dx*exw + dy * eyw
+        // Generate a 2-vector based on the mouse movement distance: dx*exw + dy * eyw
         let localBivec = new Bivec(0, 0, dx, 0, dy, 0);
-        // 生成旋转R
+        // Generate rotation R
         let localRotation = exp(localBivec);
-        // 将其转换至世界坐标系，叠加旋转后更新新的相机朝向，注意叠加的旋转在局部坐标，乘法顺序颠倒
+        // Transform it to the world coordinate system, superimpose the rotation, and update the new camera orientation. Note that the superimposed rotation is in local coordinates, so the multiplication order is reversed.
         this.rotor = localRotation.mul(this.rotor);
     }
 }
 ```
-### 自由飞行（FreeFly）控制模式
-该模式一般模拟无重力下的第一人称游走，它不用单独储存信息，直接读取相机的位置与朝向来根据用户的键鼠输入更新即可，需注意用户的旋转平移都应在相机的局部坐标系中定义再转换至世界坐标，这里不再给出伪代码。
-### 保持竖直（KeepUp）模式
-该模式一般模拟在重力环境下的第一人称游走，要求相机的侧前后方与左右方张成的平面始终保持在水平胞中不倾斜。有两种方法，第一种是使用类似欧拉角的技术，用两个旋量分别储存水平旋转与垂直旋转，第二种则是在每次旋转后纠偏。实际使用中我发现第二种方法稳定性差一些，因此tesserxel引擎中采用第一种方式。该旋转的自由度仅为4，它由水平胞内的三维自由旋转加一个垂直方向的俯仰角构成，因此我们用一个旋量与一个俯仰角来储存旋转，我采用的是鼠标拖拽控制水平胞内的旋转，使用滚轮控制俯仰角。最后每帧按下面方式更新相机朝向:
+
+### FreeFly Control Mode
+
+This mode generally simulates a first-person walk in a zero-gravity environment. It doesn't need to store separate information; it directly reads the camera's position and orientation and updates them based on the user's keyboard and mouse input. It's important to note that the user's rotation and translation should be defined in the camera's local coordinate system before being converted to world coordinates. Pseudocode is not provided here.
+
+### KeepUp Control Mode
+
+This mode generally simulates a first-person walk in a gravity environment, requiring the plane spanned by the camera's ana/kata direction and left/right direction to remain horizontal in the horizontal cell without tilting. There are two methods: the first is to use a technique similar to Euler angles, using two rotors to store the horizontal and vertical rotations separately; the second is to correct the tilt after each rotation. In practical use, I found the second method to have poorer stability, so the tesserxel engine uses the first method. The degrees of freedom for this rotation are only 4, consisting of a 3D free rotation within the horizontal cell plus a vertical pitch angle. Therefore, we use a rotor and a pitch angle to store the rotation. I use mouse dragging to control the rotation within the horizontal cell and the mouse wheel to control the pitch angle. Finally, the camera's orientation is updated each frame as follows:
+
 ```typescript
 class KeepUpController{
-    // 水平方向的朝向由一个旋量表示
+    // The horizontal orientation is represented by a rotor.
     rotorH: Rotorq;
-    // 垂直方向的俯仰角由一个标量数字表示
+    // The vertical pitch angle is represented by a scalar number.
     rotorV: number;
     update(camera: Object4D){
-        // 计算仅考虑水平胞旋转的相机局部坐标系中产生俯仰角的垂直旋转，它由yw平面上的2-向量生成
+        // Calculate the vertical rotation that generates the pitch angle in the camera's local coordinate system, considering only the horizontal cell rotation. It is generated by a 2-vector on the yw plane.
         let verticalRotation = planeAngle2rotorq(new Bivec(0,0,0,0,1,0), this.rotorV);
-        // 本来该按水平旋转再垂直旋转的顺序合成最终旋转，但叠加的旋转在局部坐标，乘法顺序颠倒
+        // The final rotation should be composed in the order of horizontal then vertical rotation, but the superimposed rotation is in local coordinates, so the multiplication order is reversed.
         camera.rotation = rotorH.mul(this.verticalRotation);
     }
 }
 ```
-控制相机移动可以有两种模式，一是飞行模式，即在旋转时除了使用上述方法保持水平胞不倾斜外，其余的体验跟自由飞行模式相当，即若相机有俯仰角时，前进后退会让相机高度随之改变，二是地面漫游模式，这种模式下相机的前进后退不会考虑俯仰角，始终在地平面内运动（比如Minecraft在地面行走的玩家），并额外增加直接控制竖直升降相机的键盘交互。
+
+There are two modes for controlling camera movement: one is the flight mode, where besides using the above method to keep the horizontal cell from tilting during rotation, the experience is similar to free-flight mode. That is, if the camera has a pitch angle, moving forward and backward will change the camera's height. The second is the ground roaming mode, where moving the camera forward and backward does not consider the pitch angle, and always moves within the ground plane (like a player walking on the ground in Minecraft), with additional keyboard interaction to directly control the vertical ascent and descent of the camera.

@@ -1,126 +1,120 @@
 ---
-title: 玩Tesserxel（二）：场景交互介绍
+title: "Play Tesserxel (II): Scene Interaction"
 tags:
-  - tesserxel
-  - webgpu
-  - 图形
-  - 四维
-categories: Tesserxel系列
+  - Tesserxel
+  - Webgpu
+  - Graphics
+  - 4D
+categories: Tesserxel Series
 date: 2023-06-22 11:42:14
 index_img: /img/tsxsc006.jpg
-excerpt: 这篇文章将介绍Tesserxel中的四维场景交互方法，本文将依次介绍复杂旋转体、直积形以及四维高速公路场景。超球、球环、环球等基本几何体之前已经介绍很多了，理解了本文更复杂的场景后，那些简单几何体就留给读者去自由探索吧。
+excerpt: This article will introduce interacting with 4D scenes in Tesserxel. We will cover complex solids of revolution, direct products, and the 4D highway scene. After understanding these more complex scenes, feel free to explore those simpler geometries on your own.
 ---
 
-第一次看玩Tesserxel系列的话请先阅读[上一篇文章了解Tesserxel四维场景的基本操作方法](/archives/tesserxel-intro/)哦。这篇文章我们将挑几个场景来介绍，本文将依次介绍复杂旋转体、直积形以及四维高速公路场景。超球、球环、环球等基本几何体之前已经介绍很多了，理解了本文更复杂的场景后，那些简单几何体就留给读者去自由探索吧。
-![四维高速公路场景中的车道划分展示俯视图](/img/tsxsc006.jpg)<!--more-->
+If this is your first time reading the Tesserxel series, please read the [previous article to understand the basic operation methods for Tesserxel's 4D scenes](/archives/tesserxel-intro/) first. This article will select a few scenes to introduce. We will cover complex revolutions, direct products, and the 4D highway scene. Basic geometric shapes like hyperspheres, spheritorus, and torispheres have been introduced before, so after understanding these more complex scenes, those simple geometries are left for the reader to explore freely.
+![Top-down view of the lane divisions in the 4D highway scene](/img/tsxsc006.jpg)## <a href="/tesserxel/examples/#shapes::suzanne3d" target="_blank" title="Click to open scene">Geometry > Monkey Head Revolution</a>
+Click the title link to open the Monkey Head Revolution scene (it will take a few seconds to load). It's said that a 3D graphic can be rotated around a plane in a 4D space to create a revolution. So, I naturally wanted to try this with an arbitrary 3D graphic. The monkey head Suzanne model that comes with the Blender 3D software is a good choice. ![](/img/tsxsc009.jpg) I exported the model in OBJ format, imported it into the Tesserxel engine, and added some rotation and texture rendering code to get this scene. You can press Alt + a number key to switch between different view configurations, and press Alt+Z to toggle stereoscopic 3D, according to your preference. For details, please refer to the previous article, [Playing Tesserxel (1): Introduction to View Control](/archives/tesserxel-intro/#settings). When playing this scene, you might find the continuously twisting and deforming monkey head in the cross-section view to be a bit strange. Why does a perfectly good revolution look so distorted? This is actually the fault of the cross-section visualization method. Native 4D beings do not see this. You can also press Alt+3 to turn off the cross-section display. But let's analyze it anyway:
+![Connected and deformed Suzanne monkey heads](/img/tsxsc008.jpg)
+Let's first look at a 3D revolution. The wine glass made by revolving a person's side profile is quite beautiful from any angle. We don't see a twisted face.
+![Wine glass with a human face](/img/tsxsc001.png)
+A 4D being's view of the monkey head is the same: when looking directly at this graphic from a 3D photo, it is a revolution, but the monkey head has been so overlapped with voxels that you can't make out anything.
+![Front view of the monkey head revolution](/img/tsxsc010.jpg)
+How do you operate the camera yourself to find the front view? First, the control method for this scene is **trackball mode**. In the default view (figure a below), dragging with the left mouse button reveals that the object does not completely fit into the cube's "field of view," so you need to scroll the mouse wheel to zoom out (figure b below). Now, if you drag with the left mouse button, you will find it is a ring that is fat on one side and thin on the other. This is because the camera is not positioned correctly in the fourth dimension, and the difference in distance creates a size difference. How do you correct this? First, we need to position the ring correctly in the 3D view. Here, I've made the ring parallel to the horizontal cross-section (figure c below), and then used the right mouse button to drag it until it's facing the camera directly (figure d below). We can drag with the left mouse button to verify that it has indeed become a ring with uniform thickness (figure e below).
+![Steps to rotate to the front view](/img/tsxsc011.jpg)
+If we were to cut this wine glass with a cross-section, we would indeed see some very ugly, deformed human faces where the two noses are fused together:
+![A cross-section of the human-face wine glass: the cross-section looks like the noses of two faces are fused](/img/tsxsc002.png)
+This is consistent with the deformation of the monkey head, but note that when we observe the cross-section view of a 4D object, we are not taking a cross-section of the 4D scene itself, but rather taking a photo of the 4D scene and then taking a 2D cross-section of that stereoscopic photo. This implies that "a cross-section of a photo" and "a photo of a cross-section" are the same (Note: here, "photo" actually refers to perspective projection, and there are actually differences: a cross-section of a photo is affected by some higher-dimensional optical phenomena, while a photo of a cross-section is simply rendering a normal 3D model).
+When we look directly from the direction of the cross-section, we see that this cross-section cuts the tip of a person's nose. Imagine if we showed the pixels on those cross-section lines of this view's photo to 2D beings; based on the brightness of the pixels, they would naturally perceive the graphic they see as two people with their noses connected.
+![Looking from the direction of the cross-section, it is actually just a line in the view (a 2D photo)](/img/tsxsc003.png)
 
-## <a href="/tesserxel/examples/#shapes::suzanne3d" target="_blank" title="点击打开场景">几何体>猴头旋转体</a>
-点击标题链接打开猴头旋转体场景（打开要等待加载几秒哦）。都说三维图形在四维空间中可以绕面旋转得到旋转体。那么我自然就想拿一个任意的三维图形试试。Blender三维软件里自带的猴头Suzanne模型就很不错。![](/img/tsxsc009.jpg)我把模型导出成obj格式，导入进Tesserxel引擎中再加些旋转、贴图渲染的代码，最终就得到了这个场景。你可以根据自己的喜好按Alt+数字键在不同视图配置之间切换、按Alt+Z开关裸眼3D，详情请见上篇文章《[玩Tesserxel（一）：视图控制介绍](/archives/tesserxel-intro/#settings)》。可能玩这个场景从截面视图里看到那只不断扭曲变形的猴子头会觉得有些怪异，一个好端端的旋转体为什么会看上去这么扭曲呢？其实这都是截面可视化方法惹的祸。其实四维人看不到这些，你也可以按Alt+3关闭截面显示。但是下面我们还是来分析一下：
-![相连的变形的猴头Suzanne](/img/tsxsc008.jpg)
-我们先来看三维的旋转体。下面的这种人侧脸旋转出的酒杯，其实无论从什么角度看都挺美观的，我们并没有看到什么扭曲了的人脸。
-![人脸酒杯](/img/tsxsc001.png)
-四维生物看猴头也一样：正对着这个图形从三维照片望去，它就是个旋转体，只不过猴头已经被体素重叠得啥也看不出来了。
-![正面看猴头旋转体](/img/tsxsc010.jpg)
-如何自己操作相机找到正面视角呢？首先这个场景的控制方式为**轨迹球模式**，默认视图下（下图a）鼠标左键拖动旋转后发现这个物体没有完全映入立方体“眼帘”，因此需要滚动鼠标滚轮缩小（下图b）。现在你用鼠标左键拖动会发现这是个一边肥一边瘦的环形。这其实是因为在第四维方向上相机没摆正,两边距离不同近大远小造成的。怎么摆正呢？首先我们要把圆环在三维视图里正着摆好，我这里让环形平行于水平截面（下图c），然后用鼠标右键拖动，把它旋转到正对相机就可以了（下图d），我们可以左键拖动验证它确实变成粗细均匀的环了（下图e）。
-![旋转到正视图的步骤](/img/tsxsc011.jpg)
-如果用截面去截这个酒杯，则确实会看到一些很丑的两个鼻子都融合在了一起的变形人脸：
-![人脸酒杯的一个截面：截面上像两个人脸的鼻子融合在了一起](/img/tsxsc002.png)
-这跟猴头的形变确实一致，但注意我们观察四维物体的截面视图并不是把四维场景做截面，而是把四维场景的三维照片拍下来，截的是立体照片中的二维截面。这其实就暗示了“照片的截面”跟“截面的照片”是一样的（注：这里照片其实是指透视投影成像，且实际上也有区别：照片的截面图像会受高维的一些光学现象影响，而截面的照片则完全是在渲染一个普通的三维模型）。
-我们直接从截面的方向看过去，看到这个截面截到了人的鼻尖。试想如果把这个视图的照片的那些截线上的像素给二维人看，那么它们根据像素的明暗自然也就感受到看到的图形是两个鼻子相连的人了。
-![从截面的方向看过去，其实就是视图（二维照片）中的一条线](/img/tsxsc003.png)
+Here, I want to reiterate a 4D perspective: **4D space is a whole. Although the cross-section method is the most convenient for visualization, it is not how native 4D beings see a 4D object. The cross-section graphics are not easy to understand. The cross-section view is best used as a supplement to the 3D photo; it only tells us the specific distribution of colors in the blurry, overlapping middle part of the 3D translucent photo**.
 
-这里我想再次表达一个四维观点：**四维空间是一个整体，虽然截面法在可视化里算最方便的一种，但它并不是四维“土著”看到四维物体的方式，这些截面图形的理解难度也并不容易。截面视图最好是作为3D照片的一个补充，它仅仅提示我们3D半透明照片里的那些模糊的颜色重叠的中间部分颜色的具体分布情况**。
+In fact, the drawing principle of my 4D engine is also based on the idea that the geometry of a "cross-section of a photo" is the same as "a photo of a cross-section." The material, texture, and lighting also need to be calculated based on the 4D coordinate information when calculating the cross-section. Ultimately, when coloring each pixel, Tesserxel can tell that this is not "a photo of a cross-section," but "a cross-section of a photo." I will write a dedicated article in the future (I'm digging a hole for myself again, as I haven't filled the old ones yet...) to explain the methods and corresponding graphics algorithms for visualizing 4D graphics that I know of.
+## Geometry > Direct Product Series Scenes
+In [《4D World (5): More Geometry (Part 1)》](/archives/more4ds/), I mentioned a large category of geometric shapes called "direct products." It can be intuitively understood as a generalized cylinder with a 2D base and a 2D height. For example, we have seen the direct product of the following shapes:
+- Rectangle $\times$ Rectangle $=$ Hypercuboid
+- Rectangle $\times$ Circle $=$ Cylinder-prism
+- Circle $\times$ Circle $=$ Double Cylinder
+- Regular $n$-gon $\times$ Rectangle $=$ Regular $n$-gonal Prism-prism
+- Regular $n$-gon $\times$ Regular $m$-gon $=$ $m,n$-duoprism
 
-其实我的四维引擎的绘制原理也是基于“照片的截面”的几何形状跟“截面的照片”是一样的，而材质贴图光照这些也要在算截面时把四维的坐标信息算好，最终跟每个像素上色时Tesserxel才能够知道这其实不是“截面的照片”，而是“照片的截面”。以后我将专门写一篇文章（又在给自己挖坑了，之前的坑都没填。。）讲述目前我知道的可视化四维图形的方法与相应的图形学算法。
-## 几何体>直积形系列场景
-我在[《四维空间（五）：更多几何体[上]》](/archives/more4ds/)中就提过一种叫“直积形”的一大类几何体，它可直观理解为底面是二维，高也是二维的广义柱体。比如我们已经看过下面图形的直积：
-- 矩形$\times$矩形$=$超长方体
-- 矩形$\times$圆形$=$圆柱柱
-- 圆形$\times$圆形$=$双圆柱
-- 正$n$边形$\times$矩形$=$正$n$棱柱柱
-- 正$n$边形$\times$正$m$边形$=$$m,n$-直积形（$m,n$-duoprism）
+These shapes are all too geometric and lack the "flavor" of the real world. Since any shape can be subjected to a direct product operation, a [Zhihu netizen asked a question](https://www.zhihu.com/question/376188950/answer/1051338302):
+> The action R×R=R² extends a one-dimensional space to a two-dimensional space. So, what does "myself x myself" represent? (Just a brain teaser, looking for inspiration)
 
-这些图形都太几何化了，一点都没有真实世界的“烟火味”。既然任意图形都能进行直积操作，所以有[知乎网友提出问题](https://www.zhihu.com/question/376188950/answer/1051338302)：
-> R×R＝R²这个行为将一维空间拓展到二维空间。那么请问，你自己×你自己表示着什么（纯脑洞，求启发）？
+The human body is a 3D graphic. "Myself x myself" should result in a 6D graphic, and it is indeed too difficult to imagine what this graphic looks like. But I can use the direct product of two irregular 2D graphics to get a 4D graphic and visualize it through Tesserxel to give everyone an intuitive sense of this type of graphic.
+Here I have created three 2D graphics in Blender. From left to right, I named them text, chicken, and <ruby>person<rt>cxk</rt></ruby>. Now let's see what kind of sparks these three graphics create when they are subjected to a direct product operation. ![](/img/tsxsc004.png)
+Here I have created four combinations. Click the link to open them:
+- [Text x Text](https://wxyhly.github.io/tesserxel/examples/#shapes::directproduct1)
+- [Person x Chicken](https://wxyhly.github.io/tesserxel/examples/#shapes::directproduct2)
+- [Person x Person](https://wxyhly.github.io/tesserxel/examples/#shapes::directproduct3)
+- [Text x Chicken](https://wxyhly.github.io/tesserxel/examples/#shapes::directproduct4)
 
-人体作为三维图形，我自己$\times$我自己得到的应该是个6维图形，这个图形是什么样子的确实太难想象了，但我可以用两个不规则的二维图形的直积得到四维图形，通过Tesserxel进行可视化来让大家对这类图形建立起直观感受。
-这里我在blender里做了三个二维图形，从左到右我分别命名为文字、鸡、<ruby>人<rt>cxk</rt></ruby>。下面就来看看这三个图形之间通过直积运算会碰撞出什么样的火花。![](/img/tsxsc004.png)
-这里我制作了四种组合，点击链接即可打开：
-- [文字 x 文字](/tesserxel/examples/#shapes::directproduct1)
-- [人 x 鸡](/tesserxel/examples/#shapes::directproduct2)
-- [人 x 人](/tesserxel/examples/#shapes::directproduct3)
-- [文字 x 鸡](/tesserxel/examples/#shapes::directproduct4)
-
-跟看猴头旋转体一样，截面视图里的图形变幻莫测，形状诡异，但这并不是四维人真正直观看到的东西。在3D照片视图里旋转这些东西我们能从不同角度同时看到这两个二维图形，而且它们会重复出现很多次，这是因为直积形就是把一个图形在绝对垂直的另一个图形的范围内不断平移，把能平移占满的空间都填满，所以会有很多“副本”出现。注意第一个“文字 x 文字”场景，图形“Text”是一个有着四个连通区域的整体不连通图形。这个图形自身直积后将有16个不连通的部分，感觉就是关于直积的乘法分配率：
+Similar to viewing the monkey head revolution, the graphics in the cross-section view are ever-changing and bizarrely shaped, but this is not what a 4D person actually sees intuitively. When we rotate these things in the 3D photo view, we can see these two 2D graphics from different angles simultaneously, and they appear many times in duplicate. This is because a direct product is created by continuously translating one graphic within the range of another graphic that is absolutely perpendicular to it, filling all the space it can occupy, so many "copies" appear. Note the first "Text x Text" scene. The graphic "Text" is a whole with four disconnected connected components. The direct product of this graphic with itself will have 16 disconnected parts, which feels like the multiplication distributive property of direct products:
 $(T+e+x+t)\times(T+e+x+t) = $ $T\times T+T\times e+T\times x+T\times t+e\times T+e\times T...$
-太长了我就不全写了。
+It's too long, so I won't write it all out.
 
-![Text x Text 的16个连通部分](/img/tsxsc012.jpg)
-如果觉得直积的乘法分配律不好理解，我们可以看看三维柱体的构造：图形A为一大一小两个实心圆，图形B为两条线段，它们直积完也会得到有着四个连通部分的图形。
-![图形A与图形B均有两个连通部分，它们的直积就有4个连通部分](/img/tsxsc005.png)
+![The 16 connected components of Text x Text](/img/tsxsc012.jpg)
+If the multiplication distributive property of direct products is difficult to understand, we can look at the construction of a 3D cylinder: graphic A has two solid circles, one large and one small, and graphic B has two line segments. Their direct product will also result in a graphic with four connected components.
+![Both graphic A and graphic B have two connected components, so their direct product has 4 connected components](/img/tsxsc005.png)
 
-终于到了大家喜闻乐见的 人 x 鸡 图形了。这个图形在xy面上的投影是人，在zw平面的投影是鸡，我将以此例演示如何操作视图分别看到人的视角与鸡的视角。~~（开庭时大家都记得把自己的电脑带上！）~~
-首先这个场景的控制方式为**轨迹球模式**，默认视图下（下图a）图形占满了整个3D照片屏幕范围，我们滚动鼠标滚轮拉远摄像机让我们能看到整个图形（下图b），现在我们看到这个图形是斜着放的，我们先鼠标右键上下拖动图形，让图形至少在竖直方向上摆正。鼠标向上拖动将看到白色的鸡轮廓，向下拖动将看到红色的人的轮廓。我们先对齐白色的公鸡（下图c）。接下来如果你会裸眼3D，可以明显发现三维照片的左右摆放有点斜，只需鼠标左键拖动模型绕竖直方向轴摆正（下图d）。
-![从初始视角操作至“鸡”视角](/img/tsxsc013.jpg)
-如果第二步向下拖动将看到红色的人的轮廓，对齐后继续类似操作将对齐到人的视图，步骤同上。
-至于怎样从正对人的视角出发操作到正对鸡的视角，就给大家留作习题吧……
+Finally, we have arrived at the everyone's-favorite "Person x Chicken" graphic. The projection of this graphic on the xy plane is a person, and on the zw plane is a chicken. I will use this example to demonstrate how to operate the view to see the person's perspective and the chicken's perspective separately. ~~（When the court opens, everyone remembers to bring their computers!）~~
+First, the control method for this scene is **trackball mode**. In the default view (figure a below), the graphic fills the entire 3D photo screen. We scroll the mouse wheel to pull the camera away so we can see the entire graphic (figure b below). We now see that the graphic is placed at an angle. We first drag the graphic up and down with the right mouse button to at least straighten the graphic in the vertical direction. Dragging the mouse up will show the white chicken outline, and dragging it down will show the red person outline. Let's first align with the white rooster (figure c below). Next, if you can see stereoscopic 3D, you will notice that the left and right positions of the 3D photo are a bit skewed. Just drag the model with the left mouse button to straighten it around the vertical axis (figure d below).
+![Steps to operate from the initial view to the "chicken" view](/img/tsxsc013.jpg)
+If in the second step, you drag down to see the red person outline and align it, you can continue with similar operations to align with the person's view. The steps are the same as above.
+As for how to operate from a view facing the person to a view facing the chicken, I'll leave that as an exercise for everyone...
 
-最后我再说说直积形的上色原理。直积形的表面跟双圆柱类似，可以分成两个部分，一部分是图形A的边缘与图形B直积得到的表面，另一部分是图形B的边缘与图形A直积得到的表面，我分别把这两部分上色成红色与白色。值得一提的是，如果把刚才的文字描述写成公式你会发现表示物体边缘的边缘算子$\partial$跟导数的乘法法则莱布尼兹律完全一样！
+Finally, I'll talk about the coloring principle of direct products. The surface of a direct product is similar to that of a double cylinder; it can be divided into two parts: one part is the surface obtained by the direct product of the boundary of graphic A and graphic B, and the other part is the surface obtained by the direct product of the boundary of graphic B and graphic A. I colored these two parts red and white, respectively. It is worth mentioning that if you write the previous description as a formula, you will find that the boundary operator $\partial$ used to represent the object's boundary is exactly the same as the Leibniz rule for derivatives in multiplication!
 $$\partial(A\times B)=\partial A \times B + A \times \partial B$$
 
 
-## <a href="/tesserxel/examples/#city_highway" target="_blank" title="点击打开场景">四维场景>城市高速场景</a>
-点击标题链接进入城市高速场景，我们将以该场景举例，希望能够让您理解如何操作上期文章中提到的[**控制：保持竖直模式**](/archives/tesserxel-intro/#ctrl)下的操作方法。该场景中有一条双向4x3x2=24车道的空间曲线环形闭合高速路，两边以隔离带隔开，关于四维公路的详细构造解释可以参考[《四维世界（二）：公路交通》](/archives/trans4d/)与[《四维世界（三）：道路轨道设计》](/archives/rail4d/)。
-### 场景介绍
-四维世界的地面是三维的，人们可以在三维地面上修建城市与空间曲线道路。这个场景包含一条单边4x3车道的双向道路，道路是三次样条空间曲线。道路周围随机分布着超长方体建筑楼宇，且建筑的朝向也是随机分布的，稍后我们将[在这里看到](#buildings)它们像三维空间中随机漂浮着的一堆立方体。
+## <a href="/tesserxel/examples/#city_highway" target="_blank" title="Click to open scene">4D Scenes > City Highway Scene</a>
+Click the title link to enter the City Highway scene. We will use this scene as an example to help you understand how to operate in the [**Control: Keep Up Mode**](/archives/tesserxel-intro/#ctrl) mentioned in the previous article. This scene features a bidirectional, 4x3x2=24-lane spatially curved closed ring highway, separated by a median strip. For a detailed explanation of the construction of 4D roads, please refer to [《4D World (II): Road Traffic》](/archives/trans4d/) and [《4D World (III): Road and Railway Design》](/archives/rail4d/).
+### Scene Introduction
+The ground in the 4D world is 3D, and people can build cities and spatially curved roads on the 3D ground. This scene contains a single-direction 4x3 lane bidirectional road, with the road being a cubic spline space curve. Hypercuboid buildings are randomly distributed around the road, and their orientations are also randomly distributed. We will [see them here](#buildings) later, looking like a bunch of randomly floating cubes in 3D space.
 
-道路为双向车道，中间用绿色隔离带隔开。
+The road is bidirectional, separated by a green median strip in the middle.
 
-### 相机控制教程
-由于这个示例场景中并没有建模汽车，也没加入相应的物理引擎计算，要想跟着公路跑就要学会手动控制相机。刚打开这个场景等待加载后看到的是下面默认三维照片视图加三个截面视图的配置。
-![打开场景后的默认视图](/img/tsxsc001.jpg)
-根据自己的个人习惯，我列出了下面几个模式下跟着公路跑的操作方法。提示：如果你在里面方向搞乱了，或不知道跑到哪里去了，可以刷新页面重新加载重置。
+### Camera Control Tutorial
+Since there are no cars modeled in this example scene and no corresponding physics engine calculations, you must learn to control the camera manually to follow the road. When you first open this scene and wait for it to load, you will see the default 3D photo view with three cross-section views.
+![Default view after opening the scene](/img/tsxsc001.jpg)
+Based on your personal habits, I have listed the operating methods for following the road in the following modes. Tip: If you get disoriented or don't know where you are, you can refresh the page to reload and reset.
 
-#### 只看水平截面视图
+#### Only using the Horizontal Cross-Section View
 
-这应该是最简单的模式了。首先按Alt+6切换至下图所示的水平截面视图模式。如果按键没反应则需要用鼠标点一下画面获得焦点后才能继续操作。<a name="buildings"></a>
+This should be the simplest mode. First, press Alt+6 to switch to the horizontal cross-section view mode shown in the figure below. If the keys do not respond, you need to click the screen with the mouse to give it focus before you can continue. <a name="buildings"></a>
 
-![Alt+6切换至水平截面视图，那些乱七八糟的方块其实是道路周围随机生成的超长方体建筑楼宇](/img/tsxsc002.jpg)
-移动鼠标观察四周，你应该可以看到视野中有绿色的条状东西。这是什么东西呢？这些其实是护栏。这是三维道路护栏的类比。只要相机画面的高度合适，过视野中心的水平截面就能够截到这些护栏，从而在截面视图中看到一条带子。如果你不小心滚了鼠标滚轮导致俯仰角不再水平，或按了空格键或Shift键改变了相机高度，你可能看不到绿色的带子。下图从左至右列举了一些可能性（上下两张图分别是正截面与水平截面）。你可以切换至同时观察几个截面(Alt+4)来调整。下图中正截面中标记了中央水平截面的位置，这条线也落在水平截面中，因此正截面中这条线与哪部分相交你就能在水平截面里看到同样的部分。提示：按Alt+C调出十字准星，可以帮助你定位画面中央的位置。
+![Switch to horizontal cross-section view with Alt+6. The messy squares are actually random hypercuboid buildings around the road](/img/tsxsc002.jpg)
+Move the mouse to look around, and you should be able to see a green strip in your field of view. What is this? These are actually guardrails. This is analogous to a 3D road's guardrail. If the camera's height is appropriate, the horizontal cross-section passing through the center of the view will cut these guardrails, allowing you to see a strip in the cross-section view. If you accidentally roll the mouse wheel, causing the pitch angle to no longer be horizontal, or press the Space or Shift keys to change the camera height, you might not see the green strip. The figure below shows some possibilities from left to right (the top and bottom images are the normal and horizontal cross-sections, respectively). You can switch to observing several cross-sections at once (Alt+4) to make adjustments. In the figure below, the normal cross-section marks the position of the central horizontal cross-section. This line also falls within the horizontal cross-section, so whatever parts of the normal cross-section it intersects, you will see the same parts in the horizontal cross-section. Tip: Press Alt+C to bring up the crosshairs to help you locate the center of the screen.
 
-![从左到右依次此为四种不同的角度：1.平视且高度在护栏之下，2.平视且高度平齐护栏，3.仰视，基座与护栏各截了一部分，4.俯视，基座与护栏各截了一部分。每种角度都分上下两个截面展示：上方为正截面，下方为水平截面](/img/tsxsc003.jpg)
+![From left to right are four different angles: 1. Level view with height below the guardrail, 2. Level view with height aligned with the guardrail, 3. Angled view looking up, cutting part of the base and guardrail, 4. Angled view looking down, cutting part of the base and guardrail. Each angle is shown with two cross-sections: the top is the normal cross-section, and the bottom is the horizontal cross-section](/img/tsxsc003.jpg)
 
-如果你还搞不懂这些截面是什么，包括我在正视图中标出的水平截线为什么又在水平截面中，建议从头从《[四维世界（四）：二维生物视觉](/archives/eye2d/)》开始。这里再把原来旧文(出自[这里](/archives/eye3d/))中的图放一下：
-![刚才标的红线这里对应红色与蓝色截面的交线](/img/eye3d002.png)
+If you still don't understand what these cross-sections are, including why the horizontal cross-section line I marked in the normal view is also in the horizontal cross-section, it is recommended to start from the beginning with [《4D World (4): 2D Beings' Vision](/archives/eye2d/). Here is a figure from the original old article (from [here](/archives/eye3d/)):
+![The red line I marked earlier corresponds to the intersection of the red and blue cross-sections here](/img/eye3d002.png)
 
-当你对齐后，就可以在水平截面中使用鼠标控制朝向，用键盘W/S前进后退，这样就跟在普通的无重力三维空间中自由飞行是一样的，角度合适的话我们可以在截面中看到完整的道路，这样我们就可以把自己当成一架飞机，直接顺着隔离带一侧飞就可以了。想直接左右平移则使用A/D，但要注意的是，水平截面里面可没有真正的上下方向（否则就不叫“水平”截面了），你看到的水平截面的上下方向是第四维多出来的一种类似于左右的侧面方向：侧前与侧后，因此需要用键盘Q/E在这个方向上移动。如果你不想用鼠标控制朝向，纯键盘操作也是可以的。J/L为左右转向，U/O为侧前/侧后（即截面中的上下）转向。而I/K为真正的上下俯仰角调整。如果你不小心改变了俯仰角，会发现绿色隔离带会有部分消失，那么你需要重新按照前面的步骤调整回来。
+Once you are aligned, you can use the mouse in the horizontal cross-section view to control your direction, and the W/S keys to move forward and backward. This is the same as flying freely in a normal weightless 3D space. If the angle is right, we can see the complete road in the cross-section, allowing us to act as a plane and fly directly along one side of the median strip. To pan left and right directly, use A/D. However, it's important to note that the horizontal cross-section does not have a true up/down direction (otherwise, it wouldn't be a "horizontal" cross-section). The up/down direction you see in the horizontal cross-section is a fourth-dimensional side-direction similar to left/right: ana and kata, so you need to use the Q/E keys to move in this direction. If you don't want to use the mouse to control direction, pure keyboard operation is also possible. J/L are for left/right yaw, and U/O are for ana/kata yaw (i.e., up/down in the cross-section). I/K are for the true up/down pitch angle adjustment. If you accidentally change the pitch angle, you will find that parts of the green median strip disappear, so you need to adjust it back according to the previous steps.
 
-#### 只看三维视图
+#### Only using the 3D View
 
-刚才只看水平截面虽然操作方式最直观，但它丢失了一些四维感官：我们根本无法看到脚下的道路，只不过是看到照片的一个截面而已，这个截面甚至连路面都截不到。可想而知如果四维人也只看这些信息的话，它甚至不知道地面上有没有坑。下面我们按Alt+3，切换到只显示三维照片视图。当然，全部显示四维人能看见的东西是有代价的，对于我们二维的屏幕来说，上面重叠的像素太多，显得很模糊，所以我再次强烈建议大家学习裸眼3D，特别是长时间保持裸眼3D看屏幕的技巧（掌握好了长时间观看也并不会对眼睛有任何损伤）。
+Although using only the horizontal cross-section view is the most intuitive control method, it loses some of the 4D sense: we cannot see the road under our feet at all, only a cross-section of the photo. This cross-section may not even cut the road surface itself. It is conceivable that if a 4D person only looked at this information, they wouldn't even know if there were potholes on the ground. Now let's press Alt+3 to switch to a view that only displays the 3D photo. Of course, displaying everything that a 4D person can see comes at a price. For our 2D screen, there are too many overlapping pixels, making it look blurry. So, I once again strongly recommend that everyone learn stereoscopic 3D without glasses, especially the technique for maintaining it for a long time (if you master it, long-term viewing will not cause any eye damage).
 
-只看三维照片来控制的基本原理[这里旧文](/archives/eye3d/#hh5)中也提到了，这里我分享一下关于这个场景的特定思路：最重要的是需要做到让画面中央（按 Alt+C打开十字准星）保持在道路中央，你可能需要按住Alt旋转照片（转完一定记得按Alt+R复原，否则方向会乱，[原理请看这里](/archives/tesserxel-intro/#rotdiff)）或按键盘Z/X旋转视图来确定侧前后左右都居中了。由于车道是方形的，侧前后侧的二维分割线在三维照片中不是很清晰，因此通过旋转视图可以更清楚知道你是在哪个车道。但由于车道又是不连续的虚线，所以对车道的辨认的确是个不小的挑战，后续我会打算写一个模拟“真实”的四维赛车游戏哦。
-### 清楚看道路的方法
-既然场景介绍里写过这是一条三维空间曲线高速，怎样看清楚道路全貌，把这条空间曲线展示在眼前呢？
-#### 俯视图
-最直接的想法肯定是看“地图”，即站在高处俯视整个场景。但注意四维星球上的地图都是三维的，所以我们看到的也是个体素地图。按空格键升高，再滚动鼠标滚轮看向地面。或你可以先滚动鼠标滚轮看向地面再按空格升高相机，这样你才知道在什么高度俯视最好。提示：只看三维照片视图可能看不出来俯仰角，可以滚动鼠标滚轮时在下方的两个截面（分别是正、侧截面）中来参考俯仰角。
+The basic principle of controlling with only the 3D photo has also been mentioned in [this old article](/archives/eye3d/#hh5). Here, I will share some specific ideas for this scene: the most important thing is to keep the center of the screen (press Alt+C to turn on the crosshairs) in the center of the road. You may need to hold down Alt to rotate the photo (remember to press Alt+R to reset after rotating, otherwise the directions will be messed up; [see here for the principle](/archives/tesserxel-intro/#rotdiff)) or press the Z/X keys to rotate the view to ensure that all ana/kata, left/right directions are centered. Since the lanes are square, the 2D dividing lines in the ana/kata directions are not very clear in the 3D photo. Therefore, rotating the view can give you a clearer idea of which lane you are in. However, since the lane lines are discontinuous dashed lines, identifying the lanes is indeed a big challenge. I plan to write a simulated "real" 4D racing game in the future.
+### How to See the Road Clearly
+Since the scene introduction mentioned that this is a 3D spatially curved highway, how can we see the complete road and display this space curve?
+#### Top-down View
+The most straightforward idea is to look at a "map," which means standing high up and looking down at the entire scene. But note that maps on a 4D planet are 3D, so we see a voxel map. Press the Space key to ascend, and then scroll the mouse wheel to look down at the ground. Or you can first scroll the mouse wheel to look down at the ground and then press Space to raise the camera. This way, you'll know what altitude is best for looking down. Tip: If you only look at the 3D photo view, you may not be able to tell the pitch angle. You can refer to the two cross-sections at the bottom (normal and side cross-sections) when scrolling the mouse wheel.
 
-调整好相机高度与俯仰角后可以看到这样的体素：
-![上：相机高度不太高时俯视公路看到的道路分隔；下：相机高度达到可以看到整条环形闭合曲线公路](/img/tsxsc004.jpg)
-注意此时不用去看三个截面，我们按Alt+3关闭截面（提示：按Alt+1/2可以恢复截面显示）。然后按住Alt建拖动鼠标，我们来好好观察这个立体照片。如果你会裸眼3D你将轻松看到里面的内部结构的立体位置，如果不会，那么多拖动旋转几下应该也能看到道路的排列结构。如果你现在没有跟着自己操作，只是看文章中的静态插图的话，肯定会觉得这些都是什么鬼玩意一团糟看不清。没事，我专门为你准备了除雾后的俯视场景的截图：
-![除雾后的俯视场景的截图，裸眼3D可以看到公路确实是空间曲线](/img/tsxsc005.jpg)
+After adjusting the camera's height and pitch angle, you can see a voxel like this:
+![Top: Viewing the road divisions from a not-so-high altitude; Bottom: Viewing the entire closed ring-shaped curved road from a high enough altitude](/img/tsxsc004.jpg)
+Note that at this point, you don't need to look at the three cross-sections. We press Alt+3 to turn off the cross-sections (Tip: press Alt+1/2 to restore the cross-sections). Then, hold down the Alt key and drag the mouse to carefully observe this stereoscopic photo. If you can see stereoscopic 3D without glasses, you will easily see the three-dimensional positions of the internal structures. If you can't, dragging and rotating it a few times should still allow you to see the road's arrangement. If you are not operating it yourself right now and are only looking at the static illustrations in the article, you will definitely feel that these are all a chaotic mess and cannot be seen clearly. Don't worry, I have specially prepared a screenshot of the top-down view after removing the fog for you:
+![Screenshot of the top-down view after removing the fog. Stereoscopic 3D allows you to see that the road is indeed a space curve](/img/tsxsc005.jpg)
 
-为什么在线示例场景里不除雾呢？因为这里的雾其实是三维的地面颜色“笼罩了”整个三维体素照片，如果它都透明了，那么要想看到地面就又难了，所以体素照片中哪些像素要透明化对我们用二维视网膜的三维人来说确实是个很难取舍的问题（此时能直接看到所有体素的四维人在旁边偷着乐）
+Why is the fog not removed in the online example scene? Because the fog here is actually the color of the 3D ground "covering" the entire 3D voxel photo. If it were all transparent, it would be difficult to see the ground again. So, deciding which pixels to make transparent in the voxel photo is indeed a difficult trade-off for us 3D beings with 2D retinas (at this point, the 4D beings who can see all the voxels directly are secretly laughing).
 
-最后再来一张能清楚看到车道划分的俯视图：互相垂直方向的虚线是交错的，可以看到单边一共$3\times 4=12$个车道。
-![车道划分展示俯视图](/img/tsxsc006.jpg)
+Finally, here is another top-down view that clearly shows the lane divisions: the dashed lines in perpendicular directions are staggered. You can see that there are a total of $3\times 4=12$ lanes on one side.
+![Top-down view of the lane divisions](/img/tsxsc006.jpg)
 
-#### 旁观角度
+#### Observer's View
 
-想象一下，如果有二维生物面对一个二维迷宫，你怎么给它展示一幅迷宫地图帮它通关呢？其实对它来说是无解的。就算我们把地图画出来，它们也永远无法俯视地图只能侧面看地图，因此地图要做成透明的，二维人才能看到地图内部。所以与其说我们刚才看到了城市高速场景的俯视图，还不如说我们其实还是在一种“侧面”来看的，因为四维人才能真正从“正面”看到三维体素照片，它将直接从它的立体视网膜读出那条空间曲线的样子，而我们看到的还是空间曲线在某个方向上的二维投影，有一种永远都“不识庐山真面目，只缘身在此山中”的感觉。
-既然如此，我们不妨从让四维人看到的也是投影的角度来看这条路。这其实就是之前提到的按Alt+6的水平截面视图中能够通过截到绿色隔离带或下方水泥基础来看到道路弯曲方向，但注意四维人的三维视觉中能够同时看到隔离带和下方的水泥基础，在四维人的3D视野中只在地平面处很薄的一片，这跟我们看远处的道路一样。只看得到隔离带或周围的护栏绿化之类的，注意三维世界中看地平线附近的道路时地平线和道路都是一维的，道路将占满整个地平线(其实类似二维生物看二维空间中曲线的感觉)，而四维世界中四维人看地平面附近的道路就还是能够看到道路在地平面上弯曲！(这其实类似我们看三维空间曲线的感觉)，这在水平截面视图上就能体会，因为平视时水平截面刚好截到地平面。
-![四维人远眺地平面附近的道路](/img/tsxsc007.jpg)
-
-<!-- ## 四维场景>四维星球导航
-
-这个场景是对四维星球自转\公转产生的昼夜变换以及地磁场与指南针辨别方向的模拟。具体技术细节请参考这两篇文章： -->
+Imagine if a 2D being was faced with a 2D maze, how would you show them a map to help them complete it? It would be unsolvable for them. Even if we draw a map, they can never look down on it; they can only see it from the side. Therefore, the map would have to be made transparent for the 2D person to see its interior. So, rather than saying we saw a top-down view of the city highway scene, it's better to say we were still looking at it from a "side" view. Only a 4D person can truly see the 3D voxel photo from a "front" view. They will directly perceive the shape of that space curve from their stereoscopic retina, while what we see is still a 2D projection of the space curve from a certain direction. It's like a feeling of "I cannot see the true face of the mountain, because I am in it."
+Since this is the case, we might as well look at the road from a perspective where even a 4D person sees a projection. This is what was mentioned earlier in the horizontal cross-section view (Alt+6), where you can see the direction of the road's curvature by cutting the green median strip or the concrete base below. But note that in a 4D person's 3D vision, they can see both the median strip and the concrete base below simultaneously, only in a very thin slice at the ground plane. This is similar to how we see a distant road. We can only see the median strip or the guardrails and greenery around it. Note that in the 3D world, when we look at a road near the horizon, both the horizon and the road are one-dimensional, and the road will fill the entire horizon (this is similar to how a 2D being feels when looking at a curve in 2D space). In the 4D world, when a 4D person looks at a road near the ground plane, they can still see the road curving on the ground plane! (This is similar to how we feel when looking at a 3D space curve). This can be experienced in the horizontal cross-section view, because when you look level, the horizontal cross-section cuts the ground plane.
+![A 4D person looking at a distant road near the ground plane](/img/tsxsc007.jpg)
