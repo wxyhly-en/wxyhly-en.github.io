@@ -1,5 +1,5 @@
 ---
-title: "【Minecraft】 2B2T Survival Diary: Escaping Spawn in One Go"
+title: "[Minecraft] 2B2T Survival Diary (1): Escaping Spawn in One Go"
 tags:
   - Minecraft
   - 2b2t

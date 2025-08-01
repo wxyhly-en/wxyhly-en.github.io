@@ -1,5 +1,5 @@
 ---
-title: "【Minecraft】 2B2T Survival Diary (Part 2): Joining an Organization and Building a Warehouse"
+title: "[Minecraft] 2B2T Survival Diary (2): Joining an Organization"
 tags:
   - Minecraft
   - 2b2t
@@ -7,11 +7,10 @@ date: 2020-01-03 22:29:05
 
 excerpt: While scouting at Y=120 in the Nether, I found a mature tunnel network and ran 100k blocks before returning to spawn. I Joined a Chinese group, helped build an llama dupe base, but it was griefed by FluixCarvin after an insider leak.
 
-
 index_img: /img/2b2t/plepon.jpg
 ---
 
-After dying last time, I respawned at the bed in our temporary base. After respawning, hadroncfy and I discussed and decided to travel further through the Nether. The Nether terrain is rugged, so we decided to follow others' example and tunnel at y=120, as there's no lava at this height. Shortly after departing, hadroncfy got stuck and disconnected in the Nether. I continued traveling alone in the Nether. After digging for a while, I discovered there's actually a dense tunnel transportation network around y=120! Following it for maybe two hours, I easily ran 100k blocks! I reached 300k! But at this time, the Avengers Alliance group we joined was distributing lots of supplies near spawn. I decided I couldn't go any further. Although I had spent several days arduously reaching 200k, traveling through the Nether would only take a day to return, so I felt it wasn't a loss to go back and return later. So I found a portal, made a bed, placed an ender chest, prepared to sleep, break the bed, and commit suicide. Before suicide, I organized what to put in the ender chest, then typed /kill.
+After dying last time, I respawned at the bed in our temporary base. Hadroncfy and I discussed and decided to travel further through the Nether. The Nether terrain is rugged, so we decided to follow others' example and tunnel at y=120, as there's no lava at this height. Shortly after departing, hadroncfy got stuck and disconnected in the Nether. I continued traveling alone in the Nether. After digging for a while, I discovered there's actually a dense tunnel transportation network around y=120! Following it for maybe two hours, I easily ran 100k blocks! I reached 300k! But at this time, the Avengers Alliance group we joined was distributing lots of supplies near spawn. I decided I couldn't go any further. Although I had spent several days arduously reaching 200k, traveling through the Nether would only take a day to return, so I felt it wasn't a loss to go back and return later. So I found a portal, made a bed, placed an ender chest, prepared to sleep, break the bed, and commit suicide. Before suicide, I organized what to put in the ender chest, then typed /kill.
 ![Death count changed from 1 to 2](/img/2b2t/2019-11-08_20.23.12.jpg)<!--more-->
 I respawned on a stone mountain and started auto-pathing to Supply Station #1 posted in the group. On the way, I was killed by a wither - seems auto-pathing isn't as safe as manual travel, as it completely avoids withers. After respawning on another stone mountain, there was a wither advertisement placed by Infinite Force (also a Chinese organization), and a beacon too! I discovered an ender chest nearby - I could take out a diamond pickaxe to mine both the beacon and its diamond block base! But I thought maybe they'd distribute even more supplies later? I abandoned the plan to destroy the beacon and went to collect supplies first.
 ![The wither that killed me](/img/2b2t/2019-11-08_21.35.15.jpg)

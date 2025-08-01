@@ -2,7 +2,7 @@
 title: Self-replicating Code (in javascript)
 tags:
   - Self-reference
-  - javascript
+  - Javascript
   - Recursion
 date: 2016-05-02 15:06:20
 index_img: /img/jsloop.gif

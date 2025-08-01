@@ -1,5 +1,5 @@
 ---
-title: "Group Theory Series (Part 1): Introduction to Group Theory"
+title: "Group Theory (1): Brief Introduction"
 tags:
   - Mathematics
   - Group Theory

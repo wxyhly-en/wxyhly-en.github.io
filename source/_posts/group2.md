@@ -1,5 +1,5 @@
 ---
-title: "Group Theory Series (2): Field Extensions"
+title: "Group Theory (2): Field Extensions"
 tags:
   - Mathematics
   - Group Theory
