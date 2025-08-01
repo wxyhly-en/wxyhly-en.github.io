@@ -1,136 +1,141 @@
 ---
-title: p范数空间中的旋转几何与物理运动
+title: Geometry and Motions in p-Norm Space
 date: 2016-12-06 23:02:13
-categories: 奇特世界系列
+categories: Strange World Series
 tags:
-- 动画
-- 几何
-- 数学
-excerpt: 大家知道勾股定理是直角边两边的平方和等于第三边，这是一个不用怀疑的事实，但勾股定理是可以不成立的！大家应该听说过非欧几里得几何吧。如果现在我们“强行”把距离规定成两直角边p次方和等于斜边p次方——这种空间我们称为p-范数空间。有一个很棒的短篇科幻小说叫《勾股》，讲述了一个受虫洞影响导致勾股定理中的幂从2偏离到2.013的故事，虽然广义相对论已经能证明弯曲时空勾股定理的次方数还是2，但这并不妨碍它是一篇很好的脑洞很大的小说。
+- Animation
+- Geometry
+- Mathematics
+excerpt: The Pythagorean theorem can be invalid! You've probably heard of non-Euclidean geometry. If we "forcibly" define the distance such that the sum of the p-th powers of the two sides equals the p-th power of the hypotenuse—we call this space a p-norm space.
 index_img: /img/pnorm3.png
 ---
-<span class="likecode">//注：本文于2020年8月大幅改动并加入了大量新内容！</span>
-<span class="likecode">//注：本文于2023年1月修正了最后一小节关于引力轨道计算的错误并做了相应补充！</span>
+<span class="likecode">//Note: This article was significantly revised in August 2020 and includes a lot of new content!</span>
+<span class="likecode">//Note: The last section on gravitational orbit calculations was corrected and supplemented in January 2023!</span>
 
-## 不一样的距离公式
-大家知道勾股定理是直角边两边的平方和等于第三边，这是一个不用怀疑的事实，也有各种方法证明勾股定理，其中最著名的莫过“无字证明”了：
+## A Different Distance Formula
+We all know the Pythagorean theorem states that the sum of the squares of the two sides of a right triangle equals the square of the third side. This is an indisputable fact, and there are various ways to prove it. The most famous is probably the "proof without words":
 ![](/img/pnorm3.gif)
-但其实这个证明是有问题的，因为勾股定理是可以不成立的！大家应该听说过非欧几里得几何吧，我前面的[一篇文章也讲过一种“双曲几何”](/archives/escher1/)。非欧几里得几何本来是从否定平行公设出发推出的一系列新的几何学，但它们的实质是**度量**不一样，即计算距离的公式不一样。我们熟知的计算两点间距离的公式：$d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$也是从勾股定理中来的。如果现在我们“强行”把距离规定成$d=\sqrt\[p\]{|x_2-x_1|^p+|y_2-y_1|^p}$，即勾股定律变成两边p次方和等于斜边p次方——这种空间我们称为**p-范数空间**。有一个很棒的短篇科幻小说叫《[勾股](https://www.douban.com/note/729459256/)》，讲述了一个受虫洞影响导致勾股定理中的幂从2偏离到2.013的故事，虽然广义相对论已经能证明弯曲时空勾股定理的次方数还是2，但这并不妨碍它是一篇很好的脑洞很大的小说。如果真实存在这种空间会怎样呢？下面我们就来探究奇妙的p范数空间。
+However, there is an issue with this proof because the Pythagorean theorem can be invalid! You've probably heard of non-Euclidean geometry. I mentioned a type of "hyperbolic geometry" in a previous [article](/archives/escher1/). Non-Euclidean geometry was originally a series of new geometries developed by negating the parallel postulate, but their essence lies in a different **metric**, meaning a different formula for calculating distance. The familiar formula for calculating the distance between two points, $d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$, also comes from the Pythagorean theorem. If we "forcibly" define the distance as $d=\sqrt[p]{|x_2-x_1|^p+|y_2-y_1|^p}$, where the Pythagorean theorem becomes the sum of the p-th powers of the two sides equals the p-th power of the hypotenuse—we call this space a **p-norm space**. There's an excellent short sci-fi story called "[Pythagoras](https://www.douban.com/note/729459256/)," which tells the tale of a world where a wormhole causes the exponent in the Pythagorean theorem to deviate from 2 to 2.013. Although general relativity has proven that the exponent in the Pythagorean theorem for curved spacetime is still 2, this does not detract from it being a wonderful, imaginative story. What would it be like if such a space really existed? Let's explore the fascinating p-norm space below.
 
-<!--more-->
-![各种各样的“圆”](/img/pnorm1.gif)
-首先是“圆”变了。圆的定义是平面上到定点等距的点的集合，距离定义变了图形就变了，圆周率（周长除以直径）也就变了（当然这里的“周长”要用新定义的距离公式计算）。可能最近比较著名的应该属小米的新logo设计了——它的外框曲线是3-范数下的圆，就这个东西价值200万元。![价值200万元的设计大师原研哉为小米设计的logo外框曲线是3-范数下的圆](/img/pnorm.svg?size=250x)大多数介绍p-范数空间讲到的东西可能就止步于此了。如果p不等于2（比如p=3）那些世界会是怎样的呢？Matrix67大牛的[这篇文章](http://www.matrix67.com/blog/archives/4078)讲了p=1的世界的几何学，讨论了中垂线、外接圆等问题。但为什么我们的世界会选择p=2这个数字呢？
+![Various "circles"](/img/pnorm1.gif)
+First, the "circle" changes. The definition of a circle is the set of points in a plane equidistant from a fixed point. When the distance definition changes, the shape changes, and so does pi (the ratio of circumference to diameter) (of course, the "circumference" here must be calculated using the newly defined distance formula). Perhaps the most recent famous example is Xiaomi's new logo design—its outer curve is a circle in 3-norm, and this single design cost 2 million yuan. ![The outer curve of the logo designed by master designer Kenya Hara for Xiaomi, which cost 2 million yuan, is a circle in 3-norm](/img/pnorm.svg?size=250x) Most introductions to p-norm space probably stop here. What would a world with p not equal to 2 (e.g., p=3) be like? The great expert Matrix67's [article](http://www.matrix67.com/blog/archives/4078) discusses the geometry of the world where p=1, touching on problems like perpendicular bisectors and circumcircles. But why did our world choose the number p=2?
 
-说到圆我们就要说旋转的概念。世界上最完美的图形就是圆。但现在我们不敢这样说了。在3范数(p=3)的世界里，曲线$|x|^3+|y|^3=1$才是“最完美的图形”，因为3范数的世界动点绕原点旋转的轨迹就是曲线$|x|^3+|y|^3=1$，所以3范数世界里的生物从各个方向看（转着看）这个图形都是一样的。这个解释听起来是很合理的，似乎说明我们必须适应这种看法，不要把2-范数世界放到特殊的位置，但我们会看到2-范数空间确实有些特殊性。
+Speaking of circles, we must discuss the concept of rotation. In our world, the most perfect shape is the circle. But now we can't say that with certainty. In a 3-norm (p=3) world, the curve $|x|^3+|y|^3=1$ is the "most perfect shape" because the trajectory of a moving point rotating around the origin in the 3-norm world is exactly the curve $|x|^3+|y|^3=1$. Thus, creatures in a 3-norm world would see this shape as identical from all directions (when rotating). This explanation sounds reasonable and seems to suggest we must adapt to this view and not put 2-norm space in a special position, but we will see that 2-norm space indeed has some special properties.
 
-我们的世界里旋转可以用矩阵来表示，比如点(x,y)绕原点逆时针转$\theta$角到点(x',y')：$$\begin{pmatrix} x' \\\\y'\end{pmatrix}=\begin{pmatrix}\cos\theta & \sin\theta \\\\-\sin\theta & \cos\theta\end{pmatrix}\begin{pmatrix}x \\\\y\end{pmatrix}=\begin{pmatrix}x \cos\theta+y \sin\theta \\\\-x \sin\theta+y \cos\theta\end{pmatrix}$$那么p范数下的旋转变换会长啥样？在研究p范数几何之前，我们先来看看另一种著名的几何：闵可夫斯基空间。
-## 闵可夫斯基空间
-如果我们规定距离公式为$d^2=(x_2-x_1)^2-(y_2-y_1)^2$会怎样？首先这个世界的圆变成了双曲线，双曲线的周长是无限长的！（可用线积分计算出）这个世界的圆周率为正无穷，旋转也没有周期！诡异的事不止是这些，最诡异的是有时候长度变成了**虚数**！因为算距离时根号下可能为负。
-这么糟糕的空间很难相信它的存在，但它就是**时空**！四维时空中的距离表达式为$d^2=x^2+y^2+z^2-t^2$
-如果$x^2+y^2+z^2-t^2>0$这里的距离就是空间间隔，我们叫“类空的”；如果小于零我们就取绝对值再开方，得到时间间隔，我们叫“类时的”；还有一些根号下恰为0，我们叫类光的。闵可夫斯基四维时空是相对论的很好的数学模型，比如著名的洛伦兹变换可以写成像我们熟知的旋转矩阵一样：
+In our world, rotation can be represented by a matrix. For example, a point (x,y) rotating counterclockwise by an angle $\theta$ around the origin to point (x',y'):$$\begin{pmatrix} x' \\\\y'\end{pmatrix}=\begin{pmatrix}\cos\theta & \sin\theta \\\\-\sin\theta & \cos\theta\end{pmatrix}\begin{pmatrix}x \\\\y\end{pmatrix}=\begin{pmatrix}x \cos\theta+y \sin\theta \\\\-x \sin\theta+y \cos\theta\end{pmatrix}$$What would a rotation transformation look like in p-norm? Before studying p-norm geometry, let's look at another famous geometry: Minkowski space.
+
+## Minkowski Space
+What happens if we define the distance formula as $d^2=(x_2-x_1)^2-(y_2-y_1)^2$? First, the circles in this world become hyperbolas, and the circumference of a hyperbola is infinitely long! (Calculated using a line integral.) The value of pi in this world is positive infinity, and rotation has no period! The strangeness doesn't stop there; the weirdest thing is that sometimes the length becomes an **imaginary number**! This is because the value under the square root might be negative when calculating distance.
+
+It's hard to believe such a strange space exists, but it is **spacetime**! The distance expression in four-dimensional spacetime is $d^2=x^2+y^2+z^2-t^2$.
+If $x^2+y^2+z^2-t^2>0$, the distance here is a spatial interval, which we call "spacelike"; if it's less than zero, we take the absolute value and then the square root to get a time interval, which we call "timelike"; and if the value under the square root is exactly 0, we call it "lightlike." Minkowski's four-dimensional spacetime is an excellent mathematical model for relativity. For example, the famous Lorentz transformation can be written like our familiar rotation matrix:
 $$\begin{pmatrix} x' \\\\t'\end{pmatrix}=\begin{pmatrix}\cosh\theta & -\sinh\theta \\\\-\sinh\theta & \cosh\theta\end{pmatrix}\begin{pmatrix}x \\\\t\end{pmatrix}$$
-其实洛伦兹变换就是四维闵可夫斯基空间中的旋转！而且这种变换不会改变向量的性质（避免了回到过去杀死你爷爷奶奶的这种悖论），即会把类空（时、光）的向量变成类空（时、光）的向量，也说明了我们只能无限接近光速（加速即旋转，旋转没有周期性）。
-## 广义三角函数
-对双曲函数我们有$\cosh^2\theta-\sinh^2\theta=1$，那么我们假定p范数下也有三角函数$\sin_p$和$\cos_p$，满足$\sin_p^p\theta+\cos_p^p\theta=1$。对于双曲函数，$\theta$是“双曲角”——即单位双曲线对应的一段弧长，所以$\sin_p$和$\cos_p$函数的自变量也是一种弧长，我们能像三角函数一样在单位圆内定义它们。
-让我们来看看这些奇怪的广义三角函数的图像：
-![p=1时的正弦、余弦、正切函数图像](/img/pnorm2.gif)
-![p=无穷时的正弦、余弦、正切函数图像](/img/pnorm5.gif)
-它们都是分段函数，正余弦都有种方方的感觉，正切里的曲线段则是反比例函数。
-要画出像p=0.5、3、4这种不特殊的情况我们得先找到公式计算$\sin_p$和$\cos_p$。我们需要根据$\sin_p$和$\cos_p$函数的定义来算出它们满足的微分方程。三角函数的自变量是角度，函数值是对应单位圆上点的坐标，那么问题来了，怎么定义$p$范数下的角度呢？当我们遇到这种看似无解的问题时可以想想熟悉的情况，比如$p=2$时，我们是怎么在圆里定义弧度的：弧度的定义为单位圆上的弧长。但不知大家学双曲函数的时候有没有听说过**双曲角**这个概念，它把双曲函数的自变量解释为了双曲线中一块“扇形”的面积的两倍，所以我们也可以同样规定弧度的定义为单位圆上扇形面积的两倍，可以证明，对于单位圆中的角度与双曲线中的双曲角，这两种定义是等价的（注意用弧长定义双曲角时，计算弧长需要使用双曲距离公式$d^2=(x_2-x_1)^2-(y_2-y_1)^2$，而面积计算方法不变）。但对于$p$不等于2的场景，分别由弧长与面积定义的角度还相同吗？注意这里的弧长也要换成相应的p-范数下的距离公式计算，对于面积，我们还是暂时用同样的方式计算（算积分即可），但不排除p-范数空间中面积的计算方法已经变了的可能。
-1. 最保险是使用弧长的定义，经繁琐计算我们能得到这样的微分方程组：（注意我们的微分方程中必须加入符号函数来谨慎处理距离的定义中的绝对值符号）
-$${d \sin_p x\over d x}=sign(\cos_p x)(1+|\sin_p x/\cos_p x|^{p(p-1)})^{1-p\over p} $$$${d \cos_p x\over d x}=-sign(\sin_p x)(1+|\cos_p x/\sin_p x|^{p(p-1)})^{1-p\over p} x $$$$ \sin_p(0)=0、\cos_p(0)=1$$
+In fact, the Lorentz transformation is a rotation in four-dimensional Minkowski space! Furthermore, this transformation does not change the nature of a vector (avoiding paradoxes like going back in time to kill your grandparents), meaning it transforms a spacelike (timelike, lightlike) vector into a spacelike (timelike, lightlike) vector. It also explains why we can only infinitely approach the speed of light (acceleration is rotation, and rotation has no periodicity).
 
-2. 根据面积的定义，我们能够算出另一个微分方程组：$${d \sin_p x\over d x}=sign((1-\sin_p^p x)^{1-p\over p})|(1-\sin_p^p x)^{1-p\over p}|=sign(\cos_p x)|\cos_p^{p-1} x| $$$$ {d \cos_p x\over d x}=-sign(1-\cos_p^p x)|(1-\cos_p^p x)^{1-p\over p}|=-sign(\sin_p x)|\sin_p^{p-1} x |$$$$ \sin_p(0)=0、\cos_p(0)=1$$
+## Generalized Trigonometric Functions
+For hyperbolic functions, we have $\cosh^2\theta-\sinh^2\theta=1$. Similarly, we can assume that in p-norm, there are trigonometric functions $\sin_p$ and $\cos_p$ that satisfy $\sin_p^p\theta+\cos_p^p\theta=1$. For hyperbolic functions, $\theta$ is the "hyperbolic angle"—the arc length corresponding to a segment of the unit hyperbola. Therefore, the independent variables of the $\sin_p$ and $\cos_p$ functions are also a type of arc length, which we can define within the unit circle like trigonometric functions.
 
-三角函数则是p=2时的特例，且以上两方程组的解相同。有了微分方程就能做数值计算了。而$\sin_p$、$\cos_p$的周期是p范数世界中圆的周长，所以自变量能取所有实数。
-下一个问题自然就是这些函数能不能解析开拓到复平面上去呢？比如$\sin(i) = i \sinh 1 = 1.1752i$，这给我们一个启发：复数或许可以连接p范数世界中的三角函数和双曲函数。
-下面隐藏的两个小节将讨论根据面积定义的广义三角函数的解析性质，其实跟p-范数几何关系不大，不想了解可以直接跳过。
+Let's look at the graphs of these strange generalized trigonometric functions:
+![Sine, cosine, and tangent function graphs for p=1](/img/pnorm2.gif)
+![Sine, cosine, and tangent function graphs for p=infinity](/img/pnorm5.gif)
+They are all piecewise functions. The sine and cosine have a somewhat square-like feel, while the curve segments in the tangent function are like inverse proportion functions.
+To plot non-special cases like p=0.5, 3, or 4, we first need to find formulas to calculate $\sin_p$ and $\cos_p$. We need to derive the differential equations they satisfy from their definitions. The independent variable of trigonometric functions is the angle, and the function values are the coordinates of the corresponding point on the unit circle. So, the question is, how do we define an angle in p-norm? When we encounter a seemingly unsolvable problem like this, we can think about a familiar situation, such as p=2. How do we define radians in a circle? A radian is defined as the arc length on the unit circle. However, when you studied hyperbolic functions, you may have heard of the concept of a **hyperbolic angle**, which explains the independent variable of hyperbolic functions as twice the area of a "sector" of the hyperbola. We can similarly define a radian as twice the area of a sector of the unit circle. It can be proven that for angles in a unit circle and hyperbolic angles in a hyperbola, these two definitions are equivalent (note that when defining the hyperbolic angle using arc length, the calculation requires the hyperbolic distance formula $d^2=(x_2-x_1)^2-(y_2-y_1)^2$, while the area calculation method remains unchanged). But for scenarios where $p$ is not equal to 2, are the angles defined by arc length and area still the same? Note that the arc length here must also be calculated using the corresponding p-norm distance formula. For the area, we will temporarily use the same method of calculation (by integration), but we cannot rule out the possibility that the method of calculating area has changed in p-norm space.
+1. The safest approach is to use the arc length definition. After tedious calculations, we can obtain the following system of differential equations: (Note that we must include a sign function in our differential equations to carefully handle the absolute value symbol in the distance definition)
+$${d \sin_p x\over d x}=sign(\cos_p x)(1+|\sin_p x/\cos_p x|^{p(p-1)})^{1-p\over p} $$$${d \cos_p x\over d x}=-sign(\sin_p x)(1+|\cos_p x/\sin_p x|^{p(p-1)})^{1-p\over p} x $$$$ \sin_p(0)=0, \cos_p(0)=1$$
 
-## <a href="javascript: $('#dixon').toggle()" target="_self">[点击展开/收起]广义三角函数的解析性质</a>
+2. Based on the area definition, we can derive another system of differential equations:
+$${d \sin_p x\over d x}=sign((1-\sin_p^p x)^{1-p\over p})|(1-\sin_p^p x)^{1-p\over p}|=sign(\cos_p x)|\cos_p^{p-1} x| $$$$ {d \cos_p x\over d x}=-sign(1-\cos_p^p x)|(1-\cos_p^p x)^{1-p\over p}|=-sign(\sin_p x)|\sin_p^{p-1} x |$$$$ \sin_p(0)=0, \cos_p(0)=1$$
+
+Trigonometric functions are a special case where p=2, and the solutions to both systems of equations are the same. With these differential equations, we can perform numerical calculations. The period of $\sin_p$ and $\cos_p$ is the circumference of the circle in the p-norm world, so the independent variable can take all real numbers.
+The next question is naturally whether these functions can be analytically continued to the complex plane. For example, $\sin(i) = i \sinh 1 = 1.1752i$, which gives us a hint: complex numbers might be able to connect the trigonometric and hyperbolic functions in a p-norm world.
+The following two hidden subsections will discuss the analytical properties of the generalized trigonometric functions defined by area. They are not very relevant to p-norm geometry, so feel free to skip them.
+
+## <a href="javascript: $('#dixon').toggle()" target="_self">[Click to expand/collapse] Analytical properties of generalized trigonometric functions</a>
 
 <div id="dixon" style="background-color:var(--color-EEF); display:none">
-<h3>p范数中的闵可夫斯基空间</h3>
+<h3>Minkowski Space in p-Norms</h3>
 
-我们不妨看看p范数中的单位双曲线$x^p-y^p=1$：
+Let's look at the unit hyperbola $x^p-y^p=1$ in p-norm:
 ![](/img/pnorm4.gif)
-由于弧长定义的表达式太复杂，我们这里就只先讨论面积定义的广义三角函数。
-用同样的面积方法定义广义双曲函数$\sinh_p$、$\cosh_p$，类似地我们能得到微分方程（这里先假设都在第一象限讨论，故省略绝对值与符号函数）$${d \sinh_p x\over d x}=\cosh_p^{p-1} x $$$$ {d \cosh_p x\over d x}=\sinh_p^{p-1} x $$$$ \sin_p(0)=0、\cos_p(0)=1$$
-它们形式上只差一个符号。回想p=2时熟悉的三角函数与双曲函数关系的推导过程——通过欧拉公式$e^{i\theta}=\cos \theta+i \sin \theta$得到的，而欧拉公式又是通过泰勒级数展开得到的。我们可以在0处对$\sin_p$做级数展开，我们就要知道$\sin_p$在0处的各阶导数。p=2时即$\sin$函数的导数很有规律，泰勒级数中没有偶次项，且奇次项正负交替。$\sin_p$就不好展开了，它的各阶导数没规律，我们只能“硬算”：比如
+Because the expression defined by arc length is too complex, we will only discuss the generalized trigonometric functions defined by area here.
+Using the same area method to define the generalized hyperbolic functions $\sinh_p$ and $\cosh_p$, we can similarly get the differential equations (here we assume we are in the first quadrant, so we omit absolute values and sign functions):
+$${d \sinh_p x\over d x}=\cosh_p^{p-1} x $$$$ {d \cosh_p x\over d x}=\sinh_p^{p-1} x $$$$ \sin_p(0)=0, \cos_p(0)=1$$
+Their forms only differ by a sign. Let's recall the derivation process for the relationship between the familiar trigonometric and hyperbolic functions when p=2—it was obtained through Euler's formula $e^{i\theta}=\cos \theta+i \sin \theta$, which in turn was obtained through the Taylor series expansion. We can perform a series expansion of $\sin_p$ at 0. To do this, we need to know all the higher-order derivatives of $\sin_p$ at 0. When p=2, the derivatives of the $\sin$ function are very regular: there are no even-powered terms in the Taylor series, and the odd-powered terms alternate in sign. $\sin_p$ is not easy to expand, as its derivatives are not regular, so we have to "brute-force" calculate them: for example,
 $$(\sin_3 x)'=\cos_3^2 x\\\\
 (\sin_3 x)''=(\cos_3^2 x)'=-2\cos_3 x \sin_3^2 x\\\\
 ....
 $$
-这样我们能算出前几项级数：$\sin_3 x = x-4{x^4 / 4!}+160{x^7 / 7!}-20800{x^{10} / 10!}+...$
-我们发现只有(3n+1)次方项！可以通过数学归纳法证明$\sin_p x$的级数展开只有(pn+1)次方项，且正负交替。这说明有$\sin_p(\omega x)=\omega \sin_p( x)$，其中$\omega^p=1$，类似有$\cos_p(\omega x)=\cos_p(x)$。
+This way, we can calculate the first few terms of the series: $\sin_3 x = x-4{x^4 / 4!}+160{x^7 / 7!}-20800{x^{10} / 10!}+...$
+We notice that only terms with the power of (3n+1) exist! It can be proven by mathematical induction that the series expansion of $\sin_p x$ only contains terms with the power of (pn+1) and they alternate in sign. This means that $\sin_p(\omega x)=\omega \sin_p( x)$, where $\omega^p=1$, and similarly $\cos_p(\omega x)=\cos_p(x)$.
 
-同样我们也能算出双曲函数$\sinh_p x$的级数展开也只有(pn+1)次方项，且系数全为正，这些系数等于三角函数$\sin_p x$对应系数的绝对值！有了这个发现我们就能算$\sin_p(\omega x)=\omega \sinh_p(x)$，其中$\omega^{2p}=1 且 \omega^p=-1$。**复数确实把三角函数与双曲函数联系在了一起**。
-<h3>费马曲线</h3>
-对于p=3，我们有$\sin_3(\omega x)=\omega \sinh_3(x)$，取$\omega=-1$得到$\sin_3(-x)=-\sinh_3(x)$。按理说正弦函数该是奇函数的，但从泰勒级数看出它不是奇函数。原因就在于我们研究的是曲线$|x|^3+|y|^3=1$，绝对值导致了分段函数，$\sin_3(-x)=-\sinh_3(x)$其实是不成立的，既然都是分段函数了，更不能谈复平面解析开拓了。如果我们放弃绝对值，研究曲线$x^3+y^3=1$（<span style="color:red">下图红色</span>）则马上就能明白双曲函数和三角函数为什么会一起出现了：它在第一象限对应圆，在二四象限对应双曲线。这就是这小节开头我们不写绝对值与符号函数的意图。
+We can also calculate that the series expansion of the hyperbolic function $\sinh_p x$ also only contains terms with the power of (pn+1), and all coefficients are positive. These coefficients are equal to the absolute values of the corresponding coefficients of the trigonometric function $\sin_p x$! With this discovery, we can calculate $\sin_p(\omega x)=\omega \sinh_p(x)$, where $\omega^{2p}=1$ and $\omega^p=-1$. **Complex numbers indeed connect trigonometric and hyperbolic functions**.
+<h3>Fermat Curves</h3>
+For p=3, we have $\sin_3(\omega x)=\omega \sinh_3(x)$. Taking $\omega=-1$, we get $\sin_3(-x)=-\sinh_3(x)$. In principle, the sine function should be an odd function, but the Taylor series shows it is not. The reason is that we are studying the curve $|x|^3+|y|^3=1$. The absolute value leads to a piecewise function, and $\sin_3(-x)=-\sinh_3(x)$ is actually not valid. Since they are both piecewise functions, we cannot even discuss analytical continuation to the complex plane. If we abandon the absolute value and study the curve $x^3+y^3=1$ (<span style="color:red">red line in the figure below</span>), it becomes immediately clear why hyperbolic and trigonometric functions appear together: it corresponds to a circle in the first quadrant and a hyperbola in the second and fourth quadrants. This is the intention behind not writing absolute values and sign functions at the beginning of this section.
 
 ![](/img/pnorm6.gif)
-放弃绝对值以后$\sin_3 x$、$\cos_3 x$叫做Dixon椭圆函数，记作sm(x)和cm(x)，椭圆函数是一类很神奇的拥有二维周期的复变函数，它在实数上的周期并不是圆的周长，而是周长3/2倍，具体解释可以参考[维基百科](https://en.wikipedia.org/wiki/Dixon's_elliptic_functions)和[这篇论文](http://algo.inria.fr/flajolet/Publications/CoFl06.pdf)。
-但对于p为偶数的情况$\sin_p x$、$\cos_p x$确实是周期的（周期为圆周长），但解析开拓却是多值的，这些函数被称为广义Dixon椭圆函数。
-![p=4时的正弦函数是一个多值函数，色相代表幅角，亮度代表模长（黑色代表零点）](/img/pnorm.jpg)
-最后我想说的是，通过面积定义的广义Dixon椭圆函数其实是还是一种2-范数的思维，只不过研究的是代数曲线$x^p+y^p=1$而已，跟p-范数无关。但通过弧长定义的广义三角函数的微分方程实在太复杂，它的解析性质就先暂时不研究了。
+After abandoning the absolute value, $\sin_3 x$ and $\cos_3 x$ are called Dixon's elliptic functions, denoted as sm(x) and cm(x). Elliptic functions are a class of magical complex functions with two periods. Their period on the real number line is not the circumference of the circle, but 3/2 times the circumference. For a detailed explanation, you can refer to [Wikipedia](https://en.wikipedia.org/wiki/Dixon's_elliptic_functions) and [this paper](http://algo.inria.fr/flajolet/Publications/CoFl06.pdf).
+However, for even p, $\sin_p x$ and $\cos_p x$ are indeed periodic (with the period being the circumference of the circle), but their analytical continuation is multi-valued. These functions are called generalized Dixon elliptic functions.
+![The sine function for p=4 is a multi-valued function, where hue represents the argument and brightness represents the modulus (black represents zero points)](/img/pnorm.jpg)
+Finally, I want to say that the generalized Dixon elliptic functions defined by area are actually a type of 2-norm thinking, simply studying the algebraic curve $x^p+y^p=1$, which has nothing to do with p-norm. However, the differential equations for generalized trigonometric functions defined by arc length are too complex, so their analytical properties will not be studied for now.
 </div>
 
-### 不同范数下的圆周率与三角函数
-弧长与面积定义的广义三角函数到底相差多少呢？首先最明显的就是三角函数的周期不一样——这个周期对应相应圆的周长与面积。当$p=1$时，圆（菱形）的面积是2，$p=\infty$时，圆（正方形）的面积是4，但他们的周长都是8，可见这两种定义绝对是不等价的。其实从下图可以看到，它们只在$p=2$时相等。（都等于3.1415926..）其中红色曲线在p=2时还取得了极小值$\pi$！（[这里有证明](https://www.jstor.org/stable/2687579?origin=crossref&seq=1#page_scan_tab_contents)）
-![两种定义下的圆周率与p的关系，蓝色曲线为面积定义，红色为周长定义](/img/pnorm12.gif)
-对于各种三角函数，我们不妨把横坐标缩放一下，将周期统一起来，只关注函数图像形状上的差别，看看它们的区别有多大：
+### Pi and Trigonometric Functions in Different Norms
+How much do the generalized trigonometric functions defined by arc length and area differ? The most obvious difference is that the period of the trigonometric functions is not the same—this period corresponds to the circumference and area of the corresponding circle. When $p=1$, the area of the circle (diamond) is 2, and when $p=\infty$, the area of the circle (square) is 4, but their circumferences are both 8. This shows that these two definitions are absolutely not equivalent. In fact, as you can see from the figure below, they are only equal when $p=2$. (Both are 3.1415926..) The red curve also reaches a minimum value of $\pi$ at p=2! ([Here is the proof](https://www.jstor.org/stable/2687579?origin=crossref&seq=1#page_scan_tab_contents))
+![Relationship between the two definitions of pi and p. The blue curve is the area definition, and the red is the circumference definition](/img/pnorm12.gif)
+For various trigonometric functions, let's rescale the x-axis to unify the periods and only focus on the difference in the shape of the function graphs to see how different they are:
 ![](/img/pnorm13.gif)
-上图中画出了$p=5$时两种定义下的正弦、余弦、正切函数图像，共6条曲线，我们发现两条曲线虽然不重合，但也比较接近。
+The figure above shows the sine, cosine, and tangent function graphs for p=5 using both definitions, a total of 6 curves. We find that the two curves, although not identical, are relatively close.
 
-## 旋转对称性
-回到几何上来，我们猜想p范数下也有类似的旋转矩阵：$$\begin{pmatrix}
+## Rotational Symmetry
+Returning to geometry, we can guess that p-norm also has a similar rotation matrix: $$\begin{pmatrix}
 \cos_p\theta & \sin_p\theta \\\\
 -\sin_p\theta & \cos_p\theta
 \end{pmatrix}$$
 ![](/img/pnorm7.gif)
-注意我们这里要严格选定弧长定义的那种广义三角函数。但不幸的是可以验证这样的矩阵变换不能保持长度不变，更进一步我们可以验证这种变换至少不是线性的，比如线段PQ旋转到P'Q'：（转了1/8个圆周）然而PQ的长度为$2^{1\over p}$，P'Q'的长度为$2^{p-1\over p}$，我们发现只有p=2时它们长度才相等。但这也不能说旋转是不可能的。事实上线段旋转完后不一定是线段，比如PQ的中点会旋转到P'Q'偏下的位置。但从**等距同构群**（即所有能保持图形中所有点距离不变的变换）的角度看这个世界已经不能旋转了（没有旋转对称性），等距同构群只有平移、反射变换。但这不妨碍我们定义一种广义的“旋转”——逆时针绕原点转$\alpha$角：
+Note that here we must strictly choose the generalized trigonometric functions defined by arc length. Unfortunately, it can be verified that such a matrix transformation does not preserve length. Furthermore, we can verify that this transformation is not linear, for example, a line segment PQ rotating to P'Q': (rotating 1/8 of a circle) The length of PQ is $2^{1\over p}$, while the length of P'Q' is $2^{p-1\over p}$. We find that they are only equal when p=2. But this does not mean that rotation is impossible. In fact, a line segment is not necessarily a line segment after rotation; for example, the midpoint of PQ will rotate to a position below P'Q'. From the perspective of the **isometry group** (i.e., all transformations that preserve the distance between all points in a figure), this world can no longer rotate (it has no rotational symmetry). The isometry group only includes translation and reflection transformations. But this does not prevent us from defining a generalized "rotation"—a counterclockwise rotation of angle $\alpha$ around the origin:
 $$r=\sqrt[p]{|x|^p+|y|^p}$$$$
 \theta=atan2_p(y,x)$$$$
 x'=r \cos_p(\theta+\alpha) $$$$
 y'=r \sin_p(\theta+\alpha) $$
-其中$atan2_p$类似于$atan2$函数：表示向量$(x,y)$与x轴正向的夹角（绝对值等于夹的那段弧长）。<a name="rotanime"></a>
+Where $atan2_p$ is similar to the $atan2$ function: it represents the angle of the vector $(x,y)$ with respect to the positive x-axis (the absolute value equals the arc length of the subtended arc). <a name="rotanime"></a>
 
-比如下面是p=3时的旋转：
+For example, here is the rotation for p=3:
 ![](/img/pnorm9.gif)
-我们看到它不是线性的，且“圆”在旋转下不变，确实是最完美的图形。（我们世界的蓝色圆在这个世界中会变形，并不完美）
-下面这个动画（取的p=3的世界）能反映这个旋转“**不好**”的性质：我们先把一个图形平移一段距离，再绕原点顺时针旋转一定角度$\alpha$，再平移回原点，逆时针转回来角$\alpha$，这个图形的形状按理说不该变，但这个旋转会让图形变形。
-![p=2——我们的世界](/img/pnorm10.gif) ![p=3的世界](/img/pnorm11.gif)
-以下是角度$\alpha$不断变化得到的一系列变形的结果：
+We see that it is not linear, and the "circle" remains unchanged under rotation, making it indeed the most perfect shape. (The blue circle of our world would deform in this world and would not be perfect.)
+The following animation (for a p=3 world) can reflect the "**bad**" properties of this rotation: we first translate a shape a certain distance, then rotate it clockwise by an angle $\alpha$ around the origin, then translate it back to the origin, and finally rotate it back counterclockwise by angle $\alpha$. The shape should not change in principle, but this rotation causes the shape to deform.
+![p=2—Our world](/img/pnorm10.gif) ![The world of p=3](/img/pnorm11.gif)
+Below are the results of a series of deformations as the angle $\alpha$ changes continuously:
 ![](/img/pnorm8.gif)
-这种变形周期为$\pi_3/2$($\pi_3$，是p=3世界中的圆周率)，且沿平移方向直线上的点没动。那是不是意味着这个世界中物体都不能转动，只能平移呢？因为试图转动会改变某些点间的距离，这个世界中的生物会认为旋转是一件不可思议的事。但我们忽略了一点：世界中的物体不一定是刚体。下面我们将建立最简单的弹簧质点模型来考察这个世界中的质点动力学，先剧透一下：最后我们会惊奇地发现，我们其实没有选择p-范数p值的权利！它将在某种意义下自动等于2。
-## p-范数世界中的弹簧
-我们平时所说的刚体，即完全不会发生形变的物体，严格上应该定义为具有物体上各部分点在运动中距离永远保持不变的物体。怎样维持各部分点距离不变呢？最简单的做法就是硬弹簧模型：我们把刚体分成无数个质点，两两之间都连接上一个劲度系数特别大的弹簧，且弹簧的原长刚好等于质点间的距离，这样距离上一旦有变化质点就将受到回复力的作用尝试回到平衡位置上去。但这将导致弹簧振荡，我们加入适当的阻尼项让弹簧停在平衡位置。这样就近似实现了距离不变的力学约束。下面我们来看看胡克定律：
-$$F = -k\Delta x$$其中$\Delta x$是弹簧的伸长量，既然涉及到长度，我们自然就要用上p-范数的距离公式来计算，这样就得到了p-范数世界中的弹簧模型。
-首先我们将一个质点放在x轴（1,0）上，与坐标原点用弹簧（原长刚好为质点到原点的距离）相连，然后给它一个y轴方向上的速度，这个质点就会逆时针绕原点旋转起来。但由于我们的平衡位置已经限定好用p-范数计算，所以质点的旋转轨迹不是2-范数的圆，而是p-范数的圆。此时我们计算一下质点的速度大小，注意计算速度时也需要用p-范数的长度公式还计算速度向量的长度，但不幸的是这个速度向量的值在旋转中会改变：运动到对角线方向时质点的速度比过x、y轴时慢一些。
-![p=4的一个质点正在做p-圆周运动，然而不是匀速圆周运动](/img/pnorm15.gif)
-当然这也还好，我们继续增加一个质点，放在y轴（0,1）上，将它分别与原点和x轴的质点连接，组成一个三角形。同样，我们给x轴上的质点一个沿y轴的初速度，这样两个质点便会一起旋转，但我们发现这次两个质点的运动速度更加不均匀。注意这个空间里我们无法再准确定义内积、垂直等概念，所以所谓“正交分解”是进行不下去的。（其实脑洞大一点还能定义一种将p个向量映射成一个数的“内积”，这样向量范数就还是向量自身的内积在开p次方，但好像除了这个就没任何意义了）
-![p=4的两个质点](/img/pnorm16.gif)
-上图中的两个质点好像在相互拖拽，但那个不断变形的三角形的三边长确实是固定的！看来三边相等来判断三角形全等在一般p-范数下也不成立了。我们继续再加一个质点，这次放在x、y轴的对角线（1,1）上，加上原点四个点组成一个正方形。我们对正方形的四个顶点两两都安上弹簧，一共6个，现在我们再对一个点给一个初速度，这个正方形会转起来吗？之前我们说p不等于2的世界是不能旋转的，那会不会正方形真的只会平移呢？计算结果很奇怪：
-![p=2.05的一个“刚体”正方形](/img/pnorm14.gif)
-正方形还是在尝试旋转，并且最初旋转进行得很顺利，但当角度稍微大了一点后我们看到质点开始发生抖动，说明质点间的距离已经不能均保持原长，且无法自动恢复到平衡位置。更神奇的是，抖动了一会后整个正方形突然旋转了90度又稳定了下来（数值不稳定已经发生，后续又稳定没有物理意义了），但过一会就又突然转回来，直到数值计算误差过大导致整个系统剧烈抖动。但我们能够看出这个正方形并不会乖乖地平移，它还是想旋转，而且长度约束不满足后弹簧产生的内力并不能阻止旋转运动，导致整个系统剧烈震荡崩溃。
+The period of this deformation is $\pi_3/2$ ($\pi_3$ is the pi in the p=3 world), and points on the line in the direction of translation do not move. Does this mean that objects in this world can only translate and not rotate? Because attempting to rotate would change the distance between certain points, and creatures in this world would consider rotation an incredible event. But we have ignored one point: objects in the world are not necessarily rigid bodies. Below, we will establish the simplest spring-mass model to examine the point-mass dynamics in this world. Spoiler alert: we will be surprised to find that we actually do not have the right to choose the p-norm value of p! It will automatically equal 2 in some sense.
 
-我们再来分析一个离心运动的案例：把原长为0的弹簧一头系在原点，另一头放个质点，给质点初速度会怎样。由于弹簧没有原长，所以受力的大小直接是坐标到原点的距离乘以劲度系数。我们唯一的问题是怎样将力分解到坐标上。注意给定坐标$(x,y)$后我们可以求出这个方向上的单位向量：$(x/\sqrt[p]{x^p+y^p},y/\sqrt[p]{x^p+y^p})$，读者可以自行验证这个向量是单位长度且与$(x,y)$平行。所以受力分解的结果为单位向量乘以长度$l=\sqrt[p]{x^p+y^p}$再乘劲度系数$kl$，也就是说最终力的表达式为$(kx,ky)$，表达式完全跟$p$无关！而且更加“可气”的是，只要$\vec{F}=k\vec{x}$，那么质点运动轨迹就一定是线段、椭圆或圆，注意这里的圆是2-范数下的圆，它是$\vec{F}=k\vec{x}$决定的微分方程自然的解，也就是说无论我们怎样选择范数，最终物理系统的行为都会自动满足2-范数！这也说明了2-范数的特殊性以及为什么没有更多人去深入研究p-范数几何的原因。
+## Springs in a p-Norm World
+What we usually call a rigid body, an object that does not deform at all, should be strictly defined as an object where the distance between its component points remains constant during motion. How do we keep the distance between parts of an object constant? The simplest approach is a stiff spring model: we divide the rigid body into countless point masses and connect every pair of them with a spring with a very large spring constant, where the springs' natural lengths are exactly equal to the distance between the point masses. In this way, as soon as there is a change in distance, the point masses will be subject to a restoring force that tries to bring them back to their equilibrium positions. But this will cause the springs to oscillate, so we add an appropriate damping term to make the springs stop at the equilibrium position. This approximates a mechanical constraint of constant distance. Now let's look at Hooke's Law:
+$$F = -k\Delta x$$where $\Delta x$ is the extension of the spring. Since it involves length, we naturally need to use the p-norm distance formula for the calculation, which gives us the spring model in a p-norm world.
+First, we place a point mass on the x-axis at (1,0), connected to the origin by a spring (with a natural length equal to the distance from the point mass to the origin). Then we give it a velocity in the y-direction, and this point mass will start rotating counterclockwise around the origin. But since our equilibrium position is already defined using p-norm, the trajectory of the point mass is not a 2-norm circle, but a p-norm circle. At this point, we calculate the magnitude of the point mass's velocity. Note that calculating velocity also requires using the p-norm length formula to calculate the length of the velocity vector. Unfortunately, the value of this velocity vector changes during rotation: when moving in the diagonal direction, the point mass's speed is a bit slower than when passing through the x and y axes.
+![A point mass for p=4 is undergoing p-circular motion, but not uniform circular motion](/img/pnorm15.gif)
+This is still fine. Let's add another point mass at (0,1) on the y-axis, and connect it to both the origin and the point mass on the x-axis to form a triangle. Similarly, we give the point mass on the x-axis an initial velocity along the y-axis, and the two point masses will rotate together. But we find that this time, the motion speed of the two point masses is even more uneven. Note that in this space, we can no longer accurately define concepts like dot product and perpendicularity, so the so-called "orthogonal decomposition" cannot be performed. (Actually, with a bit more imagination, we can define a kind of "dot product" that maps p vectors into one number, so that the vector norm is still the p-th root of the vector's inner product with itself, but it doesn't seem to have any other meaning beyond that.)
+![Two point masses for p=4](/img/pnorm16.gif)
+The two point masses in the figure seem to be dragging each other, but the lengths of the three sides of the constantly deforming triangle are indeed fixed! It seems that the criterion of three equal sides for congruence of triangles is also invalid under a general p-norm. Let's add another point mass, this time on the diagonal of the x and y axes at (1,1), forming a square with the origin. We place springs between every pair of the four vertices, a total of 6. Now, if we give one point an initial velocity, will the square rotate? We said earlier that a world where p is not equal to 2 cannot rotate, so will the square really just translate? The calculation results are very strange:
+![A "rigid body" square for p=2.05](/img/pnorm14.gif)
+The square is still trying to rotate, and the initial rotation proceeds smoothly, but when the angle gets a little larger, we see the point masses start to jitter, which means the distance between the point masses can no longer be maintained at their original lengths and cannot automatically return to the equilibrium position. Even more mysteriously, after jittering for a while, the entire square suddenly rotates 90 degrees and stabilizes again (the numerical instability has already occurred, so subsequent stabilization has no physical meaning), but after a while, it suddenly rotates back, until the numerical calculation error becomes too large, causing the entire system to violently jitter and collapse. But we can see that this square does not obediently translate; it still wants to rotate, and when the length constraint is not satisfied, the internal forces produced by the springs cannot stop the rotational motion, causing the entire system to violently oscillate and collapse.
 
-## p-范数世界中的天体运动
+Let's analyze a case of centrifugal motion: tie one end of a spring with a natural length of 0 to the origin and place a point mass at the other end. What happens if we give the point mass an initial velocity? Since the spring has no natural length, the magnitude of the force is simply the distance from the coordinate to the origin multiplied by the spring constant. Our only problem is how to decompose the force onto the coordinates. Note that given coordinates $(x,y)$, we can find the unit vector in this direction: $(x/\sqrt[p]{x^p+y^p},y/\sqrt[p]{x^p+y^p})$. Readers can verify that this vector has unit length and is parallel to $(x,y)$. Therefore, the result of the force decomposition is the unit vector multiplied by the length $l=\sqrt[p]{x^p+y^p}$ and then multiplied by the spring constant $k l$. This means the final expression for the force is $(kx,ky)$, and the expression is completely independent of $p$! What's more, it's "annoying" that as long as $\vec{F}=k\vec{x}$, the trajectory of the point mass will be a line segment, an ellipse, or a circle. Note that the circle here is a 2-norm circle, and it is a natural solution to the differential equation determined by $\vec{F}=k\vec{x}$. This means that no matter what norm we choose, the behavior of the final physical system will automatically satisfy the 2-norm! This also explains the special nature of the 2-norm and why fewer people have deeply studied p-norm geometry.
 
-上面的弹簧$\vec{F}=k\vec{x}$只是有心力运动的一个特殊情况，一般我们设$F=kx^n \vec{e}_x$，n取一为胡克定律，n取-2则为万有引力定律（Hint:三维空间中才是平方反比哦）。把单位向量写开就是$\vec{F}=k||x||^{n-1}\vec{x}$，也就是说其实只有n=1的胡克定律才与范数无关，而在p取不同值行星受引力运动轨迹也是不一样的！让我们看看p-范数中的行星系统吧！
-![p=4的行星轨道，引力按平方反比衰减](/img/pnorm1.png)
-计算发现，4-范数下卫星的轨道居然是稳定的！（这里感谢[热心网友](https://space.bilibili.com/696013443)的指正(2023.01.01)，我最先算错了以为轨道像三次方反比那样不稳定）跟2-范数下一样，行星存在封闭轨道与开放的轨道。上图中地球放在坐标原点，放在坐标$(1,0)$处的卫星如果初速度（蓝色箭头方向）合适则能得到“正圆”轨道（橙黄色），如果初速度小一些则得到扁的类似椭圆的轨道（蓝色），速度大一些则是一个长一些的椭圆轨道（绿色），如果速度太大，达到逃逸速度则会飞出去（橙红色）。这一切都与我们的天体运动规律如此相像！但要注意的是，那个橙黄色的“正圆”轨道并不是4-范数下的圆形，它们之间的形状会有一点差异，我们稍后会进一步讨论。
-平方反比的衰减律是三维空间的普遍的力（引力、电磁力等）的自然衰减方式。随着衰减幂次的变化，p范数下的轨道同样会像2-范数那样有时进动形成花瓣形轨道。然而之前在[参观四维世界这篇文章](/archives/lavie4ds/)中说，如果力按三次方衰减则仅存在逃逸轨道、坠毁轨道与“正圆”轨道，且“正圆”轨道还是不稳定的：稍微给点扰动就会坠毁或逃逸。计算发现当范数中的p不为2时这个结论仍然成立，可见选择不同范数基本不影响轨道的稳定性！
-![p=1（左）、5（右）时的立方反比律下的两初速相差细微的轨道：红色坠毁、蓝色逃逸](/img/pnorm2.png)
+## Celestial Motion in a p-Norm World
 
-更神奇的时，这些“正圆”轨道形状在不同情形下都不一样！下面来看看平方反比、立方反比、10次方反比下10-范数空间、1-范数空间中的“正圆”轨道、这些空间中真正的“圆”三者之间到底差多少：
+The spring $\vec{F}=k\vec{x}$ above is just a special case of central force motion. In general, we set $F=kx^n \vec{e}_x$, where n=1 gives Hooke's Law and n=-2 gives the Law of Universal Gravitation (Hint: it's an inverse-square law in three dimensions, not two). Writing out the unit vector gives $\vec{F}=k||\vec{x}||^{n-1}\vec{x}$. This means that only Hooke's Law (n=1) is independent of the norm. For other values of p, the orbits of planets under gravity are different! Let's look at a planetary system in a p-norm.
+![p=4 planetary orbit, gravity decays as an inverse-square law](/img/pnorm1.png)
+Calculations show that for p=4, the satellite's orbit is stable! (Thanks to a [helpful netizen](https://space.bilibili.com/696013443) for the correction (2023.01.01), I initially calculated it incorrectly and thought the orbit was unstable like an inverse-cube law). Just as in the 2-norm case, planets have both closed and open orbits. In the figure above, the Earth is at the origin, and a satellite at coordinate $(1,0)$ with an appropriate initial velocity (blue arrow direction) can achieve a "perfectly circular" orbit (orange-yellow). If the initial velocity is slightly smaller, it gets a flattened, elliptical-like orbit (blue). A larger velocity results in a more elongated elliptical orbit (green). If the velocity is too large, it reaches escape velocity and flies away (orange-red). All of this is so similar to the laws of celestial motion we know! However, it's important to note that the orange-yellow "perfectly circular" orbit is not a 4-norm circle; their shapes have a slight difference, which we will discuss further later.
+The inverse-square law decay is the universal and natural decay mode for forces (like gravity and electromagnetism) in three-dimensional space. As the decay exponent changes, p-norm orbits can also precess and form rosette-shaped orbits, just like in the 2-norm. However, as mentioned in the [article "A Visit to the 4D World"](/archives/lavie4ds/), if the force decays as an inverse-cube law, only escape, crash, and "perfectly circular" orbits exist, and the "perfectly circular" orbits are unstable: any slight perturbation will cause them to either crash or escape. Calculations show that this conclusion still holds when the p-value in the norm is not 2, which suggests that choosing a different norm has little effect on orbit stability!
+![Inverse-cube law orbits for p=1 (left) and p=5 (right) with slightly different initial velocities: red crashes, blue escapes](/img/pnorm2.png)
+Even more magically, the shapes of these "perfectly circular" orbits are different in different situations! Let's look at the difference between the "perfectly circular" orbits under inverse-square, inverse-cube, and inverse-10th power laws, the true "circles" in 10-norm and 1-norm spaces, and the relationships among them.
 
-![p=1（左）、10（右）时的不同稳定轨道：平方反比（红）、立方反比（黄）、10次方反比（绿）](/img/pnorm3.png)
-我们看到，这些稳定轨道都比p-范数的圆更“光滑”（即更接近2-范数下的圆），且引力衰减的次方数越大则越接近p-范数的圆，越小则越接近2-范数的圆（p-圆、2-圆在图中对应俩灰色图形），因为衰减的次方数小到负一就变成完全正圆的胡克定律情形了。然而这些中间的轨道有没有代数方程可以描述呢？看上去它们还是像形如$|x|^n+|y|^n=1$这样的广义圆。它们还真的是广义圆吗？会不会n次方反比n趋于无穷，它的稳定轨道就趋于p-范数的圆呢？这些问题还有待进一步探究。
+![Different stable orbits for p=1 (left) and p=10 (right): inverse-square (red), inverse-cube (yellow), inverse-10th power (green)](/img/pnorm3.png)
+We can see that these stable orbits are all "smoother" than the p-norm circles (i.e., closer to the 2-norm circle). The larger the power of the gravitational decay, the closer the orbit is to the p-norm circle, and the smaller the power, the closer it is to the 2-norm circle (p-circle and 2-circle correspond to the two gray shapes in the figure). This is because when the decay power becomes as small as negative one, it becomes the perfectly circular case of Hooke's law. However, is there an algebraic equation that can describe these intermediate orbits? They still look like generalized circles of the form $|x|^n+|y|^n=1$. Are they really generalized circles? If the inverse power `n` tends to infinity, does its stable orbit tend to the p-norm circle? These questions require further investigation.
 
-## 其它怪异几何
+## Other Strange Geometries
 
-我们现在总算对p-范数空间、几何有了一个初步的感知。那非欧几里得几何又是啥？非欧几里得几何其实也是2-范数空间，只是空间不平直，导致长度公式的形式跟位置有关，但永远是微元的二次形式，例如球面距离公式为$ds^2=dx^2 \sin^2 y + y^2$，其中的坐标$(x,y)$分别是球面上的纬度与经度。我们把距离微元永远都是二次形式的所有空间（包括弯曲的）称为黎曼几何。其实像p-范数这种无法定义内积的空间也可以是弯曲的，叫Finsler几何，它是黎曼几何的推广，或者说黎曼几何是Finsler几何的一个特例。Finsler几何很怪异，但一般黎曼几何中的概念还是都可以推广过来。除了无法旋转物体，还可能遇到从A走到B是直线（准确说是测地线），但沿着那条路倒回来走却不再是直线的情况！下面是我看到[知乎的一个问答](https://www.zhihu.com/question/54059369)上找到的一些对Finsler几何的描述：
+We now have a preliminary understanding of p-norm space and geometry. So what is non-Euclidean geometry? Non-Euclidean geometry is actually also 2-norm space, but the space is not flat, causing the form of the length formula to depend on position, but it is always a quadratic form of the micro-elements. For example, the spherical distance formula is $ds^2=dx^2 \sin^2 y + y^2$, where the coordinates $(x,y)$ are latitude and longitude on the sphere. We call all spaces where the distance micro-element is always in a quadratic form (including curved ones) Riemannian geometry. In fact, spaces like p-norm that cannot define an inner product can also be curved; these are called Finsler geometry, a generalization of Riemannian geometry, or rather, Riemannian geometry is a special case of Finsler geometry. Finsler geometry is very strange, but most concepts from general Riemannian geometry can be extended to it. Besides the inability to rotate objects, you might also encounter situations where walking from A to B is a straight line (more accurately, a geodesic), but walking back along the same path is no longer a straight line! Below are some descriptions of Finsler geometry that I found on [a Zhihu Q&A](https://www.zhihu.com/question/54059369):
 
-> Finsler几何是把切空间上的内积换成了一般的范数，每个切空间不再是一个内积空间，而仅仅是一个赋范线性空间。
-> 如果把黎曼几何比喻做现实地球上的情况，有高山峡谷凹坑，使得最短距离不再是直线，那么Finsler 几何就相当于一个刮着猛烈飓风的地球，在这上面，顺风和逆风或者侧着风都会有很大的不一样。
+> Finsler geometry is a geometry where the inner product on the tangent space is replaced by a general norm, so each tangent space is no longer an inner product space, but just a normed linear space.
+> If Riemannian geometry is compared to the situation on a real earth with mountains, valleys, and pits, where the shortest distance is no longer a straight line, then Finsler geometry is like an earth with a fierce hurricane, where going with the wind, against the wind, or sideways to the wind all have very different results.

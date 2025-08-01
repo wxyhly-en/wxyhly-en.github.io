@@ -1,209 +1,229 @@
 ---
-title: Minecraft4D 教程
+title: Minecraft4D Tutorial
 tags:
-  - 四维
+  - 4D
   - Minecraft
   - 4dViewer
 date: 2020-03-14 11:23:05
-excerpt: Minecraft4D是一个真正的四维空间中的（超立方体）方块沙盒游戏。（如果把时间也算上，就是五维时空！）现在游戏只支持创造模式下的单人游戏。Minecraft4D采用Javascript与Webgl编写，所以只需点开下面的链接就可以玩了。（最好用Google Chrome浏览器，不保证其他浏览器的兼容性，需要使用电脑键盘操作）
+excerpt: Minecraft4D is a true 4D (hypercube-based) 4-voxel sandbox game. (If you include time, it’s actually in 5D spacetime!) Currently, the game only supports single-player creative mode.
 index_img: /img/minecraft02.jpg
 ---
 
-（这篇文章只是一个教程，所以没放进四维世界系列）
-Minecraft4D是一个真正的四维空间中的（超立方体）方块沙盒游戏。（如果把时间也算上，就是五维时空！）现在游戏只支持创造模式下的单人游戏。Minecraft4D采用Javascript与Webgl编写，所以只需点开下面的链接就可以玩了。（最好用Google Chrome浏览器，不保证其他浏览器的兼容性，需要使用电脑键盘操作）
+(This article is only a tutorial, so it’s not included in the “4D World” series.)
+Minecraft4D is a true four-dimensional (hypercube-based) voxel sandbox game. (If you include time, it’s actually in 5D spacetime!) Currently, the game only supports single-player creative mode. Minecraft4D is written in Javascript and WebGL, so you can play just by clicking the link below. (Best used with Google Chrome; compatibility with other browsers is not guaranteed, and it requires a physical keyboard.)
 ### [Minecraft4D](/4dViewer/minecraft4d/) 
 
-进入后等待贴图与地形都加载好后就可以看到视野了。你会发现画面分成了几乎一样的左右两个，它们是左右眼的成像用来产生**双眼立体视觉**，我不会做VR，所以就只有要求你要会做对对眼（斗鸡眼）来看到立体视野画面。如果做不到的话就只有通过按方向键旋转视野以得到立体感了。[这篇文章](/archives/eye3d/)里有详细介绍怎么看这种三维的画面。角落处三个小视图分别是立体视野的截面，单独抽出来以便我们清楚观察。
+After entering, wait for the textures and terrain to fully load, and then you’ll see the view. You’ll notice that the screen is split into two nearly identical halves — these are the images for your left and right eyes, meant to create **stereoscopic vision**. Since I don’t know how to make VR, you’ll need to use cross-eyed viewing to perceive the 3D image. If you can’t do that, then rotate the view using the arrow keys to get a sense of depth. [This article](/archives/eye3d/) has a detailed explanation of how to view stereoscopic images. The three small corner windows are stereo vision cross-sections, separated for clearer observation.
 <!--more-->
 
-<a href="javascript:void(0)" target="_self" onclick="$('#3dview').toggle()">问：什么是双眼立体视觉？怎样观看？(点击展开/收起)</a>
+<a href="javascript:void(0)" target="_self" onclick="$('#3dview').toggle()">Q: What is stereoscopic vision? How do I view it? (Click to expand/collapse)</a>
 
-<span id="3dview" style="display:none">人的两只眼睛位置略有不同，视觉差通过大脑运算可以得到物体离我们的远近来产生立体感。如果不会做斗鸡眼那么请拿出你的手指放在屏幕中央，用你的目光死盯住指尖，然后你的手逐渐像你眼睛方向上靠拢。这个过程中左右视线一定要保持水平，用你的余光看会发现后面屏幕上的内容开始错位并有点模糊，当屏幕上两幅画面刚好重叠时你会惊奇地发现这副重叠的画面浮起来了！这个浮起来的位置大概和你现在指尖的位置相同。这时你就可以看到立体图像了。</span>
+<span id="3dview" style="display:none">Our eyes are positioned slightly apart, and the brain uses this visual disparity to calculate depth. If you can't cross your eyes, place your finger in the center of the screen and stare at your fingertip while slowly moving it toward your eyes. Keep your line of sight horizontal, and use peripheral vision to observe the two images on screen start to misalign and blur. When the two images overlap perfectly, you’ll be amazed to find the image pops out in 3D! That floating point will roughly match your fingertip’s position. That’s when you’ve achieved stereoscopic viewing.</span>
 
-四维人可以直接看到实心的三维图像，所以这里将实心立方体视野做成透明的以观察内部。如果你还是不太清楚，请参看下列系列文章：
-- [四维世界（四）：二维生物视觉](/archives/eye2d/)
-- [四维世界（五）：体验四维人的视觉与方向感](/archives/eye3d/)
+4D beings can directly perceive solid 3D structures, so the solid cube view here is made transparent to allow internal observation. If you’re still confused, check out the following articles:
+- [4D World (IV): Vision of 2D Beings](/archives/eye2d/)
+- [4D World (V): 4D Vision and Orientation](/archives/eye3d/)
 
-## 方向操作
+## Direction Controls
 
-下面我们来学习一下四维空间中的方向。下图标出了各个方向的名称，你可以试着按方向键`W` `S` `A` `D` `Q` `E`来做移动，注意前后方并没在图上标出，前后方垂直于3D视野，无法画出。可能你会对在侧前侧后方向上移动感到很不习惯，因为我们三维的大脑还没建立起直觉上处理第四个维度的能力，一会儿就习惯了。
-![注意前后方向垂直于3D视野立方体无法标出](/img/minecraft01.jpg)
+Let’s learn about directions in four-dimensional space. The image below shows the name of each direction. You can try moving with the keys `W` `S` `A` `D` `Q` `E`. Note that forward and backward directions are not shown in the image — they are perpendicular to the 3D view and can’t be drawn. Moving along the ana and kata directions may feel odd at first, since our 3D brains haven’t developed an intuitive sense of the fourth dimension, but you’ll get used to it soon.
+![Note that the forward/backward direction is perpendicular to the 3D view and cannot be shown.](/img/minecraft01.jpg)
 
-由于透明的立方体视野颜色重叠非常多，有时难以看清，故如下图所示抽出一些截面来上色：
-（$x$轴:左右方向；$y$轴:上下方向；$z$轴:侧前侧后方向；$w$轴:前后方向；）
+Because the transparent cube view overlaps many colors, it can be hard to see clearly. So, as shown below, some cross-sections are extracted and color-coded:
+($x$: left-right; $y$: up-down; $z$: ana-kata; $w$: forward-backward)
 ![](/img/eye3d005.jpg)
-截面上的立体视觉提供$w$轴远近方向（垂直与之前的3D视野）作为体验四维生物立体视觉的折中方法。
-点击画面后鼠标会被隐藏，此时移动鼠标视图将会旋转；按`Esc`键取消隐藏，这跟原版Minecraft是类似的。鼠标的左右移动对应的是玩家的头的左右旋转；注意与原版Minecraft不同的是，鼠标上下移动对应头的侧前侧后旋转，所以无论怎样移动鼠标玩家都永远是平视前方的。如果要抬头/低头，请滚动鼠标滚轮或按键盘`I` `K`键。
-## 世界操作
-世界有两种类型：正常与超平坦。默认世界类型为正常模式。每次进入页面都将随机分配一个世界种子。要想加载指定种子的世界请在页面网址后加上  ?种子号 的方式进入页面。注意种子号必须为正整数。可以使用/seed命令查看当前世界的种子。
-页面网址后加  `?flat`  将进入超平坦模式。此模式下不会生成任何额外的结构。
-下面给出一些种子的链接：
-- 超平坦<a href="/4dViewer/minecraft4d/?flat" target="minecraft4d_flat">?flat</a>
-- x=-510 z=-230 w=-440处有金字塔 石滩 河流 村庄（请自行tp过去）<a href="/4dViewer/minecraft4d/?873556" target="minecraft4d_873556">?873556</a>
-- x=34 z=72 w=64处：河边的村庄（请自行tp过去）<a href="/4dViewer/minecraft4d/?962259" target="minecraft4d_962259">?962259</a>
-- x=160 z=-61 w=284处：村庄中的天文台（请自行tp过去）<a href="/4dViewer/minecraft4d/?661280" target="minecraft4d_661280">?661280</a>
+These stereo vision cross-sections provide depth along the $w$ axis (perpendicular to the 3D view) as a compromise to simulate 4D perception.
 
-当你对世界操作后若想保存存档，请按`/`键打开命令栏，输入`/save`命令保存到本地。（格式为mc4a文件）
-同样，要想加载存档，首先随便进入一个世界（不用管种子与世界类型），输入`/open`命令打开本地的mc4a存档文件即可。
-Minecraft4D 默认时间会流动，如果晚上天黑看不清（暂时技术上还不支持灯光照明）可以使用`/skipnight`或`/skip`加速跳过夜晚。更多命令见[命令列表](#sudo)。
+After clicking the screen, the mouse will be hidden and mouse movement will rotate the view; press `Esc` to exit this mode — similar to vanilla Minecraft. Mouse movement left/right rotates the player's head left/right; unlike vanilla Minecraft, up/down mouse movement rotates in the ana-kata direction, so the player always faces forward. To look up/down, scroll the mouse wheel or press `I` / `K`.
 
-## 方块操作
-与原版Minecraft一样，Miencraft4D中使用鼠标右键放置、左键破坏方块、中键选择方块。但要注意的是现在位于视野中心处的十字准星处在三维的空间里，要在空间中与要选择的方块重合才能选到正确的方块。<!--[这里]有如何选取指定方块的示例。-->按`N`与`M`键可以切换手中的方块。所有的方块列表见[这里](#touhh)。由于四维比三维空间要广大得多，所以徒手修一座建筑比同样尺寸的三维建筑要用更多的方块，工程量巨大，于是Minecraft4D内置了类似原版Minecraft的Worldedit插件的功能。使用/w命令在正常模式与Worldedit选区选择模式之间切换。要使用Worldedit的功能需要先创建选区。目前只支持超长方体的选区。使用左右键分别选择两个方块，将创建以这两个方块连线为体对角线的超长方体选区。您也可以使用命令`/pos1` `/pos2`来精确指定两个对角线的坐标。命令`/sel`可以查看选区的大小信息。`/set <方块>`可以用指定方块填充选区（[方块名称列表见这里](#touhh)），更多命令详见[这里](#sudo)。
+## World Controls
 
-## 快捷键列表
-### 与其他4DViewer程序通用设置
-#### 渲染显示相关
+There are two types of worlds: normal and superflat. The default is normal mode. Each time you enter, a random seed is used. To load a specific seed, append `?seedNumber` to the URL (the seed must be a positive integer). Use `/seed` to view the current seed.
 
-|快捷键|命令|
-|-----|-----|
-|`=`   |增加3D视野层叠数|
-|`-`   |减少3D视野层叠数|
-|`]`   |增加3D视野像素不透明度|
-|`[`   |减少3D视野像素不透明度|
-|`;`   |减小截面视图尺寸|
-|`'`   |增加截面视图尺寸|
-|`,`   |背景变暗|
-|`.`   |背景变亮|
-|`9`   |减小摄像机视角(FOV)|
-|`0`   |提高摄像机视角(FOV)|
-|`C`   |线框模式|
-|`Alt+[`   |线框模式|
-|`Alt+,`   |降低画面分辨率|
-|`Alt+.`   |提高画面分辨率|
-|`Alt+1`   |默认画面配置|
-|`Alt+2`   |3D视野优化配置（隐藏截面、增加层数降、低分辨率）|
-|`Alt+3`   |截面优化配置（取消3D视野叠加、放大截面）|
-|方向键   |调整3D视野显示视角|
+To enter superflat mode, append `?flat` to the URL. This mode generates no additional structures.
 
-#### 人物/相机控制
+Example seeds:
+- Superflat: <a href="/4dViewer/minecraft4d/?flat" target="minecraft4d_flat">?flat</a>
+- At x=-510 z=-230 w=-440: pyramid, stone beach, river, village (TP manually): <a href="/4dViewer/minecraft4d/?873556" target="minecraft4d_873556">?873556</a>
+- At x=34 z=72 w=64: riverside village: <a href="/4dViewer/minecraft4d/?962259" target="minecraft4d_962259">?962259</a>
+- At x=160 z=-61 w=284: observatory in village: <a href="/4dViewer/minecraft4d/?661280" target="minecraft4d_661280">?661280</a>
 
-|快捷键|命令|
-|-----|-----|
-|`W`   |前进|
-|`S`   |后退|
-|`A`   |向左平移|
-|`D`   |向右平移|
-|`Q`   |向侧后平移|
-|`E`   |向侧前平移|
-|`Shift`   |下降（开启飞行模式后）|
-|`空格`   |跳跃/上升|
-|`I`   |抬头|
-|`K`   |低头|
-|`J`   |往左看|
-|`L`   |往右看|
-|`U`   |往侧后看|
-|`O`   |往侧前看|
-|`Z`   |左右-侧前侧后旋转视图|
-|`X`   |左右-侧前侧后旋转视图(相反方向)|
+To save a world after editing, press `/` to open the command bar and enter `/save` (saves as a `.mc4a` file locally).  
+To load a save, enter any world (seed/type doesn’t matter) and run `/open` to load a local `.mc4a` save.
 
-### Minecraft4D 快捷键
+Minecraft4D has a time system. If it's too dark at night (lighting isn’t supported yet), use `/skipnight` or `/skip` to skip the night. See the [Command List](#sudo) for more.
 
-|快捷键|命令|
-|-----|-----|
-|`M`   |切换上一个方块|
-|`N`   |切换下一个方块|
-|`/`   |打开命令栏|
-|`P`   |暂停/继续游戏|
+## Block Controls
+
+Like vanilla Minecraft, Minecraft4D uses right-click to place, left-click to destroy, and middle-click to select blocks. Note: the center crosshair is in 3D space, so you must align it correctly to select a block.  
+Use `N` and `M` to switch held blocks. Full block list is [here](#touhh).
+
+Since 4D space is vastly larger than 3D, building by hand requires far more blocks. So Minecraft4D includes WorldEdit-like features. Use `/w` to toggle WorldEdit mode. Only hyperrectangular selections are currently supported. Use left/right click to select two diagonal corners to define a hyperrectangular region. You can also use `/pos1` and `/pos2` for precise coordinates. Use `/sel` to view selection info. Use `/set <block>` to fill the selection. (Block names: [see here](#touhh)). More commands: [see here](#sudo).
+
+## Shortcut Keys
+
+### Shared with other 4DViewer apps
+
+#### Rendering & Display
+
+|Key|Action|
+|--|--|
+|`=`|Increase 3D view layers|
+|`-`|Decrease 3D view layers|
+|`]`|Increase 3D pixel opacity|
+|`[`|Decrease 3D pixel opacity|
+|`;`|Shrink cross-section|
+|`'`|Enlarge cross-section|
+|`,`|Darken background|
+|`.`|Brighten background|
+|`9`|Reduce FOV|
+|`0`|Increase FOV|
+|`C`|Wireframe mode|
+|`Alt+[`|Wireframe mode|
+|`Alt+,`|Lower resolution|
+|`Alt+.`|Increase resolution|
+|`Alt+1`|Default display config|
+|`Alt+2`|Optimized for 3D view (hide cross-section, increase layers, lower res)|
+|`Alt+3`|Optimized for cross-section (no 3D overlay, zoom in)|
+|Arrow keys|Rotate 3D view|
+
+#### Player / Camera
+
+|Key|Action|
+|--|--|
+|`W`|Forward|
+|`S`|Backward|
+|`A`|Left|
+|`D`|Right|
+|`Q`|Kata|
+|`E`|Ana|
+|`Shift`|Descend (fly mode)|
+|`Space`|Jump / Ascend|
+|`I`|Look up|
+|`K`|Look down|
+|`J`|Look left|
+|`L`|Look right|
+|`U`|Look kata|
+|`O`|Look ana|
+|`Z`|Rotate (left/ana)|
+|`X`|Rotate (right/kata)|
+
+### Minecraft4D-specific
+
+|Key|Action|
+|--|--|
+|`M`|Previous block|
+|`N`|Next block|
+|`/`|Open command bar|
+|`P`|Pause / Resume|
+
 <a name="sudo"></a>
 
-## 命令列表
-|命令|格式|描述|
+## Command List
+|Command|Format|Description|
 |----|----|---|
-|/tp|tp &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;|将玩家传送至指定坐标（坐标前加~代表相对玩家位置）|
-|/seed|seed|显示当前世界的地图种子|
-|/fly|fly|切换飞行模式|
-|/speed|speed &lt;speed&gt;|设置玩家移动速度|
-|/dayspeed|dayspeed &lt;speed&gt;|设置昼夜循环速度|
-|/skipnight 或 /skip|skipnight \| skip|快速跳过夜晚（只能在晚上使用此命令）|
-|/save|save [clipboard \| clip \| sel \| selection]|不带其余参数即保存世界至本地，带参数（如save clipboard）将保存剪贴板或当前选取中的内容为schematic4d文件|
-|/open|open|打开保存的本地世界|
-|/load|load [-c \| clip \| clipboard]|加载本地schematic4d文件。默认为直接以玩家当前位置加载。若不想马上加载进世界，可使用-clipboard选项加载进剪贴板中|
-|/loadmacro 或 /macro|loadmacro \| \macro [prev]|加载本地的[宏命令](#macro)文件，使用macro prev 上执行次加载的宏命令|
-|/regen|regen &lt;me \|all&gt;|regen me: 重新按当前种子生成玩家所在区块；regen all：按当前种子重置整个世界|
-|/chunks|chunks|显示已加载区块数与已修改区块数（已修改区块将不会被卸载）|
-|/wand 或 /w|wand \| w|切换至WorldEdit选区工具模式（使用左右键选取超长方体对角点建立选区）|
-|/pos1|pos1 &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;|设置第一个WorldEdit超长方体选区对角点（坐标前加~代表相对玩家位置）|
-|/pos2|pos2 &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;|设置第二个WorldEdit超长方体选区对角点（坐标前加~代表相对玩家位置）|
-|/sel|sel|查看当前选区信息|
-|/set|set &lt;id&gt;|将当前选区以id方块全部填充|
-|/hset|hset &lt;id&gt;|将当前选区外围以id方块全部填充|
-|/wall|wall &lt;id&gt;|将当前选区外围（不含地板与天花板）以id方块全部填充|
-|/hwall|hwall &lt;id&gt;|将当前选区的竖直二维棱以id方块全部填充|
-|/copy|copy|复制当前选区到剪贴板，类似Minecraft中的WorldEdit，您的相对位置将会被保存|
-|/paste|paste|将剪贴板内容粘贴至世界，其粘贴位置取决于您所在的位置|
-|/flip|flip [dir]|将当前剪贴板内容朝给定方向dir(使用方向x y z w)翻转，若不指定则为玩家面朝的方向|
-|/stack|stack &lt;num&gt; [dir]|将当前选区内容向指定方向dir(例如x+ z- f(面朝) u(向上) d(向下))堆叠重复num次，若不指定则为玩家面朝的方向|
-|/move|move &lt;num&gt; [dir]|将当前选区内容向指定方向dir(例如x+ z- f(面朝) u(向上) d(向下))移动num格，若不指定则为玩家面朝的方向|
-|/shift|shift &lt;num&gt; [dir]|仅将当前选区（不包含内容）向指定方向dir(例如x+ z- f(面朝) u(向上) d(向下))移动num格，若不指定则为玩家面朝的方向|
-|/expand|expand &lt;num&gt; [dir] 或 expand &lt;num&gt; &lt;num&gt; [dir]|将当前选区沿指定方向dir(例如x+ z- f(面朝) u(向上) d(向下))扩大num格，如果指定了两个num则同时向相反的两个方向分别扩大|
-|/glome|glome &lt;id&gt; &lt;radius&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]|生成一个材质为id、半径为radius的超球。如果省略坐标，则默认以玩家为球心|
-|/hglome|hglome &lt;id&gt; &lt;radius&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]|生成一个材质为id、半径为radius的空心超球。如果省略坐标，则默认以玩家为球心|
-|/spherinder|spherinder &lt;id&gt; &lt;radius&gt; &lt;length&gt; [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]]|生成一个材质为id、半径为radius、高为length的球柱。direction指定高的方向。如果省略坐标，则默认以玩家为球心|
-|/hspherinder|hspherinder &lt;id&gt; &lt;radius&gt; &lt;length&gt; [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]]|生成一个材质为id、半径为radius、高为length的空心球柱。direction指定高的方向。如果省略坐标，则默认以玩家为球心|
-|/duocylinder|duocylinder &lt;id&gt; <radius1> <radius2> [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]]|生成一个材质为id、半径为radius1/radius2的双圆柱。direction指定任意一个圆所在的平面（如xy、yz）。如果省略方向，则默认以玩家左右-上下方向创建圆。如果省略坐标，则默认以玩家为球心|
-|/tiger|tiger &lt;id&gt; <radius1> <radius2> <radius3> [&lt;direction&gt; [&lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;w&gt;]]|生成一个材质为id、半径为radius1/radius2/radius3的双圆环。direction指定任意一个圆所在的平面（如xy、yz）。如果省略方向，则默认以玩家左右-上下方向创建圆。如果省略坐标，则默认以玩家为球心|
+|/tp|tp <x> <y> <z> <w>|Teleport the player to the specified coordinates (prefix with ~ for relative position)|
+|/seed|seed|Display the current world seed|
+|/fly|fly|Toggle flying mode|
+|/speed|speed <speed>|Set the player’s movement speed|
+|/dayspeed|dayspeed <speed>|Set the day-night cycle speed|
+|/skipnight or /skip|skipnight \| skip|Quickly skip the night (can only be used at night)|
+|/save|save [clipboard \| clip \| sel \| selection]|Without arguments: save the world to local file; with argument (e.g., `save clipboard`) saves clipboard or current selection as `.schematic4d` file|
+|/open|open|Open a previously saved local world file|
+|/load|load [-c \| clip \| clipboard]|Load a local `.schematic4d` file. By default, it’s placed at player’s location. Use `-clipboard` to load into clipboard without placing|
+|/loadmacro or /macro|loadmacro \| macro [prev]|Load a local [macro command](#macro) file. Use `macro prev` to repeat the last loaded macro|
+|/regen|regen <me \| all>|`regen me`: regenerate current chunk using the same seed; `regen all`: reset the entire world using the current seed|
+|/chunks|chunks|Display number of loaded and modified chunks (modified chunks won’t be unloaded)|
+|/wand or /w|wand \| w|Toggle WorldEdit selection tool mode (use left/right click to select two diagonal corners of a hyperrectangle)|
+|/pos1|pos1 <x> <y> <z> <w>|Set the first corner of the WorldEdit selection (prefix with ~ for relative coordinates)|
+|/pos2|pos2 <x> <y> <z> <w>|Set the second corner of the WorldEdit selection (prefix with ~ for relative coordinates)|
+|/sel|sel|View information about the current selection|
+|/set|set <id>|Fill the selected region with the specified block ID|
+|/hset|hset <id>|Fill the outer shell of the selection with the specified block|
+|/wall|wall <id>|Fill the vertical sides (excluding top/bottom) with the specified block|
+|/hwall|hwall <id>|Fill the vertical edges (2D ridges) of the selection with the specified block|
+|/copy|copy|Copy the current selection to the clipboard (relative position preserved)|
+|/paste|paste|Paste clipboard content into the world (placement depends on current player position)|
+|/flip|flip [dir]|Flip the clipboard content in the specified direction (`x`, `y`, `z`, or `w`). Defaults to player-facing direction|
+|/stack|stack <num> [dir]|Repeat the selection `num` times in the specified direction (e.g., `x+`, `z-`, `f` for forward, `u` for up, `d` for down). Defaults to player-facing|
+|/move|move <num> [dir]|Move the selection content by `num` units in the specified direction|
+|/shift|shift <num> [dir]|Move the selection box (not the content) by `num` units in the specified direction|
+|/expand|expand <num> [dir] or expand <num> <num> [dir]|Expand the selection in the specified direction(s); if two numbers are given, expand in both opposite directions|
+|/glome|glome <id> <radius> [<x> <y> <z> <w>]|Generate a solid 4D sphere (glome) with the specified block ID and radius. Defaults to player’s position if coordinates are omitted|
+|/hglome|hglome <id> <radius> [<x> <y> <z> <w>]|Generate a hollow 4D sphere (glome) with the specified block ID and radius. Defaults to player’s position if omitted|
+|/spherinder|spherinder <id> <radius> <length> [<direction> [<x> <y> <z> <w>]]|Generate a spherinder (3D sphere extruded along 4th axis) with specified radius and height. `direction` sets axis; default is player-facing|
+|/hspherinder|hspherinder <id> <radius> <length> [<direction> [<x> <y> <z> <w>]]|Generate a hollow spherinder with given specs|
+|/duocylinder|duocylinder <id> <radius1> <radius2> [<direction> [<x> <y> <z> <w>]]|Generate a duocylinder (product of two circles) with specified radii and block type. `direction` defines which 2D plane to use (e.g., `xy`, `yz`). Defaults to left-right & up-down plane at player’s location|
+|/tiger|tiger <id> <radius1> <radius2> <radius3> [<direction> [<x> <y> <z> <w>]]|Generate a tiger (3-circle toroidal figure) with given radii and block type. `direction` defines one of the circle planes. Defaults to left-right & up-down at player’s location|
+
 <a name="macro"></a>
 
-## 宏
+## Macros
 
-由于四维世界场景中方块数量随尺寸成四次方速率增长，所以手动放置方块建筑十分困难。一般建议通过执行WorldEdit命令来建造。为了方便起见，可以将一系列命令放在一个文件中，通过`/macro`宏指令读取文件来一次按顺序执行多条指令。宏命令下支持通过`def <常量名> 值`来定义常量以增强可读性，也可以通过`fn <代码块名>:`的方式开始定义一段代码块，用`endfn`标志定义结束。这样在需要多次执行某段代码块的地方只需要写代码块名即可，宏处理器将自动将代码块名替换展开为对应代码块内容。
+Because block count grows with the fourth power of size in 4D, manual construction is very hard. It's recommended to use WorldEdit-style commands. You can write macros (a list of commands in a file) and load them with `/macro`. Use `def <name> value` to define constants, and define reusable code blocks with `fn <name>:` and `endfn`. Macros support almost all [commands](#sudo), except those involving file I/O: `\save`, `\open`, `\load`, `\macro`.
 
-宏指令中可以使用几乎所有[命令列表](#sudo)中的命令，但以下涉及到读写文件的几条命令除外： \save \open \load \macro。
-例子：生成一个有26个房子的小村落。
-<iframe src="https://wxyhly.github.io/4dViewer/minecraft4d/macro.txt" style="background-color: rgb(255,255,255,0.7)"></iframe><a name="touhh"></a>
+Example: A small village of 26 houses.
+<iframe src="https://wxyhly.github.io/4dViewer/minecraft4d/macro.txt" style="background-color: rgb(255,255,255,0.7)"></iframe>
 
-运行后效果：
+Result:
 ![](/img/minecraft02.jpg)
 
-## 方块列表
-|数字ID|中文名|英文ID|
-|----|----|---|
-|0| 空气|air|
-|1|石头|stone|
-|2|草方块|grass|
-|3|泥土|dirt|
-|4|橡木|oak_log|
-|5|树叶|leaves|
-|6|砖块|brick|
-|7|沙子|sand|
-|8|水|water|
-|9|平滑石头|smooth_stone|
-|10|双层石台阶|stone_slabs|
-|11|石砖|stone_brick|
-|12|木版|planks|
-|13|白色混凝土|white_concrete|
-|14|红色混凝土|red_concrete|
-|15|黄色混凝土|yellow_concrete|
-|16|绿色混凝土|green_concrete|
-|17|青色混凝土|cyan_concrete|
-|18|蓝色混凝土|blue_concrete|
-|19|紫色混凝土|purple_concrete|
-|20|灰色混凝土|gray_concrete|
-|21|黑色混凝土|black_concrete|
-|22|仙人掌|catcus|
-|23|苦力怕头|creeper_head|
-|24|末影人头|enderman_head|
-|25|玩家头|steve_head|
-|30|玻璃|glass|
+<a name="touhh"></a>
 
-## 景观列表
-（图片待补充）
-- 树林
+## Block List
+
+|Numeral ID|Name|Block ID|
+|--|--|--|
+|0|Air|air|
+|1|Stone|stone|
+|2|Grass Block|grass|
+|3|Dirt|dirt|
+|4|Oak Log|oak_log|
+|5|Leaves|leaves|
+|6|Brick|brick|
+|7|Sand|sand|
+|8|Water|water|
+|9|Smooth Stone|smooth_stone|
+|10|Double Slab|stone_slabs|
+|11|Stone Brick|stone_brick|
+|12|Planks|planks|
+|13|White Concrete|white_concrete|
+|14|Red Concrete|red_concrete|
+|15|Yellow Concrete|yellow_concrete|
+|16|Green Concrete|green_concrete|
+|17|Cyan Concrete|cyan_concrete|
+|18|Blue Concrete|blue_concrete|
+|19|Purple Concrete|purple_concrete|
+|20|Gray Concrete|gray_concrete|
+|21|Black Concrete|black_concrete|
+|22|Cactus|cactus|
+|23|Creeper Head|creeper_head|
+|24|Enderman Head|enderman_head|
+|25|Player Head|steve_head|
+|30|Glass|glass|
+
+## Scenery List
+
+(Images to be added)
+- Forest
 ![](/img/minecraft06.jpg)
-- 沙漠
+- Desert
 ![](/img/minecraft04.jpg)
-- 沙漠金字塔
-- 河流
+- Desert Pyramid
+- River
 ![](/img/minecraft03.jpg)
-- 村庄
-- 沙漠村庄
+- Village
+- Desert Village
 ![](/img/minecraft05.jpg)
-- 天文台
-- 沙漠水井
-- 沼泽
-- 路
+- Observatory
+- Desert Well
+- Swamp
+- Road
 ![](/img/minecraft07.jpg)
-<!--纯几何的方法可以分别从相邻两胞心往交面的面心做垂线，三个中心构成三角形，然后分别计算三边长，用余弦定理计算二胞角。计算边长时主要利用正八面体每个面是正三角形以及正24胞体的立方体中空结构（由正八面体的正方形中空结构拼成，不涉及代数法即可证）-->
-## 工作原理
-下面简单介绍一下Minecraft4D 的工作原理。跟Minecraft一样，通过区块来储存世界，4D世界生成算法也跟3D大同小异。显示时直接通过光线跟踪计算与场景的交点，但只实现了基本的方块间的环境光遮蔽以及太阳阴影。比较有意思的是贴图。4D的方块需要3D贴图，所以我参考Minecraft的2D贴图文件自己手动一层一层的画了一个3D贴图，一共8层，分辨率是$8\times 8 \times 8$。贴图文件格式我还是用的正常2D的png格式，每个立方体贴图分8片画出。
-![游戏中部分3D贴图](/img/minecraft08.jpg)
+
+<!-- A purely geometric method is to draw perpendiculars from the centers of adjacent cells to the center of their shared face; these form a triangle. Then calculate side lengths and use the law of cosines to find the dihedral angle. Use the fact that each face of an octahedron is an equilateral triangle, and the 24-cell has a hollow cube structure made of octahedra faces — no algebra required. -->
+
+## How It Works
+
+A brief explanation of Minecraft4D’s internals. Like Minecraft, it stores the world in chunks. The 4D world generator is similar to 3D. Rendering uses ray tracing to compute intersections, implementing only basic ambient occlusion and solar shadows. Texturing is interesting: 4D blocks require 3D textures. Inspired by Minecraft’s 2D texture files, I manually drew 3D textures layer by layer — 8 layers total at 8×8×8 resolution. The textures are stored in regular 2D `.png` format, where each cube texture is drawn in 8 slices.
+![Some 3D textures in-game](/img/minecraft08.jpg)

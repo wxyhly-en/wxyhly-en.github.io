@@ -1,60 +1,56 @@
 ---
-title: 趣题：五维立方体截面
+title: "5D Cube's Cross-section Puzzle"
 tags:
-  - 四维
-  - 几何
-  - 图形
+- 4D
+- Geometry
+- 5D
 date: 2016-11-03 11:48:45
-excerpt: 先来一道只涉及四维的题热热身吧：我们知道，正方体可以被斜着截出正六边形截面，它与正方体所有面都相交；推广到四维，某个斜着的截胞与超立方体所有八个胞都相交，选垂直于体（最长）对角线的过超立方体体心的截面，会截出什么图形？如果截面不过超立方体体心，我们又可能得到哪些形状的截面？
+excerpt: We know that a cube can be obliquely sectioned to produce a regular hexagonal cross-section, which intersects 6 faces of the cube. Generalizing to 4D, a certain cross-cell intersects all 8 cells of a hypercube. How about Generalizing to 5D?
 index_img: /img/puzzle5d1.gif
 ---
 
-本文分两部分，第一部分是关于五维立方体截面谜题，第二部分是对一类四维多胞体性质的探讨。我们要解决五维空间中的问题，但主要还是以四维空间中的讨论为主。
+This article is divided into two parts. The first part is about the puzzle of a 5-dimensional cube's cross-section, and the second part is an exploration of the properties of a certain type of 4-dimensional polytope. We will be solving a problem in 5D space, but the main discussion will be in 4D space.
 ## part 1
-### 先来一道只涉及四维（不涉及五维）的题热热身吧
-我们知道，正方体可以被斜着截出正六边形截面，它与正方体所有面都相交；推广到四维，我们希望超立方体也可以被“斜着”截出一种截胞（胞指三维的“面”，下同），它与超立方体所有八个面（立方体胞）都相交，当然符合要求的“斜着”截的方法很多，我们要一种最“对称”的截法，即选垂直于体（最长）对角线的过超立方体体心的截面，这样能满足于所有面都相交的要求吗？会截出什么图形？如果截面不过超立方体体心，我们又可能得到哪些形状的截面？
+### Let's start with a warm-up problem involving only four dimensions (not five)
+We know that a cube can be obliquely sectioned to produce a regular hexagonal cross-section, which intersects all faces of the cube. Generalizing to four dimensions, we want to find an "oblique" cross-cell (a cell refers to a 3D "face," the same below) that intersects all eight faces (cubic cells) of a hypercube. Of course, there are many ways to make such an "oblique" cut that fits the requirements. We want the most "symmetrical" method, which is to choose a cross-section perpendicular to the main (longest) diagonal and passing through the center of the hypercube. Does this method satisfy the requirement of intersecting all faces? What shape will it be? If the cross-section does not pass through the hypercube's center, what other shapes might we get?
 
-<!--more-->
-
-答案是能截得正八面体！（它的棱长为$\sqrt 2$，经过所有正方形的面对角线）截面不过体心我们还能得到正四面体、截角四面体等形状。
+The answer is that you get a regular octahedron! (Its edge length is $\sqrt 2$, passing through the face diagonals of all squares). If the cross-section does not pass through the center, we can also get shapes like a regular tetrahedron, a truncated tetrahedron, and others.
 ![](/img/puzzle5d1.gif)
-看来选垂直于体对角线的过超立方体体心的截面，既满足与所有面相交的要求还满足最对称，如果我们继续，推广到五维空间，即选垂直于五维立方体的体对角线且过五维立方体体心的截面（四维超平面）截五维立方体，我们应该会得到一个四维图形X，我们认为这个四维图形X是线段（斜截正方形得）->正六边形->正八面体->X这样类比来的。你能说出X的基本特征参数并大致画出它的球极投影吗？
-### 寻找图形X
-四维图形X应该是通过截五维立方体得到的一个四维的截面图形，它与五维立方体10个面（即10个超立方体“面”，想想为什么它有10个面）相交得到，既然有对称性，那可不可能是正十胞体？很遗憾的是，正10胞体不存在，因为四维空间中正多胞体只有正五、八、十六、二十四、一百二十、六百胞体这六种，我们没听说过什么“正10胞体”。其实我们选择垂直体对角线且过体心的截面的原因就是这个截面与五维立方体的所有四维面的“地位”（比如夹角，但我们还没讨论过五维空间中的夹角）是一样的，所以我们有理由相信截得的四维图形X的十个面是全等的。每个面是什么形状的呢？感觉没有线索。
+It seems that a cross-section perpendicular to the main diagonal and passing through the center of a hypercube not only meets the requirement of intersecting all faces but is also the most symmetrical. If we continue and generalize to 5D space, choosing a cross-section (a 4D hyperplane) that is perpendicular to the main diagonal of the 5-dimensional cube and passes through its center, we should get a 4D figure X. We believe this 4D figure X is an analogy that follows this progression: line segment (from an oblique cut of a square) -> regular hexagon -> regular octahedron -> X. Can you describe the basic characteristic parameters of X and roughly draw its stereographic projection?
+### Finding figure X
+The 4D figure X should be a 4D cross-section obtained by slicing a 5-dimensional cube. It intersects the 10 faces of the 5-dimensional cube (i.e., the 10 hypercube "faces"—think about why it has 10 faces). Since there is symmetry, could it be a regular 10-cell? Unfortunately, the regular 10-cell does not exist, because there are only six regular polytopes in 4D space: the 5-, 8-, 16-, 24-, 120-, and 600-cells. We have never heard of a "regular 10-cell." In fact, the reason we choose a cross-section perpendicular to the main diagonal and passing through the center is that this cross-section has the same "status" (e.g., the same angle, although we haven't discussed angles in 5D space yet) with respect to all ten 4D faces of the 5-dimensional cube. Therefore, we have reason to believe that the ten cells of the resulting 4D figure X are all congruent. What shape is each cell? It feels like we don't have a clue.
 
-当我们研究高维空间的问题没思路太抽象时一般有两种解决方法：一是用代数法（比如解决四维空间两平面夹角问题），二是想想低维空间的情形。我们先尽量不用代数法，那样显得有点无趣。所以我们转而想想四维情形：想想四维立方体的各个垂直于体对角线的不一定过体心的一系列截面（三维面），这一系列三维图形有一个特点，就是组成它们的二维面都是三角形或六边形。这些三角形或六边形正是三维情形中正方体垂直体对角线截得的一系列截面！它的道理很简单，当我们截n维空间的一图形时，它的n-1维边界是n维空间的子空间，也相应被截了，在正方体的一系列类比中，截面交n-1维子空间得到“子截面”也垂直于n-1维立方体的体对角线。总结下来关于X我们有这些信息：
-- X由10个全等的胞构成；
-- 胞的形状应该是四面体、截角四面体或八面体之中的一种。
-这里值得注意的是，过n维立方体体心的截面截到n维立方体的n-1维面（n-1维立方体）并不会过n-1维立方体体心，因为n-1维面离n维立方体的体心有边长一半的距离，所以我们排除胞的形状是八面体。
-由于五维立方体每个四维面都有平行的对面，所以截面X的每个三维面也有平行的对面，这让我们想到了还可以像描述正120胞体一样“分层”描述这个图形X:
+When we are stuck on a problem in a higher-dimensional space because it's too abstract, there are generally two solutions: one is to use an algebraic method (for example, to solve the problem of the angle between two planes in 4D space), and the other is to think about the situation in lower dimensions. We will try to avoid the algebraic method for now, as it can be a bit boring. So, let's think about the 4D case: Consider the series of cross-sections (3D faces) of a 4D cube that are perpendicular to the main diagonal, not necessarily passing through the center. This series of 3D figures has a feature: their 2D faces are all triangles or hexagons. These triangles or hexagons are precisely the series of cross-sections obtained by slicing a cube perpendicular to its main diagonal in the 3D case! The principle is very simple: when we slice a figure in n-dimensional space, its (n-1)-dimensional boundaries are subspaces of the n-dimensional space, and they are also correspondingly sliced. In the series of analogies with the cube, the "sub-cross-section" obtained where the cross-section intersects the (n-1)-dimensional subspace is also perpendicular to the main diagonal of the (n-1)-dimensional cube. To summarize, we have the following information about X:
+- X is composed of 10 congruent cells;
+- The shape of the cells should be one of the following: a tetrahedron, a truncated tetrahedron, or an octahedron.
+It is worth noting here that a cross-section passing through the center of an n-dimensional cube and cutting its (n-1)-dimensional face (an (n-1)-dimensional cube) will not pass through the center of the (n-1)-dimensional cube, because the (n-1)-dimensional face is a distance of half the edge length away from the center of the n-dimensional cube. Therefore, we can rule out the octahedron as the shape of the cells.
+Since every 4D face of the 5-dimensional cube has a parallel opposing face, every 3D face of the cross-section X also has a parallel opposing face. This makes us think that we can describe this figure X by "layers," just like how we describe the 120-cell:
 
-| 位置        | 胞数           |
+| Position        | Number of cells           |
 | ------------- |:-------------:|
-| 北极      | 1 |
-| 北半球      | 4      |
-| 南半球 | 4      |
-| 南极      | 1 |
+| North Pole      | 1 |
+| Northern Hemisphere      | 4      |
+| Southern Hemisphere | 4      |
+| South Pole      | 1 |
 
-注意为什么我能肯定的给出北半球、南半球是4，因为X的胞的形状只能是四面体或截角四面体，所以与北极相邻的胞必为4，截角四面体有4个胞与北极共六边形，另四个与之共三角形，显然距离不一样，所以北极点外“第一圈”的胞数还是4。
-其实X的胞不可能是四面体。如果是四面体，北极点外“第一圈”四面体朝外的四个顶点两两间会有沟壑，填充这些沟壑至少得用6个四面体，与上面的分层描述不符，当然还有种情况是“第一圈”四面体朝外的四个顶点是共用的，这就是正五胞体，当然对称性不允许其他情况，比如只共用2个或三个顶点，所以我们排除了X的胞是四面体的所有可能。
-所以最后一种就是答案了：截角四面体。北极点外“第一圈”截角四面体与极点共六边形，与南极共三角形；南极点外“第一圈”截角四面体与南极点共六边形，与北极共三角形。几何体X就是**过截角五胞体（bitruncated 5-cell）**，具体可参见[英文维基对应条目](https://en.wikipedia.org/wiki/Truncated_5-cell#Bitruncated_5-cell)，这个多胞体在jenn3d软件上也找得到。
-![来自维基百科](https://upload.wikimedia.org/wikipedia/commons/e/e3/Decachoron_stereographic_%28hexagon%29.png)
+Note why I can confidently give 4 for the northern and southern hemispheres: because the shape of X's cells can only be a tetrahedron or a truncated tetrahedron, the number of cells adjacent to the North Pole must be 4. A truncated tetrahedron has four cells that share a hexagon with the North Pole and four others that share a triangle, and the distances are clearly different. Therefore, the number of cells in the "first layer" outside the North Pole is still 4.
+In fact, X's cells cannot be tetrahedra. If they were tetrahedra, the four outward-facing vertices of the "first layer" of tetrahedra would have a gap between each pair. Filling these gaps would require at least 6 tetrahedra, which is inconsistent with the layered description above. Of course, another case is that the four outward-facing vertices of the "first layer" of tetrahedra are shared, which would make it a regular 5-cell. The symmetry does not allow for other cases, such as sharing only 2 or 3 vertices. Therefore, we have ruled out all possibilities for the cells of X being tetrahedra.
+So the last possibility is the answer: a truncated tetrahedron. The "first layer" of truncated tetrahedra outside the North Pole shares a hexagon with the pole and a triangle with the South Pole; the "first layer" of truncated tetrahedra outside the South Pole shares a hexagon with the South Pole and a triangle with the North Pole. The geometric figure X is a **bitruncated 5-cell**. For details, you can refer to the [corresponding English Wikipedia article](https://en.wikipedia.org/wiki/Truncated_5-cell#Bitruncated_5-cell). This polytope can also be found in the jenn3d software.
+![From Wikipedia](https://upload.wikimedia.org/wikipedia/commons/e/e3/Decachoron_stereographic_%28hexagon%29.png)
 
 ## part 2
-jenn3d软件上给出了过截角多胞体家族，那到底什么是过截角呢？过截角就是截角时截过头了，但三维空间中过截角多面体正好就是原多面体对偶多面体的截角多面体。
-![来自维基百科](https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Birectified_cube_sequence.png/823px-Birectified_cube_sequence.png)
-比如截正方体，首先得到图中第三个（均匀）截角正方体，再得到第五个截半正方体，这是能截得的最大临界状态，超过后就是过截角了（第七个），但从八面体出发，首先得到图中第七个（均匀）截角正方体，再得到第五个截半正方体（也可以叫截半八面体，它的英语名称叫Cuboctahedron，直译“立方八面体”），然后就是过截角八面体（第三个）。
-我们看到三维空间没必要用过截角，但四维空间中就不一样了。我们不妨看一看正五胞体截角的全过程。
-首先我们得到截角正五胞体，截到中点时得到截半正五胞体。超过中点后会得到什么图形？
-（以下图片均来自英文维基百科）
-![正五胞体](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Schlegel_wireframe_5-cell.png/800px-Schlegel_wireframe_5-cell.png)
-![截角正五胞体](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Schlegel_half-solid_truncated_pentachoron.png/800px-Schlegel_half-solid_truncated_pentachoron.png)
-![截半正五胞体](https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Schlegel_half-solid_rectified_5-cell.png/800px-Schlegel_half-solid_rectified_5-cell.png)
-截半正五胞体有正八面体胞核正四面体胞，正八面体是“截半正四面体”，继续截会让正八面体变回截角正四面体，正四面体也会变成截角正四面体，所以所有胞都变成了截角正四面体，这就是过截角正五胞体。
+The jenn3d software provides a family of bitruncated polytopes. So, what exactly is bitruncation? Bitruncation is when the truncation process goes too far. However, in 3D space, a bitruncated polyhedron is just a truncated version of the dual of the original polyhedron.
+![From Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Birectified_cube_sequence.png/823px-Birectified_cube_sequence.png)
+For example, when truncating a cube, we first get the (uniform) truncated cube (the third figure), then the rectified cube (the fifth figure), which is the maximum critical state that can be reached by truncation. Exceeding this state results in a bitruncated cube (the seventh figure). But starting from an octahedron, we first get a (uniform) truncated octahedron (the seventh figure), then the rectified octahedron (the fifth figure, which is also called a cuboctahedron), and then the bitruncated octahedron (the third figure).
+We can see that in 3D space, there is no need for the term "bitruncation," but it's different in 4D space. Let's take a look at the entire process of truncating a regular 5-cell.
+First, we get a truncated 5-cell. When we truncate to the midpoints of the edges, we get a rectified 5-cell. What shape do we get if we continue truncating past the midpoints?
+(The following images are all from the English Wikipedia)
+![Regular 5-cell](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Schlegel_wireframe_5-cell.png/800px-Schlegel_wireframe_5-cell.png)
+![Truncated 5-cell](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Schlegel_half-solid_truncated_pentachoron.png/800px-Schlegel_half-solid_truncated_pentachoron.png)
+![Rectified 5-cell](https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Schlegel_half-solid_rectified_5-cell.png/800px-Schlegel_half-solid_rectified_5-cell.png)
+The rectified 5-cell has regular octahedron cells and regular tetrahedron cells. The regular octahedron is a "rectified tetrahedron," so continuing the truncation process will cause the regular octahedra to revert to truncated tetrahedra, and the regular tetrahedra will also become truncated tetrahedra. Thus, all cells become truncated tetrahedra, which is what the bitruncated 5-cell is.
 
-![过截角正五胞体](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Schlegel_half-solid_bitruncated_5-cell.png/800px-Schlegel_half-solid_bitruncated_5-cell.png)
-不是所有过截角正多胞体都只有一种胞围成，只有正多胞体是自对偶时才有这种情况，还有一种很漂亮的过截角正多胞体是过截角正二十四胞体。（正二十四胞体自对偶）
+![Bitruncated 5-cell](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Schlegel_half-solid_bitruncated_5-cell.png/800px-Schlegel_half-solid_bitruncated_5-cell.png)
+Not all bitruncated regular polytopes are bounded by only one type of cell. This is only the case for self-dual regular polytopes. Another very beautiful bitruncated regular polytope is the bitruncated 24-cell (the regular 24-cell is self-dual).
 
-现在我们能讨论垂直于五维立方体的体对角线的面（四维面）在任意位置的截面的图形了。我们可以想象截面移动形成截面动画：先看到正五胞体从一个点开始变大，然后被截角，即截角正五胞体，继续截角得到截半正五胞体、过截角正五胞体，然后又变成截半正五胞体、截角正五胞体、最后恢复为正五胞体，变小消失。
-
-
+Now we can discuss the shapes of cross-sections obtained from a 4D hyperplane perpendicular to the main diagonal of a 5D cube at any position. We can imagine an animation of the cross-section moving: first, we see a regular 5-cell starting as a point and growing, then it gets truncated into a truncated 5-cell, which continues to be truncated into a rectified 5-cell, a bitruncated 5-cell, and then reverts back to a rectified 5-cell, a truncated 5-cell, and finally back to a regular 5-cell, which shrinks and disappears.
