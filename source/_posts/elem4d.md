@@ -114,9 +114,9 @@ This periodic table is very large. Together with netizen Ningning, I created a c
 
 Here are several formats of the 4D periodic table available:
 - <b>For desktop, recommended to <a href="https://wxyhly.github.io/Chem4D/periodic" target="periodic">view online</a> in a separate browser tab</b> (note that mobile default fonts may not display all characters fully);
-- Download [PDF document](/Chem4D/periodic/periodic_table_4d.pdf);
+- Download [PDF document](https://wxyhly.github.io/Chem4D/periodic/periodic_table_4d.pdf);
 - Download [png image](/img/periodic_table_4d.png);
-- Download editable [Excel version](/Chem4D/periodic/periodic_table_4d.xlsx). for readers using Simplified Chinese, recommend also installing the  [Chemical4D font file](/Chem4D/periodic/Chemical4D.otf).
+- Download editable [Excel version](https://wxyhly.github.io/Chem4D/periodic/periodic_table_4d.xlsx). for readers using Simplified Chinese, recommend also installing the  [Chemical4D font file](https://wxyhly.github.io/Chem4D/periodic/Chemical4D.otf).
 
 Incidentally, here's the design philosophy for the periodic table:
 - Referencing the periodic table from the Higher Space forum, I doubled its length and multiplied element column numbers by two to fill even-numbered positions (with exceptions for alkali metals, halogens, and a few other elements). Odd-numbered elements are additionally added due to four spin states, generally named based on neighboring elements' names or properties, or commemorating famous people (like "Eulerium" commemorating mathematician Euler), with some random or meme names. This also occurs in the name given from the Higher Space forum. (e.g. "Miegakurium" and "Mashpoenium")

@@ -262,28 +262,7 @@ Four-dimensional molecules also have cumulative double-triple bonds: the central
 Four-dimensional molecules also have a type of cumulative double bond that simultaneously has structural characteristics of both cumulative double bonds and ordinary double bonds in three-dimensional space - the most complex case. Carbon atoms in cumulative double bonds adopt sp<sup>2</sup> hybridization, so three atoms connected to it are coplanar, with two pairs of $p$ orbitals perpendicular to each other and both perpendicular to that plane. If we place this plane on the xy plane, then one $\pi$ bond is in the z direction and one $\pi$ bond is in the w direction. The four atoms at both ends are in xyz and xyw three-dimensional spaces respectively. The middle cumulative double bond carbon atom also has a single bond connecting to another atom (or lone electron orbital), but this atom has a planar structure around it and can flip freely in 4D space, not satisfying chiral conditions. Therefore, like ordinary double bonds, there's only one set of cis-trans isomers. We can define two types of molecules this way: first choose an end carbon A, label them as A, B, C in order. After giving the order of connecting atom groups, we can take the cross product of three vectors in order to get the normal vector of the cell formed by the end carbon and three atoms. Take the cross product of normal vectors m and n of cells containing groups on carbon A and carbon C to form a 2-vector m$\wedge$n. This vector is theoretically absolutely perpendicular to AB$\wedge$BC (i.e., the plane containing three carbons), so their inner product is 0. We can distinguish two chiralities by the sign of the cross product.<a name="crystal"></a>
 
 ## Four-Dimensional Crystal Systems
-All crystal structures in three-dimensional space can be divided into 7 crystal systems (triclinic, monoclinic, orthorhombic, tetragonal, cubic, trigonal, hexagonal) and 14 Bravais lattices. All crystal structures in 4D space can be divided into 23 crystal systems and 64 Bravais lattices, of which 10 also have chirality. The English Wikipedia Crystal System entry and "Symmetric 4D Chemistry" both list the specific 23 crystal systems. "Symmetric 4D Chemistry" provides a crystal parameter table [see this pdf for details](https://wxyhly.github.io/Chem4D/periodic/4dcrystal.pdf).
-
-<iframe style="width:100%;height:500px;display:none" id="crystal-pdf"></iframe><script>
-function isPDFSupported() {
-  const userAgent = navigator.userAgent;
-  const mobileKeywords = ['Android', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone'];
-  for (let i = 0; i < mobileKeywords.length; i++) {
-      if (userAgent.indexOf(mobileKeywords[i])!== -1) {
-          return false;
-      }
-  }
-  return true;
-    // const elem = document.createElement('embed');
-    // elem.type = 'application/pdf';
-    // return elem.type === 'application/pdf';
-}
-const pdfIframe = document.getElementById('crystal-pdf');
-if (isPDFSupported()) {
-    pdfIframe.style.display = 'block';
-    pdfIframe.src = "https://wxyhly.github.io/Chem4D/periodic/4dcrystal.pdf";
-}
-</script>
+All crystal structures in three-dimensional space can be divided into 7 crystal systems (triclinic, monoclinic, orthorhombic, tetragonal, cubic, trigonal, hexagonal) and 14 Bravais lattices. All crystal structures in 4D space can be divided into 23 crystal systems and 64 Bravais lattices, of which 10 also have chirality. The Wikipedia "Crystal System" entry and "Symmetric 4D Chemistry" both list the specific 23 crystal systems. "Symmetric 4D Chemistry" provides a crystal parameter table.
 
 Below is my analysis of the 23 crystal systems with crystal axis coordinate expressions:
 

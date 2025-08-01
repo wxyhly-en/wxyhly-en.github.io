@@ -11,7 +11,7 @@ index_img: /img/minecraft02.jpg
 
 (This article is only a tutorial, so it’s not included in the “4D World” series.)
 Minecraft4D is a true four-dimensional (hypercube-based) voxel sandbox game. (If you include time, it’s actually in 5D spacetime!) Currently, the game only supports single-player creative mode. Minecraft4D is written in Javascript and WebGL, so you can play just by clicking the link below. (Best used with Google Chrome; compatibility with other browsers is not guaranteed, and it requires a physical keyboard.)
-### [Minecraft4D](/4dViewer/minecraft4d/) 
+### [Minecraft4D](https://wxyhly.github.io/4dViewer/minecraft4d/) 
 
 After entering, wait for the textures and terrain to fully load, and then you’ll see the view. You’ll notice that the screen is split into two nearly identical halves — these are the images for your left and right eyes, meant to create **stereoscopic vision**. Since I don’t know how to make VR, you’ll need to use cross-eyed viewing to perceive the 3D image. If you can’t do that, then rotate the view using the arrow keys to get a sense of depth. [This article](/archives/eye3d/) has a detailed explanation of how to view stereoscopic images. The three small corner windows are stereo vision cross-sections, separated for clearer observation.
 <!--more-->

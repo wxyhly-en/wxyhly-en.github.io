@@ -55,6 +55,6 @@ That's all for road traffic vehicles in 4D space. If you have any new ideas or o
 ## Update
 The 4D car simulator is now complete! The physics engine based on Newtonian mechanics can verify the above steering methods for cars. Can you drive the car out of the tunnel?
 - [Operating Instructions](/archives/newton4/#more)
-- [Click to enter the simulator](/4dViewer/physique/car.html)
+- [Click to enter the simulator](https://wxyhly.github.io/4dViewer/physique/car.html)
 
 ![4D car simulator screenshot: A self-rotating 4D car](/img/newtonf002.jpg)

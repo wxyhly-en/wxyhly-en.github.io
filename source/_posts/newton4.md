@@ -21,36 +21,36 @@ Here are many 4D physics scenes (more may be added in the future), where you can
 
 <table><tr><td style="text-align:center"><img src="/img/newtonf004.jpg">
 
-[24-cell Dice (Right-click to fire cannonballs)](/4dViewer/physique/dice.html)
+[24-cell Dice (Right-click to fire cannonballs)](https://wxyhly.github.io/4dViewer/physique/dice.html)
 
 </td>
 <td style="text-align:center"><img src="/img/newtonf003.jpg">
 
-[4D Building Blocks (Right-click to fire cannonballs)](/4dViewer/physique/cubes.html)
+[4D Building Blocks (Right-click to fire cannonballs)](https://wxyhly.github.io/4dViewer/physique/cubes.html)
 
 </td></tr><tr>
 <td style="text-align:center"><img src="/img/newtonf002.jpg">
 
-[4D Car (See operation instructions below)](/4dViewer/physique/car.html)
+[4D Car (See operation instructions below)](https://wxyhly.github.io/4dViewer/physique/car.html)
 
 </td>
 <td style="text-align:center"><img src="/img/newtonf001.jpg">
 
-[4D Object Rolling and Gyroscopes (Multiple scenes available)](/4dViewer/physique/gyro.html)
+[4D Object Rolling and Gyroscopes (Multiple scenes available)](https://wxyhly.github.io/4dViewer/physique/gyro.html)
 
 </td></tr><tr><td style="text-align:center"><img src="/img/newtonf005.jpg">
 
-[Spheritorus-Spheritorus Chain (Comes apart with movement)](/4dViewer/physique/unlink.html)
-[Spheritorus-Torisphere Chain](/4dViewer/physique/st_ts_link.html)
-[Spheritorus-Double Torus Chain](/4dViewer/physique/st_tiger_link.html)
-[Torisphere-Double Torus Chain](/4dViewer/physique/tiger_ts_link.html)
-[Double Torus-Double Torus Chain (One large, one small)](/4dViewer/physique/tiger_tiger_link.html)
+[Spheritorus-Spheritorus Chain (Comes apart with movement)](https://wxyhly.github.io/4dViewer/physique/unlink.html)
+[Spheritorus-Torisphere Chain](https://wxyhly.github.io/4dViewer/physique/st_ts_link.html)
+[Spheritorus-Double Torus Chain](https://wxyhly.github.io/4dViewer/physique/st_tiger_link.html)
+[Torisphere-Double Torus Chain](https://wxyhly.github.io/4dViewer/physique/tiger_ts_link.html)
+[Double Torus-Double Torus Chain (One large, one small)](https://wxyhly.github.io/4dViewer/physique/tiger_tiger_link.html)
 
 </td><td style="text-align:center"><img src="/img/newtonf006.jpg">
 
 4D Gears (Control panel adjustable speed)
-[Absolutely Perpendicular Gears Meshing](/4dViewer/physique/cogwheel.html)
-[Double Rotation Synthesizer](/4dViewer/physique/cogwheel2.html)
+[Absolutely Perpendicular Gears Meshing](https://wxyhly.github.io/4dViewer/physique/cogwheel.html)
+[Double Rotation Synthesizer](https://wxyhly.github.io/4dViewer/physique/cogwheel2.html)
 
 </ol></ul></td></tr></table>
 

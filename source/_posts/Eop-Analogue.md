@@ -10,7 +10,7 @@ index_img: /img/eopplt004.png
 
 How do you play piano using a computer keyboard? Actually, there are many computer piano simulation softwares available, such as EveryOnePiano which I've used before, and the more famous FreePiano. Of course, we can also create something similar ourselves. My online piano doesn't have a specific name, so I simply used the abbreviation EOP (EveryOnePiano) for the Github repository name.
 
-#### [Here's the link, click to play](/Eop/) (IE browser is definitely not supported!)
+#### [Here's the link, click to play](https://wxyhly.github.io/Eop/) (IE browser is definitely not supported!)
 
 The basic usage instructions can be found in the "?" menu after opening (not very detailed, it's better to check the examples given later in this article). Click the keyboard button and a virtual computer keyboard will appear on screen, showing the note names, solfege syllables, or functions for each key (holding Ctrl, Shift, Alt will show corresponding function shortcut combinations). This article also includes some usage instructions, but focuses more on recording my thoughts and implementation process.
 

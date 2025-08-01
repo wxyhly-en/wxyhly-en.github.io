@@ -209,7 +209,7 @@ Readers can verify that the following type assertion indeed proves our propositi
 
 ind_True (λx:True → x eq \*) refl<sub>*</sub> :  $\prod_{x:\mathrm{True}}$x eq \*
 
-If you find these dependent function expressions confusing, just roughly know they express the axiom "True type has unique value *". Or you can try playing with type theory formal systems in Deductrium—hovering over each term shows its type, which should greatly help understanding. Type theory is unlocked relatively late in Deductrium. Readers without time can go directly to Deductrium's [creative mode](/deductrium/?creative) to experience it: click the type layer, enter expressions in the theorem list, and the system will automatically calculate their types. You can also enter type assertions like A : B and definitional equality assertions like A === B, and the system will automatically determine if the input assertions are correct. You can also use the form xxx := XXX to abbreviate XXX as xxx, and after definition you can use it in theorems that follow (add with the plus button). <img style="max-width:500px" src="/img/hott002.png" alt="Formal system in Deductrium"/>
+If you find these dependent function expressions confusing, just roughly know they express the axiom "True type has unique value *". Or you can try playing with type theory formal systems in Deductrium—hovering over each term shows its type, which should greatly help understanding. Type theory is unlocked relatively late in Deductrium. Readers without time can go directly to Deductrium's [creative mode](https://wxyhly.github.io/deductrium/?creative) to experience it: click the type layer, enter expressions in the theorem list, and the system will automatically calculate their types. You can also enter type assertions like A : B and definitional equality assertions like A === B, and the system will automatically determine if the input assertions are correct. You can also use the form xxx := XXX to abbreviate XXX as xxx, and after definition you can use it in theorems that follow (add with the plus button). <img style="max-width:500px" src="/img/hott002.png" alt="Formal system in Deductrium"/>
 
 Now back to the main topic. Each type has corresponding induction principles, like "ind_Bool", "ind_False", even "ind_eq", etc.
 Let's roughly describe what they represent without writing out their types and computational rules.
@@ -356,4 +356,4 @@ Homotopy type theory is somewhat like grand unification theory—both are recent
 - [The HoTT Game (Homotopy Type Theory Game)](https://thehottgameguide.readthedocs.io/en/latest/index.html)
 - [Homotopy Type Theory: Univalent Foundations of Mathematics (HoTT ebook)](https://hott.github.io/book/hott-online.pdf.html)
 
-Finally, let me recommend the [creative mode in Deductrium](/deductrium/?creative), a game I created.
+Finally, let me recommend the [creative mode in Deductrium](https://wxyhly.github.io/deductrium/?creative), a game I created.

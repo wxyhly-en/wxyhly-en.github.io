@@ -33,7 +33,7 @@ On mobile, drag the empty space to move the map, tap +/− to zoom. Hold +/− a
 [[Source Code](https://github.com/wxyhly/tesserxel)]  
 A new WebGPU-based 4D engine for algebra, modeling, rendering, and physics. [Intro series here](/categories/Tesserxel系列/), detailed tutorials and guides coming soon.
 
-## [4D Viewer](/4dViewer/)  
+## [4D Viewer](https://wxyhly.github.io/4dViewer/)  
 [[Source Code](https://github.com/wxyhly/4dViewer)]  
 The precursor to Tesserxel, this JS library (like Three.js) renders 4D spaces with stereoscopic vision to help humans imagine 4D perception. Includes demos like hypercubes, polytopes, and puzzle levels.
 
@@ -43,7 +43,7 @@ The precursor to Tesserxel, this JS library (like Three.js) renders 4D spaces wi
 A simple 4D rigid body engine inside 4D Viewer with interactive scenes: chains, gears, cars, blocks, tops, etc. Now ported to Tesserxel.  
 [Details and tutorial here](/archives/newton4/)
 
-### [Minecraft4D](/4dViewer/minecraft4d/)  
+### [Minecraft4D](https://wxyhly.github.io/4dViewer/minecraft4d/)  
 - Minecraft-style game using 4D ray tracing and 3D textures on hypercubes  
 - Infinite procedural world with 4D terrain, biomes, villages  
 - Supports a Minecraft-like command system including teleport and fill commands  
@@ -51,7 +51,7 @@ A simple 4D rigid body engine inside 4D Viewer with interactive scenes: chains, 
 
 [Tutorial here](/archives/mc4tutorial/)
 
-## [Computer Piano](/Eop/)  
+## [Computer Piano](https://wxyhly.github.io/Eop/)  
 [[Source Code](https://github.com/wxyhly/Eop)]  
 ![Screenshot: editing “Frère Jacques”](img/eopplt002.png)  
 A personalized keyboard piano app. No keybinding options, adapted for improvised playing. Supports MIDI import/export, note editing, multitrack, and basic MIDI controls (7, 64), with features like quantization, velocity adjustment, and speed recording. Also includes non-piano sounds.
