@@ -27,19 +27,13 @@ index_img: /img/N_vector_positive.png
 　　Since we wanted to generalize the outer product (cross product), we bring it over and combine the two: $\vec a\wedge\vec b$ is a quantity with magnitude and directional orientation: the orientation is the plane spanned by $\vec a$ and $\vec b$, following the right-hand rule (meaning $\vec a\wedge\vec b=-\vec b\wedge\vec a$), and the magnitude (norm) is the area of the parallelogram spanned by $\vec a$ and $\vec b$, so if $\vec a$ and $\vec b$ are collinear, then $\vec a\wedge\vec b=0$. This idea is good, but it's not useful yet, because we still need to see how to represent and calculate it in coordinates.
 <a name="bivector"></a>
 ### Wedge Product and Bivectors
-  - Three-dimensional case
-  　　This is a mathematical tool we haven't used even in three-dimensional space. So let's first discuss and familiarize ourselves with it in three-dimensional space, then generalize to four and N dimensions. Let $\vec m=(x_1,y_1,z_1), \vec n=(x_2,y_2,z_2)$, then
-  
-  $\vec m\wedge\vec n=(x_1\vec e_x+y_1\vec e_y+z_1\vec e_z)$ $\wedge(x_2\vec e_x+y_2\vec e_y+z_2\vec e_z)$.
-  　　How to expand the parentheses? If $\wedge$ satisfies **distributivity**, the parentheses can be expanded! Let's first **assume** it does, expand, and use $\vec a\wedge\vec b=-\vec b\wedge\vec a$ to simplify and combine (we also need to assume it's a **linear operator** to combine): $\vec m\wedge\vec n=(x_1y_2-x_2y_1)e_x\wedge e_y + (x_1z_2-x_2z_1)e_x\wedge e_z + (y_1z_2-z_2y_1)e_y\wedge e_z$
+#### 3D case
+  　　This is a mathematical tool we haven't used even in three-dimensional space. So let's first discuss and familiarize ourselves with it in three-dimensional space, then generalize to four and N dimensions. Let $\vec m=(x_1,y_1,z_1), \vec n=(x_2,y_2,z_2)$, then $\vec m\wedge\vec n=(x_1\vec e_x+y_1\vec e_y+z_1\vec e_z)$ $\wedge(x_2\vec e_x+y_2\vec e_y+z_2\vec e_z)$.
+  　　How to expand the parentheses? If $\wedge$ satisfies **distributivity**, the parentheses can be expanded! Let's first **assume** it does, expand, and use $\vec a\wedge\vec b=-\vec b\wedge\vec a$ to simplify and combine (we also need to assume it's a **linear operator** to combine): $$\vec m\wedge\vec n=(x_1y_2-x_2y_1)e_x\wedge e_y + (x_1z_2-x_2z_1)e_x\wedge e_z + (y_1z_2-z_2y_1)e_y\wedge e_z$$
 
-  　　Look familiar? This is the cross product formula we know. We transferred the cross product to the "$\wedge$" operation, so deriving the cross product formula is normal. This bivector has three independent components $e_x\wedge e_y$, $e_y\wedge e_z$, $e_x\wedge e_z$, which represent unit $xy$, $yz$, $xz$ planes, corresponding exactly to normal vectors $\vec e_z$, $\vec e_x$, $-\vec e_y$ (note this correspondence follows the right-hand rule, sometimes differing by a sign), giving the impression they are isomorphic (identical). But $\vec a\wedge\vec b$ and $\vec a \times \vec b$ have essential differences: the former represents a plane, the latter represents the plane's normal line. We just found a special correspondence between them:
-  
-  $a(e_x\wedge e_y)+b(e_y\wedge e_z)+c(e_x\wedge e_z)\to a\vec e_z+b\vec e_x+c\vec e_y$
+  　　Look familiar? This is the cross product formula we know. We transferred the cross product to the "$\wedge$" operation, so deriving the cross product formula is normal. This bivector has three independent components $e_x\wedge e_y$, $e_y\wedge e_z$, $e_x\wedge e_z$, which represent unit $xy$, $yz$, $xz$ planes, corresponding exactly to normal vectors $\vec e_z$, $\vec e_x$, $-\vec e_y$ (note this correspondence follows the right-hand rule, sometimes differing by a sign), giving the impression they are isomorphic (identical). But $\vec a\wedge\vec b$ and $\vec a \times \vec b$ have essential differences: the former represents a plane, the latter represents the plane's normal line. We just found a special correspondence between them:  $$a(e_x\wedge e_y)+b(e_y\wedge e_z)+c(e_x\wedge e_z)\to a\vec e_z+b\vec e_x+c\vec e_y$$  This correspondence is called the **Hodge dual**, which we'll use extensively later.
 
-  This correspondence is called the **Hodge dual**, which we'll use extensively later.
-
-  - 4D case
+#### 4D case
   　　In four-dimensional space, lines and planes (bivectors) no longer have a one-to-one correspondence:
 　　Let $\vec m=(x_1,y_1,z_1,w_1), \vec n=(x_2,y_2,z_2,w_2)$, then$$\begin{align} \vec m\wedge\vec n&=(x_1\vec e_x+y_1\vec e_y+z_1\vec e_z+w_1\vec e_w)\wedge(x_2\vec e_x+y_2\vec e_y+z_2\vec e_z+w_2\vec e_w) \\\\ &=(x_1y_2-x_2y_1)e_x\wedge e_y+(x_1z_2-x_2z_1)e_x\wedge e_z+(x_1w_2-x_2w_1)e_x\wedge e_w+(y_1z_2-z_1y_2)e_y\wedge e_z+(y_1w_2-w_1y_2)e_y\wedge e_w+(z_1w_2-w_1z_2)e_z\wedge e_w\end{align}$$
 　　We see that bivectors in four-dimensional space have six independent components, which are pairwise combinations of coordinates, with component magnitudes being cross multiplication then subtraction of the two coordinates. Good, we can finally represent planes.<a name="dot"></a>

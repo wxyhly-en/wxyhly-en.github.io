@@ -45,7 +45,7 @@ If we replace the square with a pentagon, ... a 16-gon, we can see that these tw
 
 　　After looking at parallel projections, we can also look at the stereographic projection of a duoprism. A 16-16-gonal duoprism already closely resembles the torus in a fiber bundle. Due to the commutative property of the direct product, we can finally understand why the longitude and latitude lines on a torus are interchangeable. (These models are available in jenn3d under the "duoprisms" menu.) <a name="tout"></a>
 ## All 4D Analogies of Cylinders
-It's time to summarize the concept of "prisms." Our three-dimensional prism is the direct product of a 2-dimensional base $S$ and a line segment $h$. In four dimensions, the traditional prism is the direct product of a 3-dimensional base $V$ and a line segment $H$. Then "xx-prismatic prsim" is $V\times H = S\times h \times H=S\times (h \times H)=S\times (\text{rectangle})$. Therefore, there are four types of 4D cylinder analogues:
+It's time to summarize the concept of "prisms." Our three-dimensional prism is the direct product of a 2-dimensional base $S$ and a line segment $h$. In four dimensions, the traditional prism is the direct product of a 3-dimensional base $V$ and a line segment $H$. Then "xx-prismatic prsim" is $V\times H = S\times h \times H$$=S\times (h \times H)=S\times (\text{rectangle})$. Therefore, there are four types of 4D cylinder analogues:
  - Spherinder (3-sphere $\times$ 1-sphere);
  - Duocylinder (2-sphere $\times$ 2-sphere);
  - Cubinder (2-sphere $\times$ 1-sphere $\times$ 1-sphere);

@@ -112,7 +112,7 @@ Inspired by josleys' [another article (in French, suggest translating to English
 
 <iframe src="/three/HyperbolicSpace.html" width="100%" height="710"></iframe>
 
-#### Finally, here are some programs about hyperbolic space I found online
+### Some programs about hyperbolic space I found online
 
 - A small software for visualizing three-dimensional hyperbolic space: [Curved Spaces](http://geometrygames.org/CurvedSpaces/index.html)
 - You can play Sudoku, navigate mazes, and play billiards in hyperbolic space: [HyperbolicGames](http://www.geometrygames.org/HyperbolicGames/)
@@ -120,7 +120,7 @@ Inspired by josleys' [another article (in French, suggest translating to English
 
 ![Lines (called Great Wall in the game) separate different biomes. Note that countless lines are parallel, so this division method can accommodate countless biomes](/img/hyperrogue.jpg)
 
-It's worth mentioning its implementation principle. If we use the Poincaré model to store the map, then places far from us would be concentrated in very small areas at the edge of the disk, causing floating-point precision issues. So the author of HyperRogue uses three-dimensional hyperboloid coordinates internally in the program, only doing Poincaré disk projection when finally displaying. [Here's a Chinese introduction on Douban](https://www.douban.com/review/9346788/)
+It's worth mentioning its implementation principle. If we use the Poincaré model to store the map, then places far from us would be concentrated in very small areas at the edge of the disk, causing floating-point precision issues. So the author of HyperRogue uses three-dimensional hyperboloid coordinates internally in the program, only doing Poincaré disk projection when finally displaying.
 
 - (2022 update) [Hyperbolica](https://store.steampowered.com/app/1256230/Hyperbolica/) A first-person 3D hyperbolic world game. Very clever in rendering and modeling, but in terms of game logic, I unilaterally think it's far inferior to HyperRogue.
 - (2024 update) My own game [Deductrium](https://wxyhly.github.io/deductrium/) A game implemented in TypeScript in the browser that combines mathematical formal systems with hyperbolic space. Currently includes propositional logic, first-order logic, Peano axioms, ZFC set theory, and some content on ordinals and type theory. The ordinal part makes full use of some interesting geometric properties of hyperbolic space.

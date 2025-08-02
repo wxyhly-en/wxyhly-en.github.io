@@ -3,7 +3,7 @@
 title: "4D Computer Graphics: Rotation"
 tags:
 - 4D
-- Math
+- Mathematics
 - Geometry
 - Graphics
 - Algorithm
