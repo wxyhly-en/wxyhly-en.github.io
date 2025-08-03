@@ -10,9 +10,9 @@ date: 2023-01-09 07:56:09
 excerpt: We mentioned how to use the geomagnetic field for navigation but without detail. We'll providing a navigation guide for explorers on 4D planets using magnetic fields, Coriolis force...
 ---
 
-<span class="likecode">// Note: This article involves 4D planetary direction positioning based on Hopf polar coordinates. Please first read [Four-Dimensional World (I): Day, Night and Seasons on Planets](/archives/orbit4d/) to understand the most basic directional terminology on 4D planets.</span>
+<span class="likecode">// Note: This article involves 4D planetary direction positioning based on Hopf polar coordinates. Please first read [4D World (I): Day, Night and Seasons on Planets](/archives/orbit4d/) to understand the most basic directional terminology on 4D planets.</span>
 
-Previously in "[Four-Dimensional World (VII): Electromagnetism](/archives/electm4d/)," I mentioned how to use the geomagnetic field of a 4D planet for navigation, but didn't specifically analyze how to design and use compasses. This article will supplement this content, providing a correct directional identification guide for explorers on 4D planets using magnetic fields, Coriolis force, and the starry sky.
+Previously in "[4D World (VII): Electromagnetism](/archives/electm4d/)," I mentioned how to use the geomagnetic field of a 4D planet for navigation, but didn't specifically analyze how to design and use compasses. This article will supplement this content, providing a correct directional identification guide for explorers on 4D planets using magnetic fields, Coriolis force, and the starry sky.
 <img src="/img/compass4d08.jpg" style="width:100%;max-width:400px" alt="A type of 3D navigation compass magnetized in both semi-parallel and semi-perpendicular directions (with East-West South-North Marp-Garp marked as EW SN GM respectively)"><!--more-->
 
 ### How to Design a Compass
@@ -73,7 +73,7 @@ I've created an interactive 4D planetary scene where you can dynamically observe
 ![Updated April 16, 2023: 4D planetary scene in the Tesserxel engine example library, with solar altitude variation curve below](/img/tsx002.jpg?size=500x)
 
 
-This planet only has a loop current geomagnetic field in the short-day equator direction. According to "[Four-Dimensional World (I): Day, Night and Seasons on Planets](/archives/orbit4d/)," on the two equators you'll only experience long-day and short-day time variations respectively, while mid-latitude regions experience a superposition of both periods. Therefore, we can first judge whether we've reached the polar regions through the solar altitude curve, and second, we can judge based on the compass orientation. If you're clear on all concepts and operations, you'll find these two criteria are consistent in the simulation—the compass indeed works completely correctly as we expected!
+This planet only has a loop current geomagnetic field in the short-day equator direction. According to "[4D World (I): Day, Night and Seasons on Planets](/archives/orbit4d/)," on the two equators you'll only experience long-day and short-day time variations respectively, while mid-latitude regions experience a superposition of both periods. Therefore, we can first judge whether we've reached the polar regions through the solar altitude curve, and second, we can judge based on the compass orientation. If you're clear on all concepts and operations, you'll find these two criteria are consistent in the simulation—the compass indeed works completely correctly as we expected!
 
 ### 4D Planet Feature: Compound Geomagnetic Fields
 

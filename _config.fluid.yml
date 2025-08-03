@@ -371,7 +371,7 @@ navbar:
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
-    - { key: "program", link: "/programs/", icon: "iconfont icon-code" }
+    - { key: "Program", link: "/programs/", icon: "iconfont icon-code" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     - { key: "中文", link: "javascript:window.toggleLang();" }
 

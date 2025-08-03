@@ -14,8 +14,8 @@ This series has been imagining a fictional four-dimensional world. No matter how
 
 ## Preview
 If you don't know what 3D vision is yet, please read the tutorials first and come back:
-- [Four-Dimensional World (Part 4): Two-Dimensional Beings' Vision](/archives/eye2d/)
-- [Four-Dimensional World (Part 5): Experiencing Four-Dimensional Vision and Sense of Direction](/archives/eye3d/)
+- [4D World (IV): Vision of 2D Beings](/archives/eye2d/)
+- [4D World (V): 4D Vision and Orientation](/archives/eye3d/)
 
 Here are many 4D physics scenes (more may be added in the future), where you can freely rotate the viewing angle. Unfortunately, besides being able to right-click to fire hypersphere cannonballs, I haven't thought of better ways to interact with objects. (**It's best to read the explanations below for a better experience**)
 
