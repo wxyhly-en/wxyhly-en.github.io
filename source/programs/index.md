@@ -59,7 +59,9 @@ A personalized keyboard piano app. No keybinding options, adapted for improvised
 [More details here](/archives/Eop-Analogue/)
 
 ## JS Applet Collection in Blog Posts
-- [[Original](/archives/subspace-angle/)] [Angle ranges of Planes](/three/angle_range.html)
+
+- [[Original](/archives/subspace-angle-2/)] [Angle ranges of Plane and Cell (1)](/three/angle_range.html?type=pc) and [Angle ranges of Plane and Cell (2)](/three/angle_range.html?type=cp)
+- [[Original](/archives/subspace-angle/)] [Angle ranges of Planes](/three/angle_range.html?type=pp)
 - [[Original](/archives/eye2d/)] [Experience 2D perspective in 3D world](/three/3dviewer42der.html)
 - [[Original](/archives/orbit4d/)] [Solar altitude on 4D planets](/three/4dOrbit.html)
 - [[Original](/archives/projearth/)] Mercator projection:
