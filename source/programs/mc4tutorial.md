@@ -21,10 +21,10 @@ Similar to original Minecraft, click the canvas to lock and hide your mouse poin
 ## World generation
 There are 2 types of world: Normal(Default) and super flat. Every time you enter the world, a random seed is generated unless a seed is given in URL. The super flat mode is also indicated in URL.
 Here are some URLs of different seeds:
-- Super flat: <a href="/4dViewer/minecraft4d/?flat" target="minecraft4d_flat">?flat</a>
-- x=-510 z=-230 w=-440: Pyramid, stone shore, river and village (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?873556" target="minecraft4d_873556">?873556</a>
-- x=34 z=72 w=64: village near a river (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?962259" target="minecraft4d_962259">?962259</a>
-- x=160 z=-61 w=284: observator in a village (Use `/tp` to teleport to)<a href="/4dViewer/minecraft4d/?661280" target="minecraft4d_661280">?661280</a>
+- Super flat: <a href="https://wxyhly.github.io/4dViewer/minecraft4d/?flat" target="minecraft4d_flat">?flat</a>
+- x=-510 z=-230 w=-440: Pyramid, stone shore, river and village (Use `/tp` to teleport to)<a href="https://wxyhly.github.io/4dViewer/minecraft4d/?873556" target="minecraft4d_873556">?873556</a>
+- x=34 z=72 w=64: village near a river (Use `/tp` to teleport to)<a href="https://wxyhly.github.io/4dViewer/minecraft4d/?962259" target="minecraft4d_962259">?962259</a>
+- x=160 z=-61 w=284: observator in a village (Use `/tp` to teleport to)<a href="https://wxyhly.github.io/4dViewer/minecraft4d/?661280" target="minecraft4d_661280">?661280</a>
 
 How to save your world: Press `/` to open the command, type `/save` to save the world as a file (Format: mc4a)
 To load a world file, firstly enter a random world (regardless seeds and world types), then type `/open` to load your files.

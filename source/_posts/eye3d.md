@@ -9,7 +9,7 @@ excerpt: We discussed how 2D beings would view photos of our world last time. To
 ---
 ## Featured Content
 - Online 3D voxel viewer
-- Polytope graphics library browser
+- Polytope browser
 - 4D first-person mini-game
 
 <!--more-->
@@ -75,11 +75,11 @@ Now let's look at more complex 4D polytopes: **Click the image below to enter th
 ![Panel settings: blue for polytope geometry-related, red for rendering-related, see explanation for details](/img/eye3d004.png)
 
 Clicking in shows a regular 24-cell viewed from outside. You can also scroll the mouse wheel to view from inside. (Viewing from inside actually feels a bit like looking at spherical projection)
-Click "Open Control" in the upper right to expand the quick menu, where you can switch between observing various geometries in the shape selection dropdown. For example, a toroidal prism:
+Click "Open Control" in the upper right to expand the quick menu, where you can switch between observing various geometries in the shape selection dropdown. For example, a torinder:
 - First select "Prism" in the Object selection dropdown
 - Select "Torus" in the base cell dropdown under Prism
 - An 8-segmented torus appears in the view. Adjusting the U and V values in the Torus section changes the number of segments - more segments make the torus smoother but laggier.
-- Since the toroidal prism is a curved-cell figure, there's no need to display edges that become abnormally messy with increasing segments - they consume rendering resources and cause lag. Select Display->Cell to hide them.
+- Since the torinder is a curved-cell figure, there's no need to display edges that become abnormally messy with increasing segments - they consume rendering resources and cause lag. Select Display->Cell to hide them.
 - If you find the blue background fog too heavy, expand the Render section and reduce the bgColor4Flow value; similarly, if the geometry seems too transparent, increase the Flow value (increasing Flow will increase opacity of both geometry and background together, so you need to correspondingly reduce bgColor4Flow). Of course, if these settings seem too complex, you can directly select the Cell(less fog) option from the presets dropdown.
 - By adjusting the height to change the prism height, we can increase this value or set it to 0 to observe and compare.
 
@@ -88,7 +88,7 @@ If you find the 3D view has rough aliasing, press the large keyboard `+` `-` to 
 ### How should I understand these shapes?
 
 If you've completely read through my previous 4D space series, you should be able to understand most of the geometries here (at least through logical reasoning). I believe you don't have any intuitive understanding of these figures, but we might as well analyze to figure out what we're seeing.
-Let's still use the toroidal prism as an example. First, we set Prism->Height to 3 to get a long toroidal prism hollow tube. If you haven't rotated the view, you'll see this figure:
+Let's still use the torinder as an example. First, we set Prism->Height to 3 to get a long torinder hollow tube. If you haven't rotated the view, you'll see this figure:
 ![Looking straight at the tube](/img/eye3d008.jpg)
 What? You say you can't see it's a tube? Let's drag horizontally with the right mouse button to rotate a bit:
 ![Side view of the tube](/img/eye3d009.jpg)
@@ -152,7 +152,7 @@ Here I'll emphasize what counts as aligning the truncated pyramid - see the diag
 
 Can you complete the challenge before dark? (First time encountering a 4D planet's sun and day-night cycle? It's not as simple as you imagine! See [this article](/archives/orbit4d/))
 
-### Map Bird's Eye View and Horizontal Cross-Section
+### Top View (3D Map) and Horizontal Cross-Section
 
 If you're interested in walking using only wireframe in the 3D view, I recommend playing this Java applet: [4DBlocks](http://www.urticator.net/blocks/). It's a 4D maze and 4D scene viewer based on 3D view wireframe-only display. I previously recommended it [here](/archives/game4d/#4dtouhh) too - it's also the inspiration for this current 4DViewer.
 

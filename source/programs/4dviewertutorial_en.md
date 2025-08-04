@@ -80,10 +80,10 @@ To make the best use of stereoscopic vision, we present 3D depth(or distance) on
 One day, a 4Der connected to someone's computer and tell us there exists a 4D world, like we did to 2Ders. He made a 4D Viewer for us to see 3D photos and 4D games! There are both transparent voxels and cross sections:
 ![Position of three perpendicular cross sections in 3D retina](/img/eye3d002.png)
 Let's see an ordinary 3D egg: (Nothing about 4D, just last pre-exercise in 3D) **Click image below to open the Viewer**. Use `W` `S` `A` `D` `Q` `E` to move upward / downward / left / right / front / back, Drag with the left mouse button to rotate, drag with the middle and the right mouse button to move.
-<a href="/4dViewer/examples/egg.html?en" target="hqekler"><img src="/img/eye3d001.jpg" class="nofancybox"></a>
+<a href="https://wxyhly.github.io/4dViewer/examples/egg.html?en" target="hqekler"><img src="/img/eye3d001.jpg" class="nofancybox"></a>
 Now we can see the yolk inside the egg like X-ray! This is one of 4Der's basic abilities.
 Then a tesseract(Hypercube):  Drag with the left mouse button to rotate the 3D retina, drag with the middle mouse button to rotate the camera in 4D. In this time, you can also scroll your mouse wheel to go out from the tesseract.
-<a href="/4dViewer/examples/hypercube.html?en" target="hqekler"><img src="/img/eye3d003.jpg" class="nofancybox"></a>
+<a href="https://wxyhly.github.io/4dViewer/examples/hypercube.html?en" target="hqekler"><img src="/img/eye3d003.jpg" class="nofancybox"></a>
 
 ### What happened with the tesseract?
 - When 3D retina rotates(Drag with the left mouse button), the 4D camera's position does not change. The analog in 3D case is：
