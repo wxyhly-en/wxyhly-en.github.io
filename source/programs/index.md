@@ -68,7 +68,7 @@ A personalized keyboard piano app. No keybinding options, adapted for improvised
     + [Mercator projections in different Earth orientations](/three/shaderEarth.html)
     + [Mercator projection of regular polyhedral](/three/ployhedralEarth.html)
 - [[Original](/archives/escher1/)] [Hyperbolic tiling model](/three/HyperbolicSpace.html)
-- [[Original](/archives/josleys4ds/)] [Lattice space from Dimension Film's preview](/three/LatticeViewer.html)
+- [[Original](/archives/josleys4ds/)] [Lattice space from Dimension Film's trailer](/three/LatticeViewer.html)
 - [[Original](/archives/fibration4ds/)] Hopf fibration:
     + [Three orthogonal Hopf fibrations](/three/Hopf%20fibre1.html)
     + [Part of a Hopf fibration](/three/Hopf%20fibre2.html)
