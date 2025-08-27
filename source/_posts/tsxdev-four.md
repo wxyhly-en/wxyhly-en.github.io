@@ -298,7 +298,7 @@ Phong material has not only a color parameter, but also a shininess parameter th
 
 ```javascript
 // Use a smooth tiger (duotorus) geometry
-let cubeGeometry = new FOUR.TigerGeometry();
+let tigerGeometry = new FOUR.TigerGeometry();
 // PhongMaterial takes color, shininess, and specular color (the latter two are optional, defaults are 20 and white)
 const material = new FOUR.PhongMaterial([0.93, 0.87, 0.8],10);
 // Point light has only the intensity parameter
@@ -308,7 +308,7 @@ pLight.position.w = 2;
 // Don’t forget to add the light to the scene
 app.scene.add(pLight);
 // Then do the same: assign the material
-let mesh = new FOUR.Mesh(cubeGeometry, material);
+let mesh = new FOUR.Mesh(tigerGeometry, material);
 // ..... other code unchanged
 ```
 
