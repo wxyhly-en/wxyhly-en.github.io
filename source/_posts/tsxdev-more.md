@@ -1,5 +1,5 @@
 -----
-title: "Coding Tesserxel (I): More About Scene/Rendering"
+title: "Coding Tesserxel (II): More About Scene/Rendering"
 tags:
   - 4D
   - Graphics
@@ -15,7 +15,7 @@ In the previous article, we provided a preliminary introduction to using the Tes
 ## Scene 1
 I plan to place two hypercubes and one hypersphere on a 3D floor. We will use the `four` module's camera controller, material nodes, and various types of lights, and add dynamic effects to the lights using vector operation functions.
 ### Modeling
-There's no difficulty in modeling; consider it a review. First, we write the geometry data for the 3D floor, hypercubes, and hypersphere:
+Now there should be no difficulty in modeling. This section is just a review. First, we write the geometry data for the 3D floor, hypercubes, and hypersphere:
 ```javascript
 // Hypercube geometry data
 const cubeGeometry = new FOUR.TesseractGeometry();
