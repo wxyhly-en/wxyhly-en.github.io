@@ -9,7 +9,7 @@ tags:
 - Algorithm
 categories: 4D Computer Graphics
 date: 2024-05-21 21:05:36
-index_img: https://www.google.com/search?q=/img/so4001.gif
+index_img: /img/so4001.gif
 excerpt: This article is a overview of various algorithms for 4D rotation. It covers computational methods for 3D quaternions and 4D rotors, a comparison with Geometric Algebra, as well as various lookAt algorithms and 4D camera control methods.
 -----
 
@@ -19,8 +19,8 @@ In this article, we'll look at how to implement the most fundamental coordinate 
 
 I originally planned to start with 2D rotation, then 3D rotation, and finally 4D, gradually introducing rotation planes, 2-vectors, geometric algebra, and rotors. However, there's a lot of information on low-dimensional rotations online, and I've already written about rotation planes, 2-vectors, geometric algebra, and rotors before, so I won't be verbose (I'm lazy\~\~). So, I just give a list of prerequisites that readers should be familiar with before continuing:
 
-1.  [《4D Space (VII): N-dimensional Vectors》](https://www.google.com/search?q=/archives/bivector4ds/) from the beginning to the section on simple 2-vectors.
-2.  [《4D Space (XI): Geometric Algebra, Quaternions, and Rotation》](https://www.google.com/search?q=/archives/gaqr/) from the beginning to the section on quaternions and 4D spatial rotation.
+1.  [《4D Space (VII): N-dimensional Vectors》](/archives/bivector4ds/) from the beginning to the section on simple 2-vectors.
+2.  [《4D Space (XI): Geometric Algebra, Quaternions, and Rotation》](/archives/gaqr/) from the beginning to the section on quaternions and 4D spatial rotation.
 
 ## Handling 3D Rotation
 
@@ -86,7 +86,7 @@ function apply(R:Mat3, p:Vec3):Vec3{
 }
 ```
 
-If the rotation is represented by a quaternion, we use the [rotation coordinate algorithm here](https://www.google.com/search?q=/archives/gaqr/%23quanternion_as_rotor3) for calculation:
+If the rotation is represented by a quaternion, we use the [rotation coordinate algorithm here](/archives/gaqr/#quanternion_as_rotor3) for calculation:
 
 ```typescript
 function apply(R:Quaternion, p:Vec3):Vec3{
@@ -123,7 +123,7 @@ function quaternion2mat3(R:Quaternion):Mat3{
 
 Note that although the second method's code looks more elegant, it is less efficient than the first: the basis vectors are either 1 or 0, so many multiplications and additions are unnecessary. Simplifying the expression leads to higher efficiency, but that essentially turns it into the first method.
 
-Conversely, converting a matrix to a quaternion is not easy. We will solve this problem [later](https://www.google.com/search?q=/archives/so4/%23mat32q). Now that we have the basic ability to handle rotations, let's first look at how to generate them.
+Conversely, converting a matrix to a quaternion is not easy. We will solve this problem [later](/archives/so4/#mat32q). Now that we have the basic ability to handle rotations, let's first look at how to generate them.
 
 ### Rotation Composition and Inverse
 
@@ -131,7 +131,7 @@ To represent rotation using Euler angles or other multi-step composition: use th
 
 ### Axis-Angle Rotation Generation
 
-1.  Given the rotation axis and angle directly: The algorithm for this, along with the rotation coordinate algorithm, has been provided in the [link mentioned earlier](https://www.google.com/search?q=/archives/gaqr/%23quanternion_as_rotor3). Here's the pseudocode:
+1.  Given the rotation axis and angle directly: The algorithm for this, along with the rotation coordinate algorithm, has been provided in the [link mentioned earlier](/archives/gaqr/#quanternion_as_rotor3). Here's the pseudocode:
 
 <!-- end list -->
 
@@ -255,7 +255,7 @@ It is very much like a 6D vector. For example, you can define methods for additi
 
 ### 4D Rotors
 
-There are two ways to represent 4D rotors: one is the quaternion-based rotor (`class Rotorq`), and the other is the geometric algebra-based rotor (`class Rotorg`). The geometric algebra version is the most original and easy to understand, while the quaternion version has more convenient rotation algorithms. Since almost no one directly inputs the components of a rotor to describe a rotation (they are just internal intermediate data), when building a rendering engine, one usually only chooses one of them. For example, [Marc ten Bosch's 4D engine](https://marctenbosch.com/ndphysics/) only supports the geometric algebra version of rotors, while [my tesserxel engine](https://www.google.com/search?q=https://github.com/wxyhly/tesserxel/) only supports the quaternion version. Below, I will list the relevant rotation algorithms for these two versions separately. Please **expand and read as needed**:
+There are two ways to represent 4D rotors: one is the quaternion-based rotor (`class Rotorq`), and the other is the geometric algebra-based rotor (`class Rotorg`). The geometric algebra version is the most original and easy to understand, while the quaternion version has more convenient rotation algorithms. Since almost no one directly inputs the components of a rotor to describe a rotation (they are just internal intermediate data), when building a rendering engine, one usually only chooses one of them. For example, [Marc ten Bosch's 4D engine](https://marctenbosch.com/ndphysics/) only supports the geometric algebra version of rotors, while [my tesserxel engine](https://github.com/wxyhly/tesserxel/) only supports the quaternion version. Below, I will list the relevant rotation algorithms for these two versions separately. Please **expand and read as needed**:
 
 <br/>
 
@@ -263,7 +263,7 @@ There are two ways to represent 4D rotors: one is the quaternion-based rotor (`c
 
 <div style="background-color:var(--color-FFE); display:none" id="ga">
 
-As described in [this introduction](https://www.google.com/search?q=/archives/gaqr/%23def_spinor), a rotor is a subalgebra composed of even-grade vectors in geometric algebra. Therefore, for 4D space, it consists of a scalar `r` (0-vector), a 2-vector `b`, and a pseudoscalar `i` (4-vector). Thus, the rotor class can be defined as:
+As described in [this introduction](/archives/gaqr/#def_spinor), a rotor is a subalgebra composed of even-grade vectors in geometric algebra. Therefore, for 4D space, it consists of a scalar `r` (0-vector), a 2-vector `b`, and a pseudoscalar `i` (4-vector). Thus, the rotor class can be defined as:
 
 ```
 class Rotorg{
@@ -305,7 +305,7 @@ function apply(r:Rotorg, b:Bivec){
 
 This is similar to the 3D rotation generation requirement but with some differences:
 
-1.  Given a rotation plane $B$ and an angle $\\alpha$, generate a rotation: Note that the rotation plane can only be represented by a 2-vector. It might be a simple 2-vector corresponding to a simple rotation, or a compound (singular) 2-vector corresponding to a double rotation. We first consider a simple rotation, because the [algorithm here](https://www.google.com/search?q=/archives/gaqr/%23formula_spinor_rotate) must assume the 2-vector $B$ is simple and normalized to obtain the rotation formula: $R=\\cos(\\alpha/2)+B\\sin(\\alpha/2)$, which is almost identical to the 3D quaternion formula. Here's the pseudocode:
+1.  Given a rotation plane $B$ and an angle $\\alpha$, generate a rotation: Note that the rotation plane can only be represented by a 2-vector. It might be a simple 2-vector corresponding to a simple rotation, or a compound (singular) 2-vector corresponding to a double rotation. We first consider a simple rotation, because the [algorithm here](/archives/gaqr/#formula_spinor_rotate) must assume the 2-vector $B$ is simple and normalized to obtain the rotation formula: $R=\\cos(\\alpha/2)+B\\sin(\\alpha/2)$, which is almost identical to the 3D quaternion formula. Here's the pseudocode:
 
 <!-- end list -->
 
@@ -325,7 +325,7 @@ function planeAngle2rotorg(plane: Bivec, angle: number): Quaternion{
 ```
 
 Note that a simple rotation has no pseudoscalar component, so the last parameter when constructing `Rotorg` is 0. However, the composition of simple rotations can result in a double rotation, in which case the pseudoscalar component will no longer be 0.
-2\.  Given the rotation generator 2-vector directly: Here, we no longer require the 2-vector to be simple or normalized. However, for a general 2-vector, the exponential map formula is not easy to simplify. One can either calculate it by definition $$R=\exp(B\theta/2)=I+B\theta/2+{B^2(\theta/2)^2\over2!}+{B^3(\theta/2)^3\over3!}+..$$ which is an infinite series that can only be truncated after the first $n$ terms; or one can decompose it into simple 2-vectors for calculation. [An algorithm for this decomposition is given here](https://www.google.com/search?q=/archives/bivector4ds/%23orth), but it is quite cumbersome. We will see later that the quaternion-based rotor version does not have these problems, which is why tesserxel uses quaternions to represent 4D rotors.<a name="lookat"></a>
+2\.  Given the rotation generator 2-vector directly: Here, we no longer require the 2-vector to be simple or normalized. However, for a general 2-vector, the exponential map formula is not easy to simplify. One can either calculate it by definition $$R=\exp(B\theta/2)=I+B\theta/2+{B^2(\theta/2)^2\over2!}+{B^3(\theta/2)^3\over3!}+..$$ which is an infinite series that can only be truncated after the first $n$ terms; or one can decompose it into simple 2-vectors for calculation. [An algorithm for this decomposition is given here](/archives/bivector4ds/#orth), but it is quite cumbersome. We will see later that the quaternion-based rotor version does not have these problems, which is why tesserxel uses quaternions to represent 4D rotors.<a name="lookat"></a>
 
 #### lookAt Rotation Generation
 
@@ -358,7 +358,7 @@ This is implemented by using the lookAt function multiple times. The method is e
 
 Similar to the 3D case, the rotation plane and angle can be found by inverting the exponential map:
 $$B=\log(R)=(R-I)-(R-I)^2/2+(R-I)^3/3-..$$
-Note that if the resulting 2-vector is simple, its magnitude is the rotation angle. If it is a compound (singular) 2-vector, it must be decomposed using [this algorithm](https://www.google.com/search?q=/archives/bivector4ds/%23orth) to find the specific rotation planes and angles of the double rotation. If you don't want to use a Taylor series expansion, the quaternion-based rotor version provides a <a href='javascript:void(0);' onclick='if($("\#qt\_").text()=="+"){$("\#qt").show();$("\#qt\_").text("-");}window.location.href="\#rotorq\_log";'>better algorithm</a>.
+Note that if the resulting 2-vector is simple, its magnitude is the rotation angle. If it is a compound (singular) 2-vector, it must be decomposed using [this algorithm](/archives/bivector4ds/#orth) to find the specific rotation planes and angles of the double rotation. If you don't want to use a Taylor series expansion, the quaternion-based rotor version provides a <a href='javascript:void(0);' onclick='if($("\#qt\_").text()=="+"){$("\#qt").show();$("\#qt\_").text("-");}window.location.href="\#rotorq\_log";'>better algorithm</a>.
 
 #### Rotation Interpolation
 
@@ -563,7 +563,7 @@ function randVec4(){
 }
 ```
 
-As a side note, these two functions are very useful for generating photorealistic renders with path tracing, as mentioned in the [previous article](https://www.google.com/search?q=/archives/cg4d/).<a name="randrotor"></a>
+As a side note, these two functions are very useful for generating photorealistic renders with path tracing, as mentioned in the [previous article](/archives/cg4d/).<a name="randrotor"></a>
 
 ### Generating a Random Rotation
 
