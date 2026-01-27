@@ -149,6 +149,8 @@ How can we avoid this problem? In fact, we are only concerned with the curvature
 <img alt="Covering space of the one-sheet hyperboloid" src="/img/minkovski007.png" style="max-width:300px">
 Finally, because time and space are swapped, the spacelike geodesics that were originally parallel but intersected in de Sitter spacetime are now timelike geodesics (those ellipses), which shows that the Anti-de Sitter universe has a tendency to contract, which is exactly the opposite of the expanding universe in de Sitter spacetime.
 
+**2025 Update:** I found a video on YouTube by the creator of the hyperbolic space game HyperRogue: [《Non-Euclidean Game + Relativity = ?》](https://www.youtube.com/watch?v=PxnoSsjMrck). The video visualizes de Sitter and anti-de Sitter spacetimes through the game. In the game's de Sitter spherical universe, a world map is tiled (using a selected specific coordinate system). Because space is constantly expanding, the map appears to continuously zoom in. Conversely, anti-de Sitter spacetime would contract, so the game instead makes the entire universe rotate to maintain equilibrium via centrifugal force, thus achieving a static spacetime structure.
+
 ## Introduction to Intrinsic Geometric Curvature
 As we have seen, although Minkowski space is the spacetime we are familiar with, many interesting geometries can be derived from it. The "spheres" in Minkowski space, i.e., hyperboloids, can be either pure spaces or spacetimes, and they are all constant curvature spaces. What exactly is curvature?
 ### Extrinsic Curvature

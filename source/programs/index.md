@@ -25,7 +25,7 @@ Here’s a survival mode save file for quick access to Type Theory: copy the fol
 
 ## [OrdMap (Ordinal Map)](https://wxyhly.github.io/ordmap/)
 [[Source Code](https://github.com/wxyhly/ordmap)]  
-Ordinals are larger than all natural numbers but still short of absolute infinity. See [“Introduction to Big Numbers”](/archives/ggg-ord/) for more. The map goes up to EBO, supports BOCF/MOCF and Veblen notation.  
+Ordinals are larger than all natural numbers but still smaller than absolute infinity. See [“Introduction to Big Numbers”](/archives/ggg-ord/) for more. The map goes up to EBO, supports BOCF/MOCF and Veblen notation.  
 ![Ordinal map near the origin](/img/ord006.png)  
 On mobile, drag the empty space to move the map, tap +/− to zoom. Hold +/− and swipe right to zoom faster. On PC, drag with the mouse, scroll to zoom, press T/G to change zoom speed, and W/S to adjust iteration depth.
 

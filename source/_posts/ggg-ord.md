@@ -45,11 +45,11 @@ I must say this use of googology is truly unexpected.<a name="reference"></a>
 If you want to continue learning about large ordinals in depth, you can refer to the following links:
 ### Popular Science
 - [Matrix67's blog post](http://www.matrix67.com/blog/archives/3857) introduces tetration and other operations in detail, mentioning that $100\uparrow^{100} 100$ is already casually far far.......far larger than the number of all possible arrangements and combinations of particles in the universe.
-- [List of large numbers on Googology Wiki](https://googology.fandom.com/zh/wiki/%E5%A4%A7%E6%95%B8%E5%88%97%E8%A1%A8)
-- [Bilibili video listing large numbers from 1 to infinity](https://www.bilibili.com/video/BV13G411X7xm/) (9 hours 54 minutes long)
+- [List of large numbers on Googology Wiki](https://googology.fandom.com/wiki/List_of_googolisms)
+- [Youtube video listing large numbers from 1 to infinity](https://www.youtube.com/watch?v=5hfkzo_ojGE) (9 hours 54 minutes long)
 - Codeparade's (the author of 4D Golf!) ["Finding the Largest Number" video](https://www.youtube.com/watch?v=Mzgw6zMtipQ)
 <!-- - [Zhihu column "The World of Large Numbers"](https://www.zhihu.com/column/c_1561069709323083776) vividly illustrates concepts like large numbers, large ordinals, and large cardinals through stories. (Actually, this column doesn't have anything particularly worth recommending)-->
-- A small story about ordinals written in the style of [*GEB*](https://book.douban.com/subject/1291204/)'s turtle and Achilles dialogue (unfortunately I can't find the Chinese version I first read, [the original is in French](http://www.madore.org/~david/misc/VIRUS/ordinals/ordinals.html))
+- A small story about ordinals written in the style of [*GEB*](https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach)'s turtle and Achilles dialogue (unfortunately I can't find the Chinese version I first read, [the original is in French](http://www.madore.org/~david/misc/VIRUS/ordinals/ordinals.html))
 
 ### Tutorials
 - [Cao Zhiqiu's "Large Number Theory" (dynamically updated)](https://github.com/ZhiqiuCao/Googology): The most comprehensive and systematic Chinese textbook on googology to date, bar none. (If the GitHub link doesn't work, here's a [cloud drive link (240807 version)](https://pan.baidu.com/link/zhihu/79h1zTuNhYi0VFh1gDM0l2k2NxUE5WNQUPlE==))

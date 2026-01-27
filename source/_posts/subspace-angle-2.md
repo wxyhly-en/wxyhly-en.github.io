@@ -108,6 +108,8 @@ So far, it's still hard for us to visualize this figure with 18 circles, 48 inte
 A circle with 4 intersection points, and at each intersection point, three mutually perpendicular circles. Readers familiar with 4D regular polytopes will surely think of the 16-cell. However, besides these two conditions matching, other conditions are quite different: the 16-cell has 8 vertices and 24 edges. Dividing by 4 gives 6 circles. But our figure has as many as 48 intersection points and 18 circles.
 ![Regular Octahedron - Regular Octahedron: 18 circles](/img/angle004.jpg)
 Upon closer inspection, I found that although each circle in this figure only has 90° rotational symmetry, it actually has 8 intersection points. Our previous assumption that all intersection points were the same was incorrect (the adjacent two intersection points are orthogonally offset by 45°, so they cannot be connected by rotation). This figure can be seen as three 16-cells nested together at different angles.
+
+Coincidentally, I later came across a video on Bilibili posted by BlenderMath titled ["48 Vertices, 144 Edges, Rotating for Two and a Half Minutes"](https://www.bilibili.com/video/BV1qgxKzcEXM/), which happens to be the stereographic projection of this very shape! However, I’m not sure what method he used to construct it.
 ![Three 16-cells, left and right show two different coloring schemes](/img/angle002.png)
 
 ### Cube - Cube
