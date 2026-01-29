@@ -172,8 +172,11 @@ Understanding the metric expression of a black ring is even harder. Below I will
 
 ![Horizontal axis is angular momentum, vertical axis is black hole horizon area. Image from arXiv:hep-th/060801212v2](/img/5dbh06.png)
 
-4.  Black rings can also have double rotation solutions: one direction is around $\mathbb{S}^1$, and the other is an absolutely perpendicular rotation direction within $\mathbb{S}^2$. You might intuitively think of the non-rigid rotation of a smoke ring turning inside out, but the double rotation of a spheritorus is completely rigid and does not turn inside out like a smoke ring.
-5.  There also exist structures like "Black Saturn" (figure (d) below) consisting of a black hole plus a black ring, as well as more complex nested structures like multi-layered black rings.
+4.  Black rings can also have double rotation solutions: one direction is around $\mathbb{S}^1$, and the other is an absolutely perpendicular rotation direction within $\mathbb{S}^2$. You might intuitively think of the non-rigid rotation of a smoke ring turning inside out, but the double rotation of a spheritorus is completely rigid and does not turn inside out like a smoke ring. In addition, there exists a **Helical Black Ring**, which requires double rotation to exist stably.
+
+![Phase diagram of various 5D single-horizon "black objects". For double rotation, the angular momentum is fixed at j2=0.1, and j1 is the coordinate value of the horizontal axis. Image from arXiv:1003.2411](/img/5dbh10.png)
+
+5. The black holes mentioned above all possess a single horizon. If multiple horizons are allowed, there also exist structures like "Black Saturn" (figure (d) below) consisting of a black hole plus a black ring, as well as more complex nested structures like multi-layered black rings.
 6.  For higher-dimensional black holes, their stability might "bifurcate" as the angular momentum parameter increases, transforming into more complex shapes. This is somewhat similar to the stability of the shapes of rotating planets.
 
 ![Image from Introduction to Black Hole Physics by Valeri P. Frolov, Andrei Zelnikov](/img/5dbh01.jpg)
@@ -201,5 +204,6 @@ Finally, one point I want to mention separately is that people [have already dem
 * [arXiv:1111.1903 [gr-qc] Myers-Perry black holes](https://arxiv.org/pdf/1111.1903) Introduction to MP black hole metric and structure.
 * [arXiv:1711.02933 [gr-qc] Geodesic motion in the five-dimensional Myers-Perry-AdS spacetime](https://arxiv.org/pdf/1711.02933) Mainly discusses MP black holes in negative constant curvature spacetime, drawing the singularity of MP black holes extended inward to .
 * [arXiv:1903.05125 [hep-th] Imaging Higher Dimensional Black Objects](https://arxiv.org/pdf/1903.05125) Rendered voxel cross-sections of MP black holes and Black Rings.
-* [arXiv:2411.02511 [gr-qc] Darkness cannot bind them: a no-bound theorem for d=5 Myers-Perry null & timelike geodesics](https://arxiv.org/pdf/2411.02511) Analyzed the stability of timelike and null orbits around MP rotating black holes.
+* [arXiv:2411.02511 [gr-qc] Darkness cannot bind them: a no-bound theorem for d=5 Myers-Perry null & timelike geodesics](https://arxiv.org/pdf/2411.02511) Analyzed the stability of timelike and null orbits around spinning black holes.
 * [arXiv:1302.0291 [hep-th] Stable Bound Orbits of Massless Particles around a Black Ring](https://arxiv.org/pdf/1302.0291) Black Rings can have bounded timelike and null geodesics around them, i.e., stable orbits.
+* [arXiv:1003.2411 [hep-th] On the black hole species (by means of natural selection)](https://arxiv.org/pdf/1003.2411)
