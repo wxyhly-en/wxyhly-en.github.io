@@ -5,12 +5,12 @@ tags:
   - Geometry
 categories: 4D Space Series
 date: 2018-09-02 16:03:30
-excerpt: We will focus on curved surface (cell) in 4D. We'll understand them from new perspectives (thickening, lofting, solids of revolutions). Then some new objects - duocones, Polytwisters, and 4D spirals.
+excerpt: We will focus on curved surface (cell) in 4D. We'll understand them from new perspectives (thickening, lofting, solids of revolutions). Then some new objects - duospindles, Polytwisters, and 4D spirals.
 index_img: /img/rot413.gif
 ---
 ![Cross-sections of Polytwister and 4D spiral, stereographic projection of 8-8 duopyramid](/img/rot413.gif?size=400x)
 ### Overview
-In this article, we will focus on curved surface (cell) shapes in four-dimensional space. We'll first gain deeper understanding of some important solids of revolution from new perspectives (thickening, lofting) that were briefly introduced in the previous article [More Geometries](/archives/more4ds/) (with a [list of common solids of revolution](/archives/rot4d/#rotlist)!). Then I will introduce some new geometric bodies: duocones, Polytwisters, and four-dimensional spirals.
+In this article, we will focus on curved surface (cell) shapes in four-dimensional space. We'll first gain deeper understanding of some important solids of revolution from new perspectives (thickening, lofting) that were briefly introduced in the previous article [More Geometries](/archives/more4ds/) (with a [list of common solids of revolution](/archives/rot4d/#rotlist)!). Then I will introduce some new geometric bodies: duospindles, Polytwisters, and four-dimensional spirals.
 <span class="likecode">&lt;!-\- Warning: Many images  -\-></span><!--more-->
 
 ### Review: Flat Torus (or Clifford Torus)
@@ -72,9 +72,9 @@ Finally, I want to summarize the relationship between direct product and lofting
 
 ### Double Cones
 
-We know the cylinder's analogies include spherical cylinder, cylindrical prism, and duocylinder; the cone's analogies include sphone, cylindrone, and conical cone. Now we'll see there also exists a duocone similar to the duocylinder!! I'll give three ways to understand it.
+We know the cylinder's analogies include spherical cylinder, cylindrical prism, and duocylinder; the cone's analogies include sphone, cylindrone, and conical cone. Now we'll see there also exists a duospindle similar to the duocylinder!! I'll give three ways to understand it.
 ##### As a Solid of Revolution
-Rotating with the cone's base as the rotation plane gives a highly symmetric figure - the duocone. First, the cone's base circle remains fixed on the rotation plane, while the cone's apex rotates one revolution to get a circle absolutely perpendicular to the cone's base. These two circles actually have equal status (might not be very intuitive). Note these two circles are hollow structures, they are protruding edges on the duocone's surface, and there are no two-dimensional solid circular surfaces on the duocone.
+Rotating with the cone's base as the rotation plane gives a highly symmetric figure - the duospindle (I called it "duocone"). First, the cone's base circle remains fixed on the rotation plane, while the cone's apex rotates one revolution to get a circle absolutely perpendicular to the cone's base. These two circles actually have equal status (might not be very intuitive). Note these two circles are hollow structures, they are protruding edges on the duospindle's surface, and there are no two-dimensional solid circular surfaces on the duospindle.
 ![Solid of revolution diagram, red circle and blue circle have equal status (can't draw the real appearance...)](/img/rot406.jpg)
 ##### As a Bipyramid
 To truly understand that the two circles have equal status, we need to first understand a new geometric body - the [**duopyramid**](https://en.wikipedia.org/wiki/Duopyramid). Its definition is: given two absolutely perpendicular planar figures $A$ and $B$ both centered at the origin, take their convex hull, denoted as $A+B$ (Schläfli symbol). What is a convex hull? Figuratively speaking, it's like covering the figure with a layer of plastic wrap, wrapping it tightly. For example, a square is the convex hull of two mutually perpendicular line segments, an octahedron is the convex hull of three mutually perpendicular line segments, or the convex hull of a square and a perpendicular line segment. A duopyramid formed by placing two n-pyramids base to base is the convex hull of a regular polygon and a line segment. We note that its dual polyhedron is an n-prism.
@@ -83,9 +83,9 @@ Moving to four dimensions, the 16-cell is the convex hull of four mutually perpe
 ![Perspective projection of 10,10-duopyramid](/img/rot402.png)
 Inflating these onto the hypersphere and projecting down gives two circles at the north and south poles with p and q points respectively, and north-south running edges in between. Points on the two polygons are connected pairwise, each cell is a tetrahedral cell formed by combining edges from their respective polygons pairwise.
 ![Stereographic projection of 16,16-duopyramid](/img/rot414.gif)
-The duocylinder and duocone also inherit the duality relationship between duoprisms and duopyramids. The duocylinder has two congruent lateral cells, the duocone has two congruent circular edges. The duocylinder's unique two-dimensional edge, the flat torus, corresponds to the duocone's unique curved cell.
+The duocylinder and duospindle also inherit the duality relationship between duoprisms and duopyramids. The duocylinder has two congruent lateral cells, the duospindle has two congruent circular edges. The duocylinder's unique two-dimensional edge, the flat torus, corresponds to the duospindle's unique curved cell.
 
-We know that cones in three-dimensional space can also roll, but not straight rolling - rather spinning around the apex. We'll see later that the duocone's rolling method is very special, because the two circles on the $xy$ plane and $zw$ plane simultaneously play the role of apex. Since rolling analysis is troublesome, I won't expand on it here.
+We know that cones in three-dimensional space can also roll, but not straight rolling - rather spinning around the apex. We'll see later that the duospindle's rolling method is very special, because the two circles on the $xy$ plane and $zw$ plane simultaneously play the role of apex. Since rolling analysis is troublesome, I won't expand on it here.
 **(Update: The rolling simulator based on 4D rigid body mechanics is ready, [click here!](/archives/newton4/))**
 
 ##### Cross-section Animations
