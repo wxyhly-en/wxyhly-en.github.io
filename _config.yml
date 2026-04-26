@@ -15,10 +15,13 @@ marked:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://wxyhly.github.io/
+url: https://wxyhly-en.github.io/
 root: /
 permalink: archives/:title/
 permalink_defaults:
+
+sitemap:
+  path: sitemap.xml
 
 # Directory
 source_dir: source
