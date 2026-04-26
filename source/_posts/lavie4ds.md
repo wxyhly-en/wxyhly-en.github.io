@@ -8,7 +8,7 @@ tags:
 categories: 4D Space Series
 date: 2016-05-02 20:45:29
 excerpt: Now imagine one day you are invited to visit a 4D country and learn about their culture and science and technology. What would that be? In the vast 4D universe, galaxies are scattered sporadically. The planet you are going to visit is in one of those galaxies. That planet is a hypersphere, and it also revolves around a star.
-index_img: /img/lavie1.gif
+index_img: /img/4dcity001.jpg
 ---
 
 **Note: Some content in this article is purely imaginative and contains many loopholes; do not take it seriously.**
