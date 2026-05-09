@@ -22,6 +22,9 @@ permalink_defaults:
 
 sitemap:
   path: sitemap.xml
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
 
 # Directory
 source_dir: source
