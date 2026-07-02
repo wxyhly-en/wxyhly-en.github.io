@@ -73,7 +73,7 @@ How do we randomly generate an arbitrary unit bivector? Here are several methods
 3. There's also a direct brute force approach: Bivectors are just vectors with six degrees of freedom. Generating unit bivectors is actually generating uniformly distributed points on a five-dimensional hypersphere in six-dimensional space.
 
 Do these three methods generate bivectors with the same distribution patterns? Obviously these methods are all isotropic in four-dimensional space, so differences are reflected in the distribution of bivector duality - the distribution ratio of self-dual and anti-self-dual components. <a name="def_duality"></a>I specifically defined a duality measure to quantitatively describe it: self-dual has duality 1, anti-self-dual has -1, simple has 0.
-<div style="background-color:var(--color-EEF)">
+<div style="overflow:hidden;background-color:var(--color-EEF)">
 
 #### Optional Reading: Definition of the Duality Function
 Since self-dual and anti-self-dual bivectors have zero for their other component, directly defining ratios would introduce infinity problems, so I converted the ratio through the arctangent function into an angle and normalized it. Let $A$ be a unit bivector, then its duality is defined as
@@ -92,7 +92,7 @@ Why do logarithms of random rotations result in more bias toward simple bivector
 ## Principal Axis Theorem for Four-Dimensional Rigid Bodies
 
 You might wonder: since four-dimensional rotation has 6 degrees of freedom, this means the moment of inertia has six parameters to describe it (the moment of inertia is a symmetric matrix that can always be diagonalized, thus requiring 6 parameters). But the hyperrectangular box we just discussed has only four dimensions, missing two degrees of freedom. Might we have missed some rotational stability analysis cases? For instance, might there exist shapes even less symmetric than hyperrectangular boxes with more complex rotation patterns? The answer is no. The six parameters of moment of inertia are not independent - the independent degrees of freedom are just 4, and they can all be made equivalent to the moment of inertia of a hyperrectangular box. If readers aren't interested in specific details, this article ends here. Below I attach the derivation of the four-dimensional rigid body moment of inertia tensor and proof of the principal axis theorem.
-<div style="background-color:var(--color-EEF)">
+<div style="overflow:hidden;background-color:var(--color-EEF)">
 
 #### Optional Reading 1: Derivation of the Four-Dimensional Moment of Inertia Tensor
 ##### Rigid Body Momentum Formula

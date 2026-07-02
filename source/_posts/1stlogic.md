@@ -84,7 +84,7 @@ The proof method is to write out the derivation steps. Independently thinking of
 
 Perhaps you've noticed that this system doesn't even have the most basic logical connectives "and" and "or", but actually "A or B" can be expressed through "(¬A → B)", and "A and B" can be expressed through "¬(A → ¬B)". We can also introduce new axioms to add "and" and "or" symbols to the system. [Click to expand/collapse how to introduce new symbols and axioms](javascript:$('#ifff').toggle()).
 
-<div style="background-color:var(--color-EEF);display:none" id="ifff">
+<div style="overflow:hidden;background-color:var(--color-EEF);display:none" id="ifff">
 
 ### Optional Reading: Introducing New Symbols and Axioms
 You might think this formal system is too cumbersome, requiring even concepts like "and" and "or" to be written out in expanded form. For example, the common "A if and only if B" can be expressed as "A → B and B → A", expanded into a big mess "¬((A → B) → ¬(B → A))". Actually, we can specifically introduce some symbol definition axioms to bring abbreviation symbols into the system:
@@ -168,7 +168,7 @@ Using (eq1) and (eq2), it's not difficult to prove that equality has reflexivity
 
 Let me emphasize again: although words like "for all" and "there exists" appear in first-order logic, the formal system only has these mechanized axiom schemas; it cannot understand the meaning behind these quantifiers. Correct logic can be achieved through mechanization alone, although these axiom schemas are somewhat complex. [Click here to expand/collapse specific details about substitution/free occurrence in axioms](javascript:$('#fst-detail').toggle()).
 
-<div style="background-color:var(--color-EEF);display:none" id="fst-detail">
+<div style="overflow:hidden;background-color:var(--color-EEF);display:none" id="fst-detail">
 
 ### Optional Reading:
 
@@ -225,7 +225,7 @@ Finally, let's talk about what "first-order logic" means. Propositional logic is
 
 The famous Peano axiom system describing properties of natural numbers is constructed on the basis of first-order logic. [Click here to expand/collapse details](javascript:$('#peano').toggle()).
 
-<div style="background-color:var(--color-EEF);display:none" id="peano">
+<div style="overflow:hidden;background-color:var(--color-EEF);display:none" id="peano">
 
 ## Optional Reading: Peano Axiom System
 Let's first look at a simple and practical axiom system built on first-order logic—the Peano axioms. It defines integers and mathematical induction, allowing us to express almost everything about integers. The informal statement of Peano axioms is:
@@ -248,7 +248,7 @@ Additionally, to make the system convenient for handling general arithmetic prob
 
 The last of the Peano axioms, mathematical induction, is the core of the entire system. It means that for a property P(n) of natural numbers, if P(0) is known to hold and P(n+1) can be derived from P(n), then it holds for all natural numbers.
 
-<div style="background-color:var(--color-DDF); margin:0.5em">
+<div style="overflow:hidden;background-color:var(--color-DDF); margin:0.5em">
 
 ### Optional reading within optional reading:
 
@@ -278,7 +278,7 @@ The specific forms of these axioms are somewhat complex and won't be listed here
 
 Note that the above 9 axioms are completely described by first-order logic and don't include any symbols besides the membership symbol (such as empty set symbol, intersection/union/complement, etc.). However, mathematicians certainly wouldn't only use these few symbols. [Click here to expand/collapse about the specification problem of defining new symbols](javascript:$('#empty-set').toggle())
 
-<div style="background-color:var(--color-EEF);display:none" id="empty-set">
+<div style="overflow:hidden;background-color:var(--color-EEF);display:none" id="empty-set">
 
 ### Optional Reading: Symbol Definition Problem
 
@@ -304,7 +304,7 @@ There are also some details to note about set theory itself. For example, all se
 
 Set theory has a very close relationship with ordinals. [Click here to expand/collapse how to describe the strength of ZFC set theory using ordinals](javascript:$('#pto').toggle()).
 
-<div style="background-color:var(--color-EEF);display:none" id="pto">
+<div style="overflow:hidden;background-color:var(--color-EEF);display:none" id="pto">
 
 ### Optional Reading: The Strength of ZFC Set Theory
 Mathematical induction can be derived from the axiom of choice in ZFC, so the strength of ZFC set theory is greater than (actually far greater than) Peano axioms. However, ZFC set theory is not omnipotent. For example, the existence of certain large cardinals cannot be proven in ZFC; we can only add more axioms to ZFC to get stronger systems. Let's start from the empty set and see how formal systems gradually become more powerful:

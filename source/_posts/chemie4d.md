@@ -57,7 +57,7 @@ From the second rule we can deduce that under normal uncharged conditions, proti
 
 Finally, a small corollary: generally speaking, in an electrically neutral molecule, the number of atoms with odd atomic numbers must be even. Of course, there are exceptions, such as molecules like nitric oxide in the three-dimensional world that have unpaired electrons showing paramagnetism. These phenomena require molecular orbital theory to explain. Here I declare again that the content of this article, including molecular orbital theory, is completely baseless analogy. The stability conclusions of "actual" 4D matter may be very different. Later we will introduce possible 4D particle physics and attempts at 4D computational chemistry.
 
-<div style="background-color:var(--color-FFE)"><a name="orbit"></a>
+<div style="overflow:hidden;background-color:var(--color-FFE)"><a name="orbit"></a>
 
 ### Optional Reading: Molecular Orbital Theory <a href="javascript:void(0);" onclick="$('#optional-mag').toggle()">[Expand/Collapse]</a>
 

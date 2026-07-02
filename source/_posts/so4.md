@@ -261,7 +261,7 @@ There are two ways to represent 4D rotors: one is the quaternion-based rotor (`c
 
 ### <a href="javascript:void(0);" onclick="$('\#ga').toggle();$('\#ga\_').text($('\#ga\_').text()==='+'?'-':'+')"><span id="ga\_">+</span>Rotor Class (Geometric Algebra Version)</a>
 
-<div style="background-color:var(--color-FFE); display:none" id="ga">
+<div style="overflow:hidden;background-color:var(--color-FFE); display:none" id="ga">
 
 As described in [this introduction](/archives/gaqr/#def_spinor), a rotor is a subalgebra composed of even-grade vectors in geometric algebra. Therefore, for 4D space, it consists of a scalar `r` (0-vector), a 2-vector `b`, and a pseudoscalar `i` (4-vector). Thus, the rotor class can be defined as:
 
@@ -371,7 +371,7 @@ In scene calculations, as 4D objects continuously rotate, rotors are constantly 
 
 ### <a href="javascript:void(0);" onclick="$('\#qt').toggle();$('\#qt\_').text($('\#qt\_').text()==='+'?'-':'+')"><span id="qt\_">+</span>Rotor Class (Quaternion Version)</a>
 
-<div style="background-color:var(--color-FFE); display:none" id="qt">
+<div style="overflow:hidden;background-color:var(--color-FFE); display:none" id="qt">
 
 First, let's clarify what a quaternion-based rotor is. A rotor's definition is actually only the geometric algebra one. The reason there are "geometric algebra" and "quaternion" versions is that different representations are chosen, like different coordinate systems. The geometric algebra version of the rotor directly expands all its components in a Cartesian coordinate system, while the quaternion-based rotor version factorizes the rotor into a left and a right isoclinic rotation part. Each part is analogous to a rotation in 3D space, so it is represented by two quaternions. But note that regardless of the representation, the special "two-to-one" property of rotors remains unchanged. For example, a 90-degree rotation in the $xy$ plane can be decomposed in two ways:
 

@@ -51,7 +51,7 @@ We just saw pentavalent carbon. Besides monovalent, divalent, and trivalent fluo
 ### Is This Really So?
 I originally planned to continue exploring more complex organic structures like benzene, amino acids, and deoxyribonucleotides, but I suddenly realized - wouldn't the double rotation effect in four dimensions mean electron spin states no longer have just two directions? **If so, the periodic table just presented might be completely wrong, and the molecular structures would all be wrong too**. To understand how 4D electrons actually spin, we'll delve into the Dirac equation that describes electron motion in quantum field theory to explore the secrets of electron spin. This part requires a high level of physics and mathematics, so I'll put it in optional reading - readers can completely skip it and go straight to the conclusion.
 <a name="optionnel"></a>
-<div style="background-color:var(--color-FFE)">
+<div style="overflow:hidden;background-color:var(--color-FFE)">
 
 ## Optional Reading: Spin and Pauli Matrices
 

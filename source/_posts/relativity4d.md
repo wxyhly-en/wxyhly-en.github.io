@@ -38,7 +38,7 @@ Back to 4D spacetime: "Universe" means the sum total of all space. Black holes a
 ## 4D Black Holes
 Einstein's equations are highly non-linear and difficult to solve. However, physicists found several classic solutions in the 20th century:
 * **Schwarzschild Solution**: The first black hole solution, describing a non-charged, non-rotating, spherically symmetric black hole. It has a spherical **event horizon** and a central **singularity**.
-* **Reissner-Nordström Solution**: Covers charged black holes. Unlike the Schwarzschild black hole, it has an inner and outer horizon. Between the two, motion is one-way, but inside the inner horizon, one can move freely again.<div style="background-color:var(--color-EEF);">**Optional Reading: Naked Singularities and Cosmic Censorship**
+* **Reissner-Nordström Solution**: Covers charged black holes. Unlike the Schwarzschild black hole, it has an inner and outer horizon. Between the two, motion is one-way, but inside the inner horizon, one can move freely again.<div style="overflow:hidden;background-color:var(--color-EEF);">**Optional Reading: Naked Singularities and Cosmic Censorship**
 If a black hole has enough charge, the inner and outer horizons approach each other and eventually vanish. The one-way region disappears, exposing the singularity to our universe. A **naked singularity** is problematic because physics loses its predictive power near it. Penrose proposed the **Cosmic Censorship Hypothesis**: nature does not allow naked singularities to form.</div>
 * **Kerr Solution**: Describes rotating black holes. This is more complex: it has inner/outer horizons and an **ergosphere** (bounded by the static limit surface). In the ergosphere, you can technically escape, but you cannot stand still; you are dragged along with the black hole's rotation. The center is not a point but a **ring singularity**. Mathematically, one could pass through the ring into another "universe" (a wormhole structure), though real physical perturbations would likely cause such structures to collapse. For a non-technical journey through a Kerr black hole, check out [Hadroncfy's](https://hadroncfy.com/) article ["Voyage to the Black Hole"](https://hadroncfy.com/articles/2016/05/06/voyage-de-black-hole/index.html).
 * **Kerr-Newman Solution**: The most general black hole, both charged and rotating. The **No-Hair Theorem** states that black holes are characterized only by mass, angular momentum, and charge. They don't have "texture" or "mountains."
@@ -72,7 +72,7 @@ Now let's rotate and elevate the elliptic coordinates: after rotating around the
 ![Illustration from Wikipedia](/img/5dbh05.png)
 Many illustrations of Kerr black hole structures mistakenly interpret $r$ as the radius in spherical coordinates, drawing the two inner horizons as perfect spheres and the infinite redshift surface as an ellipsoid. This is wrong. The true shape of the infinite redshift surface drawn in oblate spheroidal coordinates is a bit irregular, concave like a red blood cell.
 
-<div style="background-color:var(--color-EEF);">
+<div style="overflow:hidden;background-color:var(--color-EEF);">
 
 (**Optional Reading**) To smoothly understand 5D rotating black holes and high-dimensional ellipsoidal coordinate series later, let's look at various ellipsoidal coordinate systems:
 - The oblate spheroidal coordinate system obtained by rotating around the minor axis of the ellipse, as introduced, has the specific form (where $a$ is a constant representing focal length):$$\begin{align} x&=\sqrt{r^2+a^2}\sin{\theta}\cos{\phi} \\\\ y&=\sqrt{r^2+a^2}\sin{\theta}\sin{\phi} \\\\ z&=r\cos{\theta}\end{align} $$
@@ -107,7 +107,7 @@ I didn't read that paper carefully at first, but I preliminarily guessed that th
 
 Starting from a single-rotation black hole, if we slowly superimpose rotational angular velocity in its absolutely perpendicular direction, how will the black hole's structure change? I initially made some incorrect guesses. Interested readers can <a href="javascript:void(0);" onclick="$('#wrong-conj').toggle()">click here to expand and view my guess process</a>.
 
-<div style="background-color:var(--color-EEF); display:none" id="wrong-conj">
+<div style="overflow:hidden;background-color:var(--color-EEF); display:none" id="wrong-conj">
 
 I guessed that starting from a single rotation black hole and slowly increasing angular momentum to become a double rotation, the ring singularity $\mathbb{S}^1$ would become a toroidal singularity $\mathbb{S}^1\times\mathbb{S}^1$ (also denoted as $\mathbb{T}^2$): As the angular momentum absolutely perpendicular to the single rotation black hole's singularity ring increases, this ring begins to thicken, becoming a hollow tube. The tube's radius grows from 0, resulting in a torus $\mathbb{S}^1\times\mathbb{S}^1$. In 4D space, a 1D path can be tied onto a 2D torus, so the space with the singularity removed is no longer simply connected. We might have the opportunity to pass through the singularity torus inside the Myers-Perry black hole just like passing through the Kerr black hole's singularity ring to go to another universe, essentially generalizing the wormhole in 4D spacetime to 5D spacetime!
 

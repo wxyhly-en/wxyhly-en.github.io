@@ -15,7 +15,7 @@ A browser-based game combining mathematical formal systems and hyperbolic space 
 If you find the game too difficult, a “Creative Mode” is available (link provided in related blog post), where all axiom systems are unlocked and many theorems are preloaded—but hyperbolic space and ordinals are disabled in this mode.  
 Here’s a survival mode save file for quick access to Type Theory: copy the following code.
 
-<textarea id="progress-hott" style="width:100%" disabled>.203U,6m1U,`]"2`,U:tl,2=,rt(.a]r"g],0",{)[32e`2{3}af,8,,1`]0.`U161.7["`1L5,`l0U-[m-7,)0[,,U-[2c8ljm-b"5`]4=,a[9,.`2..4"e`#j],0(,,,:`i`i9a,1"09.yo0,3(`p,rU[d73]}l.g`.-"j198]e.]c",)""p"-0fo[[U.o1ph=2#,</textarea>
+<textarea id="progress-hott" style="width:100%" disabled>00Uhl1"..2e.,)`o.1,o7U,aa[.i{([9`][eU80"`]",{`f2e5"UU3U(dU`Ur0j,gra`U.`tp2[g#9,1t6=p`.U,.1p0)i0`:r=Udg,`:`0`8]c"-,.cU]`1`fljyll,"`,0.zm="]4-9,imlt4oj-5"[]5[`1"`ma},tb,e.".o[3,7,}89`p,130]6ee.`"-(-w.j[[7`-lr]2"99.L,`,U2]jg,..#3)3a`q</textarea>
 <script>
     const textarea = document.getElementById("progress-hott");
     textarea.onclick = window.onload = function() {
