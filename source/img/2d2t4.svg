@@ -74,35 +74,30 @@
       <text
          xml:space="preserve"
          style="font-size:7.76111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-         x="59.752781"
-         y="45.10614"
+         x="74.635506"
+         y="43.448502"
          id="text4877"><tspan
            sodipodi:role="line"
-           id="tspan4875"
-           style="font-size:7.76111px;stroke-width:0.264583"
-           x="59.752781"
-           y="45.10614">存活的</tspan><tspan
+           style="font-size:7.76111px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+           x="74.635506"
+           y="43.448502"
+           id="tspan25535">Living</tspan><tspan
            sodipodi:role="line"
-           style="font-size:7.76111px;stroke-width:0.264583"
-           x="59.752781"
-           y="55.002995"
-           id="tspan25535">时间区域</tspan></text>
+           style="font-size:7.76111px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+           x="74.635506"
+           y="53.149887"
+           id="tspan10936">Time zone</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:7.76111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-         x="44.599148"
-         y="76.351402"
+         x="46.256786"
+         y="81.655838"
          id="text4881"><tspan
            sodipodi:role="line"
-           id="tspan4879"
            style="font-size:7.76111px;stroke-width:0.264583"
-           x="44.599148"
-           y="76.351402">不存在的</tspan><tspan
-           sodipodi:role="line"
-           style="font-size:7.76111px;stroke-width:0.264583"
-           x="44.599148"
-           y="86.24826"
-           id="tspan27223">时间区域</tspan></text>
+           x="46.256786"
+           y="81.655838"
+           id="tspan27223">Non existence</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:6.35px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -114,7 +109,7 @@
            id="tspan10909"
            style="font-size:6.35px;stroke-width:0.264583"
            x="65.165367"
-           y="16.631765">出生？死亡？</tspan></text>
+           y="16.631765">Birth？Death?</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:6.35px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -126,7 +121,7 @@
            id="tspan11015"
            style="font-size:6.35px;stroke-width:0.264583"
            x="-102.90208"
-           y="-34.53054">出生？死亡？</tspan></text>
+           y="-34.53054">Birth？Death?</tspan></text>
     </g>
     <rect
        style="fill:#5eff07;fill-opacity:0.403382;stroke:none;stroke-width:0.564999;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
@@ -151,91 +146,101 @@
        y="64.260345" />
     <text
        xml:space="preserve"
-       style="font-size:7.76111111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:7.76111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="35.678299"
        y="65.847839"
        id="text14337"><tspan
          sodipodi:role="line"
          id="tspan14335"
-         style="stroke-width:0.264583;font-size:7.76111111px"
+         style="font-size:7.76111px;stroke-width:0.264583"
          x="35.678299"
-         y="65.847839">出生</tspan></text>
+         y="65.847839">Birth</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:7.76111111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:7.76111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="35.678299"
        y="32.65062"
        id="text15147"><tspan
          sodipodi:role="line"
          id="tspan15145"
-         style="stroke-width:0.264583;font-size:7.76111111px"
+         style="font-size:7.76111px;stroke-width:0.264583"
          x="35.678299"
-         y="32.65062">死亡</tspan></text>
+         y="32.65062">Death</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:7.76111111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:7.76111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="36.626793"
        y="47.589371"
        id="text16455"><tspan
          sodipodi:role="line"
          id="tspan16453"
-         style="stroke-width:0.264583;font-size:7.76111111px"
+         style="font-size:7.76111px;stroke-width:0.264583"
          x="36.626793"
-         y="47.589371">存活</tspan></text>
+         y="47.589371">Live</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:7.76111111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:7.76111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="35.915424"
-       y="80.075226"
+       y="78.08606"
        id="text16561"><tspan
          sodipodi:role="line"
-         style="stroke-width:0.264583;font-size:7.76111111px"
+         style="font-size:7.76111px;stroke-width:0.264583"
          x="35.915424"
-         y="80.075226"
-         id="tspan17251">不存在</tspan></text>
+         y="78.08606"
+         id="tspan17251">Non-</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.76111px;stroke-width:0.264583"
+         x="35.915424"
+         y="87.787445"
+         id="tspan4058">existence</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:7.76111111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:7.76111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="36.626793"
-       y="17.237619"
+       y="11.945952"
        id="text17337"><tspan
          sodipodi:role="line"
-         style="stroke-width:0.264583;font-size:7.76111111px"
+         style="font-size:7.76111px;stroke-width:0.264583"
          x="36.626793"
-         y="17.237619"
-         id="tspan17335">不存在</tspan></text>
+         y="11.945952"
+         id="tspan17335">Non-</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.76111px;stroke-width:0.264583"
+         x="36.626793"
+         y="21.647341"
+         id="tspan8244">existence</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:9.17222222px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:9.17222px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="31.884333"
-       y="98.570816"
+       y="100.68748"
        id="text17343"><tspan
          sodipodi:role="line"
-         style="stroke-width:0.264583;font-size:9.17222222px"
+         style="font-size:9.17222px;stroke-width:0.264583"
          x="31.884333"
-         y="98.570816"
-         id="tspan17341">一维时间</tspan></text>
+         y="100.68748"
+         id="tspan17341">1D Time</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:9.17222222px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       style="font-size:9.17222px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="110.84631"
-       y="98.807938"
+       y="100.92461"
        id="text19101"><tspan
          sodipodi:role="line"
-         style="stroke-width:0.264583;font-size:9.17222222px"
+         style="font-size:9.17222px;stroke-width:0.264583"
          x="110.84631"
-         y="98.807938"
-         id="tspan19099">二维时间</tspan></text>
+         y="100.92461"
+         id="tspan19099">2D Time</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7.76111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;stroke:none;stroke-width:0.264583"
        x="78.629692"
-       y="98.239288"
+       y="100.35596"
        id="text19477"><tspan
          sodipodi:role="line"
          style="font-size:7.76111px;fill:#ff0000;stroke:none;stroke-width:0.264583"
          x="78.629692"
-         y="98.239288"
+         y="100.35596"
          id="tspan19475">VS</tspan></text>
   </g>
 </svg>
