@@ -7,11 +7,11 @@ tags:
 categories: 4D Space Series
 date: 2016-04-16 18:16:48
 excerpt: Coordinate planes xy and zw intersect only at the origin. Place a unit hypersphere at the origin, we can see those intersected unit circles by stereographic projection.
-index_img: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/250px-Hopf_Fibration.png
+index_img: /img/wikimedia/Hopf_Fibration.png
 ---
 <a name="index"></a>
 <span class="likecode"># This article explains episodes 7 and 8: Fiber bundles from the film "[Dimensions: A Walk Through Mathematics](https://www.dimensions-math.org/Dim_E.htm)", with emphasis on the geometric properties of the Hopf fibration</span>
-![Image from en.wikipedia by Niles Johnson](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/250px-Hopf_Fibration.png)
+![Image from en.wikipedia by Niles Johnson](/img/wikimedia/Hopf_Fibration.png)
 
 <!--more-->
 
@@ -52,7 +52,7 @@ Since Hopf fibers reflect properties of the hypersphere $\mathbf S^3$, and regul
 |Cell count| 2     | 24  | 40  | 24    | 30|
 |Label| $1$ | $12^1$ | 20 | $12^2$ | 30|
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/120-cell_two_orthogonal_rings.png/300px-120-cell_two_orthogonal_rings.png)
+![](/img/wikimedia/120-cell_two_orthogonal_rings.png)
 
 <center>Two orthogonal rings in the 120-cell (fiber bundle poles, from en.wikipedia)</center>
 
@@ -63,7 +63,7 @@ Since Hopf fibers reflect properties of the hypersphere $\mathbf S^3$, and regul
 4. $-30-30-30-30-30-30-30-30-30-30-　(1\times 10)$
 
 　　The first group's ring corresponds to the ten red dodecahedra in the image above, the fourth group's ring corresponds to the orange dodecahedra ring lying flat in the middle. The 5 rings in the second group are closely interlinked with the first ring (red), the 5 rings in the third group are closely interlinked with the fourth group's ring (orange).
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/120-cell_rings.jpg/300px-120-cell_rings.jpg)
+![](/img/wikimedia/120-cell_rings.jpg)
 <center>Two closely interlinked rings in the 120-cell (from en.wikipedia)</center>
 
 　　If we draw these 12 great circles in the Hopf fiber bundle, the distribution of the 12 complex numbers $k$ corresponding to the planes containing the great circles on the sphere $\mathbf S^2$ is exactly the distribution of the **12 vertices of a regular icosahedron**! This shows that these 12 rings actually have equal status. These beautiful properties of the 120-cell are exactly why I love it.
@@ -88,7 +88,7 @@ Why can these Hopf circles form a torus-like toroidal surface? Note that the tor
 
 ### Torus Eversion
 　　While studying 4D space, we unexpectedly encountered 3D geometric knowledge like two circles linked like chains, and torus cross-sections showing two intersecting circles. Actually, stereographic projection also demonstrates another topological property of the toroidal surface: a torus with a hole can be turned inside out.
-![](https://upload.wikimedia.org/wikipedia/commons/b/ba/Inside-out_torus_%28animated%2C_small%29.gif)
+![](/img/wikimedia/Inside-out_torus_animated_small.gif)
 <center>Image from en.wikipedia</center>
 　　Doesn't this eversion process look similar to stereographic projection? That hole is used for passing through the projection pole.
 <a name="quecequecest"></a>

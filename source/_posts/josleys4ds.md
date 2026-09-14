@@ -30,7 +30,7 @@ Below are my understanding and supplements for some difficult parts I encountere
 If you cannot understand or want to know more about the Lorenz attractor, please watch another video series by the "Dimensions" creators: "[Chaos](https://www.chaos-math.org/zh-hans.html)". If we really want to do quantitative analysis, it would definitely involve extensive formula derivations, so we won't discuss it here.
 
 ## Seifert Surface
-Seifert surfaces are very interesting: they refer to surfaces bounded by knots or links. For example, the Seifert surface on the Hopf link: ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hopf_band_wikipedia.png/150px-Hopf_band_wikipedia.png)
+Seifert surfaces are very interesting: they refer to surfaces bounded by knots or links. For example, the Seifert surface on the Hopf link: ![](/img/wikimedia/Hopf_band_wikipedia.png)
 
 Surfaces are divided into one-sided surfaces (non-orientable) and two-sided surfaces (orientable). The most famous example of a one-sided surface is the Möbius strip. The boundary of a Möbius strip is a circle, and of course, a circle can be viewed as a trivial knot. So, there are at least two types of Seifert surfaces with a circle as boundary: ![Möbius strip](/img/josleys2.gif)![Regular disk](/img/josleys1.gif)
 Where I've colored the outside of the knot means this surface is like looking at a balloon with a hole from the inside, flip it over and twist it half a turn to get a regular disk.

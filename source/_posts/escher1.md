@@ -13,7 +13,7 @@ excerpt: I mentioned a circular disk pattern that appeared in the film "Dimensio
 
 <!-- <div style="float:right"> -->
 
-![From Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hyperbolic_tiling_omnitruncated_3-7.png/220px-Hyperbolic_tiling_omnitruncated_3-7.png)
+![From Wikipedia](/img/wikimedia/Hyperbolic_tiling_omnitruncated_3-7.png)
 
 <!-- </div>
 <div style="width:300px"> -->
@@ -32,7 +32,7 @@ These three concepts should be the most widespread and most introduced online. T
 
 ### Poincaré Conformal Disk Model
 
-![Source: English Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/HyperboloidProjection.png/220px-HyperboloidProjection.png)
+![Source: English Wikipedia](/img/wikimedia/HyperboloidProjection.png)
 
 Just as we can use **stereographic projection** (remember stereographic projection? Episode 1 of "Dimensions" talked about it) to display spherical geometry, hyperbolic geometry can also project the hyperboloid onto a plane for display. But unlike stereographic projection, the projection of hyperbolic geometry on the plane is confined within a circle. Escher's circular disk is precisely the Poincaré conformal disk model.
 
@@ -47,7 +47,7 @@ When we use a wide-angle lens to adjust the angle to view the entire hyperboloid
 
 Note that like stereographic projection, the projection is **angle-preserving (conformal)**, but this projection "swallows" the special direction reflecting Minkowski space, so the angles in the resulting disk are no longer hyperbolic angles, which is why we can clearly see equal angles. But projection changes the size of figures, meaning these figures are actually all the same size, but the projection makes objects appear smaller the closer they are to the edge of the disk. (Think of perspective projection in life: near large, far small) So this unit disk is actually an infinitely large world! This isn't hard to understand, because it's a projection of a hyperboloid, which is infinitely large; while spherical geometry is geometry on a finite closed space. Their essence is a kind of curved space.
 
-From now on, we'll study the geometry within this disk. Lines in this space are circular arcs orthogonal to the disk, and you can see that through one point, infinitely many lines can be drawn parallel to it. ![Source: English Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Poincare_disc_hyperbolic_parallel_lines.svg/300px-Poincare_disc_hyperbolic_parallel_lines.svg.png)
+From now on, we'll study the geometry within this disk. Lines in this space are circular arcs orthogonal to the disk, and you can see that through one point, infinitely many lines can be drawn parallel to it. ![Source: English Wikipedia](/img/wikimedia/Poincare_disc_hyperbolic_parallel_lines.png)
 
 ### Hyperbolic Room
 
@@ -67,7 +67,7 @@ If it equals 1/2, then it's traditional Euclidean tessellation on a plane. If it
 
 According to the previous formula, we can deduce that there are infinitely many types of regular polygon hyperbolic tessellations. The most amazing thing is that hyperbolic space allows the existence of regular infinite-sided polygons! (Note that the regular infinite-sided polygon here is not a circle) If you want, you can even have infinitely many edges emanating from each vertex!
 
-![h{∞,∞} - From Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/H2_tiling_iii-1.png/600px-H2_tiling_iii-1.png)
+![h{∞,∞} - From Wikipedia](/img/wikimedia/H2_tiling_iii-1.png)
 
 Here we can see that spherical geometric space is a finite closed space, while Euclidean plane geometry and hyperbolic geometric space are both infinitely large spaces, and in some sense, hyperbolic geometric space is larger than plane geometric space.
 

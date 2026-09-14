@@ -11,13 +11,13 @@ excerpt: Today, let's look at how regular polytopes are specifically constructed
  2. Hypersphere densest packing problem
  3. Layered structure of the 120-cell
  4. Tessellations
-index_img: https://www.software3d.com/Thumb/120CellPt8.jpg
+index_img: /img/120CellPt8.jpg
 ---
 
 <span class="likecode">#This article discusses geometry in pure space, not spacetime in physics! Recommended video "[Dimensions: A Walk through Mathematics](https://www.dimensions-math.org/Dim_E.htm)" for a preliminary understanding of 4D space</span>
 
 　　The basic method for studying regular polytopes in 4D space is still analogy: so you probably need to have some understanding of regular polyhedra in our three-dimensional space first (you can refer to [Matrix67's introduction to regular polyhedra](http://www.matrix67.com/blog/archives/6161)).
-　　There are a total of six regular polytopes: **simplex (5-cell), tesseract (or hypercube, 8-cell), 16-cell, 24-cell, 120-cell, and 600-cell**. The film only shows their projections (parallel projection and stereographic projection) and some basic geometric information. Today, let's look at how they are specifically constructed. Except for the 24-cell, we can find three-dimensional analogies for the other five regular polytopes—they are the regular tetrahedron, cube, octahedron, dodecahedron, and icosahedron, respectively. <img src="https://www.software3d.com/Thumb/120CellPt8.jpg" alt="Model 120 by Robert Webb on www.software3d.com"/><a name="index"></a>
+　　There are a total of six regular polytopes: **simplex (5-cell), tesseract (or hypercube, 8-cell), 16-cell, 24-cell, 120-cell, and 600-cell**. The film only shows their projections (parallel projection and stereographic projection) and some basic geometric information. Today, let's look at how they are specifically constructed. Except for the 24-cell, we can find three-dimensional analogies for the other five regular polytopes—they are the regular tetrahedron, cube, octahedron, dodecahedron, and icosahedron, respectively. <img src="/img/120CellPt8.jpg" alt="Model 120 by Robert Webb on www.software3d.com"/><a name="index"></a>
 
 <a name="simplex"></a>
 
@@ -62,8 +62,8 @@ index_img: https://www.software3d.com/Thumb/120CellPt8.jpg
 ### Densest Packing Problem
 　　There is a very famous class of geometric problems concerning the densest packing of circles or spheres of the same size. The two-dimensional case is as follows: ![](/img/polyhedral2.gif)
 　　In three dimensions, there are generally two densest packings: face-centered cubic (FCC) packing and hexagonal close-packed (HCP) packing. Their difference is that the top and bottom layers are either identical or rotated by 180°.
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Cuboctahedron_3_planes.png/120px-Cuboctahedron_3_planes.png)
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Triangular_orthobicupola_wireframe.png/120px-Triangular_orthobicupola_wireframe.png)<center>（The central sphere is not drawn, here the positions of its tightly packed neighbors are shown）</center>
+![](/img/wikimedia/Cuboctahedron_3_planes.png)
+![](/img/wikimedia/Triangular_orthobicupola_wireframe.png)<center>（The central sphere is not drawn, here the positions of its tightly packed neighbors are shown）</center>
 　　Among these, the frame of the first image (FCC packing) is a **cuboctahedron**—a cube with its corners truncated until the triangular faces created by truncating adjacent vertices just meet at a point. It is the dual polyhedron of the rhombic dodecahedron. The truncated triangular faces correspond to the 8 square vertices of the rhombic dodecahedron, and the remaining 45° square faces correspond to the 6 vertices pulled out from the face centers of the rhombic dodecahedron. Let's look at the structure of three-dimensional densest packing: We analyze it as a superposition of three layers: the middle (white) layer of spheres is the densest packing method for circles in a plane, and the three spheres on the top and bottom layers fit perfectly into the six depressions formed by the packing of the central spheres.
 
 ![](/img/polyhedral1.gif)
@@ -102,8 +102,8 @@ index_img: https://www.software3d.com/Thumb/120CellPt8.jpg
 | South Pole | 1 | Innermost dodecahedron |
 
 ![](/img/polyhedral5.gif) ![](/img/polyhedral6.gif)
-　　Perhaps there is still confusion about the middle ring of 30 dodecahedra; they are distributed in 30 positions on the edges of the dodecahedra. If we connect the midpoints of all edges of a regular dodecahedron, we get a "rectified icosahedron" (icosidodecahedron), which looks like this: (all images below are from en.wikipedia Icosidodecahedron page) ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Icosidodecahedron.jpg/320px-Icosidodecahedron.jpg)
-　　Among them, you can find many hollow decagonal structures. Its stereographic projection can better reflect these decagons: ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Icosidodecahedron_stereographic_projection_pentagon.png/160px-Icosidodecahedron_stereographic_projection_pentagon.png)
+　　Perhaps there is still confusion about the middle ring of 30 dodecahedra; they are distributed in 30 positions on the edges of the dodecahedra. If we connect the midpoints of all edges of a regular dodecahedron, we get a "rectified icosahedron" (icosidodecahedron), which looks like this: (all images below are from en.wikipedia Icosidodecahedron page) ![](/img/wikimedia/Icosidodecahedron.jpg)
+　　Among them, you can find many hollow decagonal structures. Its stereographic projection can better reflect these decagons: ![](/img/wikimedia/Icosidodecahedron_stereographic_projection_pentagon.png)
 　　How magical! The stereographic projection diagram consists of six circles. I enjoy drawing stereographic projections of various polyhedra freehand. Other projection diagrams I've encountered that are circles include the regular octahedron: 3 circles, and the cuboctahedron: 4 circles (how familiar, yes, it's the figure that appeared when talking about densest packing). In fact, any (semi-)regular polyhedron where a vertex has 4 edges connected to it can be projected as circles. This indicates that within the 30 regular dodecahedra, we can find six end-to-end connected ring structures, with each ring having 10 regular dodecahedra. Therefore, the **dihedral angle formed by any two regular dodecahedra is $180° - 360°/10 = 144°$**. In fact, the entire 120-cell can be divided into 12 great rings, each with 10 regular dodecahedra connected end-to-end. We will describe these ring structures in detail in the next section, [Fibration](/archives/fibration4ds/#grandering). <a name="c600"></a>
 
 
@@ -116,6 +116,6 @@ index_img: https://www.software3d.com/Thumb/120CellPt8.jpg
  - In two dimensions, only triangles, squares, and regular hexagons can tessellate.
  - In three-dimensional space, only cubes can tessellate. However, if we broaden the scope beyond regular polyhedra, for example, we find that rhombic dodecahedra can densely pack three-dimensional space!
 
- ![Image from en.wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Rhombic_dodecahedra.png/300px-Rhombic_dodecahedra.png)
+ ![Image from en.wikipedia](/img/wikimedia/Rhombic_dodecahedra.png)
  - In 4D space, there are three regular polytope tessellations: the hypercube, the 16-cell, and the 24-cell. However, I haven't yet imagined how the latter two stack... If you're interested, you can think about it.
 　　Why is it called "Euclidean tessellation"? Does that mean there are "non-Euclidean tessellations"? "Euclidean" refers to flat space, which has zero curvature. Earlier, we said that we view the 120-cell as a "pattern" on the surface of a hypersphere; this is spherical tessellation, where the sphere has positive curvature (>0). Regular polyhedra can also be seen as two-dimensional spherical tessellations, which is the essence of regular polyhedra and regular polytopes. There is also "hyperbolic tessellation," which has negative curvature (<0). Hyperbolic tessellations are also quite stunning and are the subject of many of Escher's representative artworks.

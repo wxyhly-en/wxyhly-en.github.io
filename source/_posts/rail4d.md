@@ -36,7 +36,7 @@ The Tesserxel engine has created a railway train scene, [click here for the link
 
 ### Switches
 Now let's talk about switches. Many people might not even understand the switch system of railways in the three-dimensional world. Its principle is simple, and because it's simple, we have the ability to extend it to four dimensions. Here's an animated demonstration from Wikipedia:
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Funzionamento_Deviatoio.gif/675px-Funzionamento_Deviatoio.gif)
+![](/img/wikimedia/Funzionamento_Deviatoio.gif)
 The core of a switch is guiding the protruding flange. In the diagram below, I've colored the areas where the flange passes in pink:
 ![](/img/rail405.png)
 Now it's our turn to conceive four-dimensional switches: Below is a top view of a switch where the railway branches in the directions of tracks three and four. Since the anti-rotation parts of the tracks protrude, these two parts are made separately when making switches, because tracks one and two only need to move the anti-rotation parts, while tracks three and four only need to move the main track parts.

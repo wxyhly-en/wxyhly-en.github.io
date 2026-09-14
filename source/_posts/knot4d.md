@@ -66,7 +66,7 @@ After seeing various knots, let's look at something different: necklaces made of
 
 ##### Holes Inside Circles
 
-![Hopf link: from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Hopf_Link.png/330px-Hopf_Link.png)
+![Hopf link: from Wikipedia](/img/wikimedia/Hopf_Link.png)
 The most common link in three-dimensional space is the basic component of chains, called the Hopf link (yes! It's from the linked circles in Hopf fiber bundles). But do one-dimensional objects still exist in three-dimensional space? Actually, real rings have thickness. From this perspective, it's really two tori linked together. (Could this also count as surface knotting in three-dimensional space?) Our question is whether four-dimensional space has similar things. First, directly taking chains to four dimensions makes them fall apart, for the same reason that four-dimensional space has no one-dimensional knots. All objects in four dimensions have some four-dimensional thickness. One-dimensional circles thickened become ball rings (which we discussed in [the previous article](/archives/rot4d/#thickness)), so two ball rings strung together will also slip apart, or in other words, **threading from holes in circles (ball rings) will fall off**. We can understand this as the hole's dimension being larger than the thread's dimension, so it can't be threaded. This description might be abstract - are there lower-dimensional examples for intuitive understanding?
 
 Imagine a fixed point in three-dimensional space. If a glass ball has a small bubble (zero-dimensional hole) that just encloses the fixed point, then the ball is "tied" to the point and can't be pulled away. If the glass ball has a normal one-dimensional hole, even if the fixed point is inside the hole, we can just move the ball in the direction the hole penetrates to remove it. Before imagining two-dimensional holes, we need to clarify what a "hole" is. We define: an $n$-dimensional straight hole ($n<N$) in an $N$-dimensional solid figure is the figure obtained by removing an $n$-dimensional flat subspace plus some thickness from the $N$-dimensional solid. For example, a bubble in the center of a sphere corresponds to removing a thickened point, and a holed sphere corresponds to removing a thickened line.
@@ -100,7 +100,7 @@ We finally found something that can be strung with thread - ball rings, while re
 Another natural question is whether two spheres can link. If spheres are rigid, then no, because hole dimensions can't match. But we've seen spheres can knot themselves, so two "soft" spheres can definitely link (requiring each sphere itself unknotted).
 ![Linear representation of two linked spheres using tube knot notation](/img/knot408.gif)
 Similarly, three-dimensional space has a special construction: three linked circles ([Borromean rings](https://en.wikipedia.org/wiki/Borromean_rings)) where no two are linked but all three together are linked. What about three spheres?
-![Source: Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BorromeanRings.svg/266px-BorromeanRings.svg.png)
+![Source: Wikipedia](/img/wikimedia/BorromeanRings.png)
 I constructed one solution, but unfortunately can't prove they're actually linked because calculating coloring method numbers gives the same result as three separate spheres. Of course, this doesn't prove equivalence to three separate spheres - other criteria need verification.
 ![](/img/knot411.gif)<a name="ho0"></a>
 ##### Holes Inside (Flat) Tori

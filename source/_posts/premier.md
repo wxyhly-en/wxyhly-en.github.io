@@ -5,11 +5,11 @@ tags:
 - Self-reference
 - Miscellaneous
 excerpt: This is not the first article!? But this is indeed my first article. An explanation of the title and the self-referential sentence...
-index_img: https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg
+index_img: /img/wikimedia/MagrittePipe.jpg
 ---
 ## This is not the first article!
 ### Explanation of the title
-This is a **self-referential** sentence, which I imitated from a picture in "Gödel, Escher, Bach: An Eternal Golden Braid" (GEB). "Ceci n'est pas" is French, meaning "This is not..."; this picture is from the painting "The Treachery of Images" (《La trahison des images》) by Belgian artist René Magritte. The painting depicts a pipe, but beneath it is written "Ceci n'est pas une pipe." (This is not a pipe.): ![Image from en.wikipedia](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg)
+This is a **self-referential** sentence, which I imitated from a picture in "Gödel, Escher, Bach: An Eternal Golden Braid" (GEB). "Ceci n'est pas" is French, meaning "This is not..."; this picture is from the painting "The Treachery of Images" (《La trahison des images》) by Belgian artist René Magritte. The painting depicts a pipe, but beneath it is written "Ceci n'est pas une pipe." (This is not a pipe.): ![Image from en.wikipedia](/img/wikimedia/MagrittePipe.jpg)
 Self-description is a very fascinating thing; it can lead to paradoxes and even explain the famous Gödel's theorem...
 Later, I found a similar phrase in the flashing slogans on the Minecraft title screen: *Ceci n'est pas une title screen!* (This is not a title screen!).
 

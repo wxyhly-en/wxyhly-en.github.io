@@ -7,10 +7,10 @@ tags:
 - Geometry
 - Mathematics
 excerpt: This article is for readers with a basic understanding of 4D space (e.g., knowing about tesseracts, etc.). Featured content includes prisms, pyramids, hypervolumes, and surcell volumes.
-index_img: https://upload.wikimedia.org/wikipedia/commons/d/d9/From_Point_to_Tesseract_%28Looped_Version%29.gif
+index_img: /img/wikimedia/From_Point_to_Tesseract_Looped_Version.gif
 ---
  <span class="likecode">#This article discusses pure spatial Euclidean 4D geometry, not Minkowski 4D spacetime in physics! (Imagine if there were 2D beings, they might think of 3D as 2D space + time, which is 3D spacetime, not our 3D Euclidean geometric space) This article does not treat the 4th direction as time! Therefore, this article will not involve topics like relativity.</span>
- <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/From_Point_to_Tesseract_%28Looped_Version%29.gif" alt="Image from en.wikipedia: By Vitaly Ostrosablin"/>
+ <img src="/img/wikimedia/From_Point_to_Tesseract_Looped_Version.gif" alt="Image from en.wikipedia: By Vitaly Ostrosablin"/>
 <span class="likecode"># This article is written for readers with a preliminary understanding of 4D space (e.g., knowing about tesseracts, etc.). If you are not yet familiar, I recommend the film "[Dimensions: A Walk Through Mathematics](https://www.dimensions-math.org/Dim_E.htm)" (which has profoundly influenced my understanding of mathematics), and <span style="color:#F00">**[CFY's article](http://hadroncfy.com/articles/2016/04/09/la-dimension-quatre-premier/) provides a more fundamental introduction to 4D space.** (CFY and I researched 4D space together, so some introductions might overlap)</span>
 </span></span>
 4D space is too abstract, so we cannot directly perceive it sensually (see or touch it directly). However, we can build an understanding of it using analogy or analytical methods. The analogy method is more intuitive but requires high imagination and is not rigorous; the analytical (calculation) method is rigorous but lacks intuitive geometric meaning, and its misuse can reduce geometry to algebra. Only by combining both can we better understand 4D space. <a name="index"></a>

@@ -74,7 +74,7 @@ Note that symmetric group $S_2$ and cyclic group $C_2$ are equivalent, so a grou
 ### More Complex Symmetric Groups
 
 We see that the Cayley graph of $S_3$ is a triangular prism. Below, the Cayley graph of $S_4$ is actually a stereographic projection of a semiregular polyhedron! This semiregular polyhedron is called the rhombicuboctahedron, obtained by cutting edges and vertices from a cube. The eight blue triangles correspond to the 8 vertices cut from the cube, the 6 red squares correspond to what remains of the original 6 faces after cutting... (As someone who loves regular polytopes, I can't help saying a bit more)
-![From Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Symmetric_group_4%3B_Cayley_graph_4%2C9.svg/300px-Symmetric_group_4%3B_Cayley_graph_4%2C9.svg.png)
+![From Wikipedia](/img/wikimedia/Symmetric_group_4_Cayley_graph_4_9.png)
 Of course, the choice of generators isn't unique, so we can get different-looking Cayley graphs that all represent the same group. Hard to imagine, right?
 ![](/img/group1img5.gif)
 This is a ? truncated octahedron.

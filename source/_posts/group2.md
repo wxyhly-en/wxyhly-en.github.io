@@ -74,7 +74,7 @@ Let's draw the Cayley diagram of this group:
 ![](/img/group2img3.gif)
 Look familiar? It's isomorphic to the symmetric group $S_3$ we studied before: ![](/img/group1img3.gif)
 We also discussed the **non-trivial subgroups** and cosets of group $S_3$ in the previous article. Here's the result again: ![Black represents subgroups, gray represents corresponding cosets, only the first non-trivial subgroup is a normal subgroup](/img/group1img4.gif)
-The correspondence between these non-trivial subgroups and intermediate fields is: ![Image from Wikipedia entry "Fundamental Theorem of Galois Theory"](https://upload.wikimedia.org/wikipedia/commons/6/68/Lattice_diagram_of_Q_adjoin_a_cube_root_of_2_and_a_primitive_cube_root_of_1%2C_its_subfields%2C_and_Galois_groups_variant.png)
+The correspondence between these non-trivial subgroups and intermediate fields is: ![Image from Wikipedia entry "Fundamental Theorem of Galois Theory"](/img/wikimedia/Lattice_diagram_of_Q_adjoin_a_cube_root_of_2_and_a_primitive_cube_root_of_1_its_subfields_and_Galois_groups_variant.png)
 Note that the trivial subgroup {e} corresponds to the trivial extension, and the trivial subgroup {e, f, f<sup>2</sup>, g, gf, gf<sup>2</sup>} corresponds to the entire extension, which is also not an intermediate extension (we also consider it a trivial intermediate extension). It seems trivial subgroups exactly correspond to trivial extensions.
 
 Earlier we called extensions that contain exactly all roots of a polynomial **normal extensions**. Is it called "normal" because it corresponds to **normal subgroups**? The answer is yes! For example, {e, f, f<sup>2</sup>} corresponds to the normal extension $Q(\omega)/Q$. There's a theorem:
