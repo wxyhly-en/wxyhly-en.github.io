@@ -109,7 +109,7 @@ A circle with 4 intersection points, and at each intersection point, three mutua
 ![Regular Octahedron - Regular Octahedron: 18 circles](/img/angle004.jpg)
 Upon closer inspection, I found that although each circle in this figure only has 90° rotational symmetry, it actually has 8 intersection points. Our previous assumption that all intersection points were the same was incorrect (the adjacent two intersection points are orthogonally offset by 45°, so they cannot be connected by rotation). This figure can be seen as three 16-cells nested together at different angles.
 
-Coincidentally, I later came across a video on Bilibili posted by BlenderMath titled ["48 Vertices, 144 Edges, Rotating for Two and a Half Minutes"](https://www.bilibili.com/video/BV1qgxKzcEXM/), which happens to be the stereographic projection of this very shape! However, I’m not sure what method he used to construct it.
+Coincidentally, I later came across a video on Bilibili posted by BlenderMath titled ["48 Vertices, 144 Edges, Rotating for Two and a Half Minutes"](https://www.bilibili.com/video/BV1qgxKzcEXM/), which happens to be the stereographic projection of this very shape! However, I was not sure what method he used to construct it. In May 2026, BlenderMath revealed it: **This is actually done by mapping each element of the cube’s rotational symmetry group to two antipodal points on the unit quaternion hypersphere via quaternions, and then connecting all pairs of points that are 45° apart (a 45° separation corresponds to a 90° rotation in 3D)**
 ![Three 16-cells, left and right show two different coloring schemes](/img/angle002.png)
 
 ### Cube - Cube
