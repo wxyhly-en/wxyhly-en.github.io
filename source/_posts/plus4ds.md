@@ -139,9 +139,9 @@ Let's specifically introduce the unfamiliar shapes:
 - Rotational paraboloid: Also an **axially symmetric** (spherically symmetric) figure, can be seen as a solid of revolution obtained by rotating a paraboloid around its plane of symmetry.
 
 - Saddle hypersurface: Equation: $x^2+y^2-z^2=w$. It's a function: a 3D coordinate $(x,y,z)$ corresponds to a number $w$. A saddle surface is concave (convex) in one direction and convex (concave) in another, but 4D space doesn't have such nice symmetry: it's concave (convex) in one direction and convex (concave) in two other directions (on one plane). But this description is still quite abstract. Welcome suggestions for better visualization methods. [CFY here](https://hadroncfy.com/articles/2016/04/24/la-dimension-quatre-quatreieme/index.html) shows several quadric hypersurfaces using the cross-section method.
+### 202611 Update
+I built a 4D parametric equation plotter, whose presets include some quadric hypersurface shapes: ![https://wxyhly.github.io/tesserxel/examples/?en#mathfn](https://wxyhly.github.io/tesserxel/examples/?en#mathfn)
 <a name="answer"></a>
-
-
 
 ### Answers to Thought Questions
 - A plane through the cylinder's axis of symmetry as the rotation plane produces a **spherinder**.
