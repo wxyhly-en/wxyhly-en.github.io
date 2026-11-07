@@ -38,53 +38,51 @@ Special operations in other scenes will be described in the explanations at the 
 
 ## 3D Voxel Photo Rendering Settings
 
-A real 4D person actually sees a 3D voxel photo that can show all pixels simultaneously without overlapping and without semi-transparent pixels. For our 2D eyes to capture these details, we need to put effort into 3D voxel photo rendering. All shortcut keys for 3D voxel photo rendering settings require holding down the Alt key; these shortcuts are marked in blue in the first keyboard map in this article. You can also click the gear button on the right edge of the screen to expand the settings menu, where the functions are the same as those achieved with the shortcuts.
+A real 4D person actually sees a 3D voxel photo that can show all pixels simultaneously without overlapping and without semi-transparent pixels. For our 2D eyes to capture these details, we need to put effort into 3D voxel photo rendering. All shortcut keys for 3D voxel photo rendering settings require holding down the Backquote key "**`**"; these shortcuts are marked in blue in the first keyboard map in this article. You can also click the gear button on the right edge of the screen to expand the settings menu, where the functions are the same as those achieved with the shortcuts.
 
-Note: The previous operations were for controlling the 4D camera, which means the content of the 3D voxel photo would change, while the operations in this section, holding the Alt key, only change the rendering settings of the stereo photo. They do not affect the "substance" of the 3D view as a "4D creature" would see it.
+Note: The previous operations were for controlling the 4D camera, which means the content of the 3D voxel photo would change, while the operations in this section, holding the Backquote key, only change the rendering settings of the stereo photo. They do not affect the "substance" of the 3D view as a "4D creature" would see it.
 
 ## Naked-eye 3D settings
-Naked-eye 3D is enabled by default. If you don't know how to see it and want to turn it off, press Alt+Z to toggle it. <a name="settings"></a>
+Naked-eye 3D is enabled by default. If you don't know how to see it and want to turn it off, press Backquote+Z to toggle it. <a name="settings"></a>
 For the specific meaning of naked-eye 3D [depth, please be sure to read here](/archives/eye3d/#depth4d)! Because the depth in the section is in a different direction from the depth of the 3D photo.
 ![An illustration from the old article about the meaning of naked-eye 3D depth: the depth of the 3D voxel photo is in the z-direction, and the depth in the section is in the w-direction (the positive directions of the axes were inconsistent at the time, please ignore that)](/img/eye3d005.jpg)
-Note: The default is cross-eyed. To switch to parallel-eyed viewing, use the shortcut Alt+X.
-Adjustment for stereo offset in the 3D view: Alt+V and Alt+B. This adjusts the rotation angle of the left and right 3D photos.
-Adjustment for 4D stereo offset of sections: Alt+N and Alt+M. This adjusts the distance between the two cameras corresponding to the left and right eyes in the 4D scene.
+Note: The default is cross-eyed. To switch to parallel-eyed viewing, use the shortcut Backquote+X.
+Adjustment for stereo offset in the 3D view: Backquote+V and Backquote+B. This adjusts the rotation angle of the left and right 3D photos.
+Adjustment for 4D stereo offset of sections: Backquote+N and Backquote+M. This adjusts the distance between the two cameras corresponding to the left and right eyes in the 4D scene.
 
 ## View configurations
-- Alt+1: Defaults to 3D voxel photo + three cross-sections passing through the center of the view.
-- Alt+2: Same as above, but the sections are displayed larger.
-- Alt+3: Only displays the 3D voxel photo, turns off section display.
-- Alt+4: Only displays three cross-sections passing through the center of the view, turns off the 3D voxel photo.
-- Alt+5: Only displays a full-screen XY-plane cross-section passing through the center of the view.
-- Alt+6: Only displays a full-screen XZ-plane cross-section passing through the center of the view.
-- Alt+7: Displays the 3D voxel photo and a series of cross-sections parallel to the XY plane.
-- Alt+8: Displays the 3D voxel photo and a series of cross-sections parallel to the XZ plane.
-
-( I've found a strange bug: having Photoshop open prevents the browser from capturing the number keys when the Alt key is held down! )
+- Backquote+1: Defaults to 3D voxel photo + three cross-sections passing through the center of the view.
+- Backquote+2: Same as above, but the sections are displayed larger.
+- Backquote+3: Only displays the 3D voxel photo, turns off section display.
+- Backquote+4: Only displays three cross-sections passing through the center of the view, turns off the 3D voxel photo.
+- Backquote+5: Only displays a full-screen XY-plane cross-section passing through the center of the view.
+- Backquote+6: Only displays a full-screen XZ-plane cross-section passing through the center of the view.
+- Backquote+7: Displays the 3D voxel photo and a series of cross-sections parallel to the XY plane.
+- Backquote+8: Displays the 3D voxel photo and a series of cross-sections parallel to the XZ plane.
 
 ## 3D Voxel Photo Orientation Control
-Hold the Alt key and drag the mouse to rotate the 3D voxel photo. (**Alt+arrow keys can also rotate the 3D voxel photo**, this is not on the shortcut map). You can quickly switch to top, left, right, and bottom views using the shortcut keys Alt + I/J/K/L. Hold the Alt key and scroll the mouse wheel to zoom in and out. However, the 3D voxel photo is essentially the "display" of a 4D person. Rotating the display will make it difficult to recognize directions in the 4D world, so we need to press Alt+R to restore the 3D voxel photo's rotation (to straighten the display again). If you really want to rotate the view, you can rotate the camera in the 4D scene, for example, by pressing Z/X (or RTYFGH keys in free-flight mode). These can also change the angle of the 3D voxel photo without rotating the 3D display itself. <a name="rotdiff"></a>
+Hold the Backquote key and drag the mouse to rotate the 3D voxel photo. (**Backquote+arrow keys can also rotate the 3D voxel photo**, this is not on the shortcut map). You can quickly switch to top, left, right, and bottom views using the shortcut keys Backquote + I/J/K/L. Hold the Backquote key and scroll the mouse wheel to zoom in and out. However, the 3D voxel photo is essentially the "display" of a 4D person. Rotating the display will make it difficult to recognize directions in the 4D world, so we need to press Backquote+R to restore the 3D voxel photo's rotation (to straighten the display again). If you really want to rotate the view, you can rotate the camera in the 4D scene, for example, by pressing Z/X (or RTYFGH keys in free-flight mode). These can also change the angle of the 3D voxel photo without rotating the 3D display itself. <a name="rotdiff"></a>
 
 What's the difference between rotating the photo and rotating the camera? Refer to the 2D analogy below: it will affect the direction in which you control the camera later. For example, if you rotate the 3D voxel photo 90 degrees around the y-axis (the vertical axis), the camera's left/right movement, originally controlled by the A/D keys, will now appear to be a ana/kata movement. It is recommended that if you want to observe from another angle temporarily, you should rotate the display and restore it promptly. When operating the camera's position in 4D space, the rotation angle of the 3D display should not exceed 45 degrees, to avoid confusion about the real control directions.
 ![A low-dimensional analogy: the difference between rotating the camera in the scene (left) and directly rotating the display (right): the player's up/down/left/right controls in the game now correspond to different directions](/img/tsx004.jpg)
 
-Perspective field of view for 3D voxel photo: Alt+G and Alt+T. We can use this set of shortcuts to choose between orthogonal or perspective projection to view the 3D voxel photo, and to adjust the perspective field of view.
+Perspective field of view for 3D voxel photo: Backquote+G and Backquote+T. We can use this set of shortcuts to choose between orthogonal or perspective projection to view the 3D voxel photo, and to adjust the perspective field of view.
 ## Section Shape Settings
-Why is a 4D person's field of view a cube instead of a sphere? Also, with so many voxels in the 3D voxel photo, what can I do if I want to cut it open to see only the voxels inside, and get rid of the obstruction from the outer colors? The section shape settings for the 3D voxel photo are for this purpose. Repeatedly press Alt+F to switch between the following modes:
+Why is a 4D person's field of view a cube instead of a sphere? Also, with so many voxels in the 3D voxel photo, what can I do if I want to cut it open to see only the voxels inside, and get rid of the obstruction from the outer colors? The section shape settings for the 3D voxel photo are for this purpose. Repeatedly press Backquote+F to switch between the following modes:
 1. Default Cube: All voxels are fully displayed;
-1. Sphere: Alt+right-click drag can change some properties: dragging left and right changes the feathering size, dragging up and down changes the size of the sphere;
-1. Small Cube: Alt+right-click drag can change some properties: dragging left and right changes the transparency of the voxels outside the small cube to be ignored, dragging up and down changes the size of the small cube;
-1. Plane (actually a half-space): Alt+right-click drag can rotate the position of the section plane.
+1. Sphere: Backquote+right-click drag can change some properties: dragging left and right changes the feathering size, dragging up and down changes the size of the sphere;
+1. Small Cube: Backquote+right-click drag can change some properties: dragging left and right changes the transparency of the voxels outside the small cube to be ignored, dragging up and down changes the size of the small cube;
+1. Plane (actually a half-space): Backquote+right-click drag can rotate the position of the section plane.
 
 ## Rendering Image Settings
 
-1. 3D Voxel Photo Transparency: Control voxel transparency with Alt+Q/Alt+A. (When the transparency is low, you might see some circular artifacts; this seems to be a floating-point precision bug.) It is recommended to adjust transparency to a moderate level; if it's too low, everything will be blurry and hard to see; if it's too high, you'll only see the voxels on the surface and not those inside the center of the 3D voxel photo.
-1. Crosshair: Turn on or off with Alt+C. When naked-eye 3D is enabled, it will be located at the very center of the cube display, which is very useful when moving straight towards a target, otherwise it's difficult to know the central position of the 3D image content on the z-axis.
+1. 3D Voxel Photo Transparency: Control voxel transparency with Backquote+Q/Backquote+A. (When the transparency is low, you might see some circular artifacts; this seems to be a floating-point precision bug.) It is recommended to adjust transparency to a moderate level; if it's too low, everything will be blurry and hard to see; if it's too high, you'll only see the voxels on the surface and not those inside the center of the 3D voxel photo.
+1. Crosshair: Turn on or off with Backquote+C. When naked-eye 3D is enabled, it will be located at the very center of the cube display, which is very useful when moving straight towards a target, otherwise it's difficult to know the central position of the 3D image content on the z-axis.
 
 ## Rendering Quality Settings
 
 Note, the following two settings will significantly affect the frame rate. Be cautious with these adjustments if you have a lower-spec computer!
-1. 3D Voxel Photo Rendering Layers: Alt+W and Alt+S to adjust. Voxels use slice rendering, so changing the number of layers changes the Z-axis resolution. Note: More layers will result in a slower frame rate.
-1. 3D Voxel Photo Rendering Resolution: Alt+E and Alt+D to adjust. This is the 2D resolution of each slice of the voxel, i.e., the resolution in the XY directions. Note: Higher resolution will result in a slower frame rate, which is especially noticeable in scenes like fractals that require a large amount of point pixel calculations.
+1. 3D Voxel Photo Rendering Layers: Backquote+W and Backquote+S to adjust. Voxels use slice rendering, so changing the number of layers changes the Z-axis resolution. Note: More layers will result in a slower frame rate.
+1. 3D Voxel Photo Rendering Resolution: Backquote+E and Backquote+D to adjust. This is the 2D resolution of each slice of the voxel, i.e., the resolution in the XY directions. Note: Higher resolution will result in a slower frame rate, which is especially noticeable in scenes like fractals that require a large amount of point pixel calculations.
 
 Alright, these are the operation methods for the Tesserxel example library. Next, we will specifically introduce each 4D scene. I will share my preferred interaction methods for 4D objects and tips for playing Tesserxel, scene by scene.

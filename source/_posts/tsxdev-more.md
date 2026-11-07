@@ -125,10 +125,10 @@ The key bindings for camera movement are, by default, arranged as introduced in 
 | keyConfig.turnDown| Turn down | "KeyK"         |
 | keyConfig.spinCW  | Spin (clockwise from above the camera) | "KeyZ"         |
 | keyConfig.spinCCW | Spin (counter-clockwise from above the camera) | "KeyX"         |
-| keyConfig.disable | Holding this key disables all camera controls | "AltLeft"      |
+| keyConfig.disable | Holding this key disables all camera controls | "Backquote"      |
 | keyConfig.enable  | Holding this key enables camera controls (not set by default) | ""      |
 
-**Note**: `keyConfig.disable` is set to `"AltLeft"` by default because holding the Alt key is for operating the 3D voxel rendering perspective, so camera controls for the 4D scene need to be disabled to avoid conflicts.
+**Note**: `keyConfig.disable` is set to `"Backquote"` by default because holding the Backquote key is for operating the 3D voxel rendering perspective, so camera controls for the 4D scene need to be disabled to avoid conflicts. (In early version, this keybinding was set to `AltLeft`. Then it was abandoned due to many key conflicts of browser's default actions)
 
 **Also note**: To keep the camera upright, the `KeepUpController` saves the horizontal and vertical rotations separately. Once it takes over the camera, the camera's orientation and position are managed internally. Directly changing the camera's orientation later (e.g., in a frame loop) is ineffective because each loop will be overwritten by the `KeepUpController`'s update logic. If you do need to change the camera's orientation externally, **you must call `updateObj` once after the change to force a synchronization with the controller's internal state**. Tesserxel was not designed for continuous automatic synchronization for two reasons: one is performance, to avoid repeated data conversion in every frame; the other is numerical stability, as frequent conversions between the standard rotation representation and the controller's internal separated representation can easily accumulate odd errors.
 

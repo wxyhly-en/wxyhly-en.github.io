@@ -105,7 +105,7 @@ What about the situation in 4D space? "Symmetric 4D Chemistry" also gave prelimi
 - After the 10th vertex, the molecular shape is neither 5,5-duopyramidal nor the structure I previously imagined similar to 4D "icosahedral" crystal system, but a layered structure - first layer has 4 vertices of a regular tetrahedron, second layer is the central atom, third layer has six vertices at positions corresponding to the edges of the first layer tetrahedron forming a regular octahedron;
 - For the 11-vertex figure, I couldn't see any clear pattern, vaguely feeling it could be divided into first layer trigonal duopyramid, second layer central atom, third layer deformed triangular prism structure; the 12-vertex figure is a twisted octahedral column similar to an antiprism, and beyond that it becomes almost impossible to see specific shape patterns.
 
-![From top to bottom: 6, 8, 10 electron pair 4D molecular shapes. Left and right are parallel-eye naked-eye 3D display of the same model (press Alt + X in Tesserxel to switch)](/img/chemie008.jpg?size=400x)
+![From top to bottom: 6, 8, 10 electron pair 4D molecular shapes. Left and right are parallel-eye naked-eye 3D display of the same model (press Backquote + X in Tesserxel to switch)](/img/chemie008.jpg?size=400x)
 
 Note: In this "simulation" program, repulsion energy is calculated according to the "real" inverse cube force decay and inverse square potential energy decay laws of the 4D world. If calculated according to three-dimensional inverse square force decay and inverse potential energy decay, the lowest energy shapes of some molecules might be different.
 
