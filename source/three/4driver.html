@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>River Evolution in 4D</title>
+<style>
+  html,body { margin:0; height:100%; overflow:hidden; background:#06070d;
+              -webkit-tap-highlight-color:transparent; }
+  canvas { display:block; }
+
+  #ui {
+    position:fixed; top:14px; left:14px; z-index:10;
+    touch-action:none; user-select:none;
+    font:12px/1.6 ui-monospace,Menlo,Consolas,monospace;
+    color:#c5d4ef;
+  }
+  .panel {
+    background:rgba(12,16,30,0.85); border:1px solid #232e4a;
+    border-radius:10px; backdrop-filter:blur(8px);
+    min-width:254px; max-width:88vw;
+    box-shadow:0 4px 24px rgba(0,0,0,0.5);
+    overflow:hidden;
+  }
+  .panel-head {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:8px 12px; cursor:grab;
+    background:rgba(20,28,48,0.6);
+    border-bottom:1px solid #1c2740;
+  }
+  .panel-head:active { cursor:grabbing; }
+  .panel-head h3 {
+    margin:0; font-size:11px; letter-spacing:1.2px;
+    color:#6ec1ff; font-weight:600; text-transform:uppercase;
+  }
+  .toggle {
+    width:22px; height:22px; border-radius:5px;
+    background:#1a2340; border:1px solid #2a3a60;
+    color:#6ec1ff; font-size:15px; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; flex-shrink:0;
+  }
+  .toggle:hover { background:#243058; }
+  .panel-body {
+    padding:10px 12px;
+    max-height:750px; overflow:hidden;
+    transition:max-height 0.28s ease, padding 0.28s ease;
+  }
+  .panel-body.collapsed {
+    max-height:0; padding-top:0; padding-bottom:0;
+  }
+
+  label {
+    display:flex; align-items:center; justify-content:space-between;
+    gap:8px; margin:7px 0; font-size:11px;
+  }
+  label > span:first-child { flex-shrink:0; }
+  input[type=range] { width:94px; accent-color:#4a90ff; }
+  select { background:#18203a; color:#c5d4ef; border:1px solid #2a3a60;
+           border-radius:4px; padding:3px 6px; font:inherit; flex:1; }
+  button { background:#18203a; color:#c5d4ef; border:1px solid #2a3a60;
+           border-radius:5px; padding:6px 12px; cursor:pointer; font:inherit; }
+  button:hover { background:#222c4c; }
+  button:disabled { opacity:0.5; cursor:not-allowed; }
+  .val { color:#6ec1ff; min-width:46px; text-align:right; font-variant-numeric:tabular-nums; }
+  .row { display:flex; gap:6px; margin-top:10px; }
+  .row button { flex:1; }
+  .hint { color:#7182a8; font-size:10px; line-height:1.55; margin-top:8px;
+          padding-top:8px; border-top:1px solid #1c2740; }
+  .hint b { color:#8fa6d8; font-weight:500; }
+
+  #cutDist { accent-color:#ff8a3d; }
+  #cutDistV { color:#ffa96b; }
+  #minGap  { accent-color:#a88aff; }
+  #minGapV { color:#c0aaff; }
+  #seed    { accent-color:#4affb0; }
+  #seedV   { color:#8fffd0; }
+  #winTime { accent-color:#ffdd66; }
+  #winTimeV { color:#ffe680; }
+
+  #stats {
+    position:fixed; left:14px; bottom:14px; z-index:10;
+    background:rgba(12,16,30,0.88); border:1px solid #232e4a;
+    border-radius:10px; padding:10px 12px;
+    backdrop-filter:blur(8px);
+    font:11px/1.5 ui-monospace,Menlo,Consolas,monospace;
+    color:#c5d4ef; user-select:none;
+    box-shadow:0 4px 24px rgba(0,0,0,0.5);
+    min-width:240px; max-width:88vw;
+    pointer-events:none;
+  }
+  #stats .title {
+    font-size:10px; letter-spacing:1.2px; color:#6ec1ff;
+    text-transform:uppercase; font-weight:600; margin-bottom:6px;
+  }
+  #stats .big {
+    font-size:22px; font-weight:600; color:#4affb0;
+    font-variant-numeric:tabular-nums; line-height:1.1;
+  }
+  #stats .big.pending { color:#7182a8; }
+  #stats .row {
+    display:flex; justify-content:space-between; margin-top:3px;
+    font-size:11px; color:#8fa6d8;
+  }
+  #stats .row span:last-child { color:#c5d4ef; font-variant-numeric:tabular-nums; }
+  #stats canvas {
+    display:block; margin-top:8px;
+    border-radius:4px; background:rgba(5,8,18,0.6);
+  }
+  #stats .pi-hint {
+    font-size:10px; color:#7182a8; margin-top:4px;
+  }
+  #stats .pi-hint b { color:#ffb850; font-weight:500; }
+
+  #offBtn {
+    position:fixed; top:14px; right:14px; z-index:20;
+    background:rgba(30,20,60,0.9); border:1px solid #4a3a80;
+    border-radius:10px; padding:8px 14px; cursor:pointer;
+    color:#c8b0ff; font:12px ui-monospace,monospace;
+    box-shadow:0 4px 24px rgba(0,0,0,0.5);
+    backdrop-filter:blur(8px); user-select:none;
+    white-space:nowrap;
+  }
+  #offBtn:hover { background:rgba(45,30,90,0.95); }
+  #offBtn.running { border-color:#4affb0; color:#8fffd0;
+                    background:rgba(20,50,40,0.92); }
+
+  #offDlg {
+    position:fixed; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    z-index:30;
+    background:rgba(12,16,30,0.97); border:1px solid #3a4a80;
+    border-radius:12px; padding:0;
+    box-shadow:0 12px 60px rgba(0,0,0,0.85);
+    min-width:320px; max-width:92vw;
+    font:12px/1.6 ui-monospace,Menlo,Consolas,monospace;
+    color:#c5d4ef;
+    display:none;
+  }
+  #offDlg.open { display:block; }
+  #offDlg .dlg-head {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 14px; border-bottom:1px solid #232e4a;
+    font-size:11px; letter-spacing:1.2px; color:#b0a0ff;
+    text-transform:uppercase; font-weight:600;
+  }
+  #offDlg .dlg-close {
+    width:22px; height:22px; border-radius:5px;
+    background:#1a2340; border:1px solid #2a3a60;
+    color:#c5d4ef; font-size:14px; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  #offDlg .dlg-close:hover { background:#243058; }
+  #offDlg .dlg-body { padding:12px 14px; }
+  #offDlg label { font-size:11px; }
+
+  #offDlg .big-result {
+    margin-top:12px; padding:10px 12px;
+    background:rgba(5,8,18,0.7); border:1px solid #232e4a;
+    border-radius:8px; text-align:center;
+  }
+  #offDlg .big-result .label {
+    font-size:10px; color:#7182a8; letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  #offDlg .big-result .num {
+    font-size:28px; font-weight:600; color:#4affb0;
+    font-variant-numeric:tabular-nums;
+    margin:4px 0 2px;
+  }
+  #offDlg .big-result .sub {
+    font-size:10px; color:#7182a8;
+  }
+  #offDlg .stats-row {
+    display:flex; justify-content:space-between;
+    margin-top:4px; font-size:11px; color:#8fa6d8;
+  }
+  #offDlg .stats-row span:last-child { color:#c5d4ef; font-variant-numeric:tabular-nums; }
+
+  #offDlg .progress-outer {
+    height:6px; background:#0d1220; border-radius:3px;
+    overflow:hidden; margin:10px 0 4px;
+  }
+  #offDlg .progress-inner {
+    height:100%; background:linear-gradient(90deg,#4a3a80,#4affb0);
+    width:0%; transition:width 0.2s linear;
+  }
+  #offDlg .btns { display:flex; gap:8px; margin-top:12px; }
+  #offDlg .btns button { flex:1; }
+  #offDlg .btn-run {
+    background:#2a3a5a; border-color:#4a6aa0; color:#c8e0ff;
+  }
+  #offDlg .btn-run:hover { background:#354a70; }
+  #offDlg .btn-stop {
+    background:#5a2a3a; border-color:#a04a6a; color:#ffc8d8;
+  }
+  #offDlg .btn-stop:hover { background:#70354a; }
+  #offDlg .info {
+    font-size:10px; color:#7182a8; margin-top:8px; line-height:1.5;
+  }
+
+  #offMask {
+    position:fixed; inset:0; background:rgba(0,0,0,0.6);
+    z-index:25; display:none;
+  }
+  #offMask.open { display:block; }
+</style>
+</head>
+<body>
+
+<div id="ui">
+  <div class="panel" id="panel">
+    <div class="panel-head" id="panelHead">
+      <h3>River Evolution · 4D</h3>
+      <div class="toggle" id="toggleBtn">−</div>
+    </div>
+    <div class="panel-body" id="panelBody">
+      <label>
+        <span>Space</span>
+        <select id="mode">
+          <option value="2d">R² Plane Map</option>
+          <option value="3d" selected>R³ Volume Map</option>
+        </select>
+      </label>
+      <label>
+        <span>Erosion Rate</span>
+        <input type="range" id="rate" min="0.0005" max="0.008" step="0.0001" value="0.0024">
+        <span class="val" id="rateV">0.0024</span>
+      </label>
+      <label>
+        <span>Inertia Smoothing</span>
+        <input type="range" id="smooth" min="0" max="0.5" step="0.01" value="0.18">
+        <span class="val" id="smoothV">0.18</span>
+      </label>
+      <label style="color:#8fffd0; font-weight:600;">
+        <span>3D Seed</span>
+        <input type="range" id="seed" min="0" max="0.02" step="0.0005" value="0.004">
+        <span class="val" id="seedV">0.004</span>
+      </label>
+      <label>
+        <span>Subdivision</span>
+        <input type="range" id="seg" min="0.004" max="0.025" step="0.001" value="0.010">
+        <span class="val" id="segV">0.010</span>
+      </label>
+      <label style="color:#ffa96b; font-weight:600;">
+        <span>Cutoff Distance</span>
+        <input type="range" id="cutDist" min="0.004" max="0.040" step="0.001" value="0.013">
+        <span class="val" id="cutDistV">0.013</span>
+      </label>
+      <label style="color:#c0aaff; font-weight:600;">
+        <span>Cutoff Min Gap</span>
+        <input type="range" id="minGap" min="4" max="40" step="1" value="12">
+        <span class="val" id="minGapV">12</span>
+      </label>
+      <label>
+        <span>Max Cuts / Frame</span>
+        <input type="range" id="cuts" min="0" max="12" step="1" value="4">
+        <span class="val" id="cutsV">4</span>
+      </label>
+      <label style="color:#ffe680; font-weight:600;">
+        <span>Stats Window</span>
+        <input type="range" id="winTime" min="0" max="1000" step="1" value="360">
+        <span class="val" id="winTimeV" style="min-width:54px;">5.0s</span>
+      </label>
+      <div class="row">
+        <button id="reset">Reset</button>
+        <button id="pause">Pause</button>
+      </div>
+      <div class="hint">
+        <div><b>Bending</b>: 2D/3D share v = -rate·κ·N̂</div>
+        <div><b>3D Seed</b>: initial out-of-plane perturbation, amplified by centrifugal force</div>
+        <div><b>Switching 2D/3D clears stats</b></div>
+        <div>Points: <span id="nPts" style="color:#6ec1ff">0</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="stats">
+  <div class="title">L / D Stats</div>
+  <div class="big pending" id="statAvg">—</div>
+  <div class="row"><span>Instant Ratio</span><span id="statRatio">—</span></div>
+  <div class="row"><span>River Length L</span><span id="statL">—</span></div>
+  <div class="row"><span>Endpoint Dist D</span><span id="statD">—</span></div>
+  <div class="row"><span>Window Samples</span><span id="statN">0</span></div>
+  <canvas id="ratioChart" width="240" height="52"></canvas>
+  <div class="pi-hint">Reference <b>π ≈ 3.1416</b> · Max 8.0</div>
+</div>
+
+<div id="offBtn">⚡ Offscreen Fast Sim</div>
+
+<div id="offMask"></div>
+
+<div id="offDlg">
+  <div class="dlg-head">
+    <span>Offscreen Fast Simulation</span>
+    <div class="dlg-close" id="offDlgClose">×</div>
+  </div>
+  <div class="dlg-body">
+    <label>
+      <span>Duration</span>
+      <select id="offDuration">
+        <option value="600">10 min</option>
+        <option value="1800">30 min</option>
+        <option value="3600" selected>1 hour</option>
+        <option value="10800">3 hours</option>
+        <option value="21600">6 hours</option>
+        <option value="43200">12 hours</option>
+        <option value="86400">24 hours</option>
+        <option value="259200">3 days</option>
+      </select>
+    </label>
+    <label>
+      <span>Space Mode</span>
+      <select id="offMode">
+        <option value="2d">R² Plane</option>
+        <option value="3d" selected>R³ Volume</option>
+      </select>
+    </label>
+
+    <div class="big-result">
+      <div class="label">L / D Full-period Average</div>
+      <div class="num" id="offAvg">—</div>
+      <div class="sub" id="offProgress">Ready</div>
+    </div>
+
+    <div class="progress-outer">
+      <div class="progress-inner" id="offBar"></div>
+    </div>
+
+    <div class="stats-row"><span>Simulated</span><span id="offSimTime">0s</span></div>
+    <div class="stats-row"><span>Samples</span><span id="offSamples">0</span></div>
+    <div class="stats-row"><span>Current Ratio</span><span id="offRatio">—</span></div>
+    <div class="stats-row"><span>River Length L</span><span id="offL">—</span></div>
+    <div class="stats-row"><span>Endpoint Dist D</span><span id="offD">—</span></div>
+    <div class="stats-row"><span>Speedup</span><span id="offSpeedReal">—</span></div>
+    <div class="stats-row"><span>Wall Time</span><span id="offWallTime">—</span></div>
+
+    <div class="btns">
+      <button class="btn-run" id="offRun">▶ Start</button>
+      <button class="btn-stop" id="offStop" disabled>■ Stop</button>
+    </div>
+    <div class="info">
+      Physics step is exactly equivalent to the main view at 60fps
+      (evolve(0.5)×2 + subdivide + cutoff per frame, each frame = 1/60 sim-second).<br>
+      Saturates CPU, yields every 200ms to refresh UI.
+    </div>
+  </div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const $ = id => document.getElementById(id);
+
+const nPtsEl      = $('nPts');
+const chartEl     = $('ratioChart');
+const chartCtx    = chartEl.getContext('2d');
+const statAvgEl   = $('statAvg');
+const statRatioEl = $('statRatio');
+const statLEl     = $('statL');
+const statDEl     = $('statD');
+const statNEl     = $('statN');
+
+/* ============================================================
+   Parameters
+   ============================================================ */
+const params = {
+  mode: '3d',
+  rate: 0.0024,
+  smooth: 0.18,
+  seed: 0.004,
+  maxSeg: 0.010,
+  cutDist: 0.013,
+  minGap: 12,
+  maxCuts: 4,
+  windowTime: 5.0,
+
+  kappaCap: 6.0,
+  maxPoints: 4000,
+};
+
+let points = [];
+let paused = false;
+
+let simTime = 0;
+let ratioHistory = [];
+let stat = { L:0, D:0, ratio:0, avg:0, n:0, ratioMin:Infinity, ratioMax:-Infinity };
+
+const RATIO_MAX = 8.0;
+
+const WIN_MIN = 0.5;
+const WIN_MAX = 300;
+const WIN_LOG_RATIO = Math.log(WIN_MAX / WIN_MIN);
+
+const sliderToWindow = v => WIN_MIN * Math.exp(WIN_LOG_RATIO * v / 1000);
+const windowToSlider = t => 1000 * Math.log(t / WIN_MIN) / WIN_LOG_RATIO;
+
+function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+function formatWinTime(tSec) {
+  if (tSec < 60) return tSec.toFixed(1) + 's';
+  const m = Math.floor(tSec / 60);
+  const s = Math.round(tSec - m * 60);
+  return m + 'm' + pad2(s) + 's';
+}
+
+function formatLongTime(tSec) {
+  if (tSec < 60) return tSec.toFixed(1) + 's';
+  if (tSec < 3600) {
+    const m = Math.floor(tSec / 60);
+    const s = Math.round(tSec - m * 60);
+    return m + 'm' + pad2(s) + 's';
+  }
+  if (tSec < 86400) {
+    const h = Math.floor(tSec / 3600);
+    const m = Math.round((tSec - h * 3600) / 60);
+    return h + 'h' + pad2(m) + 'm';
+  }
+  const d = Math.floor(tSec / 86400);
+  const h = Math.round((tSec - d * 86400) / 3600);
+  return d + 'd' + pad2(h) + 'h';
+}
+
+function resetStats() {
+  simTime = 0;
+  ratioHistory = [];
+  stat = { L:0, D:0, ratio:0, avg:0, n:0, ratioMin:Infinity, ratioMax:-Infinity };
+}
+
+/* ============================================================
+   Refresh dynamic UI texts (pause / offscreen state)
+   ============================================================ */
+function refreshDynamicTexts() {
+  $('pause').textContent = paused ? 'Resume' : 'Pause';
+
+  if (off.running) {
+    $('offBtn').textContent = '⚡ Offscreen Running…';
+  } else {
+    $('offBtn').textContent = '⚡ Offscreen Fast Sim';
+  }
+
+  if (off.running) {
+    $('offRun').textContent = '▶ Running';
+  } else if (off.samples > 0 || off.simTime > 0) {
+    $('offRun').textContent = '▶ Restart';
+  } else {
+    $('offRun').textContent = '▶ Start';
+  }
+
+  const factor = off.wallTimeElapsed > 0.1 ? off.simTime / off.wallTimeElapsed : 0;
+  if (off.running) {
+    $('offProgress').textContent = 'Running · ' +
+      (factor > 0 ? factor.toFixed(0) + '× real-time' : '…');
+  } else if (off.samples > 0 || off.simTime > 0) {
+    const finished = off.simTime >= off.duration && off.duration > 0;
+    const head = finished ? '✓ Completed' : 'Stopped';
+    $('offProgress').textContent = head + ' · avg ' + off.avg.toFixed(4);
+  } else {
+    $('offProgress').textContent = 'Ready';
+  }
+
+  $('winTimeV').textContent = formatWinTime(params.windowTime);
+  $('offSimTime').textContent = formatLongTime(off.simTime) + ' / ' + formatLongTime(off.duration);
+  $('offSpeedReal').textContent = factor > 0 ? factor.toFixed(0) + '× real-time' : '—';
+  $('offWallTime').textContent = off.wallTimeElapsed > 0
+    ? off.wallTimeElapsed.toFixed(1) + 's'
+    : '—';
+}
+
+/* ============================================================
+   Segment-segment shortest distance
+   ============================================================ */
+function segSegDist(p1, q1, p2, q2) {
+  const d1x = q1[0]-p1[0], d1y = q1[1]-p1[1], d1z = q1[2]-p1[2];
+  const d2x = q2[0]-p2[0], d2y = q2[1]-p2[1], d2z = q2[2]-p2[2];
+  const rx = p1[0]-p2[0], ry = p1[1]-p2[1], rz = p1[2]-p2[2];
+
+  const a = d1x*d1x + d1y*d1y + d1z*d1z;
+  const e = d2x*d2x + d2y*d2y + d2z*d2z;
+  const f = d2x*rx + d2y*ry + d2z*rz;
+
+  const EPS = 1e-12;
+  let s, t;
+
+  if (a <= EPS && e <= EPS) return { dist: Math.hypot(rx,ry,rz), s:0, t:0 };
+  if (a <= EPS) {
+    s = 0;
+    t = Math.max(0, Math.min(1, f/e));
+  } else {
+    const c = d1x*rx + d1y*ry + d1z*rz;
+    if (e <= EPS) {
+      t = 0;
+      s = Math.max(0, Math.min(1, -c/a));
+    } else {
+      const b = d1x*d2x + d1y*d2y + d1z*d2z;
+      const denom = a*e - b*b;
+      if (denom > EPS) s = Math.max(0, Math.min(1, (b*f - c*e)/denom));
+      else s = 0;
+      t = (b*s + f) / e;
+      if (t < 0) { t = 0; s = Math.max(0, Math.min(1, -c/a)); }
+      else if (t > 1) { t = 1; s = Math.max(0, Math.min(1, (b - c)/a)); }
+    }
+  }
+
+  const c1x = p1[0] + d1x*s, c1y = p1[1] + d1y*s, c1z = p1[2] + d1z*s;
+  const c2x = p2[0] + d2x*t, c2y = p2[1] + d2y*t, c2z = p2[2] + d2z*t;
+  return { dist: Math.hypot(c1x-c2x, c1y-c2y, c1z-c2z), s, t };
+}
+
+/* ============================================================
+   Initialization
+   ============================================================ */
+function makeInitialPoints(mode, seed) {
+  const pts = [];
+  const n = 80;
+  const s = mode === '3d' ? seed : 0;
+  for (let i = 0; i < n; i++) {
+    const t = i / (n - 1);
+    const x = -0.40 + t * 0.80;
+    const y = 0.010 * Math.sin(t * 9  * Math.PI + 0.3)
+            + 0.005 * Math.sin(t * 17 * Math.PI + 1.1);
+    const z = s * (
+      Math.sin(t * 11 * Math.PI + 0.7) +
+      0.5 * Math.sin(t *  5 * Math.PI + 2.3)
+    );
+    pts.push([x, y, z]);
+  }
+  return pts;
+}
+
+function init() {
+  points = makeInitialPoints(params.mode, params.seed);
+  resetStats();
+}
+
+/* ============================================================
+   Physics step
+   ============================================================ */
+function evolve(dt) {
+  const n = points.length;
+  if (n < 3) return;
+
+  const newPts = new Array(n);
+  for (let i = 0; i < n; i++) newPts[i] = points[i].slice();
+
+  for (let i = 1; i < n - 1; i++) {
+    const p0 = points[i-1], p1 = points[i], p2 = points[i+1];
+
+    const Kx = p2[0] - 2*p1[0] + p0[0];
+    const Ky = p2[1] - 2*p1[1] + p0[1];
+    const Kz = p2[2] - 2*p1[2] + p0[2];
+
+    const ds1 = Math.hypot(p1[0]-p0[0], p1[1]-p0[1], p1[2]-p0[2]);
+    const ds2 = Math.hypot(p2[0]-p1[0], p2[1]-p1[1], p2[2]-p1[2]);
+    const ds = (ds1 + ds2) * 0.5;
+    if (ds < 1e-9) continue;
+
+    const kMag = Math.hypot(Kx, Ky, Kz);
+    if (kMag < 1e-12) continue;
+
+    const kappa = kMag / (ds * ds);
+    const Nx = Kx / kMag, Ny = Ky / kMag, Nz = Kz / kMag;
+
+    const bendSpeed = params.rate * kappa / (1 + (kappa / params.kappaCap) ** 2);
+
+    newPts[i][0] += -Nx * bendSpeed * dt;
+    newPts[i][1] += -Ny * bendSpeed * dt;
+    newPts[i][2] += -Nz * bendSpeed * dt;
+
+    if (params.mode === '2d') newPts[i][2] = 0;
+  }
+
+  points = newPts;
+
+  const sigma = params.smooth;
+  if (sigma > 1e-9) {
+    const k = Math.min(sigma * dt, 0.45);
+    const sm = points.map(p => p.slice());
+    for (let i = 1; i < n - 1; i++) {
+      const a = points[i-1], b = points[i], c = points[i+1];
+      sm[i][0] = b[0] + k * (a[0] + c[0] - 2*b[0]);
+      sm[i][1] = b[1] + k * (a[1] + c[1] - 2*b[1]);
+      sm[i][2] = b[2] + k * (a[2] + c[2] - 2*b[2]);
+      if (params.mode === '2d') sm[i][2] = 0;
+    }
+    points = sm;
+  }
+}
+
+function subdivide() {
+  if (points.length >= params.maxPoints) {
+    const r = [];
+    for (let i = 0; i < points.length; i += 2) r.push(points[i]);
+    if (points.length % 2) r.push(points[points.length - 1]);
+    points = r;
+    return;
+  }
+
+  const n = points.length;
+  const maxSeg = params.maxSeg;
+  const out = [];
+
+  for (let i = 0; i < n - 1; i++) {
+    const a = points[i], b = points[i+1];
+    out.push(a);
+    const d = Math.hypot(b[0]-a[0], b[1]-a[1], b[2]-a[2]);
+    if (d > maxSeg) {
+      const segs = Math.min(Math.ceil(d / maxSeg), 6);
+      for (let s = 1; s < segs; s++) {
+        const t = s / segs;
+        out.push([
+          a[0]*(1-t) + b[0]*t,
+          a[1]*(1-t) + b[1]*t,
+          a[2]*(1-t) + b[2]*t,
+        ]);
+      }
+    }
+  }
+  out.push(points[n-1]);
+  points = out;
+}
+
+function tryOneCut() {
+  const n = points.length;
+  if (n < 60) return false;
+
+  const segCount = n - 1;
+  const threshold = params.cutDist;
+  const cell = Math.max(threshold, 1e-6);
+  const minGap = params.minGap;
+
+  const grid = new Map();
+  for (let i = 0; i < segCount; i++) {
+    const mx = (points[i][0] + points[i+1][0]) * 0.5;
+    const my = (points[i][1] + points[i+1][1]) * 0.5;
+    const mz = (points[i][2] + points[i+1][2]) * 0.5;
+    const k = Math.floor(mx/cell) + ',' + Math.floor(my/cell) + ',' + Math.floor(mz/cell);
+    let arr = grid.get(k);
+    if (!arr) { arr = []; grid.set(k, arr); }
+    arr.push(i);
+  }
+
+  const windowSize = Math.min(segCount, 600);
+  const start = Math.floor(Math.random() * segCount);
+
+  for (let k = 0; k < windowSize; k++) {
+    const i = (start + k) % segCount;
+    const p1 = points[i], q1 = points[i+1];
+
+    const mx = (p1[0] + q1[0]) * 0.5;
+    const my = (p1[1] + q1[1]) * 0.5;
+    const mz = (p1[2] + q1[2]) * 0.5;
+    const cx = Math.floor(mx/cell);
+    const cy = Math.floor(my/cell);
+    const cz = Math.floor(mz/cell);
+
+    for (let dx = -1; dx <= 1; dx++)
+    for (let dy = -1; dy <= 1; dy++)
+    for (let dz = -1; dz <= 1; dz++) {
+      const arr = grid.get((cx+dx)+','+(cy+dy)+','+(cz+dz));
+      if (!arr) continue;
+
+      for (const j of arr) {
+        if (i === j) continue;
+        if (Math.abs(j - i) < minGap) continue;
+
+        const p2 = points[j], q2 = points[j+1];
+        const res = segSegDist(p1, q1, p2, q2);
+        if (res.dist >= threshold) continue;
+
+        const d1x = q1[0]-p1[0], d1y = q1[1]-p1[1], d1z = q1[2]-p1[2];
+        const d2x = q2[0]-p2[0], d2y = q2[1]-p2[1], d2z = q2[2]-p2[2];
+        const l1 = Math.hypot(d1x, d1y, d1z);
+        const l2 = Math.hypot(d2x, d2y, d2z);
+        if (l1 < 1e-12 || l2 < 1e-12) continue;
+        const align = (d1x*d2x + d1y*d2y + d1z*d2z) / (l1*l2);
+        if (align < 0.3) continue;
+
+        let iL = i, iR = j;
+        let pA = p1, pB = p2;
+        let dAx = d1x, dAy = d1y, dAz = d1z;
+        let dBx = d2x, dBy = d2y, dBz = d2z;
+        let sA = res.s, sB = res.t;
+
+        if (iL > iR) {
+          [iL, iR] = [iR, iL];
+          [pA, pB] = [pB, pA];
+          [dAx, dBx] = [dBx, dAx];
+          [dAy, dBy] = [dBy, dAy];
+          [dAz, dBz] = [dBz, dAz];
+          [sA, sB] = [sB, sA];
+        }
+
+        const cAx = pA[0] + dAx*sA, cAy = pA[1] + dAy*sA, cAz = pA[2] + dAz*sA;
+        const cBx = pB[0] + dBx*sB, cBy = pB[1] + dBy*sB, cBz = pB[2] + dBz*sB;
+
+        const newPts = points.slice(0, iL + 1);
+        newPts.push([cAx, cAy, cAz]);
+        newPts.push([cBx, cBy, cBz]);
+        newPts.push(...points.slice(iR + 1));
+        points = newPts;
+
+        smoothJoint(iL + 1);
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function cutoff() {
+  if (params.maxCuts <= 0) return;
+  for (let k = 0; k < params.maxCuts; k++) {
+    if (!tryOneCut()) return;
+  }
+}
+
+function smoothJoint(idx) {
+  const n = points.length;
+  for (let pass = 0; pass < 3; pass++) {
+    for (let k = Math.max(1, idx - 3); k < Math.min(n - 1, idx + 4); k++) {
+      const a = points[k-1], b = points[k], c = points[k+1];
+      points[k] = [
+        b[0] + 0.35 * (a[0] + c[0] - 2*b[0]),
+        b[1] + 0.35 * (a[1] + c[1] - 2*b[1]),
+        b[2] + 0.35 * (a[2] + c[2] - 2*b[2]),
+      ];
+    }
+  }
+}
+
+/* ============================================================
+   Main view stats
+   ============================================================ */
+function updateStats(dtSec) {
+  const n = points.length;
+  if (n < 2) return;
+
+  let L = 0;
+  for (let i = 1; i < n; i++) {
+    const dx = points[i][0] - points[i-1][0];
+    const dy = points[i][1] - points[i-1][1];
+    const dz = points[i][2] - points[i-1][2];
+    L += Math.hypot(dx, dy, dz);
+  }
+
+  const dxE = points[n-1][0] - points[0][0];
+  const dyE = points[n-1][1] - points[0][1];
+  const dzE = points[n-1][2] - points[0][2];
+  const D = Math.hypot(dxE, dyE, dzE);
+
+  const ratio = D > 1e-9 ? L / D : 0;
+
+  stat.L = L; stat.D = D; stat.ratio = ratio;
+
+  if (isFinite(ratio) && ratio > 0) {
+    simTime += dtSec;
+    ratioHistory.push({ t: simTime, ratio });
+  }
+
+  const cutoffT = simTime - params.windowTime;
+  while (ratioHistory.length && ratioHistory[0].t < cutoffT) ratioHistory.shift();
+
+  stat.n = ratioHistory.length;
+  if (stat.n > 0) {
+    let s = 0;
+    for (const h of ratioHistory) s += h.ratio;
+    stat.avg = s / stat.n;
+  } else stat.avg = 0;
+}
+
+/* ============================================================
+   Rendering
+   ============================================================ */
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x06070d);
+
+const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.01, 100);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+
+function setCamera() {
+  if (params.mode === '2d') camera.position.set(0, 0, 1.3);
+  else camera.position.set(0.75, 0.55, 0.95);
+  controls.target.set(0, 0, 0);
+  controls.update();
+}
+
+const gridHelper = new THREE.GridHelper(2, 20, 0x1a2440, 0x111828);
+gridHelper.position.y = -0.5;
+gridHelper.material.transparent = true;
+gridHelper.material.opacity = 0.28;
+scene.add(gridHelper);
+
+const geo = new THREE.BufferGeometry();
+const mat = new THREE.LineBasicMaterial({
+  vertexColors: true, linewidth: 2, transparent: true, opacity: 0.95,
+});
+const riverLine = new THREE.Line(geo, mat);
+scene.add(riverLine);
+
+const dotGeo = new THREE.SphereGeometry(0.011, 12, 8);
+const markerS = new THREE.Mesh(dotGeo, new THREE.MeshBasicMaterial({ color: 0x3effa0 }));
+const markerE = new THREE.Mesh(dotGeo, new THREE.MeshBasicMaterial({ color: 0xff5566 }));
+scene.add(markerS, markerE);
+
+const STOPS = [
+  [0.18, 0.42, 1.00],
+  [0.10, 0.85, 0.95],
+  [1.00, 0.80, 0.20],
+  [1.00, 0.22, 0.30],
+];
+function lerpColor(t) {
+  t = Math.max(0, Math.min(1, t));
+  const s = t * (STOPS.length - 1);
+  const i = Math.min(Math.floor(s), STOPS.length - 2);
+  const f = s - i;
+  return [
+    STOPS[i][0]*(1-f) + STOPS[i+1][0]*f,
+    STOPS[i][1]*(1-f) + STOPS[i+1][1]*f,
+    STOPS[i][2]*(1-f) + STOPS[i+1][2]*f,
+  ];
+}
+
+function updateGeometry() {
+  const n = points.length;
+  if (n < 2) return;
+
+  const pos = new Float32Array(n * 3);
+  const col = new Float32Array(n * 3);
+
+  const arc = new Float32Array(n);
+  let total = 0;
+  for (let i = 1; i < n; i++) {
+    const dx = points[i][0] - points[i-1][0];
+    const dy = points[i][1] - points[i-1][1];
+    const dz = points[i][2] - points[i-1][2];
+    total += Math.hypot(dx, dy, dz);
+    arc[i] = total;
+  }
+
+  for (let i = 0; i < n; i++) {
+    pos[i*3]   = points[i][0];
+    pos[i*3+1] = points[i][1];
+    pos[i*3+2] = points[i][2];
+    const t = total > 1e-9 ? arc[i] / total : 0;
+    const c = lerpColor(t);
+    col[i*3]   = c[0];
+    col[i*3+1] = c[1];
+    col[i*3+2] = c[2];
+  }
+
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color',    new THREE.BufferAttribute(col, 3));
+  geo.computeBoundingSphere();
+
+  markerS.position.set(points[0][0], points[0][1], points[0][2]);
+  markerE.position.set(points[n-1][0], points[n-1][1], points[n-1][2]);
+
+  nPtsEl.textContent = n;
+}
+
+function updateStatsDOM() {
+  if (stat.n > 0 && isFinite(stat.avg)) {
+    statAvgEl.textContent = stat.avg.toFixed(3);
+    statAvgEl.classList.remove('pending');
+  } else {
+    statAvgEl.textContent = '—';
+    statAvgEl.classList.add('pending');
+  }
+  statRatioEl.textContent = stat.ratio ? stat.ratio.toFixed(3) : '—';
+  statLEl.textContent = stat.L ? stat.L.toFixed(4) : '—';
+  statDEl.textContent = stat.D ? stat.D.toFixed(4) : '—';
+  statNEl.textContent = stat.n;
+}
+
+function drawChart() {
+  const W = chartEl.width;
+  const H = chartEl.height;
+  chartCtx.clearRect(0, 0, W, H);
+
+  const yPi = H - (Math.PI / RATIO_MAX) * H;
+  chartCtx.strokeStyle = 'rgba(255, 184, 80, 0.55)';
+  chartCtx.setLineDash([3, 3]);
+  chartCtx.beginPath();
+  chartCtx.moveTo(0, yPi);
+  chartCtx.lineTo(W, yPi);
+  chartCtx.stroke();
+  chartCtx.setLineDash([]);
+
+  chartCtx.strokeStyle = 'rgba(80, 100, 150, 0.25)';
+  chartCtx.beginPath();
+  for (let r = 2; r <= 6; r += 2) {
+    const y = H - (r / RATIO_MAX) * H;
+    chartCtx.moveTo(0, y);
+    chartCtx.lineTo(W, y);
+  }
+  chartCtx.stroke();
+
+  if (ratioHistory.length < 2) return;
+
+  const cutoffT = simTime - params.windowTime;
+  const spanT = Math.max(params.windowTime, 1e-6);
+
+  chartCtx.strokeStyle = '#4affb0';
+  chartCtx.lineWidth = 1.5;
+  chartCtx.beginPath();
+  let first = true;
+  for (const h of ratioHistory) {
+    const x = ((h.t - cutoffT) / spanT) * W;
+    const y = H - Math.min(h.ratio / RATIO_MAX, 1) * H;
+    if (first) { chartCtx.moveTo(x, y); first = false; }
+    else chartCtx.lineTo(x, y);
+  }
+  chartCtx.stroke();
+
+  if (stat.n > 0) {
+    const yAvg = H - Math.min(stat.avg / RATIO_MAX, 1) * H;
+    chartCtx.strokeStyle = 'rgba(110, 193, 255, 0.65)';
+    chartCtx.beginPath();
+    chartCtx.moveTo(0, yAvg);
+    chartCtx.lineTo(W, yAvg);
+    chartCtx.stroke();
+  }
+}
+
+/* ============================================================
+   MessageChannel yield
+   ============================================================ */
+const yieldChannel = new MessageChannel();
+function yieldToBrowser() {
+  return new Promise(resolve => {
+    yieldChannel.port1.onmessage = () => resolve();
+    yieldChannel.port2.postMessage(null);
+  });
+}
+
+/* ============================================================
+   Offscreen
+   ============================================================ */
+const off = {
+  running: false,
+  pts: [],
+  cfg: null,
+  simTime: 0,
+  sumRatio: 0,
+  samples: 0,
+  avg: 0,
+  lastRatio: 0,
+  lastL: 0,
+  lastD: 0,
+  duration: 3600,
+  wallTimeStart: 0,
+  wallTimeElapsed: 0,
+};
+
+const OFF_SIM_SEC_PER_FRAME = 1 / 60;
+const YIELD_INTERVAL_MS = 200;
+
+function offPhysicsFrame() {
+  evolve(0.5);
+  evolve(0.5);
+  subdivide();
+  cutoff();
+}
+
+function offMeasure() {
+  const n = off.pts.length;
+  if (n < 2) return { L:0, D:0, ratio:0 };
+
+  let L = 0;
+  for (let i = 1; i < n; i++) {
+    const dx = off.pts[i][0] - off.pts[i-1][0];
+    const dy = off.pts[i][1] - off.pts[i-1][1];
+    const dz = off.pts[i][2] - off.pts[i-1][2];
+    L += Math.hypot(dx, dy, dz);
+  }
+  const dxE = off.pts[n-1][0] - off.pts[0][0];
+  const dyE = off.pts[n-1][1] - off.pts[0][1];
+  const dzE = off.pts[n-1][2] - off.pts[0][2];
+  const D = Math.hypot(dxE, dyE, dzE);
+  const ratio = D > 1e-9 ? L / D : 0;
+  return { L, D, ratio };
+}
+
+function offPhysicsFrameWithCtx() {
+  const mainPts = points;
+  const mainMode = params.mode;
+
+  points = off.pts;
+  params.mode = off.cfg.mode;
+
+  offPhysicsFrame();
+
+  off.pts = points;
+  points = mainPts;
+  params.mode = mainMode;
+}
+
+async function runOffscreen() {
+  if (!off.running) return;
+
+  let lastYield = performance.now();
+
+  while (off.running && off.simTime < off.duration) {
+    offPhysicsFrameWithCtx();
+    off.simTime += OFF_SIM_SEC_PER_FRAME;
+
+    const m = offMeasure();
+    if (isFinite(m.ratio) && m.ratio > 0) {
+      off.sumRatio += m.ratio;
+      off.samples++;
+      off.lastRatio = m.ratio;
+      off.lastL = m.L;
+      off.lastD = m.D;
+    }
+
+    const now = performance.now();
+    if (now - lastYield >= YIELD_INTERVAL_MS) {
+      off.wallTimeElapsed = (now - off.wallTimeStart) / 1000;
+      if (off.samples > 0) off.avg = off.sumRatio / off.samples;
+      updateOffUI();
+      await yieldToBrowser();
+      lastYield = performance.now();
+    }
+  }
+
+  if (off.samples > 0) off.avg = off.sumRatio / off.samples;
+  off.wallTimeElapsed = (performance.now() - off.wallTimeStart) / 1000;
+
+  off.running = false;
+  $('offBtn').classList.remove('running');
+  $('offRun').disabled = false;
+  $('offStop').disabled = true;
+
+  updateOffUI();
+  refreshDynamicTexts();
+}
+
+function updateOffUI() {
+  $('offAvg').textContent = off.samples > 0 ? off.avg.toFixed(4) : '—';
+
+  const p = off.duration > 0 ? Math.min(off.simTime / off.duration, 1) : 0;
+  $('offBar').style.width = (p * 100).toFixed(2) + '%';
+
+  $('offSimTime').textContent = formatLongTime(off.simTime) + ' / ' + formatLongTime(off.duration);
+  $('offSamples').textContent = off.samples;
+  $('offRatio').textContent = off.lastRatio ? off.lastRatio.toFixed(4) : '—';
+  $('offL').textContent = off.lastL ? off.lastL.toFixed(4) : '—';
+  $('offD').textContent = off.lastD ? off.lastD.toFixed(4) : '—';
+
+  const factor = off.wallTimeElapsed > 0.1 ? off.simTime / off.wallTimeElapsed : 0;
+  $('offSpeedReal').textContent = factor > 0 ? factor.toFixed(0) + '× real-time' : '—';
+  $('offWallTime').textContent = off.wallTimeElapsed > 0 ? off.wallTimeElapsed.toFixed(1) + 's' : '—';
+
+  if (off.running) {
+    $('offProgress').textContent = 'Running · ' + (factor > 0 ? factor.toFixed(0) + '× real-time' : '…');
+  }
+}
+
+function startOff() {
+  if (off.running) return;
+
+  off.duration = parseInt($('offDuration').value, 10);
+  const mode = $('offMode').value;
+
+  off.cfg = {
+    mode: mode,
+    rate: params.rate,
+    smooth: params.smooth,
+    seed: params.seed,
+    maxSeg: params.maxSeg,
+    cutDist: params.cutDist,
+    minGap: params.minGap,
+    maxCuts: params.maxCuts,
+    kappaCap: params.kappaCap,
+    maxPoints: params.maxPoints,
+  };
+
+  off.pts = makeInitialPoints(off.cfg.mode, off.cfg.seed);
+  off.simTime = 0;
+  off.sumRatio = 0;
+  off.samples = 0;
+  off.avg = 0;
+  off.lastRatio = 0;
+  off.lastL = 0;
+  off.lastD = 0;
+  off.wallTimeStart = performance.now();
+  off.wallTimeElapsed = 0;
+
+  off.running = true;
+
+  $('offBtn').classList.add('running');
+  $('offRun').disabled = true;
+  $('offStop').disabled = false;
+
+  refreshDynamicTexts();
+  $('offProgress').textContent = 'Running · …';
+
+  runOffscreen();
+}
+
+function stopOff() {
+  off.running = false;
+}
+
+/* ============================================================
+   Offscreen dialog
+   ============================================================ */
+$('offBtn').addEventListener('click', () => {
+  $('offDlg').classList.add('open');
+  $('offMask').classList.add('open');
+  $('offMode').value = params.mode;
+});
+$('offDlgClose').addEventListener('click', () => {
+  $('offDlg').classList.remove('open');
+  $('offMask').classList.remove('open');
+});
+$('offMask').addEventListener('click', () => {
+  $('offDlg').classList.remove('open');
+  $('offMask').classList.remove('open');
+});
+$('offRun').addEventListener('click', () => {
+  if (!off.running) startOff();
+});
+$('offStop').addEventListener('click', () => stopOff());
+
+/* ============================================================
+   Main panel bindings
+   ============================================================ */
+$('mode').addEventListener('change', e => {
+  params.mode = e.target.value;
+  init();
+  setCamera();
+});
+$('rate').addEventListener('input', e => {
+  params.rate = parseFloat(e.target.value);
+  $('rateV').textContent = params.rate.toFixed(4);
+});
+$('smooth').addEventListener('input', e => {
+  params.smooth = parseFloat(e.target.value);
+  $('smoothV').textContent = params.smooth.toFixed(2);
+});
+$('seed').addEventListener('input', e => {
+  params.seed = parseFloat(e.target.value);
+  $('seedV').textContent = params.seed.toFixed(4);
+});
+$('seg').addEventListener('input', e => {
+  params.maxSeg = parseFloat(e.target.value);
+  $('segV').textContent = params.maxSeg.toFixed(3);
+});
+$('cutDist').addEventListener('input', e => {
+  params.cutDist = parseFloat(e.target.value);
+  $('cutDistV').textContent = params.cutDist.toFixed(3);
+});
+$('minGap').addEventListener('input', e => {
+  params.minGap = parseInt(e.target.value, 10);
+  $('minGapV').textContent = params.minGap;
+});
+$('cuts').addEventListener('input', e => {
+  params.maxCuts = parseInt(e.target.value, 10);
+  $('cutsV').textContent = params.maxCuts;
+});
+$('winTime').addEventListener('input', e => {
+  params.windowTime = sliderToWindow(parseFloat(e.target.value));
+  $('winTimeV').textContent = formatWinTime(params.windowTime);
+});
+$('reset').addEventListener('click', () => init());
+$('pause').addEventListener('click', () => {
+  paused = !paused;
+  refreshDynamicTexts();
+});
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+/* ============================================================
+   Draggable + collapsible panel
+   ============================================================ */
+(function setupDraggablePanel() {
+  const panel = $('panel');
+  const head  = $('panelHead');
+  const body  = $('panelBody');
+  const toggleBtn = $('toggleBtn');
+
+  toggleBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    body.classList.toggle('collapsed');
+    toggleBtn.textContent = body.classList.contains('collapsed') ? '+' : '−';
+  });
+
+  let dragging = false;
+  let offX = 0, offY = 0;
+
+  function startDrag(e) {
+    if (e.target.closest('.toggle')) return;
+    dragging = true;
+    const rect = panel.getBoundingClientRect();
+    offX = e.clientX - rect.left;
+    offY = e.clientY - rect.top;
+    panel.style.right = 'auto';
+    panel.style.left = rect.left + 'px';
+    panel.style.top  = rect.top  + 'px';
+    try { head.setPointerCapture(e.pointerId); } catch (_) {}
+  }
+  function moveDrag(e) {
+    if (!dragging) return;
+    let nx = e.clientX - offX;
+    let ny = e.clientY - offY;
+    const w = panel.offsetWidth, h = panel.offsetHeight;
+    nx = Math.max(4, Math.min(innerWidth  - w - 4, nx));
+    ny = Math.max(4, Math.min(innerHeight - h - 4, ny));
+    panel.style.left = nx + 'px';
+    panel.style.top  = ny + 'px';
+  }
+  function endDrag(e) {
+    dragging = false;
+    try { head.releasePointerCapture(e.pointerId); } catch (_) {}
+  }
+
+  head.addEventListener('pointerdown', startDrag);
+  head.addEventListener('pointermove', moveDrag);
+  head.addEventListener('pointerup', endDrag);
+  head.addEventListener('pointercancel', endDrag);
+
+  if (window.innerWidth < 460) {
+    body.classList.add('collapsed');
+    toggleBtn.textContent = '+';
+  }
+})();
+
+/* ============================================================
+   Boot
+   ============================================================ */
+(function initWinTimeSlider() {
+  const el = $('winTime');
+  el.value = Math.round(windowToSlider(params.windowTime));
+  $('winTimeV').textContent = formatWinTime(params.windowTime);
+})();
+
+init();
+setCamera();
+refreshDynamicTexts();
+
+let last = performance.now();
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  if (off.running) return;
+
+  const now = performance.now();
+  const dtSec = Math.min((now - last) / 1000, 0.1);
+  const frameDt = Math.min((now - last) / 16.67, 2.5);
+  last = now;
+
+  if (!paused) {
+    const sub = 2;
+    for (let s = 0; s < sub; s++) evolve(frameDt / sub);
+    subdivide();
+    cutoff();
+    updateStats(dtSec);
+  }
+
+  updateGeometry();
+  updateStatsDOM();
+  drawChart();
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+animate();
+</script>
+</body>
+</html>
